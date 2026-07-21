@@ -9,7 +9,7 @@
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/styles.css">
   <script src="../assets/app.js" defer></script>
-  <script src="../assets/references.js?v=9fa9df1b" defer></script>
+  <script src="../assets/references.js?v=mdpi-20260721" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,23 +24,25 @@
       <p class="breadcrumb"><a href="../">Atlas</a> / Review references</p>
       <p class="eyebrow">Primary-paper bibliography</p>
       <h1>The review,<br><span class="gradient">paper by paper.</span></h1>
-      <p class="lede">Search the complete bibliography used by the review. Every numbered paper ID is a hyperlink: Drive-hosted papers open in Drive, while papers absent from the folder open at their DOI or publisher record.</p>
+      <p class="lede">Search the complete bibliography used by the review. Linked paper IDs open a DOI or authoritative publisher record; citations follow the MDPI ACS reference style.</p>
       <div class="evidence-actions"><a class="button primary" href="#bibliography">Search references <span aria-hidden="true">↓</span></a><a class="button" href="../abbreviations/">Explore abbreviations <span aria-hidden="true">→</span></a></div>
-      <div class="source-note"><strong>Link policy</strong><span>The bibliographic text is taken from <em>38_1_10_references.docx</em>. Paper-file links were matched by the numeric filename prefix in the review’s Drive folder. Missing Drive files use the DOI or authoritative publisher page.</span></div>
+      <div class="source-note"><strong>Reference policy</strong><span>The bibliographic content is taken from <em>38_1_10_references.docx</em>. External links use canonical DOI destinations or authoritative publisher records. Access labels reflect the publisher/source record; uncertain records are explicitly marked for verification.</span></div>
     </div></section>
 
     <section class="evidence-page" id="bibliography"><div class="container">
       <div class="stats-grid" aria-label="Bibliography summary">
         <div class="stat"><strong data-ref-stat="total">—</strong><span>bibliographic records</span></div>
-        <div class="stat"><strong data-ref-stat="drive">—</strong><span>papers linked in Drive</span></div>
-        <div class="stat"><strong data-ref-stat="publisher">—</strong><span>publisher-linked records</span></div>
+        <div class="stat"><strong data-ref-stat="open">—</strong><span>open-access records</span></div>
+        <div class="stat"><strong data-ref-stat="subscription">—</strong><span>subscription records</span></div>
         <div class="stat"><strong data-ref-stat="range">—</strong><span>reference-ID range</span></div>
       </div>
       <section class="evidence-panel" aria-labelledby="bibliography-title">
         <div class="panel-head"><h2 id="bibliography-title">Complete reference register</h2><p>Use a paper ID, author, title phrase, venue, year, or DOI.</p></div>
         <div class="evidence-toolbar">
           <label class="search-field"><span class="skip-link">Search the bibliography</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input type="search" data-reference-search placeholder="Search ID, author, title, venue, year, or DOI…" autocomplete="off"></label>
-          <label><span class="skip-link">Sort references</span><select data-reference-sort><option value="asc">Reference ID: low to high</option><option value="desc">Reference ID: high to low</option></select></label>
+          <label><span class="skip-link">Filter by venue</span><select data-reference-venue><option value="all">All journals &amp; conferences</option></select></label>
+          <label><span class="skip-link">Filter by access</span><select data-reference-access><option value="all">All accessibility</option><option value="Open access">Open access</option><option value="Subscription">Subscription</option><option value="Not verified">Not verified</option></select></label>
+          <label><span class="skip-link">Sort references</span><select data-reference-sort><option value="id-asc">Reference ID: low to high</option><option value="id-desc">Reference ID: high to low</option><option value="year-desc">Year: newest first</option><option value="year-asc">Year: oldest first</option><option value="access">Accessibility</option><option value="venue">Journal / conference A–Z</option></select></label>
           <button class="button" type="button" data-reference-export>Export current view (.csv)</button>
         </div>
         <div class="tab-list"><span class="result-meta" data-reference-meta aria-live="polite">Loading…</span></div>
