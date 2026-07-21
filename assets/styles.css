@@ -424,7 +424,13 @@ h1 .gradient {
 .record-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .7rem; }
 .record-link { color: var(--faint); font-family: var(--mono); font-size: .63rem; text-underline-offset: 3px; }
 .record-status { display: inline-flex; align-items: center; padding: .18rem .42rem; border: 1px solid var(--line); border-radius: 999px; color: var(--faint); font-family: var(--mono); font-size: .59rem; text-transform: uppercase; letter-spacing: .04em; }
-.record-status.drive { color: var(--mint); border-color: rgba(80,227,194,.25); }
+.reference-marks { display:flex; flex-wrap:wrap; gap:.45rem; margin:.55rem 0 .65rem; }
+.record-status.venue-mark { color:var(--text); border-color:rgba(148,163,184,.28); }
+.record-status.access-open-access { color:var(--mint); border-color:rgba(80,227,194,.32); }
+.record-status.access-subscription { color:#f5c16c; border-color:rgba(245,193,108,.32); }
+.record-status.access-not-verified, .paper-id.unavailable, .record-link.unavailable { color:var(--muted); border-color:rgba(148,163,184,.24); }
+.record-status.year-mark { color:#9fc3ff; border-color:rgba(159,195,255,.3); }
+.mdpi-reference { line-height:1.72; }
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 620ms ease, transform 620ms ease; }
 .reveal.visible { opacity: 1; transform: none; }
