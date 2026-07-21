@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search 501 reported PINN-related abbreviations and trace them to 618 primary reference records.">
+  <meta name="theme-color" content="#09111d">
+  <title>Abbreviations · PINN Review Atlas</title>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/app.js" defer></script>
+  <script src="../assets/abbreviations.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../#atlas">Explore</a><a href="../pinn-types/">PINN types</a><a href="./" aria-current="page">Abbreviations</a><a href="../references/">References</a><a href="../cite/">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero"><div class="container">
+      <p class="breadcrumb"><a href="../">Atlas</a> / Abbreviations</p>
+      <p class="eyebrow">Terminology evidence index</p>
+      <h1>Abbreviations,<br><span class="gradient">traced to evidence.</span></h1>
+      <p class="lede">Explore the exact abbreviated forms reported across the review corpus, compare how often they occur, and follow each term back to its primary reference IDs.</p>
+      <div class="evidence-actions">
+        <a class="button primary" href="#evidence">Search the index <span aria-hidden="true">↓</span></a>
+        <a class="button" href="../references/">Open full bibliography <span aria-hidden="true">→</span></a>
+        <a class="button" href="../data/reference-pinn-abbreviations.txt" download>Download source TXT <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="source-note"><strong>Exact-form policy</strong><span>Capitalization, hyphenation, and wording are retained as reported. Similar-looking forms are not merged unless source evidence establishes that they are aliases. Counts represent distinct reference records, not semantic equivalence.</span></div>
+    </div></section>
+
+    <section class="evidence-page" id="evidence"><div class="container">
+      <div class="stats-grid" aria-label="Dataset summary">
+        <div class="stat"><strong data-stat="references">—</strong><span>reference records</span></div>
+        <div class="stat"><strong data-stat="terms">—</strong><span>distinct reported forms</span></div>
+        <div class="stat"><strong data-stat="links">—</strong><span>paper–abbreviation links</span></div>
+        <div class="stat"><strong data-stat="range">—</strong><span>reference-ID range</span></div>
+      </div>
+
+      <section class="frequency-panel" aria-labelledby="frequency-title">
+        <div class="panel-head"><h2 id="frequency-title">Most frequently reported forms</h2><p>Top 12 exact forms. Bar lengths use a logarithmic scale because “PINN” is substantially more frequent than the variants.</p></div>
+        <div class="frequency-chart" data-frequency-chart><div class="loading-state"><span><strong>Loading source data</strong>Building the frequency view…</span></div></div>
+      </section>
+
+      <section class="evidence-panel" aria-labelledby="index-title">
+        <div class="panel-head"><h2 id="index-title">Evidence register</h2><p>Each term and reference can be linked directly using its URL fragment.</p></div>
+        <div class="evidence-toolbar">
+          <label class="search-field">
+            <span class="skip-link">Search abbreviations or reference IDs</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <input type="search" data-search placeholder="Search abbreviation or reference ID…" autocomplete="off">
+          </label>
+          <label><span class="skip-link">Sort results</span><select data-sort><option value="frequency">Frequency: high to low</option><option value="alpha">Abbreviation: A–Z</option><option value="alpha-desc">Abbreviation: Z–A</option></select></label>
+          <button class="button" type="button" data-export>Export current view (.csv)</button>
+        </div>
+        <div class="tab-list" role="tablist" aria-label="Evidence views">
+          <button class="tab" type="button" role="tab" aria-selected="true" data-view="terms">Abbreviation index</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-view="references">Reference register</button>
+          <span class="result-meta" data-result-meta aria-live="polite">Loading…</span>
+        </div>
+        <div data-results><div class="loading-state"><span><strong>Reading the evidence file</strong>The index will appear here.</span></div></div>
+      </section>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Source snapshot · 21 July 2026</span><a href="../cite/">How to cite this atlas</a></div></footer>
+</body>
+</html>

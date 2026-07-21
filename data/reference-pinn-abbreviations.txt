@@ -1,0 +1,632 @@
+Reference_PINN_Abbreviations
+| Reference | Abbreviation(s) |
+|-----------|-----------------
+| 2 | PINN |
+| 3 | PINN; B-PINN; cPINN; XPINN; PPINN; VPINN; SA-PINN; DAE-PINN; fPINN; Meta-PINN; GPT-PINN; HWPINN; PIKFN; DMF-TONN; TSO-PINN; NSfNet; LESnets; PI-GAN; PI-VAE; PI-VEGAN; SPI-GeM; VINO; E-PINN; FBPINN; tpPINN; PINN-RANS; PINN-Euler; DD-PINN; BL-PINN; Gated-PINN; HP-VPINN; DO-PINN; CIDER; SympNets; PIKAN |
+| 4 | NNSMSM; PINN; VPM |
+| 7 | PINN |
+| 8 | PI-LSTM; PINN |
+| 11 | PINN |
+| 13 | PINN; PEMNN; PARL; SIDM |
+| 14 | PI-LSTM; PINN; GWO |
+| 15 | DFNN |
+| 17 | PINN |
+| 18 | GSN |
+| 22 | PINN; B-PINN; TransformerPINN |
+| 23 | PINN |
+| 24 | ISPNet; PINN |
+| 25 | PINN |
+| 26 | MTL-PINN; PINN |
+| 27 | PI-MPN; PINN |
+| 29 | PINN; VPINN; cPINN; XPINN; FBPINN; PIKAN |
+| 30 | PINN |
+| 31 | mp-PINN; PINN |
+| 32 | Hybrid-PINN; PINN |
+| 33 | PINNI; PINN; NNI |
+| 35 | PINN |
+| 36 | PINN |
+| 39 | PINN |
+| 40 | PINN |
+| 41 | Physics-KAN |
+| 42 | PINN |
+| 45 | PyMC3 |
+| 46 | PMSM; BiLSTM |
+| 47 | PINN |
+| 50 | PINN |
+| 51 | NNSCA; BNNM |
+| 55 | ARIMA; SARIMA; PMNN |
+| 56 | PINN |
+| 58 | PINN |
+| 61 | PINN; VS-PINN; KKT-hPINN; AL-PINN; MARL; ST-GCN; CapsGN |
+| 62 | PINN |
+| 65 | PINN |
+| 66 | PINN; iPINN |
+| 67 | PINN |
+| 68 | PINN; Non-PINN |
+| 69 | E-TUNI; UNI; NARMAX; RKNN; ABNN; PCNN; PINN |
+| 70 | PINN |
+| 72 | PINN; TSPINN; B-PINN |
+| 73 | PHM; PINN |
+| 74 | PIRL; PINN |
+| 75 | PINN |
+| 76 | PINN |
+| 77 | PINN |
+| 78 | UPINN; BPINN; GPINN |
+| 79 | PI-CNRFC |
+| 80 | HPDNN; PINN |
+| 81 | PINN |
+| 83 | SFM-PINN; PINN |
+| 84 | PINN; NSFnets; XPINN; VPINN; SPINN; B-PINN |
+| 85 | PINN; PIML |
+| 86 | PINN |
+| 87 | PINN; fPINN |
+| 90 | PINN |
+| 93 | PGMRN; PA-CAM |
+| 94 | PINN |
+| 95 | PINN |
+| 98 | PINN |
+| 99 | PINN |
+| 107 | P-C-L-A |
+| 108 | PINN |
+| 110 | BC-PINN |
+| 117 | PIELM |
+| 118 | EMPINN |
+| 121 | BOTS-BPNN; T-Softplus |
+| 124 | PINN; Arrhenius; Johnson‑Cook; Fields‑Backofen; Zerilli‑Armstrong; DRV; DRX |
+| 132 | PINN |
+| 134 | PINN |
+| 137 | PIRL; PINN |
+| 138 | PI-DON; PINN |
+| 139 | PINN; BPNN |
+| 140 | PINN |
+| 142 | PILSTM-AWA; PILSTM; PINN |
+| 143 | PINNs-MPF; XPINN |
+| 144 | PINN; B-PINN; PI-BLR |
+| 149 | SciML; PgNN; PINN; PINO |
+| 150 | PINN; PIKAN; PIML; VPINN; XPINN; cPINN; sPINN |
+| 151 | PINN |
+| 154 | PINN |
+| 157 | PINN |
+| 158 | PINN |
+| 159 | PINN |
+| 160 | PINN |
+| 161 | FluidNet-Lite; GWAL |
+| 162 | PINN |
+| 163 | PINN |
+| 164 | PINN |
+| 165 | PINN |
+| 168 | PINN |
+| 172 | PINN; cPINN; XPINN; PPINN |
+| 173 | BatteryPINN |
+| 174 | Fc-PINN; CNN-PINN |
+| 175 | PISOV |
+| 176 | PINN |
+| 177 | PILSTM |
+| 178 | TriMNet |
+| 179 | PIDNN |
+| 182 | RCR-SCTNet |
+| 183 | PIDTRL |
+| 184 | NN-calibrator |
+| 185 | WAKE |
+| 186 | PINN |
+| 188 | PINN |
+| 190 | Energy-based PINN|
+| 191 | PIRBFNN |
+| 192 | Jacobian-informed PINN; JE-EDNN; JED-EDNN |
+| 193 | MAPIRL; PIRL |
+| 195 | mnPINN |
+| 196 | STGCN; PINN |
+| 197 | Meta-PIGACN; PIGACN |
+| 198 | PIETRA |
+| 199 | PINN |
+| 201 | TLPKT_PINN |
+| 202 | PhyFnoNet; PIRN |
+| 203 | PINN; Grad-CAM; DP-Shapley |
+| 204 | PINN |
+| 205 | CINN, PINN |
+| 206 | EAM-PINN |
+| 207 | PIHNN |
+| 208 | PINN |
+| 209 | Res-PINNs |
+| 211 | FENet |
+| 212 | PIRL |
+| 213 | PI-TGN |
+| 214 | BattNN |
+| 215 | PIGNN |
+| 216 | BP-PHY; BP-FD; BP-SIFD |
+| 218 | SCTMR-Net |
+| 219 | PIHMTL |
+| 220 | T/S-PIML |
+| 221 | e-PINN |
+| 222 | PICN |
+| 224 | UPINN |
+| 225 | G-CVAE-PINN |
+| 227 | MagOpenNet |
+| 228 | WF-PINN |
+| 229 | PLAPN |
+| 230 | KAN-PINN |
+| 231 | SAS-PINN; SIREN |
+| 232 | SDI-EMI Network |
+| 233 | PINN-TSE; PINN |
+| 234 | HCPINN; PINN |
+| 236 | PINN |
+| 237 | PiTCSI; PINN |
+| 238 | TD-PINN; STAR-PINN |
+| 239 | PINN |
+| 240 | PRNN; PAI |
+| 241 | W-PINNPStomo; PINN |
+| 242 | PINDAS |
+| 243 | PINN |
+| 244 | FRC-PINNs; PINN |
+| 245 | PINN; PIML |
+| 247 | DARTS-PINN |
+| 248 | Quantasio; PINN |
+| 250 | PIDNN |
+| 251 | CNN-PINN |
+| 252 | PINN |
+| 253 | PGNN |
+| 255 | ML w/AEE; PINN |
+| 256 | HPINN |
+| 257 | PINN |
+| 258 | KINN |
+| 260 | PINN |
+| 261 | PIDM |
+| 262 | PIKAN |
+| 263 | PISAL |
+| 264 | PINN |
+| 265 | PINN |
+| 266 | PINN |
+| 268 | PINN; PHIMEC; IMPULSTM; DIMAS |
+| 269 | PINN |
+| 270 | PINN; point neuron |
+| 271 | PINN |
+| 272 | PINN; P-PINNs |
+| 275 | PINN; NLSE-PINN |
+| 277 | PINN; DQL |
+| 279 | PINN; PINN-SIREN |
+| 280 | PINN |
+| 281 | PINN |
+| 285 | PINN |
+| 287 | PINN |
+| 290 | PARC |
+| 291 | E-PINN |
+| 292 | PINN |
+| 293 | PINN |
+| 294 | PINN |
+| 295 | CL-FNO |
+| 297 | PINN |
+| 298 | PINN |
+| 299 | PINN |
+| 300 | PINN |
+| 302 | PINN; KED; Knowledge-Based Encoder-Decoder |
+| 303 | PINN |
+| 304 | PINN |
+| 308 | PINN |
+| 310 | PINN |
+| 311 | HCDD-PINN |
+| 312 | Δ-PINN |
+| 313 | PINO; Parareal-PINO |
+| 314 | RCI CT-RL |
+| 315 | PINN |
+| 316 | PI-CNN |
+| 317 | PINN; PINN-enhanced PTV/PTV |
+| 319 | PINN |
+| 320 | PINN |
+| 321 | PICNN |
+| 323 | PINN |
+| 324 | PINN |
+| 326 | PINN |
+| 327 | PINN |
+| 328 | PINN |
+| 329 | PINN |
+| 330 | PINN |
+| 331 | PINN |
+| 332 | PINN; PI-RNN; PI-LSTM |
+| 333 | PINN |
+| 334 | PINN |
+| 336 | PINN |
+| 338 | PINN |
+| 339 | PINN |
+| 340 | PINN; gPINNs |
+| 341 | PINN |
+| 342 | PI-GNN |
+| 344 | PINN |
+| 346 | PINN; MINN |
+| 347 | PINN; RANS-based PINN |
+| 349 | HT-PINN; PINN |
+| 350 | PINN |
+| 351 | PINN; Parareal |
+| 353 | PINN; ModResNet |
+| 354 | PINN |
+| 355 | NH-PINN |
+| 358 | STPDE-NET |
+| 359 | PI-LSTM |
+| 360 | MTA-UNet |
+| 362 | PINN |
+| 363 | TgCNN |
+| 364 | nODE; Neural ODE; PINN |
+| 365 | PINN |
+| 367 | PINN; VPINN; CPINN; hp-VPINN; PCNN; B-PINN; PI-GAN; PPINN; DeepONet; PhyGeoNet; SPINN; GatedPINN; fPINN; NSFnet |
+| 368 | PINN (extrinsic) |
+| 369 | A-PINN |
+| 370 | PINN |
+| 372 | NSGAN |
+| 373 | PINN |
+| 374 | PINN |
+| 375 | PINN |
+| 376 | PI-LSTM |
+| 379 | PI-GGN (Physics-informed Graph neural Galerkin Network) |
+| 381 | PINN |
+| 383 | AutoPINN |
+| 384 | PINN; XPINN; CPINN; hp-VPINN |
+| 385 | PINN |
+| 386 | PINN |
+| 387 | PINN |
+| 388 | PINN |
+| 391 | PINN |
+| 392 | PINN; PINN-1; PINN-3 |
+| 393 | PINN |
+| 396 | PINN |
+| 402 | PiResNet |
+| 403 | PINN |
+| 404 | PIML |
+| 406 | PINN |
+| 408 | Res-PINN |
+| 409 | KSR |
+| 410 | B-PINN |
+| 411 | PINN |
+| 412 | PINN |
+| 413 | PPINN |
+| 414 | PINN |
+| 415 | PINN |
+| 416 | PhyLSTM²; PhyLSTM³ |
+| 417 | TF-Net; Con TF-Net |
+| 418 | PINN |
+| 419 | PhyCNN |
+| 420 | MPINN; PINN |
+| 421 | PINN |
+| 422 | PINN |
+| 424 | PINN |
+| 425 | Physics-constrained DNN; PINN |
+| 426 | VE-PINN; PINN |
+| 427 | Mixed-variable PINN |
+| 428 | PINN |
+| 429 | PINN |
+| 431 | HFM; PINN |
+| 432 | PINN |
+| 435 | PINN |
+| 436 | PINN |
+| 438 | PINN |
+| 439 | PINN |
+| 442 | PCNN |
+| 444 | PINN |
+| 445 | PINN |
+| 447 | PINN |
+| 450 | PINN |
+| 457 | Neural ODE |
+| 463 | fPINN |
+| 470 | fPINN |
+| 473 | PINN |
+| 475 | VcPINN; IcPINN; VoF-PINN; PF-PINN |
+| 476 | NSFnet; VP-NSFnet; VV-NSFnet |
+| 477 | PINN |
+| 478 | PINN |
+| 479 | PINN; gradient-enhanced PINNs (gPINNs) |
+| 480 | PINN |
+| 481 | PINN; Transfer Learning PINN |
+| 482 | PINN; Vanilla PINN; cPINN; XPINN; PPINN; hp-VPINN; B-PINN; SA-PINN |
+| 483 | PINN; MO-PINN |
+| 484 | PINN |
+| 485 | PINN; PINN-MB |
+| 486 | PINN |
+| 487 | PINN |
+| 488 | PINN |
+| 489 | PINN; IPINN |
+| 493 | PINN; VPINN; hp-VPINN |
+| 495 | PINN; cPINN; XPINN; PPINN; hp-VPINN; B-PINN; SA-PINN; nPINN; fPINN; PIRBN; HyperPINN; SPINN; GCN-PINN; NH-PINN; ModalPINN; Δ-PINN |
+| 496 | PINN; MS-ST-FF-PINN |
+| 497 | PINN; DBNet; IncNSNet |
+| 498 | PINN; SDNet |
+| 499 | PI-GAN |
+| 500 | PINN; BDPINN |
+| 501 | PINN |
+| 502 | lbPINNs; lbXPINNs |
+| 503 | PINN; B-PINNs; PPINN; cPINN; XPINN; APINN; hp-VPINN |
+| 504 | RW-PINN |
+| 505 | gfPINNs; fPINNs |
+| 506 | PINN; FO-PINN; SPINN |
+| 507 | NN-aPC |
+| 508 | Physics-informed VAE (PIVAE) |
+| 510 | PINN |
+| 512 | PINN; vPINN |
+| 513 | PINN |
+| 514 | PhyGeoNet |
+| 516 | IPINN |
+| 517 | PINN; cPINN |
+| 520 | PINN |
+| 525 | PINN |
+| 526 | PINN |
+| 527 | PINN; DCGD |
+| 528 | PINN; NWnets |
+| 529 | PINN |
+| 531 | adaptive-PIRN |
+| 533 | PINN |
+| 534 | PINN |
+| 535 | PINN |
+| 536 | PINN; B-PINN |
+| 537 | SD-PINN |
+| 538 | gsPINN |
+| 539 | EPNN |
+| 540 | PINN |
+| 541 | SA-PINN |
+| 542 | LA-PINN |
+| 543 | SA-PINN |
+| 544 | SA-PINN |
+| 545 | PINN-RANS; PINN-Euler |
+| 546 | MB-PINN; MB-IBM-PINN |
+| 547 | PINN |
+| 548 | DD-PINN |
+| 549 | trapz-PiNN |
+| 550 | CS-PINN; RK-PINN |
+| 551 | PNS-PINN; NS-PINN |
+| 552 | HTE-PINN |
+| 553 | opPINN |
+| 554 | CAN-PINN |
+| 556 | PILSTM |
+| 557 | PI-LSTM |
+| 558 | PI-rCNN |
+| 559 | PI-RS-LSTM |
+| 560 | PhyLSTM²; PhyLSTM³ |
+| 561 | PISSA-CNN-LSTM |
+| 562 | PID-GAN |
+| 563 | PiCNN; DICNN |
+| 564 | PIX-GAN |
+| 565 | CNN-TSE |
+| 566 | WGAN-GP; PINN; PIGAN|
+| 567 | PIST-CNN |
+| 568 | W-Net GAN; PINN; PIGAN; CS-PINN; RK-PINN |
+| 569 | SSM-CNN; PINN |
+| 570 | PIGAN; PINN |
+| 571 | PI-CNN; PINN |
+| 572 | PIML; PIDD; Meta-PINN |
+| 573 | PINN; ResoNet |
+| 574 | NRPINN; PINN; Meta-PINN |
+| 575 | PiLMWs-CNN; PINN |
+| 576 | Meta-PINN; CS-PINN; RK-PINN; PINN |
+| 577 | PICNN; Fusion-PICNN |
+| 578 | GPT-PINN; PINN |
+| 579 | PINN; Meta-PINN |
+| 580 | PI-MLSM; PIDL; PINN |
+| 581 | MetaPINNs; IPINNs; PINN |
+| 583 | MF-PIDNN; PI-DNN; PINN |
+| 584 | BPIELM; PIELM; PINN |
+| 585 | PI-DCM; PINN |
+| 586 | TL-PINN |
+| 587 | PI-DCM |
+| 588 | mfPINN |
+| 589 | PIRNN; TL-PIRNN |
+| 591 | RePIT; FVMN |
+| 592 | TL-PINN |
+| 593 | Causal PINN |
+| 595 | SVD-PINN |
+| 596 | PINN-DeepONet |
+| 597 | Phase-Field DeepONet |
+| 598 | V-DeepONet |
+| 599 | Sep-PI-DeepONet |
+| 600 | PI-DeepONet |
+| 601 | PI-DeepONet; DeepONet |
+| 602 | CPNN; DeepONet; composite PINN |
+| 603 | PI-DeepONet |
+| 604 | DAE-PINN |
+| 605 | ModalPINN |
+| 606 | PINN |
+| 607 | Taylor PINN |
+| 608 | GRINN |
+| 609 | HWPINN; HPINN; SPINN; SWPINN |
+| 610 | PIKFNN |
+| 611 | GaborPINN |
+| 612 | APINN; XPINN |
+| 613 | Conditional PINN |
+| 616 | BPINN |
+| 617 | BPINN |
+| 618 | BPINN |
+| 619 | PI-INN; Physics-Informed Invertible Neural Network |
+| 621 | FF-PINN; Fourier Feature PINN |
+| 622 | PI-FNO; physics-informed Fourier neural operators |
+| 624 | FF-PINN; Fourier Feature PINN |
+| 625 | PIFON; Physics-Informed Fourier Network |
+| 626 | T-phPINN |
+| 627 | FMPINN; Fourier-based Mixed PINN |
+| 628 | cPINN; Conservative PINN; Mortar PINN |
+| 629 | Improved PINN; IPINN (conservation law constraint) |
+| 630 | Mixed-variable PINN |
+| 631 | wPINN; weak PINN |
+| 632 | IPINN; Improved PINN (with conservation laws) |
+| 633 | Conservative PINN |
+| 634 | PINN |
+| 635 | PI-VAE |
+| 636 | VPINN |
+| 637 | PINN; VPINN |
+| 638 | cv-PINN |
+| 639 | RBFDQ-PINN |
+| 640 | PIRBN |
+| 641 | PIRBN |
+| 642 | MPINN |
+| 643 | HierPINN |
+| 644 | VC-PINN |
+| 645 | MPINN |
+| 646 | PINNup |
+| 647 | XPINN |
+| 648 | DPINN |
+| 649 | DF-ParPINN |
+| 650 | BL-PINN; Boundary Layer PINN |
+| 651 | DD-PINN; Domain-decoupled PINN |
+| 652 | Gated-PINN |
+| 655 | PINN |
+| 656 | QUANTUMSHELLNET |
+| 659 | E-PINN |
+| 660 | tpPINNs; Time piecewise PINN |
+| 661 | PINN |
+| 662 | LA-SympNet; G-SympNet |
+| 663 | PINN |
+| 665 | CIDER |
+| 666 | FPNN |
+| 667 | PINN |
+| 668 | PINN; forward PINN; reverse PINN |
+| 669 | PINNTO |
+| 670 | CPINNTO; DEM-PINN; S-PINN |
+| 671 | DEM; PINN |
+| 672 | DMF-TONN |
+| 673 | dPINN; discrete PINN |
+| 674 | MFLP-PINN |
+| 675 | PIML |
+| 676 | PINN; Z-parameter based PINN |
+| 677 | PIML |
+| 678 | PINN |
+| 679 | PINN |
+| 680 | PI-VAE |
+| 681 | Defect-driven PiNN; PiNN |
+| 682 | Hybrid PINN; PINN |
+| 684 | PINN |
+| 685 | RFEMNN;  PIML |
+| 686 | TSA-PINN |
+| 687 | PINN |
+| 688 | TSONN; PINN |
+| 689 | PINN |
+| 690 | PINN |
+| 691 | PINN |
+| 692 | DG-PINN; Discretized Generative PINN |
+| 693 | PINO; LESnets |
+| 695 | PINN; CNN-PINN-DRL; Neuralfoil |
+| 697 | PINN |
+| 699 | PIRNN; recurrent  PINN |
+| 700 | SAPINN; Self-Adaptive PINN |
+| 701 | PINN |
+| 702 | PINN |
+| 703 | PINN |
+| 704 | PINN |
+| 705 | PINN |
+| 707 | CPINN; Coupled PINN|
+| 708 | CPINN; Coupled PINN|
+| 709 | PINN |
+| 710 | BP-PINN; Boundary Progressive PINN |
+| 711 | WS-PINN; warm-start PINN |
+| 712 | PINN |
+| 713 | PINN |
+| 714 | PINN |
+| 717 | ClimODE; PINN |
+| 719 | PINN |
+| 720 | PINN-Ray; PINN |
+| 721 | PINN |
+| 722 | PINN |
+| 723 | PINN |
+| 724 | sePINN; symmetry-enhanced PINN |
+| 725 | PINN |
+| 726 | P²INN; Parameterized PINN |
+| 727 | MLPINN; meta-learning PINN |
+| 728 | PINN |
+| 729 | PoNN; PINN |
+| 730 | QPINN; PINN |
+| 731 | PINN |
+| 732 | PINN |
+| 733 | cPINN; XPINN; PINN |
+| 734 | PINN |
+| 735 | PINN |
+| 736 | Cell-based MLP; PINN variant |
+| 737 | PINN |
+| 738 | Physics-informed Echo State Network; ESN |
+| 739 | PINN; Stiff-PINN |
+| 740 | DD-PINN; data-driven PINN |
+| 741 | PINN |
+| 742 | Physics-constrained deep learning model |
+| 744 | PiNN; PiNN package; PiNet2; PiNet2-dipole; PiNet2-χ; PiNNACle; PiNNwall |
+| 745 | PINN; NeuroDiffEq |
+| 748 | PhyCRNet; PhyCRNet-s ; convolutional-recurrent PINN |
+| 750 | PECANN |
+| 751 | PINN |
+| 752 | PINN; HNN |
+| 753 | PINN |
+| 754 | PINN |
+| 755 | PINN; TDUN; SSUN |
+| 756 | PINN; PhiSRL; BA-PhiSRL |
+| 757 | PINN; PhiGRL; PhiSRL |
+| 758 | PINN |
+| 759 | PINN; DB-GreenNet; BI-GreenNet |
+| 766 | PINN; ABU-PINN; Adaptive Blending Units PINN |
+| 773 | AT-PINN; Advanced time-marching PINN |
+| 774 | AW-PINN; Adaptive Weight PINN |
+| 775 | FF-PINN;  Fourier feature PINN |
+| 777 | PINN |
+| 778 | STD-PINN; spatiotemporal decomposition PINN |
+| 779 | Improved PINN |
+| 780 | PINN |
+| 781 | PINN-DD; domain decomposition PINN |
+| 785 | PINN |
+| 786 | PINN |
+| 787 | PINN; PI-GAN; GAN-PINN |
+| 788 | PINN; PIML |
+| 789 | PINN |
+| 790 | PINN |
+| 791 | cPINN; Conservative PINN |
+| 792 | CI-PINN; Coupled Integral PINN |
+| 793 | PINN-WE |
+| 794 | PIANN; attention-based PINN |
+| 795 | PINN; LSTM-AM |
+| 796 | Tr-PINN; Transformer PINN |
+| 797 | PINN |
+| 798 | PIG-GAN; Physics-Informed Generator GAN; DI-GAN; Dual-Informed GAN |
+| 799 | PiNN |
+| 800 | PINN |
+| 801 | PIDCNN; deep convolutional PINN |
+| 802 | PICNN; convolutional PINN |
+| 804 | PIRBFNN; radial basis function PINN |
+| 805 | Residual-based adaptivity PINN |
+| 806 | PINN |
+| 807 | DCM (Deep Collocation Method) |
+| 810 | improved PINNs |
+| 811 | AT PINNs (self-adaptive and time divide-and-conquer PINN) |
+| 814 | PINN |
+| 815 | PgNN (Physics-guided Neural Network) |
+| 816 | PINN |
+| 817 | TgNN; Coupled-TgNN (coupled theory-guided neural network) |
+| 818 | PIML |
+| 819 | PINN |
+| 820 | HLConcPINN (hidden-layer concatenated PINN) |
+| 821 | PINN |
+| 822 | PINN |
+| 823 | PINN |
+| 826 | PINN |
+| 827 | DCM; DEEP LEARNING METHOD PINN |
+| 831 | HiDeNN-FEM;  HiDeNN-PGD |
+| 833 | PINN |
+| 834 | EP-PINNs |
+| 835 | PINN; FiberNet |
+| 836 | PINN; NC-PINN (Navier–Cauchy PINN); EIK-PINN (homogeneous eikonal equation PINN) |
+| 837 | EAND-ARN ( electrophysiology constrained-aware numerical differentiation-based Adaptive Residual Network); PINN |
+| 838 | PgNN (physics-guided neural networks); PiNN (physics-informed neural networks); PeNN (physics-encoded neural networks); PeRCNN (Physics-Encoded Recurrent Convolutional Neural Network); PhyCRNet (physics-informed convolutional-recurrent network); PiNODE (NeuralODE with PINN); PINN |
+| 839 | PINN; VPINN (Variational Petrov-Galerkin PINN VPINN); XPINN (Extended PINN); HFD-PINN (High-Fidelity Data-Driven PIONN); TFE-PINN (Turbulence-Focused Enhanced PINNs); Fed-PINN (Federated PINNs); MC-PINN (Multiscale Climate PINNs); SyCo-PINN (Symbolic-Neural Collaboration PINN) |
+| 840 | PINN |
+| 841 | Inverse PINN; PINN |
+| 842 | PINN |
+| 843 | PINN |
+| 844 | PINN; LSTM-PINN |
+| 845 | PINN; PINNMIMO (Multiple input multiple-output PINN); PINNMISO (Multiple input single-output) |
+| 846 | PINN |
+| 847 | PIHED (Physics-informed hybrid encoder-decoder) |
+| 848 | dmPINNs (data-driven and mechanism-based PINN); PINN |
+| 849 | PINN |
+| 850 | Physics_GNN (graph neural network PINN); PINN |
+| 851 | Physics_GNN (graph neural network PINN); PINN |
+| 852 | PINN |
+| 853 | PI-AstroDeconv |
+
+
+
+
+
+
+
+
+
+
+

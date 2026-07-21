@@ -10,6 +10,8 @@ PINN Review Atlas is the web companion to a review of physics-informed neural ne
 - `/applications/` — application domains and benchmark problems
 - `/software/` — libraries, frameworks, solvers, and packages
 - `/datasets/` — ready-made and generated datasets
+- `/abbreviations/` — reported abbreviations, frequencies, and reference-level evidence
+- `/references/` — complete review bibliography with linked paper IDs
 - `/cite/` — citation and version guidance
 
 ## Local preview
@@ -29,4 +31,3 @@ The workflow in `.github/workflows/pages.yml` deploys the repository to GitHub P
 ## Evidence policy
 
 The website separates presentation from evidence. Counts, classifications, and citation IDs should only be added after the source data have been checked. Every published view should provide its source data and a stable URL.
-

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The complete 853-item bibliography of the PINN review, with linked paper IDs.">
+  <meta name="theme-color" content="#09111d">
+  <title>Review References · PINN Review Atlas</title>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/app.js" defer></script>
+  <script src="../assets/references.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+    <div class="nav-links" id="nav-links"><a href="../#atlas">Explore</a><a href="../pinn-types/">PINN types</a><a href="../abbreviations/">Abbreviations</a><a href="./" aria-current="page">References</a><a href="../cite/">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a></div>
+  </nav></header>
+
+  <main id="main">
+    <section class="page-hero"><div class="container">
+      <p class="breadcrumb"><a href="../">Atlas</a> / Review references</p>
+      <p class="eyebrow">Primary-paper bibliography</p>
+      <h1>The review,<br><span class="gradient">paper by paper.</span></h1>
+      <p class="lede">Search the complete bibliography used by the review. Every numbered paper ID is a hyperlink: Drive-hosted papers open in Drive, while papers absent from the folder open at their DOI or publisher record.</p>
+      <div class="evidence-actions"><a class="button primary" href="#bibliography">Search references <span aria-hidden="true">↓</span></a><a class="button" href="../abbreviations/">Explore abbreviations <span aria-hidden="true">→</span></a></div>
+      <div class="source-note"><strong>Link policy</strong><span>The bibliographic text is taken from <em>38_1_10_references.docx</em>. Paper-file links were matched by the numeric filename prefix in the review’s Drive folder. Missing Drive files use the DOI or authoritative publisher page.</span></div>
+    </div></section>
+
+    <section class="evidence-page" id="bibliography"><div class="container">
+      <div class="stats-grid" aria-label="Bibliography summary">
+        <div class="stat"><strong data-ref-stat="total">—</strong><span>bibliographic records</span></div>
+        <div class="stat"><strong data-ref-stat="drive">—</strong><span>papers linked in Drive</span></div>
+        <div class="stat"><strong data-ref-stat="publisher">—</strong><span>publisher-linked records</span></div>
+        <div class="stat"><strong data-ref-stat="range">—</strong><span>reference-ID range</span></div>
+      </div>
+      <section class="evidence-panel" aria-labelledby="bibliography-title">
+        <div class="panel-head"><h2 id="bibliography-title">Complete reference register</h2><p>Use a paper ID, author, title phrase, venue, year, or DOI.</p></div>
+        <div class="evidence-toolbar">
+          <label class="search-field"><span class="skip-link">Search the bibliography</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input type="search" data-reference-search placeholder="Search ID, author, title, venue, year, or DOI…" autocomplete="off"></label>
+          <label><span class="skip-link">Sort references</span><select data-reference-sort><option value="asc">Reference ID: low to high</option><option value="desc">Reference ID: high to low</option></select></label>
+          <button class="button" type="button" data-reference-export>Export current view (.csv)</button>
+        </div>
+        <div class="tab-list"><span class="result-meta" data-reference-meta aria-live="polite">Loading…</span></div>
+        <div data-reference-results><div class="loading-state"><span><strong>Loading the master bibliography</strong>The 853 reference records will appear here.</span></div></div>
+      </section>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Master bibliography · 853 records</span><a href="../cite/">How to cite this atlas</a></div></footer>
+</body>
+</html>

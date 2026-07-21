@@ -4,6 +4,20 @@
   const navLinks = document.querySelector('.nav-links');
   const year = document.querySelector('[data-year]');
 
+  if (navLinks) {
+    const rootHref = document.querySelector('.brand')?.getAttribute('href') || './';
+    const citeLink = [...navLinks.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Cite');
+    const addNavLink = (label, route) => {
+      if ([...navLinks.querySelectorAll('a')].some((link) => link.textContent.trim() === label)) return;
+      const link = document.createElement('a');
+      link.href = `${rootHref}${route}`;
+      link.textContent = label;
+      navLinks.insertBefore(link, citeLink || navLinks.lastElementChild);
+    };
+    addNavLink('Abbreviations', 'abbreviations/');
+    addNavLink('References', 'references/');
+  }
+
   if (year) year.textContent = new Date().getFullYear();
 
   const setHeader = () => header?.classList.toggle('scrolled', window.scrollY > 12);
@@ -39,4 +53,3 @@
     items.forEach((item) => observer.observe(item));
   }
 })();
-
