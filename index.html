@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PINN Review Atlas — an evidence-led visual companion to a review of physics-informed neural networks.">
+  <meta name="theme-color" content="#09111d">
+  <title>PINN Review Atlas</title>
+  <link rel="icon" href="assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="./" aria-current="page">
+        <img src="assets/atlas-mark.svg" alt="">
+        <span>PINN Review Atlas<small>Research companion</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#atlas">Explore</a>
+        <a href="pinn-types/">PINN types</a>
+        <a href="cite/">Cite</a>
+        <a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">A living research atlas</p>
+          <h1>Physics, learning, and evidence—<span class="gradient">mapped.</span></h1>
+          <p class="lede">An interactive companion to the PINN review: classifications, figures, evidence tables, comparisons, software, and datasets—each with a stable, shareable address.</p>
+          <div class="actions">
+            <a class="button primary" href="#atlas">Explore the atlas <span aria-hidden="true">↓</span></a>
+            <a class="button" href="pinn-types/">Open PINN types <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="signal-card" aria-label="Conceptual plot showing observations and a physics-informed prediction">
+          <div class="signal-top"><span>Physics-informed field</span><span class="live-dot">Atlas online</span></div>
+          <svg class="signal-plot" viewBox="0 0 480 250" role="img" aria-labelledby="plot-title plot-desc">
+            <title id="plot-title">Conceptual physics-informed prediction</title>
+            <desc id="plot-desc">Observed points lie along a prediction curve constrained by a differential equation.</desc>
+            <defs>
+              <linearGradient id="traceGradient" x1="40" y1="200" x2="440" y2="45" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#50e3c2"/><stop offset="1" stop-color="#8c7cf6"/>
+              </linearGradient>
+              <linearGradient id="fillGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop stop-color="#50e3c2" stop-opacity=".18"/><stop offset="1" stop-color="#50e3c2" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M24 212H456M24 164H456M24 116H456M24 68H456" stroke="rgba(168,190,207,.13)" stroke-width="1"/>
+            <path d="M30 199 C84 181 93 105 146 118 S205 193 254 144 S318 48 365 76 S416 154 451 85 L451 225 L30 225Z" fill="url(#fillGradient)"/>
+            <path class="trace" d="M30 199 C84 181 93 105 146 118 S205 193 254 144 S318 48 365 76 S416 154 451 85" fill="none" stroke="url(#traceGradient)" stroke-width="4" stroke-linecap="round"/>
+            <g fill="#09111d" stroke="#50e3c2" stroke-width="3">
+              <circle cx="82" cy="164" r="5"/><circle cx="145" cy="118" r="5"/><circle cx="254" cy="144" r="5"/><circle cx="365" cy="76" r="5"/><circle cx="424" cy="127" r="5"/>
+            </g>
+            <text x="31" y="242" fill="#687785" font-family="monospace" font-size="10">x, t</text>
+            <text x="405" y="35" fill="#9babb8" font-family="monospace" font-size="10">𝒩[u] = 0</text>
+          </svg>
+          <div class="signal-legend">
+            <div><strong>Evidence</strong><span>Paper-level records</span></div>
+            <div><strong>Physics</strong><span>Governing constraints</span></div>
+            <div><strong>Views</strong><span>Stable research URLs</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="atlas">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="eyebrow">Atlas index</p><h2>One review.<br>Many ways in.</h2></div>
+          <p>The atlas is organized by the questions a reader asks. Each section can host interactive views, print-ready figures, downloadable data, and dedicated evidence pages without changing its public address.</p>
+        </div>
+        <div class="atlas-grid">
+          <a class="atlas-card reveal" href="pinn-types/">
+            <span class="card-number">01 / Classification</span>
+            <h3>PINN types</h3>
+            <p>Taxonomy, terminology, family relationships, frequency, aliases, and paper-level citation evidence.</p>
+            <span class="card-status">Workspace ready</span>
+          </a>
+          <a class="atlas-card reveal" href="architectures/">
+            <span class="card-number">02 / Methods</span>
+            <h3>Architectures</h3>
+            <p>Network designs, hybrids, operator learning, decomposition, and theoretical variants.</p>
+            <span class="card-status">Structure ready</span>
+          </a>
+          <a class="atlas-card reveal" href="training/">
+            <span class="card-number">03 / Optimization</span>
+            <h3>Training</h3>
+            <p>Loss balancing, optimizers, sampling, initialization, activations, and convergence.</p>
+            <span class="card-status">Structure ready</span>
+          </a>
+          <a class="atlas-card reveal" href="applications/">
+            <span class="card-number">04 / Domains</span>
+            <h3>Applications</h3>
+            <p>Fluid flow, electromagnetism, solid mechanics, energy, geoscience, biology, and more.</p>
+            <span class="card-status">Structure ready</span>
+          </a>
+          <a class="atlas-card reveal" href="software/">
+            <span class="card-number">05 / Ecosystem</span>
+            <h3>Software</h3>
+            <p>PINN-native libraries and the frameworks, solvers, and packages used alongside them.</p>
+            <span class="card-status">Structure ready</span>
+          </a>
+          <a class="atlas-card reveal" href="datasets/">
+            <span class="card-number">06 / Reproducibility</span>
+            <h3>Datasets &amp; benchmarks</h3>
+            <p>Ready-made and generated datasets, benchmark equations, geometries, conditions, metrics, and availability.</p>
+            <span class="card-status">Structure ready</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="eyebrow">Evidence protocol</p><h2>From source to view.</h2></div>
+          <p>Every visual is backed by a transparent evidence trail. The display layer can evolve while the underlying citation attribution remains auditable.</p>
+        </div>
+        <div class="protocol reveal">
+          <div class="protocol-step"><span>01</span><h3>Extract</h3><p>Capture paper-level facts using the primary reference ID.</p></div>
+          <div class="protocol-step"><span>02</span><h3>Normalize</h3><p>Resolve aliases, duplicates, units, and classification labels.</p></div>
+          <div class="protocol-step"><span>03</span><h3>Validate</h3><p>Check every count and relationship against the evidence table.</p></div>
+          <div class="protocol-step"><span>04</span><h3>Publish</h3><p>Release a focused view with its data and permanent URL.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container citation-banner reveal">
+        <div><h2>Built for the manuscript margin.</h2><p>Link readers to the exact figure, table, comparison, or evidence view—then provide version and access-date guidance from one citation page.</p></div>
+        <a class="button" href="cite/">Citation guide <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Evidence-led · Versioned · Open for review</span></div>
+  </footer>
+</body>
+</html>
+
