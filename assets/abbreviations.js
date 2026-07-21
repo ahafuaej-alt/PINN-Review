@@ -1,6 +1,6 @@
 (() => {
   const sourceUrl = '../data/reference-pinn-abbreviations.txt';
-  const state = { rows: [], terms: [], papers: new Map(), sourceMeanings: new Map(), view: 'terms', query: '', sort: 'frequency' };
+  const state = { rows: [], terms: [], papers: new Map(), view: 'terms', query: '', sort: 'frequency' };
   const $ = (selector) => document.querySelector(selector);
   const results = $('[data-results]');
   const search = $('[data-search]');
@@ -69,18 +69,6 @@
     return [...index].map(([name, references]) => ({ name, references: references.sort((a, b) => a - b), count: references.length }));
   };
 
-  const buildSourceMeanings = (terms) => {
-    const meanings = new Map();
-    terms.forEach((term) => {
-      const match = term.name.match(/^(.+?)\s*\((.+)\)$/);
-      if (!match) return;
-      const base = match[1].trim();
-      if (!meanings.has(base)) meanings.set(base, []);
-      meanings.get(base).push({ text: match[2].trim(), refs: term.references });
-    });
-    return meanings;
-  };
-
   const termHash = (term) => `#term=${encodeURIComponent(term)}`;
   const refHash = (reference) => `#ref=${reference}`;
   const normalized = (value) => String(value).toLocaleLowerCase('en');
@@ -97,7 +85,7 @@
     const verified = verifiedMeanings.get(key) || [];
     const supplied = ownNote
       ? [{ text: ownNote[2].trim(), refs: term.references }]
-      : (state.sourceMeanings.get(key) || []);
+      : [];
     return { verified, supplied };
   };
 
@@ -243,7 +231,6 @@
       state.papers = new Map(papers.map((paper) => [paper.id, paper]));
       state.rows = parseSource(text);
       state.terms = buildTerms(state.rows);
-      state.sourceMeanings = buildSourceMeanings(state.terms);
       setStats();
       renderFrequency();
       render();
