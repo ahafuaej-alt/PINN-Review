@@ -8,7 +8,10 @@
 
   const filteredRows = () => {
     const query = state.query.trim().replace(/^\[|\]$/g, '').toLocaleLowerCase('en');
-    return state.rows.filter((row) => !query || String(row.id) === query || `${row.title} ${row.citation} ${row.doi || ''}`.toLocaleLowerCase('en').includes(query))
+    const isReferenceId = /^\d+$/.test(query);
+    return state.rows.filter((row) => !query || (isReferenceId
+      ? String(row.id) === query
+      : `${row.title} ${row.citation} ${row.doi || ''}`.toLocaleLowerCase('en').includes(query)))
       .sort((a, b) => state.sort === 'desc' ? b.id - a.id : a.id - b.id);
   };
 
