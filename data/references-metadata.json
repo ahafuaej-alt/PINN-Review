@@ -29,5 +29,5 @@
     "CSV"
   ],
   "data_quality_policy": "Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Public reference, geography, analytics, filter, and export datasets are generated from that master. Unresolved legacy year disagreements remain explicit overrides until a sourced correction resolves them.",
-  "privacy": "The static dataset does not contain reader data. Dataset Manager edits remain in the browser until an update package is downloaded or copied."
+  "privacy": "The static dataset does not contain reader data. Dataset Manager edits remain in the browser until the user explicitly opens and confirms a GitHub update request."
 }
