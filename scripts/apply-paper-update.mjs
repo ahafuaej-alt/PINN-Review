@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import process from 'node:process';
 import { extractLegacyBibliographic, formatMdpiCitation, normalizeBibliographic } from '../assets/citation-format.mjs';
-import { buildAll, bumpPatchVersion, impactSummary, normalizeDoi, readJson, validateMaster, writeJsonAtomic } from './lib/dataset-core.mjs';
+import { GRAPHICAL_ABSTRACT_SPEC, buildAll, bumpPatchVersion, impactSummary, normalizeDoi, readJson, validateMaster, writeJsonAtomic } from './lib/dataset-core.mjs';
 import { generateDatasets } from './build-datasets.mjs';
 
-const allowedFields = new Set(['title', 'citation', 'bibliographic', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']);
+const allowedFields = new Set(['title', 'citation', 'bibliographic', 'abstract', 'graphical_abstract', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']);
 const usage = 'Usage: node scripts/apply-paper-update.mjs update.json [--dry-run]';
 
 const loadUpdate = () => {
@@ -14,7 +14,7 @@ const loadUpdate = () => {
 };
 
 const update = loadUpdate();
-if (!['1.0.0', '1.1.0'].includes(update.schema_version)) throw new Error('Update package schema_version must be 1.0.0 or 1.1.0');
+if (!['1.0.0', '1.1.0', '1.2.0'].includes(update.schema_version)) throw new Error('Update package schema_version must be 1.0.0, 1.1.0, or 1.2.0');
 if (!Number.isInteger(update.id)) throw new Error('Update package requires a numeric paper id');
 if (!update.changes || typeof update.changes !== 'object' || Array.isArray(update.changes)) throw new Error('Update package requires a changes object');
 for (const field of Object.keys(update.changes)) if (!allowedFields.has(field)) throw new Error(`Field “${field}” cannot be updated by this workflow`);
@@ -41,6 +41,18 @@ for (const [field, rawValue] of Object.entries(update.changes)) {
   else if (field === 'countries') paper.countries = [...new Set(rawValue.map((country) => String(country).trim()).filter(Boolean))];
   else if (field === 'venue') paper.venue = { name: String(rawValue.name || '').trim(), type: rawValue.type };
   else if (field === 'bibliographic') paper.bibliographic = normalizeBibliographic(rawValue);
+  else if (field === 'abstract') {
+    const abstract = rawValue === null ? '' : String(rawValue).trim();
+    if (abstract) paper.abstract = abstract; else delete paper.abstract;
+  } else if (field === 'graphical_abstract') {
+    if (rawValue === null) delete paper.graphical_abstract;
+    else paper.graphical_abstract = {
+      image_url: String(rawValue.image_url || '').trim(),
+      ...GRAPHICAL_ABSTRACT_SPEC,
+      alt_text: String(rawValue.alt_text || '').trim(),
+      caption: String(rawValue.caption || '').trim()
+    };
+  }
   else paper[field] = rawValue === null ? null : String(rawValue).trim();
 }
 
