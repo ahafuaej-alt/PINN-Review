@@ -98,11 +98,11 @@ const titleStart = (citation, title) => {
 
 const parseJournalTail = (citation, year) => {
   if (!Number.isInteger(year)) return {};
-  const yearMatch = [...String(citation).matchAll(new RegExp(`\\b${year}\\b`, 'gu'))].at(-1);
+  const citationWithoutDoi = String(citation).replace(/https?:\/\/doi\.org\/\S+/giu, '');
+  const yearMatch = [...citationWithoutDoi.matchAll(new RegExp(`\\b${year}\\b`, 'gu'))].at(-1);
   if (!yearMatch) return {};
-  const tail = String(citation)
+  const tail = citationWithoutDoi
     .slice(yearMatch.index + String(year).length)
-    .replace(/https?:\/\/doi\.org\/\S+/giu, '')
     .trim()
     .replace(/^[\s,;:.]+/u, '')
     .replace(/[\s.]+$/u, '');
