@@ -8,9 +8,9 @@
   <title>Dataset Manager · PINN Review Atlas</title>
   <script src="../assets/theme-init.js?v=data-20260722"></script>
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/styles.css?v=data-20260722a">
+  <link rel="stylesheet" href="../assets/styles.css?v=data-20260722b">
   <script src="../assets/app.js?v=data-20260722" defer></script>
-  <script src="../assets/dataset-manager.js?v=data-20260722a" defer></script>
+  <script type="module" src="../assets/dataset-manager.js?v=data-20260722b"></script>
 </head>
 <body>
   <a class="skip-link" href="#manager">Skip to Dataset Manager</a>
@@ -26,8 +26,8 @@
       <p class="eyebrow">Single-source maintenance</p>
       <h1>Correct once.<br><span class="gradient">Rebuild everywhere.</span></h1>
       <p class="lede">Prepare one evidence-backed paper update and preview every affected Atlas view. The secure repository workflow validates the change, regenerates derived datasets, records the audit entry, and publishes the coordinated release.</p>
-      <div class="evidence-actions"><a class="button primary" href="#manager">Prepare an update <span aria-hidden="true">↓</span></a><a class="button" href="../data/papers-master.json" download>Download master JSON</a><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/actions/workflows/update-dataset.yml">Run update workflow ↗</a></div>
-      <div class="source-note"><strong>Security model</strong><span>This static page never requests a GitHub token and cannot modify the repository. Editing and validation occur locally in your browser; publication requires the repository’s authenticated GitHub Actions workflow.</span></div>
+      <div class="evidence-actions"><a class="button primary" href="#manager">Prepare an update <span aria-hidden="true">↓</span></a><a class="button" href="../data/papers-master.json" download>Download master JSON</a><a class="button" href="https://mdpi-res.com/data/mdpi-acs-references-guide-v11-2025.12.pdf">MDPI ACS guide ↗</a></div>
+      <div class="source-note"><strong>Clear submission path</strong><span>Nothing is sent while you type. After validation, the green <b>Submit update request</b> button opens a prefilled GitHub request. Confirm it once on GitHub; the repository then validates, reviews, rebuilds, and reports the result.</span></div>
     </div></section>
 
     <section class="evidence-page manager-page" id="manager"><div class="container">
@@ -43,8 +43,8 @@
         <ol class="manager-pipeline">
           <li><span>01</span><strong>Edit</strong><small>Change one paper record.</small></li>
           <li><span>02</span><strong>Validate</strong><small>Check IDs, DOI, URL, year, venue, and countries.</small></li>
-          <li><span>03</span><strong>Rebuild</strong><small>Regenerate References, Realm, analytics, and exports.</small></li>
-          <li><span>04</span><strong>Publish</strong><small>Record the evidence and deploy atomically.</small></li>
+          <li><span>03</span><strong>Submit</strong><small>Create a visible, trackable GitHub request.</small></li>
+          <li><span>04</span><strong>Approve &amp; publish</strong><small>Rebuild every related Atlas view.</small></li>
         </ol>
       </section>
 
@@ -66,17 +66,59 @@
             <div class="legacy-warning" data-legacy-warning hidden></div>
 
             <div class="manager-form-grid">
-              <label class="span-2"><span>Paper title</span><input name="title" required></label>
-              <label class="span-2"><span>MDPI-formatted citation</span><textarea name="citation" rows="4" required></textarea><small>When a year changes, the workflow synchronizes an unambiguous citation year automatically; complex citations require manual review.</small></label>
+              <label class="span-2"><span>Paper / contribution title</span><input name="title" required></label>
+              <label><span>Reference type</span><select name="venue_type">
+                <option value="journal">Journal article</option><option value="preprint">Preprint</option><option value="conference_journal">Conference paper published in a journal</option><option value="conference">Conference proceedings</option><option value="presentation">Unpublished oral presentation</option><option value="conference_book">Conference paper published in a book</option><option value="book">Book</option><option value="chapter">Book chapter / contribution</option><option value="website">Website / online resource</option><option value="thesis">Thesis</option><option value="patent">Patent</option><option value="standard">Standard</option><option value="software">Software</option><option value="magazine">Magazine / newspaper</option><option value="report">Report / bulletin</option><option value="other">Other</option><option value="unknown">Unknown</option>
+              </select></label>
               <label><span>Publication year</span><input name="year" type="number" min="1800" max="2100" inputmode="numeric"></label>
+              <label><span>Journal, conference, book, or source</span><input name="venue_name" required></label>
               <label><span>Accessibility</span><select name="access"><option>Open access</option><option>Subscription</option><option>Not verified</option></select></label>
-              <label><span>Journal / conference</span><input name="venue_name" required></label>
-              <label><span>Publication type</span><select name="venue_type"><option value="journal">Journal</option><option value="conference">Conference</option><option value="book">Book</option><option value="chapter">Book chapter</option><option value="preprint">Preprint</option><option value="thesis">Thesis</option><option value="report">Report</option><option value="other">Other</option><option value="unknown">Unknown</option></select></label>
               <label><span>DOI</span><input name="doi" placeholder="10.xxxx/xxxxx"></label>
               <label><span>DOI or publisher URL</span><input name="publisher_url" type="url" placeholder="https://doi.org/…"></label>
               <label class="span-2"><span>Affiliation countries</span><input name="countries" list="country-options" required><small>Comma-separated standardized country names. All entries must exist in the Atlas mapping layer.</small></label>
               <datalist id="country-options" data-country-options></datalist>
             </div>
+
+            <details class="manager-bibliographic" open>
+              <summary><span>MDPI bibliographic fields</span><small data-type-guidance>Fields adapt to the selected reference type.</small></summary>
+              <div class="mdpi-note"><strong>Automatic citation</strong><span>Complete the applicable fields below. The citation preview is regenerated in MDPI ACS style. Journal issue numbers can be stored for metadata, but the MDPI guide says they are not included in the formatted journal reference.</span></div>
+              <div class="manager-form-grid">
+                <label class="span-2" data-bib-types="all"><span>Authors</span><textarea name="bib_authors" rows="2" placeholder="Lastname, F.M.; Lastname, F.M.; et al."></textarea><small>Keep the source order; separate authors with semicolons. More than ten authors may use the first ten followed by “et al.”</small></label>
+                <label data-bib-types="chapter conference_book"><span>Editors</span><input name="bib_editors" placeholder="Lastname, F.M., Lastname, F.M."></label>
+                <label data-bib-types="journal preprint conference_journal"><span>Journal abbreviation</span><input name="bib_journal_abbreviation" placeholder="J. Abbrev."></label>
+                <label data-bib-types="journal preprint conference_journal chapter conference_book"><span>Volume</span><input name="bib_volume"></label>
+                <label data-bib-types="journal preprint conference_journal"><span>Issue <em>(metadata only)</em></span><input name="bib_issue"><small>Stored when known; omitted from MDPI journal citations.</small></label>
+                <label data-bib-types="journal preprint conference_journal conference chapter conference_book book magazine report"><span>Pages</span><input name="bib_pages" placeholder="123–145"></label>
+                <label data-bib-types="journal preprint conference_journal"><span>Article number</span><input name="bib_article_number" placeholder="105368"></label>
+                <label data-bib-types="book chapter conference_book"><span>Edition</span><input name="bib_edition" placeholder="2nd ed."></label>
+                <label data-bib-types="chapter conference_book"><span>Book / collected-work title</span><input name="bib_book_title"></label>
+                <label data-bib-types="book"><span>Chapter <em>(optional)</em></span><input name="bib_chapter"></label>
+                <label data-bib-types="book chapter conference_book standard software report"><span>Publisher</span><input name="bib_publisher"></label>
+                <label data-bib-types="book chapter conference_book thesis standard software report"><span>City / location</span><input name="bib_city" placeholder="New York, NY"></label>
+                <label data-bib-types="book chapter conference_book thesis standard software report"><span>Country</span><input name="bib_country" placeholder="USA"></label>
+                <label data-bib-types="conference presentation"><span>Conference / meeting name</span><input name="bib_conference_name"></label>
+                <label data-bib-types="conference presentation"><span>Conference location</span><input name="bib_conference_location" placeholder="Leeds"></label>
+                <label data-bib-types="conference presentation"><span>Conference country</span><input name="bib_conference_country" placeholder="UK"></label>
+                <label data-bib-types="conference presentation"><span>Conference date</span><input name="bib_conference_date" placeholder="1–4 September 2008"></label>
+                <label data-bib-types="conference"><span>Abstract number <em>(optional)</em></span><input name="bib_abstract_number"></label>
+                <label data-bib-types="presentation"><span>Paper number <em>(optional)</em></span><input name="bib_paper_number"></label>
+                <label data-bib-types="thesis"><span>Thesis level</span><input name="bib_thesis_level" placeholder="Ph.D. Thesis"></label>
+                <label data-bib-types="thesis"><span>Degree-granting institution</span><input name="bib_institution"></label>
+                <label data-bib-types="website"><span>Access date</span><input name="bib_access_date" placeholder="12 August 2023"></label>
+                <label data-bib-types="thesis patent magazine report"><span>Full publication date</span><input name="bib_publication_date" placeholder="18 May 2004"></label>
+                <label data-bib-types="patent"><span>Patent number</span><input name="bib_patent_number"></label>
+                <label data-bib-types="standard"><span>Standard number</span><input name="bib_standard_number"></label>
+                <label data-bib-types="software"><span>Software version</span><input name="bib_software_version" placeholder="version 5.1"></label>
+                <label data-bib-types="software"><span>Software description <em>(optional)</em></span><input name="bib_software_description"></label>
+                <label data-bib-types="report"><span>Report / bulletin number</span><input name="bib_report_number"></label>
+              </div>
+            </details>
+
+            <section class="citation-generator" aria-labelledby="citation-preview-title">
+              <div class="citation-generator-head"><div><p class="eyebrow compact">Generated output</p><h3 id="citation-preview-title">MDPI-formatted citation</h3></div><label class="manual-citation"><input type="checkbox" name="citation_manual"><span>Edit citation manually</span></label></div>
+              <textarea name="citation" rows="5" readonly required aria-describedby="citation-help"></textarea>
+              <p id="citation-help">Automatic mode is the default. Manual editing is available for exceptional references that cannot be represented by the structured fields.</p>
+            </section>
 
             <fieldset class="evidence-fieldset"><legend>Evidence and audit trail</legend><div class="manager-form-grid">
               <label class="span-2"><span>Authoritative evidence URL</span><input name="evidence_url" type="url" required placeholder="https://doi.org/… or publisher record"></label>
@@ -91,15 +133,27 @@
               <div class="impact-grid" data-impact-grid></div>
             </section>
 
-            <div class="manager-actions">
-              <button class="button primary" type="button" data-download-update disabled>Download update package</button>
+            <div class="manager-actions manager-submit-actions">
+              <button class="button primary" type="button" data-submit-update disabled>Submit update request ↗</button>
+              <button class="button" type="button" data-download-update disabled>Download backup JSON</button>
               <button class="button" type="button" data-copy-update disabled>Copy update JSON</button>
               <button class="button" type="reset">Discard edits</button>
-              <a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/actions/workflows/update-dataset.yml">Open publication workflow ↗</a>
             </div>
+            <div class="submission-help" data-submission-help><strong>Nothing has been sent yet.</strong><span>After the form is valid, select <b>Submit update request</b>. GitHub will open with the update already filled in; select <b>Create new issue</b> there to send it and receive a trackable confirmation.</span></div>
           </form>
         </section>
       </div>
+
+      <section class="manager-next-steps" aria-labelledby="submission-title">
+        <div class="panel-head"><div><p class="eyebrow compact">After you submit</p><h2 id="submission-title">A visible five-step publication trail</h2></div><p>Every stage appears in the GitHub request, so you can see whether the data were only drafted, submitted, validated, approved, or published.</p></div>
+        <ol>
+          <li><strong>1. Confirm on GitHub</strong><span>The green button opens a prefilled request. Select <b>Create new issue</b>; only then is the information sent.</span></li>
+          <li><strong>2. Automatic validation</strong><span>GitHub checks the package and comments either “Validation passed” or the exact field that must be corrected.</span></li>
+          <li><strong>3. Approve</strong><span>After reviewing the evidence and preview, a repository maintainer comments <code>/apply-dataset-update</code>.</span></li>
+          <li><strong>4. Rebuild</strong><span>The master record, MDPI citation, References, PINN Realm, year totals, collaboration data, exports, version, and audit trail are regenerated together.</span></li>
+          <li><strong>5. Verify publication</strong><span>The request receives the new dataset version and closes after the update is committed. GitHub Pages then deploys the synchronized Atlas.</span></li>
+        </ol>
+      </section>
 
       <section class="audit-panel" aria-labelledby="audit-title">
         <div class="panel-head"><div><p class="eyebrow compact">Public audit trail</p><h2 id="audit-title">Recent dataset changes</h2></div><p>Every accepted package records the paper ID, changed fields, evidence, version, date, and recalculated impact.</p></div>
