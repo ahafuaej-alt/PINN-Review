@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { BIBLIOGRAPHIC_FIELDS, formatMdpiCitation } from '../../assets/citation-format.mjs';
 
 export const ROOT = path.resolve(import.meta.dirname, '../..');
 export const EXPECTED_RECORDS = 853;
 export const ACCESS_VALUES = ['Open access', 'Subscription', 'Not verified'];
-export const VENUE_TYPES = ['journal', 'conference', 'book', 'chapter', 'preprint', 'thesis', 'report', 'other', 'unknown'];
+export const VENUE_TYPES = ['journal', 'preprint', 'conference_journal', 'conference', 'presentation', 'conference_book', 'book', 'chapter', 'website', 'thesis', 'patent', 'standard', 'software', 'magazine', 'report', 'other', 'unknown'];
 
 export const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
 
@@ -89,6 +90,15 @@ export const validateMaster = (master, countryMapping, worldMap = null) => {
       add(Number.isInteger(paper.overrides.realm_year) && paper.overrides.realm_year >= 1800 && paper.overrides.realm_year <= 2100, `${label} has an invalid Realm year override`);
       warnings.push(`${label} retains legacy Realm year ${paper.overrides.realm_year} instead of bibliography year ${paper.year ?? 'unknown'}`);
     }
+    if (paper.bibliographic !== undefined) {
+      add(paper.bibliographic && typeof paper.bibliographic === 'object' && !Array.isArray(paper.bibliographic), `${label} bibliographic metadata must be an object`);
+      if (paper.bibliographic && typeof paper.bibliographic === 'object') {
+        const unknownFields = Object.keys(paper.bibliographic).filter((field) => !BIBLIOGRAPHIC_FIELDS.includes(field));
+        add(unknownFields.length === 0, `${label} has unsupported bibliographic fields: ${unknownFields.join(', ')}`);
+        for (const [field, value] of Object.entries(paper.bibliographic)) add(typeof value === 'string' && value.trim(), `${label} bibliographic field “${field}” must be a non-empty string`);
+      }
+    }
+    if (paper.provenance?.citation_mode === 'automatic') add(paper.citation === formatMdpiCitation(paper), `${label} automatic MDPI citation is stale`);
     add(Number.isInteger(effectiveRealmYear(paper)), `${label} has no effective year for PINN Realm`);
   }
   return { errors, warnings };
@@ -133,7 +143,7 @@ export const buildReferencesMetadata = (master, references) => {
     dataset_manager_url: 'https://ahafuaej-alt.github.io/PINN-Review/dataset-manager/',
     available_client_exports: ['BibTeX', 'RIS', 'EndNote', 'Zotero-compatible RIS', 'CSV'],
     data_quality_policy: 'Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Public reference, geography, analytics, filter, and export datasets are generated from that master. Unresolved legacy year disagreements remain explicit overrides until a sourced correction resolves them.',
-    privacy: 'The static dataset does not contain reader data. Dataset Manager edits remain in the browser until an update package is downloaded or copied.'
+    privacy: 'The static dataset does not contain reader data. Dataset Manager edits remain in the browser until the user explicitly opens and confirms a GitHub update request.'
   };
 };
 
@@ -236,7 +246,7 @@ export const bumpPatchVersion = (version) => {
 export const impactSummary = (beforeMaster, afterMaster, id, countryMapping) => {
   const beforePaper = beforeMaster.papers.find((paper) => paper.id === id);
   const afterPaper = afterMaster.papers.find((paper) => paper.id === id);
-  const changedFields = ['title', 'citation', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']
+  const changedFields = ['title', 'citation', 'bibliographic', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']
     .filter((field) => JSON.stringify(beforePaper[field]) !== JSON.stringify(afterPaper[field]));
   if (beforePaper?.overrides?.realm_year !== afterPaper?.overrides?.realm_year) changedFields.push('realm_year_override');
   const before = buildAll(beforeMaster, countryMapping);
