@@ -76,6 +76,7 @@
     addNavLink('PINN Realm', 'pinn-realm/');
     addNavLink('Abbreviations', 'abbreviations/');
     addNavLink('References', 'references/');
+    addNavLink('Dataset Manager', 'dataset-manager/');
   }
 
   const footer = document.querySelector('.footer-inner');
