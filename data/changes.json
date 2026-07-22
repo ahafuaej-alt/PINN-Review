@@ -2,6 +2,78 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-246-2026-07-22-2.0.1",
+      "version": "2.0.1",
+      "date": "2026-07-22",
+      "paper_id": 246,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access"
+      ],
+      "reason": "all entries were not correct",
+      "evidence": {
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-69409-7_23",
+        "note": "all entries were not correct"
+      },
+      "submitted_by": "A",
+      "impact": {
+        "paper_id": 246,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 152,
+            "after": 153
+          },
+          {
+            "year": 2025,
+            "before": 299,
+            "after": 298
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2024,
+            "before": 163,
+            "after": 164
+          },
+          {
+            "year": 2025,
+            "before": 300,
+            "after": 299
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, analytics, search, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "migration-2026-07-22",
       "version": "2.0.0",
       "date": "2026-07-22",

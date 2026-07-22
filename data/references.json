@@ -2451,13 +2451,13 @@
   },
   {
     "id": 246,
-    "title": "Nonlinear Structures & Systems, Vol. 1, 2025",
-    "citation": "\"Nonlinear Structures \\& Systems, Vol. 1,\" 2025.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "year": 2025,
-    "access": "Not verified"
+    "title": "Effect of Loss Functions on the Learning Capabilities of Physics-Informed Neural Networks in Mechanical Systems",
+    "citation": "Martinelli, C.; Elliott, A.; Cammarano, A. Effect of Loss Functions on the Learning Capabilities of Physics-Informed Neural Networks in Mechanical Systems. In Nonlinear Structures & Systems, 1; Brake, M.R., Renson, L., Kuether, R.J., Tiso, P, Eds.; Springer: Cham, Switzerland, 2024; Volume 1, pp. 137-143. https://doi.org/10.1007/978-3-031-69409-7_23.",
+    "doi": "10.1007/978-3-031-69409-7_23",
+    "publisher_url": "https://doi.org/10.1007/978-3-031-69409-7_23",
+    "venue": "Conference Proceedings of the Society for Experimental Mechanics Series IMAC 2024.",
+    "year": 2024,
+    "access": "Subscription"
   },
   {
     "id": 247,

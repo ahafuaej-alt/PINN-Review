@@ -1,17 +1,17 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "schema_version": "1.0.0",
   "last_updated": "2026-07-22",
   "record_count": 853,
   "reference_id_range": "1-853",
   "year_range": "1908-2025",
-  "doi_fields": 756,
-  "publisher_or_doi_links": 770,
+  "doi_fields": 757,
+  "publisher_or_doi_links": 771,
   "accessibility": {
     "open_access": 266,
-    "subscription": 523,
-    "not_verified": 64
+    "subscription": 524,
+    "not_verified": 63
   },
   "source_document": "38_1_10_references.docx",
   "country_source": "papers-countries-and-year.md",

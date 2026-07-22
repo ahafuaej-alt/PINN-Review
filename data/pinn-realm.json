@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-22",
     "source_file": "papers-countries-and-year.md",
@@ -3170,8 +3170,8 @@
     },
     {
       "id": 246,
-      "title": "Nonlinear Structures & Systems, Vol. 1, 2025",
-      "year": 2025,
+      "title": "Effect of Loss Functions on the Learning Capabilities of Physics-Informed Neural Networks in Mechanical Systems",
+      "year": 2024,
       "countries": [
         "United States",
         "United Kingdom",
@@ -13430,14 +13430,14 @@
           "international": 0
         },
         "2024": {
-          "total": 1,
+          "total": 2,
           "national": 0,
-          "international": 1
+          "international": 2
         },
         "2025": {
-          "total": 3,
+          "total": 2,
           "national": 0,
-          "international": 3
+          "international": 2
         },
         "2026": {
           "total": 1,
@@ -13806,14 +13806,14 @@
           "international": 5
         },
         "2024": {
-          "total": 10,
+          "total": 11,
           "national": 6,
-          "international": 4
+          "international": 5
         },
         "2025": {
-          "total": 16,
+          "total": 15,
           "national": 8,
-          "international": 8
+          "international": 7
         }
       }
     },
@@ -14391,14 +14391,14 @@
           "international": 15
         },
         "2024": {
-          "total": 38,
+          "total": 39,
           "national": 24,
-          "international": 14
+          "international": 15
         },
         "2025": {
-          "total": 38,
+          "total": 37,
           "national": 17,
-          "international": 21
+          "international": 20
         },
         "2026": {
           "total": 1,
@@ -14985,7 +14985,7 @@
         "2022": [
           770
         ],
-        "2025": [
+        "2024": [
           246
         ]
       }
@@ -15051,11 +15051,11 @@
           833
         ],
         "2024": [
+          246,
           711
         ],
         "2025": [
-          199,
-          246
+          199
         ],
         "2026": [
           835
@@ -16382,11 +16382,11 @@
           465
         ],
         "2024": [
-          245
+          245,
+          246
         ],
         "2025": [
-          161,
-          246
+          161
         ]
       }
     },

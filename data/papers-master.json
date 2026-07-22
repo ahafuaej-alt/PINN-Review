@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.0.0",
+    "dataset_version": "2.0.1",
     "last_updated": "2026-07-22",
     "record_count": 853,
     "id_range": "1-853",
@@ -5765,16 +5765,16 @@
     },
     {
       "id": 246,
-      "title": "Nonlinear Structures & Systems, Vol. 1, 2025",
-      "citation": "\"Nonlinear Structures \\& Systems, Vol. 1,\" 2025.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Effect of Loss Functions on the Learning Capabilities of Physics-Informed Neural Networks in Mechanical Systems",
+      "citation": "Martinelli, C.; Elliott, A.; Cammarano, A. Effect of Loss Functions on the Learning Capabilities of Physics-Informed Neural Networks in Mechanical Systems. In Nonlinear Structures & Systems, 1; Brake, M.R., Renson, L., Kuether, R.J., Tiso, P, Eds.; Springer: Cham, Switzerland, 2024; Volume 1, pp. 137-143. https://doi.org/10.1007/978-3-031-69409-7_23.",
+      "doi": "10.1007/978-3-031-69409-7_23",
+      "publisher_url": "https://doi.org/10.1007/978-3-031-69409-7_23",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Conference Proceedings of the Society for Experimental Mechanics Series IMAC 2024.",
+        "type": "conference_book"
       },
-      "year": 2025,
-      "access": "Not verified",
+      "year": 2024,
+      "access": "Subscription",
       "countries": [
         "United States",
         "United Kingdom",
@@ -5783,10 +5783,23 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://link.springer.com/chapter/10.1007/978-3-031-69409-7_23",
+        "note": "all entries were not correct",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-22",
+      "bibliographic": {
+        "authors": "Martinelli, C.; Elliott, A.; Cammarano, A.",
+        "editors": "Brake, M.R., Renson, L., Kuether, R.J., Tiso, P.",
+        "journal_abbreviation": "Venue not identified",
+        "volume": "1",
+        "pages": "137-143",
+        "edition": "1",
+        "book_title": "Nonlinear Structures & Systems",
+        "publisher": "Springer",
+        "city": "Cham",
+        "country": "Switzerland"
+      }
     },
     {
       "id": 247,
