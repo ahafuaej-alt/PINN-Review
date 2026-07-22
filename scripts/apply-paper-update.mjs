@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import process from 'node:process';
+import { extractLegacyBibliographic, formatMdpiCitation, normalizeBibliographic } from '../assets/citation-format.mjs';
 import { buildAll, bumpPatchVersion, impactSummary, normalizeDoi, readJson, validateMaster, writeJsonAtomic } from './lib/dataset-core.mjs';
 import { generateDatasets } from './build-datasets.mjs';
 
-const allowedFields = new Set(['title', 'citation', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']);
+const allowedFields = new Set(['title', 'citation', 'bibliographic', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']);
 const usage = 'Usage: node scripts/apply-paper-update.mjs update.json [--dry-run]';
 
 const loadUpdate = () => {
@@ -13,12 +14,16 @@ const loadUpdate = () => {
 };
 
 const update = loadUpdate();
-if (update.schema_version !== '1.0.0') throw new Error('Update package schema_version must be 1.0.0');
+if (!['1.0.0', '1.1.0'].includes(update.schema_version)) throw new Error('Update package schema_version must be 1.0.0 or 1.1.0');
 if (!Number.isInteger(update.id)) throw new Error('Update package requires a numeric paper id');
 if (!update.changes || typeof update.changes !== 'object' || Array.isArray(update.changes)) throw new Error('Update package requires a changes object');
 for (const field of Object.keys(update.changes)) if (!allowedFields.has(field)) throw new Error(`Field “${field}” cannot be updated by this workflow`);
+if (!Object.keys(update.changes).length) throw new Error('Update package does not contain any changed fields');
 if (!String(update.reason || '').trim()) throw new Error('A reason is required for the audit trail');
 if (!String(update.evidence?.url || '').startsWith('https://')) throw new Error('An HTTPS evidence URL is required');
+const citationMode = update.options?.citation_mode || ('citation' in update.changes ? 'manual' : 'legacy');
+if (!['automatic', 'manual', 'legacy'].includes(citationMode)) throw new Error('Citation mode must be automatic or manual');
+if (citationMode === 'manual' && !String(update.changes.citation || '').trim() && 'citation' in update.changes) throw new Error('A manually supplied citation cannot be empty');
 
 const master = readJson('data/papers-master.json');
 const mapping = readJson('data/country-mapping.json');
@@ -28,12 +33,14 @@ const next = structuredClone(master);
 const paper = next.papers.find((record) => record.id === update.id);
 if (!paper) throw new Error(`Paper ${update.id} does not exist`);
 const previousYear = paper.year;
+const legacyBibliographic = extractLegacyBibliographic(paper);
 
 for (const [field, rawValue] of Object.entries(update.changes)) {
   if (field === 'doi') paper.doi = normalizeDoi(rawValue);
   else if (field === 'year') paper.year = rawValue === null || rawValue === '' ? null : Number(rawValue);
   else if (field === 'countries') paper.countries = [...new Set(rawValue.map((country) => String(country).trim()).filter(Boolean))];
   else if (field === 'venue') paper.venue = { name: String(rawValue.name || '').trim(), type: rawValue.type };
+  else if (field === 'bibliographic') paper.bibliographic = normalizeBibliographic(rawValue);
   else paper[field] = rawValue === null ? null : String(rawValue).trim();
 }
 
@@ -42,7 +49,13 @@ if ('year' in update.changes && !update.options?.preserve_realm_year_override) {
   if (paper.overrides) delete paper.overrides.realm_year;
   if (paper.overrides && !Object.keys(paper.overrides).length) delete paper.overrides;
 }
-if ('year' in update.changes && !('citation' in update.changes) && paper.year !== null) {
+const citationDrivingFields = ['title', 'doi', 'publisher_url', 'venue', 'year', 'bibliographic'];
+const shouldRegenerateCitation = citationMode === 'automatic' && citationDrivingFields.some((field) => field in update.changes);
+if (shouldRegenerateCitation) {
+  if (!paper.bibliographic) paper.bibliographic = legacyBibliographic;
+  paper.citation = formatMdpiCitation(paper);
+  if (!paper.citation) throw new Error('MDPI citation could not be generated from the submitted bibliographic fields');
+} else if (citationMode === 'legacy' && 'year' in update.changes && !('citation' in update.changes) && paper.year !== null) {
   const newYearPattern = new RegExp(`\\b${paper.year}\\b`);
   if (!newYearPattern.test(paper.citation)) {
     if (!Number.isInteger(previousYear)) throw new Error('Citation text must be supplied when adding a year that is not already present in the citation');
@@ -58,6 +71,8 @@ paper.last_updated = today;
 paper.provenance ||= {};
 paper.provenance.evidence_url = update.evidence.url;
 paper.provenance.note = update.evidence.note || update.reason;
+if (shouldRegenerateCitation) paper.provenance.citation_mode = 'automatic';
+else if (citationMode === 'manual' && 'citation' in update.changes) paper.provenance.citation_mode = 'manual';
 next.metadata.dataset_version = bumpPatchVersion(master.metadata.dataset_version);
 next.metadata.last_updated = today;
 next.metadata.record_count = next.papers.length;

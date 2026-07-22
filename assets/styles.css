@@ -718,6 +718,23 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
 .manager-form-grid input:focus, .manager-form-grid select:focus, .manager-form-grid textarea:focus { border-color: var(--mint); box-shadow: 0 0 0 3px rgba(80,227,194,.08); }
 .manager-form-grid .span-2 { grid-column: 1 / -1; }
 .manager-form-grid em { color: var(--faint); font-size: .55rem; text-transform: none; }
+.manager-bibliographic { margin-top: 1rem; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-faint); overflow: hidden; }
+.manager-bibliographic summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem .9rem; color: var(--ink); background: var(--surface-soft); cursor: pointer; }
+.manager-bibliographic summary::marker { color: var(--mint); }
+.manager-bibliographic summary span { font-size: .76rem; font-weight: 700; }
+.manager-bibliographic summary small { color: var(--faint); font-size: .62rem; font-weight: 400; text-align: right; }
+.manager-bibliographic > .manager-form-grid { padding: 0 .9rem .95rem; }
+.mdpi-note { display: grid; grid-template-columns: 10rem 1fr; gap: .8rem; margin: .85rem .9rem 0; padding: .72rem; border-left: 2px solid var(--blue); color: var(--muted); background: rgba(79,174,255,.05); font-size: .66rem; }
+.mdpi-note strong { color: var(--ink); }
+.citation-generator { margin-top: 1rem; padding: .9rem; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-faint); }
+.citation-generator-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.citation-generator h3 { margin: 0; font-size: .9rem; }
+.citation-generator textarea { width: 100%; margin-top: .65rem; padding: .72rem; border: 1px solid var(--line-strong); border-radius: 9px; color: var(--ink); background: var(--field); line-height: 1.55; resize: vertical; }
+.citation-generator textarea[readonly] { border-color: rgba(80,227,194,.24); background: rgba(80,227,194,.035); }
+.citation-generator textarea:focus { border-color: var(--mint); outline: none; box-shadow: 0 0 0 3px rgba(80,227,194,.08); }
+.citation-generator > p { margin: .4rem 0 0; color: var(--faint); font-size: .61rem; }
+.manual-citation { display: inline-flex; align-items: center; gap: .4rem; color: var(--muted); font-size: .64rem; cursor: pointer; }
+.manual-citation input { accent-color: var(--mint); }
 .evidence-fieldset { margin: 1rem 0 0; padding: 0 1rem 1rem; border: 1px solid var(--line); border-radius: 11px; }
 .evidence-fieldset legend { padding: 0 .45rem; color: var(--mint); font-family: var(--mono); font-size: .62rem; text-transform: uppercase; }
 .manager-validation { margin: .9rem 0; padding: .7rem; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-faint); }
@@ -736,6 +753,16 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
 .manager-muted { margin: 0; color: var(--faint); font-size: .68rem; }
 .manager-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
 .manager-actions button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.manager-submit-actions .button.primary { min-width: 12rem; }
+.submission-help { display: grid; grid-template-columns: 12rem 1fr; gap: .7rem; margin-top: .65rem; padding: .75rem; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: var(--surface-faint); font-size: .66rem; }
+.submission-help strong { color: var(--ink); }
+.submission-help.is-opened { border-color: rgba(80,227,194,.32); background: rgba(80,227,194,.045); }
+.manager-next-steps { margin: 1rem 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+.manager-next-steps ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; margin: 1rem 0 0; padding: 0; border: 1px solid var(--line); border-radius: 11px; background: var(--line); list-style: none; overflow: hidden; }
+.manager-next-steps li { min-height: 155px; display: flex; flex-direction: column; padding: .8rem; background: var(--surface-soft); }
+.manager-next-steps strong { color: var(--mint); font-family: var(--mono); font-size: .62rem; }
+.manager-next-steps span { margin-top: auto; color: var(--muted); font-size: .64rem; line-height: 1.5; }
+.manager-next-steps code { color: var(--ink); font-size: .58rem; }
 .audit-list { display: grid; gap: .55rem; }
 .audit-list article { display: grid; grid-template-columns: minmax(150px, .55fr) 1.6fr auto; gap: .7rem; align-items: center; padding: .75rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-faint); }
 .audit-list article > div { display: grid; }
@@ -772,6 +799,7 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .provenance-panel { grid-template-columns: 1fr; }
   .provenance-actions { grid-column: auto; }
   .manager-pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .manager-next-steps ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .manager-layout { grid-template-columns: 1fr; }
   .manager-browser { position: static; }
   .manager-results { max-height: 260px; }
@@ -817,9 +845,10 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .selection-bar { left: 1rem; right: 1rem; bottom: .65rem; transform: none; }
   .toast { bottom: 5.8rem; }
   .mini-bar { grid-template-columns: minmax(6.5rem, 8rem) 1fr 2.2rem; }
-  .manager-pipeline, .manager-form-grid, .impact-grid { grid-template-columns: 1fr; }
+  .manager-pipeline, .manager-form-grid, .impact-grid, .manager-next-steps ol { grid-template-columns: 1fr; }
   .manager-form-grid .span-2 { grid-column: auto; }
   .manager-editor-head { flex-direction: column; }
-  .legacy-warning { grid-template-columns: 1fr; }
+  .legacy-warning, .mdpi-note, .submission-help { grid-template-columns: 1fr; }
+  .manager-bibliographic summary, .citation-generator-head { align-items: flex-start; flex-direction: column; }
   .audit-list article { grid-template-columns: 1fr; }
 }

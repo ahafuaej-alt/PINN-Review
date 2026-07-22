@@ -22,6 +22,11 @@ body:
         - Authors
         - DOI or publisher URL
         - Journal or conference
+        - Volume, pages, or article number
+        - Publisher, city, or country
+        - Conference location or date
+        - Editors, edition, or book title
+        - Thesis, patent, standard, software, or report details
         - Publication year
         - Accessibility
         - Other
@@ -31,7 +36,7 @@ body:
     id: correction
     attributes:
       label: Proposed correction
-      description: State the current value and the corrected value.
+      description: State the current value and the corrected value. The Dataset Manager is recommended for a complete, automatically formatted update request.
     validations:
       required: true
   - type: input

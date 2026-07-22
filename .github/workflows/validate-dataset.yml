@@ -28,4 +28,5 @@ jobs:
         run: |
           node scripts/build-datasets.mjs --check
           node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
           node scripts/validate-pinn-realm.mjs
