@@ -1,0 +1,129 @@
+name: Review dataset update request
+
+on:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: dataset-update-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  validate-request:
+    if: github.event_name == 'issues' && startsWith(github.event.issue.title, '[Dataset update]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Extract submitted update
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          node -e "require('fs').writeFileSync('/tmp/pinn-update-issue.txt', process.env.ISSUE_BODY || '')"
+          node scripts/extract-dataset-update.mjs /tmp/pinn-update-issue.txt /tmp/pinn-paper-update.json
+      - name: Validate and preview the coordinated change
+        id: validate
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/apply-paper-update.mjs /tmp/pinn-paper-update.json --dry-run > /tmp/pinn-validation.json 2> /tmp/pinn-validation-error.txt
+      - name: Report validation result
+        if: always()
+        uses: actions/github-script@v7
+        env:
+          VALIDATION_OUTCOME: ${{ steps.validate.outcome }}
+        with:
+          script: |
+            const fs = require('fs');
+            const passed = process.env.VALIDATION_OUTCOME === 'success';
+            let body;
+            if (passed) {
+              const result = JSON.parse(fs.readFileSync('/tmp/pinn-validation.json', 'utf8'));
+              const fields = result.audit.changed_fields.join(', ');
+              body = `### ✅ Dataset validation passed\n\nPaper **[${result.audit.paper_id}]** can be applied as dataset version **${result.version}**. Affected fields: ${fields}.\n\nA repository maintainer should review the evidence and citation preview, then comment exactly:\n\n\`/apply-dataset-update\`\n\nNothing has been published yet.`;
+            } else {
+              const error = fs.existsSync('/tmp/pinn-validation-error.txt') ? fs.readFileSync('/tmp/pinn-validation-error.txt', 'utf8').trim() : 'The update package could not be validated.';
+              body = `### ❌ Dataset validation failed\n\n\`\`\`text\n${error.slice(0, 5000)}\n\`\`\`\n\nCorrect the request in Dataset Manager and submit a new update. Nothing was published.`;
+            }
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+      - name: Mark invalid workflow run
+        if: steps.validate.outcome != 'success'
+        run: exit 1
+
+  apply-approved-request:
+    if: github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update' && startsWith(github.event.issue.title, '[Dataset update]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Confirm maintainer permission
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const response = await github.rest.repos.getCollaboratorPermissionLevel({ owner: context.repo.owner, repo: context.repo.repo, username: context.actor });
+            if (!['admin', 'maintain', 'write'].includes(response.data.permission)) core.setFailed('Only a repository maintainer can approve a dataset update.');
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Extract approved update
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          node -e "require('fs').writeFileSync('/tmp/pinn-update-issue.txt', process.env.ISSUE_BODY || '')"
+          node scripts/extract-dataset-update.mjs /tmp/pinn-update-issue.txt /tmp/pinn-paper-update.json
+      - name: Apply, regenerate, and validate every related dataset
+        id: apply
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/apply-paper-update.mjs /tmp/pinn-paper-update.json | tee /tmp/pinn-apply-result.json
+          node scripts/build-datasets.mjs --check
+          node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
+          node scripts/validate-pinn-realm.mjs
+          git diff --check
+        shell: bash
+      - name: Commit coordinated dataset release
+        id: commit
+        if: steps.apply.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json
+          git commit -m "Update canonical paper dataset"
+          git push origin HEAD:main
+      - name: Report publication result
+        if: always()
+        uses: actions/github-script@v7
+        env:
+          APPLY_OUTCOME: ${{ steps.apply.outcome }}
+          COMMIT_OUTCOME: ${{ steps.commit.outcome }}
+        with:
+          script: |
+            const fs = require('fs');
+            const passed = process.env.APPLY_OUTCOME === 'success' && process.env.COMMIT_OUTCOME === 'success';
+            let body;
+            if (passed) {
+              const result = JSON.parse(fs.readFileSync('/tmp/pinn-apply-result.json', 'utf8'));
+              body = `### ✅ Dataset update published\n\nPaper **[${result.audit.paper_id}]** was applied as dataset version **${result.version}**. References, PINN Realm, year totals, collaboration data, citation exports, metadata, and the audit trail were regenerated together. GitHub Pages is now deploying the synchronized Atlas.`;
+              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: 'closed' });
+            } else {
+              body = '### ❌ Publication stopped\n\nA repository validation or publication check failed. No coordinated dataset commit was pushed. Open the failed workflow run for the exact diagnostic.';
+            }
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+      - name: Mark failed publication run
+        if: steps.apply.outcome != 'success' || steps.commit.outcome != 'success'
+        run: exit 1
