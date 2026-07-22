@@ -11,6 +11,7 @@ PINN Review Atlas is the web companion to a review of physics-informed neural ne
 - `/software/` — libraries, frameworks, solvers, and packages
 - `/datasets/` — ready-made and generated datasets
 - `/abbreviations/` — reported abbreviations, frequencies, and reference-level evidence
+- `/pinn-realm/` — interactive country distribution and international affiliation co-occurrence across all 853 papers
 - `/references/` — complete review bibliography with advanced search, shareable filters, reading lists, pagination, analytics, and BibTeX/RIS/EndNote/CSV exports
 - `/references/changelog/` — bibliography version history and data-quality methodology
 - `/cite/` — citation and version guidance
@@ -35,3 +36,9 @@ The workflow in `.github/workflows/pages.yml` deploys the repository to GitHub P
 The website separates presentation from evidence. Counts, classifications, and citation IDs should only be added after the source data have been checked. Every published view should provide its source data and a stable URL.
 
 The bibliography dataset is published at `/data/references.json`; its version and quality metadata are published at `/data/references-metadata.json`. Reader selections, recent searches, and theme preferences remain in the reader's browser and are never submitted to the site.
+
+PINN Realm consumes the generated `/data/pinn-realm.json` dataset and the lightweight `/data/world-map.json` geometry. Rebuild the realm dataset after changing the standardized country/year source with:
+
+```bash
+node scripts/build-pinn-realm.mjs
+```
