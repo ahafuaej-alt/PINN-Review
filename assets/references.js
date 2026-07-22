@@ -5,7 +5,48 @@
   const METADATA_URL = '../data/references-metadata.json';
   const STORAGE_SELECTION = 'pinn-atlas-reading-list';
   const STORAGE_RECENT = 'pinn-atlas-recent-reference-searches';
-  const DEFAULTS = { query: '', sort: 'id-asc', access: 'all', venue: 'all', yearFrom: 'all', yearTo: 'all', page: 1, perPage: 50 };
+  const REFERENCE_TYPES = Object.freeze({
+    journal: 'Journal article',
+    preprint: 'Preprint',
+    conference_journal: 'Conference paper published in a journal',
+    conference: 'Conference proceedings',
+    presentation: 'Unpublished oral presentation',
+    conference_book: 'Conference paper published in a book',
+    book: 'Book',
+    chapter: 'Book chapter / contribution',
+    website: 'Website / online resource',
+    thesis: 'Thesis',
+    patent: 'Patent',
+    standard: 'Standard',
+    software: 'Software',
+    magazine: 'Magazine / newspaper',
+    report: 'Report / bulletin',
+    other: 'Other',
+    unknown: 'Unknown'
+  });
+  const BIBLIOGRAPHIC_LABELS = Object.freeze({
+    authors: 'Authors', editors: 'Editors', journal_abbreviation: 'Journal abbreviation', volume: 'Volume', issue: 'Issue', pages: 'Pages', article_number: 'Article number', edition: 'Edition', book_title: 'Book / collected-work title', chapter: 'Chapter', publisher: 'Publisher', city: 'City / location', country: 'Publisher country', conference_name: 'Conference / meeting name', conference_location: 'Conference location', conference_country: 'Conference country', conference_date: 'Conference date', abstract_number: 'Abstract number', paper_number: 'Paper number', thesis_level: 'Thesis level', institution: 'Degree-granting institution', access_date: 'Access date', publication_date: 'Full publication date', patent_number: 'Patent number', standard_number: 'Standard number', software_version: 'Software version', software_description: 'Software description', report_number: 'Report / bulletin number'
+  });
+  const TYPE_FIELDS = Object.freeze({
+    journal: ['authors', 'journal_abbreviation', 'volume', 'issue', 'pages', 'article_number'],
+    preprint: ['authors', 'journal_abbreviation', 'volume', 'issue', 'pages', 'article_number'],
+    conference_journal: ['authors', 'journal_abbreviation', 'volume', 'issue', 'pages', 'article_number'],
+    conference: ['authors', 'conference_name', 'conference_location', 'conference_country', 'conference_date', 'pages', 'abstract_number'],
+    presentation: ['authors', 'conference_name', 'conference_location', 'conference_country', 'conference_date', 'paper_number'],
+    conference_book: ['authors', 'editors', 'book_title', 'volume', 'edition', 'pages', 'publisher', 'city', 'country'],
+    book: ['authors', 'edition', 'chapter', 'pages', 'publisher', 'city', 'country'],
+    chapter: ['authors', 'editors', 'book_title', 'volume', 'edition', 'pages', 'publisher', 'city', 'country'],
+    website: ['authors', 'access_date'],
+    thesis: ['authors', 'thesis_level', 'institution', 'city', 'country', 'publication_date'],
+    patent: ['authors', 'patent_number', 'publication_date'],
+    standard: ['authors', 'standard_number', 'publisher', 'city', 'country'],
+    software: ['authors', 'software_version', 'software_description', 'publisher', 'city', 'country'],
+    magazine: ['authors', 'pages', 'publication_date'],
+    report: ['authors', 'report_number', 'pages', 'publisher', 'city', 'country', 'publication_date'],
+    other: ['authors'],
+    unknown: ['authors']
+  });
+  const DEFAULTS = { query: '', sort: 'id-asc', access: 'all', type: 'all', venue: 'all', yearFrom: 'all', yearTo: 'all', page: 1, perPage: 50 };
   const state = { ...DEFAULTS, rows: [], selected: new Set(), recent: [] };
 
   const elements = {
@@ -14,6 +55,7 @@
     clearSearch: document.querySelector('[data-clear-search]'),
     sort: document.querySelector('[data-reference-sort]'),
     access: document.querySelector('[data-reference-access]'),
+    type: document.querySelector('[data-reference-type]'),
     venue: document.querySelector('[data-reference-venue]'),
     yearFrom: document.querySelector('[data-reference-year-from]'),
     yearTo: document.querySelector('[data-reference-year-to]'),
@@ -97,9 +139,11 @@
   };
 
   const prepareRow = (row) => {
-    row._authors = extractAuthorsText(row);
+    row.reference_type = REFERENCE_TYPES[row.reference_type] ? row.reference_type : 'unknown';
+    row.bibliographic = row.bibliographic && typeof row.bibliographic === 'object' ? row.bibliographic : {};
+    row._authors = row.bibliographic.authors || extractAuthorsText(row);
     row._authorList = authorsArray(row);
-    row._search = normalizeText(`${row.id} ${row.title} ${row.citation} ${row.doi || ''} ${row.venue || ''} ${row.year || ''} ${row.access || ''} ${row._authors}`);
+    row._search = normalizeText(`${row.id} ${row.title} ${row.citation} ${row.doi || ''} ${row.venue || ''} ${row.year || ''} ${row.access || ''} ${row.reference_type} ${REFERENCE_TYPES[row.reference_type]} ${row._authors} ${row.abstract || ''}`);
     row._words = [...new Set(row._search.split(' ').filter(Boolean))];
     return row;
   };
@@ -129,7 +173,7 @@
       if (colon > 0) {
         const field = token.slice(0, colon).toLowerCase();
         const value = token.slice(colon + 1).replace(/^"|"$/g, '');
-        if (['year', 'access', 'venue', 'author'].includes(field) && value) parsed.fields.push({ field, value: normalizeText(value), raw: value });
+        if (['year', 'access', 'type', 'venue', 'author'].includes(field) && value) parsed.fields.push({ field, value: normalizeText(value), raw: value });
         else parsed.terms.push(normalizeText(token));
       } else if (token.startsWith('"') && token.endsWith('"')) {
         parsed.phrases.push(normalizeText(token.slice(1, -1)));
@@ -160,6 +204,7 @@
     return parsed.fields.every(({ field, value, raw }) => {
       if (field === 'author') return normalizeText(row._authors).includes(value);
       if (field === 'venue') return normalizeText(row.venue).includes(value);
+      if (field === 'type') return normalizeText(`${row.reference_type} ${REFERENCE_TYPES[row.reference_type]}`).includes(value);
       if (field === 'access') {
         const normalizedAccess = normalizeText(row.access);
         const aliases = value === 'open' ? 'open access' : value === 'sub' ? 'subscription' : value === 'unverified' ? 'not verified' : value;
@@ -176,6 +221,7 @@
 
   const filteredRows = () => state.rows.filter((row) => {
     if (state.access !== 'all' && row.access !== state.access) return false;
+    if (state.type !== 'all' && row.reference_type !== state.type) return false;
     if (state.venue !== 'all' && row.venue !== state.venue) return false;
     if (state.yearFrom !== 'all' && (!row.year || row.year < Number(state.yearFrom))) return false;
     if (state.yearTo !== 'all' && (!row.year || row.year > Number(state.yearTo))) return false;
@@ -229,6 +275,7 @@
     state.query = params.get('q') || DEFAULTS.query;
     state.sort = params.get('sort') || DEFAULTS.sort;
     state.access = params.get('access') || DEFAULTS.access;
+    state.type = params.get('type') || DEFAULTS.type;
     state.venue = params.get('venue') || DEFAULTS.venue;
     state.yearFrom = params.get('yearFrom') || DEFAULTS.yearFrom;
     state.yearTo = params.get('yearTo') || DEFAULTS.yearTo;
@@ -242,6 +289,7 @@
     if (state.yearFrom !== 'all') params.set('yearFrom', state.yearFrom);
     if (state.yearTo !== 'all') params.set('yearTo', state.yearTo);
     if (state.access !== 'all') params.set('access', state.access);
+    if (state.type !== 'all') params.set('type', state.type);
     if (state.venue !== 'all') params.set('venue', state.venue);
     if (state.sort !== DEFAULTS.sort) params.set('sort', state.sort);
     if (state.page !== 1) params.set('page', String(state.page));
@@ -261,12 +309,14 @@
     elements.clearSearch.hidden = !state.query;
     elements.sort.value = [...elements.sort.options].some((option) => option.value === state.sort) ? state.sort : DEFAULTS.sort;
     elements.access.value = [...elements.access.options].some((option) => option.value === state.access) ? state.access : 'all';
+    elements.type.value = [...elements.type.options].some((option) => option.value === state.type) ? state.type : 'all';
     elements.venue.value = [...elements.venue.options].some((option) => option.value === state.venue) ? state.venue : 'all';
     elements.yearFrom.value = [...elements.yearFrom.options].some((option) => option.value === state.yearFrom) ? state.yearFrom : 'all';
     elements.yearTo.value = [...elements.yearTo.options].some((option) => option.value === state.yearTo) ? state.yearTo : 'all';
     elements.perPage.value = String(state.perPage);
     state.sort = elements.sort.value;
     state.access = elements.access.value;
+    state.type = elements.type.value;
     state.venue = elements.venue.value;
     state.yearFrom = elements.yearFrom.value;
     state.yearTo = elements.yearTo.value;
@@ -306,7 +356,9 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
-  const citationType = (row) => /conference|proceedings|symposium|workshop|meeting/i.test(row.venue || '') ? 'CONF' : 'JOUR';
+  const citationType = (row) => ({
+    journal: 'JOUR', preprint: 'JOUR', conference_journal: 'JOUR', conference: 'CONF', presentation: 'CONF', conference_book: 'CHAP', chapter: 'CHAP', book: 'BOOK', thesis: 'THES', report: 'RPRT', standard: 'STAND', patent: 'PAT', software: 'COMP', website: 'ELEC', magazine: 'MGZN'
+  }[row.reference_type] || (/conference|proceedings|symposium|workshop|meeting/i.test(row.venue || '') ? 'CONF' : 'GEN'));
   const citationKey = (row) => {
     const first = row._authorList[0] || `ref${row.id}`;
     const surname = first.includes(',') ? first.split(',')[0] : first.trim().split(/\s+/).pop();
@@ -351,7 +403,7 @@
   ].filter(Boolean).join('\r\n');
 
   const toCsv = (rows) => {
-    const data = [['Reference', 'Title', 'Authors', 'MDPI citation', 'Journal / conference', 'Year', 'Accessibility', 'DOI', 'Publisher URL'], ...rows.map((row) => [row.id, row.title, row._authors, row.citation, row.venue, row.year || '', row.access, row.doi || '', safeUrl(row.publisher_url)])];
+    const data = [['Reference', 'Title', 'Authors', 'Reference type', 'MDPI citation', 'Journal / conference / source', 'Year', 'Accessibility', 'DOI', 'Publisher URL', 'Affiliation countries', 'Abstract', 'Graphical abstract URL', 'Graphical abstract alt text', 'Graphical abstract caption'], ...rows.map((row) => [row.id, row.title, row._authors, REFERENCE_TYPES[row.reference_type] || row.reference_type, row.citation, row.venue, row.year || '', row.access, row.doi || '', safeUrl(row.publisher_url), (row.countries || []).join('; '), row.abstract || '', safeUrl(row.graphical_abstract?.image_url), row.graphical_abstract?.alt_text || '', row.graphical_abstract?.caption || ''])];
     return `\ufeff${data.map((line) => line.map((cell) => `"${String(cell ?? '').replace(/"/g, '""')}"`).join(',')).join('\r\n')}`;
   };
 
@@ -383,6 +435,7 @@
     if (state.query) chips.push({ key: 'query', label: `Search: ${state.query}` });
     if (state.yearFrom !== 'all' || state.yearTo !== 'all') chips.push({ key: 'year', label: `${state.yearFrom === 'all' ? 'Any' : state.yearFrom}–${state.yearTo === 'all' ? 'Any' : state.yearTo}` });
     if (state.access !== 'all') chips.push({ key: 'access', label: state.access });
+    if (state.type !== 'all') chips.push({ key: 'type', label: `Type: ${REFERENCE_TYPES[state.type] || state.type}` });
     if (state.venue !== 'all') chips.push({ key: 'venue', label: state.venue });
     elements.chips.innerHTML = chips.length ? `${chips.map((chip) => `<button type="button" data-clear-filter="${chip.key}" title="Remove ${escapeHtml(chip.label)}">${escapeHtml(chip.label)} <span aria-hidden="true">×</span></button>`).join('')}<button class="clear-all-chip" type="button" data-clear-filter="all">Clear all</button>` : '';
     elements.chips.hidden = chips.length === 0;
@@ -411,24 +464,67 @@
     elements.pagination.innerHTML = `<button type="button" data-page="${state.page - 1}" ${state.page === 1 ? 'disabled' : ''}>Previous</button>${paginationItems(state.page, pages).map((item) => item === '…' ? '<span aria-hidden="true">…</span>' : `<button type="button" data-page="${item}" ${item === state.page ? 'aria-current="page"' : ''}>${item}</button>`).join('')}<button type="button" data-page="${state.page + 1}" ${state.page === pages ? 'disabled' : ''}>Next</button>`;
   };
 
+  const detailRow = (label, value, { html = false, wide = false } = {}) => `<div${wide ? ' class="full-citation"' : ''}><dt>${escapeHtml(label)}</dt><dd>${html ? value : escapeHtml(value || 'Not identified')}</dd></div>`;
+
+  const moreDetailsHtml = (row) => {
+    const bibliographic = row.bibliographic || {};
+    const destination = safeUrl(row.publisher_url);
+    const general = [
+      detailRow('Reference type', REFERENCE_TYPES[row.reference_type] || 'Unknown'),
+      detailRow('Journal, conference, book, or source', row.venue || 'Not identified'),
+      detailRow('Publication year', row.year || 'Not identified'),
+      detailRow('Accessibility', row.access || 'Not verified'),
+      detailRow('Affiliation countries', Array.isArray(row.countries) && row.countries.length ? row.countries.join(', ') : 'Not identified'),
+      detailRow('DOI', row.doi ? `<a href="https://doi.org/${escapeHtml(row.doi)}" target="_blank" rel="noopener">${escapeHtml(row.doi)} ↗</a>` : 'Not identified', { html: Boolean(row.doi) }),
+      detailRow('Publisher record', destination ? `<a href="${escapeHtml(destination)}" target="_blank" rel="noopener">Open authoritative record ↗</a>` : 'Not verified', { html: Boolean(destination) }),
+      detailRow('Record last updated', row.last_updated || 'Not identified')
+    ];
+    const fields = TYPE_FIELDS[row.reference_type] || TYPE_FIELDS.unknown;
+    const typeSpecific = fields.map((fieldName) => detailRow(
+      BIBLIOGRAPHIC_LABELS[fieldName] || fieldName,
+      fieldName === 'authors' ? (bibliographic.authors || row._authors || 'Not identified') : (bibliographic[fieldName] || 'Not identified')
+    ));
+    const typeNote = Object.keys(bibliographic).length
+      ? 'Structured fields follow this record’s reference type.'
+      : 'Structured type-specific fields have not yet been verified; missing values are shown explicitly.';
+    return `<p class="nested-detail-note">${escapeHtml(typeNote)}</p><dl>${[...general, ...typeSpecific, detailRow('Full MDPI-formatted citation', row.citation, { wide: true })].join('')}</dl>`;
+  };
+
+  const abstractHtml = (row) => row.abstract
+    ? `<p class="abstract-text">${escapeHtml(row.abstract)}</p>`
+    : `<div class="detail-empty"><strong>Abstract not yet available.</strong><p>Add the publisher-verified abstract through the Dataset Manager.</p><a href="../dataset-manager/?id=${row.id}">Prepare abstract update ↗</a></div>`;
+
+  const graphicalAbstractHtml = (row) => {
+    const graphical = row.graphical_abstract;
+    const imageUrl = safeUrl(graphical?.image_url);
+    const valid = imageUrl && graphical?.width === 3840 && graphical?.height === 2160 && graphical?.format === 'webp' && graphical?.color_space === 'sRGB' && graphical?.alt_text && graphical?.caption;
+    if (!valid) return `<div class="detail-empty"><strong>Graphical abstract not yet available.</strong><p>An approved 3840 × 2160 sRGB WebP, accessibility description, and factual caption are required.</p><a href="../dataset-manager/?id=${row.id}">Prepare graphical-abstract update ↗</a></div>`;
+    return `<figure class="graphical-abstract"><div class="graphical-image-shell"><img data-graphical-src="${escapeHtml(imageUrl)}" alt="${escapeHtml(graphical.alt_text)}" width="3840" height="2160" loading="lazy" decoding="async"><span data-graphical-loading>Image loads when this panel opens.</span></div><figcaption>${escapeHtml(graphical.caption)}</figcaption><dl class="graphical-metadata"><div><dt>Accessibility alt text</dt><dd>${escapeHtml(graphical.alt_text)}</dd></div><div><dt>Web specification</dt><dd>3840 × 2160 pixels · WebP · sRGB</dd></div></dl></figure>`;
+  };
+
   const cardHtml = (row, terms) => {
     const destination = safeUrl(row.publisher_url);
     const paperId = destination ? `<a class="paper-id" href="${escapeHtml(destination)}" target="_blank" rel="noopener" title="Open DOI or publisher record for paper ${row.id}">[${row.id}]</a>` : `<a class="paper-id unavailable" href="?q=${row.id}#ref=${row.id}" title="Publisher link not yet verified">[${row.id}]</a>`;
     const publisher = destination ? `<a class="record-link publisher-link" href="${escapeHtml(destination)}" target="_blank" rel="noopener">${row.doi ? 'DOI' : 'Publisher page'} ↗</a>` : '<span class="record-link unavailable">Link not verified</span>';
     const permalink = `${location.pathname}?q=${row.id}#ref=${row.id}`;
     const accessClass = escapeHtml((row.access || 'not-verified').toLowerCase().replace(/\s+/g, '-'));
+    const typeLabel = REFERENCE_TYPES[row.reference_type] || REFERENCE_TYPES.unknown;
     return `<article class="bibliography-card" id="ref-${row.id}" data-bibliography-id="${row.id}">
       <div class="reference-select"><label><input type="checkbox" data-select-reference="${row.id}" ${state.selected.has(row.id) ? 'checked' : ''}><span class="skip-link">Select reference ${row.id}</span></label>${paperId}</div>
-      <div class="reference-content"><p class="citation-title">${highlight(row.title, terms)}</p><div class="reference-marks"><button class="record-status venue-mark" type="button" data-filter-venue="${escapeHtml(row.venue || '')}">${escapeHtml(row.venue || 'Venue not identified')}</button><button class="record-status access-${accessClass}" type="button" data-filter-access="${escapeHtml(row.access || 'Not verified')}">${escapeHtml(row.access || 'Not verified')}</button><button class="record-status year-mark" type="button" data-filter-year="${escapeHtml(row.year || '')}">${escapeHtml(row.year || 'Year not identified')}</button></div><p class="citation-text mdpi-reference">${highlight(row.citation, terms)}</p>
+      <div class="reference-content"><p class="citation-title">${highlight(row.title, terms)}</p><div class="reference-marks"><button class="record-status type-mark" type="button" data-filter-type="${escapeHtml(row.reference_type)}" title="Filter by reference type">Reference type: ${escapeHtml(typeLabel)}</button><button class="record-status venue-mark" type="button" data-filter-venue="${escapeHtml(row.venue || '')}">${escapeHtml(row.venue || 'Venue not identified')}</button><button class="record-status access-${accessClass}" type="button" data-filter-access="${escapeHtml(row.access || 'Not verified')}">${escapeHtml(row.access || 'Not verified')}</button><button class="record-status year-mark" type="button" data-filter-year="${escapeHtml(row.year || '')}">${escapeHtml(row.year || 'Year not identified')}</button></div><p class="citation-text mdpi-reference">${highlight(row.citation, terms)}</p>
         <div class="record-actions"><button type="button" data-record-action="copy-citation" data-id="${row.id}">Copy citation</button>${row.doi ? `<button type="button" data-record-action="copy-doi" data-id="${row.id}">Copy DOI</button>` : ''}<button type="button" data-record-action="bibtex" data-id="${row.id}">BibTeX</button><button type="button" data-record-action="ris" data-id="${row.id}">RIS</button><button type="button" data-record-action="endnote" data-id="${row.id}">EndNote</button><button type="button" data-record-action="zotero" data-id="${row.id}">Zotero</button><a class="record-link" href="${escapeHtml(permalink)}">Permalink</a>${publisher}</div>
-        <details class="reference-details"><summary>View details</summary><dl><div><dt>Authors</dt><dd>${escapeHtml(row._authors || 'Not identified')}</dd></div><div><dt>Journal / conference</dt><dd>${escapeHtml(row.venue || 'Not identified')}</dd></div><div><dt>Year</dt><dd>${escapeHtml(row.year || 'Not identified')}</dd></div><div><dt>Access</dt><dd>${escapeHtml(row.access || 'Not verified')}</dd></div>${row.doi ? `<div><dt>DOI</dt><dd><a href="https://doi.org/${escapeHtml(row.doi)}" target="_blank" rel="noopener">${escapeHtml(row.doi)} ↗</a></dd></div>` : ''}<div class="full-citation"><dt>Full MDPI-formatted citation</dt><dd>${escapeHtml(row.citation)}</dd></div></dl></details>
+        <details class="reference-details"><summary>View details</summary><div class="nested-detail-list">
+          <details class="nested-reference-detail"><summary><span>More details</span><small>${escapeHtml(typeLabel)} metadata</small></summary><div class="nested-detail-body">${moreDetailsHtml(row)}</div></details>
+          <details class="nested-reference-detail"><summary><span>Abstract</span><small>${row.abstract ? 'Available' : 'Not yet available'}</small></summary><div class="nested-detail-body">${abstractHtml(row)}</div></details>
+          <details class="nested-reference-detail" data-graphical-detail><summary><span>Graphical abstract</span><small>${row.graphical_abstract ? 'Available' : 'Not yet available'}</small></summary><div class="nested-detail-body">${graphicalAbstractHtml(row)}</div></details>
+        </div></details>
       </div>
     </article>`;
   };
 
   const renderEmpty = () => {
     const label = state.query ? ` for “${escapeHtml(state.query)}”` : '';
-    return `<div class="empty-results enhanced-empty"><strong>No references found${label}.</strong><p>Try checking the spelling, removing a venue or access filter, or expanding the publication-year range.</p><button class="button primary" type="button" data-clear-all>Clear all filters</button></div>`;
+    return `<div class="empty-results enhanced-empty"><strong>No references found${label}.</strong><p>Try checking the spelling, removing a reference-type, venue, or access filter, or expanding the publication-year range.</p><button class="button primary" type="button" data-clear-all>Clear all filters</button></div>`;
   };
 
   const render = ({ keepFocus = false } = {}) => {
@@ -456,7 +552,7 @@
   };
 
   const clearAll = () => {
-    Object.assign(state, { query: '', access: 'all', venue: 'all', yearFrom: 'all', yearTo: 'all', page: 1 });
+    Object.assign(state, { query: '', access: 'all', type: 'all', venue: 'all', yearFrom: 'all', yearTo: 'all', page: 1 });
     writeUrl('push');
     render();
     elements.search.focus();
@@ -486,6 +582,7 @@
   const buildOptions = () => {
     [elements.yearFrom, elements.yearTo].forEach((select) => { while (select.options.length > 1) select.remove(1); });
     while (elements.venue.options.length > 1) elements.venue.remove(1);
+    while (elements.type.options.length > 1) elements.type.remove(1);
     const years = [...new Set(state.rows.map((row) => row.year).filter(Number.isFinite))].sort((a, b) => a - b);
     years.forEach((year) => {
       [elements.yearFrom, elements.yearTo].forEach((select) => {
@@ -501,6 +598,13 @@
       option.value = name;
       option.textContent = name;
       elements.venue.append(option);
+    });
+    const typeCounts = state.rows.reduce((counts, row) => counts.set(row.reference_type, (counts.get(row.reference_type) || 0) + 1), new Map());
+    [...typeCounts.keys()].sort((a, b) => (REFERENCE_TYPES[a] || a).localeCompare(REFERENCE_TYPES[b] || b)).forEach((type) => {
+      const option = document.createElement('option');
+      option.value = type;
+      option.textContent = `${REFERENCE_TYPES[type] || type} (${typeCounts.get(type).toLocaleString()})`;
+      elements.type.append(option);
     });
     elements.suggestions.innerHTML = [...state.recent.map((value) => `<option value="${escapeHtml(value)}"></option>`), ...venues.slice(0, 80).map((value) => `<option value="venue:&quot;${escapeHtml(value)}&quot;"></option>`)].join('');
   };
@@ -526,6 +630,22 @@
   };
 
   const recordById = (id) => state.rows.find((row) => row.id === Number(id));
+
+  document.addEventListener('toggle', (event) => {
+    const detail = event.target.closest?.('[data-graphical-detail]');
+    if (!detail?.open) return;
+    const image = detail.querySelector('img[data-graphical-src]');
+    if (!image || image.getAttribute('src')) return;
+    const status = detail.querySelector('[data-graphical-loading]');
+    image.addEventListener('load', () => {
+      image.classList.add('is-loaded');
+      if (status) status.hidden = true;
+    }, { once: true });
+    image.addEventListener('error', () => {
+      if (status) status.textContent = 'The graphical abstract could not be loaded from its approved URL.';
+    }, { once: true });
+    image.src = image.dataset.graphicalSrc;
+  }, true);
 
   document.addEventListener('click', async (event) => {
     const recordAction = event.target.closest('[data-record-action]');
@@ -587,6 +707,8 @@
     if (venueFilter?.dataset.filterVenue) { setFilter('venue', venueFilter.dataset.filterVenue); return; }
     const accessFilter = event.target.closest('[data-filter-access]');
     if (accessFilter) { setFilter('access', accessFilter.dataset.filterAccess); return; }
+    const typeFilter = event.target.closest('[data-filter-type]');
+    if (typeFilter) { setFilter('type', typeFilter.dataset.filterType); return; }
     const yearFilter = event.target.closest('[data-filter-year]');
     if (yearFilter?.dataset.filterYear) {
       state.yearFrom = yearFilter.dataset.filterYear;
@@ -609,6 +731,7 @@
     if (event.target === elements.search) { state.query = elements.search.value.trim(); state.page = 1; saveRecent(); writeUrl('push'); render({ keepFocus: true }); return; }
     if (event.target === elements.sort) setFilter('sort', elements.sort.value, { scroll: false });
     if (event.target === elements.access) setFilter('access', elements.access.value, { scroll: false });
+    if (event.target === elements.type) setFilter('type', elements.type.value, { scroll: false });
     if (event.target === elements.venue) setFilter('venue', elements.venue.value, { scroll: false });
     if (event.target === elements.yearFrom) setFilter('yearFrom', elements.yearFrom.value, { scroll: false });
     if (event.target === elements.yearTo) setFilter('yearTo', elements.yearTo.value, { scroll: false });

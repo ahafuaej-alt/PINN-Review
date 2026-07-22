@@ -72,6 +72,26 @@
             },
             "additionalProperties": false
           },
+          "abstract": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Evidence-backed abstract text for the paper."
+          },
+          "graphical_abstract": {
+            "type": "object",
+            "description": "Website graphical abstract. The image is a 3840 × 2160 sRGB WebP and is loaded only when its reference panel is opened.",
+            "required": ["image_url", "width", "height", "format", "color_space", "alt_text", "caption"],
+            "properties": {
+              "image_url": { "type": "string", "format": "uri", "pattern": "^https://.*\\.webp(?:[?#].*)?$" },
+              "width": { "const": 3840 },
+              "height": { "const": 2160 },
+              "format": { "const": "webp" },
+              "color_space": { "const": "sRGB" },
+              "alt_text": { "type": "string", "minLength": 1, "maxLength": 500 },
+              "caption": { "type": "string", "minLength": 1, "maxLength": 320 }
+            },
+            "additionalProperties": false
+          },
           "year": { "type": ["integer", "null"], "minimum": 1800, "maximum": 2100 },
           "access": { "enum": ["Open access", "Subscription", "Not verified"] },
           "countries": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
