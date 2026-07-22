@@ -13,6 +13,19 @@
     "subscription": 524,
     "not_verified": 63
   },
+  "reference_types": {
+    "journal": 561,
+    "preprint": 13,
+    "conference": 33,
+    "conference_book": 1,
+    "thesis": 2,
+    "report": 1,
+    "unknown": 242
+  },
+  "content_availability": {
+    "abstracts": 0,
+    "graphical_abstracts": 0
+  },
   "source_document": "38_1_10_references.docx",
   "country_source": "papers-countries-and-year.md",
   "canonical_master": "papers-master.json",
