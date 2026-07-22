@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.schema.json",
+  "title": "PINN Review Atlas canonical paper dataset",
+  "type": "object",
+  "required": ["metadata", "papers"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["schema_version", "dataset_version", "last_updated", "record_count", "sources"],
+      "properties": {
+        "schema_version": { "const": "1.0.0" },
+        "dataset_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "last_updated": { "type": "string", "format": "date" },
+        "record_count": { "const": 853 }
+      }
+    },
+    "papers": {
+      "type": "array",
+      "minItems": 853,
+      "maxItems": 853,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "citation", "doi", "publisher_url", "venue", "year", "access", "countries", "provenance", "last_updated"],
+        "properties": {
+          "id": { "type": "integer", "minimum": 1, "maximum": 853 },
+          "title": { "type": "string", "minLength": 1 },
+          "citation": { "type": "string", "minLength": 1 },
+          "doi": { "type": ["string", "null"] },
+          "publisher_url": { "type": ["string", "null"], "format": "uri" },
+          "venue": {
+            "type": "object",
+            "required": ["name", "type"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "type": { "enum": ["journal", "conference", "book", "chapter", "preprint", "thesis", "report", "other", "unknown"] }
+            },
+            "additionalProperties": false
+          },
+          "year": { "type": ["integer", "null"], "minimum": 1800, "maximum": 2100 },
+          "access": { "enum": ["Open access", "Subscription", "Not verified"] },
+          "countries": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+          "overrides": {
+            "type": "object",
+            "properties": { "realm_year": { "type": "integer", "minimum": 1800, "maximum": 2100 } },
+            "additionalProperties": false
+          },
+          "provenance": { "type": "object" },
+          "last_updated": { "type": "string", "format": "date" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
