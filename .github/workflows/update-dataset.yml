@@ -1,0 +1,46 @@
+name: Apply paper dataset update
+
+on:
+  workflow_dispatch:
+    inputs:
+      update_json:
+        description: 'Paste the compact JSON copied from Dataset Manager'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canonical-dataset-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Materialize authenticated update package
+        env:
+          UPDATE_JSON: ${{ inputs.update_json }}
+        run: node -e "require('fs').writeFileSync('/tmp/pinn-paper-update.json', process.env.UPDATE_JSON)"
+      - name: Apply, rebuild, and validate
+        run: |
+          node scripts/apply-paper-update.mjs /tmp/pinn-paper-update.json
+          node scripts/build-datasets.mjs --check
+          node scripts/validate-dataset.mjs
+          node scripts/validate-pinn-realm.mjs
+          git diff --check
+      - name: Commit coordinated dataset release
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json
+          git commit -m "Update canonical paper dataset"
+          git push origin HEAD:main
