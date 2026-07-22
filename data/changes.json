@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "changes": [
+    {
+      "change_id": "migration-2026-07-22",
+      "version": "2.0.0",
+      "date": "2026-07-22",
+      "paper_id": null,
+      "changed_fields": [
+        "data architecture"
+      ],
+      "reason": "Created one canonical paper register and deterministic derived-data pipeline.",
+      "evidence": {
+        "url": null,
+        "note": "Migration preserves every published reference and PINN Realm paper record."
+      },
+      "impact": {
+        "references_changed": 0,
+        "realm_papers_changed": 0,
+        "legacy_year_overrides_preserved": 112
+      }
+    }
+  ]
+}
