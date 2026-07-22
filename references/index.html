@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The complete 853-item bibliography of the PINN review, with linked paper IDs.">
+  <meta name="description" content="Search, filter, select, share, and export the complete 853-item bibliography of the PINN review.">
   <meta name="theme-color" content="#09111d">
   <title>Review References · PINN Review Atlas</title>
-  <script src="../assets/theme-init.js"></script>
+  <script src="../assets/theme-init.js?v=ux-20260722"></script>
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/styles.css">
-  <script src="../assets/app.js" defer></script>
-  <script src="../assets/references.js?v=mdpi-20260721" defer></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=ux-20260722">
+  <script src="../assets/app.js?v=ux-20260722" defer></script>
+  <script src="../assets/references.js?v=research-20260722" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,11 +23,11 @@
   <main id="main">
     <section class="page-hero"><div class="container">
       <p class="breadcrumb"><a href="../">Atlas</a> / Review references</p>
-      <p class="eyebrow">Primary-paper bibliography</p>
+      <p class="eyebrow">Primary-paper bibliography · Dataset 1.2.0</p>
       <h1>The review,<br><span class="gradient">paper by paper.</span></h1>
-      <p class="lede">Search the complete bibliography used by the review. Linked paper IDs open a DOI or authoritative publisher record; citations follow the MDPI ACS reference style.</p>
-      <div class="evidence-actions"><a class="button primary" href="#bibliography">Search references <span aria-hidden="true">↓</span></a><a class="button" href="../abbreviations/">Explore abbreviations <span aria-hidden="true">→</span></a></div>
-      <div class="source-note"><strong>Reference policy</strong><span>The bibliographic content is taken from <em>38_1_10_references.docx</em>. External links use canonical DOI destinations or authoritative publisher records. Access labels reflect the publisher/source record; uncertain records are explicitly marked for verification.</span></div>
+      <p class="lede">Search the complete bibliography used by the review. Build a reading list, export citations, and share an exact evidence subset with a stable URL.</p>
+      <div class="evidence-actions"><a class="button primary" href="#bibliography">Search references <span aria-hidden="true">↓</span></a><button class="button" type="button" data-copy-search-link>Copy search link</button><a class="button" href="../abbreviations/">Explore abbreviations <span aria-hidden="true">→</span></a></div>
+      <div class="source-note"><strong>Reference policy</strong><span>The bibliographic content is taken from <em>38_1_10_references.docx</em>. Citations follow the MDPI ACS reference style. External links use canonical DOI destinations or authoritative publisher records; uncertain records are explicitly marked for verification.</span></div>
     </div></section>
 
     <section class="evidence-page" id="bibliography"><div class="container">
@@ -35,22 +35,71 @@
         <div class="stat"><strong data-ref-stat="total">—</strong><span>bibliographic records</span></div>
         <div class="stat"><strong data-ref-stat="open">—</strong><span>open-access records</span></div>
         <div class="stat"><strong data-ref-stat="subscription">—</strong><span>subscription records</span></div>
-        <div class="stat"><strong data-ref-stat="range">—</strong><span>reference-ID range</span></div>
+        <div class="stat"><strong data-ref-stat="range">—</strong><span>publication-year range</span></div>
       </div>
-      <section class="evidence-panel" aria-labelledby="bibliography-title">
-        <div class="panel-head"><h2 id="bibliography-title">Complete reference register</h2><p>Use a paper ID, author, title phrase, venue, year, or DOI.</p></div>
-        <div class="evidence-toolbar">
-          <label class="search-field"><span class="skip-link">Search the bibliography</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input type="search" data-reference-search placeholder="Search ID, author, title, venue, year, or DOI…" autocomplete="off"></label>
-          <label><span class="skip-link">Filter by venue</span><select data-reference-venue><option value="all">All journals &amp; conferences</option></select></label>
-          <label><span class="skip-link">Filter by access</span><select data-reference-access><option value="all">All accessibility</option><option value="Open access">Open access</option><option value="Subscription">Subscription</option><option value="Not verified">Not verified</option></select></label>
-          <label><span class="skip-link">Sort references</span><select data-reference-sort><option value="id-asc">Reference ID: low to high</option><option value="id-desc">Reference ID: high to low</option><option value="year-desc">Year: newest first</option><option value="year-asc">Year: oldest first</option><option value="access">Accessibility</option><option value="venue">Journal / conference A–Z</option></select></label>
-          <button class="button" type="button" data-reference-export>Export current view (.csv)</button>
+
+      <section class="insights-panel" aria-labelledby="insights-title">
+        <div class="panel-head"><div><p class="eyebrow compact">Bibliography insights</p><h2 id="insights-title">Explore the shape of the evidence</h2></div><p>Each bar is a filter. Counts use the complete dataset, independent of the current search.</p></div>
+        <div class="insights-grid">
+          <div class="insight-card"><h3>Papers by year</h3><div class="mini-chart" data-year-insights></div></div>
+          <div class="insight-card"><h3>Accessibility</h3><div class="mini-chart" data-access-insights></div></div>
+          <div class="insight-card"><h3>Top journals and conferences</h3><div class="mini-chart" data-venue-insights></div></div>
+          <div class="insight-card"><h3>Most frequent reported authors</h3><div class="mini-chart" data-author-insights></div><p class="insight-note">Counts reflect the authors explicitly retained in the master citation records.</p></div>
         </div>
-        <div class="tab-list"><span class="result-meta" data-reference-meta aria-live="polite">Loading…</span></div>
+      </section>
+
+      <section class="evidence-panel bibliography-panel" aria-labelledby="bibliography-title">
+        <div class="panel-head"><div><p class="eyebrow compact">Research register</p><h2 id="bibliography-title">Complete reference register</h2></div><p>Press <kbd>/</kbd> to search. Try <code>year:2024</code>, <code>access:open</code>, <code>venue:IEEE</code>, <code>author:Wang</code>, or an “exact phrase”.</p></div>
+
+        <div class="search-row">
+          <div class="search-field"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input type="search" data-reference-search list="reference-suggestions" aria-label="Search the bibliography" placeholder="Search title, author, venue, DOI, or use tokens…" autocomplete="off"><button class="clear-search" type="button" data-clear-search aria-label="Clear search" title="Clear search">×</button></div>
+          <datalist id="reference-suggestions" data-reference-suggestions></datalist>
+          <button class="button" type="button" data-copy-search-link>Copy search link</button>
+        </div>
+        <div class="recent-searches" data-recent-searches hidden></div>
+
+        <div class="evidence-toolbar reference-toolbar">
+          <label><span>From year</span><select data-reference-year-from><option value="all">Any year</option></select></label>
+          <label><span>To year</span><select data-reference-year-to><option value="all">Any year</option></select></label>
+          <label><span>Accessibility</span><select data-reference-access><option value="all">All accessibility</option><option value="Open access">Open access</option><option value="Subscription">Subscription</option><option value="Not verified">Not verified</option></select></label>
+          <label><span>Journal / conference</span><select data-reference-venue><option value="all">All journals &amp; conferences</option></select></label>
+          <label><span>Sort</span><select data-reference-sort><option value="id-asc">Reference ID: low to high</option><option value="id-desc">Reference ID: high to low</option><option value="year-desc">Year: newest first</option><option value="year-asc">Year: oldest first</option><option value="access">Accessibility</option><option value="venue">Journal / conference A–Z</option></select></label>
+          <label><span>Results per page</span><select data-reference-per-page><option value="25">25 per page</option><option value="50" selected>50 per page</option><option value="100">100 per page</option></select></label>
+        </div>
+
+        <div class="active-filters" data-active-filters aria-label="Active filters"></div>
+        <div class="bulk-toolbar" aria-label="Selected-reference exports">
+          <strong data-selected-count>0 selected</strong>
+          <span>Export selected:</span>
+          <button type="button" data-bulk-action="bibtex" disabled>BibTeX</button>
+          <button type="button" data-bulk-action="ris" disabled>RIS</button>
+          <button type="button" data-bulk-action="csv" disabled>CSV</button>
+          <button type="button" data-bulk-action="copy" disabled>Copy citations</button>
+          <button type="button" data-bulk-action="clear" disabled>Clear</button>
+          <button class="current-export" type="button" data-export-current>Export current results (.csv)</button>
+        </div>
+
+        <div class="results-summary"><span class="result-meta" data-reference-meta aria-live="polite">Loading…</span><span class="selection-hint">Selections are saved on this device.</span></div>
         <div data-reference-results><div class="loading-state"><span><strong>Loading the master bibliography</strong>The 853 reference records will appear here.</span></div></div>
+        <nav class="pagination" data-reference-pagination aria-label="Reference pages"></nav>
+      </section>
+
+      <section class="provenance-panel" aria-labelledby="provenance-title">
+        <div><p class="eyebrow compact">Provenance and versioning</p><h2 id="provenance-title">A citable, inspectable dataset</h2><p>The displayed records preserve the review’s reference IDs. DOI, publisher, venue, year, and access fields were normalized without silently filling uncertain metadata.</p></div>
+        <dl class="provenance-facts">
+          <div><dt>Dataset version</dt><dd>1.2.0</dd></div>
+          <div><dt>Last updated</dt><dd>22 July 2026</dd></div>
+          <div><dt>Records</dt><dd>853</dd></div>
+          <div><dt>Verified DOI fields</dt><dd data-ref-stat="dois">—</dd></div>
+          <div><dt>Access not verified</dt><dd data-ref-stat="unverified">—</dd></div>
+        </dl>
+        <div class="provenance-actions"><a class="button" href="../data/references.json" download>Download original JSON</a><a class="button" href="../data/references-metadata.json">Machine-readable metadata</a><a class="button" href="./changelog/">Changelog &amp; data quality</a><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/issues/new?template=reference-correction.yml">Report an incorrect reference ↗</a><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/releases">Archived releases ↗</a></div>
       </section>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Master bibliography · 853 records</span><a href="../cite/">How to cite this atlas</a></div></footer>
+
+  <div class="selection-bar" data-selection-bar hidden aria-live="polite"><strong data-floating-selected-count>0 selected</strong><button type="button" data-bulk-action="bibtex">BibTeX</button><button type="button" data-bulk-action="ris">RIS</button><button type="button" data-bulk-action="csv">CSV</button><button type="button" data-bulk-action="copy">Copy citations</button><button type="button" data-bulk-action="clear">Clear</button></div>
+  <div class="toast" data-reference-toast role="status" aria-live="polite" hidden></div>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 PINN Review Atlas</span><span>Dataset 1.2.0 · 853 records</span><a href="../cite/">How to cite this atlas</a></div></footer>
 </body>
 </html>
