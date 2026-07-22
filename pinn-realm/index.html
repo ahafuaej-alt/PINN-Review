@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the geographic distribution and international affiliation co-occurrence of 853 papers in the PINN Review Atlas.">
+  <meta name="theme-color" content="#09111d">
+  <title>PINN Realm · PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=ux-20260722"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=realm-20260722">
+  <link rel="stylesheet" href="../assets/realm.css?v=realm-20260722">
+  <script src="../assets/app.js?v=realm-20260722" defer></script>
+  <script src="../assets/realm.js?v=realm-20260722" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#realm-workspace">Skip to PINN Realm</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+    <div class="nav-links" id="nav-links"><a href="../#atlas">Explore</a><a href="../pinn-types/">PINN types</a><a href="./" aria-current="page">PINN Realm</a><a href="../abbreviations/">Abbreviations</a><a href="../references/">References</a><a href="../cite/">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a></div>
+  </nav></header>
+
+  <main id="main">
+    <section class="page-hero realm-hero"><div class="container">
+      <p class="breadcrumb"><a href="../">Atlas</a> / PINN Realm</p>
+      <p class="eyebrow">Geographic evidence · 853 papers</p>
+      <h1>Where PINN research<br><span class="gradient">meets across borders.</span></h1>
+      <p class="lede">Explore country-level publication patterns and international affiliation co-occurrence across the complete review bibliography. Every evidence ID links to its full reference record.</p>
+      <div class="evidence-actions"><a class="button primary" href="#realm-workspace">Explore the map <span aria-hidden="true">↓</span></a><button class="button" type="button" data-open-methodology>Methodology</button><a class="button" href="../data/pinn-realm.json" download>Download realm data</a></div>
+      <div class="source-note"><strong>Evidence policy</strong><span>Country names and years reproduce the standardized <em>papers countries and year_2.md</em> source. Titles are joined from the Atlas References dataset by paper ID; no title is inferred.</span></div>
+    </div></section>
+
+    <section class="realm-page" id="realm-workspace"><div class="container realm-container">
+      <div class="stats-grid realm-stats" aria-label="PINN Realm summary">
+        <div class="stat"><strong data-realm-stat="papers">—</strong><span>papers in view</span></div>
+        <div class="stat"><strong data-realm-stat="countries">—</strong><span>contributing countries</span></div>
+        <div class="stat"><strong data-realm-stat="international">—</strong><span>international papers</span></div>
+        <div class="stat"><strong data-realm-stat="pairs">—</strong><span>active country pairs</span></div>
+      </div>
+
+      <section class="realm-controls" aria-label="Map controls">
+        <div class="control-group mode-control">
+          <span class="control-label">Map mode</span>
+          <div class="segmented" role="group" aria-label="Map mode">
+            <button type="button" data-realm-mode="countries" aria-pressed="true">Individual Countries</button>
+            <button type="button" data-realm-mode="cooperation" aria-pressed="false">International Cooperation</button>
+          </div>
+        </div>
+
+        <div class="control-group year-control">
+          <label class="control-label" for="realm-year">Publication year</label>
+          <div class="year-stepper">
+            <button type="button" data-year-step="previous" aria-label="Previous publication year" title="Previous year">←</button>
+            <select id="realm-year" data-realm-year aria-label="Publication year"><option value="all">All years</option></select>
+            <button type="button" data-year-step="next" aria-label="Next publication year" title="Next year">→</button>
+            <button type="button" data-year-play aria-pressed="false"><span aria-hidden="true">▶</span> Play</button>
+          </div>
+        </div>
+
+        <div class="control-group search-control">
+          <label class="control-label" for="realm-search">Find country or paper</label>
+          <div class="realm-search-wrap">
+            <div class="search-field"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input id="realm-search" type="search" data-realm-search aria-controls="realm-search-results" aria-expanded="false" autocomplete="off" placeholder="Country, [reference ID], or paper title…"><button class="clear-search" type="button" data-realm-clear-search aria-label="Clear search" title="Clear search">×</button></div>
+            <div class="realm-search-results" id="realm-search-results" data-realm-search-results role="listbox" hidden></div>
+          </div>
+        </div>
+
+        <div class="control-group metric-control" data-metric-control hidden>
+          <span class="control-label">Collaboration metric</span>
+          <div class="segmented metric-segmented" role="group" aria-label="Collaboration metric">
+            <button type="button" data-realm-metric="volume" aria-pressed="true">Volume</button>
+            <button type="button" data-realm-metric="intensity" aria-pressed="false">Jaccard intensity</button>
+          </div>
+        </div>
+
+        <div class="control-actions"><button class="button" type="button" data-realm-reset>Reset</button><button class="button" type="button" data-open-methodology aria-haspopup="dialog">Information</button></div>
+      </section>
+
+      <div class="realm-status" data-realm-status aria-live="polite">Loading country and collaboration data…</div>
+
+      <div class="realm-layout">
+        <section class="realm-map-card" aria-labelledby="map-title">
+          <div class="realm-map-head"><div><p class="eyebrow compact">Interactive world map</p><h2 id="map-title" data-map-title>Individual-country publications</h2></div><p data-map-caption>Color represents unique papers associated with each country.</p></div>
+          <div class="realm-map-wrap">
+            <svg class="realm-map" data-realm-map role="img" aria-labelledby="map-title map-description" tabindex="0"></svg>
+            <p class="visually-hidden" id="map-description">Interactive map of countries represented in the PINN review. Tab to a represented country and press Enter to select it.</p>
+            <div class="realm-tooltip" data-realm-tooltip role="tooltip" hidden></div>
+            <div class="realm-empty" data-realm-empty hidden><strong>No papers found for this year</strong><span>Choose another year or reset the view.</span></div>
+          </div>
+          <div class="realm-legend" data-realm-legend aria-label="Map legend"></div>
+          <div class="map-instruction"><span><kbd>Tab</kbd> focus</span><span><kbd>Enter</kbd> select</span><span><kbd>Esc</kbd> clear</span><span>Hover previews · click locks</span></div>
+        </section>
+
+        <aside class="realm-details" data-realm-details aria-live="polite" aria-label="Country details">
+          <div class="details-placeholder"><span class="details-orbit" aria-hidden="true"></span><strong>Select a country</strong><p>Hover for a preview, or click a country to lock its evidence panel.</p></div>
+        </aside>
+      </div>
+
+      <p class="map-attribution">Map geometry: Natural Earth via world-atlas. <a href="../data/world-map-attribution.md">Attribution and license</a>.</p>
+    </div></section>
+  </main>
+
+  <dialog class="methodology-dialog" data-methodology-dialog aria-labelledby="methodology-title">
+    <form method="dialog"><button class="dialog-close" type="submit" value="close" aria-label="Close methodology">×</button></form>
+    <p class="eyebrow compact">Methodological transparency</p>
+    <h2 id="methodology-title">How PINN Realm interprets country records</h2>
+    <div class="method-grid">
+      <div><strong>Country association</strong><p>A country association is derived from the countries reported for author affiliations in the standardized source dataset.</p></div>
+      <div><strong>National paper</strong><p>A paper containing one unique country is classified as national. Country totals include both national and internationally coauthored papers.</p></div>
+      <div><strong>International paper</strong><p>International cooperation is inferred when at least two countries occur in the same paper record. Every unique unordered country pair receives that paper once.</p></div>
+      <div><strong>Interpretation limit</strong><p>Country co-occurrence in affiliations does not necessarily prove direct collaboration between specific institutions or every listed author.</p></div>
+      <div><strong>Volume</strong><p>The number of unique papers shared by a pair of countries under the selected year filter.</p></div>
+      <div><strong>Jaccard intensity</strong><p>Joint papers divided by all papers associated with either country: joint / (A + B − joint).</p></div>
+    </div>
+    <p class="method-footnote">Country names follow the standardized source file. An explicit mapping connects all 63 source names to ISO 3166-1 alpha-3 codes and the world-map geometry identifiers.</p>
+  </dialog>
+
+  <div class="reference-title-tooltip" data-reference-title-tooltip role="tooltip" hidden></div>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 PINN Review Atlas</span><span>PINN Realm dataset 1.0.0 · 853 records</span><a href="../cite/">How to cite this atlas</a></div></footer>
+</body>
+</html>
