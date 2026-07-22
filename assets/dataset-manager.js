@@ -18,7 +18,8 @@ const state = {
   initialBibliographic: {},
   bibliographicDirty: false,
   autoCitationDirty: false,
-  manualCitation: false
+  manualCitation: false,
+  graphicalCheck: { url: '', status: 'none', message: '' }
 };
 
 const form = document.querySelector('[data-manager-form]');
@@ -36,12 +37,17 @@ const downloadButton = document.querySelector('[data-download-update]');
 const copyButton = document.querySelector('[data-copy-update]');
 const submissionHelp = document.querySelector('[data-submission-help]');
 const typeGuidance = document.querySelector('[data-type-guidance]');
+const graphicalFields = document.querySelector('[data-graphical-fields]');
+const graphicalPreviewShell = document.querySelector('[data-graphical-preview-shell]');
+const graphicalPreview = document.querySelector('[data-graphical-preview]');
+const graphicalStatus = document.querySelector('[data-graphical-status]');
 const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
 const normalize = (value) => String(value ?? '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('en');
 const equal = (left, right) => JSON.stringify(left) === JSON.stringify(right);
 const effectiveRealmYear = (paper) => paper?.overrides?.realm_year ?? paper?.year;
 const field = (name) => form.elements.namedItem(name);
 const typeWithoutRequiredAuthors = new Set(['standard', 'software', 'website']);
+const GRAPHICAL_SPEC = Object.freeze({ width: 3840, height: 2160, format: 'webp', color_space: 'sRGB' });
 
 let toastTimer;
 const showToast = (message) => {
@@ -59,10 +65,22 @@ const formatDate = (value) => {
 const parseCountries = (value) => [...new Set(String(value).split(',').map((country) => country.trim()).filter(Boolean))];
 const normalizeDoi = (value) => String(value || '').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').replace(/^doi:\s*/i, '').replace(/\s+/g, '') || null;
 const canonicalUrl = (value) => String(value || '').trim() || null;
+const sentenceCount = (value) => {
+  const clean = String(value || '').trim();
+  if (!clean) return 0;
+  return clean.split(/(?<=[.!?])\s+(?=[A-Z0-9])/u).filter(Boolean).length;
+};
 
 const bibliographicFromForm = () => normalizeBibliographic(Object.fromEntries(
   BIBLIOGRAPHIC_FIELDS.map((name) => [name, field(`bib_${name}`)?.value || ''])
 ));
+
+const graphicalFromForm = () => field('graphical_enabled').checked ? {
+  image_url: canonicalUrl(field('graphical_image_url').value),
+  ...GRAPHICAL_SPEC,
+  alt_text: field('graphical_alt_text').value.trim(),
+  caption: field('graphical_caption').value.trim()
+} : null;
 
 const currentDraft = () => ({
   title: field('title').value.trim(),
@@ -73,7 +91,9 @@ const currentDraft = () => ({
   year: field('year').value === '' ? null : Number(field('year').value),
   access: field('access').value,
   countries: parseCountries(field('countries').value),
-  bibliographic: bibliographicFromForm()
+  bibliographic: bibliographicFromForm(),
+  abstract: field('abstract').value.trim() || null,
+  graphical_abstract: graphicalFromForm()
 });
 
 const citationRecord = (draft = currentDraft()) => ({
@@ -91,6 +111,9 @@ const changedValues = () => {
   const changes = {};
   ['title', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries'].forEach((name) => {
     if (!equal(draft[name], state.selected[name])) changes[name] = draft[name];
+  });
+  ['abstract', 'graphical_abstract'].forEach((name) => {
+    if (!equal(draft[name], state.selected[name] || null)) changes[name] = draft[name];
   });
   const shouldStoreBibliographic = state.bibliographicDirty || (state.autoCitationDirty && !state.selected.bibliographic);
   if (shouldStoreBibliographic && !equal(draft.bibliographic, state.selected.bibliographic || {})) changes.bibliographic = draft.bibliographic;
@@ -159,6 +182,23 @@ const validateDraft = () => {
   }
   if (!field('reason').value.trim()) errors.push('A reason is required for the audit trail.');
 
+  if (draft.graphical_abstract) {
+    const graphical = draft.graphical_abstract;
+    if (!graphical.image_url) errors.push('A graphical-abstract WebP URL is required.');
+    else {
+      try {
+        const imageUrl = new URL(graphical.image_url);
+        if (imageUrl.protocol !== 'https:' || !/\.webp$/iu.test(imageUrl.pathname)) errors.push('The graphical abstract must use an HTTPS URL ending in .webp.');
+      } catch { errors.push('The graphical-abstract URL is not valid.'); }
+    }
+    if (!graphical.alt_text) errors.push('Graphical-abstract alt text is required.');
+    else if (sentenceCount(graphical.alt_text) > 2) errors.push('Graphical-abstract alt text must be one or two concise sentences.');
+    if (!graphical.caption) errors.push('A one-sentence graphical-abstract caption is required.');
+    else if (sentenceCount(graphical.caption) !== 1) errors.push('The graphical-abstract caption must be one sentence.');
+    if (state.graphicalCheck.url === graphical.image_url && state.graphicalCheck.status === 'pending') errors.push('The graphical abstract is still being checked.');
+    else if (state.graphicalCheck.url !== graphical.image_url || state.graphicalCheck.status !== 'valid') errors.push('The graphical abstract must load successfully at exactly 3840 × 2160 pixels before submission.');
+  }
+
   if (state.manualCitation) {
     if (!draft.citation) errors.push('The manually edited citation cannot be empty.');
     warnings.push('Manual citation mode is active. Confirm punctuation and MDPI field order against the linked guide.');
@@ -206,6 +246,7 @@ const renderImpact = (result) => {
     cards.push({ title: 'Year analytics', body: `References ${referenceDeltas.join(' · ') || 'year becomes unknown'}. Realm ${realmDeltas.join(' · ') || 'year becomes unknown'}.` });
   }
   if ('countries' in result.changes) cards.push({ title: 'Geographic network', body: `${state.selected.countries.length} → ${draft.countries.length} country associations; this paper contributes ${pairCount(state.selected.countries)} → ${pairCount(draft.countries)} collaboration pairs.` });
+  if (visibleFields.some((name) => ['abstract', 'graphical_abstract'].includes(name))) cards.push({ title: 'Reference evidence panels', body: 'The nested Abstract and Graphical abstract panels, accessibility text, caption, search data, version, and audit trail will be regenerated together.' });
   if (visibleFields.some((name) => ['title', 'citation', 'bibliographic', 'doi', 'publisher_url', 'venue', 'access'].includes(name))) cards.push({ title: 'Reference system', body: 'The MDPI citation, card metadata, search, filters, analytics, DOI destination, CSV, BibTeX, RIS, EndNote, and Zotero exports will be regenerated.' });
   cards.push({ title: 'Release metadata', body: 'The patch version, last-updated date, audit trail, data-quality counts, and downloadable JSON will be updated together.' });
   impactGrid.innerHTML = cards.map((card) => `<article><strong>${escapeHtml(card.title)}</strong><p>${escapeHtml(card.body)}</p></article>`).join('');
@@ -233,11 +274,61 @@ const refreshGeneratedCitation = () => {
   field('citation').value = generatedCitation();
 };
 
+let graphicalTimer;
+const setGraphicalStatus = (status, message) => {
+  state.graphicalCheck = { url: field('graphical_image_url').value.trim(), status, message };
+  graphicalStatus.textContent = message;
+  graphicalPreviewShell.dataset.status = status;
+  updatePreview();
+};
+
+const verifyGraphicalAbstract = ({ immediate = false } = {}) => {
+  clearTimeout(graphicalTimer);
+  const enabled = field('graphical_enabled').checked;
+  graphicalFields.hidden = !enabled;
+  graphicalPreviewShell.hidden = !enabled;
+  if (!enabled) {
+    graphicalPreview.removeAttribute('src');
+    graphicalPreview.hidden = true;
+    state.graphicalCheck = { url: '', status: 'none', message: '' };
+    updatePreview();
+    return;
+  }
+  const url = field('graphical_image_url').value.trim();
+  if (!url) {
+    graphicalPreview.removeAttribute('src');
+    graphicalPreview.hidden = true;
+    setGraphicalStatus('none', 'Add a WebP URL to verify the image.');
+    return;
+  }
+  const run = () => {
+    setGraphicalStatus('pending', 'Checking WebP format and 3840 × 2160 dimensions…');
+    const image = new Image();
+    image.decoding = 'async';
+    image.onload = () => {
+      if (field('graphical_image_url').value.trim() !== url) return;
+      graphicalPreview.src = url;
+      graphicalPreview.alt = field('graphical_alt_text').value.trim();
+      graphicalPreview.hidden = false;
+      if (image.naturalWidth === GRAPHICAL_SPEC.width && image.naturalHeight === GRAPHICAL_SPEC.height) setGraphicalStatus('valid', 'Verified: WebP URL loads at 3840 × 2160 pixels. Confirm that the source file uses the sRGB color space.');
+      else setGraphicalStatus('invalid', `Image dimensions are ${image.naturalWidth} × ${image.naturalHeight}; exactly 3840 × 2160 is required.`);
+    };
+    image.onerror = () => {
+      if (field('graphical_image_url').value.trim() !== url) return;
+      graphicalPreview.removeAttribute('src');
+      graphicalPreview.hidden = true;
+      setGraphicalStatus('invalid', 'The WebP image could not be loaded from this URL.');
+    };
+    image.src = url;
+  };
+  if (immediate) run(); else graphicalTimer = setTimeout(run, 350);
+};
+
 const buildPackage = () => {
   const result = validateDraft();
   if (result.errors.length || !Object.keys(result.changes).length) throw new Error('Update package is not ready.');
   return {
-    schema_version: '1.1.0',
+    schema_version: '1.2.0',
     id: state.selected.id,
     changes: result.changes,
     options: { citation_mode: state.manualCitation ? 'manual' : 'automatic' },
@@ -280,6 +371,7 @@ const populateForm = (paper) => {
   state.bibliographicDirty = false;
   state.autoCitationDirty = false;
   state.manualCitation = false;
+  state.graphicalCheck = { url: '', status: 'none', message: '' };
   empty.hidden = true;
   form.hidden = false;
   field('title').value = paper.title;
@@ -293,6 +385,11 @@ const populateForm = (paper) => {
   field('doi').value = paper.doi || '';
   field('publisher_url').value = paper.publisher_url || '';
   field('countries').value = paper.countries.join(', ');
+  field('abstract').value = paper.abstract || '';
+  field('graphical_enabled').checked = Boolean(paper.graphical_abstract);
+  field('graphical_image_url').value = paper.graphical_abstract?.image_url || '';
+  field('graphical_alt_text').value = paper.graphical_abstract?.alt_text || '';
+  field('graphical_caption').value = paper.graphical_abstract?.caption || '';
   BIBLIOGRAPHIC_FIELDS.forEach((name) => { if (field(`bib_${name}`)) field(`bib_${name}`).value = state.initialBibliographic[name] || ''; });
   field('evidence_url').value = paper.publisher_url || (paper.doi ? `https://doi.org/${paper.doi}` : '');
   field('reason').value = '';
@@ -308,6 +405,7 @@ const populateForm = (paper) => {
   submissionHelp.classList.remove('is-opened');
   submissionHelp.innerHTML = '<strong>Nothing has been sent yet.</strong><span>After the form is valid, select <b>Submit update request</b>. GitHub will open with the update already filled in; select <b>Create new issue</b> there to send it and receive a trackable confirmation.</span>';
   renderTypeFields();
+  verifyGraphicalAbstract({ immediate: Boolean(paper.graphical_abstract) });
   const params = new URLSearchParams(location.search);
   params.set('id', String(paper.id));
   history.replaceState({ paper: paper.id }, '', `${location.pathname}?${params}`);
@@ -319,7 +417,7 @@ const populateForm = (paper) => {
 const matchingPapers = () => {
   const query = normalize(search.value.trim().replace(/^\[|\]$/g, ''));
   const matches = query
-    ? state.master.papers.filter((paper) => [paper.id, paper.title, paper.doi, paper.venue.name, paper.countries.join(' ')].some((value) => normalize(value).includes(query))).slice(0, 30)
+    ? state.master.papers.filter((paper) => [paper.id, paper.title, paper.doi, paper.venue.name, paper.venue.type, paper.countries.join(' ')].some((value) => normalize(value).includes(query))).slice(0, 30)
     : state.master.papers.slice(0, 12);
   if (state.selected && !matches.some((paper) => paper.id === state.selected.id)) matches.unshift(state.selected);
   return matches;
@@ -327,7 +425,7 @@ const matchingPapers = () => {
 
 const renderResults = () => {
   const matches = matchingPapers();
-  results.innerHTML = matches.length ? matches.map((paper) => `<button type="button" role="option" data-manager-paper="${paper.id}" aria-selected="${paper.id === state.selected?.id}"><span>[${paper.id}]</span><strong>${escapeHtml(paper.title)}</strong><small>${escapeHtml(paper.year ?? 'Year not identified')} · ${escapeHtml(paper.venue.name)}</small></button>`).join('') : '<p class="manager-muted">No matching paper record.</p>';
+  results.innerHTML = matches.length ? matches.map((paper) => `<button type="button" role="option" data-manager-paper="${paper.id}" aria-selected="${paper.id === state.selected?.id}"><span>[${paper.id}]</span><strong>${escapeHtml(paper.title)}</strong><small>${escapeHtml(paper.year ?? 'Year not identified')} · ${escapeHtml(paper.venue.type.replaceAll('_', ' '))} · ${escapeHtml(paper.venue.name)}</small></button>`).join('') : '<p class="manager-muted">No matching paper record.</p>';
 };
 
 const renderAudit = () => {
@@ -364,6 +462,13 @@ const handleFormMutation = (event) => {
     state.bibliographicDirty ||= !state.selected.bibliographic;
     if (name === 'venue_type') renderTypeFields();
     refreshGeneratedCitation();
+  } else if (name === 'graphical_enabled') {
+    verifyGraphicalAbstract({ immediate: true });
+  } else if (name === 'graphical_image_url') {
+    verifyGraphicalAbstract();
+    return;
+  } else if (name === 'graphical_alt_text') {
+    graphicalPreview.alt = event.target.value.trim();
   }
   updatePreview();
 };
