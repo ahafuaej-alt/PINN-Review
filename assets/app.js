@@ -73,6 +73,7 @@
       link.textContent = label;
       navLinks.insertBefore(link, citeLink || navLinks.lastElementChild);
     };
+    addNavLink('PINN Realm', 'pinn-realm/');
     addNavLink('Abbreviations', 'abbreviations/');
     addNavLink('References', 'references/');
   }
