@@ -1,6 +1,7 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "1.2.0",
+  "version": "2.0.0",
+  "schema_version": "1.0.0",
   "last_updated": "2026-07-22",
   "record_count": 853,
   "reference_id_range": "1-853",
@@ -13,10 +14,20 @@
     "not_verified": 64
   },
   "source_document": "38_1_10_references.docx",
+  "country_source": "papers-countries-and-year.md",
+  "canonical_master": "papers-master.json",
+  "legacy_realm_year_overrides": 112,
   "display_style": "MDPI ACS reference style",
-  "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/references.json",
+  "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.json",
   "reference_register_url": "https://ahafuaej-alt.github.io/PINN-Review/references/",
-  "available_client_exports": ["BibTeX", "RIS", "EndNote", "Zotero-compatible RIS", "CSV"],
-  "data_quality_policy": "Reference IDs and bibliographic statements are preserved from the review source. DOI and publisher destinations are normalized to HTTPS. Venue, year, and access fields are shown only when identified; uncertain access or destinations remain explicitly unverified.",
-  "privacy": "The static dataset does not contain reader data. Reading-list selections and interface preferences are stored only in the reader's browser."
+  "dataset_manager_url": "https://ahafuaej-alt.github.io/PINN-Review/dataset-manager/",
+  "available_client_exports": [
+    "BibTeX",
+    "RIS",
+    "EndNote",
+    "Zotero-compatible RIS",
+    "CSV"
+  ],
+  "data_quality_policy": "Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Public reference, geography, analytics, filter, and export datasets are generated from that master. Unresolved legacy year disagreements remain explicit overrides until a sourced correction resolves them.",
+  "privacy": "The static dataset does not contain reader data. Dataset Manager edits remain in the browser until an update package is downloaded or copied."
 }
