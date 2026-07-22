@@ -8,9 +8,9 @@
   <title>Dataset Manager · PINN Review Atlas</title>
   <script src="../assets/theme-init.js?v=data-20260722"></script>
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/styles.css?v=data-20260722b">
+  <link rel="stylesheet" href="../assets/styles.css?v=references-20260723">
   <script src="../assets/app.js?v=data-20260722" defer></script>
-  <script type="module" src="../assets/dataset-manager.js?v=data-20260722c"></script>
+  <script type="module" src="../assets/dataset-manager.js?v=data-20260723"></script>
 </head>
 <body>
   <a class="skip-link" href="#manager">Skip to Dataset Manager</a>
@@ -111,6 +111,30 @@
                 <label data-bib-types="software"><span>Software version</span><input name="bib_software_version" placeholder="version 5.1"></label>
                 <label data-bib-types="software"><span>Software description <em>(optional)</em></span><input name="bib_software_description"></label>
                 <label data-bib-types="report"><span>Report / bulletin number</span><input name="bib_report_number"></label>
+              </div>
+            </details>
+
+            <details class="manager-bibliographic manager-content-fields" open>
+              <summary><span>Abstract</span><small>Displayed in the References page nested details.</small></summary>
+              <div class="manager-form-grid">
+                <label class="span-2"><span>Paper abstract</span><textarea name="abstract" rows="7" placeholder="Paste the evidence-backed abstract text exactly as supplied by the paper or publisher."></textarea><small>Leave blank when an abstract has not been verified. Do not write or infer an abstract from the title alone.</small></label>
+              </div>
+            </details>
+
+            <details class="manager-bibliographic manager-content-fields">
+              <summary><span>Graphical abstract</span><small>4K WebP · 3840 × 2160 · sRGB · loaded on demand</small></summary>
+              <div class="graphical-manager-body">
+                <label class="graphical-enable"><input name="graphical_enabled" type="checkbox"><span>This paper has an approved graphical abstract</span></label>
+                <div class="mdpi-note"><strong>Required specification</strong><span>Use an HTTPS URL ending in <code>.webp</code>. The manager verifies the image is exactly 3840 × 2160 pixels before enabling submission. Alt text must be one or two concise sentences; the caption must be one factual sentence without exaggeration.</span></div>
+                <div class="manager-form-grid" data-graphical-fields hidden>
+                  <label class="span-2"><span>4K WebP image URL</span><input name="graphical_image_url" type="url" placeholder="https://…/paper-125.webp"></label>
+                  <label class="span-2"><span>Accessibility alt text</span><textarea name="graphical_alt_text" rows="3" maxlength="500" placeholder="One or two sentences describing the meaningful visual content."></textarea></label>
+                  <label class="span-2"><span>Website caption</span><textarea name="graphical_caption" rows="2" maxlength="320" placeholder="One sentence stating the paper’s central contribution without exaggeration."></textarea></label>
+                </div>
+                <div class="graphical-manager-preview" data-graphical-preview-shell hidden>
+                  <img data-graphical-preview alt="" width="3840" height="2160" decoding="async">
+                  <p data-graphical-status role="status" aria-live="polite">Add a WebP URL to verify the image.</p>
+                </div>
               </div>
             </details>
 
