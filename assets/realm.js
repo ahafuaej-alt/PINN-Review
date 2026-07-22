@@ -801,6 +801,8 @@
     if (!Array.isArray(map?.locations) || !map.locations.length) throw new Error('World-map geometry is empty.');
     state.data = data;
     state.map = map;
+    document.querySelectorAll('[data-realm-dataset="version"]').forEach((node) => { node.textContent = data.metadata.version; });
+    document.querySelectorAll('[data-realm-dataset="papers"]').forEach((node) => { node.textContent = data.metadata.paper_count.toLocaleString(); });
     buildIndexes();
     buildYearOptions();
     readUrl();
