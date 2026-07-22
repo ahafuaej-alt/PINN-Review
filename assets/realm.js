@@ -41,11 +41,13 @@
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
   const normalize = (value) => String(value ?? '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('en').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   const number = (value) => Number(value || 0).toLocaleString();
-  const percentage = (numerator, denominator) => denominator ? `${(numerator / denominator * 100).toFixed(numerator && numerator / denominator < .01 ? 1 : 0)}%` : '0%';
+  const percentage = (numerator, denominator) => denominator ? `${(numerator / denominator * 100).toFixed(1)}%` : '0.0%';
   const referenceUrl = (id) => `${REFERENCES_ROUTE}?q=${encodeURIComponent(id)}#ref=${encodeURIComponent(id)}`;
   const yearMatches = (paper) => state.year === 'all' || String(paper.year) === String(state.year);
   const paperIdsForYear = (ids) => ids.filter((id) => yearMatches(index.paperById.get(id)));
   const activePapers = () => state.data.papers.filter(yearMatches);
+  const papersInYear = (year) => state.data.papers.filter((paper) => Number(paper.year) === Number(year));
+  const chartYears = () => state.year === 'all' ? state.data.metadata.years : [Number(state.year)];
   const mapCountryName = (mapId) => index.countryByMapId.get(mapId)?.name || index.mapById.get(mapId)?.name || 'Country not identified';
 
   const index = {
@@ -53,7 +55,8 @@
     countryByIso3: new Map(),
     countryByMapId: new Map(),
     mapById: new Map(),
-    pathByMapId: new Map()
+    pathByMapId: new Map(),
+    anchorByMapId: new Map()
   };
 
   const selectedMapId = () => state.hover || state.country;
@@ -177,18 +180,47 @@
 
   const fillBucket = (count, maximum) => count <= 0 || maximum <= 0 ? 0 : Math.min(5, Math.max(1, Math.ceil(count / maximum * 5)));
 
-  const pathCenter = (mapId) => {
-    const path = index.pathByMapId.get(mapId);
-    if (!path) return null;
-    const box = path.getBBox();
-    return { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+  // Collaboration lines must start on the main landmass, not the bounding-box
+  // centre of every disconnected territory. The latter places France between
+  // Europe and French Guiana and Russia between Eurasia and its antimeridian
+  // islands. Natural Earth paths use one M…Z subpath per landmass, so the
+  // largest subpath is a stable geographic anchor for this map scale.
+  const mainLandmassAnchor = (pathData) => {
+    const pointMarker = String(pathData || '').match(/^M(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)[ma]/);
+    if (pointMarker) return { x: Number(pointMarker[1]), y: Number(pointMarker[2]) };
+    const subpaths = String(pathData || '').match(/M[^M]+/g) || [];
+    let best = null;
+    subpaths.forEach((subpath) => {
+      const coordinates = [...subpath.matchAll(/-?\d+(?:\.\d+)?/g)].map((match) => Number(match[0]));
+      if (coordinates.length < 4 || coordinates.length % 2) return;
+      const xs = [];
+      const ys = [];
+      for (let position = 0; position < coordinates.length; position += 2) {
+        xs.push(coordinates[position]);
+        ys.push(coordinates[position + 1]);
+      }
+      const minimumX = Math.min(...xs);
+      const maximumX = Math.max(...xs);
+      const minimumY = Math.min(...ys);
+      const maximumY = Math.max(...ys);
+      const area = (maximumX - minimumX) * (maximumY - minimumY);
+      if (!best || area > best.area) best = { area, x: (minimumX + maximumX) / 2, y: (minimumY + maximumY) / 2 };
+    });
+    return best ? { x: best.x, y: best.y } : null;
   };
+
+  const pathCenter = (mapId) => index.anchorByMapId.get(mapId) || null;
 
   const connectionPath = (from, to) => {
     const distance = Math.hypot(to.x - from.x, to.y - from.y);
-    const midpointX = (from.x + to.x) / 2;
-    const midpointY = (from.y + to.y) / 2 - Math.min(90, Math.max(12, distance * .18));
-    return `M${from.x.toFixed(2)},${from.y.toFixed(2)} Q${midpointX.toFixed(2)},${midpointY.toFixed(2)} ${to.x.toFixed(2)},${to.y.toFixed(2)}`;
+    if (!distance) return '';
+    const midpoint = { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
+    const bend = Math.min(82, Math.max(9, distance * .16));
+    const firstNormal = { x: -(to.y - from.y) / distance, y: (to.x - from.x) / distance };
+    const secondNormal = { x: -firstNormal.x, y: -firstNormal.y };
+    const normal = firstNormal.y <= secondNormal.y ? firstNormal : secondNormal;
+    const control = { x: midpoint.x + normal.x * bend, y: midpoint.y + normal.y * bend };
+    return `M${from.x.toFixed(2)},${from.y.toFixed(2)} Q${control.x.toFixed(2)},${control.y.toFixed(2)} ${to.x.toFixed(2)},${to.y.toFixed(2)}`;
   };
 
   const renderConnections = (mapId, partners) => {
@@ -207,9 +239,18 @@
       line.setAttribute('class', 'collaboration-line');
       line.setAttribute('d', connectionPath(from, to));
       line.setAttribute('stroke-width', String(1.1 + ratio * 4.4));
+      line.dataset.fromMapId = mapId;
+      line.dataset.toMapId = partner.country.map_id;
       line.setAttribute('aria-hidden', 'true');
       group.append(line);
     });
+    const focalMarker = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    focalMarker.setAttribute('class', 'collaboration-endpoint focal');
+    focalMarker.setAttribute('cx', from.x.toFixed(2));
+    focalMarker.setAttribute('cy', from.y.toFixed(2));
+    focalMarker.setAttribute('r', '3.6');
+    focalMarker.setAttribute('aria-hidden', 'true');
+    group.append(focalMarker);
   };
 
   const countLegend = (maximum, label) => {
@@ -307,17 +348,62 @@
     return `<div class="reference-groups">${[...byYear.entries()].sort((a, b) => b[0] - a[0]).map(([year, paperIds], groupIndex) => `<details class="reference-group" ${state.year !== 'all' || groupIndex === 0 ? 'open' : ''}><summary><span>${year}</span><span>${number(paperIds.length)} paper${paperIds.length === 1 ? '' : 's'}</span></summary><div class="reference-chips">${referenceChips(paperIds)}</div></details>`).join('')}</div>`;
   };
 
-  const annualChart = (mapId, type = 'total') => {
+  const annualChart = ({ label, valueForYear, denominatorForYear, percentageMeaning }) => {
+    const years = chartYears();
+    const entries = years.map((year) => {
+      const value = Number(valueForYear(year) || 0);
+      const denominator = Number(denominatorForYear(year) || 0);
+      return { year, value, share: percentage(value, denominator) };
+    });
+    const maximum = Math.max(...entries.map((entry) => entry.value), 1);
+    const columns = Math.max(entries.length, 1);
+    return `<div class="annual-chart-scroll" tabindex="0" aria-label="Scrollable annual chart"><div class="annual-chart${entries.length === 1 ? ' is-single' : ''}" style="--chart-columns:${columns}" role="group" aria-label="${escapeHtml(label)}">${entries.map((entry) => {
+      const height = entry.value ? Math.max(7, entry.value / maximum * 100) : 2;
+      const description = `${entry.year}: ${number(entry.value)} paper${entry.value === 1 ? '' : 's'}, ${entry.share} ${percentageMeaning}`;
+      return `<button class="annual-bar" type="button" data-chart-year="${entry.year}" aria-label="${escapeHtml(description)}" title="${escapeHtml(description)}" ${String(state.year) === String(entry.year) ? 'aria-current="true"' : ''}><span class="annual-bar-value">${number(entry.value)}</span><span class="annual-bar-track" aria-hidden="true"><span class="annual-bar-fill" style="--bar-height:${height}%"></span></span><span class="annual-bar-year">${entry.year}</span><span class="annual-bar-share">${entry.share}</span></button>`;
+    }).join('')}</div></div><p class="annual-chart-note"><strong>Amount</strong> above each bar · <strong>percentage</strong> below each year. ${escapeHtml(percentageMeaning)}.</p>`;
+  };
+
+  const countryAnnualChart = (mapId, type = 'total') => {
     const country = sourceCountry(mapId);
     if (!country) return '<p>No annual publication series is available.</p>';
-    const years = state.data.metadata.years;
-    const values = years.map((year) => country.annual[String(year)]?.[type] || 0);
-    const maximum = Math.max(...values, 1);
-    return `<div class="annual-chart" role="img" aria-label="Annual ${escapeHtml(type)} publication counts for ${escapeHtml(country.name)}">${years.map((year, position) => {
-      const value = values[position];
-      const height = value ? Math.max(6, value / maximum * 100) : 2;
-      return `<button class="annual-bar" type="button" data-chart-year="${year}" style="--bar-height:${height}%" aria-label="${year}: ${value} ${type} papers" title="${year}: ${value}" ${String(state.year) === String(year) ? 'aria-current="true"' : ''}></button>`;
-    }).join('')}</div><div class="annual-axis"><span>${years[0]}</span><span>${years[Math.floor(years.length / 2)]}</span><span>${years.at(-1)}</span></div>`;
+    if (type === 'international') {
+      return annualChart({
+        label: `Annual international publication counts and shares for ${country.name}`,
+        valueForYear: (year) => country.annual[String(year)]?.international || 0,
+        denominatorForYear: (year) => country.annual[String(year)]?.total || 0,
+        percentageMeaning: 'of this country’s papers in that year were internationally coauthored'
+      });
+    }
+    return annualChart({
+      label: `Annual publication counts and shares for ${country.name}`,
+      valueForYear: (year) => country.annual[String(year)]?.total || 0,
+      denominatorForYear: (year) => papersInYear(year).length,
+      percentageMeaning: 'of all papers published in that year were associated with this country'
+    });
+  };
+
+  const globalAnnualChart = (mode) => mode === 'cooperation'
+    ? annualChart({
+      label: 'Annual growth of internationally coauthored PINN-related publications',
+      valueForYear: (year) => papersInYear(year).filter((paper) => paper.countries.length >= 2).length,
+      denominatorForYear: (year) => papersInYear(year).length,
+      percentageMeaning: 'of all papers published in that year were international'
+    })
+    : annualChart({
+      label: 'Annual growth of PINN-related publications',
+      valueForYear: (year) => papersInYear(year).length,
+      denominatorForYear: () => state.data.metadata.paper_count,
+      percentageMeaning: 'of the complete 853-paper bibliography were published in that year'
+    });
+
+  const overviewDetails = () => {
+    const cooperation = state.mode === 'cooperation';
+    const title = cooperation ? 'Annual cooperation growth by year' : 'Annual growth of PINN-related publications';
+    const description = cooperation
+      ? 'International-paper amounts and their share of all publications in each visible year.'
+      : 'Publication amounts and their share of the complete review bibliography.';
+    return `<div class="details-placeholder"><span class="details-orbit" aria-hidden="true"></span><strong>Select a country</strong><p>Hover for a preview, or click a country to lock its evidence panel.</p></div><section class="details-section overview-chart"><p class="eyebrow compact">${cooperation ? 'International profile' : 'Publication profile'}</p><h2>${title}</h2><p>${description}</p>${globalAnnualChart(state.mode)}</section>`;
   };
 
   const individualDetails = (mapId) => {
@@ -326,8 +412,9 @@
     const source = sourceCountry(mapId);
     return `<button class="details-close" type="button" data-close-details aria-label="Clear country selection">×</button>
       <div class="country-heading"><p class="eyebrow compact">Country profile${source ? ` · ${source.iso3}` : ''}</p><h2>${escapeHtml(stats.name)}</h2><p>${state.year === 'all' ? state.data.metadata.year_range : state.year} · ${percentage(stats.total, periodPapers)} of papers in the selected period</p></div>
-      <div class="country-metrics"><div><strong>${number(stats.total)}</strong><span>Total papers</span></div><div><strong>${number(stats.national)}</strong><span>National papers</span></div><div><strong>${number(stats.international)}</strong><span>International papers</span></div></div>
-      <section class="details-section"><h3>Annual publication profile</h3>${annualChart(mapId)}</section>
+      <div class="country-metrics"><div><strong>${number(stats.total)}</strong><span>Total · ${percentage(stats.total, periodPapers)} of period</span></div><div><strong>${number(stats.national)}</strong><span>National · ${percentage(stats.national, stats.total)} of country</span></div><div><strong>${number(stats.international)}</strong><span>International · ${percentage(stats.international, stats.total)} of country</span></div></div>
+      <section class="details-section"><h3>Annual publication profile</h3>${countryAnnualChart(mapId)}</section>
+      <section class="details-section"><h3>Annual international profile</h3>${countryAnnualChart(mapId, 'international')}</section>
       <section class="details-section"><h3>Applicable reference IDs</h3><p>Grouped by year; each ID opens its exact References record.</p>${referenceGroups(stats.ids)}</section>`;
   };
 
@@ -338,17 +425,20 @@
     const partnerCards = partners.length ? partners.map((partner) => `<article class="partner-card"><div class="partner-card-head"><button class="partner-select" type="button" data-partner-map-id="${partner.country.map_id}"><span>${escapeHtml(partner.country.name)}</span><small>Select as focal country</small></button><span class="partner-strength">${number(partner.volume)} paper${partner.volume === 1 ? '' : 's'}${state.metric === 'intensity' ? ` · J ${partner.intensity.toFixed(3)}` : ''}</span></div><div class="reference-chips">${referenceChips(partner.jointIds)}</div></article>`).join('') : '<p>No international partners are present in the selected period.</p>';
     return `<button class="details-close" type="button" data-close-details aria-label="Clear country selection">×</button>
       <div class="country-heading"><p class="eyebrow compact">Cooperation profile${country ? ` · ${country.iso3}` : ''}</p><h2>${escapeHtml(stats.name)}</h2><p>${state.year === 'all' ? state.data.metadata.year_range : state.year} · ranked by ${state.metric === 'intensity' ? 'Jaccard intensity' : 'joint-paper volume'}</p></div>
-      <div class="country-metrics"><div><strong>${number(stats.international)}</strong><span>International papers</span></div><div><strong>${number(partners.length)}</strong><span>Partner countries</span></div><div><strong>${number(partners.reduce((sum, partner) => sum + partner.volume, 0))}</strong><span>Pair-paper links</span></div></div>
-      <section class="details-section"><h3>Annual international profile</h3>${annualChart(mapId, 'international')}</section>
+      <div class="country-metrics"><div><strong>${number(stats.international)}</strong><span>International · ${percentage(stats.international, stats.total)} of country</span></div><div><strong>${number(partners.length)}</strong><span>Partner countries</span></div><div><strong>${number(partners.reduce((sum, partner) => sum + partner.volume, 0))}</strong><span>Pair-paper links</span></div></div>
+      <section class="details-section"><h3>Annual international profile</h3>${countryAnnualChart(mapId, 'international')}</section>
+      <section class="details-section"><h3>Annual publication profile</h3>${countryAnnualChart(mapId)}</section>
       <section class="details-section"><h3>Collaborating countries</h3><p>Each partnership lists the exact shared paper IDs. Multi-country papers appear once per unique pair.</p><div class="partner-list">${partnerCards}</div></section>`;
   };
 
   const renderDetails = () => {
     if (!state.country) {
       elements.details.classList.remove('is-open');
-      elements.details.innerHTML = '<div class="details-placeholder"><span class="details-orbit" aria-hidden="true"></span><strong>Select a country</strong><p>Hover for a preview, or click a country to lock its evidence panel.</p></div>';
+      elements.details.classList.add('is-overview');
+      elements.details.innerHTML = overviewDetails();
       return;
     }
+    elements.details.classList.remove('is-overview');
     elements.details.innerHTML = state.mode === 'countries' ? individualDetails(state.country) : cooperationDetails(state.country);
     elements.details.classList.add('is-open');
   };
@@ -488,6 +578,7 @@
       path.dataset.mapId = location.map_id;
       countriesGroup.append(path);
       index.pathByMapId.set(location.map_id, path);
+      index.anchorByMapId.set(location.map_id, mainLandmassAnchor(location.path));
     });
   };
 
