@@ -1,0 +1,51 @@
+name: Reference correction
+description: Report incorrect or incomplete metadata in the PINN Review Atlas bibliography.
+title: "Reference correction: [ID]"
+labels:
+  - data-quality
+body:
+  - type: input
+    id: reference_id
+    attributes:
+      label: Reference ID
+      description: Enter the numeric Atlas reference ID.
+      placeholder: "125"
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: Affected field
+      options:
+        - Citation text
+        - Title
+        - Authors
+        - DOI or publisher URL
+        - Journal or conference
+        - Publication year
+        - Accessibility
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: State the current value and the corrected value.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Authoritative source
+      description: Provide a DOI or publisher URL that supports the correction.
+      placeholder: https://doi.org/...
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verification
+      options:
+        - label: I checked that the source refers to the same paper and reference ID.
+          required: true
