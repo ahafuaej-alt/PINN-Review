@@ -194,8 +194,11 @@
 
   const matchingPapers = () => {
     const query = normalize(search.value.trim().replace(/^\[|\]$/g, ''));
-    if (!query) return state.master.papers.slice(0, 12);
-    return state.master.papers.filter((paper) => [paper.id, paper.title, paper.doi, paper.venue.name, paper.countries.join(' ')].some((value) => normalize(value).includes(query))).slice(0, 30);
+    const matches = query
+      ? state.master.papers.filter((paper) => [paper.id, paper.title, paper.doi, paper.venue.name, paper.countries.join(' ')].some((value) => normalize(value).includes(query))).slice(0, 30)
+      : state.master.papers.slice(0, 12);
+    if (state.selected && !matches.some((paper) => paper.id === state.selected.id)) matches.unshift(state.selected);
+    return matches;
   };
 
   const renderResults = () => {
