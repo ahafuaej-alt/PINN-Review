@@ -1,9 +1,22 @@
 name: Deploy GitHub Pages
 
+run-name: Deploy GitHub Pages${{ inputs.source_sha && format(' · {0}', inputs.source_sha) || '' }}
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      source_sha:
+        description: 'Exact repository commit to deploy (defaults to the triggering commit)'
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      source_sha:
+        description: 'Exact repository commit to deploy'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -24,6 +37,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_sha || github.sha }}
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
