@@ -2,7 +2,7 @@
   'use strict';
 
   const DATA_URL = '../data/pinn-realm.json';
-  const MAP_URL = '../data/world-map.json';
+  const MAP_URL = '../data/world-map.json?v=realm-map-20260722a';
   const REFERENCES_ROUTE = '../references/';
   const DEFAULTS = { mode: 'countries', year: 'all', metric: 'volume', country: '', query: '' };
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
