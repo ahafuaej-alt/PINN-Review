@@ -4,7 +4,7 @@ import {
   extractLegacyBibliographic,
   formatMdpiCitation,
   normalizeBibliographic
-} from './citation-format.mjs?v=data-20260722b';
+} from './citation-format.mjs?v=data-20260722c';
 
 const MASTER_URL = '../data/papers-master.json';
 const MAPPING_URL = '../data/country-mapping.json';
