@@ -6,6 +6,11 @@ export const ROOT = path.resolve(import.meta.dirname, '../..');
 export const EXPECTED_RECORDS = 853;
 export const ACCESS_VALUES = ['Open access', 'Subscription', 'Not verified'];
 export const VENUE_TYPES = ['journal', 'preprint', 'conference_journal', 'conference', 'presentation', 'conference_book', 'book', 'chapter', 'website', 'thesis', 'patent', 'standard', 'software', 'magazine', 'report', 'other', 'unknown'];
+export const GRAPHICAL_ABSTRACT_SPEC = Object.freeze({ width: 3840, height: 2160, format: 'webp', color_space: 'sRGB' });
+const sentenceCount = (value) => {
+  const clean = String(value || '').trim();
+  return clean ? clean.split(/(?<=[.!?])\s+(?=[A-Z0-9])/u).filter(Boolean).length : 0;
+};
 
 export const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
 
@@ -98,6 +103,27 @@ export const validateMaster = (master, countryMapping, worldMap = null) => {
         for (const [field, value] of Object.entries(paper.bibliographic)) add(typeof value === 'string' && value.trim(), `${label} bibliographic field “${field}” must be a non-empty string`);
       }
     }
+    if (paper.abstract !== undefined) add(typeof paper.abstract === 'string' && paper.abstract.trim(), `${label} abstract must be a non-empty string`);
+    if (paper.graphical_abstract !== undefined) {
+      const graphical = paper.graphical_abstract;
+      add(graphical && typeof graphical === 'object' && !Array.isArray(graphical), `${label} graphical abstract must be an object`);
+      if (graphical && typeof graphical === 'object') {
+        const supported = ['image_url', 'width', 'height', 'format', 'color_space', 'alt_text', 'caption'];
+        const unknownFields = Object.keys(graphical).filter((field) => !supported.includes(field));
+        add(unknownFields.length === 0, `${label} has unsupported graphical-abstract fields: ${unknownFields.join(', ')}`);
+        add(graphical.width === GRAPHICAL_ABSTRACT_SPEC.width && graphical.height === GRAPHICAL_ABSTRACT_SPEC.height, `${label} graphical abstract must be 3840 × 2160 pixels`);
+        add(graphical.format === GRAPHICAL_ABSTRACT_SPEC.format, `${label} graphical abstract format must be WebP`);
+        add(graphical.color_space === GRAPHICAL_ABSTRACT_SPEC.color_space, `${label} graphical abstract color space must be sRGB`);
+        add(typeof graphical.alt_text === 'string' && graphical.alt_text.trim() && graphical.alt_text.length <= 500, `${label} graphical abstract requires concise alt text`);
+        add(typeof graphical.caption === 'string' && graphical.caption.trim() && graphical.caption.length <= 320, `${label} graphical abstract requires a concise caption`);
+        add(sentenceCount(graphical.alt_text) >= 1 && sentenceCount(graphical.alt_text) <= 2, `${label} graphical-abstract alt text must contain one or two sentences`);
+        add(sentenceCount(graphical.caption) === 1, `${label} graphical-abstract caption must contain one sentence`);
+        try {
+          const imageUrl = new URL(graphical.image_url);
+          add(imageUrl.protocol === 'https:' && /\.webp$/iu.test(imageUrl.pathname), `${label} graphical abstract must use an HTTPS WebP URL`);
+        } catch { errors.push(`${label} graphical abstract has an invalid image URL`); }
+      }
+    }
     if (paper.provenance?.citation_mode === 'automatic') add(paper.citation === formatMdpiCitation(paper), `${label} automatic MDPI citation is stale`);
     add(Number.isInteger(effectiveRealmYear(paper)), `${label} has no effective year for PINN Realm`);
   }
@@ -111,13 +137,20 @@ export const buildReferences = (master) => master.papers.map((paper) => ({
   doi: normalizeDoi(paper.doi),
   publisher_url: paper.publisher_url,
   venue: paper.venue.name,
+  reference_type: paper.venue.type,
+  bibliographic: paper.bibliographic || null,
+  abstract: paper.abstract || null,
+  graphical_abstract: paper.graphical_abstract || null,
   year: paper.year,
-  access: paper.access
+  access: paper.access,
+  countries: [...paper.countries],
+  last_updated: paper.last_updated
 }));
 
 export const buildReferencesMetadata = (master, references) => {
   const years = references.map((paper) => paper.year).filter(Number.isInteger);
   const access = (name) => references.filter((paper) => paper.access === name).length;
+  const referenceTypes = Object.fromEntries(VENUE_TYPES.map((type) => [type, references.filter((paper) => paper.reference_type === type).length]).filter(([, count]) => count > 0));
   return {
     title: 'PINN Review Atlas Master Bibliography',
     version: master.metadata.dataset_version,
@@ -132,6 +165,11 @@ export const buildReferencesMetadata = (master, references) => {
       open_access: access('Open access'),
       subscription: access('Subscription'),
       not_verified: access('Not verified')
+    },
+    reference_types: referenceTypes,
+    content_availability: {
+      abstracts: references.filter((paper) => paper.abstract).length,
+      graphical_abstracts: references.filter((paper) => paper.graphical_abstract).length
     },
     source_document: master.metadata.sources.bibliography,
     country_source: master.metadata.sources.countries,
@@ -246,13 +284,16 @@ export const bumpPatchVersion = (version) => {
 export const impactSummary = (beforeMaster, afterMaster, id, countryMapping) => {
   const beforePaper = beforeMaster.papers.find((paper) => paper.id === id);
   const afterPaper = afterMaster.papers.find((paper) => paper.id === id);
-  const changedFields = ['title', 'citation', 'bibliographic', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']
+  const changedFields = ['title', 'citation', 'bibliographic', 'abstract', 'graphical_abstract', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']
     .filter((field) => JSON.stringify(beforePaper[field]) !== JSON.stringify(afterPaper[field]));
   if (beforePaper?.overrides?.realm_year !== afterPaper?.overrides?.realm_year) changedFields.push('realm_year_override');
   const before = buildAll(beforeMaster, countryMapping);
   const after = buildAll(afterMaster, countryMapping);
   const yearCounts = (papers) => Object.fromEntries([...new Set(papers.map((paper) => paper.year).filter(Number.isInteger))].sort().map((year) => [year, papers.filter((paper) => paper.year === year).length]));
   const changedCounts = (left, right) => [...new Set([...Object.keys(left), ...Object.keys(right)])].filter((key) => left[key] !== right[key]).map((key) => ({ year: Number(key), before: left[key] || 0, after: right[key] || 0 }));
+  const affectedViews = ['Reference card, filters, details, search, analytics, and citation exports'];
+  if (changedFields.some((field) => ['title', 'year', 'countries', 'realm_year_override'].includes(field))) affectedViews.push('PINN Realm map, timelines, country profiles, and cooperation pairs');
+  affectedViews.push('Machine-readable metadata, provenance, and dataset version');
   return {
     paper_id: id,
     changed_fields: changedFields,
@@ -260,10 +301,6 @@ export const impactSummary = (beforeMaster, afterMaster, id, countryMapping) => 
     realm_year_counts: changedCounts(yearCounts(before.realm.papers), yearCounts(after.realm.papers)),
     realm_country_count: { before: before.realm.metadata.country_count, after: after.realm.metadata.country_count },
     collaboration_pair_count: { before: before.realm.metadata.collaboration_pair_count, after: after.realm.metadata.collaboration_pair_count },
-    affected_views: [
-      'Reference card, filters, analytics, search, and citation exports',
-      'PINN Realm map, timelines, country profiles, and cooperation pairs',
-      'Machine-readable metadata, provenance, and dataset version'
-    ]
+    affected_views: affectedViews
   };
 };
