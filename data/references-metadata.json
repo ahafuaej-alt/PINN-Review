@@ -1,0 +1,22 @@
+{
+  "title": "PINN Review Atlas Master Bibliography",
+  "version": "1.2.0",
+  "last_updated": "2026-07-22",
+  "record_count": 853,
+  "reference_id_range": "1-853",
+  "year_range": "1908-2025",
+  "doi_fields": 756,
+  "publisher_or_doi_links": 770,
+  "accessibility": {
+    "open_access": 266,
+    "subscription": 523,
+    "not_verified": 64
+  },
+  "source_document": "38_1_10_references.docx",
+  "display_style": "MDPI ACS reference style",
+  "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/references.json",
+  "reference_register_url": "https://ahafuaej-alt.github.io/PINN-Review/references/",
+  "available_client_exports": ["BibTeX", "RIS", "EndNote", "Zotero-compatible RIS", "CSV"],
+  "data_quality_policy": "Reference IDs and bibliographic statements are preserved from the review source. DOI and publisher destinations are normalized to HTTPS. Venue, year, and access fields are shown only when identified; uncertain access or destinations remain explicitly unverified.",
+  "privacy": "The static dataset does not contain reader data. Reading-list selections and interface preferences are stored only in the reader's browser."
+}
