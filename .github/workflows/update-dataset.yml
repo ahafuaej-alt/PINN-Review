@@ -35,6 +35,7 @@ jobs:
           node scripts/apply-paper-update.mjs /tmp/pinn-paper-update.json
           node scripts/build-datasets.mjs --check
           node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
           node scripts/validate-pinn-realm.mjs
           git diff --check
       - name: Commit coordinated dataset release
