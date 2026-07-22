@@ -12,9 +12,36 @@ const paperById = new Map(realm.papers.map((paper) => [paper.id, paper]));
 const referenceById = new Map(references.map((reference) => [reference.id, reference]));
 const countryByIso3 = new Map(realm.countries.map((country) => [country.iso3, country]));
 const mapIds = new Set(map.locations.map((location) => location.map_id));
+const mainLandmassAnchor = (pathData) => {
+  const pointMarker = String(pathData || '').match(/^M(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)[ma]/);
+  if (pointMarker) return { x: Number(pointMarker[1]), y: Number(pointMarker[2]) };
+  const subpaths = String(pathData || '').match(/M[^M]+/g) || [];
+  let best = null;
+  for (const subpath of subpaths) {
+    const coordinates = [...subpath.matchAll(/-?\d+(?:\.\d+)?/g)].map((match) => Number(match[0]));
+    if (coordinates.length < 4 || coordinates.length % 2) continue;
+    const xs = [];
+    const ys = [];
+    for (let position = 0; position < coordinates.length; position += 2) {
+      xs.push(coordinates[position]);
+      ys.push(coordinates[position + 1]);
+    }
+    const minimumX = Math.min(...xs);
+    const maximumX = Math.max(...xs);
+    const minimumY = Math.min(...ys);
+    const maximumY = Math.max(...ys);
+    const area = (maximumX - minimumX) * (maximumY - minimumY);
+    if (!best || area > best.area) best = { area, x: (minimumX + maximumX) / 2, y: (minimumY + maximumY) / 2 };
+  }
+  return best ? { x: best.x, y: best.y } : null;
+};
+const anchors = new Map(map.locations.map((location) => [location.map_id, mainLandmassAnchor(location.path)]));
 check(map.locations.every((location) => typeof location.name === 'string' && location.name.trim()), 'one or more map locations lack a readable name');
 check(map.locations.every((location) => typeof location.map_id === 'string' && location.map_id.trim() && location.map_id !== 'undefined'), 'one or more map locations lack a stable identifier');
 check(mapIds.size === map.locations.length, 'world-map location identifiers are not unique');
+check([...anchors.values()].every((anchor) => anchor && Number.isFinite(anchor.x) && Number.isFinite(anchor.y) && anchor.x >= 0 && anchor.x <= 1000 && anchor.y >= 0 && anchor.y <= 530), 'one or more collaboration anchors are invalid or outside the map view box');
+check(anchors.get('250')?.x > 480 && anchors.get('250')?.y < 150, 'France collaboration anchor is not on metropolitan France');
+check(anchors.get('643')?.x > 600, 'Russia collaboration anchor is not on the main Eurasian landmass');
 
 check(realm.papers.length === 853, `expected 853 papers, found ${realm.papers.length}`);
 check(new Set(realm.papers.map((paper) => paper.id)).size === 853, 'paper IDs are not unique');
@@ -57,7 +84,19 @@ for (const country of realm.countries) {
   check(JSON.stringify(country.paper_ids) === JSON.stringify(expected), `${country.name} total paper IDs are incorrect`);
   check(JSON.stringify(country.national_paper_ids) === JSON.stringify(national), `${country.name} national paper IDs are incorrect`);
   check(JSON.stringify(country.international_paper_ids) === JSON.stringify(international), `${country.name} international paper IDs are incorrect`);
+  for (const year of realm.metadata.years) {
+    const annual = country.annual[String(year)] || { total: 0, national: 0, international: 0 };
+    const expectedAnnual = expected.filter((id) => paperById.get(id).year === year);
+    const expectedNational = national.filter((id) => paperById.get(id).year === year);
+    const expectedInternational = international.filter((id) => paperById.get(id).year === year);
+    check(annual.total === expectedAnnual.length, `${country.name} has an incorrect total for ${year}`);
+    check(annual.national === expectedNational.length, `${country.name} has an incorrect national total for ${year}`);
+    check(annual.international === expectedInternational.length, `${country.name} has an incorrect international total for ${year}`);
+  }
 }
+
+check(realm.metadata.years.reduce((sum, year) => sum + realm.papers.filter((paper) => paper.year === year).length, 0) === 853, 'annual publication totals do not sum to 853');
+check(realm.metadata.years.reduce((sum, year) => sum + realm.papers.filter((paper) => paper.year === year && paper.countries.length >= 2).length, 0) === realm.metadata.international_paper_count, 'annual international totals do not match metadata');
 
 for (const year of ['all', ...realm.metadata.years]) {
   const papers = realm.papers.filter((paper) => year === 'all' || paper.year === year);
