@@ -38,6 +38,8 @@ delete candidate.overrides;
 candidate.venue = { name: 'Validation Venue', type: 'journal' };
 candidate.doi = '10.1234/validation';
 candidate.publisher_url = 'https://doi.org/10.1234/validation';
+candidate.abstract = 'Validation abstract for synchronized reference content.';
+candidate.graphical_abstract = { image_url: 'https://example.org/validation.webp', width: 3840, height: 2160, format: 'webp', color_space: 'sRGB', alt_text: 'Validation graphical abstract.', caption: 'Validation caption.' };
 const impact = impactSummary(master, simulated, candidate.id, mapping);
 const simulatedGenerated = buildAll(simulated, mapping);
 const simulatedReference = simulatedGenerated.references.find((paper) => paper.id === candidate.id);
@@ -46,6 +48,10 @@ check(simulatedReference.year === candidate.year, 'simulated year edit did not r
 check(simulatedRealmPaper.year === candidate.year, 'simulated year edit did not reach PINN Realm');
 check(simulatedReference.venue === 'Validation Venue', 'simulated venue edit did not reach References');
 check(simulatedReference.doi === '10.1234/validation', 'simulated DOI edit did not reach References');
+check(simulatedReference.reference_type === 'journal', 'simulated reference type did not reach References');
+check(Array.isArray(simulatedReference.countries) && simulatedReference.countries.length === candidate.countries.length, 'country details did not reach References');
+check(simulatedReference.abstract === candidate.abstract, 'abstract did not reach References');
+check(simulatedReference.graphical_abstract?.image_url === candidate.graphical_abstract.image_url, 'graphical abstract did not reach References');
 check(impact.references_year_counts.length === 2, 'simulated edit did not recalculate bibliography year totals');
 check(impact.realm_year_counts.length === 2, 'simulated edit did not recalculate Realm year totals');
 
