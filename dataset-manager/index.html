@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prepare validated, evidence-backed updates to the canonical PINN Review Atlas paper dataset and preview their downstream impact.">
+  <meta name="theme-color" content="#09111d">
+  <title>Dataset Manager · PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=data-20260722"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=data-20260722">
+  <script src="../assets/app.js?v=data-20260722" defer></script>
+  <script src="../assets/dataset-manager.js?v=data-20260722" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#manager">Skip to Dataset Manager</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+    <div class="nav-links" id="nav-links"><a href="../#atlas">Explore</a><a href="../pinn-realm/">PINN Realm</a><a href="../abbreviations/">Abbreviations</a><a href="../references/">References</a><a href="./" aria-current="page">Dataset Manager</a><a href="../cite/">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a></div>
+  </nav></header>
+
+  <main id="main">
+    <section class="page-hero"><div class="container">
+      <p class="breadcrumb"><a href="../">Atlas</a> / Dataset Manager</p>
+      <p class="eyebrow">Single-source maintenance</p>
+      <h1>Correct once.<br><span class="gradient">Rebuild everywhere.</span></h1>
+      <p class="lede">Prepare one evidence-backed paper update and preview every affected Atlas view. The secure repository workflow validates the change, regenerates derived datasets, records the audit entry, and publishes the coordinated release.</p>
+      <div class="evidence-actions"><a class="button primary" href="#manager">Prepare an update <span aria-hidden="true">↓</span></a><a class="button" href="../data/papers-master.json" download>Download master JSON</a><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/actions/workflows/update-dataset.yml">Run update workflow ↗</a></div>
+      <div class="source-note"><strong>Security model</strong><span>This static page never requests a GitHub token and cannot modify the repository. Editing and validation occur locally in your browser; publication requires the repository’s authenticated GitHub Actions workflow.</span></div>
+    </div></section>
+
+    <section class="evidence-page manager-page" id="manager"><div class="container">
+      <div class="stats-grid" aria-label="Canonical dataset summary">
+        <div class="stat"><strong data-manager-stat="records">—</strong><span>canonical paper records</span></div>
+        <div class="stat"><strong data-manager-stat="version">—</strong><span>dataset version</span></div>
+        <div class="stat"><strong data-manager-stat="updated">—</strong><span>last source update</span></div>
+        <div class="stat"><strong data-manager-stat="overrides">—</strong><span>legacy year conflicts</span></div>
+      </div>
+
+      <section class="manager-principles" aria-labelledby="pipeline-title">
+        <div class="panel-head"><div><p class="eyebrow compact">Deterministic pipeline</p><h2 id="pipeline-title">One authoritative record, generated public views</h2></div><p>No chart total, collaboration pair, filter count, or metadata summary is edited by hand.</p></div>
+        <ol class="manager-pipeline">
+          <li><span>01</span><strong>Edit</strong><small>Change one paper record.</small></li>
+          <li><span>02</span><strong>Validate</strong><small>Check IDs, DOI, URL, year, venue, and countries.</small></li>
+          <li><span>03</span><strong>Rebuild</strong><small>Regenerate References, Realm, analytics, and exports.</small></li>
+          <li><span>04</span><strong>Publish</strong><small>Record the evidence and deploy atomically.</small></li>
+        </ol>
+      </section>
+
+      <div class="manager-status" data-manager-status role="status" aria-live="polite">Loading the canonical paper register…</div>
+
+      <div class="manager-layout" data-manager-shell hidden>
+        <aside class="manager-browser" aria-label="Find a paper">
+          <label for="manager-search">Paper ID, title, DOI, or venue</label>
+          <div class="search-field"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input id="manager-search" type="search" data-manager-search placeholder="For example: 125 or fluid flow" autocomplete="off"></div>
+          <div class="manager-results" data-manager-results role="listbox" aria-label="Matching papers"></div>
+          <div class="manager-browser-note"><strong>Permanent key</strong><p>Paper IDs remain stable. Sorting, corrections, and new metadata never renumber the review bibliography.</p></div>
+        </aside>
+
+        <section class="manager-editor" aria-labelledby="editor-title">
+          <div class="manager-empty" data-manager-empty><strong>Select a paper to edit</strong><p>Search by reference ID, title, DOI, or venue. The current record and its downstream impact will appear here.</p></div>
+          <form data-manager-form hidden novalidate>
+            <div class="manager-editor-head"><div><p class="eyebrow compact">Canonical record <span data-editor-id></span></p><h2 id="editor-title" data-editor-title>Paper record</h2></div><a class="button" data-open-reference href="../references/">Open current reference ↗</a></div>
+
+            <div class="legacy-warning" data-legacy-warning hidden></div>
+
+            <div class="manager-form-grid">
+              <label class="span-2"><span>Paper title</span><input name="title" required></label>
+              <label class="span-2"><span>MDPI-formatted citation</span><textarea name="citation" rows="4" required></textarea><small>When a year changes, the workflow synchronizes an unambiguous citation year automatically; complex citations require manual review.</small></label>
+              <label><span>Publication year</span><input name="year" type="number" min="1800" max="2100" inputmode="numeric"></label>
+              <label><span>Accessibility</span><select name="access"><option>Open access</option><option>Subscription</option><option>Not verified</option></select></label>
+              <label><span>Journal / conference</span><input name="venue_name" required></label>
+              <label><span>Publication type</span><select name="venue_type"><option value="journal">Journal</option><option value="conference">Conference</option><option value="book">Book</option><option value="chapter">Book chapter</option><option value="preprint">Preprint</option><option value="thesis">Thesis</option><option value="report">Report</option><option value="other">Other</option><option value="unknown">Unknown</option></select></label>
+              <label><span>DOI</span><input name="doi" placeholder="10.xxxx/xxxxx"></label>
+              <label><span>DOI or publisher URL</span><input name="publisher_url" type="url" placeholder="https://doi.org/…"></label>
+              <label class="span-2"><span>Affiliation countries</span><input name="countries" list="country-options" required><small>Comma-separated standardized country names. All entries must exist in the Atlas mapping layer.</small></label>
+              <datalist id="country-options" data-country-options></datalist>
+            </div>
+
+            <fieldset class="evidence-fieldset"><legend>Evidence and audit trail</legend><div class="manager-form-grid">
+              <label class="span-2"><span>Authoritative evidence URL</span><input name="evidence_url" type="url" required placeholder="https://doi.org/… or publisher record"></label>
+              <label class="span-2"><span>Reason for change</span><textarea name="reason" rows="2" required placeholder="Explain what was corrected and why."></textarea></label>
+              <label><span>Submitted by <em>(optional)</em></span><input name="submitted_by" autocomplete="name"></label>
+            </div></fieldset>
+
+            <div class="manager-validation" data-manager-validation aria-live="polite"></div>
+
+            <section class="impact-panel" aria-labelledby="impact-title">
+              <div class="panel-head"><div><p class="eyebrow compact">Impact preview</p><h3 id="impact-title">What will update automatically</h3></div><p data-impact-summary>No fields changed.</p></div>
+              <div class="impact-grid" data-impact-grid></div>
+            </section>
+
+            <div class="manager-actions">
+              <button class="button primary" type="button" data-download-update disabled>Download update package</button>
+              <button class="button" type="button" data-copy-update disabled>Copy update JSON</button>
+              <button class="button" type="reset">Discard edits</button>
+              <a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/actions/workflows/update-dataset.yml">Open publication workflow ↗</a>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <section class="audit-panel" aria-labelledby="audit-title">
+        <div class="panel-head"><div><p class="eyebrow compact">Public audit trail</p><h2 id="audit-title">Recent dataset changes</h2></div><p>Every accepted package records the paper ID, changed fields, evidence, version, date, and recalculated impact.</p></div>
+        <div class="audit-list" data-audit-list><div class="loading-state"><span><strong>Loading change history</strong></span></div></div>
+      </section>
+
+      <section class="provenance-panel manager-governance" aria-labelledby="governance-title">
+        <div><p class="eyebrow compact">Governance</p><h2 id="governance-title">Safe by construction</h2><p>The browser creates a small declarative update package, never a replacement website. The repository workflow accepts only approved paper fields, validates all 853 records, rebuilds every derived file, and stops before publication if any invariant fails.</p></div>
+        <dl class="provenance-facts"><div><dt>Master dataset</dt><dd><a href="../data/papers-master.json">papers-master.json</a></dd></div><div><dt>Schema</dt><dd><a href="../data/papers-master.schema.json">1.0.0</a></dd></div><div><dt>Generator</dt><dd>Deterministic</dd></div><div><dt>Publication</dt><dd>Authenticated GitHub Action</dd></div></dl>
+        <div class="provenance-actions"><a class="button" href="../data/changes.json">Download audit JSON</a><a class="button" href="../references/changelog/">Data-quality methodology</a><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/tree/main/scripts">Inspect build scripts ↗</a></div>
+      </section>
+    </div></section>
+  </main>
+
+  <div class="toast" data-manager-toast role="status" aria-live="polite" hidden></div>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 PINN Review Atlas</span><span>Canonical dataset <span data-footer-version>—</span> · 853 records</span><a href="../privacy/">Privacy</a></div></footer>
+</body>
+</html>
