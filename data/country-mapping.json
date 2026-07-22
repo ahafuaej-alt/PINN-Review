@@ -1,0 +1,254 @@
+{
+  "Australia": {
+    "iso3": "AUS",
+    "map_id": "036"
+  },
+  "Austria": {
+    "iso3": "AUT",
+    "map_id": "040"
+  },
+  "Belarus": {
+    "iso3": "BLR",
+    "map_id": "112"
+  },
+  "Belgium": {
+    "iso3": "BEL",
+    "map_id": "056"
+  },
+  "Brazil": {
+    "iso3": "BRA",
+    "map_id": "076"
+  },
+  "Brunei": {
+    "iso3": "BRN",
+    "map_id": "096"
+  },
+  "Bulgaria": {
+    "iso3": "BGR",
+    "map_id": "100"
+  },
+  "Canada": {
+    "iso3": "CAN",
+    "map_id": "124"
+  },
+  "Chile": {
+    "iso3": "CHL",
+    "map_id": "152"
+  },
+  "China": {
+    "iso3": "CHN",
+    "map_id": "156"
+  },
+  "Colombia": {
+    "iso3": "COL",
+    "map_id": "170"
+  },
+  "Cuba": {
+    "iso3": "CUB",
+    "map_id": "192"
+  },
+  "Cyprus": {
+    "iso3": "CYP",
+    "map_id": "196"
+  },
+  "Czech": {
+    "iso3": "CZE",
+    "map_id": "203"
+  },
+  "Denmark": {
+    "iso3": "DNK",
+    "map_id": "208"
+  },
+  "Egypt": {
+    "iso3": "EGY",
+    "map_id": "818"
+  },
+  "Estonia": {
+    "iso3": "EST",
+    "map_id": "233"
+  },
+  "Finland": {
+    "iso3": "FIN",
+    "map_id": "246"
+  },
+  "France": {
+    "iso3": "FRA",
+    "map_id": "250"
+  },
+  "Germany": {
+    "iso3": "DEU",
+    "map_id": "276"
+  },
+  "Greece": {
+    "iso3": "GRC",
+    "map_id": "300"
+  },
+  "Hungary": {
+    "iso3": "HUN",
+    "map_id": "348"
+  },
+  "India": {
+    "iso3": "IND",
+    "map_id": "356"
+  },
+  "Iran": {
+    "iso3": "IRN",
+    "map_id": "364"
+  },
+  "Iraq": {
+    "iso3": "IRQ",
+    "map_id": "368"
+  },
+  "Ireland": {
+    "iso3": "IRL",
+    "map_id": "372"
+  },
+  "Israel": {
+    "iso3": "ISR",
+    "map_id": "376"
+  },
+  "Italy": {
+    "iso3": "ITA",
+    "map_id": "380"
+  },
+  "Japan": {
+    "iso3": "JPN",
+    "map_id": "392"
+  },
+  "Kazakhstan": {
+    "iso3": "KAZ",
+    "map_id": "398"
+  },
+  "Lithuania": {
+    "iso3": "LTU",
+    "map_id": "440"
+  },
+  "Malaysia": {
+    "iso3": "MYS",
+    "map_id": "458"
+  },
+  "Mexico": {
+    "iso3": "MEX",
+    "map_id": "484"
+  },
+  "Morocco": {
+    "iso3": "MAR",
+    "map_id": "504"
+  },
+  "Netherlands": {
+    "iso3": "NLD",
+    "map_id": "528"
+  },
+  "New Zealand": {
+    "iso3": "NZL",
+    "map_id": "554"
+  },
+  "Norway": {
+    "iso3": "NOR",
+    "map_id": "578"
+  },
+  "Pakistan": {
+    "iso3": "PAK",
+    "map_id": "586"
+  },
+  "Peru": {
+    "iso3": "PER",
+    "map_id": "604"
+  },
+  "Philippines": {
+    "iso3": "PHL",
+    "map_id": "608"
+  },
+  "Poland": {
+    "iso3": "POL",
+    "map_id": "616"
+  },
+  "Portugal": {
+    "iso3": "PRT",
+    "map_id": "620"
+  },
+  "Qatar": {
+    "iso3": "QAT",
+    "map_id": "634"
+  },
+  "Romania": {
+    "iso3": "ROU",
+    "map_id": "642"
+  },
+  "Russian Federation": {
+    "iso3": "RUS",
+    "map_id": "643"
+  },
+  "Saudi Arabia": {
+    "iso3": "SAU",
+    "map_id": "682"
+  },
+  "Serbia": {
+    "iso3": "SRB",
+    "map_id": "688"
+  },
+  "Singapore": {
+    "iso3": "SGP",
+    "map_id": "702"
+  },
+  "South Africa": {
+    "iso3": "ZAF",
+    "map_id": "710"
+  },
+  "South Korea": {
+    "iso3": "KOR",
+    "map_id": "410"
+  },
+  "Spain": {
+    "iso3": "ESP",
+    "map_id": "724"
+  },
+  "Sweden": {
+    "iso3": "SWE",
+    "map_id": "752"
+  },
+  "Switzerland": {
+    "iso3": "CHE",
+    "map_id": "756"
+  },
+  "Taiwan": {
+    "iso3": "TWN",
+    "map_id": "158"
+  },
+  "Tanzania": {
+    "iso3": "TZA",
+    "map_id": "834"
+  },
+  "Thailand": {
+    "iso3": "THA",
+    "map_id": "764"
+  },
+  "Tunisia": {
+    "iso3": "TUN",
+    "map_id": "788"
+  },
+  "Türkiye": {
+    "iso3": "TUR",
+    "map_id": "792"
+  },
+  "Ukraine": {
+    "iso3": "UKR",
+    "map_id": "804"
+  },
+  "United Arab Emirates": {
+    "iso3": "ARE",
+    "map_id": "784"
+  },
+  "United Kingdom": {
+    "iso3": "GBR",
+    "map_id": "826"
+  },
+  "United States": {
+    "iso3": "USA",
+    "map_id": "840"
+  },
+  "Vietnam": {
+    "iso3": "VNM",
+    "map_id": "704"
+  }
+}
