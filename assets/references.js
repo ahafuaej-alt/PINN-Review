@@ -474,7 +474,7 @@
     const countBy = (values) => [...values.reduce((map, value) => value ? map.set(value, (map.get(value) || 0) + 1) : map, new Map()).entries()].map(([value, count]) => ({ value, label: value, count }));
     const years = countBy(state.rows.map((row) => row.year)).sort((a, b) => Number(b.value) - Number(a.value)).slice(0, 8).sort((a, b) => Number(a.value) - Number(b.value));
     const accesses = countBy(state.rows.map((row) => row.access)).sort((a, b) => b.count - a.count);
-    const venues = countBy(state.rows.map((row) => row.venue)).sort((a, b) => b.count - a.count || a.label.localeCompare(b.label)).slice(0, 6);
+    const venues = countBy(state.rows.map((row) => row.venue)).filter((item) => normalizeText(item.value) !== 'venue not identified').sort((a, b) => b.count - a.count || a.label.localeCompare(b.label)).slice(0, 6);
     const authors = countBy(state.rows.flatMap((row) => row._authorList)).sort((a, b) => b.count - a.count || a.label.localeCompare(b.label)).slice(0, 6);
     chart('[data-year-insights]', years, 'year');
     chart('[data-access-insights]', accesses, 'access');
