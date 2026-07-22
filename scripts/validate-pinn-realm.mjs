@@ -12,6 +12,9 @@ const paperById = new Map(realm.papers.map((paper) => [paper.id, paper]));
 const referenceById = new Map(references.map((reference) => [reference.id, reference]));
 const countryByIso3 = new Map(realm.countries.map((country) => [country.iso3, country]));
 const mapIds = new Set(map.locations.map((location) => location.map_id));
+check(map.locations.every((location) => typeof location.name === 'string' && location.name.trim()), 'one or more map locations lack a readable name');
+check(map.locations.every((location) => typeof location.map_id === 'string' && location.map_id.trim() && location.map_id !== 'undefined'), 'one or more map locations lack a stable identifier');
+check(mapIds.size === map.locations.length, 'world-map location identifiers are not unique');
 
 check(realm.papers.length === 853, `expected 853 papers, found ${realm.papers.length}`);
 check(new Set(realm.papers.map((paper) => paper.id)).size === 853, 'paper IDs are not unique');
