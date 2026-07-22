@@ -2,6 +2,7 @@
   'use strict';
 
   const DATA_URL = '../data/references.json';
+  const METADATA_URL = '../data/references-metadata.json';
   const STORAGE_SELECTION = 'pinn-atlas-reading-list';
   const STORAGE_RECENT = 'pinn-atlas-recent-reference-searches';
   const DEFAULTS = { query: '', sort: 'id-asc', access: 'all', venue: 'all', yearFrom: 'all', yearTo: 'all', page: 1, perPage: 50 };
@@ -651,10 +652,13 @@
 
   const loadData = () => {
     elements.results.innerHTML = '<div class="loading-state"><span><strong>Loading the master bibliography</strong>The 853 reference records will appear here.</span></div>';
-    fetch(DATA_URL)
-      .then((response) => { if (!response.ok) throw new Error(`Reference data returned ${response.status}`); return response.json(); })
-      .then((rows) => {
+    Promise.all([
+      fetch(DATA_URL).then((response) => { if (!response.ok) throw new Error(`Reference data returned ${response.status}`); return response.json(); }),
+      fetch(METADATA_URL).then((response) => { if (!response.ok) throw new Error(`Reference metadata returned ${response.status}`); return response.json(); })
+    ])
+      .then(([rows, metadata]) => {
         if (!Array.isArray(rows)) throw new Error('Reference data is not a record array.');
+        if (metadata.record_count !== rows.length) throw new Error('Reference data and metadata record counts disagree.');
         state.rows = rows.map(prepareRow);
         state.selected = new Set([...state.selected].filter((id) => state.rows.some((row) => row.id === id)));
         saveSelection();
@@ -671,6 +675,11 @@
           unverified: rows.filter((row) => row.access === 'Not verified').length
         };
         Object.entries(stats).forEach(([key, value]) => document.querySelectorAll(`[data-ref-stat="${key}"]`).forEach((node) => { node.textContent = typeof value === 'number' ? value.toLocaleString() : value; }));
+        document.querySelectorAll('[data-dataset-version]').forEach((node) => { node.textContent = metadata.version; });
+        document.querySelectorAll('[data-dataset-records]').forEach((node) => { node.textContent = metadata.record_count.toLocaleString(); });
+        const updated = new Date(`${metadata.last_updated}T00:00:00Z`);
+        const updatedLabel = Number.isNaN(updated.valueOf()) ? metadata.last_updated : new Intl.DateTimeFormat('en', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(updated);
+        document.querySelectorAll('[data-dataset-updated]').forEach((node) => { node.textContent = updatedLabel; });
         renderInsights();
         renderRecent();
         render({ keepFocus: true });
