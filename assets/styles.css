@@ -413,7 +413,7 @@ h1 .gradient {
 
 .atlas-card:nth-child(1) { grid-column: span 8; }
 .atlas-card:nth-child(6), .atlas-card:nth-child(7) { grid-column: span 6; }
-.atlas-card:nth-child(8) { grid-column: span 12; }
+.atlas-card:nth-child(8), .atlas-card:nth-child(9) { grid-column: span 6; }
 .atlas-card:hover { transform: translateY(-4px); border-color: rgba(80, 227, 194, 0.42); background: var(--panel-strong); }
 .atlas-card::after { content: "↗"; position: absolute; top: 1.25rem; right: 1.25rem; color: var(--faint); font-size: 1.05rem; transition: color 180ms ease, transform 180ms ease; }
 .atlas-card:hover::after { color: var(--mint); transform: translate(2px, -2px); }
@@ -689,7 +689,7 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .nav-links.open { display: grid; }
   .hero-grid, .section-head { grid-template-columns: 1fr; }
   .signal-card { max-width: 620px; }
-  .atlas-card, .atlas-card:nth-child(1), .atlas-card:nth-child(6), .atlas-card:nth-child(7), .atlas-card:nth-child(8) { grid-column: span 6; }
+  .atlas-card, .atlas-card:nth-child(1), .atlas-card:nth-child(6), .atlas-card:nth-child(7), .atlas-card:nth-child(8), .atlas-card:nth-child(9) { grid-column: span 6; }
   .protocol { grid-template-columns: repeat(2, 1fr); }
   .protocol-step:nth-child(2) { border-right: 0; }
   .protocol-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -713,7 +713,7 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .signal-card { min-height: 330px; }
   .signal-plot { height: 190px; }
   .signal-legend { gap: 0.4rem; }
-  .atlas-card, .atlas-card:nth-child(1), .atlas-card:nth-child(6), .atlas-card:nth-child(7), .atlas-card:nth-child(8) { grid-column: 1 / -1; }
+  .atlas-card, .atlas-card:nth-child(1), .atlas-card:nth-child(6), .atlas-card:nth-child(7), .atlas-card:nth-child(8), .atlas-card:nth-child(9) { grid-column: 1 / -1; }
   .protocol { grid-template-columns: 1fr; }
   .protocol-step { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
   .protocol-step:nth-child(3) { border-bottom: 1px solid var(--line); }
