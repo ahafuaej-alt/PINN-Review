@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.23",
+    "dataset_version": "2.1.24",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -36098,12 +36098,12 @@
     {
       "id": 683,
       "title": "On extraction, ranking and selection of data-driven and physics-informed features for bearing fault diagnostics",
-      "citation": "Mohamad, T.H., Abbasi, A., Kappaganthu, K., Nataraj, C., 2023. On extraction, ranking and selection of data-driven and physics-informed features for bearing fault diagnostics. Knowl.-Based Syst. 276, http://dx.doi.org/10.1016/j.knosys.2023. 110744.",
-      "doi": "10.1016/j.knosys.2023",
-      "publisher_url": "https://doi.org/10.1016/j.knosys.2023",
+      "citation": "Mohamad, T.H.; Abbasi, A.; Kappaganthu, K.; Nataraj, C. On extraction, ranking and selection of data-driven and physics-informed features for bearing fault diagnostics. Knowledge-Based Systems 2023, 276, 110744. https://doi.org/10.1016/j.knosys.2023.110744.",
+      "doi": "10.1016/j.knosys.2023.110744",
+      "publisher_url": "https://doi.org/10.1016/j.knosys.2023.110744",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Knowledge-Based Systems",
+        "type": "journal"
       },
       "year": 2023,
       "access": "Subscription",
@@ -36113,10 +36113,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.knosys.2023",
-        "note": null
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S095070512300494X",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "Many traditional bearing fault detection techniques rely on pattern recognition using black box machine learning models, which lack generalizability to out of sample cases and are generally only effective for an a priori defined operating condition set. Therefore, the developed models are required to be retrained each time the operating condition changes because of the dependence of the dynamic response on them. The lack of effective techniques that can be applied and adapted to different operation domains of the system is a well-established need, which motivates the development of hybrid approaches which integrate both physics and data based techniques. This paper discusses the development of a hybrid physics-informed method that integrates information from physics and data for fault diagnostics of a rotor-bearing system. A physics-based model is used to simulate the dynamics of the system in a defect free condition and a machine fault simulator is used to generate experimental data. Physics-informed features are extracted by residual-based and cross-sample entropy techniques, while the data-based features are obtained using Proper and Smooth Orthogonal Decomposition techniques. Subsequently, these two collections of extracted features are fused into a hybrid feature set. Then, the features are ranked using the Shapley values ranking technique. Comparing the accuracy of classifications upon using the features of physics-informed, data-based and hybrid sets shows improved capability of the proposed framework to generalize diagnostics for various operating conditions.",
+      "bibliographic": {
+        "authors": "Mohamad, T.H.; Abbasi, A.; Kappaganthu, K.; Nataraj, C.",
+        "volume": "276",
+        "article_number": "110744"
+      }
     },
     {
       "id": 684,
