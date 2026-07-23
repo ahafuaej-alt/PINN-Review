@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.13",
+    "version": "2.1.14",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -7063,7 +7063,7 @@
     },
     {
       "id": 581,
-      "title": "MetaPINNs Predicting soliton and rogue wave of nonlinear PDEs via the improved physics-informed neural networks based on meta-learned optimization",
+      "title": "MetaPINNs: Predicting soliton and rogue wave of nonlinear PDEs via the improved physics-informed neural networks based on meta-learned optimization",
       "year": 2024,
       "countries": [
         "China"
