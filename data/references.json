@@ -13241,21 +13241,25 @@
   },
   {
     "id": 512,
-    "title": "SciANN A Keras TensorFlow wrapper for scientific computations and physics-informed deep learning using artificial neural networks",
-    "citation": "Haghighat, E., Juanes, R., 2021. Sciann: A keras/tensorflow wrapper for scientific computations and physics-informed deep learning using artificial neural networks. Comput. Methods Appl. Mech. Engrg. 373, http://dx.doi.org/10.1016/j.cma.2020. 113552.",
-    "doi": "10.1016/j.cma.2020",
-    "publisher_url": "https://doi.org/10.1016/j.cma.2020",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "SciANN: A Keras/TensorFlow wrapper for scientific computations and physics-informed deep learning using artificial neural networks",
+    "citation": "Haghighat, E., Juanes, R. SciANN: A Keras/TensorFlow wrapper for scientific computations and physics-informed deep learning using artificial neural networks. Venue not idComputer Methods in Applied Mechanics and Engineeringentified 2021, 373, 113552. https://doi.org/10.1016/j.cma.2020.113552.",
+    "doi": "10.1016/j.cma.2020.113552",
+    "publisher_url": "https://doi.org/10.1016/j.cma.2020.113552",
+    "venue": "Venue not idComputer Methods in Applied Mechanics and Engineeringentified",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Haghighat, E., Juanes, R.",
+      "volume": "373",
+      "article_number": "113552"
+    },
+    "abstract": "In this paper, we introduce SciANN, a Python package for scientific computing and physics-informed deep learning using artificial neural networks. SciANN uses the widely used deep-learning packages TensorFlow and Keras to build deep neural networks and optimization models, thus inheriting many of Keras’s functionalities, such as batch optimization and model reuse for transfer learning. SciANN is designed to abstract neural network construction for scientific computations and solution and discovery of partial differential equations (PDE) using the physics-informed neural networks (PINN) architecture, therefore providing the flexibility to set up complex functional forms. We illustrate, in a series of examples, how the framework can be used for curve fitting on discrete data, and for solution and discovery of PDEs in strong and weak forms. We summarize the features currently available in SciANN, and also outline ongoing and future developments.",
     "graphical_abstract": null,
     "year": 2021,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 513,
