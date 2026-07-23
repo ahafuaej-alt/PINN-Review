@@ -17368,20 +17368,24 @@
   {
     "id": 675,
     "title": "A physics-informed machine learning approach for notch fatigue evaluation of alloys used in aerospace",
-    "citation": "Hao, W.Q., Tan, L., Yang, X.G., Shi, D.Q., Wang, M.L., Miao, G.L., Fan, Y.S., 2023. A physics-informed machine learning approach for notch fatigue evaluation of alloys used in aerospace. Int. J. Fatigue 170, http://dx.doi.org/10.1016/j.ijfatigue.2023. 107536.",
-    "doi": "10.1016/j.ijfatigue.2023",
-    "publisher_url": "https://doi.org/10.1016/j.ijfatigue.2023",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Hao, W.Q.; Tan, L.; Yang, X.G.; Shi, D.Q.; Wang, M.L.; Miao, G.L.; Fan, Y.S. A physics-informed machine learning approach for notch fatigue evaluation of alloys used in aerospace. International Journal of Fatigue 2023, 170, 107536. https://doi.org/10.1016/j.ijfatigue.2023.107536.",
+    "doi": "10.1016/j.ijfatigue.2023.107536",
+    "publisher_url": "https://doi.org/10.1016/j.ijfatigue.2023.107536",
+    "venue": "International Journal of Fatigue",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Hao, W.Q.; Tan, L.; Yang, X.G.; Shi, D.Q.; Wang, M.L.; Miao, G.L.; Fan, Y.S.",
+      "volume": "170",
+      "article_number": "107536"
+    },
+    "abstract": "Within this work, a unified physics-informed machine learning (PIML) framework is proposed for notch fatigue life prediction and key feature parameters identification of aerospace polycrystalline alloys. The unified PIML approach reaches a capable accuracy in notch fatigue life prediction of the polycrystalline alloys under a wide range of notch geometries and loading conditions compared with physics-based life models. In addition, the global sensitivity analysis method is used to accurately identify the key feature parameters that affect the notch fatigue life. The nominal maximum stress and unnotched specimen reference life are recognized as highly relevant features for notch fatigue life whereas the notch root radius is the key parameter among the notch parameters. Finally, life uncertainty induced by the notch geometry parameters is performed by using the proposed PIML model based on Latin hypercube sampling, which accomplishes the probabilistic estimation of notch fatigue life well. In practical applications, the PIML framework can be applied efficiently to notch fatigue life prediction of a new material dataset due to its powerful generalization ability without additional parameter fitting or finite element analysis. The well-trained PIML model and the uncertainty assessment method provide potential tools for notch fatigue evaluation under complex loading conditions.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 676,
