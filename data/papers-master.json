@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.42",
+    "dataset_version": "2.1.43",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -38326,13 +38326,13 @@
     },
     {
       "id": 727,
-      "title": "Event-triggered model reference adaptive controlsystem design for SISO plants using meta-learning-based PINN without labeleddata and transfer learning",
-      "citation": "Duanyai, W., Song, W.K., Konghuayrob, P., Parnichkun, M., 2024. Event-triggered model reference adaptive control system design for siso plants using meta-learningbased physics-informed neural networks without labeled data and transfer learning. Internat. J. Adapt. Control Signal Process. 38, 1442–1456. http://dx.doi.org/10. 1002/acs.3758.",
+      "title": "Event-triggered model reference adaptive control system design for SISO plants using meta-learning-based physics-informed neural networks without labeled data and transfer learning",
+      "citation": "Duanyai, W.; Song, W.K.; Konghuayrob, P.; Parnichkun, M. Event-triggered model reference adaptive control system design for SISO plants using meta-learning-based physics-informed neural networks without labeled data and transfer learning. International Journal of Adaptive Control and Signal Processing 2024, 38, 1442-1456. https://doi.org/10.1002/acs.3758.",
       "doi": "10.1002/acs.3758",
       "publisher_url": "https://doi.org/10.1002/acs.3758",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "International Journal of Adaptive Control and Signal Processing",
+        "type": "journal"
       },
       "year": 2024,
       "access": "Subscription",
@@ -38342,10 +38342,18 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1002/acs.3758",
-        "note": null
+        "evidence_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/acs.3758",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "This paper examines the controllability of a novel Lyapunov-based model reference adaptive control (MRAC) system designed with a meta-learning-based physics-informed neural network (MLPINN) for linear and nonlinear single-input and single-output (SISO) plants without labeled data (MLPINN-MRAC system). It is devised with the benefits of several techniques: the integration of the identification process in a training mode into an online control mode (straightforward design); no labeled data generation for online identification by a physics-informed neural network; the prevention of degradation in tracking performance by meta-learning, as the system triggers a meta-learning process only when an error threshold detects the deterioration (high efficiency and the reduction of computation cost); quick adaptation to new inputs and an updated control input for each sub-time span by transfer learning. It is worth noting that the frequency of the meta-learning event detection significantly affects the step response stability of the nonlinear plant. To achieve a better quality of the stabilization, more frequent event detection is necessary for both beginning and end intervals in control. Sixteen triggering events are enough to shape the acceptable step response of the nonlinear plant, and 44 triggering events achieve the plant's desired step response with its minor modeling error. While, as for the linear plant, a single triggering event is sufficient to attain its tolerable step response and modeling error, implying that intensive event detection is not critical in the identification. It is obvious that the MLPINN-MRAC system functions well and is more beneficial and efficient for the nonlinear plant.",
+      "bibliographic": {
+        "authors": "Duanyai, W.; Song, W.K.; Konghuayrob, P.; Parnichkun, M.",
+        "volume": "38",
+        "issue": "4",
+        "pages": "1442-1456"
+      }
     },
     {
       "id": 728,

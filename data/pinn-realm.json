@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.42",
+    "version": "2.1.43",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -8751,7 +8751,7 @@
     },
     {
       "id": 727,
-      "title": "Event-triggered model reference adaptive controlsystem design for SISO plants using meta-learning-based PINN without labeleddata and transfer learning",
+      "title": "Event-triggered model reference adaptive control system design for SISO plants using meta-learning-based physics-informed neural networks without labeled data and transfer learning",
       "year": 2024,
       "countries": [
         "Thailand"
