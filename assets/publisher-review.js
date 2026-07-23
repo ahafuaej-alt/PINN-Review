@@ -116,6 +116,7 @@ const matches = (record) => {
     ...(record.fields_added || []),
     ...(record.conflicts || []).flatMap((item) => [item.field, displayValue(item.current), displayValue(item.proposed)])
   ].join(' ').toLocaleLowerCase('en');
+  if (/^\d+$/u.test(query)) return record.id === Number(query);
   return searchable.includes(query);
 };
 
