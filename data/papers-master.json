@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.15",
+    "dataset_version": "2.1.16",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 109,
+      "legacy_realm_year_override_count": 108,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -31193,30 +31193,34 @@
     },
     {
       "id": 591,
-      "title": "Residual-based physics-informed transfer learning A hybrid method for accelerating long-term CFD simulations via deep learning",
-      "citation": "Jeon, J., Lee, J., Vinuesa, R., Kim, S.J., 2024. Residual-based physics-informed transfer learning: A hybrid method for accelerating long-term cfd simulations via deep learning. Int. J. Heat Mass Transfer 220, http://dx.doi.org/10.1016/j.ijheatmasstransfer. 2023.124900.",
-      "doi": "10.1016/j.ijheatmasstransfer",
-      "publisher_url": "https://doi.org/10.1016/j.ijheatmasstransfer",
+      "title": "Residual-based physics-informed transfer learning: A hybrid method for accelerating long-term CFD simulations via deep learning",
+      "citation": "Jeon, J.; Lee, J.; Vinuesa, R.; Kim, S.J. Residual-based physics-informed transfer learning: A hybrid method for accelerating long-term CFD simulations via deep learning. International Journal of Heat and Mass Transfer 2024, 220, 124900. https://doi.org/10.1016/j.ijheatmasstransfer.2023.124900.",
+      "doi": "10.1016/j.ijheatmasstransfer.2023.124900",
+      "publisher_url": "https://doi.org/10.1016/j.ijheatmasstransfer.2023.124900",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "International Journal of Heat and Mass Transfer",
+        "type": "journal"
       },
-      "year": 2023,
+      "year": 2024,
       "access": "Subscription",
       "countries": [
         "Sweden",
         "South Korea"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.ijheatmasstransfer",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0017931023010451",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "While a big wave of artificial intelligence (AI) has propagated to the field of computational fluid dynamics (CFD) acceleration studies, recent research has highlighted that the development of AI techniques that reconciles the following goals remains our primary task: (1) accurate prediction of unseen (future) time series in long-term CFD simulations (2) acceleration of simulations (3) an acceptable amount of training data and time (4) within a multiple PDEs condition. In this study, we propose a residual-based physics-informed transfer learning (RePIT) strategy to achieve these four objectives using ML-CFD hybrid computation. Our hypothesis is that long-term CFD simulation is feasible with the hybrid method where CFD and AI alternately calculate time series while monitoring the first principle's residuals. The feasibility of RePIT strategy was verified through a CFD case study on natural convection. In a single training approach, a residual scale change occurred around 100th timestep, resulting in predicted time series exhibiting non-physical patterns as well as a significant deviations from the ground truth. Conversely, RePIT strategy maintained the residuals within the defined range and demonstrated good accuracy throughout the entire simulation period. The maximum error from the ground truth was below 0.4 K for temperature and 0.024 m/s for x-axis velocity. Furthermore, the average time for 1 timestep by the ML-GPU and CFD-CPU calculations was 0.171 s and 0.015 s, respectively. Including the parameter-updating time, the simulation was accelerated by a factor of 1.9. In conclusion, our RePIT strategy is a promising technique to reduce the cost of CFD simulations in industry. However, more vigorous optimization and improvement studies are still necessary.",
+      "bibliographic": {
+        "authors": "Jeon, J.; Lee, J.; Vinuesa, R.; Kim, S.J.",
+        "volume": "220",
+        "article_number": "124900"
+      }
     },
     {
       "id": 592,
