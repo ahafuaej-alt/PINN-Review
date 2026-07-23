@@ -813,7 +813,7 @@ const makeSummary = (records) => {
     restricted_abstracts: records.filter((record) => record.warnings?.some((warning) => warning.startsWith('Abstract is available'))).length,
     arxiv_checked: records.filter((record) => record.arxiv).length,
     journal_versions_found: records.filter((record) => record.journal_version).length,
-    arxiv_only: records.filter((record) => record.arxiv && !record.journal_version).length,
+    arxiv_only: records.filter((record) => record.arxiv && !record.journal_version && record.status === 'enriched').length,
     fields_added: Object.fromEntries(Object.entries(fieldCounts).sort(([left], [right]) => left.localeCompare(right)))
   };
 };
