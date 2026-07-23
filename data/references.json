@@ -15297,20 +15297,30 @@
   {
     "id": 594,
     "title": "Fault Cause Assignment with Physics Informed Transfer Learning",
-    "citation": "Guc, F., Chen, Y., 2021. Fault cause assignment with physics informed transfer learning. IFAC Papersonline 54, 53–58. http://dx.doi.org/10.1016/j.ifacol.2021.11. 152, modeling, Estimation and Control Conference (MECC), ELECTR NETWORK, OCT 24–27, 2021.",
-    "doi": "10.1016/j.ifacol.2021.11",
-    "publisher_url": "https://doi.org/10.1016/j.ifacol.2021.11",
+    "citation": "Guc, F.; Chen, Y. Fault Cause Assignment with Physics Informed Transfer Learning. IFAC Papersonline 2021, 54, 53-58. https://doi.org/10.1016/j.ifacol.2021.11.152.",
+    "doi": "10.1016/j.ifacol.2021.11.152",
+    "publisher_url": "https://doi.org/10.1016/j.ifacol.2021.11.152",
     "venue": "IFAC Papersonline",
-    "reference_type": "journal",
-    "bibliographic": null,
-    "abstract": null,
+    "reference_type": "conference_journal",
+    "bibliographic": {
+      "authors": "Guc, F.; Chen, Y.",
+      "journal_abbreviation": "IFAC Papersonline",
+      "volume": "54",
+      "issue": "20",
+      "pages": "53-58",
+      "conference_name": "Modeling, Estimation and Control Conference MECC 2021",
+      "conference_location": "Austin, Texas",
+      "conference_country": "USA",
+      "conference_date": "4-27 October 2021"
+    },
+    "abstract": "To maintain successful operation, the field of health monitoring, fault detection and diagnosis plays a key role. Within the scenarios of system faults, locating a fault in a complex system consisting different components are one of the key challenge in fault detection. In this context, diagnosis of system faults originated from actuator and sensor is addressed to perform fault source separation. Physics of the underlying dynamics are investigated using only input and output data streams along with a purely data-driven technique, dynamic mode decomposition with control (DMDc) without a need for system model. Then time-frequency representation of the dynamic modes are obtained using continuous wavelet transform (CWT) and utilized in deep convolutional neural network (DCNN) to classify three scenarios for the case study, namely; nominal, actuator bias and sensor bias fault scenarios. Instead of training a DCNN structure from scratch, GoogLeNet structure presented for image classification is utilized as a standard methodology of transfer learning process. Finally, results of the image classification methodology are presented.",
     "graphical_abstract": null,
     "year": 2021,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 595,
