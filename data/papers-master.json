@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.8",
+    "dataset_version": "2.1.9",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -27191,11 +27191,11 @@
     {
       "id": 514,
       "title": "PhyGeoNet Physics-informed geometry-adaptive convolutional neural networks for solving parameterized steady-state PDEs on irregular domain",
-      "citation": "Gao, H., Sun, L., Wang, J.-X., 2021. Phygeonet: Physics-informed geometry-adaptive convolutional neural networks for solving parameterized steady-state pdes on irregular domain. J. Comput. Phys. 428, http://dx.doi.org/10.1016/j.jcp.2020. 110079.",
-      "doi": "10.1016/j.jcp.2020",
-      "publisher_url": "https://doi.org/10.1016/j.jcp.2020",
+      "citation": "Gao, H., Sun, L., Wang, J.-X. PhyGeoNet Physics-informed geometry-adaptive convolutional neural networks for solving parameterized steady-state PDEs on irregular domain. Journal of Computational Physics 2021, 428, 110079. https://doi.org/10.1016/j.jcp.2020.110079.",
+      "doi": "10.1016/j.jcp.2020.110079",
+      "publisher_url": "https://doi.org/10.1016/j.jcp.2020.110079",
       "venue": {
-        "name": "J.-X.",
+        "name": "Journal of Computational Physics",
         "type": "journal"
       },
       "year": 2021,
@@ -27206,10 +27206,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.jcp.2020",
-        "note": null
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0021999120308536",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "Recently, the advent of deep learning has spurred interest in the development of physics-informed neural networks (PINN) for efficiently solving partial differential equations (PDEs), particularly in a parametric setting. Among all different classes of deep neural networks, the convolutional neural network (CNN) has attracted increasing attention in the scientific machine learning community, since the parameter-sharing feature in CNN enables efficient learning for problems with large-scale spatiotemporal fields. However, one of the biggest challenges is that CNN only can handle regular geometries with image-like format (i.e., rectangular domains with uniform grids). In this paper, we propose a novel physics-constrained CNN learning architecture, aiming to learn solutions of parametric PDEs on irregular domains without any labeled data. In order to leverage powerful classic CNN backbones, elliptic coordinate mapping is introduced to enable coordinate transforms between the irregular physical domain and regular reference domain. The proposed method has been assessed by solving a number of steady-state PDEs on irregular domains, including heat equations, Navier-Stokes equations, and Poisson equations with parameterized boundary conditions, varying geometries, and spatially-varying source fields. Moreover, the proposed method has also been compared against the state-of-the-art PINN with fully-connected neural network (FC-NN) formulation. The numerical results demonstrate the effectiveness of the proposed approach and exhibit notable superiority over the FC-NN based PINN in terms of efficiency and accuracy",
+      "bibliographic": {
+        "authors": "Gao, H., Sun, L., Wang, J.-X.",
+        "volume": "428",
+        "article_number": "110079"
+      }
     },
     {
       "id": 515,
