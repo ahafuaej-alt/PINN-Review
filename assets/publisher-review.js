@@ -92,7 +92,7 @@ const matches = (record) => {
   if (elements.status.value && record.status !== elements.status.value) return false;
   if (elements.field.value && !(record.conflicts || []).some((item) => item.field === elements.field.value)) return false;
   if (elements.arxiv.value === 'published' && !record.journal_version) return false;
-  if (elements.arxiv.value === 'preprint' && (!record.arxiv || record.journal_version)) return false;
+  if (elements.arxiv.value === 'preprint' && (!record.arxiv || record.journal_version || record.status !== 'enriched')) return false;
   if (!query) return true;
   const searchable = [
     record.id,
