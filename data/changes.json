@@ -2,6 +2,54 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-790-2026-07-23-2.1.47",
+      "version": "2.1.47",
+      "date": "2026-07-23",
+      "paper_id": 790,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "update info",
+      "evidence": {
+        "url": "https://doi.org/10.48550/ARXIV.2104.02629",
+        "note": "update info"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 790,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-764-2026-07-23-2.1.46",
       "version": "2.1.46",
       "date": "2026-07-23",

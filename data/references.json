@@ -20214,21 +20214,24 @@
   },
   {
     "id": 790,
-    "title": "PHYSICS INFORMED DEEP LEARNING FOR FLOW AND TRANSPORT IN POROUS MEDIA",
-    "citation": "C.F. Gasmi, H. Tchelepi, Physics Informed Deep Learning for Flow and Transport in Porous Media, 2021, https://doi.org/10.48550/ARXIV.2104.02629.",
-    "doi": "10.48550/ARXIV.2104.02629",
-    "publisher_url": "https://doi.org/10.48550/ARXIV.2104.02629",
-    "venue": "Physics Informed Deep Learning for Flow and Transport in Porous Media",
-    "reference_type": "journal",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "Physics Informed Deep Learning for Flow and Transport in Porous Media",
+    "citation": "Gasmi, C.F.; Tchelepi, H. Physics Informed Deep Learning for Flow and Transport in Porous Media. SPE Reservoir Simulation Conference 2021, SPE-203934-MS. https://doi.org/10.2118/203934-MS.",
+    "doi": "10.2118/203934-MS",
+    "publisher_url": "https://doi.org/10.2118/203934-MS",
+    "venue": "SPE Reservoir Simulation Conference",
+    "reference_type": "conference_journal",
+    "bibliographic": {
+      "authors": "Gasmi, C.F.; Tchelepi, H.",
+      "article_number": "SPE-203934-MS"
+    },
+    "abstract": "We present our progress on the application of physics informed deep learning to reservoir simulation problems. The model is a neural network that is jointly trained to respect governing physical laws and match boundary conditions. The methodology is hereby used to simulate a 2-phase immiscible transport problem (Buckley-Leverett). The model is able to produce an accurate physical solution both in terms of shock and rarefaction and honors the governing partial differential equation along with initial and boundary conditions. We test various hypothesis (uniform and non-uniform initial conditions) and show that with the proper implementation of physical constraints, a robust solution can be trained within a reasonable amount of time and iterations. We revisit some of the limitations presented in previous work [1] and further the applicability of this method in a forward, pure hyperbolic setup. We also share some practical findings on the application of physics informed neural networks (PINN). We review various network architectures presented in the literature and show tips that helped improve their convergence and accuracy. The proposed methodology is a simple and elegant way to instill physical knowledge to machine-learning algorithms. This alleviates the two most significant shortcomings of machine-learning algorithms: the requirement for large datasets and the reliability of extrapolation. The principles presented can be generalized in innumerable ways in the future and should lead to a new class of algorithms to solve both forward and inverse physical problems.",
     "graphical_abstract": null,
     "year": 2021,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 791,
