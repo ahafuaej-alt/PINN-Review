@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.14",
+    "dataset_version": "2.1.15",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -30752,13 +30752,13 @@
     },
     {
       "id": 583,
-      "title": "TRANSFER LEARNING BASED MULTI-FIDELITY PHYSICS INFORMED DEEP NEURAL NETWORK",
-      "citation": "Chakraborty, S., 2021. Transfer learning based multi-fidelity physics informed deep neural network. J. Comput. Phys. 426, http://dx.doi.org/10.1016/j.jcp.2020. 109942.",
-      "doi": "10.1016/j.jcp.2020",
-      "publisher_url": "https://doi.org/10.1016/j.jcp.2020",
+      "title": "Transfer learning based multi-fidelity physics informed deep neural network",
+      "citation": "Chakraborty, S. Transfer learning based multi-fidelity physics informed deep neural network. Journal of Computational Physics 2021, 426, 109942. https://doi.org/10.1016/j.jcp.2020.109942.",
+      "doi": "10.1016/j.jcp.2020.109942",
+      "publisher_url": "https://doi.org/10.1016/j.jcp.2020.109942",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Journal of Computational Physics",
+        "type": "journal"
       },
       "year": 2021,
       "access": "Subscription",
@@ -30771,10 +30771,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.jcp.2020",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0021999120307166",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "For many systems in science and engineering, the governing differential equation is either not known or known in an approximate sense. Analyses and design of such systems are governed by data collected from the field and/or laboratory experiments. This challenging scenario is further worsened when data-collection is expensive and time-consuming. To address this issue, this paper presents a novel multi-fidelity physics informed deep neural network (MF-PIDNN). The framework proposed is particularly suitable when the physics of the problem is known in an approximate sense (low-fidelity physics) and only a few high-fidelity data are available. MF-PIDNN blends physics informed and data-driven deep learning techniques by using the concept of transfer learning. The approximate governing equation is first used to train a low-fidelity physics informed deep neural network. This is followed by transfer learning where the low-fidelity model is updated by using the available high-fidelity data. MF-PIDNN is able to encode useful information on the physics of the problem from the approximate governing differential equation and hence, provides accurate prediction even in zones with no data. Additionally, no low-fidelity data is required for training this model. Two examples involving function approximations with linear and nonlinear correlation are presented to illustrate the effectiveness of transfer learning in solving multi-fidelity problems. Applicability and utility of MF-PIDNN are illustrated in solving four benchmark reliability analysis problems. Case studies presented illustrate interesting features of the proposed approach.",
+      "bibliographic": {
+        "authors": "Chakraborty, S.",
+        "volume": "426",
+        "article_number": "109942"
+      }
     },
     {
       "id": 584,

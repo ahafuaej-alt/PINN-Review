@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.14",
+    "version": "2.1.15",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -7089,7 +7089,7 @@
     },
     {
       "id": 583,
-      "title": "TRANSFER LEARNING BASED MULTI-FIDELITY PHYSICS INFORMED DEEP NEURAL NETWORK",
+      "title": "Transfer learning based multi-fidelity physics informed deep neural network",
       "year": 2020,
       "countries": [
         "India"

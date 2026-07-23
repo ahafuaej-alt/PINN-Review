@@ -15013,21 +15013,25 @@
   },
   {
     "id": 583,
-    "title": "TRANSFER LEARNING BASED MULTI-FIDELITY PHYSICS INFORMED DEEP NEURAL NETWORK",
-    "citation": "Chakraborty, S., 2021. Transfer learning based multi-fidelity physics informed deep neural network. J. Comput. Phys. 426, http://dx.doi.org/10.1016/j.jcp.2020. 109942.",
-    "doi": "10.1016/j.jcp.2020",
-    "publisher_url": "https://doi.org/10.1016/j.jcp.2020",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "Transfer learning based multi-fidelity physics informed deep neural network",
+    "citation": "Chakraborty, S. Transfer learning based multi-fidelity physics informed deep neural network. Journal of Computational Physics 2021, 426, 109942. https://doi.org/10.1016/j.jcp.2020.109942.",
+    "doi": "10.1016/j.jcp.2020.109942",
+    "publisher_url": "https://doi.org/10.1016/j.jcp.2020.109942",
+    "venue": "Journal of Computational Physics",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Chakraborty, S.",
+      "volume": "426",
+      "article_number": "109942"
+    },
+    "abstract": "For many systems in science and engineering, the governing differential equation is either not known or known in an approximate sense. Analyses and design of such systems are governed by data collected from the field and/or laboratory experiments. This challenging scenario is further worsened when data-collection is expensive and time-consuming. To address this issue, this paper presents a novel multi-fidelity physics informed deep neural network (MF-PIDNN). The framework proposed is particularly suitable when the physics of the problem is known in an approximate sense (low-fidelity physics) and only a few high-fidelity data are available. MF-PIDNN blends physics informed and data-driven deep learning techniques by using the concept of transfer learning. The approximate governing equation is first used to train a low-fidelity physics informed deep neural network. This is followed by transfer learning where the low-fidelity model is updated by using the available high-fidelity data. MF-PIDNN is able to encode useful information on the physics of the problem from the approximate governing differential equation and hence, provides accurate prediction even in zones with no data. Additionally, no low-fidelity data is required for training this model. Two examples involving function approximations with linear and nonlinear correlation are presented to illustrate the effectiveness of transfer learning in solving multi-fidelity problems. Applicability and utility of MF-PIDNN are illustrated in solving four benchmark reliability analysis problems. Case studies presented illustrate interesting features of the proposed approach.",
     "graphical_abstract": null,
     "year": 2021,
     "access": "Subscription",
     "countries": [
       "India"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 584,
