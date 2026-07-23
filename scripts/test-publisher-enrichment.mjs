@@ -67,6 +67,12 @@ assert.equal(crossref.bibliographic.pages, '101-119');
 assert.equal(crossref.bibliographic.publication_date, '2025-04-07');
 assert.equal(crossref.abstract, 'A concise licensed abstract.');
 assert.equal(crossref.publisher_url, 'https://publisher.example/article/1');
+assert.equal(candidateFromCrossref({
+  DOI: '10.1234/unsafe',
+  title: ['Unsafe redirect target'],
+  type: 'journal-article',
+  resource: { primary: { URL: 'http://192.0.2.1:8000/article' } }
+}).publisher_url, null);
 
 const html = candidateFromHtml(`
   <meta name="citation_title" content="A Publisher HTML Test">
