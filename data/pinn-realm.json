@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.17",
+    "version": "2.1.18",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -7356,7 +7356,7 @@
     },
     {
       "id": 606,
-      "title": "On the eigenvector bias of Fourier feature networks From regression to solving multi-scale PDEs with physics-informed neural networks",
+      "title": "On the eigenvector bias of Fourier feature networks: From regression to solving multi-scale PDEs with physics-informed neural networks",
       "year": 2021,
       "countries": [
         "United States"
