@@ -8189,20 +8189,29 @@
   {
     "id": 313,
     "title": "Space-time parallel scaling of Parareal with a physics-informed Fourier Neural Operator coarse propagator applied to the Black-Scholes equation",
-    "citation": "Ibrahim, A.Q.; Götschel, S.; Ruprecht, D. Space-time parallel scaling of Parareal with a physics-informed Fourier Neural Operator coarse propagator applied to the Black-Scholes equation. 2024 2024. https://doi.org/10.48550/ARXIV.2404.02521.",
-    "doi": "10.48550/ARXIV.2404.02521",
-    "publisher_url": "https://doi.org/10.48550/ARXIV.2404.02521",
-    "venue": "2024",
-    "reference_type": "journal",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Ibrahim, A.Q.; Götschel, S.; Ruprecht, D. Space-time parallel scaling of Parareal with a physics-informed Fourier Neural Operator coarse propagator applied to the Black-Scholes equation. In Proceedings of the Platform for Advanced Scientific Computing Conference; Robinson, T., Woodtli-Schwegler, M, Eds.; Association for Computing Machinery: New York, NY, USA, 2025; pp. 1-11. https://doi.org/10.1145/3732775.3733574.",
+    "doi": "10.1145/3732775.3733574",
+    "publisher_url": "https://doi.org/10.1145/3732775.3733574",
+    "venue": "Proceedings of the Platform for Advanced Scientific Computing Conference",
+    "reference_type": "conference_book",
+    "bibliographic": {
+      "authors": "Ibrahim, A.Q.; Götschel, S.; Ruprecht, D",
+      "editors": "Robinson, T., Woodtli-Schwegler, M.",
+      "journal_abbreviation": "2024",
+      "pages": "1-11",
+      "book_title": "Proceedings of the Platform for Advanced Scientific Computing Conference",
+      "publisher": "Association for Computing Machinery",
+      "city": "New York, NY",
+      "country": "USA"
+    },
+    "abstract": "Iterative parallel-in-time algorithms like Parareal can extend scaling beyond the saturation of purely spatial parallelization when solving initial value problems. However, they require the user to build coarse models to handle the unavoidable serial transport of information in time. This is a time-consuming and difficult process since there is still limited theoretical insight into what constitutes a good and efficient coarse model. Novel approaches from machine learning to solve differential equations could provide a more generic way to find coarse-level models for multi-level parallel-in-time algorithms. This paper demonstrates that a physics-informed Fourier Neural Operator (PINO) is an effective coarse model for the parallelization in time of the two-asset Black-Scholes equation using Parareal. We demonstrate that PINO-Parareal converges as fast as a bespoke numerical coarse model and that, in combination with spatial parallelization by domain decomposition, it provides better overall speedup than both purely spatial parallelization and space-time parallelization with a numerical coarse propagator.",
     "graphical_abstract": null,
-    "year": 2024,
-    "access": "Subscription",
+    "year": 2025,
+    "access": "Open access",
     "countries": [
       "Germany"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 314,

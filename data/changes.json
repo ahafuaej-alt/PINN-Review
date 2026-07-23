@@ -2,6 +2,69 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-313-2026-07-23-2.1.1",
+      "version": "2.1.1",
+      "date": "2026-07-23",
+      "paper_id": 313,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "needed a review",
+      "evidence": {
+        "url": "https://doi.org/10.48550/ARXIV.2404.02521",
+        "note": "needed a review"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 313,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 162,
+            "after": 161
+          },
+          {
+            "year": 2025,
+            "before": 300,
+            "after": 301
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "publisher-enrichment-2026-07-23-2.1.0",
       "version": "2.1.0",
       "date": "2026-07-23",
