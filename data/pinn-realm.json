@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.36",
+    "version": "2.1.37",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -9156,7 +9156,7 @@
     },
     {
       "id": 762,
-      "title": "GAUSSIAN ERROR LINEAR UNITS (GELUS)",
+      "title": "Gaussian Error Linear Units (GELUs)",
       "year": 2016,
       "countries": [
         "United States"

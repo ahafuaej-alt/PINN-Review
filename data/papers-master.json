@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.36",
+    "dataset_version": "2.1.37",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -40045,12 +40045,12 @@
     },
     {
       "id": 762,
-      "title": "GAUSSIAN ERROR LINEAR UNITS (GELUS)",
-      "citation": "Hendrycks and K. Gimpel, D. Gaussian error linear units (GELUs). 2016, arXiv:1606.08415. 2016.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Gaussian Error Linear Units (GELUs)",
+      "citation": "Hendrycks, D.; Gimpel, K. Gaussian Error Linear Units (GELUs). Arxiv [Computer Science. Machine Learning] 2016, 1606, 1-10. https://doi.org/10.48550/arXiv.1606.08415.",
+      "doi": "10.48550/arXiv.1606.08415",
+      "publisher_url": "https://doi.org/10.48550/arXiv.1606.08415",
       "venue": {
-        "name": "2016, arXiv:1606.08415.",
+        "name": "Arxiv [Computer Science. Machine Learning]",
         "type": "preprint"
       },
       "year": 2016,
@@ -40061,10 +40061,18 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://arxiv.org/abs/1606.08415",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "We propose the Gaussian Error Linear Unit (GELU), a high-performing neural network activation function. The GELU activation function is xΦ(x), where Φ(x) the standard Gaussian cumulative distribution function. The GELU nonlinearity weights inputs by their value, rather than gates inputs by their sign as in ReLUs (x1x>0). We perform an empirical evaluation of the GELU nonlinearity against the ReLU and ELU activations and find performance improvements across all considered computer vision, natural language processing, and speech tasks.",
+      "bibliographic": {
+        "authors": "Hendrycks, D.; Gimpel, K.",
+        "volume": "1606",
+        "pages": "1-10",
+        "article_number": "08415v5"
+      }
     },
     {
       "id": 763,

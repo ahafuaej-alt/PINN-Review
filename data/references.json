@@ -19543,21 +19543,26 @@
   },
   {
     "id": 762,
-    "title": "GAUSSIAN ERROR LINEAR UNITS (GELUS)",
-    "citation": "Hendrycks and K. Gimpel, D. Gaussian error linear units (GELUs). 2016, arXiv:1606.08415. 2016.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "2016, arXiv:1606.08415.",
+    "title": "Gaussian Error Linear Units (GELUs)",
+    "citation": "Hendrycks, D.; Gimpel, K. Gaussian Error Linear Units (GELUs). Arxiv [Computer Science. Machine Learning] 2016, 1606, 1-10. https://doi.org/10.48550/arXiv.1606.08415.",
+    "doi": "10.48550/arXiv.1606.08415",
+    "publisher_url": "https://doi.org/10.48550/arXiv.1606.08415",
+    "venue": "Arxiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
-    "bibliographic": null,
-    "abstract": null,
+    "bibliographic": {
+      "authors": "Hendrycks, D.; Gimpel, K.",
+      "volume": "1606",
+      "pages": "1-10",
+      "article_number": "08415v5"
+    },
+    "abstract": "We propose the Gaussian Error Linear Unit (GELU), a high-performing neural network activation function. The GELU activation function is xΦ(x), where Φ(x) the standard Gaussian cumulative distribution function. The GELU nonlinearity weights inputs by their value, rather than gates inputs by their sign as in ReLUs (x1x>0). We perform an empirical evaluation of the GELU nonlinearity against the ReLU and ELU activations and find performance improvements across all considered computer vision, natural language processing, and speech tasks.",
     "graphical_abstract": null,
     "year": 2016,
     "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 763,
