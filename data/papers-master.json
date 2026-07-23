@@ -25198,6 +25198,406 @@
         "authors": "Lu, L.; Meng, X.; Mao, Z.; Karniadakis, G.E.",
         "journal_abbreviation": "SIAM Rev.",
         "volume": "63",
+        "issue": "1",
+        "pages": "208-228",
+        "publisher": "Society for Industrial & Applied Mathematics (SIAM)",
+        "publication_date": "2021-01-01"
+      }
+    },
+    {
+      "id": 474,
+      "title": "Understanding the difficulty of training deep feedforward neural networks",
+      "citation": "Glorot, X., Bengio, Y., 2010. Understanding the difficulty of training deep feedforward neural networks. J. Mach. Learn. Res. - Proc. Track 9, 249–256.",
+      "doi": null,
+      "publisher_url": null,
+      "venue": {
+        "name": "Venue not identified",
+        "type": "unknown"
+      },
+      "year": 2010,
+      "access": "Not verified",
+      "countries": [
+        "Canada"
+      ],
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": null,
+        "note": null
+      },
+      "last_updated": "2026-07-22"
+    },
+    {
+      "id": 475,
+      "title": "PINNs4Drops Video-conditioned physics-informed neural networks for two-phase flow reconstruction",
+      "citation": "Dreisbach, M., Kiyani, E., Kriegseis, J., Karniadakis, G., Stroh, A., 2024. PINNs4Drops: Convolutional feature-enhanced physics-informed neural networks for reconstructing two-phase flows. ArXiv Preprint arXiv:2411.15949.",
+      "doi": null,
+      "publisher_url": "https://arxiv.org/abs/2411.15949",
+      "venue": {
+        "name": "Venue not identified",
+        "type": "unknown"
+      },
+      "year": 2024,
+      "access": "Open access",
+      "countries": [
+        "Germany",
+        "United States"
+      ],
+      "overrides": {
+        "realm_year": 2025
+      },
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": "https://arxiv.org/abs/2411.15949",
+        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "publisher_enrichment": {
+          "source": "Publisher HTML citation metadata",
+          "source_url": "https://arxiv.org/abs/2411.15949",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "bibliographic.authors",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "unknown",
+          "license_urls": [],
+          "arxiv": null
+        }
+      },
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Dreisbach, Maximilian; Kiyani, Elham; Kriegseis, Jochen; Karniadakis, George; Stroh, Alexander",
+        "publication_date": "2024/11/24"
+      }
+    },
+    {
+      "id": 476,
+      "title": "NSFnets (Navier-Stokes flow nets) Physics-informed neural networks for the incompressible Navier-Stokes equations",
+      "citation": "Jin, X., Cai, S., Li, H., Karniadakis, G.E., 2021. Nsfnets (Navier-Stokes flow nets): Physics-informed neural networks for the incompressible Navier-Stokes equations. J. Comput. Phys. 426, http://dx.doi.org/10.1016/j.jcp.2020.109951.",
+      "doi": "10.1016/j.jcp.2020.109951",
+      "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0021999120307257",
+      "venue": {
+        "name": "G.E.",
+        "type": "journal"
+      },
+      "year": 2021,
+      "access": "Subscription",
+      "countries": [
+        "China",
+        "United States"
+      ],
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": "https://doi.org/10.1016/j.jcp.2020.109951",
+        "note": null,
+        "publisher_enrichment": {
+          "source": "Crossref REST API",
+          "source_url": "https://api.crossref.org/works/10.1016%2Fj.jcp.2020.109951",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "publisher_url",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.volume",
+            "bibliographic.pages",
+            "bibliographic.article_number",
+            "bibliographic.publisher",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "journal-article",
+          "license_urls": [
+            "https://www.elsevier.com/tdm/userlicense/1.0/",
+            "https://www.elsevier.com/legal/tdmrep-license",
+            "http://www.elsevier.com/open-access/userlicense/1.0/"
+          ],
+          "arxiv": null
+        }
+      },
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Jin, X.; Cai, S.; Li, H.; Karniadakis, G.E.",
+        "journal_abbreviation": "Journal of Computational Physics",
+        "volume": "426",
+        "pages": "109951",
+        "article_number": "109951",
+        "publisher": "Elsevier BV",
+        "publication_date": "2021-02"
+      }
+    },
+    {
+      "id": 477,
+      "title": "Modeling two-phase flows with complicated interface evolution using parallel physics-informed neural networks",
+      "citation": "Qiu, R., Dong, H., Wang, J., Fan, C., Wang, Y., 2024. Modeling two-phase flows with complicated interface evolution using parallel physics-informed neural networks. Phys. Fluids 36 (9), 093330.",
+      "doi": null,
+      "publisher_url": null,
+      "venue": {
+        "name": "Venue not identified",
+        "type": "unknown"
+      },
+      "year": 2024,
+      "access": "Not verified",
+      "countries": [
+        "China"
+      ],
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": null,
+        "note": null
+      },
+      "last_updated": "2026-07-22"
+    },
+    {
+      "id": 478,
+      "title": "Inferring incompressible two-phase flow fields from the interface motion using physics-informed neural networks",
+      "citation": "Buhendwa, A.B., Adami, S., Adams, N.A., 2021. Inferring incompressible two-phase flow fields from the interface motion using physics-informed neural networks. Mach. Learn. Appl. 4, 100029. http://dx.doi.org/10.1016/j.mlwa.2021.100029.",
+      "doi": "10.1016/j.mlwa.2021.100029",
+      "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666827021000104",
+      "venue": {
+        "name": "Machine Learning with Applications",
+        "type": "journal"
+      },
+      "year": 2021,
+      "access": "Subscription",
+      "countries": [
+        "Germany"
+      ],
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": "https://doi.org/10.1016/j.mlwa.2021.100029",
+        "note": null,
+        "publisher_enrichment": {
+          "source": "Crossref REST API",
+          "source_url": "https://api.crossref.org/works/10.1016%2Fj.mlwa.2021.100029",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.volume",
+            "bibliographic.pages",
+            "bibliographic.article_number",
+            "bibliographic.publisher",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "journal-article",
+          "license_urls": [
+            "https://www.elsevier.com/tdm/userlicense/1.0/",
+            "https://www.elsevier.com/legal/tdmrep-license",
+            "http://creativecommons.org/licenses/by/4.0/"
+          ],
+          "arxiv": null
+        }
+      },
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Buhendwa, A.B.; Adami, S.; Adams, N.A.",
+        "journal_abbreviation": "Machine Learning with Applications",
+        "volume": "4",
+        "pages": "100029",
+        "article_number": "100029",
+        "publisher": "Elsevier BV",
+        "publication_date": "2021-06"
+      }
+    },
+    {
+      "id": 479,
+      "title": "A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks",
+      "citation": "Wu, C., Zhu, M., Tan, Q., Kartha, Y., Lu, L., 2023. A comprehensive study of non-adaptive and residual-based adaptive sampling for physics-informed neural networks. Comput. Methods Appl. Mech. Engrg. 403, http://dx.doi.org/10.1016/ j.cma.2022.115671.",
+      "doi": "10.1016/j.cma.2022.115671",
+      "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0045782522006260",
+      "venue": {
+        "name": "Computer Methods in Applied Mechanics and Engineering",
+        "type": "journal"
+      },
+      "year": 2022,
+      "access": "Subscription",
+      "countries": [
+        "United States"
+      ],
+      "overrides": {
+        "realm_year": 2023
+      },
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": "https://doi.org/10.1016/j.cma.2022.115671",
+        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "publisher_enrichment": {
+          "source": "Crossref REST API",
+          "source_url": "https://api.crossref.org/works/10.1016%2Fj.cma.2022.115671",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.volume",
+            "bibliographic.pages",
+            "bibliographic.article_number",
+            "bibliographic.publisher",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "journal-article",
+          "license_urls": [
+            "https://www.elsevier.com/tdm/userlicense/1.0/",
+            "https://www.elsevier.com/legal/tdmrep-license",
+            "http://www.elsevier.com/open-access/userlicense/1.0/",
+            "https://doi.org/10.15223/policy-017",
+            "https://doi.org/10.15223/policy-037",
+            "https://doi.org/10.15223/policy-012",
+            "https://doi.org/10.15223/policy-029",
+            "https://doi.org/10.15223/policy-004"
+          ],
+          "arxiv": null
+        }
+      },
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Wu, C.; Zhu, M.; Tan, Q.; Kartha, Y.; Lu, L.",
+        "journal_abbreviation": "Computer Methods in Applied Mechanics and Engineering",
+        "volume": "403",
+        "pages": "115671",
+        "article_number": "115671",
+        "publisher": "Elsevier BV",
+        "publication_date": "2023-01"
+      }
+    },
+    {
+      "id": 480,
+      "title": "Solving Allen-Cahn and Cahn-Hilliard Equations using the Adaptive Physics Informed Neural Networks",
+      "citation": "Wight, C.L., Zhao, J., 2020. Solving allen-cahn and cahn-hilliard equations using the adaptive physics informed neural networks. ArXiv Preprint arXiv:2007.04542.",
+      "doi": null,
+      "publisher_url": "https://arxiv.org/abs/2007.04542",
+      "venue": {
+        "name": "ArXiv Preprint arXiv:",
+        "type": "preprint"
+      },
+      "year": 2007,
+      "access": "Open access",
+      "countries": [
+        "United States"
+      ],
+      "overrides": {
+        "realm_year": 2020
+      },
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": "https://arxiv.org/abs/2007.04542",
+        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "publisher_enrichment": {
+          "source": "Publisher HTML citation metadata",
+          "source_url": "https://arxiv.org/abs/2007.04542",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "bibliographic.authors",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "unknown",
+          "license_urls": [],
+          "arxiv": null
+        }
+      },
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Wight, Colby L.; Zhao, Jia",
+        "publication_date": "2020/07/09"
+      }
+    },
+    {
+      "id": 481,
+      "title": "Transfer learning based physics-informed neural networks for solving inverse problems in engineering structures under different loading scenarios",
+      "citation": "Xu, C., Cao, B.T., Yuan, Y., Meschke, G., 2023. Transfer learning based physics-informed neural networks for solving inverse problems in engineering structures under different loading scenarios. Comput. Methods Appl. Mech. Engrg. 405, 115852. http://dx.doi.org/10.1016/j.cma.2022.115852.",
+      "doi": "10.1016/j.cma.2022.115852",
+      "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0045782522008088",
+      "venue": {
+        "name": "Computer Methods in Applied Mechanics and Engineering",
+        "type": "journal"
+      },
+      "year": 2023,
+      "access": "Subscription",
+      "countries": [
+        "Germany",
+        "China"
+      ],
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": "https://doi.org/10.1016/j.cma.2022.115852",
+        "note": null,
+        "publisher_enrichment": {
+          "source": "Crossref REST API",
+          "source_url": "https://api.crossref.org/works/10.1016%2Fj.cma.2022.115852",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.volume",
+            "bibliographic.pages",
+            "bibliographic.article_number",
+            "bibliographic.publisher",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "journal-article",
+          "license_urls": [
+            "https://www.elsevier.com/tdm/userlicense/1.0/",
+            "https://www.elsevier.com/legal/tdmrep-license",
+            "https://doi.org/10.15223/policy-017",
+            "https://doi.org/10.15223/policy-037",
+            "https://doi.org/10.15223/policy-012",
+            "https://doi.org/10.15223/policy-029",
+            "https://doi.org/10.15223/policy-004"
+          ],
+          "arxiv": null
+        }
+      },
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Xu, C.; Cao, B.T.; Yuan, Y.; Meschke, G.",
+        "journal_abbreviation": "Computer Methods in Applied Mechanics and Engineering",
+        "volume": "405",
+        "pages": "115852",
+        "article_number": "115852",
+        "publisher": "Elsevier BV",
+        "publication_date": "2023-02"
+      }
+    },
+    {
+      "id": 482,
+      "title": "Physics-informed neural network for engineers a review from an implementation aspect",
+      "citation": "Ryu, I., Park, G.-B., Lee, Y., Choi, D.-H., 2024. Physics-informed neural network for engineers: a review from an implementation aspect. J. Mech. Sci. Technol. 38, 3499–3519.",
+      "doi": null,
+      "publisher_url": null,
+      "venue": {
+        "name": "D.-H.",
+        "type": "journal"
+      },
+      "year": 2024,
+      "access": "Not verified",
+      "countries": [
+        "South Korea"
+      ],
+      "provenance": {
+        "bibliography_source": "38_1_10_references.docx",
+        "geography_source": "papers-countries-and-year.md",
+        "evidence_url": null,
+        "note": null
+      },
+      "last_updated": "2026-07-22"
+    },
+    {
+      "id": 483,
+      "title": "Multi-output physics-informed neural networks for forward and inverse PDE problems with uncertainties",
+      "citation": "Yang, M., Foster, J.T., 2022. Multi-output physics-informed neural networks for forward and inverse PDE problems with uncertainties. Comput. Methods Appl. Mech. Engrg. 402, 115041. http://dx.doi.org/10.1016/j.cma.2022.115041.",
       "doi": "10.1016/j.cma.2022.115041",
       "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0045782522002602",
       "venue": {
