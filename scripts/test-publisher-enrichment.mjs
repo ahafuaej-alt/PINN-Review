@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
 import {
   candidateFromCrossref,
+  candidateFromArxiv,
   candidateFromHtml,
+  extractArxivId,
   formatPeople,
   mergeCandidate,
   titleSimilarity
@@ -11,6 +13,34 @@ assert.equal(formatPeople([
   { given: 'David A.', family: 'Johnson' },
   { given: 'Yue', family: 'Jin' }
 ]), 'Johnson, D.A.; Jin, Y.');
+assert.equal(extractArxivId('https://doi.org/10.48550/arXiv.2607.18634'), '2607.18634');
+assert.equal(extractArxivId('arXiv:2402.01868v2'), '2402.01868');
+
+const arxiv = candidateFromArxiv({
+  id: '2607.18634',
+  title: 'A Game-Theory Paper',
+  summary: 'An abstract that must not be imported automatically.',
+  published: '2026-07-24T00:00:00Z',
+  authors: ['First Author', 'Second Author'],
+  primary_category: 'cs.GT',
+  categories: ['cs.GT', 'cs.AI'],
+  journal_ref: '',
+  doi: ''
+});
+assert.equal(arxiv.venue.name, 'arXiv [Computer Science > Computer Science and Game Theory]');
+assert.equal(arxiv.venue.type, 'preprint');
+assert.equal(arxiv.abstract, '');
+assert.equal(arxiv.abstract_available_but_restricted, true);
+const arxivPublished = {
+  ...arxiv,
+  journal_version: {
+    source: 'Crossref title match',
+    confidence: 0.98,
+    doi: '10.1234/journal-version',
+    venue: { name: 'Journal Version', type: 'journal' },
+    year: 2026
+  }
+};
 
 const crossref = candidateFromCrossref({
   DOI: '10.1234/example.1',
@@ -83,5 +113,17 @@ const titleMismatch = mergeCandidate({ ...paper, title: 'Completely Different Su
 assert.equal(titleMismatch.status, 'title-mismatch');
 assert.equal(titleMismatch.added.length, 0);
 assert(titleSimilarity('PINNs: A Review', 'PINNs — A Review') > 0.99);
+
+const preprintPaper = {
+  ...paper,
+  title: 'A Game-Theory Paper',
+  doi: null,
+  publisher_url: null,
+  venue: { name: 'arXiv', type: 'preprint' }
+};
+const publishedReview = mergeCandidate(preprintPaper, arxivPublished, '2026-07-23');
+assert.equal(publishedReview.status, 'review');
+assert.equal(publishedReview.paper.doi, null);
+assert(publishedReview.conflicts.some((item) => item.field === 'published_version'));
 
 console.log('Publisher enrichment tests passed.');
