@@ -21621,19 +21621,25 @@
   {
     "id": 853,
     "title": "Application of Physics-informed Neural Networks in Removing Telescope Beam Effects",
-    "citation": "Ni, S.; Qiu, Y.; Chen, Y.; Song, Z.; Chen, H.; Jiang, X.; Quan, D.; Chen, H. Application of Physics-Informed Neural Networks in Removing Telescope Beam Effects. arXiv 2024, arXiv:2409.05718.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "arXiv",
-    "reference_type": "preprint",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Ni, S.; Qiu, Y.; Chen, Y.; Song, Z.; Chen, H.; Jiang, X.; Quan, D.; Chen, H. Application of Physics-informed Neural Networks in Removing Telescope Beam Effects. The Astrophysical Journal 2025, 990, 1-13. https://doi.org/10.3847/1538-4357/adf223.",
+    "doi": "10.3847/1538-4357/adf223",
+    "publisher_url": "https://doi.org/10.3847/1538-4357/adf223",
+    "venue": "The Astrophysical Journal",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Ni, S.; Qiu, Y.; Chen, Y.; Song, Z.; Chen, H.; Jiang, X.; Quan, D.; Chen, H.",
+      "volume": "990",
+      "issue": "2",
+      "pages": "1-13",
+      "article_number": "122"
+    },
+    "abstract": "This study introduces PI-AstroDeconv, a physics-informed semi-supervised learning method specifically designed for removing beam effects in astronomical telescope observation systems. The method utilizes an encoder–decoder network architecture and combines the telescope’s point-spread function or beam as prior information, while integrating Fast Fourier Transform–accelerated convolution techniques into the deep learning network. This enables the effective removal of beam effects from astronomical observation images. PI-AstroDeconv can handle multiple point-spread functions or beams, tolerate imprecise measurements to some extent, and significantly improve the efficiency and accuracy of image deconvolution. Therefore, this architecture is particularly suitable for astronomical data processing that does not rely on annotated data. To validate the reliability of the architecture, we used the Square Kilometre Array Science Data Challenge 3a data sets and compared it with the CLEAN deconvolution method at the 21 cm power spectrum level. The results demonstrate that our algorithm not only restores details and reduces blurriness in celestial images at the pixel level, but also more accurately recovers the true neutral hydrogen power spectrum at the power spectrum level.",
     "graphical_abstract": null,
-    "year": 2024,
+    "year": 2025,
     "access": "Open access",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   }
 ]
