@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.2",
+    "dataset_version": "2.1.3",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -18716,15 +18716,15 @@
     {
       "id": 346,
       "title": "Machine learning for precision medicine  a combination of data-driven and physics based models",
-      "citation": "Franco, N.R. Machine learning for precision medicine: a combination of data-driven and physics based models. Thesis 2023.",
+      "citation": "Franco, N.R. Machine learning for precision medicine a combination of data-driven and physics based models. Ph.D. Thesis, Polytechnic University of Milan, Milan, Italy, 23 February 2023.",
       "doi": null,
       "publisher_url": "https://www.politesi.polimi.it/handle/10589/196604",
       "venue": {
-        "name": "Thesis",
+        "name": "POLITesi - Digital archive",
         "type": "thesis"
       },
       "year": 2023,
-      "access": "Subscription",
+      "access": "Open access",
       "countries": [
         "Italy"
       ],
@@ -18732,9 +18732,20 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://www.politesi.polimi.it/handle/10589/196604",
-        "note": null
+        "note": "update the thesis information",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "Precision medicine aims at improving the clinical treatment of patients by proposing subject-specific therapies, which are designed on the basis of individual characteristics, such as age and lifestyle, but also more complicated biological features. To this end, precision medicine mostly relies on biomarkers, complex indicators that characterize the genotype and phenotype of a patient. In pratical applications, such biomarkers are commonly derived by synthesizing the information coming from both data-driven and physics based models. The aim of this Thesis is to explore a unified framework for quantitative methods in precision medicine, leveraging on Machine Learning tools. In particular, we focus on the case of personalized treatment planning of radiotherapy. Recently, many new research lines are being explored in this field, two of which are the main focus of this Thesis. The first one concerns the study of radiosensitivity as a genetic trait, and thus aims at identifying the genetic mutations associated with late toxicity in order to build suitable predictive biomarkers. The second line of research, instead, consists in the analysis of the cellular response to radiation by means of accurate and extensive numerical simulations. Both approaches present significant challenges, which in this Thesis are addressed through the development of new Machine Learning and Deep Learning algorithms. In the first part of the Thesis, we focus on studying the connection between late toxicity and mutations in the DNA. There, the main difficulties arise from the presence of complex interactions among genetic loci and from the intrinsic class imbalance characterizing clinical data. To tackle these adversities, we take advantage of different Machine Learning tools, from deep autoencoders to data mining algorithms, ultimately developing a novel approach to polygenic risk scoring that enables the construction of interpretable interaction-aware biomarkers. Throughout the Thesis, we assess the scientific value of the proposed approach on both simulated and real data, showcasing the impact of our work on the clinical world. Conversely, in the second part of the dissertation, we discuss how Deep Learning can be used to reduce the computational cost entailed by the numerical simulation of biophysical models relevant for radiotherapy, such as oxygen transfer models. In particular, we develop several strategies based on Deep Learning algorithms for replacing the original numerical solver with a cheaper, yet accurate, surrogate model. Thanks to these tools, the computational bottleneck entailed by using physics based numerical simulations in the complex workflow of biomarker discovery and validation can be completely resolved. From the methodological and, in particular, the mathematical standpoint, the proposed approaches are inspired by the flourishing literature of Reduced Order Modeling, but they also share unique benefits that distinguish them from state-of-art techniques, such as the ability of handling singularities, transport and mass propagation, in an extremely efficient way. In order to make our proposal mathematically sound, we also derive innovative theoretical results that support our reasoning. In particular, the Thesis contains innovative results about the latent dimension of autoencoders and the properties of convolutional neural networks. Finally, as a by-product of our studies, we also end up developing completely new tools, such as mesh-informed architectures, that, for their generality, stand out as independent topics of research.",
+      "bibliographic": {
+        "authors": "Franco, N.R",
+        "journal_abbreviation": "Thesis",
+        "city": "Milan",
+        "country": "Italy",
+        "thesis_level": "Ph.D. Thesis",
+        "institution": "Polytechnic University of Milan",
+        "publication_date": "23 February 2023"
+      }
     },
     {
       "id": 347,
