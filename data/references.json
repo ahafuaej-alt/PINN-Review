@@ -16982,20 +16982,24 @@
   {
     "id": 660,
     "title": "Complex dynamics on the one-dimensional quantum droplets via time piecewise PINNs",
-    "citation": "Pu, J., Chen, Y., 2023. Complex dynamics on the one-dimensional quantum droplets via time piecewise pinns. Physica D 454, http://dx.doi.org/10.1016/j.physd.2023. 133851.",
-    "doi": "10.1016/j.physd.2023",
-    "publisher_url": "https://doi.org/10.1016/j.physd.2023",
-    "venue": "Physica D",
+    "citation": "Pu, J.; Chen, Y. Complex dynamics on the one-dimensional quantum droplets via time piecewise PINNs. Physica D: Nonlinear Phenomena 2023, 454, 133851. https://doi.org/10.1016/j.physd.2023.133851.",
+    "doi": "10.1016/j.physd.2023.133851",
+    "publisher_url": "https://doi.org/10.1016/j.physd.2023.133851",
+    "venue": "Physica D: Nonlinear Phenomena",
     "reference_type": "journal",
-    "bibliographic": null,
-    "abstract": null,
+    "bibliographic": {
+      "authors": "Pu, J.; Chen, Y.",
+      "volume": "454",
+      "article_number": "133851"
+    },
+    "abstract": "The dynamics of one-dimensional quantum droplets and the emerging applications of deep learning in landing technology have become prominent research areas. In this work, we present a novel methodology, termed time piecewise physics-informed neural networks (PINNs), to study the intricate dynamics of one-dimensional quantum droplets by solving the amended Gross–Pitaevskii equation. Our network model exhibits superior training performance in the long time domain compared to conventional PINNs, with each of its subnetwork operating independently and offering high adjustability. By employing time piecewise PINNs with scarce training points, we not only study intrinsic modulations of single droplet and collision between two droplets, but also excite the breather on droplet background. Intriguingly, we obtain an interference pattern from training result of collision between two droplets, which is a significant feature of the interplay of coherent matter waves. The numerical findings demonstrate that in a nonlinear non-integrable system, varying parameters can result in vastly different dynamic behaviors despite sharing the same initial conditions. Our results offer valuable insights and guidance for leveraging deep learning technology to facilitate intrinsic modulations of single droplet, droplets collision, and excitation of breather.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 661,
