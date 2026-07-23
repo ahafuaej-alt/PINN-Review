@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.1",
+    "dataset_version": "2.1.2",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -16062,15 +16062,15 @@
     {
       "id": 297,
       "title": "Physics-Informed Neural Network in porous media and epidemiological applications",
-      "citation": "Millevoi, C. Physics-Informed Neural Network in porous media and epidemiological applications. Thesis, May 2024 2024.",
+      "citation": "Millevoi, C. Physics-Informed Neural Network in porous media and epidemiological applications. Ph. D. Thesis, University of Padua, Padua, Italy, 29 May 2024.",
       "doi": null,
       "publisher_url": "https://tesidottorato.depositolegale.it/handle/20.500.14242/178714",
       "venue": {
-        "name": "Thesis, May 2024",
+        "name": "Magazzini Digitali portal",
         "type": "thesis"
       },
       "year": 2024,
-      "access": "Subscription",
+      "access": "Open access",
       "countries": [
         "Italy"
       ],
@@ -16078,9 +16078,20 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://tesidottorato.depositolegale.it/handle/20.500.14242/178714",
-        "note": null
+        "note": "thesis information were corrected",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "This doctoral thesis delves into the application of Physics-Informed Neural Network (PINN) across diverse domains, notably in the field of porous media and epidemiology. The goal is to analyze the potential of PINNs in solving complex problems, for the purpose of integrating them with well-established methods and enhancing the capability of obtaining reliable modeling predictions. The study aims at: • utilizing PINN for forward solution modeling and parameter estimation in hydro-poromechanics, • extending PINN capabilities to track the temporal changes in the model parameters and provide an estimate of the model state variables in epidemiological modeling. With the need for robust, computationally efficient tools in the field of application, PINNs emerge as a promising tool to bridge traditional physics-based modeling and modern machine learning approaches. In the hydro-poromechanics domain, the study reveals insights into effective neural network architectures through a sensitivity analysis, shedding light on significant hyper-parameters and network complexities crucial for efficient PINN training. Additionally, a sensor-driven approach is introduced to accelerate convergence and enhance accuracy by integrating field data automatically during the training. The proposed method showcases promising results in real-world applications, where combining some data measured in the site can help to account for marginal effects due to several minor dynamics. The thesis also tackles the inverse problem of parameter identification in Biot’s model, analyzing the potential of PINNs in estimating key geomechanical and hydraulic properties of subsurface materials. Shifting focus to epidemiology, the work introduces novel approaches to enhance PINN applications for simulating the spread of epidemics, based on the solution of Susceptible-Infectious-Recovered (SIR) based epidemiological models, and estimating time-dependent transmission rates. In this context, a split PINN approach, involving a two-step training process, is proposed. The method proves to be a computationally efficient alternative, outperforming the traditional training of PINNs in terms of both accuracy and speed. A reduction of the SIR model is also presented, which limits the number of unknown functions and loss terms. Application to synthetic and real-world data from the Italian COVID-19 epidemic highlights the adaptability of PINNs in capturing system dynamics, showcasing improved accuracy in estimating critical time-dependent parameters and modeling the process with respect to the traditional approach. This interdisciplinary study underscores the versatility of PINNs, providing a framework for assisting traditional methods in modeling coupled flow-deformation processes in porous media and epidemiological investigations, where the integration of data series with traditional differential models is crucial. The findings of this thesis work aim at contributing to advancements to the application of PINNs in hydro-poromechanics and epidemiology, and open avenues for future research, with the goal of combining the potential of deep learning in conjunction with physics-based models to advance predictive capabilities in complex systems.",
+      "bibliographic": {
+        "authors": "Millevoi, C",
+        "journal_abbreviation": "Thesis, May 2024",
+        "city": "Padua",
+        "country": "Italy",
+        "thesis_level": "Ph. D. Thesis",
+        "institution": "University of Padua",
+        "publication_date": "29 May 2024"
+      }
     },
     {
       "id": 298,
