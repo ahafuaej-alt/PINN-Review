@@ -17604,20 +17604,24 @@
   {
     "id": 685,
     "title": "Rotor dynamics informed deep learning for detection, identification, and localization of shaft crack and unbalance defects",
-    "citation": "Deng, W., Nguyen, K.T.P., Medjaher, K., Gogu, C., Morio, J., 2023. Rotor dynamics informed deep learning for detection, identification, and localization of shaft crack and unbalance defects. Adv. Eng. Inform. 58, http://dx.doi.org/10.1016/j.aei.2023. 102128.",
-    "doi": "10.1016/j.aei.2023",
-    "publisher_url": "https://doi.org/10.1016/j.aei.2023",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Deng, W.; Nguyen, K.T.P.; Medjaher, K.; Gogu, C.; Morio, J. Rotor dynamics informed deep learning for detection, identification, and localization of shaft crack and unbalance defects. Advanced Engineering Informatics 2023, 58, 102128. https://doi.org/10.1016/j.aei.2023.102128.",
+    "doi": "10.1016/j.aei.2023.102128",
+    "publisher_url": "https://doi.org/10.1016/j.aei.2023.102128",
+    "venue": "Advanced Engineering Informatics",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Deng, W.; Nguyen, K.T.P.; Medjaher, K.; Gogu, C.; Morio, J.",
+      "volume": "58",
+      "article_number": "102128"
+    },
+    "abstract": "This paper proposes a new model, called rotor finite element mimetic neural network (RFEMNN), for diagnosing rotor unbalance and shaft crack faults. RFEMNN uses a convolution long short-term memory networks (CNN-LSTM) architecture to achieve fault recognition and localization in the rotor structure. The term “Mimetic” refers to the topology of the rotor finite element model and solution process by custom designing NN structure and data flow, which is based on the physics informed structure paradigm. The proposed “Mimetic” theory enhances the physics consistency of the RFEMNN model without requiring complete analytic physical knowledge or all parameter values. The proposed model’s effectiveness is validated through experimental tests, compared to 9 benchmark models from the literature and one deep learning model with the same depth but no physics embedding. Results showed that RFEMNN outperformed the benchmark models with a comprehensive diagnostics accuracy of 94.7%, indicating its potential for practical industrial applications.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "France"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 686,
