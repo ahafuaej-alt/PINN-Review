@@ -1,10 +1,15 @@
+import { reconcilePublisherReview } from './publisher-review-state.mjs';
+
 const REPORT_URL = '../../data/publisher-enrichment-review.json';
+const CHANGES_URL = '../../data/changes.json';
+const METADATA_URL = '../../data/references-metadata.json';
 const PAGE_SIZE = 40;
 
 const elements = {
   stats: document.querySelector('#review-stats'),
   search: document.querySelector('#review-search'),
   status: document.querySelector('#review-status'),
+  resolution: document.querySelector('#review-resolution'),
   field: document.querySelector('#review-field'),
   arxiv: document.querySelector('#review-arxiv'),
   count: document.querySelector('#review-count'),
@@ -42,6 +47,7 @@ const queryState = () => {
   return {
     q: params.get('q') || '',
     status: params.get('status') || '',
+    resolution: params.get('resolution') || 'open',
     field: params.get('field') || '',
     arxiv: params.get('arxiv') || ''
   };
@@ -51,6 +57,7 @@ const updateUrl = () => {
   const params = new URLSearchParams();
   if (elements.search.value.trim()) params.set('q', elements.search.value.trim());
   if (elements.status.value) params.set('status', elements.status.value);
+  if (elements.resolution.value !== 'open') params.set('resolution', elements.resolution.value);
   if (elements.field.value) params.set('field', elements.field.value);
   if (elements.arxiv.value) params.set('arxiv', elements.arxiv.value);
   history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
@@ -69,6 +76,8 @@ const stat = (value, label) => `<div class="review-stat"><strong>${escapeHtml(va
 
 const renderStats = () => {
   const summary = report.summary;
+  const resolvedRecords = report.records.filter((record) => record.resolution?.status === 'resolved').length;
+  const openRecords = report.records.length - resolvedRecords;
   const graphicalAbstractChanges = report.graphical_abstract_invariant?.unchanged
     ? 0
     : Math.abs(
@@ -76,10 +85,11 @@ const renderStats = () => {
       - (report.graphical_abstract_invariant?.before || 0)
     );
   elements.stats.innerHTML = [
-    stat(report.dataset_version_after, 'Dataset version'),
+    stat(report.current_dataset_version || report.dataset_version_after, 'Current dataset version'),
     stat(summary.eligible, 'Records checked'),
-    stat(summary.enriched, 'Records enriched'),
-    stat(summary.with_conflicts, 'Records with findings'),
+    stat(openRecords, 'Awaiting review'),
+    stat(resolvedRecords, 'Resolved in Dataset Manager'),
+    stat(summary.with_conflicts, 'Original records with findings'),
     stat(summary.failed, 'Failed lookups'),
     stat(summary.journal_versions_found, 'Published versions found'),
     stat(summary.arxiv_only, 'arXiv-only records'),
@@ -89,6 +99,9 @@ const renderStats = () => {
 
 const matches = (record) => {
   const query = elements.search.value.trim().toLocaleLowerCase('en');
+  const resolved = record.resolution?.status === 'resolved';
+  if (elements.resolution.value === 'open' && resolved) return false;
+  if (elements.resolution.value === 'resolved' && !resolved) return false;
   if (elements.status.value && record.status !== elements.status.value) return false;
   if (elements.field.value && !(record.conflicts || []).some((item) => item.field === elements.field.value)) return false;
   if (elements.arxiv.value === 'published' && !record.journal_version) return false;
@@ -121,17 +134,20 @@ const cardMarkup = (record) => {
   const warnings = (record.warnings || []).map((warning) => `<li>${escapeHtml(warning)}</li>`).join('');
   const findings = (record.conflicts || []).map(findingMarkup).join('');
   const added = (record.fields_added || []).map((field) => `<span class="review-badge">${escapeHtml(field)}</span>`).join('');
+  const resolved = record.resolution?.status === 'resolved';
+  const resolution = record.resolution;
   return `
     <article class="review-card" id="review-${record.id}">
       <header>
         <h2>[${record.id}] ${escapeHtml(record.title)}</h2>
-        <span class="review-badge ${escapeHtml(record.status)}">${escapeHtml(record.status)}</span>
+        <span class="review-badge ${resolved ? 'resolved' : escapeHtml(record.status)}">${resolved ? 'resolved' : escapeHtml(record.status)}</span>
       </header>
+      ${resolved ? `<p class="review-resolution"><strong>Resolved in dataset ${escapeHtml(resolution.dataset_version)}</strong> on ${escapeHtml(resolution.resolved_at)}. ${escapeHtml(resolution.reason || 'The approved Dataset Manager update resolved this review item.')}</p>` : ''}
       <div class="review-badges">${added || '<span class="review-badge">No fields applied</span>'}</div>
       ${warnings ? `<details><summary>Lookup notes</summary><ul>${warnings}</ul></details>` : ''}
       ${findings || '<p>No conflicting existing values were found.</p>'}
       <div class="review-actions">
-        <a href="../?id=${record.id}">Review paper ${record.id} in Dataset Manager</a>
+        <a href="../?id=${record.id}">${resolved ? 'View' : 'Review'} paper ${record.id} in Dataset Manager</a>
         ${evidence ? `<a href="${escapeHtml(evidence)}" target="_blank" rel="noopener">Open evidence</a>` : ''}
       </div>
     </article>
@@ -150,9 +166,20 @@ const render = () => {
 };
 
 const initialize = async () => {
-  const response = await fetch(REPORT_URL, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`Review report returned ${response.status}`);
-  report = await response.json();
+  const [reportResponse, changesResponse, metadataResponse] = await Promise.all([
+    fetch(REPORT_URL, { cache: 'no-store' }),
+    fetch(CHANGES_URL, { cache: 'no-store' }),
+    fetch(METADATA_URL, { cache: 'no-store' })
+  ]);
+  if (!reportResponse.ok) throw new Error(`Review report returned ${reportResponse.status}`);
+  if (!changesResponse.ok) throw new Error(`Change history returned ${changesResponse.status}`);
+  if (!metadataResponse.ok) throw new Error(`Dataset metadata returned ${metadataResponse.status}`);
+  const [sourceReport, changes, metadata] = await Promise.all([
+    reportResponse.json(),
+    changesResponse.json(),
+    metadataResponse.json()
+  ]);
+  report = reconcilePublisherReview(sourceReport, changes.changes, metadata.version);
   const statuses = [...new Set(report.records.map((record) => record.status))].sort();
   const fields = [...new Set(report.records.flatMap((record) => (record.conflicts || []).map((item) => item.field)))].sort();
   addOptions(elements.status, statuses);
@@ -160,13 +187,14 @@ const initialize = async () => {
   const state = queryState();
   elements.search.value = state.q;
   elements.status.value = statuses.includes(state.status) ? state.status : '';
+  elements.resolution.value = ['open', 'resolved', 'all'].includes(state.resolution) ? state.resolution : 'open';
   elements.field.value = fields.includes(state.field) ? state.field : '';
   elements.arxiv.value = ['published', 'preprint'].includes(state.arxiv) ? state.arxiv : '';
   renderStats();
   render();
 };
 
-for (const element of [elements.search, elements.status, elements.field, elements.arxiv]) {
+for (const element of [elements.search, elements.status, elements.resolution, elements.field, elements.arxiv]) {
   element.addEventListener(element === elements.search ? 'input' : 'change', () => {
     visible = PAGE_SIZE;
     render();

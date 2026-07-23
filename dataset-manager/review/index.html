@@ -17,7 +17,7 @@
     .review-stat { padding: .9rem; }
     .review-stat strong { display: block; font-size: 1.45rem; }
     .review-stat span { color: var(--muted, #526173); font-size: .88rem; }
-    .review-controls { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(150px, 1fr)); gap: .75rem; padding: 1rem; position: sticky; top: .5rem; z-index: 3; margin-bottom: 1rem; }
+    .review-controls { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(4, minmax(140px, 1fr)); gap: .75rem; padding: 1rem; position: sticky; top: .5rem; z-index: 3; margin-bottom: 1rem; }
     .review-controls label { display: grid; gap: .35rem; font-size: .82rem; font-weight: 700; }
     .review-controls input, .review-controls select { width: 100%; min-height: 2.65rem; }
     .review-results { display: grid; gap: .85rem; }
@@ -29,6 +29,8 @@
     .review-badge.enriched { color: #12633f; }
     .review-badge.review, .review-badge.title-mismatch { color: #805d00; }
     .review-badge.failed { color: #a02d2d; }
+    .review-badge.resolved { color: #12633f; }
+    .review-resolution { border-left: .25rem solid #12633f; padding: .65rem .8rem; background: color-mix(in srgb, #2e9b66 12%, transparent); }
     .review-card details { border-top: 1px solid var(--border, #cfd7e3); padding-top: .65rem; margin-top: .65rem; }
     .review-card summary { cursor: pointer; font-weight: 750; }
     .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-top: .65rem; }
@@ -51,7 +53,7 @@
     <section class="review-hero">
       <p class="eyebrow">Dataset Manager</p>
       <h1>Publisher metadata review</h1>
-      <p>This queue compares existing Atlas values with DOI-registration, publisher, and arXiv evidence. Missing verified fields may already be present in the enriched dataset; conflicting values remain proposals until you approve them.</p>
+      <p>This queue compares existing Atlas values with DOI-registration, publisher, and arXiv evidence. By default it shows records still awaiting review. After an approved Dataset Manager update is published, that record moves automatically to the resolved history.</p>
       <p class="review-notice"><strong>Graphical abstracts are excluded.</strong> This process never imports or modifies graphical-abstract images or metadata.</p>
       <div class="review-actions">
         <a href="../">Open Dataset Manager</a>
@@ -69,6 +71,13 @@
       <label>Status
         <select id="review-status"><option value="">All statuses</option></select>
       </label>
+      <label>Review state
+        <select id="review-resolution">
+          <option value="open">Awaiting review</option>
+          <option value="resolved">Resolved history</option>
+          <option value="all">All records</option>
+        </select>
+      </label>
       <label>Finding
         <select id="review-field"><option value="">All findings</option></select>
       </label>
@@ -85,6 +94,6 @@
     <section class="review-results" id="review-results"></section>
     <button id="load-more" type="button" hidden>Load more</button>
   </main>
-  <script type="module" src="../../assets/publisher-review.js"></script>
+  <script type="module" src="../../assets/publisher-review.js?v=20260723-review-resolution-2"></script>
 </body>
 </html>

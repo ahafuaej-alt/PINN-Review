@@ -2,11 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { ROOT, buildAll, effectiveRealmYear, impactSummary, readJson, stableJson, validateMaster } from './lib/dataset-core.mjs';
+import { validatePublisherReview } from '../assets/publisher-review-state.mjs';
 
 const master = readJson('data/papers-master.json');
 const mapping = readJson('data/country-mapping.json');
 const map = readJson('data/world-map.json');
 const changes = readJson('data/changes.json');
+const publisherReview = readJson('data/publisher-enrichment-review.json');
 const validation = validateMaster(master, mapping, map);
 const failures = [...validation.errors];
 const check = (condition, message) => { if (!condition) failures.push(message); };
@@ -24,6 +26,7 @@ check(master.metadata.record_count === master.papers.length, 'master record_coun
 check(master.metadata.maintenance.legacy_realm_year_override_count === validation.warnings.length, 'legacy year override metadata is stale');
 check(Array.isArray(changes.changes) && changes.changes.length > 0, 'audit trail is empty');
 check(changes.changes[0].version !== undefined, 'audit trail entries require versions');
+failures.push(...validatePublisherReview(publisherReview, master, changes.changes));
 check(generated.realm.papers.every((paper) => paper.year === effectiveRealmYear(master.papers.find((record) => record.id === paper.id))), 'Realm years are not generated from master records');
 check(generated.realm.collaborations.every((pair) => pair.a < pair.b && pair.a !== pair.b), 'collaboration pairs are not canonical unordered non-self pairs');
 check(generated.realm.metadata.national_paper_count + generated.realm.metadata.international_paper_count === master.papers.length, 'national and international counts do not sum to the master record count');

@@ -8,6 +8,7 @@ import {
   mergeCandidate,
   titleSimilarity
 } from './enrich-publisher-metadata.mjs';
+import { reconcilePublisherReview, reviewResolutionSummary } from '../assets/publisher-review-state.mjs';
 
 assert.equal(formatPeople([
   { given: 'David A.', family: 'Johnson' },
@@ -131,5 +132,40 @@ const publishedReview = mergeCandidate(preprintPaper, arxivPublished, '2026-07-2
 assert.equal(publishedReview.status, 'review');
 assert.equal(publishedReview.paper.doi, null);
 assert(publishedReview.conflicts.some((item) => item.field === 'published_version'));
+
+const reconciliationFixture = {
+  schema_version: '1.0.0',
+  dataset_version_after: '2.1.0',
+  summary: { eligible: 2 },
+  records: [
+    { id: 297, status: 'failed', conflicts: [], warnings: ['Publisher page 403'] },
+    { id: 313, status: 'review', conflicts: [{ field: 'published_version' }], warnings: [] }
+  ]
+};
+const reconciled = reconcilePublisherReview(reconciliationFixture, [
+  {
+    change_id: 'paper-313-test-2.1.1',
+    version: '2.1.1',
+    date: '2026-07-23',
+    paper_id: 313,
+    changed_fields: ['doi', 'venue', 'year'],
+    reason: 'Approved the published version',
+    evidence: { url: 'https://doi.org/10.1234/published' }
+  },
+  {
+    change_id: 'paper-99-before-enrichment',
+    version: '2.0.1',
+    date: '2026-07-22',
+    paper_id: 297,
+    changed_fields: ['venue'],
+    reason: 'Predates the review report',
+    evidence: { url: 'https://example.org/old' }
+  }
+], '2.1.1');
+assert.equal(reconciled.records.find((record) => record.id === 313).resolution.status, 'resolved');
+assert.equal(reconciled.records.find((record) => record.id === 297).resolution, undefined);
+assert.deepEqual(reviewResolutionSummary(reconciled), { open_records: 1, resolved_records: 1 });
+assert.equal(reconciled.summary.open_records, 1);
+assert.equal(reconciled.summary.resolved_records, 1);
 
 console.log('Publisher enrichment tests passed.');
