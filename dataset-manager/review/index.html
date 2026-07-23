@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review publisher and DOI metadata findings before applying corrections to the PINN Review Atlas.">
+  <title>Publisher Metadata Review | PINN Review Atlas</title>
+  <script src="../../assets/theme-init.js"></script>
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .review-shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 4rem; }
+    .review-hero, .review-controls, .review-card, .review-stat { border: 1px solid var(--border, #cfd7e3); border-radius: 1rem; background: var(--surface, #fff); }
+    .review-hero { padding: clamp(1.25rem, 3vw, 2.5rem); margin-bottom: 1rem; }
+    .review-hero h1 { margin-top: 0; }
+    .review-notice { border-left: .3rem solid #846500; padding: .75rem 1rem; background: color-mix(in srgb, #f2c94c 14%, transparent); }
+    .review-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: .75rem; margin: 1rem 0; }
+    .review-stat { padding: .9rem; }
+    .review-stat strong { display: block; font-size: 1.45rem; }
+    .review-stat span { color: var(--muted, #526173); font-size: .88rem; }
+    .review-controls { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(150px, 1fr)); gap: .75rem; padding: 1rem; position: sticky; top: .5rem; z-index: 3; margin-bottom: 1rem; }
+    .review-controls label { display: grid; gap: .35rem; font-size: .82rem; font-weight: 700; }
+    .review-controls input, .review-controls select { width: 100%; min-height: 2.65rem; }
+    .review-results { display: grid; gap: .85rem; }
+    .review-card { padding: 1rem; }
+    .review-card header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .review-card h2 { font-size: 1.05rem; margin: 0; line-height: 1.4; }
+    .review-badges { display: flex; flex-wrap: wrap; gap: .4rem; margin: .7rem 0; }
+    .review-badge { border: 1px solid currentColor; border-radius: 999px; padding: .18rem .55rem; font-size: .75rem; font-weight: 700; }
+    .review-badge.enriched { color: #12633f; }
+    .review-badge.review, .review-badge.title-mismatch { color: #805d00; }
+    .review-badge.failed { color: #a02d2d; }
+    .review-card details { border-top: 1px solid var(--border, #cfd7e3); padding-top: .65rem; margin-top: .65rem; }
+    .review-card summary { cursor: pointer; font-weight: 750; }
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-top: .65rem; }
+    .comparison section { min-width: 0; }
+    .comparison h3 { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #526173); }
+    .comparison pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: .7rem; border-radius: .6rem; background: var(--surface-raised, #f4f7fa); font: .78rem/1.45 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .review-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
+    .review-actions a, #load-more { display: inline-flex; align-items: center; min-height: 2.4rem; padding: .45rem .75rem; border-radius: .6rem; border: 1px solid var(--border, #cfd7e3); text-decoration: none; }
+    #load-more { margin: 1rem auto 0; cursor: pointer; background: var(--surface, #fff); color: inherit; }
+    .empty-state { text-align: center; padding: 3rem 1rem; border: 1px dashed var(--border, #cfd7e3); border-radius: 1rem; }
+    @media (max-width: 760px) {
+      .review-controls { grid-template-columns: 1fr; position: static; }
+      .comparison { grid-template-columns: 1fr; }
+      .review-card header { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <main class="review-shell">
+    <section class="review-hero">
+      <p class="eyebrow">Dataset Manager</p>
+      <h1>Publisher metadata review</h1>
+      <p>This queue compares existing Atlas values with DOI-registration, publisher, and arXiv evidence. Missing verified fields may already be present in the enriched dataset; conflicting values remain proposals until you approve them.</p>
+      <p class="review-notice"><strong>Graphical abstracts are excluded.</strong> This process never imports or modifies graphical-abstract images or metadata.</p>
+      <div class="review-actions">
+        <a href="../">Open Dataset Manager</a>
+        <a href="../../references/">Open References</a>
+        <a href="../../data/publisher-enrichment-review.json">Download JSON report</a>
+      </div>
+    </section>
+
+    <section class="review-stats" id="review-stats" aria-label="Enrichment summary"></section>
+
+    <section class="review-controls" aria-label="Review filters">
+      <label>Search
+        <input id="review-search" type="search" placeholder="Reference ID, title, DOI, venue…" autocomplete="off">
+      </label>
+      <label>Status
+        <select id="review-status"><option value="">All statuses</option></select>
+      </label>
+      <label>Finding
+        <select id="review-field"><option value="">All findings</option></select>
+      </label>
+      <label>arXiv
+        <select id="review-arxiv">
+          <option value="">All records</option>
+          <option value="published">Published version found</option>
+          <option value="preprint">arXiv-only</option>
+        </select>
+      </label>
+    </section>
+
+    <p id="review-count" aria-live="polite"></p>
+    <section class="review-results" id="review-results"></section>
+    <button id="load-more" type="button" hidden>Load more</button>
+  </main>
+  <script type="module" src="../../assets/publisher-review.js"></script>
+</body>
+</html>
