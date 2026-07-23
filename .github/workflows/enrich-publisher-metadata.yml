@@ -1,0 +1,73 @@
+name: Enrich publisher metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/publisher-metadata-enrichment-20260723
+    paths:
+      - scripts/enrich-publisher-metadata.mjs
+      - scripts/test-publisher-enrichment.mjs
+      - .github/workflows/enrich-publisher-metadata.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publisher-metadata-enrichment
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Test deterministic mappings
+        run: node scripts/test-publisher-enrichment.mjs
+
+      - name: Test five live DOI records
+        run: >
+          node scripts/enrich-publisher-metadata.mjs
+          --limit=5
+          --no-resolve-doi
+          --delay-ms=200
+          --report=/tmp/publisher-enrichment-sample.json
+
+      - name: Enrich all DOI and publisher-linked records
+        run: >
+          node scripts/enrich-publisher-metadata.mjs
+          --apply
+          --delay-ms=150
+
+      - name: Rebuild and validate synchronized Atlas
+        run: |
+          node scripts/build-datasets.mjs
+          node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
+          node scripts/validate-pinn-realm.mjs
+          node scripts/build-datasets.mjs --check
+
+      - name: Commit enriched data to the review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers-master.json data/references.json data/references-metadata.json data/pinn-realm.json data/changes.json data/publisher-enrichment-review.json
+          git diff --cached --quiet && { echo "No enrichment changes were produced."; exit 1; }
+          git commit -m "Enrich publisher metadata"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Upload review report
+        uses: actions/upload-artifact@v4
+        with:
+          name: publisher-enrichment-review
+          path: data/publisher-enrichment-review.json
+          retention-days: 90
