@@ -138,9 +138,26 @@ const isDoiUrl = (value) => {
   try { return DOI_HOSTS.has(new URL(value).hostname.toLocaleLowerCase('en')); }
   catch { return false; }
 };
+const safeNetworkUrl = (value) => {
+  const url = new URL(value);
+  const hostname = url.hostname.replace(/^\[|\]$/gu, '').toLocaleLowerCase('en');
+  if (url.protocol !== 'https:') throw new Error(`Blocked non-HTTPS URL: ${url.href}`);
+  if (url.username || url.password) throw new Error(`Blocked credential-bearing URL: ${url.href}`);
+  if (url.port && url.port !== '443') throw new Error(`Blocked nonstandard port in URL: ${url.href}`);
+  if (
+    /^\d{1,3}(?:\.\d{1,3}){3}$/u.test(hostname)
+    || hostname.includes(':')
+    || hostname === 'localhost'
+    || hostname.endsWith('.localhost')
+    || hostname.endsWith('.local')
+    || hostname.endsWith('.internal')
+    || !hostname.includes('.')
+  ) throw new Error(`Blocked unattributed or local hostname: ${hostname}`);
+  return url;
+};
 const safePublisherUrl = (value) => {
   try {
-    const url = new URL(value);
+    const url = safeNetworkUrl(value);
     if (url.protocol !== 'https:' || DOI_HOSTS.has(url.hostname.toLocaleLowerCase('en'))) return null;
     if (url.href.length > 600 || /(?:^|[?&])(token|session|auth|ticket|code)=/iu.test(url.search)) return null;
     return url.href;
@@ -399,11 +416,13 @@ export const candidateFromHtml = (html, finalUrl) => {
 };
 
 const fetchWithRetry = async (url, options = {}, attempts = 4) => {
+  const safeUrl = safeNetworkUrl(url);
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, {
+      const response = await fetch(safeUrl, {
         ...options,
+        redirect: options.redirect || 'manual',
         headers: {
           'user-agent': USER_AGENT,
           accept: 'application/json',
@@ -423,6 +442,20 @@ const fetchWithRetry = async (url, options = {}, attempts = 4) => {
     }
   }
   throw lastError || new Error(`Request failed for ${url}`);
+};
+const fetchSafeRedirects = async (url, options = {}, maximumRedirects = 6) => {
+  let current = safeNetworkUrl(url);
+  for (let redirectCount = 0; redirectCount <= maximumRedirects; redirectCount += 1) {
+    const response = await fetchWithRetry(current, { ...options, redirect: 'manual' });
+    if (![301, 302, 303, 307, 308].includes(response.status)) return response;
+    const location = response.headers.get('location');
+    if (!location) throw new Error(`Redirect from ${current.href} has no Location header`);
+    await response.body?.cancel().catch(() => {});
+    const next = safeNetworkUrl(new URL(location, current));
+    if (redirectCount === maximumRedirects) throw new Error(`Too many redirects from ${url}`);
+    current = next;
+  }
+  throw new Error(`Too many redirects from ${url}`);
 };
 const readLimitedText = async (response, maximumBytes = 2_000_000) => {
   if (!response.body) return '';
@@ -536,11 +569,10 @@ const findJournalVersion = async (arxivCandidate) => {
 const resolvePublisherUrl = async (doi) => {
   if (!doi) return null;
   try {
-    const response = await fetchWithRetry(`https://doi.org/${doi}`, {
+    const response = await fetchSafeRedirects(`https://doi.org/${doi}`, {
       method: 'HEAD',
-      redirect: 'follow',
       headers: { accept: 'text/html,application/xhtml+xml' }
-    }, 2);
+    });
     return safePublisherUrl(response.url);
   } catch {
     return null;
@@ -563,7 +595,7 @@ export const lookupPaper = async (paper, { resolveDoi = true, arxivRecord = null
       return candidate;
     }
     if (response.status !== 404) throw new Error(`Crossref ${response.status} for DOI ${doi}`);
-    const cslResponse = await fetchWithRetry(`https://doi.org/${doi}`, {
+    const cslResponse = await fetchSafeRedirects(`https://doi.org/${doi}`, {
       headers: { accept: 'application/vnd.citationstyles.csl+json' }
     });
     if (cslResponse.ok) {
@@ -581,8 +613,7 @@ export const lookupPaper = async (paper, { resolveDoi = true, arxivRecord = null
     }
   }
   if (paper.publisher_url) {
-    const response = await fetchWithRetry(paper.publisher_url, {
-      redirect: 'follow',
+    const response = await fetchSafeRedirects(paper.publisher_url, {
       headers: { accept: 'text/html,application/xhtml+xml' }
     });
     if (!response.ok) throw new Error(`Publisher page ${response.status}`);
