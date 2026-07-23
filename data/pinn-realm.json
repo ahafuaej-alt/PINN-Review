@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.35",
+    "version": "2.1.36",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -9145,7 +9145,7 @@
     },
     {
       "id": 761,
-      "title": "FAST AND ACCURATE DEEP NETWORK LEARNING BY EXPONENTIAL LINEAR UNITS (ELUS)",
+      "title": "Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)",
       "year": 2015,
       "countries": [
         "Austria"

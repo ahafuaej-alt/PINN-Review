@@ -19520,21 +19520,26 @@
   },
   {
     "id": 761,
-    "title": "FAST AND ACCURATE DEEP NETWORK LEARNING BY EXPONENTIAL LINEAR UNITS (ELUS)",
-    "citation": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S. Fast and accurate deep network learning by exponential linear units (ELUs). 2015, arXiv:1511.07289. 2015.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "2015, arXiv:1511.07289.",
+    "title": "Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)",
+    "citation": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S. Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs). Arxiv [Computer Science. Machine Learning] 2015, 1511, 1-14. https://doi.org/10.48550/arXiv.1511.07289.",
+    "doi": "10.48550/arXiv.1511.07289",
+    "publisher_url": "https://doi.org/10.48550/arXiv.1511.07289",
+    "venue": "Arxiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
-    "bibliographic": null,
-    "abstract": null,
+    "bibliographic": {
+      "authors": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S",
+      "volume": "1511",
+      "pages": "1-14",
+      "article_number": "07289v5"
+    },
+    "abstract": "We introduce the \"exponential linear unit\" (ELU) which speeds up learning in deep neural networks and leads to higher classification accuracies. Like rectified linear units (ReLUs), leaky ReLUs (LReLUs) and parametrized ReLUs (PReLUs), ELUs alleviate the vanishing gradient problem via the identity for positive values. However, ELUs have improved learning characteristics compared to the units with other activation functions. In contrast to ReLUs, ELUs have negative values which allows them to push mean unit activations closer to zero like batch normalization but with lower computational complexity. Mean shifts toward zero speed up learning by bringing the normal gradient closer to the unit natural gradient because of a reduced bias shift effect. While LReLUs and PReLUs have negative values, too, they do not ensure a noise-robust deactivation state. ELUs saturate to a negative value with smaller inputs and thereby decrease the forward propagated variation and information. Therefore, ELUs code the degree of presence of particular phenomena in the input, while they do not quantitatively model the degree of their absence. In experiments, ELUs lead not only to faster learning, but also to significantly better generalization performance than ReLUs and LReLUs on networks with more than 5 layers. On CIFAR-100 ELUs networks significantly outperform ReLU networks with batch normalization while batch normalization does not improve ELU networks. ELU networks are among the top 10 reported CIFAR-10 results and yield the best published result on CIFAR-100, without resorting to multi-view evaluation or model averaging. On ImageNet, ELU networks considerably speed up learning compared to a ReLU network with the same architecture, obtaining less than 10% classification error for a single crop, single model network.",
     "graphical_abstract": null,
     "year": 2015,
     "access": "Open access",
     "countries": [
       "Austria"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 762,
