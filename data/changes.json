@@ -2,6 +2,68 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "publisher-enrichment-2026-07-23-2.1.0",
+      "version": "2.1.0",
+      "date": "2026-07-23",
+      "paper_id": null,
+      "changed_fields": [
+        "abstract",
+        "bibliographic.article_number",
+        "bibliographic.authors",
+        "bibliographic.book_title",
+        "bibliographic.conference_date",
+        "bibliographic.conference_location",
+        "bibliographic.conference_name",
+        "bibliographic.editors",
+        "bibliographic.issue",
+        "bibliographic.journal_abbreviation",
+        "bibliographic.pages",
+        "bibliographic.publication_date",
+        "bibliographic.publisher",
+        "bibliographic.report_number",
+        "bibliographic.volume",
+        "publisher_url",
+        "venue.name",
+        "venue.type",
+        "year"
+      ],
+      "reason": "Added missing bibliographic and publisher metadata from DOI registration records and publisher citation metadata without overwriting conflicting existing values.",
+      "evidence": {
+        "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+        "note": "Review report: data/publisher-enrichment-review.json"
+      },
+      "impact": {
+        "eligible": 771,
+        "enriched": 740,
+        "unchanged": 0,
+        "review": 5,
+        "failed": 26,
+        "with_conflicts": 723,
+        "restricted_abstracts": 79,
+        "fields_added": {
+          "abstract": 250,
+          "bibliographic.article_number": 443,
+          "bibliographic.authors": 738,
+          "bibliographic.book_title": 4,
+          "bibliographic.conference_date": 33,
+          "bibliographic.conference_location": 41,
+          "bibliographic.conference_name": 42,
+          "bibliographic.editors": 3,
+          "bibliographic.issue": 449,
+          "bibliographic.journal_abbreviation": 708,
+          "bibliographic.pages": 415,
+          "bibliographic.publication_date": 739,
+          "bibliographic.publisher": 728,
+          "bibliographic.report_number": 1,
+          "bibliographic.volume": 660,
+          "publisher_url": 723,
+          "venue.name": 188,
+          "venue.type": 188,
+          "year": 31
+        }
+      }
+    },
+    {
       "change_id": "paper-246-2026-07-22-2.0.1",
       "version": "2.0.1",
       "date": "2026-07-22",

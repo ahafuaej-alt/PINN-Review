@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-22",
+    "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
     "reference_source": "papers-master.json",
     "paper_count": 853,
