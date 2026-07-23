@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: dataset-update-${{ github.event.issue.number }}
+  group: ${{ github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update' && 'canonical-dataset-update' || format('dataset-update-{0}', github.event.issue.number) }}
   cancel-in-progress: false
 
 jobs:
@@ -52,7 +52,7 @@ jobs:
             if (passed) {
               const result = JSON.parse(fs.readFileSync('/tmp/pinn-validation.json', 'utf8'));
               const fields = result.audit.changed_fields.join(', ');
-              body = `### ✅ Dataset validation passed\n\nPaper **[${result.audit.paper_id}]** can be applied as dataset version **${result.version}**. Affected fields: ${fields}.\n\nA repository maintainer should review the evidence and citation preview, then comment exactly:\n\n\`/apply-dataset-update\`\n\nNothing has been published yet.`;
+              body = `### ✅ Dataset validation passed\n\nPaper **[${result.audit.paper_id}]** can be applied as dataset version **${result.version}**. Affected fields: ${fields}.\n\nA repository maintainer should review the evidence and citation preview, then comment exactly:\n\n\`/apply-dataset-update\`\n\nThis applies and commits the update, but does not deploy the Atlas. The issue will be closed with the label \`dataset-awaiting-deployment\`. Deploy all accumulated updates later from **Actions → Deploy pending dataset updates → Run workflow**.`;
             } else {
               const error = fs.existsSync('/tmp/pinn-validation-error.txt') ? fs.readFileSync('/tmp/pinn-validation-error.txt', 'utf8').trim() : 'The update package could not be validated.';
               body = `### ❌ Dataset validation failed\n\n\`\`\`text\n${error.slice(0, 5000)}\n\`\`\`\n\nCorrect the request in Dataset Manager and submit a new update. Nothing was published.`;
@@ -109,64 +109,91 @@ jobs:
           console.log(`version=${result.version}`);
           NODE
         shell: bash
-      - name: Commit coordinated dataset release
+      - name: Commit coordinated dataset update
         id: commit
         if: steps.apply.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json
-          git commit -m "Update canonical paper dataset"
+          git commit -m "Update canonical paper dataset [skip pages]"
           git push origin HEAD:main
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Mark failed coordinated update
         if: steps.apply.outcome != 'success' || steps.commit.outcome != 'success'
         run: exit 1
 
-  deploy-approved-update:
-    name: Deploy synchronized Atlas
+  report-applied-request:
+    name: Report committed update
     needs: apply-approved-request
-    if: needs.apply-approved-request.result == 'success'
-    uses: ./.github/workflows/pages.yml
-    with:
-      source_sha: ${{ needs.apply-approved-request.outputs.commit_sha }}
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-  report-approved-request:
-    name: Report verified publication
-    needs: [apply-approved-request, deploy-approved-update]
     if: ${{ always() && github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update' && startsWith(github.event.issue.title, '[Dataset update]') }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       issues: write
     steps:
-      - name: Report publication result
+      - name: Report application result
         uses: actions/github-script@v7
         env:
           APPLY_JOB_RESULT: ${{ needs.apply-approved-request.result }}
-          DEPLOY_JOB_RESULT: ${{ needs.deploy-approved-update.result }}
           DATASET_COMMIT: ${{ needs.apply-approved-request.outputs.commit_sha }}
           PAPER_ID: ${{ needs.apply-approved-request.outputs.paper_id }}
           DATASET_VERSION: ${{ needs.apply-approved-request.outputs.version }}
         with:
           script: |
             const applied = process.env.APPLY_JOB_RESULT === 'success';
-            const deployed = process.env.DEPLOY_JOB_RESULT === 'success';
             const commitSha = process.env.DATASET_COMMIT;
             const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             let body;
-            if (applied && deployed) {
+
+            if (applied) {
+              const pendingLabel = {
+                name: 'dataset-awaiting-deployment',
+                color: 'FBCA04',
+                description: 'Dataset update is committed but not yet deployed to the live Atlas'
+              };
+
+              try {
+                await github.rest.issues.getLabel({ owner: context.repo.owner, repo: context.repo.repo, name: pendingLabel.name });
+              } catch (error) {
+                if (error.status !== 404) throw error;
+                await github.rest.issues.createLabel({ owner: context.repo.owner, repo: context.repo.repo, ...pendingLabel });
+              }
+
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  name: 'dataset-live'
+                });
+              } catch (error) {
+                if (error.status !== 404) throw error;
+              }
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: [pendingLabel.name]
+              });
+
               const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}`;
-              body = `### ✅ Dataset update live\n\nPaper **[${process.env.PAPER_ID}]** was applied as dataset version **${process.env.DATASET_VERSION}**, and the synchronized Atlas deployment completed successfully. References, PINN Realm, year totals, collaboration data, citation exports, metadata, and the audit trail are now live together.\n\n- Dataset commit: ${commitUrl}\n- Verified deployment: ${runUrl}`;
-              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: 'closed' });
-            } else if (applied) {
-              const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}`;
-              body = `### ⚠️ Dataset committed; deployment failed\n\nThe coordinated dataset update was committed, but GitHub Pages did not complete successfully. The request remains open and the Atlas may still show the previous version.\n\n- Dataset commit: ${commitUrl}\n- Failed deployment run: ${runUrl}\n\nOpen the run for the exact diagnostic, then re-run the failed deployment job. The issue will only be closed after a verified successful deployment.`;
+              body = `### ✅ Dataset update committed\n\nPaper **[${process.env.PAPER_ID}]** was applied as dataset version **${process.env.DATASET_VERSION}**. The canonical and generated dataset files were committed successfully, but the live Atlas has **not** been deployed yet.\n\n- Dataset commit: ${commitUrl}\n- Status: \`dataset-awaiting-deployment\`\n\nThis issue is now closed. After reviewing more papers, deploy all accumulated updates once from **Actions → Deploy pending dataset updates → Run workflow**.`;
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
             } else {
-              body = `### ❌ Publication stopped\n\nThe dataset update could not be validated, committed, and deployed as one coordinated release. No success status was issued. Open the workflow run for the exact diagnostic:\n\n${runUrl}`;
+              body = `### ❌ Dataset application stopped\n\nThe update could not be validated and committed. Nothing was added to the pending deployment batch, and this issue remains open.\n\nOpen the workflow run for the exact diagnostic:\n\n${runUrl}`;
             }
-            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
