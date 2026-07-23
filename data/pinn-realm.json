@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.5",
+    "version": "2.1.6",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -36,7 +36,7 @@
     "national_paper_count": 649,
     "international_paper_count": 204,
     "collaboration_pair_count": 172,
-    "legacy_year_override_count": 111,
+    "legacy_year_override_count": 110,
     "reference_url_pattern": "../references/?q={id}#ref={id}",
     "methodology": "Countries are taken from author-affiliation country records. A paper with one unique country is national; a paper with two or more unique countries is international. Every international paper contributes once to each unordered country pair. Publication years are generated from the master record, except for explicitly retained legacy overrides awaiting evidence resolution."
   },

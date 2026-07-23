@@ -12087,20 +12087,26 @@
   {
     "id": 463,
     "title": "Physics-informed neural network for the heat equation under imperfect contact conditions and its error analysis",
-    "citation": "\"Physics-informed neural network for the heat equation under imperfect contact conditions and its error analysis,\" [Online]. Available: https://www.aimspress.com/article/doi/10.3934/math.2025364.",
+    "citation": "Oh, H.; Jo, G. Physics-informed neural network for the heat equation under imperfect contact conditions and its error analysis. AIMS MATHEMATICS 2025, 10, 7920–7940. https://doi.org/10.3934/math.2025364.",
     "doi": "10.3934/math.2025364",
     "publisher_url": "https://doi.org/10.3934/math.2025364",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "venue": "AIMS MATHEMATICS",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Oh, H.; Jo, G.",
+      "journal_abbreviation": "AIMS MATHEMATICS",
+      "volume": "10",
+      "pages": "7920–7940",
+      "article_number": "4"
+    },
+    "abstract": "We propose a physics-informed neural network (PINN)-based method to solve the heat transfer equation under imperfect contact conditions. A major challenge arises from the discontinuity of the solution across the interface, where the exact jump is unknown and implicitly determined by the Kapitza thermal resistance condition. Since the neural network function is smooth on the entire domain, conventional PINN could be inefficient to capture such discontinuities without certain modifications. One remedy is to extend a piecewise continuous function on Rd to a continuous function on Rd+1. This is achieved by applying a Sobolev extension for the solution within each subdomain and introducing, additional coordinate variable that labels the subdomains. This formulation enables the design of neural network functions in the augmented variable, which retains the universal approximation property. We define the PINN in an augmented variable by the minimizer of the loss functional, which includes the implicit interface conditions. Once the loss functional is minimized, the solution obtained by the axis-augmented PINN satisfies the implicit jump conditions. In this way, our method offers a user-friendly way to solve heat transfer equations with imperfect contact conditions. Another advantage of using a continuous representation of solutions in augmented variables is that it allows error analysis in the space of smooth functions. We provide an error analysis of the proposed method, demonstrating that the difference between the exact solution and the predicted solution is bounded by the physics-informed loss functional. Furthermore, the loss functional can be made small by increasing the parameters in the neural network such as the number of nodes in the hidden layers. © 2025 the Author(s), licensee AIMS Press.",
     "graphical_abstract": null,
-    "year": null,
-    "access": "Subscription",
+    "year": 2025,
+    "access": "Open access",
     "countries": [
       "South Korea"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 464,
