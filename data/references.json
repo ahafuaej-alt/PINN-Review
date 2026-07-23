@@ -13643,20 +13643,24 @@
   {
     "id": 529,
     "title": "Physics-informed neural network for the reconstruction of velocity and pressure of wave-in-deck loading from particle image velocimetry data",
-    "citation": "Duong, T.T., Jung, K.H., Lee, G.N., Suh, S.B., 2024. Physics-informed neural network for the reconstruction of velocity and pressure of wave-in-deck loading from particle image velocimetry data. Appl. Ocean Res. 153, http://dx.doi.org/10.1016/j.apor. 2024.104193.",
-    "doi": "10.1016/j.apor",
-    "publisher_url": "https://doi.org/10.1016/j.apor",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Duong, T.T., Jung, K.H., Lee, G.N., Suh, S.B. Physics-informed neural network for the reconstruction of velocity and pressure of wave-in-deck loading from particle image velocimetry data. Applied Ocean Research 2024, 153, 104193. https://doi.org/10.1016/j.apor.2024.104193.",
+    "doi": "10.1016/j.apor.2024.104193",
+    "publisher_url": "https://doi.org/10.1016/j.apor.2024.104193",
+    "venue": "Applied Ocean Research",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Duong, T.T., Jung, K.H., Lee, G.N., Suh, S.B.",
+      "volume": "153",
+      "article_number": "104193"
+    },
+    "abstract": "This study presents the application of physics-informed neural networks (PINN) to reconstruct the velocity and pressure of wave-in-deck (WID) loading phenomena based on particle image velocimetry (PIV) experiments in a 2D wave tank. The Euler equation for inviscid and incompressible fluids was adopted as the governing equation, and two boundary conditions were applied, with zero gauge pressure in air and zero vertical velocity on the deck bottom for the PINN. The free surface was reconstructed accurately by incorporating the loss term of the volume fraction into the total loss function. A learning rate annealing method and minibatch training strategy were used to achieve better training convergence. For a faster training process, the volume fraction was incorporated with the residual of the continuity equation and velocity loss. The velocity profile and pressure reconstructed by the PINN were compared with the velocity profile and pressure measured in the experiments and the pressure estimated by the PIV-based estimation methods, which revealed the advantages of the PINN in flow field reconstruction. The results showed that the PINN could be applied to reconstruct the velocity and pressure for the WID loading phenomena, and the pressure reconstructed by the PINN generally showed better agreement with the measured pressure than the pressure estimated by the PIV-based estimation methods. Additionally, proper implementation of governing equations and boundary conditions proved effective in mitigating the influence of measurement noise on the reconstructed results.",
     "graphical_abstract": null,
     "year": 2024,
     "access": "Subscription",
     "countries": [
       "South Korea"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 530,
