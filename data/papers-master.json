@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.37",
+    "dataset_version": "2.1.38",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 104,
+      "legacy_realm_year_override_count": 103,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -40125,29 +40125,34 @@
     },
     {
       "id": 765,
-      "title": "Mish A Self Regularized Non-Monotonic Activation Function",
-      "citation": "Misra, D. Mish: A self regularized non-monotonic activation function. 2019, arXiv:1908.08681. 1908.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Mish: A Self Regularized Non-Monotonic Activation Function",
+      "citation": "Misra, D. Mish: A Self Regularized Non-Monotonic Activation Function. Arxiv [Computer Science. Machine Learning] 2019, 1908, 1-14. https://doi.org/10.48550/arXiv.1908.08681.",
+      "doi": "10.48550/arXiv.1908.08681",
+      "publisher_url": "https://doi.org/10.48550/arXiv.1908.08681",
       "venue": {
-        "name": "2019, arXiv:1908.08681.",
+        "name": "Arxiv [Computer Science. Machine Learning]",
         "type": "preprint"
       },
-      "year": 1908,
+      "year": 2019,
       "access": "Open access",
       "countries": [
         "India"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://arxiv.org/abs/1908.08681",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "We propose Mish, a novel self-regularized non-monotonic activation function which can be mathematically defined as: f(x)=xtanh(softplus(x)). As activation functions play a crucial role in the performance and training dynamics in neural networks, we validated experimentally on several well-known benchmarks against the best combinations of architectures and activation functions. We also observe that data augmentation techniques have a favorable effect on benchmarks like ImageNet-1k and MS-COCO across multiple architectures. For example, Mish outperformed Leaky ReLU on YOLOv4 with a CSP-DarkNet-53 backbone on average precision (APval50) by 2.1% in MS-COCO object detection and ReLU on ResNet-50 on ImageNet-1k in Top-1 accuracy by ≈1% while keeping all other network parameters and hyperparameters constant. Furthermore, we explore the mathematical formulation of Mish in relation with the Swish family of functions and propose an intuitive understanding on how the first derivative behavior may be acting as a regularizer helping the optimization of deep neural networks. Code is publicly available at https://github.com/digantamisra98/Mish",
+      "bibliographic": {
+        "authors": "Misra, D",
+        "volume": "1908",
+        "pages": "1-14",
+        "article_number": "08681v3"
+      }
     },
     {
       "id": 766,
