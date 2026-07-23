@@ -18425,20 +18425,25 @@
   {
     "id": 717,
     "title": "ClimODE Climate and Weather Forecasting with Physics-informed Neural ODEs",
-    "citation": "Verma, Y., Heinonen, M., Garg, V., 2024. Climode: Climate and weather forecasting with physics-informed neural odes. arXiv:2404.10024.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Verma, Y.; Heinonen, M.; Garg, V. ClimODE Climate and Weather Forecasting with Physics-informed Neural ODEs. Arxiv [Computer Science. Artificial Intelligence] 2024, 2404, 1-23. https://doi.org/10.48550/arXiv.2404.10024.",
+    "doi": "10.48550/arXiv.2404.10024",
+    "publisher_url": "https://doi.org/10.48550/arXiv.2404.10024",
+    "venue": "Arxiv [Computer Science. Artificial Intelligence]",
+    "reference_type": "preprint",
+    "bibliographic": {
+      "authors": "Verma, Y.; Heinonen, M.; Garg, V.",
+      "volume": "2404",
+      "pages": "1-23",
+      "article_number": "10024v1"
+    },
+    "abstract": "Climate and weather prediction traditionally relies on complex numerical simulations of atmospheric physics. Deep learning approaches, such as transformers, have recently challenged the simulation paradigm with complex network forecasts. However, they often act as data-driven black-box models that neglect the underlying physics and lack uncertainty quantification. We address these limitations with ClimODE, a spatiotemporal continuous-time process that implements a key principle of advection from statistical mechanics, namely, weather changes due to a spatial movement of quantities over time. ClimODE models precise weather evolution with value-conserving dynamics, learning global weather transport as a neural flow, which also enables estimating the uncertainty in predictions. Our approach outperforms existing data-driven methods in global and regional forecasting with an order of magnitude smaller parameterization, establishing a new state of the art.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Finland"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 718,
