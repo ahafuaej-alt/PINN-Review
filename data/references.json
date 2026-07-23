@@ -13308,20 +13308,25 @@
   {
     "id": 515,
     "title": "PN-Net Conjoined Triple Deep Network for Learning Local Image Descriptors",
-    "citation": "Balntas, V., Johns, E., Tang, L., Mikolajczyk, K., 2016. Pn-net: Conjoined triple deep network for learning local image descriptors. arXiv:1601.05030.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Balntas, V.; Johns, E.; Tang, L.; Mikolajczyk, K. PN-Net Conjoined Triple Deep Network for Learning Local Image Descriptors. Arxiv [Computer Science. Computer Vision and Pattern Recognition] 2016, 1601, 1-9. https://doi.org/10.48550/arXiv.1601.05030.",
+    "doi": "10.48550/arXiv.1601.05030",
+    "publisher_url": "https://doi.org/10.48550/arXiv.1601.05030",
+    "venue": "Arxiv [Computer Science. Computer Vision and Pattern Recognition]",
+    "reference_type": "preprint",
+    "bibliographic": {
+      "authors": "Balntas, V.; Johns, E.; Tang, L.; Mikolajczyk, K.",
+      "volume": "1601",
+      "pages": "1-9",
+      "article_number": "05030"
+    },
+    "abstract": "In this paper we propose a new approach for learning local descriptors for matching image patches. It has recently been demonstrated that descriptors based on convolutional neural networks (CNN) can significantly improve the matching performance. Unfortunately their computational complexity is prohibitive for any practical application. We address this problem and propose a CNN based descriptor with improved matching performance, significantly reduced training and execution time, as well as low dimensionality.\nWe propose to train the network with triplets of patches that include a positive and negative pairs. To that end we introduce a new loss function that exploits the relations within the triplets. We compare our approach to recently introduced MatchNet and DeepCompare and demonstrate the advantages of our descriptor in terms of performance, memory footprint and speed i.e. when run in GPU, the extraction time of our 128 dimensional feature is comparable to the fastest available binary descriptors such as BRIEF and ORB.",
     "graphical_abstract": null,
     "year": 2016,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "United Kingdom"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 516,
