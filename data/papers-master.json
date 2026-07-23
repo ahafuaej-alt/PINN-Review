@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.4",
+    "dataset_version": "2.1.5",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -24571,15 +24571,15 @@
     {
       "id": 457,
       "title": "Neural Ordinary Differential Equations",
-      "citation": "Chen, R.T.Q.; Rubanova, Y.; Bettencourt, J.; Duvenaud, D.K. Neural Ordinary Differential Equations. Advances in Neural Information Processing Systems 2018, 31.",
+      "citation": "Chen, R.T.Q.; Rubanova, Y.; Bettencourt, J.; Duvenaud, D.K. Neural Ordinary Differential Equations. In Advances in Neural Information Processing Systems 31; Bengio, S., Wallach, H., Larochelle, H., Grauman, K., Cesa-Bianchi, N., Garnett, R, Eds.; NeurIPS Proceedings: Montréal, Canada, 2018; Volume 31, pp. 6571-6583.",
       "doi": null,
       "publisher_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/69386f6bb1dfed68692a24c8686939b9-Paper.pdf",
       "venue": {
         "name": "Advances in Neural Information Processing Systems",
-        "type": "journal"
+        "type": "conference_book"
       },
       "year": 2018,
-      "access": "Subscription",
+      "access": "Open access",
       "countries": [
         "Canada"
       ],
@@ -24587,9 +24587,22 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/69386f6bb1dfed68692a24c8686939b9-Paper.pdf",
-        "note": null
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "We introduce a new family of deep neural network models. Instead of specifying a discrete sequence of hidden layers, we parameterize the derivative of the hidden state using a neural network. The output of the network is computed using a blackbox differential equation solver. These continuous-depth models have constant memory cost, adapt their evaluation strategy to each input, and can explicitly trade numerical precision for speed. We demonstrate these properties in continuous-depth residual networks and continuous-time latent variable models. We also construct continuous normalizing flows, a generative model that can train by maximum likelihood, without partitioning or ordering the data dimensions. For training, we show how to scalably backpropagate through any ODE solver, without access to its internal operations. This allows end-to-end training of ODEs within larger models.",
+      "bibliographic": {
+        "authors": "Chen, R.T.Q.; Rubanova, Y.; Bettencourt, J.; Duvenaud, D.K",
+        "editors": "Bengio, S., Wallach, H., Larochelle, H., Grauman, K., Cesa-Bianchi, N., Garnett, R.",
+        "journal_abbreviation": "Advances in Neural Information Processing Systems",
+        "volume": "31",
+        "pages": "6571-6583",
+        "book_title": "Advances in Neural Information Processing Systems 31",
+        "publisher": "NeurIPS Proceedings",
+        "city": "Montréal",
+        "country": "Canada"
+      }
     },
     {
       "id": 458,
