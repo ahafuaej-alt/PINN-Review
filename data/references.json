@@ -16879,23 +16879,27 @@
   },
   {
     "id": 656,
-    "title": "QuantumShellNet Ground-state eigenvalue prediction of materials using electronic shell",
-    "citation": "Polat, C., Kurban, H., Kurban, M., 2025. Quantumshellnet: Ground-state eigenvalue prediction of materials using electronic shell structures and fermionic properties via convolutions. Comput. Mater. Sci. 246, http://dx.doi.org/10.1016/j.commatsci. 2024.113366.",
-    "doi": "10.1016/j.commatsci",
-    "publisher_url": "https://doi.org/10.1016/j.commatsci",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "QuantumShellNet: Ground-state eigenvalue prediction of materials using electronic shell structures and fermionic properties via convolutions",
+    "citation": "Polat, C.; Kurban, H.; Kurban, M. QuantumShellNet: Ground-state eigenvalue prediction of materials using electronic shell structures and fermionic properties via convolutions. Computational Materials Science 2025, 246, 113366. https://doi.org/10.1016/j.commatsci.2024.113366.",
+    "doi": "10.1016/j.commatsci.2024.113366",
+    "publisher_url": "https://doi.org/10.1016/j.commatsci.2024.113366",
+    "venue": "Computational Materials Science",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Polat, C.; Kurban, H.; Kurban, M.",
+      "volume": "246",
+      "article_number": "113366"
+    },
+    "abstract": "Efficient and precise characterization of material properties is critical in quantum mechanical modeling. While Density Functional Theory (DFT) remains a foundational method for analyzing material properties, it faces scalability challenges and precision limitations, especially with complex materials. This study introduces QuantumShellNet, a novel vision-based approach that combines an orbital encoder and a physics-informed deep neural network. QuantumShellNet is specifically designed to rapidly and accurately predict ground-state eigenvalues in materials by leveraging electronic shell structures and their fermionic properties. Experiments conducted across a diverse range of elements and molecules show that QuantumShellNet outperforms traditional DFT as well as modern machine learning methods, including PsiFormer and FermiNet.",
     "graphical_abstract": null,
-    "year": 2024,
+    "year": 2025,
     "access": "Subscription",
     "countries": [
       "United States",
       "Qatar",
       "Türkiye"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 657,

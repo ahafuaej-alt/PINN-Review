@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.19",
+    "version": "2.1.20",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -7934,8 +7934,8 @@
     },
     {
       "id": 656,
-      "title": "QuantumShellNet Ground-state eigenvalue prediction of materials using electronic shell",
-      "year": 2024,
+      "title": "QuantumShellNet: Ground-state eigenvalue prediction of materials using electronic shell structures and fermionic properties via convolutions",
+      "year": 2025,
       "countries": [
         "United States",
         "Qatar",
@@ -12858,15 +12858,10 @@
           "national": 0,
           "international": 1
         },
-        "2024": {
-          "total": 1,
-          "national": 0,
-          "international": 1
-        },
         "2025": {
-          "total": 2,
+          "total": 3,
           "national": 0,
-          "international": 2
+          "international": 3
         }
       }
     },
@@ -13585,15 +13580,10 @@
         656
       ],
       "annual": {
-        "2024": {
-          "total": 1,
-          "national": 0,
-          "international": 1
-        },
         "2025": {
-          "total": 7,
+          "total": 8,
           "national": 1,
-          "international": 6
+          "international": 7
         }
       }
     },
@@ -14391,14 +14381,14 @@
           "international": 15
         },
         "2024": {
-          "total": 39,
+          "total": 38,
           "national": 24,
-          "international": 15
+          "international": 14
         },
         "2025": {
-          "total": 37,
+          "total": 38,
           "national": 17,
-          "international": 20
+          "international": 21
         },
         "2026": {
           "total": 1,
@@ -16902,11 +16892,9 @@
         656
       ],
       "annual": {
-        "2024": [
-          656
-        ],
         "2025": [
-          102
+          102,
+          656
         ]
       }
     },
@@ -16918,11 +16906,9 @@
         656
       ],
       "annual": {
-        "2024": [
-          656
-        ],
         "2025": [
-          161
+          161,
+          656
         ]
       }
     },
@@ -17046,11 +17032,9 @@
         656
       ],
       "annual": {
-        "2024": [
-          656
-        ],
         "2025": [
-          65
+          65,
+          656
         ]
       }
     },
