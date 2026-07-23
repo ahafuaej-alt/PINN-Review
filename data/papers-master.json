@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.29",
+    "dataset_version": "2.1.30",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -38967,25 +38967,32 @@
     {
       "id": 741,
       "title": "Loss landscape engineering via Data Regulation on PINNs",
-      "citation": "Gopakumar, V., Pamela, S., Samaddar, D., 2023. Loss landscape engineering via data regulation on pinns. Mach. Learn. Appl. 12, http://dx.doi.org/10.1016/j.mlwa. 2023.100464.",
-      "doi": "10.1016/j.mlwa",
-      "publisher_url": "https://doi.org/10.1016/j.mlwa",
+      "citation": "Gopakumar, V.; Pamela, S.; Samaddar, D. Loss landscape engineering via Data Regulation on PINNs. Machine Learning with Applications 2023, 12, 100464. https://doi.org/10.1016/j.mlwa.2023.100464.",
+      "doi": "10.1016/j.mlwa.2023.100464",
+      "publisher_url": "https://doi.org/10.1016/j.mlwa.2023.100464",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Machine Learning with Applications",
+        "type": "journal"
       },
       "year": 2023,
-      "access": "Subscription",
+      "access": "Open access",
       "countries": [
         "United Kingdom"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.mlwa",
-        "note": null
+        "evidence_url": "https://www.sciencedirect.com/science/article/pii/S2666827023000178",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "Physics-Informed Neural Networks have shown unique utility in parameterising the solution of a well-defined partial differential equation using automatic differentiation and residual losses. Though they provide theoretical guarantees of convergence, in practice the required training regimes tend to be exacting and demanding. Through the course of this paper, we take a deep dive into understanding the loss landscapes associated with a PINN and how that offers some insight as to why PINNs are fundamentally hard to optimise for. We demonstrate how PINNs can be forced to converge better towards the solution, by way of feeding in sparse or coarse data as a regulator. The data regulates and morphs the topology of the loss landscape associated with the PINN to make it easily traversable for the minimiser. Data regulation of PINNs helps ease the optimisation required for convergence by invoking a hybrid unsupervised–supervised training approach, where the labelled data pushes the network towards the vicinity of the solution, and the unlabelled regime fine-tunes it to the solution.",
+      "bibliographic": {
+        "authors": "Gopakumar, V.; Pamela, S.; Samaddar, D.",
+        "volume": "12",
+        "article_number": "100464"
+      }
     },
     {
       "id": 742,
