@@ -46,6 +46,7 @@ jobs:
         run: >
           node scripts/enrich-publisher-metadata.mjs
           --apply
+          --no-resolve-doi
           --delay-ms=150
 
       - name: Rebuild and validate synchronized Atlas
