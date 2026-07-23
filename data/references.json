@@ -12701,20 +12701,26 @@
   {
     "id": 490,
     "title": "Three-dimensional reconstruction of gas-liquid two-phase free surface flows",
-    "citation": "Wang, Q., Lu, H., Mou, Z., You, T., Liu, H., 2024a. Three-dimensional reconstruction of gas-liquid two-phase free surface flows. Mech. Eng. 46 (6), 1132–1144. http://dx.doi.org/10.6052/1000-0879-24-344.",
+    "citation": "Wang, Q., Lu, H., Mou, Z., You, T., Liu, H. Three-dimensional reconstruction of gas-liquid two-phase free surface flows. Mechanics in Engineering 2024, 46, 1132-1144. https://doi.org/10.6052/1000-0879-24-344.",
     "doi": "10.6052/1000-0879-24-344",
     "publisher_url": "https://doi.org/10.6052/1000-0879-24-344",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "venue": "Mechanics in Engineering",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Wang, Q., Lu, H., Mou, Z., You, T., Liu, H.",
+      "journal_abbreviation": "Mechanics in Engineering",
+      "volume": "46",
+      "pages": "1132-1144",
+      "article_number": "6"
+    },
+    "abstract": "The study of gas-liquid two-phase free surface flow is of great significance in both natural phenomena and engineering applications. This paper focuses on the application of binocular vision technology for three-dimensional reconstruction and measurement of gas-liquid two-phase surfaces. The hardware configuration, operation process, image post-processing algorithms, and key considerations of the binocular vision system are described in detail. The effectiveness of the system is verified through three specific experimental cases: solitary wave running-up and breaking, wave breaking induced by structures, and ventilated cavity around an axisymmetric slender body. The results show that the binocular vision technology can achieve high-precision three-dimensional reconstruction of gas-liquid interfaces at the laboratory scale, effectively capturing complex interface configuration. This provides reliable measuring approach for experiments in gas-liquid two-phase free surface flows.",
     "graphical_abstract": null,
-    "year": null,
-    "access": "Subscription",
+    "year": 2024,
+    "access": "Open access",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 491,
