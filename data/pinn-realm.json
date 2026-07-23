@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.12",
+    "version": "2.1.13",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -6841,7 +6841,7 @@
     },
     {
       "id": 561,
-      "title": "Physics-Informed machine learning for tribological properties prediction of S32750 CFRPEEK tribopair under seawater lubrication via PISSA-CNN-LSTM",
+      "title": "Physics-Informed machine learning for tribological properties prediction of S32750/CFRPEEK tribopair under seawater lubrication via PISSA-CNN-LSTM",
       "year": 2024,
       "countries": [
         "China"

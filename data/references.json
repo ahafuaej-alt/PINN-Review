@@ -14467,21 +14467,25 @@
   },
   {
     "id": 561,
-    "title": "Physics-Informed machine learning for tribological properties prediction of S32750 CFRPEEK tribopair under seawater lubrication via PISSA-CNN-LSTM",
-    "citation": "Yin, F., Luo, H., Nie, S., Ji, H., Ma, Z., 2024. Physics-informed machine learning for tribological properties prediction of s32750/cfrpeek tribopair under seawater lubrication via pissa-cnn-lstm. Tribol. Int. 199, http://dx.doi.org/10.1016/j.triboint. 2024.109965.",
-    "doi": "10.1016/j.triboint",
-    "publisher_url": "https://doi.org/10.1016/j.triboint",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "Physics-Informed machine learning for tribological properties prediction of S32750/CFRPEEK tribopair under seawater lubrication via PISSA-CNN-LSTM",
+    "citation": "Yin, F.; Luo, H.; Nie, S.; Ji, H.; Ma, Z. Physics-Informed machine learning for tribological properties prediction of S32750/CFRPEEK tribopair under seawater lubrication via PISSA-CNN-LSTM. Tribology International 2024, 199, 109965. https://doi.org/10.1016/j.triboint.2024.109965.",
+    "doi": "10.1016/j.triboint.2024.109965",
+    "publisher_url": "https://doi.org/10.1016/j.triboint.2024.109965",
+    "venue": "Tribology International",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Yin, F.; Luo, H.; Nie, S.; Ji, H.; Ma, Z.",
+      "volume": "199",
+      "article_number": "109965"
+    },
+    "abstract": "Tribological properties and wear mechanisms of S32750 stainless steel/carbon fiber-reinforced polyetheretherketone (CFRPEEK) tribopair in seawater under different salinities, sliding speeds and loads were experimentally studied. A novel Physics-Informed constraint strategy has been originally developed and combined with sparrow search algorithm (SSA) to optimize a Convolutional Neural Network-Long Short-Term Memory (CNN-LSTM) model for predicting friction coefficient. The results indicate that an increase in seawater salinity and sliding speed enhances the tribological performance. Under high load, an increase in the PEEK transfer film leads to a slight decrease in friction coefficient. The Physics-Informed SSA (PISSA) offers enhanced performance through faster convergence, higher solution quality, and less computation time. Additionally, CNN-LSTM model optimized by PISSA (PISSA-CNN-LSTM) provides more accurate predictions of friction coefficient.",
     "graphical_abstract": null,
     "year": 2024,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 562,
