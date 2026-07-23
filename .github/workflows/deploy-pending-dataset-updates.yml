@@ -1,0 +1,166 @@
+name: Deploy pending dataset updates
+
+run-name: Deploy pending dataset updates
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: dataset-batch-deployment
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    name: Snapshot pending updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: read
+    outputs:
+      source_sha: ${{ steps.source.outputs.sha }}
+      pending_count: ${{ steps.pending.outputs.count }}
+      issue_numbers: ${{ steps.pending.outputs.issue_numbers }}
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Capture exact deployment commit
+        id: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Snapshot pending issue numbers
+        id: pending
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              labels: 'dataset-awaiting-deployment',
+              per_page: 100
+            });
+
+            const numbers = issues
+              .filter(issue => !issue.pull_request && issue.title.startsWith('[Dataset update]'))
+              .map(issue => issue.number);
+
+            core.setOutput('count', String(numbers.length));
+            core.setOutput('issue_numbers', JSON.stringify(numbers));
+            core.summary
+              .addHeading('Pending dataset deployment')
+              .addRaw(numbers.length ? `Captured ${numbers.length} update issue(s): ${numbers.join(', ')}` : 'No pending dataset updates were found.')
+              .write();
+
+  deploy:
+    name: Deploy synchronized Atlas
+    needs: prepare
+    if: needs.prepare.outputs.pending_count != '0'
+    uses: ./.github/workflows/pages.yml
+    with:
+      source_sha: ${{ needs.prepare.outputs.source_sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+  finalize:
+    name: Finalize deployed update issues
+    needs: [prepare, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Update pending issues
+        uses: actions/github-script@v7
+        env:
+          PENDING_COUNT: ${{ needs.prepare.outputs.pending_count }}
+          ISSUE_NUMBERS: ${{ needs.prepare.outputs.issue_numbers }}
+          SOURCE_SHA: ${{ needs.prepare.outputs.source_sha }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+        with:
+          script: |
+            const pendingCount = Number(process.env.PENDING_COUNT || 0);
+            const issueNumbers = JSON.parse(process.env.ISSUE_NUMBERS || '[]');
+            const deployed = process.env.DEPLOY_RESULT === 'success';
+            const sourceSha = process.env.SOURCE_SHA;
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            if (pendingCount === 0) {
+              core.notice('No pending dataset updates were found. No deployment was started.');
+              return;
+            }
+
+            if (!deployed) {
+              for (const issue_number of issueNumbers) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number,
+                  body: `### ⚠️ Batch deployment failed\n\nThis committed update remains labeled \`dataset-awaiting-deployment\`. The live Atlas may still show the previous dataset version.\n\n- Failed deployment run: ${runUrl}`
+                });
+              }
+              core.setFailed('The synchronized Atlas deployment did not complete successfully.');
+              return;
+            }
+
+            const liveLabel = {
+              name: 'dataset-live',
+              color: '0E8A16',
+              description: 'Dataset update is included in a verified live Atlas deployment'
+            };
+
+            try {
+              await github.rest.issues.getLabel({ owner: context.repo.owner, repo: context.repo.repo, name: liveLabel.name });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.issues.createLabel({ owner: context.repo.owner, repo: context.repo.repo, ...liveLabel });
+            }
+
+            const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sourceSha}`;
+
+            for (const issue_number of issueNumbers) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number,
+                body: `### ✅ Dataset update live\n\nThis update is included in the verified batch deployment of the synchronized Atlas.\n\n- Deployed commit: ${commitUrl}\n- Verified deployment: ${runUrl}`
+              });
+
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number,
+                  name: 'dataset-awaiting-deployment'
+                });
+              } catch (error) {
+                if (error.status !== 404) throw error;
+              }
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number,
+                labels: [liveLabel.name]
+              });
+
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+            }
+
+            core.summary
+              .addHeading('Dataset deployment completed')
+              .addRaw(`Deployed commit ${sourceSha} and finalized ${issueNumbers.length} update issue(s).`)
+              .write();
