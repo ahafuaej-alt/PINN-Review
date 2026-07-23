@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.28",
+    "version": "2.1.29",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -8672,7 +8672,7 @@
     },
     {
       "id": 720,
-      "title": "PINN-Ray A Physics-Informed Neural Network to Model Soft Robotic Fin Ray Fingers",
+      "title": "PINN-Ray: A Physics-Informed Neural Network to Model Soft Robotic Fin Ray Fingers",
       "year": 2024,
       "countries": [
         "Australia"
