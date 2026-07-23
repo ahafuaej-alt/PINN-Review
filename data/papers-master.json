@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.45",
+    "dataset_version": "2.1.46",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 103,
+      "legacy_realm_year_override_count": 102,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -40155,28 +40155,32 @@
     {
       "id": 764,
       "title": "Sigmoid-weighted linear units for neural network function approximation in reinforcement learning",
-      "citation": "Elfwing, S.; Uchibe, E.; Doya, K. Sigmoid-weighted linear units for neural network function approximation in reinforcement learning. 2017, arXiv:1702.03118. 2017.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Elfwing, S.; Uchibe, E.; Doya, K. Sigmoid-weighted linear units for neural network function approximation in reinforcement learning. Neural Networks 2018, 107, 3-11. https://doi.org/10.1016/j.neunet.2017.12.012.",
+      "doi": "10.1016/j.neunet.2017.12.012",
+      "publisher_url": "https://doi.org/10.1016/j.neunet.2017.12.012",
       "venue": {
-        "name": "2017, arXiv:1702.03118.",
+        "name": "Neural Networks",
         "type": "preprint"
       },
-      "year": 2017,
+      "year": 2018,
       "access": "Open access",
       "countries": [
         "Japan"
       ],
-      "overrides": {
-        "realm_year": 2018
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://www.sciencedirect.com/science/article/pii/S0893608017302976",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "In recent years, neural networks have enjoyed a renaissance as function approximators in reinforcement learning. Two decades after Tesauro’s TD-Gammon achieved near top-level human performance in backgammon, the deep reinforcement learning algorithm DQN achieved human-level performance in many Atari 2600 games. The purpose of this study is twofold. First, we propose two activation functions for neural network function approximation in reinforcement learning: the sigmoid-weighted linear unit (SiLU) and its derivative function (dSiLU). The activation of the SiLU is computed by the sigmoid function multiplied by its input. Second, we suggest that the more traditional approach of using on-policy learning with eligibility traces, instead of experience replay, and softmax action selection can be competitive with DQN, without the need for a separate target network. We validate our proposed approach by, first, achieving new state-of-the-art results in both stochastic SZ-Tetris and Tetris with a small 10  10 board, using TD() learning and shallow dSiLU network agents, and, then, by outperforming DQN in the Atari 2600 domain by using a deep Sarsa() agent with SiLU and dSiLU hidden units.",
+      "bibliographic": {
+        "authors": "Elfwing, S.; Uchibe, E.; Doya, K.",
+        "volume": "107",
+        "pages": "3-11"
+      }
     },
     {
       "id": 765,
