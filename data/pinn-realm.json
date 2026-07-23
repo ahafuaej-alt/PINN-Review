@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.40",
+    "version": "2.1.41",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -7838,7 +7838,7 @@
     },
     {
       "id": 648,
-      "title": "Distributed physics informed neural network for data-efficient solution to partial differential equations",
+      "title": "Distributed learning machines for solving forward and inverse problems in partial differential equations",
       "year": 2019,
       "countries": [
         "India"

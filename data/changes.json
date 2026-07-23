@@ -2,6 +2,50 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-648-2026-07-23-2.1.41",
+      "version": "2.1.41",
+      "date": "2026-07-23",
+      "paper_id": 648,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic",
+        "abstract",
+        "venue"
+      ],
+      "reason": "update info",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231220314090?via%3Dihub",
+        "note": "update info"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 648,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic",
+          "abstract",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-468-2026-07-23-2.1.40",
       "version": "2.1.40",
       "date": "2026-07-23",
