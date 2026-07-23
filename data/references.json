@@ -5852,7 +5852,7 @@
     "title": "OpenFOAMGPT 2.0 end-to-end, trustworthy automation for computational fluid dynamics",
     "citation": "Feng, J.; Xu, R.; Chu, X. OpenFOAMGPT 2.0: end-to-end, trustworthy automation for computational fluid dynamics. 2025 2025. https://doi.org/10.48550/ARXIV.2504.19338.",
     "doi": "10.48550/ARXIV.2504.19338",
-    "publisher_url": "https://arxiv.org/abs/2504.19338",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.2504.19338",
     "venue": "2025",
     "reference_type": "journal",
     "bibliographic": {
@@ -7778,11 +7778,7 @@
     "publisher_url": "https://tesidottorato.depositolegale.it/handle/20.500.14242/178714",
     "venue": "Thesis, May 2024",
     "reference_type": "thesis",
-    "bibliographic": {
-      "authors": "Millevoi, Caterina",
-      "publisher": "Università degli studi di Padova",
-      "publication_date": "2025/11/11 11:13:52"
-    },
+    "bibliographic": null,
     "abstract": null,
     "graphical_abstract": null,
     "year": 2024,
@@ -7790,7 +7786,7 @@
     "countries": [
       "Italy"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-22"
   },
   {
     "id": 298,
@@ -8195,14 +8191,10 @@
     "title": "Space-time parallel scaling of Parareal with a physics-informed Fourier Neural Operator coarse propagator applied to the Black-Scholes equation",
     "citation": "Ibrahim, A.Q.; Götschel, S.; Ruprecht, D. Space-time parallel scaling of Parareal with a physics-informed Fourier Neural Operator coarse propagator applied to the Black-Scholes equation. 2024 2024. https://doi.org/10.48550/ARXIV.2404.02521.",
     "doi": "10.48550/ARXIV.2404.02521",
-    "publisher_url": "https://arxiv.org/abs/2404.02521",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.2404.02521",
     "venue": "2024",
     "reference_type": "journal",
-    "bibliographic": {
-      "authors": "Ibrahim, A.Q.; Götschel, S.; Ruprecht, D.",
-      "publisher": "arXiv",
-      "publication_date": "2024"
-    },
+    "bibliographic": null,
     "abstract": null,
     "graphical_abstract": null,
     "year": 2024,
@@ -8210,7 +8202,7 @@
     "countries": [
       "Germany"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-22"
   },
   {
     "id": 314,
@@ -9057,10 +9049,7 @@
     "publisher_url": "https://www.politesi.polimi.it/handle/10589/196604",
     "venue": "Thesis",
     "reference_type": "thesis",
-    "bibliographic": {
-      "authors": "Franco, Nicola Rares",
-      "publication_date": "2022/2023"
-    },
+    "bibliographic": null,
     "abstract": null,
     "graphical_abstract": null,
     "year": 2023,
@@ -9068,7 +9057,7 @@
     "countries": [
       "Italy"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-22"
   },
   {
     "id": 347,
@@ -9154,7 +9143,7 @@
     "title": "Predicting Multi-Joint Kinematics of the Upper Limb from EMG Signals Across Varied Loads with a Physics-Informed Neural Network",
     "citation": "Kumar, R.; Muthukrishnan, S.P.; Kumar, L.; Roy, S. Predicting Multi-Joint Kinematics of the Upper Limb from EMG Signals Across Varied Loads with a Physics-Informed Neural Network. 2023 2023. https://doi.org/10.48550/ARXIV.2312.09418.",
     "doi": "10.48550/ARXIV.2312.09418",
-    "publisher_url": "https://arxiv.org/abs/2312.09418",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.2312.09418",
     "venue": "2023",
     "reference_type": "journal",
     "bibliographic": {
@@ -9974,14 +9963,10 @@
     "title": "Physics-informed deep-learning applications to experimental fluid mechanics",
     "citation": "Eivazi, H.; Wang, Y.; Vinuesa, R. Physics-informed deep-learning applications to experimental fluid mechanics. 2022 2022. https://doi.org/10.48550/ARXIV.2203.15402.",
     "doi": "10.48550/ARXIV.2203.15402",
-    "publisher_url": "https://arxiv.org/abs/2203.15402",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.2203.15402",
     "venue": "2022",
     "reference_type": "journal",
-    "bibliographic": {
-      "authors": "Eivazi, H.; Wang, Y.; Vinuesa, R.",
-      "publisher": "arXiv",
-      "publication_date": "2022"
-    },
+    "bibliographic": null,
     "abstract": null,
     "graphical_abstract": null,
     "year": 2022,
@@ -9990,7 +9975,7 @@
       "Germany",
       "Sweden"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-22"
   },
   {
     "id": 382,
@@ -10022,7 +10007,7 @@
     "title": "AutoPINN When AutoML Meets Physics-Informed Neural Networks",
     "citation": "Wu, X.; Zhang, D.; Zhang, M.; Guo, C.; Zhao, S.; Zhang, Y.; et al. AutoPINN: When AutoML Meets Physics-Informed Neural Networks. 2022 2022. https://doi.org/10.48550/ARXIV.2212.04058.",
     "doi": "10.48550/ARXIV.2212.04058",
-    "publisher_url": "https://arxiv.org/abs/2212.04058",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.2212.04058",
     "venue": "2022",
     "reference_type": "journal",
     "bibliographic": {
@@ -10782,10 +10767,9 @@
     "venue": "arXiv [Computer Science > Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Wong, J.C.; Ooi, C.; Chiu, P.-H.; Dao, M.H.",
-      "publisher": "arXiv",
-      "publication_date": "2021",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
+      "authors": "Jian Cheng Wong; Chinchun Ooi; Pao-Hsiung Chiu; My Ha Dao",
+      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "publication_date": "2021-05-05"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -11403,10 +11387,9 @@
     "venue": "arXiv [Physics > Computational Physics]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Moseley, B.; Markham, A.; Nissen-Meyer, T.",
-      "publisher": "arXiv",
-      "publication_date": "2020",
-      "journal_abbreviation": "arXiv [Physics > Computational Physics]"
+      "authors": "Ben Moseley; Andrew Markham; Tarje Nissen-Meyer",
+      "journal_abbreviation": "arXiv [Physics > Computational Physics]",
+      "publication_date": "2020-06-21"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -11444,10 +11427,9 @@
     "venue": "arXiv [Computer Science > Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Zhang, E.; Yin, M.; Karniadakis, G.E.",
-      "publisher": "arXiv",
-      "publication_date": "2020",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
+      "authors": "Enrui Zhang; Minglang Yin; George Em Karniadakis",
+      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "publication_date": "2020-09-02"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -11778,10 +11760,9 @@
     "venue": "arXiv [Physics > Computational Physics]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Erichson, N.B.; Muehlebach, M.; Mahoney, M.W.",
-      "publisher": "arXiv",
-      "publication_date": "2019",
-      "journal_abbreviation": "arXiv [Physics > Computational Physics]"
+      "authors": "N. Benjamin Erichson; Michael Muehlebach; Michael W. Mahoney",
+      "journal_abbreviation": "arXiv [Physics > Computational Physics]",
+      "publication_date": "2019-05-26"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -11823,7 +11804,7 @@
     "title": "Compressed Convolutional LSTM An Efficient Deep Learning framework to Model High Fidelity 3D Turbulence",
     "citation": "Mohan, A.; Daniel, D.; Chertkov, M.; Livescu, D. Compressed Convolutional LSTM: An Efficient Deep Learning framework to Model High Fidelity 3D Turbulence. 2019 2019. https://doi.org/10.48550/ARXIV.1903.00033.",
     "doi": "10.48550/ARXIV.1903.00033",
-    "publisher_url": "https://arxiv.org/abs/1903.00033",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.1903.00033",
     "venue": "2019",
     "reference_type": "journal",
     "bibliographic": {
@@ -11941,7 +11922,7 @@
     "title": "Theory-Guided Data Science A New Paradigm for Scientific Discovery from Data",
     "citation": "Karpatne, A.; Atluri, G.; Faghmous, J.H.; Steinbach, M.; Banerjee, A.; Ganguly, A.; et al. Theory-Guided Data Science: A New Paradigm for Scientific Discovery from Data. IEEE Transactions on Knowledge and Data Engineering 2017, 29(10), 2318–2331. https://doi.org/10.1109/TKDE.2017.2720168.",
     "doi": "10.1109/TKDE.2017.2720168",
-    "publisher_url": "https://ieeexplore.ieee.org/document/7959606/",
+    "publisher_url": "https://doi.org/10.1109/TKDE.2017.2720168",
     "venue": "IEEE Transactions on Knowledge and Data Engineering",
     "reference_type": "journal",
     "bibliographic": {
@@ -11967,7 +11948,7 @@
     "title": "An Efficient Deep Learning Technique for the Navier-Stokes Equations Application to Unsteady Wake Flow Dynamics",
     "citation": "Miyanawala, T.P.; Jaiman, R.K. An Efficient Deep Learning Technique for the Navier-Stokes Equations: Application to Unsteady Wake Flow Dynamics. 2017 2017. https://doi.org/10.48550/ARXIV.1710.09099.",
     "doi": "10.48550/ARXIV.1710.09099",
-    "publisher_url": "https://arxiv.org/abs/1710.09099",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.1710.09099",
     "venue": "2017",
     "reference_type": "journal",
     "bibliographic": {
@@ -11989,7 +11970,7 @@
     "title": "Neural network-based software tool for predicting magnetic performance of strip-wound magnetic cores at medium to high frequency",
     "citation": "Moses, A.; Miti, G. Neural network-based software tool for predicting magnetic performance of strip-wound magnetic cores at medium to high frequency. IEE Proceedings - Science, Measurement and Technology 2004, 151(3), 181–187. https://doi.org/10.1049/ip-smt:20040087.",
     "doi": "10.1049/ip-smt:20040087",
-    "publisher_url": "https://digital-library.theiet.org/doi/10.1049/ip-smt%3A20040087",
+    "publisher_url": "https://doi.org/10.1049/ip-smt:20040087",
     "venue": "IEE Proceedings - Science, Measurement and Technology",
     "reference_type": "conference",
     "bibliographic": {
@@ -12015,7 +11996,7 @@
     "title": "Artificial neural networks for solving ordinary and partial differential equations",
     "citation": "Lagaris, I.; Likas, A.; Fotiadis, D. Artificial neural networks for solving ordinary and partial differential equations. IEEE Transactions on Neural Networks 1998, 9(5), 987–1000. https://doi.org/10.1109/72.712178.",
     "doi": "10.1109/72.712178",
-    "publisher_url": "https://ieeexplore.ieee.org/document/712178/",
+    "publisher_url": "https://doi.org/10.1109/72.712178",
     "venue": "IEEE Transactions on Neural Networks",
     "reference_type": "journal",
     "bibliographic": {
@@ -12184,7 +12165,7 @@
     "title": "Multiscale Modeling of Complex Dynamic Problems An Overview and Recent Developments",
     "citation": "Jebahi, M., Dau, F., Charles, J., Iordanoff, I., 2016. Multiscale modeling of complex dynamic problems: An overview and recent developments. Arch. Comput. Methods Eng. 23, 101–138. http://dx.doi.org/10.1007/s11831-014-9136-6.",
     "doi": "10.1007/s11831-014-9136-6",
-    "publisher_url": "https://link.springer.com/article/10.1007/s11831-014-9136-6",
+    "publisher_url": "https://doi.org/10.1007/s11831-014-9136-6",
     "venue": "Archives of Computational Methods in Engineering",
     "reference_type": "journal",
     "bibliographic": {
@@ -12836,7 +12817,7 @@
     "title": "Applying physics informed neural network for flow data assimilation",
     "citation": "Bai, X.-d., Wang, Y., Zhang, W., 2020. Applying physics informed neural network for flow data assimilation. J. Hydrodyn. 32, 1050–1058. http://dx.doi.org/10.1007/ s42241-020-0077-2.",
     "doi": "10.1007/s42241-020-0077-2",
-    "publisher_url": "https://link.springer.com/article/10.1007/s42241-020-0077-2",
+    "publisher_url": "https://doi.org/10.1007/s42241-020-0077-2",
     "venue": "Journal of Hydrodynamics",
     "reference_type": "journal",
     "bibliographic": {
@@ -13312,7 +13293,7 @@
     "title": "Locally adaptive activation functions with slope recovery for deep and physics-informed neural networks",
     "citation": "Jagtap, A.D., Kawaguchi, K., Karniadakis, G.E., 2020b. Locally adaptive activation functions with slope recovery for deep and physics-informed neural networks. Proc. R. Soc. A Math. Phys. Eng. Sci. 476, http://dx.doi.org/10.1098/rspa.2020.0334.",
     "doi": "10.1098/rspa.2020.0334",
-    "publisher_url": "https://royalsocietypublishing.org/rspa/article/80756",
+    "publisher_url": "https://doi.org/10.1098/rspa.2020.0334",
     "venue": "Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences",
     "reference_type": "journal",
     "bibliographic": {
@@ -13338,7 +13319,7 @@
     "title": "A Limited Memory Algorithm for Bound Constrained Optimization",
     "citation": "Byrd, R.H., Lu, P., Nocedal, J., Zhu, C., 1995. A limited memory algorithm for bound constrained optimization. SIAM J. Sci. Comput. 16, 1190–1208. http://dx.doi.org/ 10.1137/0916069.",
     "doi": "10.1137/0916069",
-    "publisher_url": "https://epubs.siam.org/doi/10.1137/0916069",
+    "publisher_url": "https://doi.org/10.1137/0916069",
     "venue": "SIAM Journal on Scientific Computing",
     "reference_type": "journal",
     "bibliographic": {
@@ -13409,7 +13390,7 @@
     "title": "A Stochastic Approximation Method",
     "citation": "Robbins, H., Monro, S., 1951. A stochastic approximation method. Ann. Math. Stat. 22, 400–407. http://dx.doi.org/10.1214/aoms/1177729586.",
     "doi": "10.1214/aoms/1177729586",
-    "publisher_url": "https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full",
+    "publisher_url": "https://doi.org/10.1214/aoms/1177729586",
     "venue": "The Annals of Mathematical Statistics",
     "reference_type": "journal",
     "bibliographic": {
@@ -18972,10 +18953,9 @@
     "venue": "arXiv [Computer Science > Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Liu, S.; Protopapas, P.; Sondak, D.; Chen, F.",
-      "publisher": "arXiv",
-      "publication_date": "2025",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
+      "authors": "Shuheng Liu; Pavlos Protopapas; David Sondak; Feiyu Chen",
+      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "publication_date": "2025-02-14"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -19073,9 +19053,9 @@
     "venue": "arXiv [Mathematics > Numerical Analysis]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Lin, Guochang; Hu, Pipi; Chen, Fukai; Chen, Xiang; Chen, Junqing; Wang, Jun; Shi, Zuoqiang",
-      "publication_date": "2021/10/01",
-      "journal_abbreviation": "arXiv [Mathematics > Numerical Analysis]"
+      "authors": "Guochang Lin; Pipi Hu; Fukai Chen; Xiang Chen; Junqing Chen; Jun Wang; Zuoqiang Shi",
+      "journal_abbreviation": "arXiv [Mathematics > Numerical Analysis]",
+      "publication_date": "2021-10-01"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -19472,7 +19452,7 @@
     "title": "Adaptive Blending Units Trainable Activation Functions for Deep Neural Networks",
     "citation": "Sütfeld, L.R.; Brieger, F.; Finger, H.; Füllhase, S.; Pipa, G. Adaptive blending Units: trainable activation functions for deep neural networks. Advances in Intelligent Systems and Computing 2020, 37–50. https://doi.org/10.1007/978-3-030-52243-8_4.",
     "doi": "10.1007/978-3-030-52243-8_4",
-    "publisher_url": "https://link.springer.com/chapter/10.1007/978-3-030-52243-8_4",
+    "publisher_url": "https://doi.org/10.1007/978-3-030-52243-8_4",
     "venue": "Advances in Intelligent Systems and Computing",
     "reference_type": "journal",
     "bibliographic": {
@@ -19497,7 +19477,7 @@
     "title": "A survey of transfer learning",
     "citation": "Weiss, K.; Khoshgoftaar, T.M.; Wang, D. A survey of transfer learning. Journal of Big Data 2016, 3(1). https://doi.org/10.1186/s40537-016-0043-6.",
     "doi": "10.1186/s40537-016-0043-6",
-    "publisher_url": "https://link.springer.com/article/10.1186/s40537-016-0043-6",
+    "publisher_url": "https://doi.org/10.1186/s40537-016-0043-6",
     "venue": "Journal of Big Data",
     "reference_type": "journal",
     "bibliographic": {
@@ -19937,10 +19917,9 @@
     "venue": "arXiv [Statistics > Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Fraces, C.G.; Papaioannou, A.; Tchelepi, H.",
-      "publisher": "arXiv",
-      "publication_date": "2020",
-      "journal_abbreviation": "arXiv [Statistics > Machine Learning]"
+      "authors": "Cedric G. Fraces; Adrien Papaioannou; Hamdi Tchelepi",
+      "journal_abbreviation": "arXiv [Statistics > Machine Learning]",
+      "publication_date": "2020-01-15"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -19986,10 +19965,9 @@
     "venue": "arXiv [Physics > Fluid Dynamics]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Diab, W.; Kobaisi, M.A.",
-      "publisher": "arXiv",
-      "publication_date": "2021",
-      "journal_abbreviation": "arXiv [Physics > Fluid Dynamics]"
+      "authors": "Waleed Diab; Mohammed Al Kobaisi",
+      "journal_abbreviation": "arXiv [Physics > Fluid Dynamics]",
+      "publication_date": "2021-12-29"
     },
     "abstract": null,
     "graphical_abstract": null,
@@ -20005,14 +19983,10 @@
     "title": "PHYSICS INFORMED DEEP LEARNING FOR FLOW AND TRANSPORT IN POROUS MEDIA",
     "citation": "C.F. Gasmi, H. Tchelepi, Physics Informed Deep Learning for Flow and Transport in Porous Media, 2021, https://doi.org/10.48550/ARXIV.2104.02629.",
     "doi": "10.48550/ARXIV.2104.02629",
-    "publisher_url": "https://arxiv.org/abs/2104.02629",
+    "publisher_url": "https://doi.org/10.48550/ARXIV.2104.02629",
     "venue": "Physics Informed Deep Learning for Flow and Transport in Porous Media",
     "reference_type": "journal",
-    "bibliographic": {
-      "authors": "Gasmi, C.F.; Tchelepi, H.",
-      "publisher": "arXiv",
-      "publication_date": "2021"
-    },
+    "bibliographic": null,
     "abstract": null,
     "graphical_abstract": null,
     "year": 2021,
@@ -20020,14 +19994,14 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-22"
   },
   {
     "id": 791,
     "title": "Conservative Physics-Informed Neural Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States",
     "citation": "R. Quita, Y.-S. Chen, H.-Y. L. A.C. Hu, J.M. Hong, Conservative Physics-Informed Neural Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States, 2023, https://doi.org/10.48550/arXiv.2305.12817.",
     "doi": "10.48550/arXiv.2305.12817",
-    "publisher_url": "https://arxiv.org/abs/2305.12817",
+    "publisher_url": "https://doi.org/10.48550/arXiv.2305.12817",
     "venue": "Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States",
     "reference_type": "journal",
     "bibliographic": {
@@ -20049,7 +20023,7 @@
     "title": "Coupled Integral PINN for Discontinuity",
     "citation": "Y. Wang, S. Yang, Coupled Integral PINN for Conservation Law, 2024, https://doi.org/10.48550/arXiv.2411.11276.",
     "doi": "10.48550/arXiv.2411.11276",
-    "publisher_url": "https://arxiv.org/abs/2411.11276",
+    "publisher_url": "https://doi.org/10.48550/arXiv.2411.11276",
     "venue": "Coupled Integral PINN for Conservation Law",
     "reference_type": "journal",
     "bibliographic": {
@@ -20506,7 +20480,7 @@
     "title": "Physics-informed neural networks for two-phase flow simulations An integrated approach with advanced interface tracking methods",
     "citation": "W. Zhou, S. Miwa, K. Okamoto, Physics-Informed Neural Networks for Two-Phase Flow Simulations: An Integrated Approach with Advanced Interface Tracking Methods, 2024, https://doi.org/10.11517/pjsai.JSAI2024.0_4Q1IS2c02.",
     "doi": "10.11517/pjsai.JSAI2024.0_4Q1IS2c02",
-    "publisher_url": "https://www.jstage.jst.go.jp/article/pjsai/JSAI2024/0/JSAI2024_4Q1IS2c02/_article/-char/ja/",
+    "publisher_url": "https://doi.org/10.11517/pjsai.JSAI2024.0_4Q1IS2c02",
     "venue": "人工知能学会全国大会論文集",
     "reference_type": "other",
     "bibliographic": {
@@ -20836,9 +20810,9 @@
     "venue": "arXiv [Computer Science > Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Rathore, Pratik; Lei, Weimu; Frangella, Zachary; Lu, Lu; Udell, Madeleine",
-      "publication_date": "2024/02/02",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
+      "authors": "Pratik Rathore; Weimu Lei; Zachary Frangella; Lu Lu; Madeleine Udell",
+      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "publication_date": "2024-02-02"
     },
     "abstract": null,
     "graphical_abstract": null,
