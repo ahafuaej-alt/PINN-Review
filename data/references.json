@@ -17901,20 +17901,24 @@
   {
     "id": 697,
     "title": "Physics-informed deep learning for simultaneous surrogate modeling and PDE-constrained optimization of an airfoil geometry",
-    "citation": "Sun, Y., Sengupta, U., Juniper, M., 2023. Physics-informed deep learning for simultaneous surrogate modeling and pde-constrained optimization of an airfoil geometry. Comput. Methods Appl. Mech. Engrg. 411, http://dx.doi.org/10.1016/j.cma.2023. 116042.",
-    "doi": "10.1016/j.cma.2023",
-    "publisher_url": "https://doi.org/10.1016/j.cma.2023",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Sun, Y.; Sengupta, U.; Juniper, M. Physics-informed deep learning for simultaneous surrogate modeling and PDE-constrained optimization of an airfoil geometry. Computer Methods in Applied Mechanics and Engineering 2023, 411, 116042. https://doi.org/10.1016/j.cma.2023.116042.",
+    "doi": "10.1016/j.cma.2023.116042",
+    "publisher_url": "https://doi.org/10.1016/j.cma.2023.116042",
+    "venue": "Computer Methods in Applied Mechanics and Engineering",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Sun, Y.; Sengupta, U.; Juniper, M.",
+      "volume": "411",
+      "article_number": "116042"
+    },
+    "abstract": "We use a physics-informed neural network (PINN) to simultaneously model and optimize the flow around an airfoil to maximize its lift to drag ratio. The parameters of the airfoil shape are provided as inputs to the PINN and the multidimensional search space of shape parameters is populated with collocation points to ensure that the Navier–Stokes equations are approximately satisfied throughout. We use the fact that the PINN is automatically differentiable to calculate gradients of the lift-to-drag ratio with respect to the airfoil shape parameters. This allows us to optimize with the L-BFGS gradient-based algorithm, which is more efficient than non-gradient-based algorithms, without deriving an adjoint code. We train the PINN with adaptive sampling of collocation points, such that the accuracy of the solution improves as the solution approaches the optimal point. We demonstrate this on two examples: one that optimizes a single parameter, and another that optimizes eleven parameters. The method is successful and, by comparison with conventional CFD, we find that the velocity and pressure fields have small pointwise errors and that the method converges to optimal parameters. We find that different PINNs converge to slightly different parameters, reflecting the fact that there are many closely-spaced local minima when using stochastic gradient descent. This method can be applied relatively easily to other optimization problems and avoids the difficult process of writing adjoint codes. It is, however, more computationally expensive than adjoint-based optimization. As knowledge about training PINNs improves and hardware dedicated to neural networks becomes faster, this method of simultaneous training and optimization with PINNs could become easier and faster than using adjoint codes.",
     "graphical_abstract": null,
     "year": 2023,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "United Kingdom"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 698,
