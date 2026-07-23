@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.44",
+    "dataset_version": "2.1.45",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -40125,11 +40125,11 @@
     {
       "id": 763,
       "title": "Searching for Activation Functions",
-      "citation": "Ramachandran, P.; Zoph, B.; Le, Q.V. Searching for activation functions. 2017, arXiv:1710.05941. 2017.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Ramachandran, P.; Zoph, B.; Le, Q.V. Searching for Activation Functions. Arxiv [Computer Science. Neural and Evolutionary Computing] 2017, 1710, 05941v2. https://doi.org/10.48550/arXiv.1710.05941.",
+      "doi": "10.48550/arXiv.1710.05941",
+      "publisher_url": "https://doi.org/10.48550/arXiv.1710.05941",
       "venue": {
-        "name": "2017, arXiv:1710.05941.",
+        "name": "Arxiv [Computer Science. Neural and Evolutionary Computing]",
         "type": "preprint"
       },
       "year": 2017,
@@ -40140,10 +40140,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://arxiv.org/abs/1710.05941",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "The choice of activation functions in deep networks has a significant effect on the training dynamics and task performance. Currently, the most successful and widely-used activation function is the Rectified Linear Unit (ReLU). Although various hand-designed alternatives to ReLU have been proposed, none have managed to replace it due to inconsistent gains. In this work, we propose to leverage automatic search techniques to discover new activation functions. Using a combination of exhaustive and reinforcement learning-based search, we discover multiple novel activation functions. We verify the effectiveness of the searches by conducting an empirical evaluation with the best discovered activation function. Our experiments show that the best discovered activation function, f(x)=x⋅sigmoid(βx), which we name Swish, tends to work better than ReLU on deeper models across a number of challenging datasets. For example, simply replacing ReLUs with Swish units improves top-1 classification accuracy on ImageNet by 0.9\\% for Mobile NASNet-A and 0.6\\% for Inception-ResNet-v2. The simplicity of Swish and its similarity to ReLU make it easy for practitioners to replace ReLUs with Swish units in any neural network.",
+      "bibliographic": {
+        "authors": "Ramachandran, P.; Zoph, B.; Le, Q.V.",
+        "volume": "1710",
+        "article_number": "05941v2"
+      }
     },
     {
       "id": 764,
