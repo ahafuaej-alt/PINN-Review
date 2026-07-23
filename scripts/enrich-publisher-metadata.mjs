@@ -28,6 +28,63 @@ const REFERENCE_TYPE_MAP = Object.freeze({
   component: 'other',
   other: 'other'
 });
+const ARXIV_GROUPS = Object.freeze({
+  'astro-ph': 'Astrophysics',
+  'cond-mat': 'Condensed Matter',
+  cs: 'Computer Science',
+  econ: 'Economics',
+  eess: 'Electrical Engineering and Systems Science',
+  'gr-qc': 'General Relativity and Quantum Cosmology',
+  'hep-ex': 'High Energy Physics - Experiment',
+  'hep-lat': 'High Energy Physics - Lattice',
+  'hep-ph': 'High Energy Physics - Phenomenology',
+  'hep-th': 'High Energy Physics - Theory',
+  math: 'Mathematics',
+  'math-ph': 'Mathematical Physics',
+  nlin: 'Nonlinear Sciences',
+  'nucl-ex': 'Nuclear Experiment',
+  'nucl-th': 'Nuclear Theory',
+  physics: 'Physics',
+  'q-bio': 'Quantitative Biology',
+  'q-fin': 'Quantitative Finance',
+  'quant-ph': 'Quantum Physics',
+  stat: 'Statistics'
+});
+const ARXIV_CATEGORIES = Object.freeze({
+  'astro-ph.IM': 'Instrumentation and Methods for Astrophysics',
+  'cond-mat.mtrl-sci': 'Materials Science',
+  'cond-mat.soft': 'Soft Condensed Matter',
+  'cs.AI': 'Artificial Intelligence',
+  'cs.CE': 'Computational Engineering, Finance, and Science',
+  'cs.CL': 'Computation and Language',
+  'cs.CV': 'Computer Vision and Pattern Recognition',
+  'cs.DC': 'Distributed, Parallel, and Cluster Computing',
+  'cs.GT': 'Computer Science and Game Theory',
+  'cs.LG': 'Machine Learning',
+  'cs.NA': 'Numerical Analysis',
+  'cs.NE': 'Neural and Evolutionary Computing',
+  'cs.RO': 'Robotics',
+  'cs.SY': 'Systems and Control',
+  'eess.IV': 'Image and Video Processing',
+  'eess.SP': 'Signal Processing',
+  'eess.SY': 'Systems and Control',
+  'math.AP': 'Analysis of PDEs',
+  'math.NA': 'Numerical Analysis',
+  'math.OC': 'Optimization and Control',
+  'nlin.CD': 'Chaotic Dynamics',
+  'nlin.PS': 'Pattern Formation and Solitons',
+  'physics.comp-ph': 'Computational Physics',
+  'physics.data-an': 'Data Analysis, Statistics and Probability',
+  'physics.flu-dyn': 'Fluid Dynamics',
+  'physics.med-ph': 'Medical Physics',
+  'q-bio.NC': 'Neurons and Cognition',
+  'q-bio.QM': 'Quantitative Methods',
+  'q-fin.CP': 'Computational Finance',
+  'stat.AP': 'Applications',
+  'stat.CO': 'Computation',
+  'stat.ME': 'Methodology',
+  'stat.ML': 'Machine Learning'
+});
 
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const cleanText = (value) => String(value ?? '')
@@ -51,6 +108,24 @@ const compactDoi = (value) => cleanText(value)
 const validDoi = (value) => {
   const doi = compactDoi(value);
   return /^10\.\d{4,9}\/\S+$/iu.test(doi) ? doi : '';
+};
+export const extractArxivId = (paperOrValue) => {
+  const value = typeof paperOrValue === 'object'
+    ? [paperOrValue?.doi, paperOrValue?.publisher_url, paperOrValue?.citation, paperOrValue?.venue?.name].filter(Boolean).join(' ')
+    : String(paperOrValue ?? '');
+  const match = value.match(/(?:10\.48550\/arxiv\.|arxiv\s*:\s*|arxiv\.org\/(?:abs|pdf)\/)(\d{4}\.\d{4,5})(?:v\d+)?/iu);
+  return match?.[1] || null;
+};
+const isArxivDoi = (value) => /^10\.48550\/arxiv\./iu.test(compactDoi(value));
+const isArxivPrimary = (paper) => {
+  const id = extractArxivId(paper);
+  if (!id) return false;
+  if (paper.doi && !isArxivDoi(paper.doi)) return false;
+  if (isArxivDoi(paper.doi)) return true;
+  try {
+    if (/^(?:www\.)?arxiv\.org$/iu.test(new URL(paper.publisher_url).hostname)) return true;
+  } catch {}
+  return ['preprint', 'unknown'].includes(paper.venue?.type) || /arxiv/iu.test(paper.venue?.name || '');
 };
 const stableJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
@@ -161,6 +236,14 @@ const eventDate = (event) => {
   return end.date && end.date !== start.date ? `${start.date}–${end.date}` : start.date;
 };
 const referenceType = (metadata) => REFERENCE_TYPE_MAP[cleanText(metadata?.type)] || 'other';
+const arxivCategoryLabel = (code) => {
+  const clean = cleanText(code);
+  if (!clean) return 'Unclassified';
+  const groupCode = clean.includes('.') ? clean.split('.')[0] : clean;
+  const group = ARXIV_GROUPS[groupCode] || groupCode;
+  const category = ARXIV_CATEGORIES[clean] || clean;
+  return `${group} > ${category}`;
+};
 
 export const candidateFromCrossref = (metadata, { sourceUrl } = {}) => {
   const publication = bestDate(metadata);
@@ -203,6 +286,41 @@ export const candidateFromCrossref = (metadata, { sourceUrl } = {}) => {
     indexed_at: cleanText(metadata?.indexed?.['date-time'])
   };
   return candidate;
+};
+
+export const candidateFromArxiv = (record) => {
+  const primaryCategory = cleanText(record?.primary_category || record?.categories?.[0]);
+  const published = parseYear(record?.published);
+  return {
+    source: 'arXiv API',
+    source_url: record?.id ? `https://arxiv.org/abs/${record.id}` : null,
+    doi: record?.id ? `10.48550/arXiv.${record.id}` : '',
+    title: cleanText(record?.title),
+    year: published,
+    publisher_url: record?.id ? `https://arxiv.org/abs/${record.id}` : null,
+    venue: {
+      name: `arXiv [${arxivCategoryLabel(primaryCategory)}]`,
+      type: 'preprint'
+    },
+    bibliographic: normalizeBibliographic({
+      authors: Array.isArray(record?.authors) ? record.authors.join('; ') : '',
+      journal_abbreviation: `arXiv [${arxivCategoryLabel(primaryCategory)}]`,
+      publication_date: cleanText(record?.published).slice(0, 10)
+    }),
+    abstract: '',
+    abstract_available_but_restricted: Boolean(cleanText(record?.summary)),
+    access: 'Open access',
+    license_urls: [],
+    deposited_type: 'preprint',
+    arxiv: {
+      id: record?.id || null,
+      primary_category: primaryCategory || null,
+      categories: record?.categories || [],
+      journal_ref: cleanText(record?.journal_ref) || null,
+      journal_doi: validDoi(record?.doi) || null
+    },
+    journal_version: null
+  };
 };
 
 const metaTags = (html) => {
@@ -329,6 +447,92 @@ const readLimitedText = async (response, maximumBytes = 2_000_000) => {
   }
   return new TextDecoder().decode(bytes);
 };
+const xmlTag = (block, tag) => {
+  const match = String(block).match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`, 'iu'));
+  return cleanText(match?.[1]);
+};
+const parseArxivFeed = (xml) => {
+  const records = new Map();
+  for (const entry of String(xml).match(/<entry\b[\s\S]*?<\/entry>/giu) || []) {
+    const absoluteId = xmlTag(entry, 'id');
+    const id = absoluteId.match(/\/abs\/(\d{4}\.\d{4,5})(?:v\d+)?/u)?.[1];
+    if (!id) continue;
+    const primary = entry.match(/<arxiv:primary_category\b[^>]*term=["']([^"']+)["'][^>]*\/?>/iu)?.[1] || '';
+    const categories = [...entry.matchAll(/<category\b[^>]*term=["']([^"']+)["'][^>]*\/?>/giu)].map((match) => cleanText(match[1]));
+    const authors = [...entry.matchAll(/<author\b[\s\S]*?<name\b[^>]*>([\s\S]*?)<\/name>[\s\S]*?<\/author>/giu)].map((match) => cleanText(match[1]));
+    records.set(id, {
+      id,
+      title: xmlTag(entry, 'title'),
+      summary: xmlTag(entry, 'summary'),
+      published: xmlTag(entry, 'published'),
+      updated: xmlTag(entry, 'updated'),
+      authors,
+      primary_category: primary,
+      categories,
+      journal_ref: xmlTag(entry, 'arxiv:journal_ref'),
+      doi: xmlTag(entry, 'arxiv:doi')
+    });
+  }
+  return records;
+};
+const fetchArxivRecords = async (ids) => {
+  const records = new Map();
+  const unique = [...new Set(ids.filter(Boolean))];
+  for (let offset = 0; offset < unique.length; offset += 20) {
+    const batch = unique.slice(offset, offset + 20);
+    const url = `https://export.arxiv.org/api/query?id_list=${encodeURIComponent(batch.join(','))}`;
+    const response = await fetchWithRetry(url, { headers: { accept: 'application/atom+xml' } });
+    if (!response.ok) throw new Error(`arXiv API ${response.status}`);
+    const parsed = parseArxivFeed(await response.text());
+    for (const [id, record] of parsed) records.set(id, record);
+    if (offset + 20 < unique.length) await sleep(3000);
+  }
+  return records;
+};
+const crossrefMessageForDoi = async (doi) => {
+  const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}`;
+  const response = await fetchWithRetry(url);
+  if (!response.ok) return null;
+  return response.json().then((payload) => payload?.message || null);
+};
+const findJournalVersion = async (arxivCandidate) => {
+  const journalDoi = arxivCandidate?.arxiv?.journal_doi;
+  if (journalDoi) {
+    const metadata = await crossrefMessageForDoi(journalDoi);
+    return {
+      source: 'arXiv journal DOI',
+      confidence: 1,
+      journal_ref: arxivCandidate.arxiv.journal_ref,
+      ...(metadata ? candidateFromCrossref(metadata) : { doi: journalDoi })
+    };
+  }
+  const title = arxivCandidate?.title;
+  if (!title) return null;
+  const url = new URL('https://api.crossref.org/works');
+  url.searchParams.set('query.bibliographic', title);
+  url.searchParams.set('rows', '5');
+  const response = await fetchWithRetry(url);
+  if (!response.ok) return null;
+  const payload = await response.json();
+  const matches = (payload?.message?.items || [])
+    .filter((item) => ['journal-article', 'proceedings-article', 'book-chapter'].includes(item?.type))
+    .filter((item) => !isArxivDoi(item?.DOI))
+    .map((item) => ({ item, similarity: titleSimilarity(title, first(item?.title)) }))
+    .filter((match) => match.similarity >= 0.9)
+    .sort((left, right) => right.similarity - left.similarity);
+  if (!matches.length) return arxivCandidate?.arxiv?.journal_ref ? {
+    source: 'arXiv journal reference',
+    confidence: 0.85,
+    journal_ref: arxivCandidate.arxiv.journal_ref,
+    doi: null
+  } : null;
+  return {
+    source: arxivCandidate?.arxiv?.journal_ref ? 'arXiv journal reference and Crossref title match' : 'Crossref title match',
+    confidence: matches[0].similarity,
+    journal_ref: arxivCandidate?.arxiv?.journal_ref || null,
+    ...candidateFromCrossref(matches[0].item)
+  };
+};
 const resolvePublisherUrl = async (doi) => {
   if (!doi) return null;
   try {
@@ -342,7 +546,12 @@ const resolvePublisherUrl = async (doi) => {
     return null;
   }
 };
-export const lookupPaper = async (paper, { resolveDoi = true } = {}) => {
+export const lookupPaper = async (paper, { resolveDoi = true, arxivRecord = null } = {}) => {
+  if (isArxivPrimary(paper) && arxivRecord) {
+    const candidate = candidateFromArxiv(arxivRecord);
+    candidate.journal_version = await findJournalVersion(candidate);
+    return candidate;
+  }
   if (paper.doi) {
     const doi = compactDoi(paper.doi);
     const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}`;
@@ -423,6 +632,23 @@ export const mergeCandidate = (sourcePaper, candidate, today = new Date().toISOS
   if (candidate.title && normalizedTitle(paper.title) !== normalizedTitle(candidate.title)) {
     conflicts.push(conflict('title', paper.title, candidate.title, `Publisher title differs; similarity ${similarity.toFixed(3)}`));
   }
+  if (candidate.journal_version) {
+    conflicts.push(conflict(
+      'published_version',
+      { doi: paper.doi, publisher_url: paper.publisher_url, venue: paper.venue, year: paper.year },
+      candidate.journal_version,
+      'A likely journal/proceedings version was found; review identity and choose whether the canonical record should cite the published version'
+    ));
+    return {
+      paper,
+      added,
+      conflicts,
+      warnings,
+      status: 'review',
+      similarity,
+      suggested_citation: null
+    };
+  }
 
   setMissing(paper, 'doi', candidate.doi, added, conflicts, 'doi', (a, b) => lower(compactDoi(a)) === lower(compactDoi(b)));
   if (candidate.publisher_url) {
@@ -441,7 +667,13 @@ export const mergeCandidate = (sourcePaper, candidate, today = new Date().toISOS
   } else if (candidate.year && paper.year !== candidate.year) {
     conflicts.push(conflict('year', paper.year, candidate.year));
   }
-  if (candidate.venue?.name) {
+  const arxivOnly = candidate.source === 'arXiv API' && !candidate.journal_version;
+  if (arxivOnly && candidate.venue?.name) {
+    if (paper.venue?.name !== candidate.venue.name) {
+      paper.venue = { ...(paper.venue || {}), name: candidate.venue.name };
+      added.push('venue.name');
+    }
+  } else if (candidate.venue?.name) {
     if (!paper.venue?.name || lower(paper.venue.name) === 'venue not identified') {
       paper.venue = { ...(paper.venue || {}), name: candidate.venue.name };
       added.push('venue.name');
@@ -449,7 +681,12 @@ export const mergeCandidate = (sourcePaper, candidate, today = new Date().toISOS
       conflicts.push(conflict('venue.name', paper.venue.name, candidate.venue.name));
     }
   }
-  if (candidate.venue?.type && candidate.venue.type !== 'unknown') {
+  if (arxivOnly) {
+    if (paper.venue?.type !== 'preprint') {
+      paper.venue = { ...(paper.venue || {}), type: 'preprint' };
+      added.push('venue.type');
+    }
+  } else if (candidate.venue?.type && candidate.venue.type !== 'unknown') {
     if (!paper.venue?.type || paper.venue.type === 'unknown') {
       paper.venue = { ...(paper.venue || {}), type: candidate.venue.type };
       added.push('venue.type');
@@ -492,7 +729,8 @@ export const mergeCandidate = (sourcePaper, candidate, today = new Date().toISOS
         retrieved_at: today,
         fields_added: [...new Set(added)],
         deposited_type: candidate.deposited_type || null,
-        license_urls: candidate.license_urls || []
+        license_urls: candidate.license_urls || [],
+        arxiv: candidate.arxiv || null
       }
     };
   }
@@ -542,6 +780,9 @@ const makeSummary = (records) => {
     failed: records.filter((record) => record.status === 'failed').length,
     with_conflicts: records.filter((record) => record.conflicts?.length).length,
     restricted_abstracts: records.filter((record) => record.warnings?.some((warning) => warning.startsWith('Abstract is available'))).length,
+    arxiv_checked: records.filter((record) => record.arxiv).length,
+    journal_versions_found: records.filter((record) => record.journal_version).length,
+    arxiv_only: records.filter((record) => record.arxiv && !record.journal_version).length,
     fields_added: Object.fromEntries(Object.entries(fieldCounts).sort(([left], [right]) => left.localeCompare(right)))
   };
 };
@@ -550,17 +791,22 @@ export const run = async (options) => {
   const master = readJson('data/papers-master.json');
   const beforeVersion = master.metadata.dataset_version;
   const today = new Date().toISOString().slice(0, 10);
-  let eligible = master.papers.filter((paper) => paper.doi || paper.publisher_url);
+  let eligible = master.papers.filter((paper) => paper.doi || paper.publisher_url || isArxivPrimary(paper));
   if (options.ids) eligible = eligible.filter((paper) => options.ids.has(paper.id));
   if (Number.isInteger(options.limit) && options.limit >= 0) eligible = eligible.slice(0, options.limit);
   const byId = new Map(master.papers.map((paper) => [paper.id, paper]));
   const records = [];
+  const graphicalAbstractsBefore = master.papers
+    .filter((paper) => paper.graphical_abstract)
+    .map((paper) => ({ id: paper.id, graphical_abstract: paper.graphical_abstract }));
+  const arxivRecords = await fetchArxivRecords(eligible.filter(isArxivPrimary).map(extractArxivId));
 
   for (let index = 0; index < eligible.length; index += 1) {
     const paper = eligible[index];
     process.stdout.write(`[${index + 1}/${eligible.length}] ${paper.id} ${paper.doi || paper.publisher_url}\n`);
     try {
-      const candidate = await lookupPaper(paper, { resolveDoi: options.resolveDoi });
+      const arxivId = extractArxivId(paper);
+      const candidate = await lookupPaper(paper, { resolveDoi: options.resolveDoi, arxivRecord: arxivId ? arxivRecords.get(arxivId) : null });
       const merged = mergeCandidate(paper, candidate, today);
       byId.set(paper.id, merged.paper);
       records.push({
@@ -574,6 +820,9 @@ export const run = async (options) => {
         fields_added: merged.added,
         conflicts: merged.conflicts,
         warnings: merged.warnings
+        ,
+        arxiv: candidate?.arxiv || null,
+        journal_version: candidate?.journal_version || null
       });
     } catch (error) {
       records.push({
@@ -611,10 +860,18 @@ export const run = async (options) => {
     dataset_version_before: beforeVersion,
     dataset_version_after: options.apply ? nextMinorVersion(beforeVersion) : beforeVersion,
     summary,
+    graphical_abstract_invariant: {
+      before: graphicalAbstractsBefore.length,
+      after: [...byId.values()].filter((paper) => paper.graphical_abstract).length,
+      unchanged: JSON.stringify(graphicalAbstractsBefore) === JSON.stringify(
+        [...byId.values()].filter((paper) => paper.graphical_abstract).map((paper) => ({ id: paper.id, graphical_abstract: paper.graphical_abstract }))
+      )
+    },
     records
   };
 
   writeJson(options.report, report);
+  if (!report.graphical_abstract_invariant.unchanged) throw new Error('Graphical abstracts changed during metadata enrichment.');
   if (!options.apply) return report;
   if (summary.enriched === 0) throw new Error('No records were enriched; refusing to create an empty dataset release.');
   master.papers = master.papers.map((paper) => byId.get(paper.id));
