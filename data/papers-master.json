@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.47",
+    "dataset_version": "2.1.48",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -43285,15 +43285,15 @@
     {
       "id": 835,
       "title": "Physics-informed neural networks to learn cardiac fiber orientation from multiple electroanatomical maps",
-      "citation": "Herrera, C.R.; Grandits, T.; Plank, G.; Perdikaris, P.; Costabal, F.S.; Pezzuto, S. Physics-informed neural networks to learn cardiac fiber orientation from multiple electroanatomical maps. arXiv 2022, arXiv:2201.12362.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Herrera, C.R.; Grandits, T.; Plank, G.; Perdikaris, P.; Costabal, F.S.; Pezzuto, S. Physics-informed neural networks to learn cardiac fiber orientation from multiple electroanatomical maps. Engineering with Computers 2022, 38, 3957–3973. https://doi.org/10.1007/s00366-022-01709-3.",
+      "doi": "10.1007/s00366-022-01709-3",
+      "publisher_url": "https://doi.org/10.1007/s00366-022-01709-3",
       "venue": {
-        "name": "arXiv",
-        "type": "preprint"
+        "name": "Engineering with Computers",
+        "type": "journal"
       },
       "year": 2022,
-      "access": "Open access",
+      "access": "Subscription",
       "countries": [
         "Chile",
         "Austria",
@@ -43306,10 +43306,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://link.springer.com/article/10.1007/s00366-022-01709-3#citeas",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "We propose FiberNet, a method to estimate in-vivo the cardiac fiber architecture of the human atria from multiple catheter recordings of the electrical activation. Cardiac fibers play a central role in the electro-mechanical function of the heart, yet they are difficult to determine in-vivo, and hence rarely truly patient-specific in existing cardiac models. FiberNet learns the fiber arrangement by solving an inverse problem with physics-informed neural networks. The inverse problem amounts to identifying the conduction velocity tensor of a cardiac propagation model from a set of sparse activation maps. The use of multiple maps enables the simultaneous identification of all the components of the conduction velocity tensor, including the local fiber angle. We extensively test FiberNet on synthetic 2-D and 3-D examples, diffusion tensor fibers, and a patient-specific case. We show that 3 maps are sufficient to accurately capture the fibers, also in the presence of noise. With fewer maps, the role of regularization becomes prominent. Moreover, we show that the fitted model can robustly reproduce unseen activation maps. We envision that FiberNet will help the creation of patient-specific models for personalized medicine. The full code is available at http://github.com/fsahli/FiberNet.",
+      "bibliographic": {
+        "authors": "Herrera, C.R.; Grandits, T.; Plank, G.; Perdikaris, P.; Costabal, F.S.; Pezzuto, S.",
+        "volume": "38",
+        "pages": "3957–3973"
+      }
     },
     {
       "id": 836,
