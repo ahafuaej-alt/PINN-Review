@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.21",
+    "dataset_version": "2.1.22",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 108,
+      "legacy_realm_year_override_count": 107,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -35366,29 +35366,33 @@
     {
       "id": 669,
       "title": "A Physics-Informed Neural Network-based Topology Optimization (PINNTO) framework for structural optimization",
-      "citation": "Jeong, H., Bai, J., Batuwatta-Gamage, C.P., Rathnayaka, C., Zhou, Y., Gu, Y., 2023a. A physics-informed neural network-based topology optimization (pinnto) framework for structural optimization. Eng. Struct. 278, http://dx.doi.org/10.1016/j.engstruct. 2022.115484.",
-      "doi": "10.1016/j.engstruct",
-      "publisher_url": "https://doi.org/10.1016/j.engstruct",
+      "citation": "Jeong, H.; Bai, J.; Batuwatta-Gamage, C.P.; Rathnayaka, C.; Zhou, Y.; Gu, Y. A Physics-Informed Neural Network-based Topology Optimization (PINNTO) framework for structural optimization. Engineering Structures 2023, 278, 115484. https://doi.org/10.1016/j.engstruct.2022.115484.",
+      "doi": "10.1016/j.engstruct.2022.115484",
+      "publisher_url": "https://doi.org/10.1016/j.engstruct.2022.115484",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Engineering Structures",
+        "type": "journal"
       },
-      "year": 2022,
+      "year": 2023,
       "access": "Subscription",
       "countries": [
         "Australia",
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.engstruct",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0141029622015607",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "Physics-Informed Neural Networks (PINNs) have recently attracted exponentially increasing attention in the field of computational mechanics. This paper proposes a novel topology optimization framework: Physics-Informed Neural Network-based Topology Optimization (PINNTO). Unlike existing machine-learning based topology optimization frameworks, PINNTO employs an energy-based PINN to replace Finite Element Analysis (FEA) in the conventional structural topology optimization, to numerically determine the deformation states, which is a key novelty in the proposed methodology. A supervised neural network that respects governing physical laws defined via partial differential equations is trained to develop the corresponding network without any labelled data, with the intention of solving solid mechanics problems. To assess feasibility and potential of the proposed PINNTO framework, a number of topology-optimization-related case studies have been implemented. The subsequent findings illustrate that PINNTO has the ability to attain optimized topologies with neither labelled data nor FEA. In addition, it has the capability to generate comparable designs to those produced by the current successful approaches such as Solid Isotropic Material with Penalization (SIMP). Based on the results of this study, it can also be deduced that PINNTO can acquire optimal topologies for various types of complex domains given that the boundary conditions and loading configurations are correctly imposed for the associated energy-based PINN. Consequently, the proposed PINNTO framework has demonstrated promising capabilities to solve problems under conditions when the usage of FEA is challenged (if not impossible). In summary, the proposed PINNTO framework opens up a new avenue for structural design in this ‘data-rich’ age.",
+      "bibliographic": {
+        "authors": "Jeong, H.; Bai, J.; Batuwatta-Gamage, C.P.; Rathnayaka, C.; Zhou, Y.; Gu, Y.",
+        "volume": "278",
+        "article_number": "115484"
+      }
     },
     {
       "id": 670,

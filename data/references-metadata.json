@@ -1,6 +1,6 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "2.1.21",
+  "version": "2.1.22",
   "schema_version": "1.0.0",
   "last_updated": "2026-07-23",
   "record_count": 853,
@@ -14,7 +14,7 @@
     "not_verified": 58
   },
   "reference_types": {
-    "journal": 740,
+    "journal": 741,
     "preprint": 24,
     "conference_journal": 2,
     "conference": 42,
@@ -23,16 +23,16 @@
     "thesis": 2,
     "report": 1,
     "other": 1,
-    "unknown": 37
+    "unknown": 36
   },
   "content_availability": {
-    "abstracts": 271,
+    "abstracts": 272,
     "graphical_abstracts": 0
   },
   "source_document": "38_1_10_references.docx",
   "country_source": "papers-countries-and-year.md",
   "canonical_master": "papers-master.json",
-  "legacy_realm_year_overrides": 108,
+  "legacy_realm_year_overrides": 107,
   "display_style": "MDPI ACS reference style",
   "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.json",
   "reference_register_url": "https://ahafuaej-alt.github.io/PINN-Review/references/",
