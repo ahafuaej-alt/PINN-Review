@@ -16767,21 +16767,26 @@
   {
     "id": 651,
     "title": "Domain-decoupled Physics-informed Neural Networks with Closed-form Gradients for Fast Model Learning of Dynamical Systems",
-    "citation": "Krauss, H., Habich, T.-L., Bartholdt, M., Seel, T., Schappler, M., 2024. Domain-decoupled physics-informed neural networks with closed-form gradients for fast model learning of dynamical systems. arXiv:2408.14951.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Krauss, H.; Habich, T.-L.; Bartholdt, M.; Seel, T.; Schappler, M. Domain-decoupled Physics-informed Neural Networks with Closed-form Gradients for Fast Model Learning of Dynamical Systems. Arxiv [Electrical Engineering and Systems Science. Systems and Control] 2024, 2408, 1-13. https://doi.org/10.48550/arXiv.2408.14951.",
+    "doi": "10.48550/arXiv.2408.14951",
+    "publisher_url": "https://doi.org/10.48550/arXiv.2408.14951",
+    "venue": "Arxiv [Electrical Engineering and Systems Science . Systems and Control]",
+    "reference_type": "preprint",
+    "bibliographic": {
+      "authors": "Krauss, H.; Habich, T.-L.; Bartholdt, M.; Seel, T.; Schappler, M.",
+      "volume": "2408",
+      "pages": "1-13",
+      "article_number": "14951v2"
+    },
+    "abstract": "Physics-informed neural networks (PINNs) are trained using physical equations and can also incorporate unmodeled effects by learning from data. PINNs for control (PINCs) of dynamical systems are gaining interest due to their prediction speed compared to classical numerical integration methods for nonlinear state-space models, making them suitable for real-time control applications. We introduce the domain-decoupled physics-informed neural network (DD-PINN) to address current limitations of PINC in handling large and complex nonlinear dynamical systems. The time domain is decoupled from the feed-forward neural network to construct an Ansatz function, allowing for calculation of gradients in closed form. This approach significantly reduces training times, especially for large dynamical systems, compared to PINC, which relies on graph-based automatic differentiation. Additionally, the DD-PINN inherently fulfills the initial condition and supports higher-order excitation inputs, simplifying the training process and enabling improved prediction accuracy. Validation on three systems - a nonlinear mass-spring-damper, a five-mass-chain, and a two-link robot - demonstrates that the DD-PINN achieves significantly shorter training times. In cases where the PINC's prediction diverges, the DD-PINN's prediction remains stable and accurate due to higher physics loss reduction or use of a higher-order excitation input. The DD-PINN allows for fast and accurate learning of large dynamical systems previously out of reach for the PINC.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Japan",
       "Germany"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 652,
