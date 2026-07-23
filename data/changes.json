@@ -2,6 +2,49 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "publisher-enrichment-2026-07-23-2.2.0",
+      "version": "2.2.0",
+      "date": "2026-07-23",
+      "paper_id": null,
+      "changed_fields": [
+        "access",
+        "bibliographic.authors",
+        "bibliographic.journal_abbreviation",
+        "bibliographic.publication_date",
+        "doi",
+        "publisher_url",
+        "venue.name",
+        "venue.type"
+      ],
+      "reason": "Added missing bibliographic and publisher metadata from DOI registration records and publisher citation metadata without overwriting conflicting existing values.",
+      "evidence": {
+        "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+        "note": "Review report: data/publisher-enrichment-review.json"
+      },
+      "impact": {
+        "eligible": 791,
+        "enriched": 15,
+        "unchanged": 22,
+        "review": 720,
+        "failed": 26,
+        "with_conflicts": 735,
+        "restricted_abstracts": 82,
+        "arxiv_checked": 24,
+        "journal_versions_found": 8,
+        "arxiv_only": 16,
+        "fields_added": {
+          "access": 5,
+          "bibliographic.authors": 6,
+          "bibliographic.journal_abbreviation": 15,
+          "bibliographic.publication_date": 6,
+          "doi": 8,
+          "publisher_url": 6,
+          "venue.name": 15,
+          "venue.type": 11
+        }
+      }
+    },
+    {
       "change_id": "publisher-enrichment-2026-07-23-2.1.0",
       "version": "2.1.0",
       "date": "2026-07-23",

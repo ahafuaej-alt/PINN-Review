@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.0",
+    "dataset_version": "2.2.0",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -20,9 +20,9 @@
       "legacy_realm_year_override_count": 112,
       "publisher_enrichment": {
         "date": "2026-07-23",
-        "eligible_records": 771,
-        "enriched_records": 740,
-        "conflict_records": 723,
+        "eligible_records": 791,
+        "enriched_records": 15,
+        "conflict_records": 735,
         "failed_records": 26,
         "review_report": "data/publisher-enrichment-review.json"
       }
@@ -21877,8 +21877,8 @@
       "doi": "10.48550/ARXIV.2105.01838",
       "publisher_url": "https://arxiv.org/abs/2105.01838",
       "venue": {
-        "name": "2021",
-        "type": "journal"
+        "name": "arXiv [Computer Science > Machine Learning]",
+        "type": "preprint"
       },
       "year": 2021,
       "access": "Subscription",
@@ -21891,24 +21891,35 @@
         "evidence_url": "https://doi.org/10.48550/ARXIV.2105.01838",
         "note": null,
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/ARXIV.2105.01838",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2105.01838",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "venue.name",
+            "venue.type",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2105.01838",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG",
+              "physics.comp-ph",
+              "physics.flu-dyn"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Wong, J.C.; Ooi, C.; Chiu, P.-H.; Dao, M.H.",
         "publisher": "arXiv",
-        "publication_date": "2021"
+        "publication_date": "2021",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
       }
     },
     {
@@ -23111,8 +23122,8 @@
       "doi": "10.48550/ARXIV.2006.11894",
       "publisher_url": "https://arxiv.org/abs/2006.11894",
       "venue": {
-        "name": "2020",
-        "type": "journal"
+        "name": "arXiv [Physics > Computational Physics]",
+        "type": "preprint"
       },
       "year": 2020,
       "access": "Subscription",
@@ -23125,24 +23136,34 @@
         "evidence_url": "https://doi.org/10.48550/ARXIV.2006.11894",
         "note": null,
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/ARXIV.2006.11894",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2006.11894",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "venue.name",
+            "venue.type",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2006.11894",
+            "primary_category": "physics.comp-ph",
+            "categories": [
+              "physics.comp-ph",
+              "physics.geo-ph"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Moseley, B.; Markham, A.; Nissen-Meyer, T.",
         "publisher": "arXiv",
-        "publication_date": "2020"
+        "publication_date": "2020",
+        "journal_abbreviation": "arXiv [Physics > Computational Physics]"
       }
     },
     {
@@ -23175,8 +23196,8 @@
       "doi": "10.48550/ARXIV.2009.04525",
       "publisher_url": "https://arxiv.org/abs/2009.04525",
       "venue": {
-        "name": "2020",
-        "type": "journal"
+        "name": "arXiv [Computer Science > Machine Learning]",
+        "type": "preprint"
       },
       "year": 2020,
       "access": "Subscription",
@@ -23189,24 +23210,35 @@
         "evidence_url": "https://doi.org/10.48550/ARXIV.2009.04525",
         "note": null,
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/ARXIV.2009.04525",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2009.04525",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "venue.name",
+            "venue.type",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2009.04525",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG",
+              "cond-mat.soft",
+              "eess.IV"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Zhang, E.; Yin, M.; Karniadakis, G.E.",
         "publisher": "arXiv",
-        "publication_date": "2020"
+        "publication_date": "2020",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
       }
     },
     {
@@ -23821,8 +23853,8 @@
       "doi": "10.48550/ARXIV.1905.10866",
       "publisher_url": "https://arxiv.org/abs/1905.10866",
       "venue": {
-        "name": "2019",
-        "type": "journal"
+        "name": "arXiv [Physics > Computational Physics]",
+        "type": "preprint"
       },
       "year": 2019,
       "access": "Subscription",
@@ -23835,24 +23867,34 @@
         "evidence_url": "https://doi.org/10.48550/ARXIV.1905.10866",
         "note": null,
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/ARXIV.1905.10866",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/1905.10866",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "venue.name",
+            "venue.type",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "1905.10866",
+            "primary_category": "physics.comp-ph",
+            "categories": [
+              "physics.comp-ph",
+              "cs.LG"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Erichson, N.B.; Muehlebach, M.; Mahoney, M.W.",
         "publisher": "arXiv",
-        "publication_date": "2019"
+        "publication_date": "2019",
+        "journal_abbreviation": "arXiv [Physics > Computational Physics]"
       }
     },
     {
@@ -26169,14 +26211,14 @@
       "id": 504,
       "title": "A residual weighted physics informed neural network for forward and inverse problems of reaction diffusion equations",
       "citation": "Murari, K., Roul, P., Sundar, S., 2025. Physics informed neural network for forward and inverse modeling of low grade brain tumors. arXiv:2504.07058.",
-      "doi": null,
-      "publisher_url": null,
+      "doi": "10.48550/arXiv.2504.07058",
+      "publisher_url": "https://arxiv.org/abs/2504.07058",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "arXiv [Mathematics > Numerical Analysis]",
+        "type": "preprint"
       },
       "year": 2025,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "India"
       ],
@@ -26184,9 +26226,40 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": null,
-        "note": null
+        "note": null,
+        "publisher_enrichment": {
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2504.07058",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "doi",
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.publication_date",
+            "access"
+          ],
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2504.07058",
+            "primary_category": "math.NA",
+            "categories": [
+              "math.NA"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
+        }
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "K. Murari; P. Roul; S. Sundar",
+        "journal_abbreviation": "arXiv [Mathematics > Numerical Analysis]",
+        "publication_date": "2025-04-09"
+      }
     },
     {
       "id": 505,
@@ -26242,14 +26315,14 @@
       "id": 506,
       "title": "Application of Physics-Informed Neural Networks for Solving the Inverse Advection-Diffusion Problem to Localize Pollution Sources",
       "citation": "Chuprov, I., Derkach, D., Efremenko, D., Kychkin, A., 2025. Application of physicsinformed neural networks for solving the inverse advection-diffusion problem to localize pollution sources. arXiv:2503.18849.",
-      "doi": null,
-      "publisher_url": null,
+      "doi": "10.48550/arXiv.2503.18849",
+      "publisher_url": "https://arxiv.org/abs/2503.18849",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "arXiv [Computer Science > Neural and Evolutionary Computing]",
+        "type": "preprint"
       },
       "year": 2025,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Russian Federation"
       ],
@@ -26257,9 +26330,40 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": null,
-        "note": null
+        "note": null,
+        "publisher_enrichment": {
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2503.18849",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "doi",
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.publication_date",
+            "access"
+          ],
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2503.18849",
+            "primary_category": "cs.NE",
+            "categories": [
+              "cs.NE"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
+        }
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Ivan Chuprov; Denis Derkach; Dmitry Efremenko; Aleksei Kychkin",
+        "journal_abbreviation": "arXiv [Computer Science > Neural and Evolutionary Computing]",
+        "publication_date": "2025-03-24"
+      }
     },
     {
       "id": 507,
@@ -26380,10 +26484,10 @@
       "id": 509,
       "title": "Neural Tangents Fast and Easy Infinite Neural Networks in Python",
       "citation": "Novak, R., Xiao, L., Hron, J., Lee, J., Alemi, A.A., Sohl-Dickstein, J., Schoenholz, S.S., 2019. Neural tangents: Fast and easy infinite neural networks in Python. arXiv: 1912.02803.",
-      "doi": null,
-      "publisher_url": null,
+      "doi": "10.48550/arXiv.1912.02803",
+      "publisher_url": "https://arxiv.org/abs/1912.02803",
       "venue": {
-        "name": "Neural tangents: Fast and easy infinite neural networks in Python. arXiv:",
+        "name": "arXiv [Statistics > Machine Learning]",
         "type": "preprint"
       },
       "year": 1912,
@@ -26399,9 +26503,39 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "publisher_enrichment": {
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/1912.02803",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "doi",
+            "publisher_url",
+            "venue.name",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.publication_date"
+          ],
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "1912.02803",
+            "primary_category": "stat.ML",
+            "categories": [
+              "stat.ML",
+              "cs.LG"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
+        }
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Roman Novak; Lechao Xiao; Jiri Hron; Jaehoon Lee; Alexander A. Alemi; Jascha Sohl-Dickstein; Samuel S. Schoenholz",
+        "journal_abbreviation": "arXiv [Statistics > Machine Learning]",
+        "publication_date": "2019-12-05"
+      }
     },
     {
       "id": 510,
@@ -26515,14 +26649,14 @@
       "id": 513,
       "title": "Elvet -- a neural network-based differential equation and variational problem solver",
       "citation": "Araz, J.Y., Criado, J.C., Spannowsky, M., 2021. Elvet – a neural network-based differential equation and variational problem solver. arXiv:2103.14575.",
-      "doi": null,
-      "publisher_url": null,
+      "doi": "10.48550/arXiv.2103.14575",
+      "publisher_url": "https://arxiv.org/abs/2103.14575",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "arXiv [Computer Science > Machine Learning]",
+        "type": "preprint"
       },
       "year": 2021,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "United Kingdom"
       ],
@@ -26530,9 +26664,44 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": null,
-        "note": null
+        "note": null,
+        "publisher_enrichment": {
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2103.14575",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "doi",
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.publication_date",
+            "access"
+          ],
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2103.14575",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG",
+              "hep-lat",
+              "hep-ph",
+              "hep-th",
+              "stat.ML"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
+        }
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Jack Y. Araz; Juan Carlos Criado; Michael Spannowsky",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+        "publication_date": "2021-03-26"
+      }
     },
     {
       "id": 514,
@@ -27341,14 +27510,14 @@
       "id": 532,
       "title": "SGDR Stochastic Gradient Descent with Warm Restarts",
       "citation": "Loshchilov, I., Hutter, F., 2017. Sgdr: Stochastic gradient descent with warm restarts. arXiv:1608.03983.",
-      "doi": null,
-      "publisher_url": null,
+      "doi": "10.48550/arXiv.1608.03983",
+      "publisher_url": "https://arxiv.org/abs/1608.03983",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "arXiv [Computer Science > Machine Learning]",
+        "type": "preprint"
       },
       "year": 2017,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Germany"
       ],
@@ -27356,9 +27525,42 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": null,
-        "note": null
+        "note": null,
+        "publisher_enrichment": {
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/1608.03983",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "doi",
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.publication_date",
+            "access"
+          ],
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "1608.03983",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG",
+              "cs.NE",
+              "math.OC"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
+        }
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Ilya Loshchilov; Frank Hutter",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+        "publication_date": "2016-08-13"
+      }
     },
     {
       "id": 533,
@@ -28130,14 +28332,14 @@
       "id": 547,
       "title": "Geometry-aware PINNs for Turbulent Flow Prediction",
       "citation": "Ghosh, S., Busch, J., Brikis, G.O., Dey, B., 2024. Geometry-aware pinns for turbulent flow prediction. arXiv:2412.01954.",
-      "doi": null,
-      "publisher_url": null,
+      "doi": "10.48550/arXiv.2412.01954",
+      "publisher_url": "https://arxiv.org/abs/2412.01954",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "arXiv [Computer Science > Machine Learning]",
+        "type": "preprint"
       },
       "year": 2024,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "United States"
       ],
@@ -28145,9 +28347,42 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": null,
-        "note": null
+        "note": null,
+        "publisher_enrichment": {
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2412.01954",
+          "retrieved_at": "2026-07-23",
+          "fields_added": [
+            "doi",
+            "publisher_url",
+            "venue.name",
+            "venue.type",
+            "bibliographic.authors",
+            "bibliographic.journal_abbreviation",
+            "bibliographic.publication_date",
+            "access"
+          ],
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2412.01954",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG",
+              "math.NA",
+              "physics.flu-dyn"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
+        }
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "bibliographic": {
+        "authors": "Shinjan Ghosh; Julian Busch; Georgia Olympia Brikis; Biswadip Dey",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+        "publication_date": "2024-12-02"
+      }
     },
     {
       "id": 548,
@@ -38109,7 +38344,7 @@
       "doi": "10.48550/arxiv.2502.12177",
       "publisher_url": "https://arxiv.org/abs/2502.12177",
       "venue": {
-        "name": "ArXiv.org",
+        "name": "arXiv [Computer Science > Machine Learning]",
         "type": "preprint"
       },
       "year": 2025,
@@ -38126,24 +38361,32 @@
         "evidence_url": "https://doi.org/10.48550/arxiv.2502.12177",
         "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/arxiv.2502.12177",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2502.12177",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "venue.name",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2502.12177",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Liu, S.; Protopapas, P.; Sondak, D.; Chen, F.",
         "publisher": "arXiv",
-        "publication_date": "2025"
+        "publication_date": "2025",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
       }
     },
     {
@@ -38314,10 +38557,10 @@
       "id": 749,
       "title": "BINet Learning to Solve Partial Differential Equations with Boundary Integral Networks",
       "citation": "Lin et al., G. BINet: Learning to Solve Partial Differential Equations with Boundary Integral Networks. arXiv.org, Oct. 01, 2021. https://arxiv.org/abs/2110.00352. 2021.",
-      "doi": null,
+      "doi": "10.48550/arXiv.2110.00352",
       "publisher_url": "https://arxiv.org/abs/2110.00352",
       "venue": {
-        "name": "arXiv.org, Oct. 01, 2021. https://arxiv.org/abs/2110.00352.",
+        "name": "arXiv [Mathematics > Numerical Analysis]",
         "type": "preprint"
       },
       "year": 2021,
@@ -38335,21 +38578,32 @@
         "evidence_url": "https://arxiv.org/abs/2110.00352",
         "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
         "publisher_enrichment": {
-          "source": "Publisher HTML citation metadata",
+          "source": "arXiv API",
           "source_url": "https://arxiv.org/abs/2110.00352",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "bibliographic.authors",
-            "bibliographic.publication_date"
+            "doi",
+            "venue.name",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "unknown",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2110.00352",
+            "primary_category": "math.NA",
+            "categories": [
+              "math.NA"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Lin, Guochang; Hu, Pipi; Chen, Fukai; Chen, Xiang; Chen, Junqing; Wang, Jun; Shi, Zuoqiang",
-        "publication_date": "2021/10/01"
+        "publication_date": "2021/10/01",
+        "journal_abbreviation": "arXiv [Mathematics > Numerical Analysis]"
       }
     },
     {
@@ -39872,8 +40126,8 @@
       "doi": "10.48550/ARXIV.2001.05172",
       "publisher_url": "https://arxiv.org/abs/2001.05172",
       "venue": {
-        "name": "arXiv",
-        "type": "other"
+        "name": "arXiv [Statistics > Machine Learning]",
+        "type": "preprint"
       },
       "year": 2001,
       "access": "Subscription",
@@ -39889,26 +40143,35 @@
         "evidence_url": "https://doi.org/10.48550/ARXIV.2001.05172",
         "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/ARXIV.2001.05172",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2001.05172",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
             "venue.name",
             "venue.type",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2001.05172",
+            "primary_category": "stat.ML",
+            "categories": [
+              "stat.ML",
+              "cs.LG",
+              "physics.flu-dyn"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Fraces, C.G.; Papaioannou, A.; Tchelepi, H.",
         "publisher": "arXiv",
-        "publication_date": "2020"
+        "publication_date": "2020",
+        "journal_abbreviation": "arXiv [Statistics > Machine Learning]"
       }
     },
     {
@@ -39968,8 +40231,8 @@
       "doi": "10.48550/arXiv.2112.14826",
       "publisher_url": "https://arxiv.org/abs/2112.14826",
       "venue": {
-        "name": "Problem with a Non-convex Flux Function",
-        "type": "journal"
+        "name": "arXiv [Physics > Fluid Dynamics]",
+        "type": "preprint"
       },
       "year": 2021,
       "access": "Subscription",
@@ -39982,24 +40245,34 @@
         "evidence_url": "https://doi.org/10.48550/arXiv.2112.14826",
         "note": null,
         "publisher_enrichment": {
-          "source": "DOI content negotiation",
-          "source_url": "https://doi.org/10.48550/arXiv.2112.14826",
+          "source": "arXiv API",
+          "source_url": "https://arxiv.org/abs/2112.14826",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "publisher_url",
-            "bibliographic.authors",
-            "bibliographic.publisher",
-            "bibliographic.publication_date"
+            "venue.name",
+            "venue.type",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "article",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2112.14826",
+            "primary_category": "physics.flu-dyn",
+            "categories": [
+              "physics.flu-dyn",
+              "cs.LG"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Diab, W.; Kobaisi, M.A.",
         "publisher": "arXiv",
-        "publication_date": "2021"
+        "publication_date": "2021",
+        "journal_abbreviation": "arXiv [Physics > Fluid Dynamics]"
       }
     },
     {
@@ -41680,10 +41953,10 @@
       "id": 823,
       "title": "Challenges in Training PINNs A Loss Landscape Perspective",
       "citation": "Rathore, P.; Lei, W.; Frangella, Z.; Lu, L.; Udell, M. Challenges in Training PINNs: A Loss Landscape Perspective. arXiv.org, Feb. 02, 2024. https://arxiv.org/abs/2402.01868. 2024.",
-      "doi": null,
+      "doi": "10.48550/arXiv.2402.01868",
       "publisher_url": "https://arxiv.org/abs/2402.01868",
       "venue": {
-        "name": "arXiv.org, Feb. 02, 2024. https://arxiv.org/abs/2402.01868.",
+        "name": "arXiv [Computer Science > Machine Learning]",
         "type": "preprint"
       },
       "year": 2024,
@@ -41697,21 +41970,34 @@
         "evidence_url": "https://arxiv.org/abs/2402.01868",
         "note": null,
         "publisher_enrichment": {
-          "source": "Publisher HTML citation metadata",
+          "source": "arXiv API",
           "source_url": "https://arxiv.org/abs/2402.01868",
           "retrieved_at": "2026-07-23",
           "fields_added": [
-            "bibliographic.authors",
-            "bibliographic.publication_date"
+            "doi",
+            "venue.name",
+            "bibliographic.journal_abbreviation"
           ],
-          "deposited_type": "unknown",
-          "license_urls": []
+          "deposited_type": "preprint",
+          "license_urls": [],
+          "arxiv": {
+            "id": "2402.01868",
+            "primary_category": "cs.LG",
+            "categories": [
+              "cs.LG",
+              "math.OC",
+              "stat.ML"
+            ],
+            "journal_ref": null,
+            "journal_doi": null
+          }
         }
       },
       "last_updated": "2026-07-23",
       "bibliographic": {
         "authors": "Rathore, Pratik; Lei, Weimu; Frangella, Zachary; Lu, Lu; Udell, Madeleine",
-        "publication_date": "2024/02/02"
+        "publication_date": "2024/02/02",
+        "journal_abbreviation": "arXiv [Computer Science > Machine Learning]"
       }
     },
     {
