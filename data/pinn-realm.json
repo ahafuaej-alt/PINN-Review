@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.1.48",
+    "version": "2.1.49",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-23",
     "source_file": "papers-countries-and-year.md",
@@ -10095,7 +10095,7 @@
     },
     {
       "id": 843,
-      "title": "Physics-Informed Neural Networks in Power System Dynamics Improving Simulation Accuracy",
+      "title": "Physics-Informed Neural Networks in Power System Dynamics: Improving Simulation Accuracy",
       "year": 2025,
       "countries": [
         "Denmark"

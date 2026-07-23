@@ -21427,21 +21427,30 @@
   },
   {
     "id": 843,
-    "title": "Physics-Informed Neural Networks in Power System Dynamics Improving Simulation Accuracy",
-    "citation": "Ventura Nadal, I.; Nellikkath, R.; Chatzivasileiadis, S. Physics-Informed Neural Networks in Power System Dynamics: Improving Simulation Accuracy. arXiv 2025, arXiv:2501.17621.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Neural Networks in Power System Dynamics: Improving Simulation Accuracy. arXiv",
-    "reference_type": "preprint",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "Physics-Informed Neural Networks in Power System Dynamics: Improving Simulation Accuracy",
+    "citation": "Ventura Nadal, I.; Nellikkath, R.; Chatzivasileiadis, S. Physics-Informed Neural Networks in Power System Dynamics: Improving Simulation Accuracy. In Proceedings of IEEE Kiel PowerTech, Kiel, Germany, 29 June 2025; pp. 1-6. https://doi.org/10.1109/PowerTech59965.2025.11180536.",
+    "doi": "10.1109/PowerTech59965.2025.11180536",
+    "publisher_url": "https://doi.org/10.1109/PowerTech59965.2025.11180536",
+    "venue": "IEEE Kiel PowerTech",
+    "reference_type": "conference",
+    "bibliographic": {
+      "authors": "Ventura Nadal, I.; Nellikkath, R.; Chatzivasileiadis, S.",
+      "journal_abbreviation": "Neural Networks in Power System Dynamics: Improving Simulation Accuracy. arXiv",
+      "volume": "arXiv:2501.17621",
+      "pages": "1-6",
+      "conference_name": "IEEE Kiel PowerTech",
+      "conference_location": "Kiel",
+      "conference_country": "Germany",
+      "conference_date": "29 June 2025"
+    },
+    "abstract": "The importance and cost of time-domain simulations when studying power systems have exponentially increased in the last decades. With the growing share of renewable energy sources, the slow and predictable responses from large turbines are replaced by the fast and unpredictable dynamics from power electronics. The current existing simulation tools require new solutions designed for faster dynamics. Physics-Informed Neural Networks (PINNs) have recently emerged in power systems to accelerate such simulations. By incorporating knowledge during the up-front training, PINNs provide more accurate results over larger time steps than traditional numerical methods. This paper introduces PINNs as an alternative approximation method that seamlessly integrates with the current simulation framework. We replace a synchronous machine for a trained PINN in the IEEE 9-, 14-, and 30-bus systems and simulate several network disturbances. Including PINNs systematically boosts the simulations’ accuracy, providing more accurate results for both the PINN-modeled component and the whole multi-machine system states.",
     "graphical_abstract": null,
     "year": 2025,
-    "access": "Open access",
+    "access": "Subscription",
     "countries": [
       "Denmark"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 844,
