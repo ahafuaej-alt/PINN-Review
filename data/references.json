@@ -13951,20 +13951,24 @@
   {
     "id": 541,
     "title": "Self-adaptive physics-informed neural networks",
-    "citation": "McClenny, L.D., Braga-Neto, U.M., 2023. Self-adaptive physics-informed neural networks. J. Comput. Phys. 474, 111722. http://dx.doi.org/10.1016/j.jcp.2022. 111722.",
-    "doi": "10.1016/j.jcp.2022",
-    "publisher_url": "https://doi.org/10.1016/j.jcp.2022",
-    "venue": "U.M.",
+    "citation": "McClenny, L.D., Braga-Neto, U.M. Self-adaptive physics-informed neural networks. Journal of Computational Physics 2023, 474, 111722. https://doi.org/10.1016/j.jcp.2022.111722.",
+    "doi": "10.1016/j.jcp.2022.111722",
+    "publisher_url": "https://doi.org/10.1016/j.jcp.2022.111722",
+    "venue": "Journal of Computational Physics",
     "reference_type": "journal",
-    "bibliographic": null,
-    "abstract": null,
+    "bibliographic": {
+      "authors": "McClenny, L.D., Braga-Neto, U.M.",
+      "volume": "474",
+      "article_number": "111722"
+    },
+    "abstract": "Physics-Informed Neural Networks (PINNs) have emerged recently as a promising application of deep neural networks to the numerical solution of nonlinear partial differential equations (PDEs). However, it has been recognized that adaptive procedures are needed to force the neural network to fit accurately the stubborn spots in the solution of “stiff” PDEs. In this paper, we propose a fundamentally new way to train PINNs adaptively, where the adaptation weights are fully trainable and applied to each training point individually, so the neural network learns autonomously which regions of the solution are difficult and is forced to focus on them. The self-adaptation weights specify a soft multiplicative soft attention mask, which is reminiscent of similar mechanisms used in computer vision. The basic idea behind these SA-PINNs is to make the weights increase as the corresponding losses increase, which is accomplished by training the network to simultaneously minimize the losses and maximize the weights. In addition, we show how to build a continuous map of self-adaptive weights using Gaussian Process regression, which allows the use of stochastic gradient descent in problems where conventional gradient descent is not enough to produce accurate solutions. Finally, we derive the Neural Tangent Kernel matrix for SA-PINNs and use it to obtain a heuristic understanding of the effect of the self-adaptive weights on the dynamics of training in the limiting case of infinitely-wide PINNs, which suggests that SA-PINNs work by producing a smooth equalization of the eigenvalues of the NTK matrix corresponding to the different loss terms. In numerical experiments with several linear and nonlinear benchmark problems, the SA-PINN outperformed other state-of-the-art PINN algorithm in L2 error, while using a smaller number of training epochs.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 542,
