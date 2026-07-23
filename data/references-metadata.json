@@ -1,20 +1,20 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "2.1.32",
+  "version": "2.1.33",
   "schema_version": "1.0.0",
   "last_updated": "2026-07-23",
   "record_count": 853,
   "reference_id_range": "1-853",
   "year_range": "1908-2025",
-  "doi_fields": 768,
-  "publisher_or_doi_links": 779,
+  "doi_fields": 769,
+  "publisher_or_doi_links": 780,
   "accessibility": {
-    "open_access": 283,
+    "open_access": 284,
     "subscription": 514,
-    "not_verified": 56
+    "not_verified": 55
   },
   "reference_types": {
-    "journal": 748,
+    "journal": 749,
     "preprint": 26,
     "conference_journal": 2,
     "conference": 43,
@@ -23,16 +23,16 @@
     "thesis": 2,
     "report": 1,
     "other": 1,
-    "unknown": 26
+    "unknown": 25
   },
   "content_availability": {
-    "abstracts": 282,
+    "abstracts": 283,
     "graphical_abstracts": 0
   },
   "source_document": "38_1_10_references.docx",
   "country_source": "papers-countries-and-year.md",
   "canonical_master": "papers-master.json",
-  "legacy_realm_year_overrides": 106,
+  "legacy_realm_year_overrides": 105,
   "display_style": "MDPI ACS reference style",
   "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.json",
   "reference_register_url": "https://ahafuaej-alt.github.io/PINN-Review/references/",

@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.32",
+    "dataset_version": "2.1.33",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 106,
+      "legacy_realm_year_override_count": 105,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -34619,31 +34619,35 @@
     {
       "id": 654,
       "title": "Shadow and quasinormal modes of the rotating Einstein–Euler–Heisenberg black holes",
-      "citation": "Lambiase, G., Gogoi, D.J., Pantig, R.C., Övgün, A., 2024. Shadow and quasi normal modes of the rotating Einstein-Euler-Heisenberg black holes. arXiv:2406.18300.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Lambiase, G.; Gogoi, D.J.; Pantig, R.C.; Övgün, A. Shadow and quasinormal modes of the rotating Einstein–Euler–Heisenberg black holes. Physics of the Dark Universe 2025, 48, 101886. https://doi.org/10.1016/j.dark.2025.101886.",
+      "doi": "10.1016/j.dark.2025.101886",
+      "publisher_url": "https://doi.org/10.1016/j.dark.2025.101886",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Physics of the Dark Universe",
+        "type": "journal"
       },
-      "year": 2024,
-      "access": "Not verified",
+      "year": 2025,
+      "access": "Open access",
       "countries": [
         "Italy",
         "India",
         "Philippines",
         "Türkiye"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://www.sciencedirect.com/science/article/pii/S2212686425000792?__cf_chl_tk=bgq32efMislmn15KbLG3vkf6nIVEBTHT5lv1.43jToA-1784840540-1.0.1.1-iHHR1TVilTvPbBF2QhopPdCtZ858doaB7a12Ahgzvtk",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "The Einstein–Euler–Heisenberg (EEH) black hole model is an extension of classical black hole solutions in general relativity, incorporating quantum electrodynamics (QED) effects via the Euler–Heisenberg Lagrangian. The Euler–Heisenberg Lagrangian describes the nonlinear corrections to Maxwell’s equations due to virtual electron–positron pair production in a strong electromagnetic field. When this Lagrangian is coupled with Einstein’s field equations, it leads to modified black hole solutions that take into account these quantum corrections. In this paper, we investigate the impact of the black hole charge on the properties of the rotating and electrically charged Einstein–Euler–Heisenberg black holes (EEH). To this aim, we analyzed and discussed findings as to how the black hole charge affects certain black hole properties such as null regions, shadow cast and its observables, and quasinormal modes (QNMs) relative to the Kerr and Kerr–Newman cases. We find that the presence of a screened charge due to the associated QED effects in this screened Maxwell theory might noticeably alter the properties of black holes, offering insights into the interplay between gravity and quantum field effects.",
+      "bibliographic": {
+        "authors": "Lambiase, G.; Gogoi, D.J.; Pantig, R.C.; Övgün, A.",
+        "volume": "48",
+        "article_number": "101886"
+      }
     },
     {
       "id": 655,

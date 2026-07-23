@@ -2,6 +2,69 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-654-2026-07-23-2.1.33",
+      "version": "2.1.33",
+      "date": "2026-07-23",
+      "paper_id": 654,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "update info",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/pii/S2212686425000792?__cf_chl_tk=bgq32efMislmn15KbLG3vkf6nIVEBTHT5lv1.43jToA-1784840540-1.0.1.1-iHHR1TVilTvPbBF2QhopPdCtZ858doaB7a12Ahgzvtk",
+        "note": "update info"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 654,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 161,
+            "after": 160
+          },
+          {
+            "year": 2025,
+            "before": 304,
+            "after": 305
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-651-2026-07-23-2.1.32",
       "version": "2.1.32",
       "date": "2026-07-23",
