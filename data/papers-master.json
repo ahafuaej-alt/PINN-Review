@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.26",
+    "dataset_version": "2.1.27",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -36452,12 +36452,12 @@
     {
       "id": 691,
       "title": "Data-driven discovery of turbulent flow equations using physics-informed neural networks",
-      "citation": "Yazdani, S., Tahani, M., 2024. Data-driven discovery of turbulent flow equations using physics-informed neural networks. Phys. Fluids 36, http://dx.doi.org/10.1063/5. 0190138.",
-      "doi": "10.1063/5",
-      "publisher_url": "https://doi.org/10.1063/5",
+      "citation": "Yazdani, S.; Tahani, M. Data-driven discovery of turbulent flow equations using physics-informed neural networks. Physics of Fluids 2024, 36, 035107. https://doi.org/10.1063/5.0190138.",
+      "doi": "10.1063/5.0190138",
+      "publisher_url": "https://doi.org/10.1063/5.0190138",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Physics of Fluids",
+        "type": "journal"
       },
       "year": 2024,
       "access": "Subscription",
@@ -36467,10 +36467,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1063/5",
-        "note": null
+        "evidence_url": "https://pubs.aip.org/aip/pof/article-abstract/36/3/035107/3268437/Data-driven-discovery-of-turbulent-flow-equations?redirectedFrom=fulltext",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "In the field of fluid mechanics, traditional turbulence models such as those based on Reynolds-averaged Navier–Stokes (RANS) equations play a crucial role in solving numerous problems. However, their accuracy in complex scenarios is often limited due to inherent assumptions and approximations, as well as imprecise coefficients in the turbulence model equations. Addressing these challenges, our research introduces an innovative approach employing physics-informed neural networks (PINNs) to optimize the parameters of the standard turbulence model. PINNs integrate physical loss functions into the model, enabling the adaptation of all coefficients in the standard model as trainable parameters. This novel methodology significantly enhances the accuracy and efficiency of turbulent flow simulations, as demonstrated by our application to the flow over periodic hills. The two coefficients that have been modified considerably are and α, which correspond to the diffusion and production terms in the specific dissipation rate equation. The results indicate that the RANS simulation with PINNs coefficients (⁠ PINNs simulation) improves the prediction of separation in the near-wall region and mitigates the overestimation of turbulent kinetic energy compared to the base RANS simulation. This research marks a significant advancement in turbulence modeling, showcasing the potential of PINNs in parameter identification and optimization in fluid mechanics.",
+      "bibliographic": {
+        "authors": "Yazdani, S.; Tahani, M.",
+        "volume": "36",
+        "article_number": "035107"
+      }
     },
     {
       "id": 692,
