@@ -1,0 +1,124 @@
+name: Accept all publisher metadata review proposals
+
+run-name: Accept all publisher metadata review proposals
+
+on:
+  pull_request:
+    paths:
+      - scripts/accept-all-publisher-enrichment.mjs
+      - .github/workflows/accept-all-publisher-enrichment.yml
+  push:
+    branches: [main]
+    paths:
+      - scripts/accept-all-publisher-enrichment.mjs
+      - .github/workflows/accept-all-publisher-enrichment.yml
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: canonical-dataset-update
+  cancel-in-progress: false
+
+jobs:
+  apply-and-validate:
+    name: Apply, rebuild, and validate publisher metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    outputs:
+      changed: ${{ steps.result.outputs.changed }}
+      commit_sha: ${{ steps.commit.outputs.sha }}
+      accepted_count: ${{ steps.result.outputs.accepted_count }}
+      release_version: ${{ steps.result.outputs.release_version }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Accept every usable open publisher proposal
+        run: node scripts/accept-all-publisher-enrichment.mjs --summary=/tmp/publisher-review-acceptance-summary.json
+
+      - name: Rebuild and validate synchronized Atlas datasets
+        run: |
+          node scripts/build-datasets.mjs
+          node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
+          node scripts/validate-pinn-realm.mjs
+          node scripts/build-datasets.mjs --check
+          git diff --check
+
+      - name: Capture release result
+        id: result
+        run: |
+          node - <<'NODE' >> "$GITHUB_OUTPUT"
+          const fs = require('fs');
+          const summary = JSON.parse(fs.readFileSync('/tmp/publisher-review-acceptance-summary.json', 'utf8'));
+          console.log(`changed=${summary.changed ? 'true' : 'false'}`);
+          console.log(`accepted_count=${summary.accepted_records || 0}`);
+          console.log(`release_version=${summary.release_version || summary.current_version || ''}`);
+          NODE
+          cat /tmp/publisher-review-acceptance-summary.json >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit accepted publisher metadata
+        id: commit
+        if: github.event_name != 'pull_request' && steps.result.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json
+          git commit -m "Accept all publisher metadata review proposals [skip pages]"
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Deploy accepted publisher metadata
+    needs: apply-and-validate
+    if: github.event_name != 'pull_request' && needs.apply-and-validate.outputs.changed == 'true'
+    uses: ./.github/workflows/pages.yml
+    with:
+      source_sha: ${{ needs.apply-and-validate.outputs.commit_sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+  report:
+    name: Report publisher metadata release
+    needs: [apply-and-validate, deploy]
+    if: always() && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Write release summary
+        env:
+          CHANGED: ${{ needs.apply-and-validate.outputs.changed }}
+          ACCEPTED_COUNT: ${{ needs.apply-and-validate.outputs.accepted_count }}
+          RELEASE_VERSION: ${{ needs.apply-and-validate.outputs.release_version }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+          COMMIT_SHA: ${{ needs.apply-and-validate.outputs.commit_sha }}
+        run: |
+          {
+            echo "## Publisher metadata review release"
+            echo
+            echo "- Dataset changed: ${CHANGED:-false}"
+            echo "- Accepted records: ${ACCEPTED_COUNT:-0}"
+            echo "- Dataset version: ${RELEASE_VERSION:-unknown}"
+            echo "- Deployment result: ${DEPLOY_RESULT:-skipped}"
+            if [ -n "${COMMIT_SHA:-}" ]; then
+              echo "- Dataset commit: ${COMMIT_SHA}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${CHANGED:-false}" = "true" ] && [ "${DEPLOY_RESULT:-}" != "success" ]; then
+            echo "The dataset was changed but the Atlas deployment did not complete successfully." >&2
+            exit 1
+          fi
