@@ -17677,20 +17677,24 @@
   {
     "id": 688,
     "title": "An analysis and solution of ill-conditioning in physics-informed neural networks",
-    "citation": "Cao, W., Zhang, W., 2025. An analysis and solution of ill-conditioning in physics-informed neural networks. J. Comput. Phys. 520, http://dx.doi.org/10.1016/j.jcp. 2024.113494.",
-    "doi": "10.1016/j.jcp",
-    "publisher_url": "https://doi.org/10.1016/j.jcp",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Cao, W.; Zhang, W. An analysis and solution of ill-conditioning in physics-informed neural networks. Journal of Computational Physics 2025, 520, 113494. https://doi.org/10.1016/j.jcp.2024.113494.",
+    "doi": "10.1016/j.jcp.2024.113494",
+    "publisher_url": "https://doi.org/10.1016/j.jcp.2024.113494",
+    "venue": "Journal of Computational Physics",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Cao, W.; Zhang, W.",
+      "volume": "520",
+      "article_number": "113494"
+    },
+    "abstract": "Physics-informed neural networks (PINNs) have recently emerged as a novel and popular approach for solving forward and inverse problems involving partial differential equations (PDEs). However, ensuring stable training and obtaining accurate results remain challenging in many scenarios, often attributed to the ill-conditioning of PINNs. Despite this, a deeper analysis is still lacking, which hampers progress and application of PINNs in complex engineering problems. Drawing inspiration from the ill-conditioning analysis in traditional numerical methods, we establish a strong connection between the ill-conditioning of PINNs and the Jacobian matrix of the PDE system. Specifically, for any given PDE system, we construct a controlled system that allows for the adjustment of the Jacobian matrix's condition number while retaining the same solution as the original system. Our numerical experiments show that as the condition number of the Jacobian matrix decreases, PINNs exhibit faster convergence and higher accuracy. Building upon this principle and the extension of controlled systems, we propose a general approach to mitigate the ill-conditioning in PINNs, leading to successful simulations of three-dimensional flow around the M6 wing at a Reynolds number of 5,000. To the best of our knowledge, this is the first time that PINNs have successfully simulated such complex systems, offering a promising new technique for addressing industrial complexity problems. Our findings also provide valuable insights to guide the future development of PINNs.",
     "graphical_abstract": null,
-    "year": 2024,
+    "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 689,
