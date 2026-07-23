@@ -12196,13 +12196,20 @@
   },
   {
     "id": 468,
-    "title": "Deep learning by ian goodfellow",
-    "citation": "Heaton, J., 2018. Deep learning by ian goodfellow, yoshua bengio, and aaron courville. Genet. Program. Evolvable Mach. 19 (1–2), 305–307. http://dx.doi.org/10.1007/ s10710-017-9314-z.",
+    "title": "Ian Goodfellow, Yoshua Bengio, and Aaron Courville: Deep learning",
+    "citation": "Heaton, J. Ian Goodfellow, Yoshua Bengio, and Aaron Courville: Deep learning. In Genetic programming and evolvable machines; The MIT Press, springer, 2018; Volume 19, pp. 305–307. https://doi.org/10.1007/s10710-017-9314-z.",
     "doi": "10.1007/s10710-017-9314-z",
     "publisher_url": "https://doi.org/10.1007/s10710-017-9314-z",
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
+    "venue": "Genetic programming and evolvable machines",
+    "reference_type": "chapter",
+    "bibliographic": {
+      "authors": "Heaton, J.",
+      "journal_abbreviation": "Venue not identified",
+      "volume": "19",
+      "pages": "305–307",
+      "book_title": "Genetic programming and evolvable machines",
+      "publisher": "The MIT Press, springer"
+    },
     "abstract": null,
     "graphical_abstract": null,
     "year": 2018,
@@ -12210,7 +12217,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-23"
   },
   {
     "id": 469,
