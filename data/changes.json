@@ -2,6 +2,78 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-437-2026-07-23-2.1.4",
+      "version": "2.1.4",
+      "date": "2026-07-23",
+      "paper_id": 437,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access"
+      ],
+      "reason": "change the type and fill info",
+      "evidence": {
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/83d3d4b6c9579515e1679aca8cbc8033-Paper.pdf",
+        "note": "change the type and fill info"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 437,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2020,
+            "before": 40,
+            "after": 39
+          },
+          {
+            "year": 2021,
+            "before": 69,
+            "after": 70
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2020,
+            "before": 50,
+            "after": 49
+          },
+          {
+            "year": 2021,
+            "before": 62,
+            "after": 63
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-346-2026-07-23-2.1.3",
       "version": "2.1.3",
       "date": "2026-07-23",
