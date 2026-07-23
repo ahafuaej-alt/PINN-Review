@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.1.34",
+    "dataset_version": "2.1.35",
     "last_updated": "2026-07-23",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 105,
+      "legacy_realm_year_override_count": 104,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -38776,28 +38776,33 @@
     {
       "id": 736,
       "title": "Physics informed cell representations for variational formulation of multiscale problems",
-      "citation": "Gao, Y., Kolouri, S., Duddu, R., 2024a. Physics informed cell representations for variational formulation of multiscale problems. arXiv:2405.16770.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Gao, Y.; Kolouri, S.; Duddu, R. Physics informed cell representations for variational formulation of multiscale problems. Arxiv [Computer Science. Machine Learning] 2024, 2405, 1-50. https://doi.org/10.48550/arXiv.2405.16770.",
+      "doi": "10.48550/arXiv.2405.16770",
+      "publisher_url": "https://doi.org/10.48550/arXiv.2405.16770",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Arxiv [Computer Science. Machine Learning]",
+        "type": "preprint"
       },
-      "year": null,
-      "access": "Not verified",
+      "year": 2024,
+      "access": "Open access",
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them."
+        "evidence_url": "https://arxiv.org/abs/2405.16770",
+        "note": "update info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-23",
+      "abstract": "With the rapid advancement of graphical processing units, Physics-Informed Neural Networks (PINNs) are emerging as a promising tool for solving partial differential equations (PDEs). However, PINNs are not well suited for solving PDEs with multiscale features, particularly suffering from slow convergence and poor accuracy. To address this limitation of PINNs, this article proposes physics-informed cell representations for resolving multiscale Poisson problems using a model architecture consisting of multilevel multiresolution grids coupled with a multilayer perceptron (MLP). The grid parameters (i.e., the level-dependent feature vectors) and the MLP parameters (i.e., the weights and biases) are determined using gradient-descent based optimization. The variational (weak) form based loss function accelerates computation by allowing the linear interpolation of feature vectors within grid cells. This cell-based MLP model also facilitates the use of a decoupled training scheme for Dirichlet boundary conditions and a parameter-sharing scheme for periodic boundary conditions, delivering superior accuracy compared to conventional PINNs. Furthermore, the numerical examples highlight improved speed and accuracy in solving PDEs with nonlinear or high-frequency boundary conditions and provide insights into hyperparameter selection. In essence, by cell-based MLP model along with the parallel tiny-cuda-nn library, our implementation improves convergence speed and numerical accuracy.",
+      "bibliographic": {
+        "authors": "Gao, Y.; Kolouri, S.; Duddu, R.",
+        "volume": "2405",
+        "pages": "1-50",
+        "article_number": "16770v1"
+      }
     },
     {
       "id": 737,
