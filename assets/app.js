@@ -141,6 +141,168 @@
     }
   });
 
+  // Dataset Manager paper browser enhancement. The module intentionally renders
+  // a short preview, which prevents reviewers from scrolling through the full
+  // bibliography. Replace that preview with all 853 records, preserve search,
+  // and add direct previous/next-paper navigation.
+  const managerResults = document.querySelector('[data-manager-results]');
+  const managerSearch = document.querySelector('[data-manager-search]');
+  const managerSearchField = managerSearch?.closest('.search-field');
+  if (managerResults && managerSearch && managerSearchField) {
+    const browserStyle = document.createElement('style');
+    browserStyle.textContent = `
+      .manager-results {
+        height: min(68vh, 720px);
+        min-height: 420px;
+        max-height: none;
+        align-content: start;
+        overflow-y: scroll;
+        scrollbar-gutter: stable;
+      }
+      .manager-browser-controls {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: .45rem;
+        margin-top: .55rem;
+      }
+      .manager-browser-controls button {
+        min-height: 34px;
+        padding: .4rem .62rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--surface-faint);
+        font-size: .65rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .manager-browser-controls button:hover:not(:disabled) {
+        border-color: var(--mint);
+        background: var(--panel-strong);
+      }
+      .manager-browser-controls button:disabled {
+        opacity: .4;
+        cursor: not-allowed;
+      }
+      .manager-browser-position {
+        color: var(--faint);
+        font-family: var(--mono);
+        font-size: .6rem;
+        text-align: center;
+      }
+      @media (max-width: 760px) {
+        .manager-results {
+          height: 56vh;
+          min-height: 360px;
+        }
+      }
+    `;
+    document.head.append(browserStyle);
+
+    const controls = document.createElement('div');
+    controls.className = 'manager-browser-controls';
+    controls.innerHTML = '<button type="button" data-manager-previous aria-label="Open previous paper">← Previous</button><span class="manager-browser-position" data-manager-position>Loading papers…</span><button type="button" data-manager-next aria-label="Open next paper">Next →</button>';
+    managerSearchField.insertAdjacentElement('afterend', controls);
+
+    const previousButton = controls.querySelector('[data-manager-previous]');
+    const nextButton = controls.querySelector('[data-manager-next]');
+    const position = controls.querySelector('[data-manager-position]');
+    let managerPapers = [];
+    let renderScheduled = false;
+
+    const managerNormalize = (value) => String(value ?? '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLocaleLowerCase('en');
+    const managerEscape = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[character]));
+    const selectedPaperId = () => Number(new URLSearchParams(location.search).get('id'));
+
+    let resultsObserver;
+    const renderFullPaperList = ({ scrollSelected = false } = {}) => {
+      if (!managerPapers.length) return;
+      const query = managerNormalize(managerSearch.value.trim().replace(/^\[|\]$/g, ''));
+      const selectedId = selectedPaperId();
+      const matches = query
+        ? managerPapers.filter((paper) => [
+          paper.id,
+          paper.title,
+          paper.doi,
+          paper.venue?.name,
+          paper.venue?.type,
+          (paper.countries || []).join(' ')
+        ].some((value) => managerNormalize(value).includes(query)))
+        : managerPapers;
+
+      resultsObserver?.disconnect();
+      managerResults.innerHTML = matches.length
+        ? matches.map((paper) => `<button type="button" role="option" data-manager-paper="${paper.id}" aria-selected="${paper.id === selectedId}"><span>[${paper.id}]</span><strong title="${managerEscape(paper.title)}">${managerEscape(paper.title)}</strong><small>${managerEscape(paper.year ?? 'Year not identified')} · ${managerEscape(String(paper.venue?.type || 'unknown').replaceAll('_', ' '))} · ${managerEscape(paper.venue?.name || 'Source not identified')}</small></button>`).join('')
+        : '<p class="manager-muted">No matching paper record.</p>';
+      resultsObserver?.observe(managerResults, { childList: true });
+
+      const globalIndex = managerPapers.findIndex((paper) => paper.id === selectedId);
+      previousButton.disabled = globalIndex <= 0;
+      nextButton.disabled = globalIndex < 0 || globalIndex >= managerPapers.length - 1;
+      position.textContent = query
+        ? `${matches.length.toLocaleString()} matching paper${matches.length === 1 ? '' : 's'}`
+        : globalIndex >= 0
+          ? `Paper ${globalIndex + 1} of ${managerPapers.length}`
+          : `${managerPapers.length.toLocaleString()} papers`;
+
+      if (scrollSelected && selectedId) {
+        requestAnimationFrame(() => {
+          managerResults.querySelector(`[data-manager-paper="${selectedId}"]`)?.scrollIntoView({ block: 'nearest' });
+        });
+      }
+    };
+
+    const scheduleFullRender = (scrollSelected = false) => {
+      if (renderScheduled) return;
+      renderScheduled = true;
+      queueMicrotask(() => {
+        renderScheduled = false;
+        renderFullPaperList({ scrollSelected });
+      });
+    };
+
+    resultsObserver = new MutationObserver(() => scheduleFullRender(true));
+    resultsObserver.observe(managerResults, { childList: true });
+    managerSearch.addEventListener('input', () => setTimeout(() => renderFullPaperList(), 0), { capture: true });
+
+    const openAdjacentPaper = (offset) => {
+      if (!managerPapers.length) return;
+      const currentIndex = managerPapers.findIndex((paper) => paper.id === selectedPaperId());
+      const targetIndex = currentIndex < 0
+        ? (offset > 0 ? 0 : managerPapers.length - 1)
+        : Math.min(managerPapers.length - 1, Math.max(0, currentIndex + offset));
+      managerSearch.value = '';
+      renderFullPaperList();
+      managerResults.querySelector(`[data-manager-paper="${managerPapers[targetIndex].id}"]`)?.click();
+    };
+
+    previousButton.addEventListener('click', () => openAdjacentPaper(-1));
+    nextButton.addEventListener('click', () => openAdjacentPaper(1));
+
+    fetch('../data/papers-master.json', { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Master dataset returned ${response.status}`);
+        return response.json();
+      })
+      .then((master) => {
+        managerPapers = [...(master.papers || [])].sort((left, right) => Number(left.id) - Number(right.id));
+        renderFullPaperList({ scrollSelected: true });
+      })
+      .catch(() => {
+        position.textContent = 'Paper list unavailable';
+      });
+  }
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = document.querySelectorAll('.reveal');
   if (reducedMotion || !('IntersectionObserver' in window)) items.forEach((item) => item.classList.add('visible'));
