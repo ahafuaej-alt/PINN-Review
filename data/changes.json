@@ -2,6 +2,41 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-161-2026-07-24-2.2.47",
+      "version": "2.2.47",
+      "date": "2026-07-24",
+      "paper_id": 161,
+      "changed_fields": [
+        "abstract"
+      ],
+      "reason": "abs",
+      "evidence": {
+        "url": "https://linkinghub.elsevier.com/retrieve/pii/S0309170825000661",
+        "note": "abs"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 161,
+        "changed_fields": [
+          "abstract"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-160-2026-07-24-2.2.46",
       "version": "2.2.46",
       "date": "2026-07-24",

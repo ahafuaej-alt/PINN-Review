@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.46",
+    "dataset_version": "2.2.47",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -12913,8 +12913,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.advwatres.2025.104952",
-        "note": null,
+        "evidence_url": "https://linkinghub.elsevier.com/retrieve/pii/S0309170825000661",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1016%2Fj.advwatres.2025.104952",
@@ -12971,7 +12971,8 @@
         "article_number": "104952",
         "publisher": "Elsevier BV",
         "publication_date": "2025-06"
-      }
+      },
+      "abstract": "Modeling breakthrough patterns in heterogeneous porous media during two-phase fluid flow presents unique challenges due to computational complexity and data scarcity. Current deep learning approaches, primarily generative adversarial network (GAN) based, focus on homogeneous media, limiting their practical application in real-world heterogeneous pore systems. In this work, we introduce FluidNet-Lite, a lightweight Convolutional Neural Network for pore-scale modeling in heterogeneous porous media. Departing from generative task frameworks, we reformulate breakthrough pattern prediction as an innovative pixel-wise classification task, significantly reducing model complexity. By integrating two essential physical parameters—viscosity ratio (M) and contact angle (θ), our approach improves predictive accuracy and embeds critical physics-based dependencies directly into the learning process. A Grain-Weighted Adaptive Loss (GWAL) function further enforces fluid flow principles, enhancing model consistency with physical laws. FluidNet-Lite achieves state-of-the-art performance with an Intersection over Union (IoU) of 0.92 and a Structural Similarity Index Measure (SSIM) of 0.89. It is 94% lighter and 48% more computationally efficient than GAN-based alternatives, reducing VRAM usage by 40% and inference time by 30%. Demonstrating robust generalization across interpolation, extrapolation, and unseen test samples, FluidNet-Lite sets a new benchmark for lightweight, physics-informed modeling in heterogeneous porous media fluid dynamics, as evidenced by its superior performance and efficiency improvements over conventional approaches. We also publish a comprehensive dataset and codebase to support future research in lightweight architectures for deep learning-based surrogate modeling of pore-scale immiscible displacement patterns."
     },
     {
       "id": 162,
