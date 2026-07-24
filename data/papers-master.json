@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.23",
+    "dataset_version": "2.2.24",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -6212,8 +6212,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TAP.2025.3573475",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11021333/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTAP.2025.3573475",
@@ -6259,7 +6259,7 @@
           "published_version": null
         }
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Zheng, X.; Peng, T.J.; Hou, J.; Zhang, Y.; Chen, L.; Qin, S.L.; Mao, Y.Q.; Lu, W.B.; Zhang, J.N.; You, J.W.; Cui, T.J.",
         "journal_abbreviation": "IEEE Trans. Antennas Propagat.",
@@ -6268,7 +6268,8 @@
         "pages": "6826-6838",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-09"
-      }
+      },
+      "abstract": "Data-driven deep learning techniques have made notable advancements in modeling electromagnetic (EM) scattering problems. owever, its accuracy on the testing dataset can be heavily reduced when data availability is constrained. To address the overfitting problem caused by limited data, we propose a novel hybrid physics-data-driven neural network (HPDNN), which incorporates both data loss and physical loss. Specifically, Maxwell’s equations are used as the physical constraint to evaluate the prediction accuracy of neural network (NN), and the physical loss is combined with the data loss in the backpropagation for extrapolation tasks. The results show that the proposed method can achieve accuracy enhancement up to 15.7% over the typical data-driven method, and the field profile of prediction can be significantly improved with the aid of physical constrain. Besides, this work reveals that the convergence speed and accuracy of HPDNN are better than those of purely physics-informed NN (PINN), exhibiting the importance of loss hybrid on accurate modeling of EMs."
     },
     {
       "id": 81,
