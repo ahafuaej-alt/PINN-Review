@@ -2191,7 +2191,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-09"
     },
-    "abstract": null,
+    "abstract": "The data-driven machine-learning approach has significantly advanced the development of computational electromagnetics. This study introduces the Kolmogorov-Arnold network (KAN) as a novel method to overcome the limitations of traditional multilayer perceptron-based physics-informed neural networks (MLP-PINNs), which often struggle with fixed activation functions and high computational costs. In terms of accuracy, KAN outperforms traditional PINNs with a 13.47% improvement in estimated accuracy. For efficient convergence, KAN achieves stable training with only 175 steps, significantly reducing computational overhead compared to PINNs, which require over 15000 steps. Additionally, KAN demonstrates superior generalizability and flexibility, achieving an average 5.03% accuracy improvement over PINN in transfer learning scenarios. These results highlight KANs potential in computational electromagnetics.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",

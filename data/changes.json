@@ -2,6 +2,41 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-81-2026-07-24-2.2.28",
+      "version": "2.2.28",
+      "date": "2026-07-24",
+      "paper_id": 81,
+      "changed_fields": [
+        "abstract"
+      ],
+      "reason": "abs",
+      "evidence": {
+        "url": "https://ieeexplore.ieee.org/document/10908913/",
+        "note": "abs"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 81,
+        "changed_fields": [
+          "abstract"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "full-venue-citation-migration-2026-07-24-2.2.27",
       "version": "2.2.27",
       "date": "2026-07-24",
