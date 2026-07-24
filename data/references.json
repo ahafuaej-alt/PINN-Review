@@ -16,14 +16,14 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-12"
     },
-    "abstract": null,
+    "abstract": "Software efforts in automatic differentiation are built on the observation that every computation is implemented as a series of elementary operations, and that symbolic partial derivatives can be supplied for each of these operations. Any computation can then be traversed (either forwards or backwards) utilizing the chain rule to accumulate derivatives. These frameworks have no mechanism for simplifying these expressions before evaluating them. As we illustrate below, the resulting errors tend to be unbounded.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 2,
