@@ -3851,7 +3851,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-07"
     },
-    "abstract": null,
+    "abstract": "The complexity of data and limited model generalization significantly hinder prediction accuracy. A physics-informed long short-term memory model with adaptive weight assignment (PILSTM-AWA) is proposed. First, PILSTM-AWA employs segmented feature extraction to enhance local information capture and improve feature extraction capabilities for nonlinear data. Then, the physical distribution and dynamic changes law of dissolved gas in oil are embedded into the LSTM framework. PILSTM is designed to constrain data fluctuations and predict dissolved gas in oil. Finally, an adaptive dynamic weighting strategy is introduced to balance physical and data information, enhancing forecast accuracy. The study utilizes online monitoring data from a 1000 kV transformer. Experimental results demonstrate that the model outperforms comparative algorithms in evaluation metrics. Notably, it achieves a coefficient of determination exceeding 91% under both normal and abnormal conditions, surpassing the predictive performance of conventional models.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
