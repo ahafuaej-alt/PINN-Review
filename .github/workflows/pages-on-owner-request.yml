@@ -1,0 +1,53 @@
+name: Deploy GitHub Pages on owner request
+
+run-name: Deploy current main requested in issue #${{ github.event.issue.number }}
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+jobs:
+  deploy:
+    if: ${{ github.event.issue.user.login == github.repository_owner && github.event.issue.title == '[Deploy Pages] Current main' }}
+    uses: ./.github/workflows/pages.yml
+    with:
+      source_sha: ${{ github.sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+  report:
+    needs: deploy
+    if: ${{ always() && github.event.issue.user.login == github.repository_owner && github.event.issue.title == '[Deploy Pages] Current main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Report deployment result
+        uses: actions/github-script@v7
+        env:
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+        with:
+          script: |
+            const succeeded = process.env.DEPLOY_RESULT === 'success';
+            const body = succeeded
+              ? `### ✅ GitHub Pages deployed\n\nThe current \`main\` commit \`${context.sha}\` was deployed successfully.`
+              : `### ❌ GitHub Pages deployment failed\n\nThe deployment job ended with status \`${process.env.DEPLOY_RESULT}\`. Open the associated Actions run for the failing step.`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+            if (succeeded) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+            }
