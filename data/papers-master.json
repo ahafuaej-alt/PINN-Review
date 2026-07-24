@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.19",
+    "dataset_version": "2.2.20",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -5887,7 +5887,7 @@
     {
       "id": 76,
       "title": "Laser Ultrasonic Wavefield Reconstruction and Defect Detection Using Physics-Informed Neural Networks",
-      "citation": "Song, Y.; Xu, B.; Zou, Y.; Sha, G.; Yang, L.; Cai, G.; Li, Y. Laser Ultrasonic Wavefield Reconstruction and Defect Detection Using Physics-Informed Neural Networks. J Nondestruct Eval 2025, 44, 93. https://doi.org/10.1007/s10921-025-01241-6.",
+      "citation": "Song, Y.; Xu, B.; Zou, Y.; Sha, G.; Yang, L.; Cai, G.; Li, Y. Laser Ultrasonic Wavefield Reconstruction and Defect Detection Using Physics-Informed Neural Networks. Journal of Nondestructive Evaluation 2025, 44, 93. https://doi.org/10.1007/s10921-025-01241-6.",
       "doi": "10.1007/s10921-025-01241-6",
       "publisher_url": "https://link.springer.com/10.1007/s10921-025-01241-6",
       "venue": {
@@ -5903,8 +5903,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1007/s10921-025-01241-6",
-        "note": null,
+        "evidence_url": "https://link.springer.com/10.1007/s10921-025-01241-6",
+        "note": "abs and abb",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1007%2Fs10921-025-01241-6",
@@ -5947,18 +5947,20 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Song, Y.; Xu, B.; Zou, Y.; Sha, G.; Yang, L.; Cai, G.; Li, Y.",
-        "journal_abbreviation": "J Nondestruct Eval",
+        "journal_abbreviation": "Journal of Nondestructive Evaluation",
         "volume": "44",
         "issue": "3",
         "article_number": "93",
         "publisher": "Springer Science and Business Media LLC",
         "publication_date": "2025-09"
-      }
+      },
+      "abstract": "Laser ultrasonic (LU) testing has attracted considerable attention in the fields of material characterization and defect detection due to its non-destructive nature. However, acquiring a complete wavefield using LU typically requires significant time and resources, motivating the development of more efficient sampling strategies. In this study, a novel approach based on Physics-Informed Neural Networks (PINNs) is proposed to reconstruct the full Lamb wavefield from sparsely sampled experimental data. By embedding the governing physical laws of wave propagation into the neural network framework, the PINN model is trained to infer the wavefield characteristics from a limited number of measurements. Notably, the proposed method successfully reconstructs the complete Lamb wavefield with an accuracy of 88% while using only one-sixteenth of the full dataset. The results highlight the potential of PINNs to improve both the efficiency and accuracy of wavefield reconstruction, offering a promising solution to the limitations of conventional LU testing."
     },
     {
       "id": 77,
