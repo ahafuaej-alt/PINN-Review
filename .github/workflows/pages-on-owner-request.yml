@@ -33,9 +33,10 @@ jobs:
         with:
           script: |
             const succeeded = process.env.DEPLOY_RESULT === 'success';
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const body = succeeded
-              ? `### ✅ GitHub Pages deployed\n\nThe current \`main\` commit \`${context.sha}\` was deployed successfully.`
-              : `### ❌ GitHub Pages deployment failed\n\nThe deployment job ended with status \`${process.env.DEPLOY_RESULT}\`. Open the associated Actions run for the failing step.`;
+              ? `### ✅ GitHub Pages deployed\n\nThe current \`main\` commit \`${context.sha}\` was deployed successfully.\n\n- Workflow run: ${runUrl}`
+              : `### ❌ GitHub Pages deployment failed\n\nThe deployment job ended with status \`${process.env.DEPLOY_RESULT}\`.\n\n- Workflow run: ${runUrl}`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
