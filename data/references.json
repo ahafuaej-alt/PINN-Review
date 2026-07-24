@@ -4713,7 +4713,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-05"
     },
-    "abstract": null,
+    "abstract": "The nonlinear (NL) magnetic material law is crucial for an accurate estimation of the core losses in electromagnetic devices. However, this law comes with a certain level of uncertainty. Conventionally, the experimental material data are fit in parameterized material models that are then integrated in computational field methods, e.g., finite elements. In this article, we aim to explore the capabilities of physics-informed neural networks (PINNs) for characterizing magnetic materials. Therefore, we consider a 1-D time-domain magneto-quasi-static (MQS) problem including saturation and hysteresis. The governing partial differential equations (PDEs) together with the initial conditions (ICs) and boundary conditions (BCs) are incorporated into the PINN loss function, resulting in an optimization procedure. Particular attention is paid to the computation of derivatives, studying the performance of automatic differentiation (AD) and finite difference (FD). A 1-D FE solution serves as validation.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
