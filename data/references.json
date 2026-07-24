@@ -4739,7 +4739,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-05"
     },
-    "abstract": null,
+    "abstract": "Rising chip power density makes rapid full-chip temperature prediction essential, while conventional machine-learning thermal solvers can require expensive training. The study introduces PISOV, a physics-informed separation-of-variables method that estimates cosine-series coefficients through least-squares matrix operations rather than standard backpropagation. It combines physics-informed neural-network constraints with analytical separation of variables and extends the formulation with neural-network parameterization of effective convection coefficients and core power values for uncertainty analysis. The authors compare grid, uniform, Sobol, Latin hypercube, Halton, Hammersley, and hybrid sampling schemes. Reported benchmarks show substantial acceleration relative to ThermPINN and conventional PINN solvers while retaining accurate thermal maps; Hammersley sampling provides the strongest accuracy among the evaluated strategies.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Open access",

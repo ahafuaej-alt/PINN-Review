@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.51",
+    "dataset_version": "2.2.52",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -14031,8 +14031,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TCAD.2024.3506867",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10767764/",
+        "note": "Abstract content verified against the IEEE record and the author-hosted publication copy.",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTCAD.2024.3506867",
@@ -14089,7 +14089,8 @@
         "pages": "1874-1886",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-05"
-      }
+      },
+      "abstract": "Rising chip power density makes rapid full-chip temperature prediction essential, while conventional machine-learning thermal solvers can require expensive training. The study introduces PISOV, a physics-informed separation-of-variables method that estimates cosine-series coefficients through least-squares matrix operations rather than standard backpropagation. It combines physics-informed neural-network constraints with analytical separation of variables and extends the formulation with neural-network parameterization of effective convection coefficients and core power values for uncertainty analysis. The authors compare grid, uniform, Sobol, Latin hypercube, Halton, Hammersley, and hybrid sampling schemes. Reported benchmarks show substantial acceleration relative to ThermPINN and conventional PINN solvers while retaining accurate thermal maps; Hammersley sampling provides the strongest accuracy among the evaluated strategies."
     },
     {
       "id": 176,
