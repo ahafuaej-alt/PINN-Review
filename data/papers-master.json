@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.42",
+    "dataset_version": "2.2.43",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -12590,8 +12590,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/MWC.003.2400418",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11016226/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FMWC.003.2400418",
@@ -12648,7 +12648,8 @@
         "pages": "106-112",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-06"
-      }
+      },
+      "abstract": "Reconfigurable intelligent surface (RIS) is widely recognized as one of the key technologies for 6G due to its ability to enhance communication signal coverage and quality. To fully explore the potential of RIS, its element phase shift must be optimized. Traditional schemes dedicated to the parameter design of RIS, such as finite element methods (FEM) and ray-tracing, are not suitable for handling dynamic scenarios due to their high computational complexity. Therefore, the digital twin has been adopted, but it is still far from working in real time. To address this, we introduce and combine physics informed neural networks (PINN) with digital twin to build digital replicas of RIS in virtual space for dynamic channel conditions. The proposed physics informed digital twin architecture integrates physical and data information, consisting of sensing, modeling, real-time interaction, prediction, and phase shift optimi-zation. In this work, the details on how to integrate PINN with digital twin to model RIS-assisted wireless communications are described, and a use case performance is analyzed. In addition, possible research directions and challenges are discussed. Simulation results show that the proposed scheme greatly reduces the prediction time compared to FEM and achieves better accuracy."
     },
     {
       "id": 158,

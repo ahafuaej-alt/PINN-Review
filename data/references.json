@@ -4256,7 +4256,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-06"
     },
-    "abstract": null,
+    "abstract": "Reconfigurable intelligent surface (RIS) is widely recognized as one of the key technologies for 6G due to its ability to enhance communication signal coverage and quality. To fully explore the potential of RIS, its element phase shift must be optimized. Traditional schemes dedicated to the parameter design of RIS, such as finite element methods (FEM) and ray-tracing, are not suitable for handling dynamic scenarios due to their high computational complexity. Therefore, the digital twin has been adopted, but it is still far from working in real time. To address this, we introduce and combine physics informed neural networks (PINN) with digital twin to build digital replicas of RIS in virtual space for dynamic channel conditions. The proposed physics informed digital twin architecture integrates physical and data information, consisting of sensing, modeling, real-time interaction, prediction, and phase shift optimi-zation. In this work, the details on how to integrate PINN with digital twin to model RIS-assisted wireless communications are described, and a use case performance is analyzed. In addition, possible research directions and challenges are discussed. Simulation results show that the proposed scheme greatly reduces the prediction time compared to FEM and achieves better accuracy.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
