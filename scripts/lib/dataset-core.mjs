@@ -124,19 +124,7 @@ export const validateMaster = (master, countryMapping, worldMap = null) => {
         } catch { errors.push(`${label} graphical abstract has an invalid image URL`); }
       }
     }
-    if (paper.provenance?.citation_mode === 'automatic') {
-    const fullVenueCitation = formatMdpiCitation(paper);
-    if (paper.citation !== fullVenueCitation) {
-      // Existing automatic records may retain the former abbreviated
-      // journal output until that paper is regenerated. New automatic
-      // citations always use the canonical full venue.name value.
-      const legacyPaper = structuredClone(paper);
-      if (legacyPaper.bibliographic?.journal_abbreviation) {
-        legacyPaper.venue = { ...legacyPaper.venue, name: legacyPaper.bibliographic.journal_abbreviation };
-      }
-      add(paper.citation === formatMdpiCitation(legacyPaper), `${label} automatic MDPI citation is stale`);
-    }
-  }
+    if (paper.provenance?.citation_mode === 'automatic') add(paper.citation === formatMdpiCitation(paper), `${label} automatic MDPI citation is stale`);
     add(Number.isInteger(effectiveRealmYear(paper)), `${label} has no effective year for PINN Realm`);
   }
   return { errors, warnings };

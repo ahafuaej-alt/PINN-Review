@@ -66,18 +66,7 @@ const extractedAuthorCount = master.papers.filter((paper) => extractLegacyBiblio
 check(extractedAuthorCount >= 800, `legacy author extraction coverage is unexpectedly low: ${extractedAuthorCount}/853`);
 
 for (const paper of master.papers.filter((record) => record.provenance?.citation_mode === 'automatic')) {
-  const fullVenueCitation = formatMdpiCitation(paper);
-  if (paper.citation === fullVenueCitation) continue;
-
-  // Existing automatic records may still contain the former abbreviated
-  // journal output. Accept that legacy state until the record is next
-  // regenerated, while every new automatic citation uses venue.name.
-  const legacyPaper = structuredClone(paper);
-  if (legacyPaper.bibliographic?.journal_abbreviation) {
-    legacyPaper.venue = { ...legacyPaper.venue, name: legacyPaper.bibliographic.journal_abbreviation };
-  }
-  const legacyAbbreviatedCitation = formatMdpiCitation(legacyPaper);
-  check(paper.citation === legacyAbbreviatedCitation, `paper ${paper.id} has a stale automatic citation`);
+  check(paper.citation === formatMdpiCitation(paper), `paper ${paper.id} has a stale automatic citation`);
 }
 
 if (failures.length) {
@@ -90,6 +79,5 @@ console.log(JSON.stringify({
   mdpi_reference_types_tested: ['journal', 'book', 'chapter', 'conference', 'website', 'thesis', 'standard', 'software'],
   journal_issue_omitted: true,
   journal_name_source: 'venue.name',
-  legacy_abbreviated_automatic_citations_allowed: true,
   legacy_author_extraction: { matched: extractedAuthorCount, records: master.papers.length }
 }, null, 2));
