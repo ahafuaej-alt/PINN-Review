@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.25",
+    "dataset_version": "2.2.26",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -10678,7 +10678,7 @@
     {
       "id": 138,
       "title": "Physics-Informed Deep Operator Network for 3-D Time-Domain Electromagnetic Modeling",
-      "citation": "Qi, S.; Sarris, C.D. Physics-Informed Deep Operator Network for 3-D Time-Domain Electromagnetic Modeling. IEEE Trans. Microwave Theory Techn 2025, 73, 3800-3812. https://doi.org/10.1109/TMTT.2024.3521389.",
+      "citation": "Qi, S.; Sarris, C.D. Physics-Informed Deep Operator Network for 3-D Time-Domain Electromagnetic Modeling. IEEE Transactions on Microwave Theory and Techniques 2025, 73, 3800-3812. https://doi.org/10.1109/TMTT.2024.3521389.",
       "doi": "10.1109/TMTT.2024.3521389",
       "publisher_url": "https://ieeexplore.ieee.org/document/10819015/",
       "venue": {
@@ -10738,9 +10738,10 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Qi, S.; Sarris, C.D.",
         "journal_abbreviation": "IEEE Trans. Microwave Theory Techn.",

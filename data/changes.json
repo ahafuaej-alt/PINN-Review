@@ -2,6 +2,26 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-138-full-publication-citation-2026-07-24-2.2.26",
+      "version": "2.2.26",
+      "date": "2026-07-24",
+      "paper_id": 138,
+      "changed_fields": [
+        "citation",
+        "venue"
+      ],
+      "reason": "Use the canonical full publication name in the automatic MDPI-formatted citation.",
+      "evidence": {
+        "url": "https://doi.org/10.1109/TMTT.2024.3521389",
+        "note": "Full IEEE journal title confirmed for the DOI."
+      },
+      "submitted_by": "repository-owner-maintenance",
+      "impact": {
+        "citation_mode": "automatic",
+        "journal_name_source": "venue.name"
+      }
+    },
+    {
       "change_id": "migration-full-publication-citations-2026-07-24-2.2.25",
       "version": "2.2.25",
       "date": "2026-07-24",

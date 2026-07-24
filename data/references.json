@@ -3619,7 +3619,7 @@
   {
     "id": 138,
     "title": "Physics-Informed Deep Operator Network for 3-D Time-Domain Electromagnetic Modeling",
-    "citation": "Qi, S.; Sarris, C.D. Physics-Informed Deep Operator Network for 3-D Time-Domain Electromagnetic Modeling. IEEE Trans. Microwave Theory Techn 2025, 73, 3800-3812. https://doi.org/10.1109/TMTT.2024.3521389.",
+    "citation": "Qi, S.; Sarris, C.D. Physics-Informed Deep Operator Network for 3-D Time-Domain Electromagnetic Modeling. IEEE Transactions on Microwave Theory and Techniques 2025, 73, 3800-3812. https://doi.org/10.1109/TMTT.2024.3521389.",
     "doi": "10.1109/TMTT.2024.3521389",
     "publisher_url": "https://ieeexplore.ieee.org/document/10819015/",
     "venue": "IEEE Transactions on Microwave Theory and Techniques",
@@ -3640,7 +3640,7 @@
     "countries": [
       "Canada"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 139,
