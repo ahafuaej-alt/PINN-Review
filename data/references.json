@@ -1187,14 +1187,14 @@
   {
     "id": 46,
     "title": "Prediction of Motor Rotor Temperature Using TCN-BiLSTM-MHA Model Based on Hybrid Grey Wolf Optimization Algorithm",
-    "citation": "Lv, C.; Lin, G.; Xu, D.; Song, Z.; Fan, D. Prediction of Motor Rotor Temperature Using TCN-BiLSTM-MHA Model Based on Hybrid Grey Wolf Optimization Algorithm. WEVJ 2025, 16, 541. https://doi.org/10.3390/wevj16090541.",
+    "citation": "Lv, C.; Lin, G.; Xu, D.; Song, Z.; Fan, D. Prediction of Motor Rotor Temperature Using TCN-BiLSTM-MHA Model Based on Hybrid Grey Wolf Optimization Algorithm. World Electric Vehicle Journal 2025, 16, 541. https://doi.org/10.3390/wevj16090541.",
     "doi": "10.3390/wevj16090541",
     "publisher_url": "https://www.mdpi.com/2032-6653/16/9/541",
     "venue": "World Electric Vehicle Journal",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Lv, C.; Lin, G.; Xu, D.; Song, Z.; Fan, D.",
-      "journal_abbreviation": "WEVJ",
+      "journal_abbreviation": "World Electric Vehicle Journal",
       "volume": "16",
       "issue": "9",
       "article_number": "541",
@@ -1208,7 +1208,7 @@
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 47,
