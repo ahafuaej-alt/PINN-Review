@@ -1,0 +1,88 @@
+name: Audit not-verified access records
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/audit-not-verified-access.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Audit records
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const master = JSON.parse(fs.readFileSync('data/papers-master.json', 'utf8'));
+          const changes = JSON.parse(fs.readFileSync('data/changes.json', 'utf8')).changes || [];
+          const records = master.papers.filter((paper) => paper.access === 'Not verified');
+          const byPaper = new Map();
+          for (const change of changes) {
+            if (!Number.isInteger(change.paper_id)) continue;
+            if (!byPaper.has(change.paper_id)) byPaper.set(change.paper_id, []);
+            byPaper.get(change.paper_id).push(change);
+          }
+          const classify = (paper) => {
+            const licenses = paper.provenance?.publisher_enrichment?.license_urls || [];
+            const hasReusable = licenses.some((url) => /creativecommons\.org\/(?:licenses\/(?:by|by-sa|by-nc|by-nc-sa)\/|publicdomain\/)|creativecommons\.org\/publicdomain\/zero\//i.test(url));
+            if (!paper.doi && !paper.publisher_url) return 'no DOI or publisher URL';
+            if (!paper.doi && paper.publisher_url) return 'publisher URL only';
+            if (paper.doi && !paper.publisher_url) return 'DOI only';
+            if (hasReusable) return 'reusable licence present but access stale';
+            if (licenses.length) return 'licence links present but not accepted as reusable OA evidence';
+            return 'DOI/publisher metadata present but no explicit access evidence';
+          };
+          const details = records.map((paper) => {
+            const audits = byPaper.get(paper.id) || [];
+            const accessAudits = audits.filter((change) => (change.changed_fields || []).includes('access'));
+            const lastAudit = audits[0] || null;
+            const licenses = paper.provenance?.publisher_enrichment?.license_urls || [];
+            return {
+              id: paper.id,
+              title: paper.title,
+              doi: paper.doi || null,
+              publisher_url: paper.publisher_url || null,
+              venue: paper.venue || null,
+              reference_type: paper.venue?.type || null,
+              bibliographic_fields: Object.keys(paper.bibliographic || {}).sort(),
+              has_abstract: Boolean(paper.abstract),
+              enrichment_source: paper.provenance?.publisher_enrichment?.source || null,
+              enrichment_fields_added: paper.provenance?.publisher_enrichment?.fields_added || [],
+              licence_urls: licenses,
+              review_status: paper.provenance?.publisher_enrichment_review?.status || null,
+              review_accepted_fields: paper.provenance?.publisher_enrichment_review?.accepted_fields || [],
+              manual_access_change_count: accessAudits.length,
+              latest_change_id: lastAudit?.change_id || null,
+              latest_changed_fields: lastAudit?.changed_fields || [],
+              category: classify(paper)
+            };
+          });
+          const countBy = (key) => Object.fromEntries([...details.reduce((map, item) => map.set(item[key], (map.get(item[key]) || 0) + 1), new Map())].sort());
+          const summary = {
+            dataset_version: master.metadata.dataset_version,
+            count: details.length,
+            categories: countBy('category'),
+            with_doi: details.filter((r) => r.doi).length,
+            with_publisher_url: details.filter((r) => r.publisher_url).length,
+            with_both: details.filter((r) => r.doi && r.publisher_url).length,
+            with_enrichment: details.filter((r) => r.enrichment_source).length,
+            review_accepted: details.filter((r) => r.review_status === 'accepted').length,
+            with_manual_access_change: details.filter((r) => r.manual_access_change_count > 0).length,
+            with_any_licence_urls: details.filter((r) => r.licence_urls.length > 0).length,
+            venue_types: countBy('reference_type')
+          };
+          console.log('AUDIT_SUMMARY_BEGIN');
+          console.log(JSON.stringify(summary, null, 2));
+          console.log('AUDIT_SUMMARY_END');
+          console.log('AUDIT_DETAILS_BEGIN');
+          console.log(JSON.stringify(details, null, 2));
+          console.log('AUDIT_DETAILS_END');
+          NODE
