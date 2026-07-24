@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.40",
+    "dataset_version": "2.2.41",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -11466,8 +11466,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.enganabound.2025.106200",
-        "note": null,
+        "evidence_url": "https://linkinghub.elsevier.com/retrieve/pii/S0955799725000888",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1016%2Fj.enganabound.2025.106200",
@@ -11525,7 +11525,8 @@
         "article_number": "106200",
         "publisher": "Elsevier BV",
         "publication_date": "2025-07"
-      }
+      },
+      "abstract": "We present PINNs-MPF framework, an application of Physics-Informed Neural Networks (PINNs) to handle Multi-Phase-Field (MPF) simulations of microstructure evolution. A combination of optimization techniques within PINNs and in direct relation to MPF method are extended and adapted. The numerical resolution is realized through a multi-variable time-series problem by using fully discrete resolution. Within each interval, space, time, and phases/grains are treated separately, constituting discrete subdomains. PINNs-MPF is equipped with an extended multi-networking (parallelization) concept to subdivide the simulation domain into multiple batches, with each batch associated with an independent NN trained to predict the solution. To ensure continuity across the spatio-temporal-phasic subdomains, a Master NN efficiently is to handle interactions among the multiple networks and facilitates the transfer of learning. A pyramidal training approach is proposed to the PINN community as a dual-impact method: to facilitate the initialization of training when dealing with multiple networks, and to unify the solution through an extended transfer of learning. Furthermore, a comprehensive approach is adopted to specifically focus the attention on the interfacial regions through a dynamic meshing process, significantly simplifying the tuning of hyper-parameters, serving as a key concept for addressing MPF problems using machine learning. We perform a set of systematic simulations that benchmark foundational aspects of MPF simulations, i.e., the curvature-driven dynamics of a diffuse interface, in the presence and absence of an external driving force, and the evolution and equilibrium of a triple junction. The proposed PINNs-MPF framework successfully reproduces benchmark tests with high fidelity and Mean Squared Error (MSE) loss values ranging from 10−6 to 10−4 compared to ground truth solutions."
     },
     {
       "id": 144,
