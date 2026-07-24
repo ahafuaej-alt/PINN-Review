@@ -1,0 +1,20 @@
+name: Deploy GitHub Pages after repository changes
+
+run-name: Deploy current main to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  deploy:
+    if: ${{ !contains(github.event.head_commit.message, '[skip pages]') }}
+    uses: ./.github/workflows/pages.yml
+    with:
+      source_sha: ${{ github.sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
