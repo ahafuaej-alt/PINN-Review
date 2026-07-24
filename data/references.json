@@ -683,28 +683,28 @@
   {
     "id": 27,
     "title": "Physics-Informed Mobility Perception Networks for Origin-Destination Flow Prediction",
-    "citation": "Wu, X.; Pan, T.; He, Z. Physics-Informed Mobility Perception Networks for Origin-Destination Flow Prediction. IEEE Trans. Intell. Transport. Syst 2025, 26, 15134-15149. https://doi.org/10.1109/TITS.2025.3579152.",
+    "citation": "Wu, X.; Pan, T.; He, Z. Physics-Informed Mobility Perception Networks for Origin-Destination Flow Prediction. IEEE Transactions on Intelligent Transportation Systems 2025, 26, 15134-15149. https://doi.org/10.1109/TITS.2025.3579152.",
     "doi": "10.1109/TITS.2025.3579152",
     "publisher_url": "https://ieeexplore.ieee.org/document/11053208/",
     "venue": "IEEE Transactions on Intelligent Transportation Systems",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Wu, X.; Pan, T.; He, Z.",
-      "journal_abbreviation": "IEEE Trans. Intell. Transport. Syst.",
+      "journal_abbreviation": "IEEE Transactions on Intelligent Transportation Systems",
       "volume": "26",
       "issue": "10",
       "pages": "15134-15149",
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-10"
     },
-    "abstract": null,
+    "abstract": "Origin-destination flow prediction traditionally depends on intricate numerical simulations of human mobility. Data-driven approaches, including transformers, have disrupted this paradigm with sophisticated predictive models. However, purely data-driven approaches often act as closed box models, failing to reveal the underlying mechanisms of human mobility. We address these limitations with physics-informed mobility perception networks (PI-MPN), a continuous-time process that implements a key principle of diffusion from human mobility, and introduces the principle into data-driven deep learning networks. PI-MPN consists of data-driven mobility perception networks and physics-informed neural diffusion networks. PI-MPN models precise spatio-temporal movement by data-driven networks, learning urban human mobility as a neural flow by physics-informed networks. We conduct comprehensive evaluations on two real-world traffic datasets, revealing the superiority of PI-MPN over existing data-driven benchmarks. Moreover, case analyses demonstrate that the diffusion process can describe the underlying urban dynamics, thus enhancing the model interpretability of human mobility. Model implementation is available at https://github.com/xuesong-wu/PI-MPN",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 28,
