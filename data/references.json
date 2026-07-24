@@ -2077,14 +2077,14 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-09"
     },
-    "abstract": null,
+    "abstract": "Complex natural resonance frequency is only determined by target’s intrinsic properties, and independent of incident angle and target’s attitude, making target recognition based on complex natural resonance frequency a promising solution. However, the existing extraction methods inevitably introduce calculation errors, resulting in inaccurate extraction of it, which limits the improvement of recognition accuracy. To address these issues, physics-informed complex natural resonance frequency correction is proposed. First, a loss function based on target’s resonance scattering mechanism is designed. Physics is used to drive network to extract features, strengthening the physical constraints on the corrected data. Second, by introducing the idea of complex-valued neural network, a complex domain-variational autoencoder is designed, which considers the correlation between the real and imaginary parts of complex data, thereby excavating more internal features of data. Experimental results verify the effectiveness of the proposed method. Compared with the original data, the relative errors are reduced by 18.02% for the real part and 0.49% for the imaginary part. Improving the consistency between corrected data and target’s resonance scattering mechanism.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 80,
