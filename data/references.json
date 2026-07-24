@@ -793,7 +793,7 @@
     "citation": "Zhang, X.; Cheng, H.; Qiao, J.; Hu, M.; Zhang, L.; Li, D. mp-PINN A Multiphase Flow Physics-Informed Neural Network for Pressure and Saturation Prediction. In Proceedings of IECON 2025 – 51st Annual Conference of the IEEE Industrial Electronics Society, Madrid, Spain, 2025-10-14–2025-10-17; pp. 1-6. https://doi.org/10.1109/IECON58223.2025.11221826.",
     "doi": "10.1109/IECON58223.2025.11221826",
     "publisher_url": "https://ieeexplore.ieee.org/document/11221826/",
-    "venue": "IECON 2025 – 51st Annual Conference of the IEEE Industrial Electronics Society",
+    "venue": "IEEE Industrial Electronics Society 51st Annual Conference IECON 2025",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Zhang, X.; Cheng, H.; Qiao, J.; Hu, M.; Zhang, L.; Li, D.",
@@ -805,14 +805,14 @@
       "conference_date": "2025-10-14–2025-10-17",
       "publication_date": "2025-10-14"
     },
-    "abstract": null,
+    "abstract": "Solving multiphase flow problem remains challenging, particularly under data-scarce, long-timestep, and large-scale conditions. Traditional data-driven models suffer from low accuracy and poor generalization in complex multiphase flow scenarios due to limited labeled data. In this study, we propose a multiphase phase physics-informed neural network framework that integrates spatiotemporal information with static geological features and dynamic well control variables. A hybrid loss function combines observational errors with residuals from multiphase flow governing equations, enabling accurate prediction of pressure and saturation while maintaining physical consistency. Experimental results show that the proposed method significantly outperforms baseline models including ANN, Transformer, and Informer, achieving higher accuracy in terms of R2, relative L2 error, and RMSE. Ablation experiments further highlight the performance by incorporating physical parameters as input features.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 32,
