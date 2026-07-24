@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.11",
+    "dataset_version": "2.2.12",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -2152,7 +2152,7 @@
     {
       "id": 28,
       "title": "Neural Network Realizations of Wideband Near-Field Communication Systems An Electromagnetic Design Approach",
-      "citation": "Hu, J.; Hao Thng, G.; Mikki, S. Neural Network Realizations of Wideband Near-Field Communication Systems An Electromagnetic Design Approach. IEEE Trans. Commun 2025, 73, 9501-9516. https://doi.org/10.1109/TCOMM.2025.3582719.",
+      "citation": "Hu, J.; Hao Thng, G.; Mikki, S. Neural Network Realizations of Wideband Near-Field Communication Systems An Electromagnetic Design Approach. IEEE Transactions on Communications 2025, 73, 9501-9516. https://doi.org/10.1109/TCOMM.2025.3582719.",
       "doi": "10.1109/TCOMM.2025.3582719",
       "publisher_url": "https://ieeexplore.ieee.org/document/11048746/",
       "venue": {
@@ -2167,8 +2167,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TCOMM.2025.3582719",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11048746/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTCOMM.2025.3582719",
@@ -2211,18 +2211,20 @@
           ],
           "conflict_count": 2,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Hu, J.; Hao Thng, G.; Mikki, S.",
-        "journal_abbreviation": "IEEE Trans. Commun.",
+        "journal_abbreviation": "IEEE Transactions on Communications",
         "volume": "73",
         "issue": "10",
         "pages": "9501-9516",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-10"
-      }
+      },
+      "abstract": "This paper presents a novel analysis of a vectorial wideband near-field (NF) focusing system based on a full-wave electromagnetic (EM) approach integrating both the infinitesimal dipole model (IDM) of radiating arrays and an EM-based joint polarization channel modeling with neural network (NN) implementation of EM wideband generalization capability. The proposed system overcomes the limitations of traditional scalar signal processing methods in near-field focusing (NFF), particularly in wideband scenarios, by combining the physics-informed precision of the IDM with the efficiency of convex optimization and NNs. The IDM accurately captures the 3D polarized NF field distribution. We introduce a joint polarization channel modeling matrix accurately accounting for EM coupling effects between polarized subchannels. Semi-definite convex optimization is employed to solve the single-frequency NFF problem, thus generating training data for the NN. The NN then learns the relationship between frequency and the required array excitation for focusing, enabling rapid and accurate computation of wideband signals. This approach significantly improves the physical accuracy of the NFF system while maintaining reasonable computational speed and real-time responsiveness. It surpasses traditional optimization methods based on scalar Green’s functions, which fail to capture the full-wave nature of 3D EM near fields. Our method effectively resolves issues such as focal splitting due to the frequency dependence of the array excitation coefficient."
     },
     {
       "id": 29,
