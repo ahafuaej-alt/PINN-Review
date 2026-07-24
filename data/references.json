@@ -1506,14 +1506,14 @@
   {
     "id": 58,
     "title": "Design of an Experimental Teaching Platform for Flow-Around Structures and AI-Driven Modeling in Marine Engineering",
-    "citation": "Zhao, H.; Zhao, B.; Liang, X.; Lin, Q. Design of an Experimental Teaching Platform for Flow-Around Structures and AI-Driven Modeling in Marine Engineering. JMSE 2025, 13, 1761. https://doi.org/10.3390/jmse13091761.",
+    "citation": "Zhao, H.; Zhao, B.; Liang, X.; Lin, Q. Design of an Experimental Teaching Platform for Flow-Around Structures and AI-Driven Modeling in Marine Engineering. Journal of Marine Science and Engineering 2025, 13, 1761. https://doi.org/10.3390/jmse13091761.",
     "doi": "10.3390/jmse13091761",
     "publisher_url": "https://www.mdpi.com/2077-1312/13/9/1761",
     "venue": "Journal of Marine Science and Engineering",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Zhao, H.; Zhao, B.; Liang, X.; Lin, Q.",
-      "journal_abbreviation": "JMSE",
+      "journal_abbreviation": "Journal of Marine Science and Engineering",
       "volume": "13",
       "issue": "9",
       "article_number": "1761",
@@ -1528,7 +1528,7 @@
       "China",
       "Russian Federation"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 59,
