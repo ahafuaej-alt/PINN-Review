@@ -605,28 +605,28 @@
   {
     "id": 24,
     "title": "Physics-Informed Deep Learning for Inverse Scattering of Irregular Targets From Near-Field Data",
-    "citation": "Li, H.; Liu, J.-G.; Wang, Y.; Xin, X.-D.; Huang, X.-W.; Sheng, X.-Q. Physics-Informed Deep Learning for Inverse Scattering of Irregular Targets From Near-Field Data. Antennas Wirel. Propag. Lett 2025, 24, 3734-3738. https://doi.org/10.1109/LAWP.2025.3602833.",
+    "citation": "Li, H.; Liu, J.-G.; Wang, Y.; Xin, X.-D.; Huang, X.-W.; Sheng, X.-Q. Physics-Informed Deep Learning for Inverse Scattering of Irregular Targets From Near-Field Data. IEEE Antennas and Wireless Propagation Letters 2025, 24, 3734-3738. https://doi.org/10.1109/LAWP.2025.3602833.",
     "doi": "10.1109/LAWP.2025.3602833",
     "publisher_url": "https://ieeexplore.ieee.org/document/11141721/",
     "venue": "IEEE Antennas and Wireless Propagation Letters",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Li, H.; Liu, J.-G.; Wang, Y.; Xin, X.-D.; Huang, X.-W.; Sheng, X.-Q.",
-      "journal_abbreviation": "Antennas Wirel. Propag. Lett.",
+      "journal_abbreviation": "IEEE Antennas and Wireless Propagation Letters",
       "volume": "24",
       "issue": "10",
       "pages": "3734-3738",
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-10"
     },
-    "abstract": null,
+    "abstract": "This letter proposes ISPNet, a novel physics-informed neural network framework for solving inverse scattering problems involving irregular dielectric targets using near-field data. The network is formulated based on frequency-domain Maxwell’s equations and explicitly encodes incident wave directions to capture multi-angle scattering effects. To enhance physical consistency and numerical stability, differentiable smoothing techniques and hard constraints are incorporated for boundary condition enforcement. The proposed method is validated through numerical experiments on single and composite irregular targets, demonstrating that it achieves more accurate reconstructions of shape and permittivity compared to the traditional iterative method, with relative errors below 0.55%.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 25,
