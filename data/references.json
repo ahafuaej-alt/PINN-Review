@@ -657,28 +657,28 @@
   {
     "id": 26,
     "title": "A Novel Method for Predicting Antenna Port Electromagnetic Susceptibility Under Broadband Interference via Function-Performance Association",
-    "citation": "Geng, H.; Li, Y.; Meng, Y.; Xiao, H.; Cai, S. A Novel Method for Predicting Antenna Port Electromagnetic Susceptibility Under Broadband Interference via Function-Performance Association. IEEE Trans. Electromagn. Compat 2025, 67, 1410-1422. https://doi.org/10.1109/TEMC.2025.3583370.",
+    "citation": "Geng, H.; Li, Y.; Meng, Y.; Xiao, H.; Cai, S. A Novel Method for Predicting Antenna Port Electromagnetic Susceptibility Under Broadband Interference via Function-Performance Association. IEEE Transactions on Electromagnetic Compatibility 2025, 67, 1410-1422. https://doi.org/10.1109/TEMC.2025.3583370.",
     "doi": "10.1109/TEMC.2025.3583370",
     "publisher_url": "https://ieeexplore.ieee.org/document/11098523/",
     "venue": "IEEE Transactions on Electromagnetic Compatibility",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Geng, H.; Li, Y.; Meng, Y.; Xiao, H.; Cai, S.",
-      "journal_abbreviation": "IEEE Trans. Electromagn. Compat.",
+      "journal_abbreviation": "IEEE Transactions on Electromagnetic Compatibility",
       "volume": "67",
       "issue": "5",
       "pages": "1410-1422",
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-10"
     },
-    "abstract": null,
+    "abstract": "With the increasing complexity and interweaving of noncooperative communication scenarios, communication receivers are increasingly subjected to varied and complex electromagnetic interference, making the prediction of their operational states and performance critical. Currently, modulated and noise interference often exhibit broadband characteristics, rendering existing methods inadequate. Thus, new solutions for broadband interference are urgently needed. To address this issue, this article proposes a multitask physics-informed neural network (MTL-PINN) prediction model based on the function-performance association of receivers, considering both signal processing flow and communication quality. The application scope of the CS105 testing standard is expanded within this framework. Specifically, quantification indicators for broadband interference is introduced for the power spectrum at the antenna port, and by using a 16 quadrature amplitude modulation receiver as an example, the interference quantification indicators are innovatively integrated into the bit error rate calculation formula to construct a knowledge model. Subsequently, the MTL-PINN architecture is designed to effectively merge this knowledge model with test data. Comparative experiments demonstrate that the proposed model significantly reduces the need for extensive test data, while improving prediction accuracy and generalization across diverse interference scenarios, providing an effective tool for assessing the electromagnetic susceptibility of communication receivers under broadband interference.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 27,
