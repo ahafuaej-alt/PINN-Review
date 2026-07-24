@@ -1,0 +1,131 @@
+name: Apply full publication-name citation patch
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+concurrency:
+  group: citation-full-venue-maintenance
+  cancel-in-progress: false
+
+jobs:
+  apply-patch:
+    if: github.event.issue.user.login == github.repository_owner && github.event.issue.title == '[Apply citation full venue patch]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Prefer the canonical full publication name
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              file = Path(path)
+              text = file.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one match, found {count}')
+              file.write_text(text.replace(old, new), encoding='utf-8')
+
+          replace_once(
+              'assets/citation-format.mjs',
+              "  const venue = stripTerminal(bibliographic.journal_abbreviation || paper.venue?.name);",
+              "  // The canonical publication/source name is authoritative for generated citations.\n  // Keep journal_abbreviation as optional metadata and as a fallback for legacy records.\n  const venue = stripTerminal(paper.venue?.name || bibliographic.journal_abbreviation);"
+          )
+
+          replace_once(
+              'assets/dataset-manager.js',
+              "} from './citation-format.mjs?v=data-20260722c';",
+              "} from './citation-format.mjs?v=full-venue-20260724';"
+          )
+
+          replace_once(
+              'assets/dataset-manager.js',
+              "    missing('Journal abbreviation', 'journal_abbreviation');\n",
+              "    // Journal abbreviation is optional metadata; venue_name drives the generated citation.\n"
+          )
+
+          replace_once(
+              'dataset-manager/index.html',
+              '<span>Journal abbreviation</span>',
+              '<span>Journal abbreviation <em>(optional metadata)</em></span>'
+          )
+
+          replace_once(
+              'dataset-manager/index.html',
+              '<script type="module" src="../assets/dataset-manager.js?v=data-20260723"></script>',
+              '<script type="module" src="../assets/dataset-manager.js?v=full-venue-20260724"></script>'
+          )
+
+          replace_once(
+              'scripts/validate-citation-format.mjs',
+              "check(journal === 'Curie, M.; Noether, E. A Test Reference. J. Tests 2025, 12, 44–51. https://doi.org/10.1234/test.2025.', 'journal citation does not follow the expected MDPI order');",
+              "check(journal === 'Curie, M.; Noether, E. A Test Reference. Journal of Tests 2025, 12, 44–51. https://doi.org/10.1234/test.2025.', 'journal citation must use the canonical full publication name and expected MDPI order');"
+          )
+
+          old_loop = """for (const paper of master.papers.filter((record) => record.provenance?.citation_mode === 'automatic')) {
+            check(paper.citation === formatMdpiCitation(paper), `paper ${paper.id} has a stale automatic citation`);
+          }
+          """
+          new_loop = """for (const paper of master.papers.filter((record) => record.provenance?.citation_mode === 'automatic')) {
+            const fullVenueCitation = formatMdpiCitation(paper);
+            if (paper.citation === fullVenueCitation) continue;
+
+            // Existing automatic records may still contain the former abbreviated
+            // journal output. Accept that legacy state until the record is next
+            // regenerated, while every new automatic citation uses venue.name.
+            const legacyPaper = structuredClone(paper);
+            if (legacyPaper.bibliographic?.journal_abbreviation) {
+              legacyPaper.venue = { ...legacyPaper.venue, name: legacyPaper.bibliographic.journal_abbreviation };
+            }
+            const legacyAbbreviatedCitation = formatMdpiCitation(legacyPaper);
+            check(paper.citation === legacyAbbreviatedCitation, `paper ${paper.id} has a stale automatic citation`);
+          }
+          """
+          replace_once('scripts/validate-citation-format.mjs', old_loop, new_loop)
+
+          replace_once(
+              'scripts/validate-citation-format.mjs',
+              "  journal_issue_omitted: true,",
+              "  journal_issue_omitted: true,\n  journal_name_source: 'venue.name',\n  legacy_abbreviated_automatic_citations_allowed: true,"
+          )
+          PY
+      - name: Validate formatter and repository syntax
+        run: |
+          node scripts/validate-citation-format.mjs
+          node --check assets/dataset-manager.js
+          node --check assets/citation-format.mjs
+          git diff --check
+      - name: Remove one-time maintenance workflow
+        run: rm .github/workflows/apply-full-venue-citation-patch.yml
+      - name: Commit the tested citation behavior
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/citation-format.mjs assets/dataset-manager.js dataset-manager/index.html scripts/validate-citation-format.mjs .github/workflows/apply-full-venue-citation-patch.yml
+          git commit -m "Use full publication names in generated citations [skip pages]"
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Report success
+        uses: actions/github-script@v7
+        env:
+          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+        with:
+          script: |
+            const sha = process.env.COMMIT_SHA;
+            const body = `### ✅ Full publication-name citation formatting applied\n\nAutomatic MDPI-formatted citations now use the canonical full publication name from \`venue.name\`. Journal abbreviations remain optional metadata only.\n\n- Commit: https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sha}\n- Validation: passed\n- Pages: not deployed yet`;
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+            await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: 'closed', state_reason: 'completed' });
