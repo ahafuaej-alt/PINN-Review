@@ -645,14 +645,14 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-10"
     },
-    "abstract": null,
+    "abstract": "A physics-informed neural networks (PINNs) framework is proposed for electromagnetic-thermal cosimulation. The framework utilizes two coupled PINNs: The first solves the Helmholtz equation for electric field distribution, while the second predicts temperature distribution through the heat conduction equation with electric field-derived heat sources. Regarding the complexities of multimaterial regions with substantial property contrasts in heterogeneous media, a divide-and-conquer strategy is devised to enhance the accuracy of the PINNs. Numerical experiments on perfectly electrically conducting cavities demonstrate that the trained PINN-based electromagnetic-thermal cosimulation method significantly reduces both computational time and memory usage when compared to conventional finite element methodsimulations, while preserving high-accuracy predictions.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 26,

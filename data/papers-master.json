@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.8",
+    "dataset_version": "2.2.9",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -1934,8 +1934,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/LAWP.2025.3595089",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11107440/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FLAWP.2025.3595089",
@@ -1981,7 +1981,7 @@
           "published_version": null
         }
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Jia, Z.L.; Wu, B.; Liu, Y.; Zhang, H.H.",
         "journal_abbreviation": "Antennas Wirel. Propag. Lett.",
@@ -1990,7 +1990,8 @@
         "pages": "3510-3514",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-10"
-      }
+      },
+      "abstract": "A physics-informed neural networks (PINNs) framework is proposed for electromagnetic-thermal cosimulation. The framework utilizes two coupled PINNs: The first solves the Helmholtz equation for electric field distribution, while the second predicts temperature distribution through the heat conduction equation with electric field-derived heat sources. Regarding the complexities of multimaterial regions with substantial property contrasts in heterogeneous media, a divide-and-conquer strategy is devised to enhance the accuracy of the PINNs. Numerical experiments on perfectly electrically conducting cavities demonstrate that the trained PINN-based electromagnetic-thermal cosimulation method significantly reduces both computational time and memory usage when compared to conventional finite element methodsimulations, while preserving high-accuracy predictions."
     },
     {
       "id": 26,
