@@ -80,21 +80,21 @@
   {
     "id": 4,
     "title": "Physics-Informed Neural Anhysteresis Surrogate for Magneto-Elastic Vector Hysteresis in Device Simulations",
-    "citation": "Roppert, K.; Domenig, L.; Reinbacher-Köstinger, A.; Kaltenbacher, M.; Daniel, L. Physics-Informed Neural Anhysteresis Surrogate for Magneto-Elastic Vector Hysteresis in Device Simulations. IEEE Trans. Magn 2025, 61, 1-13. https://doi.org/10.1109/TMAG.2025.3614063.",
+    "citation": "Roppert, K.; Domenig, L.; Reinbacher-Köstinger, A.; Kaltenbacher, M.; Daniel, L. Physics-Informed Neural Anhysteresis Surrogate for Magneto-Elastic Vector Hysteresis in Device Simulations. IEEE Transactions on Magnetics 2025, 61, 1-13. https://doi.org/10.1109/TMAG.2025.3614063.",
     "doi": "10.1109/TMAG.2025.3614063",
     "publisher_url": "https://ieeexplore.ieee.org/document/11177572/",
     "venue": "IEEE Transactions on Magnetics",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Roppert, K.; Domenig, L.; Reinbacher-Köstinger, A.; Kaltenbacher, M.; Daniel, L.",
-      "journal_abbreviation": "IEEE Trans. Magn.",
+      "journal_abbreviation": "IEEE Transactions on Magnetics",
       "volume": "61",
       "issue": "11",
       "pages": "1-13",
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-11"
     },
-    "abstract": null,
+    "abstract": "In many applications, accurately capturing the magneto-mechanical coupling and dissipative effects at the material level is essential for realistic simulations. Embedding the simplified multiscale model (SMSM) inside an energy-based hysteresis framework yields high fidelity but is computationally intensive for 3-D finite element (FE) analyses. This article introduces NNSMSM, a physics-informed multi-task deep neural network that emulates the expensive SMSM operator. A hybrid Latin-hypercube (LH)/Sobol sampling strategy efficiently explores the magneto-mechanical loading space. The network is trained with a composite loss that simultaneously fits magnetization and magnetostrictive strain while enforcing reciprocity and positive definiteness of the susceptibility tensor. The traced TorchScript model is linked to the open-source FE software openCFS, replacing the SMSM inside the vector play model (VPM) hysteresis model with zero code changes. The benchmark of a permanent magnet synchronous machine (PMSM) device simulation shows a speed-up of wall clock time by a factor of 11 while preserving global accuracy of hysteresis losses.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Open access",
@@ -103,7 +103,7 @@
       "Germany",
       "France"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 5,
