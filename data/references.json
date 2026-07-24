@@ -3174,7 +3174,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-08"
     },
-    "abstract": null,
+    "abstract": "The increased risk of collisions between objects orbiting the earth is a topic of great relevance in the framework of space traffic management. Resident space objects are very difficult to detect and identify in terms of orbital parameters due to their variable sizes and the too-short duration of available observations in most cases (too-short arcs problem). An initial orbit determination algorithm, which employs a combination of metaheuristic and physics-informed frameworks as backbone and integrates an adaptive filtering module to improve the robustness to random parameter initialization and outliers, has been developed and described in this work. The algorithm has been tested on a created dataset of 1800 simulated mission scenarios with random targets and space observers, considering variable observation duration from 20 s to 60 s. Results show that in 99.61% of the scenarios, the reference orbit is retrieved with an accuracy on the final target's state greater than 1 km and 0.001 km/s and a mean root-sum-squared error across the observation arc of 0.002 km.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
