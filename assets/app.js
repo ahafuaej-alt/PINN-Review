@@ -9,6 +9,31 @@
   const themeKey = 'pinn-atlas-theme';
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
+  // Firefox can return null for window.open(..., 'noopener') even when the
+  // GitHub tab opens. Dataset Manager previously interpreted that as a blocked
+  // popup and replaced its own page with GitHub. Intercept only this submission
+  // click, open the prefilled issue through a safe temporary link, and return a
+  // truthy window-like value so the manager never triggers its redirect fallback.
+  const datasetSubmit = document.querySelector('[data-submit-update]');
+  datasetSubmit?.addEventListener('click', () => {
+    const nativeOpen = window.open;
+    window.open = (url, target) => {
+      window.open = nativeOpen;
+      const link = document.createElement('a');
+      link.href = String(url);
+      link.target = target || '_blank';
+      link.rel = 'noopener noreferrer';
+      link.hidden = true;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      return { closed: false };
+    };
+    queueMicrotask(() => {
+      if (window.open !== nativeOpen) window.open = nativeOpen;
+    });
+  }, { capture: true });
+
   const savedTheme = () => {
     try {
       const value = localStorage.getItem(themeKey);
