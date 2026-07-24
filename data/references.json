@@ -4390,7 +4390,7 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-06"
     },
-    "abstract": null,
+    "abstract": "Recent advancements in deep learning have significantly improved solving complex computational physics problems. This paper presents Physics-Informed Neural Networks (PINNs) with a spatially-dependent diffusion function to model two-phase flow in porous media, explicitly addressing the Buckley-Leverett problem. The study analyzes the PINNs using different approaches, including diffusion term and modification flux function to convex hull, employing both Multi-Layer Perceptron (MLP) and Attention-based neural network architectures. In addition, we investigate the application of the PINNs for laboratory experimental data by assessing the performance of PINNs in capturing the saturation front dynamics. Our results indicate that while the attention-based model achieves slightly higher accuracy, it is significantly time-consuming. In contrast, the MLP is the more efficient in terms of training time with a speedup in the range of 7−13. A sensitivity analysis on the constant diffusion coefficient shows that PINNs can approximately capture the pattern of the saturation front. We have found that adapting the spatial-dependent diffusion function provided better accuracy with the experimental data compared to using a constant diffusion coefficient.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
