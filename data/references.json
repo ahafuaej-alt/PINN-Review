@@ -4416,7 +4416,7 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-06"
     },
-    "abstract": null,
+    "abstract": "Hydraulic transients remain a challenge in fluid flow systems, spanning basic pipelines to complex networks. While advances in transient analysis methods have been made, most approaches require full boundary condition data or rely on computationally intensive mesh-based techniques. In response to these limitations, PINNs have emerged as a promising alternative for predicting pressure and flow rate transients in pipeline systems without requiring complete knowledge of boundary conditions. The PINN model was trained both with and without initial and boundary condition data, achieving results that matched the Method of Characteristics reference with remarkable accuracy. Notably, the model effectively captured pressure and flow rate traces, even when tested on data from unmonitored locations. This demonstrate the robustness of PINN in addressing incomplete data challenges, enhance mesh-free computation, and optimising transient analysis. These findings highlight PINN as a powerful tool for improving field data accuracy and computational efficiency in hydraulic systems, paving the way for their broader application in fluid flow networks.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
