@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.33",
+    "dataset_version": "2.2.34",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -9465,8 +9465,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TPEL.2025.3557218",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10947722/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTPEL.2025.3557218",
@@ -9523,7 +9523,8 @@
         "pages": "11257-11267",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-08"
-      }
+      },
+      "abstract": "Advancements in materials, improved modeling, and optimized design of power magnetic components are imperative to push the efficiency and power density bounds of power electronic converters. The MagNet Challenge was launched in 2023 as the first IEEE Power Electronics Society International Challenge on Design Methods in Power Electronics, to leverage data-driven approaches for modeling losses in power magnetics with a goal to “Upgrade the Steinmetz Equation.” The nonlinear magnetic characteristics, material properties, tolerances introduced by material processing and manufacturing of ferrites, and circuit and component level nonidealities that impact core-loss measurements cannot be easily modeled using traditional methods. However, some of these effects can be captured using a neural network since they are good at deciphering the complex relationships between the input and output data. We presented an EMPirical model informed neural network (EMPINN) approach for core loss modeling of soft ferrites for the 2023 MagNet Challenge. In this work, we have radically improved our approach and reduced the size of our model by a factor of 20 to present an EMPINN core loss predictor. This article also delves deep into data preparation, choice of empirical models, custom training loss function, and how the neural network can find the localized fit Steinmetz parameters across a wide range of operating frequencies and peak flux-density ranges. The proposed model is compared with empirical and neural network-based approaches to showcase the benefits of combining these approaches. The proposed EMPINN core loss predictor outperforms state-of-the-art core loss models in terms of accuracy and size."
     },
     {
       "id": 119,
