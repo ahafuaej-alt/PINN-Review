@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.5",
+    "dataset_version": "2.2.6",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -465,8 +465,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TII.2025.3588620",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11098167/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTII.2025.3588620",
@@ -512,7 +512,7 @@
           "published_version": null
         }
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Chen, R.; Gao, B.; Qin, G.; Chang, C.; Kang, Y.; Ren, H.; Zou, D.; Ma, Q.; Woo, W.L.",
         "journal_abbreviation": "IEEE Trans. Ind. Inf.",
@@ -521,7 +521,8 @@
         "pages": "8858-8869",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-11"
-      }
+      },
+      "abstract": "In the realm of electromagnetic nondestructive testing (NDT), accurately identifying and characterizing flaws within various materials is crucial for ensuring structural integrity. This article proposes a novel intelligent electromagnetic perception framework that combines physical and digital artificial intelligence to address the sensitivity and accuracy limitations inherent in conventional electromagnetic NDT. Unlike traditional passive data acquisition methods, the proposed system integrates a physical electromagnetic neural network and a physics-aware reinforcement learning algorithm to adaptively optimize electromagnetic field sensing parameters in real-time, significantly enhancing sensitivity in regions close to defects. On the digital side, a sensor-informed diffusion model reconstructs high-resolution images from low-resolution optimal sensitivity sensor data, allowing for detailed analysis of defect contours and depths. Experimental results demonstrate a maximum sensitivity improvement of 105.8% and a minimum defect quantification of 0.2 mm, exceeding the performance of established electromagnetic NDT techniques. This innovative framework combines adaptive electromagnetic field focusing with advanced image reconstruction, establishing a new benchmark in real-time, high-precision defect detection. In addition, it is offering valuable applications in pipeline inspection, aerospace, and automotive industries."
     },
     {
       "id": 7,

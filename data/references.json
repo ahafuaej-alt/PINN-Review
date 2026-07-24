@@ -148,7 +148,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-11"
     },
-    "abstract": null,
+    "abstract": "In the realm of electromagnetic nondestructive testing (NDT), accurately identifying and characterizing flaws within various materials is crucial for ensuring structural integrity. This article proposes a novel intelligent electromagnetic perception framework that combines physical and digital artificial intelligence to address the sensitivity and accuracy limitations inherent in conventional electromagnetic NDT. Unlike traditional passive data acquisition methods, the proposed system integrates a physical electromagnetic neural network and a physics-aware reinforcement learning algorithm to adaptively optimize electromagnetic field sensing parameters in real-time, significantly enhancing sensitivity in regions close to defects. On the digital side, a sensor-informed diffusion model reconstructs high-resolution images from low-resolution optimal sensitivity sensor data, allowing for detailed analysis of defect contours and depths. Experimental results demonstrate a maximum sensitivity improvement of 105.8% and a minimum defect quantification of 0.2 mm, exceeding the performance of established electromagnetic NDT techniques. This innovative framework combines adaptive electromagnetic field focusing with advanced image reconstruction, establishing a new benchmark in real-time, high-precision defect detection. In addition, it is offering valuable applications in pipeline inspection, aerospace, and automotive industries.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
@@ -156,7 +156,7 @@
       "United States",
       "Iran"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 7,
