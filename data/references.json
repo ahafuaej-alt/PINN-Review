@@ -2245,7 +2245,7 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-09"
     },
-    "abstract": null,
+    "abstract": "Flow boiling is a well-documented yet still poorly modeled two-phase convective heat transfer phenomenon. It consists of all the complexities of single-phase flows, such as flow instability and turbulence, as well as added complexities from mass, momentum, and energy transfer at the vapor–liquid interface. Due to these additional complexities, traditional modeling techniques such as CFD, empirical/semi-empirical correlations, and control volume based theoretical models fall short of completely capturing key flow boiling phenomena and fluid-fluid interactions at the interface. This paper aims to use Physics-Informed Neural Networks (PINNs) as a surrogate for empirical parameters in control volume models to directly infer interfacial shear stress from data. We will show the general framework and effectiveness of PINNs on well-established and validated numerical control volume data. Then we will attempt to infer unknown interfacial shear stress from experimental data given different constraints and assumptions on the pressure curve. Detailed analysis for how the pressure curve is derived as well as how the model architecture affects results are also examined in the present study.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Open access",

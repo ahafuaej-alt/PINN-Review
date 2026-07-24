@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.29",
+    "dataset_version": "2.2.30",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -6657,8 +6657,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.aitf.2025.100011",
-        "note": null,
+        "evidence_url": "https://linkinghub.elsevier.com/retrieve/pii/S3050585225000102",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1016%2Fj.aitf.2025.100011",
@@ -6715,7 +6715,8 @@
         "article_number": "100011",
         "publisher": "Elsevier BV",
         "publication_date": "2025-09"
-      }
+      },
+      "abstract": "Flow boiling is a well-documented yet still poorly modeled two-phase convective heat transfer phenomenon. It consists of all the complexities of single-phase flows, such as flow instability and turbulence, as well as added complexities from mass, momentum, and energy transfer at the vapor–liquid interface. Due to these additional complexities, traditional modeling techniques such as CFD, empirical/semi-empirical correlations, and control volume based theoretical models fall short of completely capturing key flow boiling phenomena and fluid-fluid interactions at the interface. This paper aims to use Physics-Informed Neural Networks (PINNs) as a surrogate for empirical parameters in control volume models to directly infer interfacial shear stress from data. We will show the general framework and effectiveness of PINNs on well-established and validated numerical control volume data. Then we will attempt to infer unknown interfacial shear stress from experimental data given different constraints and assumptions on the pressure curve. Detailed analysis for how the pressure curve is derived as well as how the model architecture affects results are also examined in the present study."
     },
     {
       "id": 84,
