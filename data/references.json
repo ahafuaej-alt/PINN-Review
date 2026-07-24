@@ -4687,7 +4687,7 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-05"
     },
-    "abstract": null,
+    "abstract": "Accurate monitoring of a battery’s state of health (SOH) is crucial for ensuring reliable operation. Data-driven methods for SOH estimation often involve complex feature extraction strategies and models that are difficult to interpret, limiting their generalizability. To overcome these challenges, this paper presents a battery SOH estimation method based on the refined composite multiscale Hilbert cumulative residual entropy algorithm (RCMHCRE) and the battery physical information neural network (BatteryPINN). First, the proposed RCMHCRE algorithm is applied to automatically extract high-quality health features from the battery’s voltage and current data, serving as the feature engineering in this study. Second, the network structure of BatteryPINN is developed for SOH prediction, based on the mathematical theory of solid electrolyte interphase (SEI) membrane growth. The proposed strategy enables BatteryPINN to be constrained by the battery aging mechanism during training, thereby ensuring that the network adheres to the underlying physical laws during propagation. To validate the effectiveness of the proposed method, a four-month battery aging experiment is conducted, and a dataset is constructed. Experimental results from three datasets demonstrate that the proposed method offers significant advantages in health feature extraction and SOH estimation compared to other state-of-the-art battery SOH estimation methods, achieving prediction accuracies of less than 1% for both RMSE and MAPE metrics.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
