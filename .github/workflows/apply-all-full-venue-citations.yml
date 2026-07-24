@@ -1,0 +1,115 @@
+name: Apply all full venue citations
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+concurrency:
+  group: all-full-venue-citations
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    if: github.event.issue.user.login == github.repository_owner && github.event.issue.title == '[Apply all full venue citations]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Regenerate every journal-style citation
+        id: migrate
+        run: node scripts/regenerate-full-venue-citations.mjs | tee /tmp/full-venue-result.json
+      - name: Restore strict automatic-citation validation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          core = Path('scripts/lib/dataset-core.mjs')
+          text = core.read_text(encoding='utf-8')
+          old = """    if (paper.provenance?.citation_mode === 'automatic') {
+              const fullVenueCitation = formatMdpiCitation(paper);
+              if (paper.citation !== fullVenueCitation) {
+                // Existing automatic records may retain the former abbreviated
+                // journal output until that paper is regenerated. New automatic
+                // citations always use the canonical full venue.name value.
+                const legacyPaper = structuredClone(paper);
+                if (legacyPaper.bibliographic?.journal_abbreviation) {
+                  legacyPaper.venue = { ...legacyPaper.venue, name: legacyPaper.bibliographic.journal_abbreviation };
+                }
+                add(paper.citation === formatMdpiCitation(legacyPaper), `${label} automatic MDPI citation is stale`);
+              }
+            }"""
+          if old not in text:
+              old = """    if (paper.provenance?.citation_mode === 'automatic') {
+            const fullVenueCitation = formatMdpiCitation(paper);
+            if (paper.citation !== fullVenueCitation) {
+              // Existing automatic records may retain the former abbreviated
+              // journal output until that paper is regenerated. New automatic
+              // citations always use the canonical full venue.name value.
+              const legacyPaper = structuredClone(paper);
+              if (legacyPaper.bibliographic?.journal_abbreviation) {
+                legacyPaper.venue = { ...legacyPaper.venue, name: legacyPaper.bibliographic.journal_abbreviation };
+              }
+              add(paper.citation === formatMdpiCitation(legacyPaper), `${label} automatic MDPI citation is stale`);
+            }
+          }"""
+          if old not in text:
+              raise SystemExit('legacy citation bridge block not found in dataset-core.mjs')
+          text = text.replace(old, "    if (paper.provenance?.citation_mode === 'automatic') add(paper.citation === formatMdpiCitation(paper), `${label} automatic MDPI citation is stale`);")
+          core.write_text(text, encoding='utf-8')
+
+          validator = Path('scripts/validate-citation-format.mjs')
+          text = validator.read_text(encoding='utf-8')
+          start = text.index("for (const paper of master.papers.filter((record) => record.provenance?.citation_mode === 'automatic')) {")
+          end = text.index("\n\nif (failures.length)", start)
+          strict = """for (const paper of master.papers.filter((record) => record.provenance?.citation_mode === 'automatic')) {
+            check(paper.citation === formatMdpiCitation(paper), `paper ${paper.id} has a stale automatic citation`);
+          }"""
+          text = text[:start] + strict + text[end:]
+          text = text.replace("  legacy_abbreviated_automatic_citations_allowed: true,\n", '')
+          validator.write_text(text, encoding='utf-8')
+          PY
+      - name: Validate the complete repository
+        run: |
+          node scripts/build-datasets.mjs --check
+          node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
+          node scripts/validate-pinn-realm.mjs
+          node --check assets/citation-format.mjs
+          node --check assets/dataset-manager.js
+          node --check scripts/apply-paper-update.mjs
+          node --check scripts/regenerate-full-venue-citations.mjs
+          node --check scripts/lib/dataset-core.mjs
+          git diff --check
+      - name: Remove one-time workflow
+        run: rm .github/workflows/apply-all-full-venue-citations.yml
+      - name: Commit complete migration
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json scripts/regenerate-full-venue-citations.mjs scripts/lib/dataset-core.mjs scripts/validate-citation-format.mjs .github/workflows/apply-all-full-venue-citations.yml
+          git commit -m "Regenerate all journal-style citations with full venue names [skip pages]"
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Report migration result
+        uses: actions/github-script@v7
+        env:
+          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+        with:
+          script: |
+            const fs = require('fs');
+            const result = JSON.parse(fs.readFileSync('/tmp/full-venue-result.json', 'utf8'));
+            const body = `### ✅ All journal-style citations regenerated\n\nEvery journal, conference-journal, and preprint record was regenerated from the canonical full publication name in \`venue.name\`. No eligible record was skipped.\n\n- Dataset version: **${result.version}**\n- Journal-style records processed: **${result.journal_style_records}**\n- Citations changed: **${result.citation_changes}**\n- Bibliographic records backfilled: **${result.bibliographic_backfills}**\n- Records moved to automatic citation mode: **${result.automatic_mode_changes}**\n- Commit: https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${process.env.COMMIT_SHA}\n- Validation: passed\n- Pages: not deployed yet`;
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+            await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: 'closed', state_reason: 'completed' });
