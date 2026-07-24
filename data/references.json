@@ -4308,7 +4308,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-06"
     },
-    "abstract": null,
+    "abstract": "To address the challenges in battery health management, this article introduces a physics-informed neural network predictor-estimator scheme. In the framework, the predictor forecasts health degradation, setting benchmarks for the estimator, while the estimator provides calibrations for the predictor as a substitution for infeasible measurement techniques. For the predictor design, a linear-exponential model is employed for two-stage degradation prediction, enabling online parameter updates and knee point detection. For the estimator design, three neural networks embedded with Coulomb counting and equivalent circuits are proposed to estimate the state of charge (SOC), internal resistance, and capacity, respectively. Experimental results on the A123 dataset demonstrate the superior accuracy of our scheme, with a maximum R2 improvement of 22.8% in prediction tasks and 11.5% in estimation tasks, while maintaining lightweight network structures with fewer than 1000 floating-point operations (FLOPs) and 200 parameters.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
