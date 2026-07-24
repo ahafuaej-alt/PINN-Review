@@ -201,7 +201,7 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-11"
     },
-    "abstract": null,
+    "abstract": "Modeling multiphase flows in porous media is a fundamental task in petroleum engineering and hydrology. Physics-informed neural networks (PINNs) represent a promising tool for solving complex differential equations that incorporate both physical laws and empirical data. Existing PINN approaches often simplify the pressure-saturation coupling or employ complex multi-network architectures, which complicate the architecture and reduce computational efficiency. In this work, we develop and systematically evaluate a single unified PINN for simultaneously modeling water saturation and pressure in two-phase systems governed by the Buckley–Leverett model and Darcy’s law. The water saturation equation is hyperbolic with a characteristic sharp shock front that PINNs historically struggle to approximate without modification. Through a comprehensive investigation encompassing over 650 numerical experiments and a global sensitivity analysis, we systematically assess the roles of network architecture, data density, loss weighting, and artificial diffusion. Our results reveal that standard unified PINNs struggle with the hyperbolic shock, and neither increased model/data complexity nor loss weighting alone suffice. We found that incorporating an artificial diffusion term proved essential for capturing the front within this unified framework. Crucially, combining this artificial diffusion with an optimized total loss weighting scheme significantly improves accuracy, reducing the mean L2 relative saturation error by and the mean L2 relative pressure error by compared to using diffusion alone. Our work establishes a methodology for applying unified PINNs to challenging multiphase flow problems and quantifies the necessary components for achieving reliable shock-capturing.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
@@ -209,7 +209,7 @@
       "Kazakhstan",
       "France"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 9,
