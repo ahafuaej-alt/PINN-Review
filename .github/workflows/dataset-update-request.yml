@@ -1,5 +1,9 @@
 name: Review dataset update request
 
+# TEMPORARY OWNER MODE:
+# New Dataset Manager issues opened by the repository owner are validated,
+# committed, labelled for batch deployment, and closed automatically.
+# Other contributors still require the normal /apply-dataset-update approval.
 on:
   issues:
     types: [opened, edited]
@@ -9,12 +13,12 @@ on:
 permissions: {}
 
 concurrency:
-  group: ${{ github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update' && 'canonical-dataset-update' || format('dataset-update-{0}', github.event.issue.number) }}
+  group: ${{ ((github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update') || (github.event_name == 'issues' && github.event.action == 'opened' && github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, '[Dataset update]'))) && 'canonical-dataset-update' || format('dataset-update-{0}', github.event.issue.number) }}
   cancel-in-progress: false
 
 jobs:
   validate-request:
-    if: github.event_name == 'issues' && startsWith(github.event.issue.title, '[Dataset update]')
+    if: github.event_name == 'issues' && startsWith(github.event.issue.title, '[Dataset update]') && (github.event.action != 'opened' || github.event.issue.user.login != github.repository_owner)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -63,7 +67,14 @@ jobs:
         run: exit 1
 
   apply-approved-request:
-    if: github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update' && startsWith(github.event.issue.title, '[Dataset update]')
+    if: >-
+      (github.event_name == 'issue_comment' &&
+       github.event.comment.body == '/apply-dataset-update' &&
+       startsWith(github.event.issue.title, '[Dataset update]')) ||
+      (github.event_name == 'issues' &&
+       github.event.action == 'opened' &&
+       github.event.issue.user.login == github.repository_owner &&
+       startsWith(github.event.issue.title, '[Dataset update]'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -126,7 +137,17 @@ jobs:
   report-applied-request:
     name: Report committed update
     needs: apply-approved-request
-    if: ${{ always() && github.event_name == 'issue_comment' && github.event.comment.body == '/apply-dataset-update' && startsWith(github.event.issue.title, '[Dataset update]') }}
+    if: >-
+      always() &&
+      (
+        (github.event_name == 'issue_comment' &&
+         github.event.comment.body == '/apply-dataset-update' &&
+         startsWith(github.event.issue.title, '[Dataset update]')) ||
+        (github.event_name == 'issues' &&
+         github.event.action == 'opened' &&
+         github.event.issue.user.login == github.repository_owner &&
+         startsWith(github.event.issue.title, '[Dataset update]'))
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -139,9 +160,11 @@ jobs:
           DATASET_COMMIT: ${{ needs.apply-approved-request.outputs.commit_sha }}
           PAPER_ID: ${{ needs.apply-approved-request.outputs.paper_id }}
           DATASET_VERSION: ${{ needs.apply-approved-request.outputs.version }}
+          AUTO_OWNER_MODE: ${{ github.event_name == 'issues' && github.event.action == 'opened' && github.event.issue.user.login == github.repository_owner }}
         with:
           script: |
             const applied = process.env.APPLY_JOB_RESULT === 'success';
+            const automatic = process.env.AUTO_OWNER_MODE === 'true';
             const commitSha = process.env.DATASET_COMMIT;
             const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             let body;
@@ -179,7 +202,8 @@ jobs:
               });
 
               const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}`;
-              body = `### ✅ Dataset update committed\n\nPaper **[${process.env.PAPER_ID}]** was applied as dataset version **${process.env.DATASET_VERSION}**. The canonical and generated dataset files were committed successfully, but the live Atlas has **not** been deployed yet.\n\n- Dataset commit: ${commitUrl}\n- Status: \`dataset-awaiting-deployment\`\n\nThis issue is now closed. After reviewing more papers, deploy all accumulated updates once from **Actions → Deploy pending dataset updates → Run workflow**.`;
+              const mode = automatic ? 'The temporary owner automation applied this request automatically.' : 'A maintainer approved and applied this request.';
+              body = `### ✅ Dataset update committed\n\nPaper **[${process.env.PAPER_ID}]** was applied as dataset version **${process.env.DATASET_VERSION}**. ${mode} The canonical and generated dataset files were committed successfully, but the live Atlas has **not** been deployed yet.\n\n- Dataset commit: ${commitUrl}\n- Status: \`dataset-awaiting-deployment\`\n\nYou can continue reviewing the next paper. After the review session, deploy all accumulated updates once from **Actions → Deploy pending dataset updates → Run workflow**.`;
               await github.rest.issues.update({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -188,7 +212,8 @@ jobs:
                 state_reason: 'completed'
               });
             } else {
-              body = `### ❌ Dataset application stopped\n\nThe update could not be validated and committed. Nothing was added to the pending deployment batch, and this issue remains open.\n\nOpen the workflow run for the exact diagnostic:\n\n${runUrl}`;
+              const mode = automatic ? 'The temporary automatic application' : 'The approved application';
+              body = `### ❌ Dataset application stopped\n\n${mode} could not be validated and committed. Nothing was added to the pending deployment batch, and this issue remains open.\n\nOpen the workflow run for the exact diagnostic:\n\n${runUrl}`;
             }
 
             await github.rest.issues.createComment({
