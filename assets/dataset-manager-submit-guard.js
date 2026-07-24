@@ -2,12 +2,31 @@
   'use strict';
 
   const submitButton = document.querySelector('[data-submit-update]');
+  let submitLocked = false;
+  let submitButtonLabel = '';
+
+  const unlockSubmit = () => {
+    if (!submitButton || !submitLocked) return;
+    submitLocked = false;
+    submitButton.removeAttribute('aria-disabled');
+    if (submitButtonLabel) submitButton.textContent = submitButtonLabel;
+  };
+
   if (submitButton) {
+    submitButtonLabel = submitButton.textContent;
+
     // Keep a stable reference to the browser's real window.open before any
     // click-time wrappers are installed by other scripts.
     const nativeOpen = window.open.bind(window);
 
-    submitButton.addEventListener('click', () => {
+    submitButton.addEventListener('click', (event) => {
+      if (submitLocked) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+
+      submitLocked = true;
       window.open = (url, target) => {
         const link = document.createElement('a');
         link.href = String(url);
@@ -24,12 +43,19 @@
         return { closed: false };
       };
 
-      // Restore normal browser behavior after all click handlers and microtasks
-      // for this user gesture have completed.
+      // Let the Dataset Manager's own click handler open GitHub first, then lock
+      // the button until the form changes or another paper is selected.
       setTimeout(() => {
         window.open = nativeOpen;
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-disabled', 'true');
+        submitButton.textContent = 'Update request opened';
       }, 0);
     }, { capture: true });
+
+    // A deliberate edit makes the current form eligible for a fresh submission.
+    document.addEventListener('input', unlockSubmit, { capture: true });
+    document.addEventListener('change', unlockSubmit, { capture: true });
   }
 
   const results = document.querySelector('[data-manager-results]');
@@ -94,6 +120,7 @@
     const row = event.target.closest('[data-manager-paper]');
     if (!row) return;
 
+    unlockSubmit();
     selectionLock = {
       listScrollTop: results.scrollTop,
       pageX: window.scrollX,
