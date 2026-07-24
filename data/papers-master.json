@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.4",
+    "dataset_version": "2.2.5",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -371,7 +371,7 @@
     {
       "id": 5,
       "title": "Solution of Electromagnetic Scattering and Inverse Scattering by Integral Equations Through Neural Networks",
-      "citation": "Lou, X.-Y.; Zhang, J.-B.; Yu, D.-M.; Wang, D.-F.; Pan, X.-M. Solution of Electromagnetic Scattering and Inverse Scattering by Integral Equations Through Neural Networks. IEEE Trans. Antennas Propagat 2025, 73, 9654-9659. https://doi.org/10.1109/TAP.2025.3592819.",
+      "citation": "Lou, X.-Y.; Zhang, J.-B.; Yu, D.-M.; Wang, D.-F.; Pan, X.-M. Solution of Electromagnetic Scattering and Inverse Scattering by Integral Equations Through Neural Networks. IEEE Transactions on Antennas and Propagation 2025, 73, 9654-9659. https://doi.org/10.1109/TAP.2025.3592819.",
       "doi": "10.1109/TAP.2025.3592819",
       "publisher_url": "https://ieeexplore.ieee.org/document/11106360/",
       "venue": {
@@ -386,8 +386,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TAP.2025.3592819",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11106360/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTAP.2025.3592819",
@@ -431,18 +431,20 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Lou, X.-Y.; Zhang, J.-B.; Yu, D.-M.; Wang, D.-F.; Pan, X.-M.",
-        "journal_abbreviation": "IEEE Trans. Antennas Propagat.",
+        "journal_abbreviation": "IEEE Transactions on Antennas and Propagation",
         "volume": "73",
         "issue": "11",
         "pages": "9654-9659",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-11"
-      }
+      },
+      "abstract": "This work develops a solver based on the neural networks, where the discrete form of integral equations (IEs) is embedded to address both forward and inverse dynamic electromagnetic scattering problems. Since the input is the real-valued coordinates while the output is the complex-valued fields, our proposed solver distinguishes itself from existing neural network solvers. Different network structures to handle the phase information contained in the complex-valued numbers are investigated. Improvements are developed to enhance the performance of the proposed solver. Numerical simulations for 2-D electromagnetic scattering in both forward and inverse problems were conducted to validate the proposed solver."
     },
     {
       "id": 6,

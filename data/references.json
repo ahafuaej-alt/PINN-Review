@@ -108,28 +108,28 @@
   {
     "id": 5,
     "title": "Solution of Electromagnetic Scattering and Inverse Scattering by Integral Equations Through Neural Networks",
-    "citation": "Lou, X.-Y.; Zhang, J.-B.; Yu, D.-M.; Wang, D.-F.; Pan, X.-M. Solution of Electromagnetic Scattering and Inverse Scattering by Integral Equations Through Neural Networks. IEEE Trans. Antennas Propagat 2025, 73, 9654-9659. https://doi.org/10.1109/TAP.2025.3592819.",
+    "citation": "Lou, X.-Y.; Zhang, J.-B.; Yu, D.-M.; Wang, D.-F.; Pan, X.-M. Solution of Electromagnetic Scattering and Inverse Scattering by Integral Equations Through Neural Networks. IEEE Transactions on Antennas and Propagation 2025, 73, 9654-9659. https://doi.org/10.1109/TAP.2025.3592819.",
     "doi": "10.1109/TAP.2025.3592819",
     "publisher_url": "https://ieeexplore.ieee.org/document/11106360/",
     "venue": "IEEE Transactions on Antennas and Propagation",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Lou, X.-Y.; Zhang, J.-B.; Yu, D.-M.; Wang, D.-F.; Pan, X.-M.",
-      "journal_abbreviation": "IEEE Trans. Antennas Propagat.",
+      "journal_abbreviation": "IEEE Transactions on Antennas and Propagation",
       "volume": "73",
       "issue": "11",
       "pages": "9654-9659",
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-11"
     },
-    "abstract": null,
+    "abstract": "This work develops a solver based on the neural networks, where the discrete form of integral equations (IEs) is embedded to address both forward and inverse dynamic electromagnetic scattering problems. Since the input is the real-valued coordinates while the output is the complex-valued fields, our proposed solver distinguishes itself from existing neural network solvers. Different network structures to handle the phase information contained in the complex-valued numbers are investigated. Improvements are developed to enhance the performance of the proposed solver. Numerical simulations for 2-D electromagnetic scattering in both forward and inverse problems were conducted to validate the proposed solver.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 6,
