@@ -11438,7 +11438,7 @@
   {
     "id": 437,
     "title": "JAX, M.D. A Framework for Differentiable Physics",
-    "citation": "Schoenholz, S.S.; Cubuk, E.D. JAX, M.D. A Framework for Differentiable Physics. J. Stat. Mech 2021, 2021, 1–22. https://doi.org/10.1088/1742-5468/ac3ae9.",
+    "citation": "Schoenholz, S.S.; Cubuk, E.D. JAX, M.D. A Framework for Differentiable Physics. IOP Science home Journal of Statistical Mechanics: Theory and Experiment 2021, 2021, 1–22. https://doi.org/10.1088/1742-5468/ac3ae9.",
     "doi": "10.1088/1742-5468/ac3ae9",
     "publisher_url": "https://doi.org/10.1088/1742-5468/ac3ae9",
     "venue": "IOP Science home Journal of Statistical Mechanics: Theory and Experiment",
@@ -11457,7 +11457,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 438,

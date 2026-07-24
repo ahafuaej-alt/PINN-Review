@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.24",
+    "dataset_version": "2.2.25",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -33326,7 +33326,7 @@
     {
       "id": 437,
       "title": "JAX, M.D. A Framework for Differentiable Physics",
-      "citation": "Schoenholz, S.S.; Cubuk, E.D. JAX, M.D. A Framework for Differentiable Physics. J. Stat. Mech 2021, 2021, 1–22. https://doi.org/10.1088/1742-5468/ac3ae9.",
+      "citation": "Schoenholz, S.S.; Cubuk, E.D. JAX, M.D. A Framework for Differentiable Physics. IOP Science home Journal of Statistical Mechanics: Theory and Experiment 2021, 2021, 1–22. https://doi.org/10.1088/1742-5468/ac3ae9.",
       "doi": "10.1088/1742-5468/ac3ae9",
       "publisher_url": "https://doi.org/10.1088/1742-5468/ac3ae9",
       "venue": {
@@ -33345,7 +33345,7 @@
         "note": "change the type and fill info",
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "abstract": "We introduce JAX MD, a software package for performing differentiable physics simulations with a focus on molecular dynamics. JAX MD includes a number of physics simulation environments, as well as interaction potentials and neural networks that can be integrated into these environments without writing any additional code. Since the simulations themselves are differentiable functions, entire trajectories can be differentiated to perform meta-optimization. These features are built on primitive operations, such as spatial partitioning, that allow simulations to scale to hundreds-of-thousands of particles on a single GPU. These primitives are flexible enough that they can be used to scale up workloads outside of molecular dynamics. We present several examples that highlight the features of JAX MD including: integration of graph neural networks into traditional simulations, meta-optimization through minimization of particle packings, and a multi-agent flocking simulation. JAX MD is available at https://www.github.com/google/jax-md.",
       "bibliographic": {
         "authors": "Schoenholz, S.S.; Cubuk, E.D.",

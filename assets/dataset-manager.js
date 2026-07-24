@@ -4,7 +4,7 @@ import {
   extractLegacyBibliographic,
   formatMdpiCitation,
   normalizeBibliographic
-} from './citation-format.mjs?v=full-venue-20260724';
+} from './citation-format.mjs?v=full-venue-visible-20260724';
 
 const MASTER_URL = '../data/papers-master.json';
 const MAPPING_URL = '../data/country-mapping.json';
@@ -348,7 +348,7 @@ const renderTypeFields = () => {
   const labels = {
     journal: 'Journal fields follow the MDPI journal/periodical format.',
     preprint: 'Preprint fields use journal-style metadata where available.',
-    conference_journal: 'Use the journal abbreviation, volume, and page/article fields.',
+    conference_journal: 'Use the full publication name above; the journal abbreviation is optional metadata.',
     conference: 'Proceedings require the meeting name, place, country, and date.',
     presentation: 'Unpublished presentations require the meeting, place, country, and date.',
     conference_book: 'Book-published proceedings require container, editors, publisher, and place.',
@@ -391,6 +391,12 @@ const populateForm = (paper) => {
   field('graphical_alt_text').value = paper.graphical_abstract?.alt_text || '';
   field('graphical_caption').value = paper.graphical_abstract?.caption || '';
   BIBLIOGRAPHIC_FIELDS.forEach((name) => { if (field(`bib_${name}`)) field(`bib_${name}`).value = state.initialBibliographic[name] || ''; });
+  // Show the canonical automatic citation immediately instead of waiting for
+  // another bibliographic field to be edited. This also marks a legacy stored
+  // citation for regeneration when any paper update is submitted.
+  const automaticCitation = generatedCitation();
+  state.autoCitationDirty = Boolean(automaticCitation && automaticCitation !== paper.citation);
+  field('citation').value = state.autoCitationDirty ? automaticCitation : paper.citation;
   field('evidence_url').value = paper.publisher_url || (paper.doi ? `https://doi.org/${paper.doi}` : '');
   field('reason').value = '';
   field('submitted_by').value = '';

@@ -62,10 +62,14 @@ if ('year' in update.changes && !update.options?.preserve_realm_year_override) {
   if (paper.overrides && !Object.keys(paper.overrides).length) delete paper.overrides;
 }
 const citationDrivingFields = ['title', 'doi', 'publisher_url', 'venue', 'year', 'bibliographic'];
-const shouldRegenerateCitation = citationMode === 'automatic' && citationDrivingFields.some((field) => field in update.changes);
+if (citationMode === 'automatic' && !paper.bibliographic) paper.bibliographic = legacyBibliographic;
+const generatedAutomaticCitation = citationMode === 'automatic' ? formatMdpiCitation(paper) : '';
+const shouldRegenerateCitation = citationMode === 'automatic' && (
+  citationDrivingFields.some((field) => field in update.changes) ||
+  paper.citation !== generatedAutomaticCitation
+);
 if (shouldRegenerateCitation) {
-  if (!paper.bibliographic) paper.bibliographic = legacyBibliographic;
-  paper.citation = formatMdpiCitation(paper);
+  paper.citation = generatedAutomaticCitation;
   if (!paper.citation) throw new Error('MDPI citation could not be generated from the submitted bibliographic fields');
 } else if (citationMode === 'legacy' && 'year' in update.changes && !('citation' in update.changes) && paper.year !== null) {
   const newYearPattern = new RegExp(`\\b${paper.year}\\b`);
