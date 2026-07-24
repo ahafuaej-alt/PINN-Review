@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.43",
+    "dataset_version": "2.2.44",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -12669,8 +12669,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TAES.2025.3527422",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10834589/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTAES.2025.3527422",
@@ -12727,7 +12727,8 @@
         "pages": "6189-6201",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-06"
-      }
+      },
+      "abstract": "In recent years, steady progress has been made in the development of embedding surface-flow sensors on small autonomous aerial vehicles (SAAVs). Precisely predicting aerodynamic moments in real time using distributed sensor measurements is one of the crucial tasks necessary before such SAAVs can achieve agile and stable flight. Different approaches have been investigated, including mapping functions with parametric estimation and neural networks. Here, the measurements from those surface-flow sensors are collectively treated as images and/or videos, and a physics-informed convolutional neural network is studied to achieve the accurate and fast aerodynamic moment prediction. The unique feature of this approach is embedding physics laws in the kernel function of the neural network's convolutional layer, leading to a fast convergence rate. Furthermore, the accuracy of the prediction does not degrade when the number of sensors decreases, having a good scalability. The advantages of this physics-informed neural network algorithm are demonstrated in simulation against the existing approaches. As shown in one of the simulation results, the prediction errors of the roll, pitching, and yaw moments are 6.72%, 0.071%, and 6.12%, respectively, with a prediction speed of 4.36 ms."
     },
     {
       "id": 159,

@@ -4282,7 +4282,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-06"
     },
-    "abstract": null,
+    "abstract": "In recent years, steady progress has been made in the development of embedding surface-flow sensors on small autonomous aerial vehicles (SAAVs). Precisely predicting aerodynamic moments in real time using distributed sensor measurements is one of the crucial tasks necessary before such SAAVs can achieve agile and stable flight. Different approaches have been investigated, including mapping functions with parametric estimation and neural networks. Here, the measurements from those surface-flow sensors are collectively treated as images and/or videos, and a physics-informed convolutional neural network is studied to achieve the accurate and fast aerodynamic moment prediction. The unique feature of this approach is embedding physics laws in the kernel function of the neural network's convolutional layer, leading to a fast convergence rate. Furthermore, the accuracy of the prediction does not degrade when the number of sensors decreases, having a good scalability. The advantages of this physics-informed neural network algorithm are demonstrated in simulation against the existing approaches. As shown in one of the simulation results, the prediction errors of the roll, pitching, and yaw moments are 6.72%, 0.071%, and 6.12%, respectively, with a prediction speed of 4.36 ms.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",

@@ -2,6 +2,41 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-158-2026-07-24-2.2.44",
+      "version": "2.2.44",
+      "date": "2026-07-24",
+      "paper_id": 158,
+      "changed_fields": [
+        "abstract"
+      ],
+      "reason": "abs",
+      "evidence": {
+        "url": "https://ieeexplore.ieee.org/document/10834589/",
+        "note": "abs"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 158,
+        "changed_fields": [
+          "abstract"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-157-2026-07-24-2.2.43",
       "version": "2.2.43",
       "date": "2026-07-24",
