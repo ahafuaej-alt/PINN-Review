@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.12",
+    "dataset_version": "2.2.13",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -2312,7 +2312,7 @@
       "doi": "10.1109/IECON58223.2025.11221822",
       "publisher_url": "https://ieeexplore.ieee.org/document/11221822/",
       "venue": {
-        "name": "IECON 2025 – 51st Annual Conference of the IEEE Industrial Electronics Society",
+        "name": "IEEE Industrial Electronics Society 51st Annual Conference IECON 2025",
         "type": "conference"
       },
       "year": 2025,
@@ -2323,8 +2323,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/IECON58223.2025.11221822",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11221822/",
+        "note": "abs and title of conf",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FIECON58223.2025.11221822",
@@ -2369,9 +2369,10 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Liu, L.; Dong, W.; Ye, H.; Li, S.; Gu, M.; Zhang, T.",
         "journal_abbreviation": "IECON 2025 – 51st Annual Conference of the IEEE Industrial Electronics Society",
@@ -2381,7 +2382,8 @@
         "conference_location": "Madrid, Spain",
         "conference_date": "2025-10-14–2025-10-17",
         "publication_date": "2025-10-14"
-      }
+      },
+      "abstract": "Superconducting electrodynamic suspension (SC-EDS) train, characterized by its large levitation gap, high lift-to-drag ratio, and self-stabilization features, has significant application potential in high-speed and ultra-high-speed maglev transportation. However, the modeling for the SC-EDS train poses significant challenges in balancing accuracy with computational efficiency. This paper proposes a physics-informed neural network (PINN)-based modeling method for the SC-EDS train. Focusing on the dynamic circuit equations governing the levitation/guidance (L/G) coils and onboard SC coils, the method leverages PINN to rapidly solve for the currents in the L/G coils, thereby enabling real-time computation of electromagnetic forces critical for dynamic modeling of the train. By embedding the dynamic circuit equations into neural networks as physical constraints, the model achieves high-fidelity approximations of the currents while drastically reducing computational costs. This approach not only enhances the feasibility of real-time dynamic modeling but also lays a foundation for stability analysis, system optimization, and advanced control strategies in SC-EDS applications."
     },
     {
       "id": 31,
