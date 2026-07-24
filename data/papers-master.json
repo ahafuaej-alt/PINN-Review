@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.2",
+    "dataset_version": "2.2.3",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -226,8 +226,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.engappai.2025.112044",
-        "note": null,
+        "evidence_url": "https://linkinghub.elsevier.com/retrieve/pii/S0952197625020524",
+        "note": "abstract added",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1016%2Fj.engappai.2025.112044",
@@ -277,7 +277,7 @@
           "published_version": null
         }
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Guo, J.; Zhu, H.; Yang, Y.; Guo, C.",
         "journal_abbreviation": "Engineering Applications of Artificial Intelligence",
@@ -286,7 +286,8 @@
         "article_number": "112044",
         "publisher": "Elsevier BV",
         "publication_date": "2025-12"
-      }
+      },
+      "abstract": "Most physical and engineering problems can be described by partial differential equations (PDEs), which are typically solved using numerical methods such as the finite difference method and the finite element method. However, conventional numerical discretization approaches face significant challenges in terms of computational efficiency and convergence speed when dealing with complex nonlinear PDEs, such as high-dimensional nonlinear PDEs, stiff PDEs, PDEs with complex boundary conditions or irregular geometries, and multi-scale PDEs. Recently, physics-informed neural networks (PINNs) have emerged as a transformative methodology for solving complex PDEs by integrating physical laws intrinsically into deep learning architectures. While PINNs effectively overcome mesh dependency and dimensionality constraints inherent in traditional numerical methods, they still encounter persistent challenges related to training convergence and generalization robustness. This paper aims to present a comprehensive review of the state-of-the-art developments in PINNs for solving complex PDE problems. The core ideas, network architectures, and generic implementation frameworks, along with associated open-source Python libraries, are first introduced in detail. Furthermore, a systematic taxonomy of optimization techniques is provided, covering hyperparameter selection, adaptive sampling strategies, physics-constrained loss formulations, hybrid differentiation approaches, and architectural innovations. Subsequently, various coping strategies and research advancements of PINNs in addressing complex nonlinear PDE problems are thoroughly discussed. Real-world engineering applications are then reviewed across multiple domains, including cosmology and quantum mechanics, materials science and manufacturing, fluid mechanics, energy systems, biological and environmental sciences, and power and information technologies. Finally, this paper discusses the current challenges and limitations of PINNs in solving complex PDEs and outlines potential directions for future research. By addressing the current limitations and pursuing targeted improvements in architectures, training, interpretability and generalization, PINNs can become a powerful tool in engineering and scientific applications."
     },
     {
       "id": 4,
