@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.20",
+    "dataset_version": "2.2.21",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -5965,7 +5965,7 @@
     {
       "id": 77,
       "title": "Magnetostatic and Magnetodynamic Modeling With Unsupervised Physics-Informed Neural Networks",
-      "citation": "Toghranegar, S.; Kazmi, H.; Deconinck, G.; Sabariego, R.V. Magnetostatic and Magnetodynamic Modeling With Unsupervised Physics-Informed Neural Networks. IEEE Trans. Magn 2025, 61, 1-10. https://doi.org/10.1109/TMAG.2025.3590627.",
+      "citation": "Toghranegar, S.; Kazmi, H.; Deconinck, G.; Sabariego, R.V. Magnetostatic and Magnetodynamic Modeling With Unsupervised Physics-Informed Neural Networks. IEEE Transactions on Magnetics 2025, 61, 1-10. https://doi.org/10.1109/TMAG.2025.3590627.",
       "doi": "10.1109/TMAG.2025.3590627",
       "publisher_url": "https://ieeexplore.ieee.org/document/11084990/",
       "venue": {
@@ -5980,8 +5980,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TMAG.2025.3590627",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11084990/",
+        "note": "abs and abb",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTMAG.2025.3590627",
@@ -6025,18 +6025,20 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Toghranegar, S.; Kazmi, H.; Deconinck, G.; Sabariego, R.V.",
-        "journal_abbreviation": "IEEE Trans. Magn.",
+        "journal_abbreviation": "IEEE Transactions on Magnetics",
         "volume": "61",
         "issue": "9",
         "pages": "1-10",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-09"
-      }
+      },
+      "abstract": "Physics-informed neural networks (PINNs) have emerged as a promising approach for solving magnetic field problems by directly embedding governing equations and boundary conditions into the learning process, thus eliminating the need for extensive labeled training data. This study explores the application of unsupervised PINNs to magnetostatic and magnetodynamic simulations, with a particular emphasis on material interfaces. The proposed framework utilizes separate PINNs for distinct material regions, coupled through interface loss terms to ensure field continuity. In addition, Fourier feature mapping is employed to enhance the ability of PINNs to capture high-frequency variations in the solution. The results are validated against finite element method simulations, demonstrating acceptable agreement while highlighting challenges in accurately modeling sharp field discontinuities. The findings underscore the potential of PINNs as a flexible, physics-driven approach for magnetostatic and magnetodynamic modeling. Three test cases are examined: 1) a 2-D magnetostatic inductor; 2) magnetostatic concentric disks with nonlinear material properties; and 3) a time-domain simulation of concentric disks incorporating eddy currents and nonlinear material behavior."
     },
     {
       "id": 78,
