@@ -1,0 +1,202 @@
+name: Apply visible full-name citation migration
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+concurrency:
+  group: full-name-citation-visible-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    if: github.event.issue.user.login == github.repository_owner && github.event.issue.title == '[Apply visible full-name citations]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Patch Dataset Manager and automatic update behavior
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              file = Path(path)
+              text = file.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one match, found {count}')
+              file.write_text(text.replace(old, new), encoding='utf-8')
+
+          replace_once(
+              'assets/dataset-manager.js',
+              "} from './citation-format.mjs?v=full-venue-20260724';",
+              "} from './citation-format.mjs?v=full-venue-visible-20260724';"
+          )
+
+          replace_once(
+              'assets/dataset-manager.js',
+              "  BIBLIOGRAPHIC_FIELDS.forEach((name) => { if (field(`bib_${name}`)) field(`bib_${name}`).value = state.initialBibliographic[name] || ''; });\n  field('evidence_url').value = paper.publisher_url || (paper.doi ? `https://doi.org/${paper.doi}` : '');",
+              "  BIBLIOGRAPHIC_FIELDS.forEach((name) => { if (field(`bib_${name}`)) field(`bib_${name}`).value = state.initialBibliographic[name] || ''; });\n  // Show the canonical automatic citation immediately instead of waiting for\n  // another bibliographic field to be edited. This also marks a legacy stored\n  // citation for regeneration when any paper update is submitted.\n  const automaticCitation = generatedCitation();\n  state.autoCitationDirty = Boolean(automaticCitation && automaticCitation !== paper.citation);\n  field('citation').value = state.autoCitationDirty ? automaticCitation : paper.citation;\n  field('evidence_url').value = paper.publisher_url || (paper.doi ? `https://doi.org/${paper.doi}` : '');"
+          )
+
+          replace_once(
+              'assets/dataset-manager.js',
+              "    conference_journal: 'Use the journal abbreviation, volume, and page/article fields.',",
+              "    conference_journal: 'Use the full publication name above; the journal abbreviation is optional metadata.',"
+          )
+
+          replace_once(
+              'dataset-manager/index.html',
+              '<script type="module" src="../assets/dataset-manager.js?v=full-venue-20260724"></script>',
+              '<script type="module" src="../assets/dataset-manager.js?v=full-venue-visible-20260724"></script>'
+          )
+
+          replace_once(
+              'scripts/apply-paper-update.mjs',
+              "const citationDrivingFields = ['title', 'doi', 'publisher_url', 'venue', 'year', 'bibliographic'];\nconst shouldRegenerateCitation = citationMode === 'automatic' && citationDrivingFields.some((field) => field in update.changes);\nif (shouldRegenerateCitation) {\n  if (!paper.bibliographic) paper.bibliographic = legacyBibliographic;\n  paper.citation = formatMdpiCitation(paper);",
+              "const citationDrivingFields = ['title', 'doi', 'publisher_url', 'venue', 'year', 'bibliographic'];\nif (citationMode === 'automatic' && !paper.bibliographic) paper.bibliographic = legacyBibliographic;\nconst generatedAutomaticCitation = citationMode === 'automatic' ? formatMdpiCitation(paper) : '';\nconst shouldRegenerateCitation = citationMode === 'automatic' && (\n  citationDrivingFields.some((field) => field in update.changes) ||\n  paper.citation !== generatedAutomaticCitation\n);\nif (shouldRegenerateCitation) {\n  paper.citation = generatedAutomaticCitation;"
+          )
+          PY
+
+      - name: Regenerate all existing automatic citations
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { formatMdpiCitation } from './assets/citation-format.mjs';
+          import { bumpPatchVersion, writeJsonAtomic } from './scripts/lib/dataset-core.mjs';
+          import { generateDatasets } from './scripts/build-datasets.mjs';
+
+          const today = new Date().toISOString().slice(0, 10);
+          const master = JSON.parse(fs.readFileSync('data/papers-master.json', 'utf8'));
+          const changes = JSON.parse(fs.readFileSync('data/changes.json', 'utf8'));
+          const updatedIds = [];
+          const venueUpdatedIds = [];
+
+          const exampleDoi = '10.1109/TMTT.2024.3521389'.toLowerCase();
+          const example = master.papers.find((paper) => String(paper.doi || '').toLowerCase() === exampleDoi);
+          if (example && example.venue?.name !== 'IEEE Transactions on Microwave Theory and Techniques') {
+            example.venue = { ...example.venue, name: 'IEEE Transactions on Microwave Theory and Techniques' };
+            venueUpdatedIds.push(example.id);
+          }
+
+          for (const paper of master.papers.filter((record) => record.provenance?.citation_mode === 'automatic')) {
+            const generated = formatMdpiCitation(paper);
+            if (generated && generated !== paper.citation) {
+              paper.citation = generated;
+              paper.last_updated = today;
+              updatedIds.push(paper.id);
+            }
+          }
+
+          if (!updatedIds.length && !venueUpdatedIds.length) {
+            throw new Error('No automatic citations required regeneration; the migration would make no visible change.');
+          }
+
+          master.metadata.dataset_version = bumpPatchVersion(master.metadata.dataset_version);
+          master.metadata.last_updated = today;
+          master.metadata.record_count = master.papers.length;
+
+          const changedFields = ['citation'];
+          if (venueUpdatedIds.length) changedFields.push('venue');
+          changes.changes.unshift({
+            change_id: `migration-full-publication-citations-${today}-${master.metadata.dataset_version}`,
+            version: master.metadata.dataset_version,
+            date: today,
+            paper_id: null,
+            changed_fields: changedFields,
+            reason: 'Regenerated all existing automatic MDPI citations to use canonical full publication names and made the full-name preview visible immediately in Dataset Manager.',
+            evidence: { url: 'https://github.com/ahafuaej-alt/PINN-Review/issues/103', note: 'Repository-wide citation formatter migration requested by the repository owner.' },
+            submitted_by: 'repository-owner-maintenance',
+            impact: {
+              updated_automatic_citation_count: updatedIds.length,
+              updated_automatic_citation_ids: updatedIds,
+              corrected_full_venue_name_ids: venueUpdatedIds
+            }
+          });
+
+          writeJsonAtomic('data/papers-master.json', master);
+          writeJsonAtomic('data/changes.json', changes);
+          generateDatasets();
+
+          const refreshedExample = master.papers.find((paper) => String(paper.doi || '').toLowerCase() === exampleDoi) || null;
+          fs.writeFileSync('/tmp/full-name-citation-result.json', JSON.stringify({
+            version: master.metadata.dataset_version,
+            updatedIds,
+            venueUpdatedIds,
+            example: refreshedExample ? {
+              id: refreshedExample.id,
+              venue: refreshedExample.venue?.name,
+              citation: refreshedExample.citation
+            } : null
+          }, null, 2));
+          NODE
+
+      - name: Run complete validation
+        id: validate
+        continue-on-error: true
+        run: |
+          node scripts/build-datasets.mjs --check
+          node scripts/validate-dataset.mjs
+          node scripts/validate-citation-format.mjs
+          node scripts/validate-pinn-realm.mjs
+          node --check assets/dataset-manager.js
+          node --check scripts/apply-paper-update.mjs
+          git diff --check
+
+      - name: Report failed migration
+        if: steps.validate.outcome != 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `### ❌ Visible full-name citation migration stopped\n\nValidation failed, so nothing was committed.\n\n- Workflow run: ${runUrl}`
+            });
+
+      - name: Stop after failed validation
+        if: steps.validate.outcome != 'success'
+        run: exit 1
+
+      - name: Remove one-time workflow
+        run: rm .github/workflows/apply-visible-full-name-citations.yml
+
+      - name: Commit validated migration
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/dataset-manager.js dataset-manager/index.html scripts/apply-paper-update.mjs data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json .github/workflows/apply-visible-full-name-citations.yml
+          git commit -m "Make full publication names visible in automatic citations [skip pages]"
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Report success
+        uses: actions/github-script@v7
+        env:
+          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+        with:
+          script: |
+            const fs = require('fs');
+            const result = JSON.parse(fs.readFileSync('/tmp/full-name-citation-result.json', 'utf8'));
+            const example = result.example
+              ? `\n\nExample paper **[${result.example.id}]** now uses:\n\n> ${result.example.citation}`
+              : '';
+            const body = `### ✅ Full publication names are now visible\n\nDataset Manager regenerates automatic citations immediately when a paper is selected, and **${result.updatedIds.length}** existing automatic citations were regenerated in dataset version **${result.version}**.${example}\n\n- Commit: https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${process.env.COMMIT_SHA}\n- Validation: passed\n- Pages: not deployed yet`;
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+            await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, state: 'closed', state_reason: 'completed' });
