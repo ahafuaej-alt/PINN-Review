@@ -1,0 +1,96 @@
+name: Report journal articles without abstracts
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+jobs:
+  report:
+    if: ${{ github.event.issue.user.login == github.repository_owner && github.event.issue.title == '[Generate journal missing abstract report]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate exact report
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const master = JSON.parse(fs.readFileSync('data/papers-master.json', 'utf8'));
+          const rows = master.papers
+            .filter((paper) => paper.venue?.type === 'journal' && !String(paper.abstract || '').trim())
+            .sort((a, b) => a.id - b.id)
+            .map((paper) => ({
+              paper_id: paper.id,
+              doi: String(paper.doi || '').trim(),
+              publisher_url: String(paper.publisher_url || (paper.doi ? `https://doi.org/${paper.doi}` : '')).trim()
+            }));
+
+          const csvEscape = (value) => {
+            const text = String(value ?? '');
+            return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+          };
+          const csv = [
+            'paper_id,doi,publisher_url',
+            ...rows.map((row) => [row.paper_id, row.doi, row.publisher_url].map(csvEscape).join(','))
+          ].join('\n') + '\n';
+          const markdown = [
+            '# Journal articles without abstracts',
+            '',
+            `Dataset version: ${master.metadata.dataset_version}`,
+            '',
+            `Count: ${rows.length}`,
+            '',
+            '| Paper ID | DOI | Publisher URL |',
+            '|---:|---|---|',
+            ...rows.map((row) => `| ${row.paper_id} | ${row.doi || '—'} | ${row.publisher_url || '—'} |`)
+          ].join('\n') + '\n';
+          fs.writeFileSync('/tmp/journal-articles-without-abstract.csv', csv);
+          fs.writeFileSync('/tmp/journal-articles-without-abstract.md', markdown);
+          fs.writeFileSync('/tmp/report-summary.json', JSON.stringify({
+            dataset_version: master.metadata.dataset_version,
+            total_records: master.papers.length,
+            journal_records: master.papers.filter((paper) => paper.venue?.type === 'journal').length,
+            missing_abstract_count: rows.length,
+            missing_doi_count: rows.filter((row) => !row.doi).length,
+            missing_url_count: rows.filter((row) => !row.publisher_url).length
+          }, null, 2));
+          NODE
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: journal-articles-without-abstract
+          path: |
+            /tmp/journal-articles-without-abstract.csv
+            /tmp/journal-articles-without-abstract.md
+            /tmp/report-summary.json
+          retention-days: 7
+      - name: Comment and close request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = JSON.parse(fs.readFileSync('/tmp/report-summary.json', 'utf8'));
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `### ✅ Journal missing-abstract report generated\n\n- Dataset version: **${summary.dataset_version}**\n- Journal records: **${summary.journal_records}**\n- Journal articles without abstracts: **${summary.missing_abstract_count}**\n- Missing DOI among them: **${summary.missing_doi_count}**\n- Missing publisher URL among them: **${summary.missing_url_count}**\n- Workflow run: ${runUrl}\n\nDownload the artifact named \`journal-articles-without-abstract\` from the workflow run.`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });
