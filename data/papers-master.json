@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.45",
+    "dataset_version": "2.2.46",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -12815,11 +12815,11 @@
     {
       "id": 160,
       "title": "Prediction Model for Water Hammer Effect Using a Combination of Finite Element Method (FEM) and Physics-Informed Neural Networks (PINNs)",
-      "citation": "Chen, J. Prediction Model for Water Hammer Effect Using a Combination of Finite Element Method (FEM) and Physics-Informed Neural Networks (PINNs). In Proceedings of 2025 IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI), Loudi, China, 2025-06-20–2025-06-22; pp. 1-5. https://doi.org/10.1109/PRMVAI65741.2025.11108343.",
+      "citation": "Chen, J. Prediction Model for Water Hammer Effect Using a Combination of Finite Element Method (FEM) and Physics-Informed Neural Networks (PINNs). In Proceedings of 2025 IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI), Loudi, China, 20-22 June 2025; pp. 1-5. https://doi.org/10.1109/PRMVAI65741.2025.11108343.",
       "doi": "10.1109/PRMVAI65741.2025.11108343",
       "publisher_url": "https://ieeexplore.ieee.org/document/11108343/",
       "venue": {
-        "name": "2025 IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI)",
+        "name": "IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI)",
         "type": "conference"
       },
       "year": 2025,
@@ -12830,8 +12830,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/PRMVAI65741.2025.11108343",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11108343/",
+        "note": "info",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FPRMVAI65741.2025.11108343",
@@ -12876,19 +12876,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-24",
       "bibliographic": {
         "authors": "Chen, J.",
         "journal_abbreviation": "2025 IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI)",
         "pages": "1-5",
         "publisher": "IEEE",
         "conference_name": "2025 IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI)",
-        "conference_location": "Loudi, China",
-        "conference_date": "2025-06-20–2025-06-22",
+        "conference_location": "Loudi",
+        "conference_country": "China",
+        "conference_date": "20-22 June 2025",
         "publication_date": "2025-06-20"
-      }
+      },
+      "abstract": "The water hammer phenomenon, a critical transient event in hydraulic systems, arises from rapid fluid velocity variations that induce destructive pressure oscillations. Accurate prediction of peak water hammer pressures is essential for ensuring structural integrity and operational safety in pipeline networks. This study proposes an innovative hybrid approach integrating Physics-Informed Neural Networks (PINNs) with Finite Element Method (FEM) simulations to address this engineering challenge. A comprehensive dataset comprising 22,176 data points was established through systematic FEM simulations, covering practical pipeline configurations (length: 0.50-10.00 m, radius: 0.10-0.30 m) under typical flow velocities (1.00-2.00 m/s). A systematic computational framework was developed where FEM-generated pressure fields (mean: 1.970 MPa, SD: 0.421 MPa) served as the training basis for PINN models. The PINN architecture demonstrated exceptional agreement with FEM benchmarks, achieving a mean pressure prediction of 1.986 MPa with comparable variability (SD: 0.435 MPa). Quantitative analysis revealed a root mean square error (RMSE) of 0.022 MPa between the two methods, with pressure deviations ranging from −0.066 MPa to +0.001 MPa. Notably, the negative mean error (-0.015 MPa) suggests a conservative prediction tendency in PINNs outputs, while the 0.015 MPa standard deviation difference indicates slightly broader pressure distribution predictions compared to FEM results. The hybrid approach maintained FEM-level accuracy (relative error <1.2% on average) while reducing computational time by approximately 40% through its mesh-free architecture. These findings validate the PINNs model's capability to capture essential physical features of water hammer phenomena, particularly in small-to-medium scale pipeline systems. Future research will expand the applicability by validating large-scale networks and field data calibration, while addressing increased prediction complexity throu..."
     },
     {
       "id": 161,
