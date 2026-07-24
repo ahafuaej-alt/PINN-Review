@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.38",
+    "dataset_version": "2.2.39",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -11308,8 +11308,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TSUSC.2025.3526192",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10839426/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTSUSC.2025.3526192",
@@ -11366,7 +11366,8 @@
         "pages": "730-743",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-07"
-      }
+      },
+      "abstract": "This paper considers the carbon-aware data center (DC) capacity provisioning problem under uncertain green energy availability and computing demand. To address it, accurate carbon emissions estimation and robust capacity provisioning are necessary. Existing studies mainly consider the carbon footprint of the computing system and merely consider that of the physical facilities, which also contribute significant carbon emissions. Furthermore, their capacity provisioning is neither uncertainty-aware nor adaptive to the dynamic computing demand. To bridge these gaps, we propose an adaptive capacity provisioning framework based on the physics-informed digital twin. We design the digital twin to holistically capture a DC's operational carbon footprint, including both the computing system and the physical facilities. The digital twin is differentiable and established with a collection of physics-informed learnable models that are learned with online operational data. We further address the challenge of capacity provisioning under uncertainties by designing a shrinking horizon model predictive control. The designed capacity planner updates its estimation of future computing demand based on the observable computing system states. At each capacity provisioning round, we solve the capacity provisioning problem using a gradient-based optimization technique with the gradient provided by the digital twin. We extensively evaluate our approach using real operational data from a large-scale production data center. First, our digital twin accurately predicts holistic DC energy usage with a relative absolute error of less than 5%, which is accurate according to the industrial rule of thumb. Second, we show that our solution is comparable to the oracle solution with perfect knowledge about all uncertainties, outperforming the state-of-the-art Predict-then-Plan approach significantly in terms of SLO violation reduction. Furthermore, our approach reduces carbon footprint by 27% compared ..."
     },
     {
       "id": 142,
