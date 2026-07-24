@@ -3771,7 +3771,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-07"
     },
-    "abstract": null,
+    "abstract": "The multioperation impedance identification of the three-phase grid tied voltage source converters (VSCs) is essential to analyze the converter-grid interaction stability considering various operating conditions. However, the existing identification methods require a substantial amount of measurement data and lack effective transferability to other VSCs with different parameters or control structures. To address this issue, this article proposes a few-shot data-driven modeling method for multioperation impedance identification of unified grid-tied VSCs based on physics-informed neural network (PINN). The common features of the unified VSCs are derived from theoretical formulas, which can form the general prior knowledge. Then PINN is established based on the prior knowledge to optimize the model structure. Meanwhile, transfer learning theory is adopted to enhance flexibility of the PINN model, allowing for appropriate architectural adjustments to adapt for different VSCs. The proposed method can significantly reduce the required data amount and improve transferability of the identification model. The experiments based on control-hardware-in-loop (CHIL) are conducted to verify the effectiveness of the proposed method.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
