@@ -28,12 +28,14 @@ jobs:
     steps:
       - name: Report deployment result
         uses: actions/github-script@v7
+        env:
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
         with:
           script: |
-            const succeeded = '${{ needs.deploy.result }}' === 'success';
+            const succeeded = process.env.DEPLOY_RESULT === 'success';
             const body = succeeded
               ? `### ✅ GitHub Pages deployed\n\nThe current \`main\` commit \`${context.sha}\` was deployed successfully.`
-              : `### ❌ GitHub Pages deployment failed\n\nThe deployment job ended with status \`${{ needs.deploy.result }}\`. Open the associated Actions run for the failing step.`;
+              : `### ❌ GitHub Pages deployment failed\n\nThe deployment job ended with status \`${process.env.DEPLOY_RESULT}\`. Open the associated Actions run for the failing step.`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
