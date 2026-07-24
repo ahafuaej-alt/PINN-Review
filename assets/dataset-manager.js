@@ -4,7 +4,7 @@ import {
   extractLegacyBibliographic,
   formatMdpiCitation,
   normalizeBibliographic
-} from './citation-format.mjs?v=data-20260722c';
+} from './citation-format.mjs?v=full-venue-20260724';
 
 const MASTER_URL = '../data/papers-master.json';
 const MAPPING_URL = '../data/country-mapping.json';
@@ -131,7 +131,7 @@ const typeWarnings = (draft) => {
     if (names.every((name) => !bibliography[name])) warnings.push(`${label} is normally required for this ${type.replaceAll('_', ' ')} reference.`);
   };
   if (['journal', 'preprint', 'conference_journal'].includes(type)) {
-    missing('Journal abbreviation', 'journal_abbreviation');
+    // Journal abbreviation is optional metadata; venue_name drives the generated citation.
     missing('Volume', 'volume');
     missing('Pages or article number', 'pages', 'article_number');
     if (bibliography.issue) warnings.push('The issue is stored as metadata but will not appear in the MDPI-formatted journal citation.');

@@ -157,7 +157,9 @@ export const formatMdpiCitation = (paper = {}) => {
   const bibliographic = { ...emptyBibliographic(), ...normalizeBibliographic(paper.bibliographic) };
   const type = paper.venue?.type || 'unknown';
   const year = Number.isInteger(paper.year) ? String(paper.year) : '';
-  const venue = stripTerminal(bibliographic.journal_abbreviation || paper.venue?.name);
+  // The canonical publication/source name is authoritative for generated citations.
+  // Keep journal_abbreviation as optional metadata and as a fallback for legacy records.
+  const venue = stripTerminal(paper.venue?.name || bibliographic.journal_abbreviation);
   const volume = stripTerminal(bibliographic.volume);
   const pagesOrArticle = stripTerminal(bibliographic.pages || bibliographic.article_number);
   const doi = doiSentence(paper.doi);

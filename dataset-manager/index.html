@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../assets/styles.css?v=references-20260723">
   <script src="../assets/app.js?v=data-20260722" defer></script>
   <script src="../assets/dataset-manager-submit-guard.js?v=20260724a" defer></script>
-  <script type="module" src="../assets/dataset-manager.js?v=data-20260723"></script>
+  <script type="module" src="../assets/dataset-manager.js?v=full-venue-20260724"></script>
 </head>
 <body>
   <a class="skip-link" href="#manager">Skip to Dataset Manager</a>
@@ -86,7 +86,7 @@
               <div class="manager-form-grid">
                 <label class="span-2" data-bib-types="all"><span>Authors</span><textarea name="bib_authors" rows="2" placeholder="Lastname, F.M.; Lastname, F.M.; et al."></textarea><small>Keep the source order; separate authors with semicolons. More than ten authors may use the first ten followed by “et al.”</small></label>
                 <label data-bib-types="chapter conference_book"><span>Editors</span><input name="bib_editors" placeholder="Lastname, F.M., Lastname, F.M."></label>
-                <label data-bib-types="journal preprint conference_journal"><span>Journal abbreviation</span><input name="bib_journal_abbreviation" placeholder="J. Abbrev."></label>
+                <label data-bib-types="journal preprint conference_journal"><span>Journal abbreviation <em>(optional metadata)</em></span><input name="bib_journal_abbreviation" placeholder="J. Abbrev."></label>
                 <label data-bib-types="journal preprint conference_journal chapter conference_book"><span>Volume</span><input name="bib_volume"></label>
                 <label data-bib-types="journal preprint conference_journal"><span>Issue <em>(metadata only)</em></span><input name="bib_issue"><small>Stored when known; omitted from MDPI journal citations.</small></label>
                 <label data-bib-types="journal preprint conference_journal conference chapter conference_book book magazine report"><span>Pages</span><input name="bib_pages" placeholder="123–145"></label>
