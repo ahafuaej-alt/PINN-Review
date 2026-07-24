@@ -2051,14 +2051,14 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-09"
     },
-    "abstract": null,
+    "abstract": "Power flow (PF) calculation is essential for power system analysis. In recent years, data-driven methods have emerged as a promising approach to accelerate PF calculations. However, these methods require high-quality labeled data and often suffer from poor generalization. To address these issues, an unsupervised physics-informed neural network (UPINN) method is proposed for AC PF calculations. The proposed method follows the general process of Newton-Raphson’s method. By minimizing the physics-informed loss function, which is designed based on active and reactive power mismatches, the PF equations will be satisfied directly without the need to calculate the Jacobian matrix’s inverse. Proofs of the proposed UPINN training method’s convergence are provided. Case study results on the IEEE 24-bus and 118-bus systems demonstrate the feasibility of the proposed approach, showing that UPINN’s power flow model can achieve high generalization performance without relying on labeled data.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 79,
