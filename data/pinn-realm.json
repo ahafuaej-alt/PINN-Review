@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.26",
+    "version": "2.2.27",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-24",
     "source_file": "papers-countries-and-year.md",
@@ -9200,7 +9200,7 @@
     },
     {
       "id": 766,
-      "title": "Learning Specialized Activation Functions for Physicsinformed Neural Networks",
+      "title": "Learning Specialized Activation Functions for Physics-Informed Neural Networks",
       "year": 2023,
       "countries": [
         "China",
@@ -10038,7 +10038,7 @@
     },
     {
       "id": 838,
-      "title": "Physics-guided, physics-informed, and physics-encoded neural networks and operators in scientific computing Fluid and solid mechanics",
+      "title": "Physics-Guided, Physics-Informed, and Physics-Encoded Neural Networks and Operators in Scientific Computing: Fluid and Solid Mechanics",
       "year": 2024,
       "countries": [
         "United States",
