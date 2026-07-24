@@ -42,14 +42,14 @@
       "publisher": "Elsevier BV",
       "publication_date": "2025-12"
     },
-    "abstract": null,
+    "abstract": "This study demonstrates the applications of Physics-Informed Neural Networks (PINNs) for modeling canonical interfacial instabilities in two-phase flows, specifically addressing simplified Rayleigh–Taylor instability (RTI), Kelvin–Helmholtz instability (KHI), and a more complex scenario involving two-phase jet in crossflow (JICF) across two-dimensional (2D) and three-dimensional (3D) domains. By integrating governing physical equations within a discrete time-stepping neural network framework, PINNs effectively predict interfacial displacement in RTI and perturbation evolution in KHI using limited initial velocity field information. The methodology demonstrates robustness in simulating multiphase flows with substantial density and viscosity contrasts. Notably, this work pioneers the use of PINNs for linear instability analysis in KHI, successfully recovering unknown perturbation fields consistent with theoretical predictions. For inverse problems, PINNs successfully reconstruct the pressure field and interfacial dynamics in a more complex JICF scenario. Using sparse data, the integration of physical constraints allows PINNs to effectively recover realistic periodic behaviors associated with unstable two-phase flows. This study highlights the promise of PINNs as a powerful tool capable of accurately predicting two-phase flow instabilities, offering potential for reducing computational costs and memory requirements, while minimizing dependence on explicit interface-tracking methods.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-07-24"
   },
   {
     "id": 3,
