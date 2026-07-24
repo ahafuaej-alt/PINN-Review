@@ -79,10 +79,12 @@ jobs:
             with_any_licence_urls: details.filter((r) => r.licence_urls.length > 0).length,
             venue_types: countBy('reference_type')
           };
-          console.log('AUDIT_SUMMARY_BEGIN');
+          fs.writeFileSync('not-verified-access-audit.json', JSON.stringify({ summary, details }, null, 2));
           console.log(JSON.stringify(summary, null, 2));
-          console.log('AUDIT_SUMMARY_END');
-          console.log('AUDIT_DETAILS_BEGIN');
-          console.log(JSON.stringify(details, null, 2));
-          console.log('AUDIT_DETAILS_END');
           NODE
+      - name: Upload audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: not-verified-access-audit
+          path: not-verified-access-audit.json
+          retention-days: 1
