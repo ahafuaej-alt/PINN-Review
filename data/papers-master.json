@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.31",
+    "dataset_version": "2.2.32",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -9306,8 +9306,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TAP.2025.3564705",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10982437/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTAP.2025.3564705",
@@ -9364,7 +9364,8 @@
         "pages": "5265-5277",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-08"
-      }
+      },
+      "abstract": "A dual-branched convolutional neural network (CNN) integrated with hybrid training criteria is proposed for real-time multibeam synthesis in planar uniform antenna arrays. For higher speed in dataset generation, the pattern superposition method is introduced in this article, which significantly improves data generation speed (~0.7 ms per each). With a new hybrid training strategy integrating both “data-driven approximation” and “physics-informed approximation” criteria, flexible training while maintaining model synthesis efficiency is achieved simultaneously. Based on the approaches mentioned above, the proposed dual-branched CNN enables a dynamic multiobjective balance between its two branch outputs, accomplishing amplitude-phase synthesis for antenna array design. In the numerical simulation, consistent sidelobe suppression ( 20∼40 dB) is demonstrated for dual-beam steering across 10∘∼20∘ off-axis angles, with high synthesis speeds (~0.05 s per each) on suitable computing platforms. In comparison experiments, the proposed method outperforms typical population-based stochastic optimization algorithms and deep neuron network (DNN) structure in both synthesis efficiency and pattern regularity. The model’s real-time capability is verified for beam reconfiguration scenarios requiring subsecond responses, suggesting a new pathway for physics-embedded deep learning in antenna array synthesis."
     },
     {
       "id": 117,

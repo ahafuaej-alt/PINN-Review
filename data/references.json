@@ -3148,7 +3148,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-08"
     },
-    "abstract": null,
+    "abstract": "A dual-branched convolutional neural network (CNN) integrated with hybrid training criteria is proposed for real-time multibeam synthesis in planar uniform antenna arrays. For higher speed in dataset generation, the pattern superposition method is introduced in this article, which significantly improves data generation speed (~0.7 ms per each). With a new hybrid training strategy integrating both “data-driven approximation” and “physics-informed approximation” criteria, flexible training while maintaining model synthesis efficiency is achieved simultaneously. Based on the approaches mentioned above, the proposed dual-branched CNN enables a dynamic multiobjective balance between its two branch outputs, accomplishing amplitude-phase synthesis for antenna array design. In the numerical simulation, consistent sidelobe suppression ( 20∼40 dB) is demonstrated for dual-beam steering across 10∘∼20∘ off-axis angles, with high synthesis speeds (~0.05 s per each) on suitable computing platforms. In comparison experiments, the proposed method outperforms typical population-based stochastic optimization algorithms and deep neuron network (DNN) structure in both synthesis efficiency and pattern regularity. The model’s real-time capability is verified for beam reconfiguration scenarios requiring subsecond responses, suggesting a new pathway for physics-embedded deep learning in antenna array synthesis.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
