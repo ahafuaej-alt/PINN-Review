@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.34",
+    "dataset_version": "2.2.35",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -9545,8 +9545,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TCSS.2024.3512614",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10819292/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTCSS.2024.3512614",
@@ -9603,7 +9603,8 @@
         "pages": "1637-1652",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-08"
-      }
+      },
+      "abstract": "3-D printing, or additive manufacturing (AM), leverages 3-D computer-aided design models and numerical control to produce objects layer-by-layer, playing a key role in Industry 4.0 and Industry 5.0. Despite its potential to revolutionize manufacturing by creating complex structures more efficiently and cost-effectively, 3-D printing still faces quality issues due to a lack of sufficient data, resulting in improper process parameter settings and poor analyzability. This work introduces a data-driven and physics-assisted machine learning (DP-ML) approach for a 3-D-printed BeltClip object, integrating finite element analysis (FEA) and physics-informed machine learning (PIML). The proposed DP-ML framework provides a cost-effective and time-efficient data collection method using Digimat-AM and a warpage classification algorithm. The data collection begins with obtaining the STereoLithography (STL) file of the BeltClip object from Thingiverse and slicing it in Ultimaker©  Cura, considering process parameters such as infill amount, toolpath pattern, layer height, print speed, and extrusion temperature. The resulting G-code file is then input into Digimat-AM for further parameter setting and analysis. In Digimat-AM, glass fiber-filled and unfilled material types are set, undergoing the virtual 3-D printing process, followed by a warpage analysis of the printed BeltClip. The collected 3-D printing data is used to build ML models—deep neural network (DNN), decision tree (DT), support vector machine (SVM), logistic regression (LR), and random forest. The DNN contains three architectures—DNN-1, DNN-2, and DNN-3. Based on the metrics of precision, recall, F1-score, and accuracy, DNN-3 outperforms the others and is chosen for the warpage classification algorithm. The presented DP-ML approach is compared with the state-of-the-art methods and shows a promising capability to predicting warpage, optimizing process parameters, and improving the overall quality and efficiency of a 3-D-..."
     },
     {
       "id": 120,
