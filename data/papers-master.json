@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.35",
+    "dataset_version": "2.2.36",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -11069,8 +11069,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/TMTT.2024.3521389",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10819015/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FTMTT.2024.3521389",
@@ -11127,7 +11127,8 @@
         "pages": "3800-3812",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-07"
-      }
+      },
+      "abstract": "This article presents a modeling technique for realistic 3-D electromagnetic problems in the time domain, using a novel physics-informed deep operator network (PI-DON). The training of the PI-DON is executed in two stages. In the first stage, a neural operator is trained to approximate the curl operator in Maxwell’s equations. In the second stage, the neural curl operator is deployed with problem-specific settings to model electromagnetic fields through an unsupervised training approach, utilizing a physics-informed loss function. This unsupervised training eliminates the need to generate ground-truth data and reduces the volume of training data required, making PI-DON more efficient than traditional deep neural networks. As an electromagnetic solver, PI-DON demonstrates competitive efficiency compared to finite-difference time-domain (FDTD) solvers for a single run, even when accounting for its training time. Moreover, PI-DON shows strong generalizability, allowing for accurate and efficient uncertainty quantification and design optimization of microwave geometries without additional training. We show the high accuracy, efficiency, and robust generalizability of the PI-DON solver through the modeling and uncertainty quantification of 3-D planar microwave circuits and a metasurface unit cell."
     },
     {
       "id": 139,

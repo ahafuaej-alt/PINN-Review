@@ -3745,7 +3745,7 @@
       "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
       "publication_date": "2025-07"
     },
-    "abstract": null,
+    "abstract": "This article presents a modeling technique for realistic 3-D electromagnetic problems in the time domain, using a novel physics-informed deep operator network (PI-DON). The training of the PI-DON is executed in two stages. In the first stage, a neural operator is trained to approximate the curl operator in Maxwell’s equations. In the second stage, the neural curl operator is deployed with problem-specific settings to model electromagnetic fields through an unsupervised training approach, utilizing a physics-informed loss function. This unsupervised training eliminates the need to generate ground-truth data and reduces the volume of training data required, making PI-DON more efficient than traditional deep neural networks. As an electromagnetic solver, PI-DON demonstrates competitive efficiency compared to finite-difference time-domain (FDTD) solvers for a single run, even when accounting for its training time. Moreover, PI-DON shows strong generalizability, allowing for accurate and efficient uncertainty quantification and design optimization of microwave geometries without additional training. We show the high accuracy, efficiency, and robust generalizability of the PI-DON solver through the modeling and uncertainty quantification of 3-D planar microwave circuits and a metasurface unit cell.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Subscription",
