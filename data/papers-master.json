@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.30",
+    "dataset_version": "2.2.31",
     "last_updated": "2026-07-24",
     "record_count": 853,
     "id_range": "1-853",
@@ -9228,8 +9228,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/JIOT.2025.3578314",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/11029507/",
+        "note": "abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FJIOT.2025.3578314",
@@ -9285,7 +9285,8 @@
         "pages": "34528-34547",
         "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
         "publication_date": "2025-08-15"
-      }
+      },
+      "abstract": "Traffic flow prediction plays a crucial role in intelligent transportation systems. The development of deep learning techniques has significantly improved the accuracy of traffic flow prediction; however, their limited generalization ability and lack of interpretability hinder their application in critical scenarios. Integrating physical knowledge into neural networks offers an effective solution to enhance both model generalization and interpretability, but embedding physical laws into complex traffic networks remains a challenge. Inspired by fluid dynamics principles, this article proposes a novel framework for traffic flow prediction. Specifically, we first derive the physical constraints governing traffic flow based on the continuity equation of fluid mechanics. We then design a new feature extraction method to convert the derived physical constraints into spatiotemporal features that can be learned by neural networks. Finally, we introduce a deep learning framework that incorporates these physical features. Experiments on two real-world datasets, PEMS04 and PEMS08, demonstrate the effectiveness of the proposed method. The baseline model using our approach achieves MAE values of 16.69 and 12.34 on the two datasets, respectively, surpassing the current state-of-the-art models. Furthermore, ablation studies conducted with neural networks of varying parameter sizes further validate the robustness of the method in improving model performance. This article offers a new perspective on integrating physical laws with data-driven approaches, enhancing both prediction accuracy and model interpretability."
     },
     {
       "id": 116,
