@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.55",
+    "dataset_version": "2.2.56",
     "last_updated": "2026-07-26",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 100,
+      "legacy_realm_year_override_count": 99,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -38193,28 +38193,25 @@
     {
       "id": 467,
       "title": "Automatic Differentiation in Machine Learning a Survey",
-      "citation": "Baydin, A.G., Pearlmutter, B.A., Radul, A.A., Siskind, J.M., 2017. Automatic Differentiation in Machine Learning a Survey. J.M 2017.",
+      "citation": "Baydin, A.G., Pearlmutter, B.A., Radul, A.A., Siskind, J.M. Automatic Differentiation in Machine Learning a Survey. Journal of Machine Learning Researc 2018, 18, 1-43.",
       "doi": null,
-      "publisher_url": null,
+      "publisher_url": "https://www.jmlr.org/papers/v18/17-468.html",
       "venue": {
-        "name": "J.M.",
+        "name": "Journal of Machine Learning Researc",
         "type": "journal"
       },
-      "year": 2017,
-      "access": "Not verified",
+      "year": 2018,
+      "access": "Open access",
       "countries": [
         "United Kingdom",
         "Ireland",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2018
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://www.jmlr.org/papers/v18/17-468.html",
+        "note": "all info update",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -38229,8 +38226,11 @@
       },
       "last_updated": "2026-07-26",
       "bibliographic": {
-        "authors": "Baydin, A.G., Pearlmutter, B.A., Radul, A.A., Siskind, J.M., 2017",
-        "journal_abbreviation": "J.M."
+        "authors": "Baydin, A.G., Pearlmutter, B.A., Radul, A.A., Siskind, J.M.",
+        "journal_abbreviation": "J. Mach. Learn. Res.",
+        "volume": "18",
+        "pages": "1-43",
+        "article_number": "153"
       },
       "abstract": "Derivatives, mostly in the form of gradients and Hessians, are ubiquitous in machine learning. Automatic diﬀerentiation (AD), also called algorithmic diﬀerentiation or simply “autodiﬀ”, is a family of techniques similar to but more general than backpropagation for efficiently and accurately evaluating derivatives of numeric functions expressed as computer programs. AD is a small but established field with applications in areas including computational fluid dynamics, atmospheric sciences, and engineering design optimization. Until very recently, the fields of machine learning and AD have largely been unaware of each other and, in some cases, have independently discovered each other’s results. Despite its relevance, general-purpose AD has been missing from the machine learning toolbox, a situation slowly changing with its ongoing adoption under the names “dynamic computational graphs” and “diﬀerentiable programming”. We survey the intersection of AD and machine learning, cover applications where AD has direct relevance, and address the main implementation techniques. By precisely defining the main diﬀerentiation techniques and their interrelationships, we aim to bring clarity to the usage of the terms “autodiﬀ”, “automatic diﬀerentiation”, and “symbolic diﬀerentiation” as these are encountered more and more in machine learning settings."
     },
