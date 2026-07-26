@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.56",
+    "dataset_version": "2.2.57",
     "last_updated": "2026-07-26",
     "record_count": 853,
     "id_range": "1-853",
@@ -38512,25 +38512,33 @@
     {
       "id": 472,
       "title": "On the limited memory BFGS method for large scale optimization",
-      "citation": "Liu, D.C., Nocedal, J., 1989. On the limited memory BFGS method for large scale optimization. Math. Program. 45 (1–3), 503–528.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Liu, D.C., Nocedal, J. On the limited memory BFGS method for large scale optimization. Mathematical Programming 1989, 45, 503-528. https://doi.org/10.1007/BF01589116.",
+      "doi": "10.1007/BF01589116",
+      "publisher_url": "https://link.springer.com/article/10.1007/BF01589116",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Mathematical Programming",
+        "type": "journal"
       },
       "year": 1989,
-      "access": "Not verified",
+      "access": "Subscription",
       "countries": [
         "United States"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://link.springer.com/article/10.1007/BF01589116",
+        "note": "all info update",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-26",
+      "abstract": "We study the numerical performance of a limited memory quasi-Newton method for large scale optimization, which we call the L-BFGS method. We compare its performance with that of the method developed by Buckley and LeNir (1985), which combines cycles of BFGS steps and conjugate direction steps. Our numerical tests indicate that the L-BFGS method is faster than the method of Buckley and LeNir, and is better able to use additional storage to accelerate convergence. We show that the L-BFGS method can be greatly accelerated by means of a simple scaling. We then compare the L-BFGS method with the partitioned quasi-Newton method of Griewank and Toint (1982a). The results show that, for some problems, the partitioned quasi-Newton method is clearly superior to the L-BFGS method. However we find that for other problems the L-BFGS method is very competitive due to its low iteration cost. We also study the convergence properties of the L-BFGS method, and prove global convergence on uniformly convex problems.",
+      "bibliographic": {
+        "authors": "Liu, D.C., Nocedal, J.",
+        "journal_abbreviation": "Math. Program.",
+        "volume": "45",
+        "pages": "503-528"
+      }
     },
     {
       "id": 473,
