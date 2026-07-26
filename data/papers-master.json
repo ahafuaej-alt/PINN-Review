@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.54",
+    "dataset_version": "2.2.55",
     "last_updated": "2026-07-26",
     "record_count": 853,
     "id_range": "1-853",
@@ -38159,25 +38159,36 @@
     {
       "id": 466,
       "title": "TensorFlow A system for large-scale machine learning",
-      "citation": "Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M., Ghemawat, S., Irving, G., Isard, M., Kudlur, M., Levenberg, J., Monga, R., Moore, S., Murray, D.G., Steiner, B., Tucker, P., Vasudevan, V., Warden, P., Wicke, M., Yu, Y., Zheng, X., 2016. TensorFlow: a system for large-scale machine learning. In: Proceedings of the 12th USENIX Conference on Operating Systems Design and Implementation. OSDI ’16, USENIX Association, USA, pp. 265–283.",
+      "citation": "Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M., Ghemawat, S., Irving, G., Isard, M., Kudlur, M., Levenberg, J., Monga, R., Moore, S., Murray, D.G., Steiner, B., Tucker, P., Vasudevan, V., Warden, P., Wicke, M., Yu, Y., Zheng, X. TensorFlow A system for large-scale machine learning. In Proceedings of Proceedings of the 12th USENIX Symposium on Operating Systems Design and Implementation (OSDI ’16), Savannah, GA, USA, 2-4 November 2016; pp. 265–283.",
       "doi": null,
-      "publisher_url": null,
+      "publisher_url": "https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Proceedings of the 12th USENIX Symposium on Operating Systems Design and Implementation (OSDI ’16)",
+        "type": "conference"
       },
       "year": 2016,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "United States"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi",
+        "note": "all info update",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-26",
+      "abstract": "TensorFlow is a machine learning system that operates at large scale and in heterogeneous environments. Tensor- Flow uses dataflow graphs to represent computation, shared state, and the operations that mutate that state. It maps the nodes of a dataflow graph across many machines in a cluster, and within a machine across multiple computational devices, including multicore CPUs, general-purpose GPUs, and custom-designed ASICs known as Tensor Processing Units (TPUs). This architecture gives flexibility to the application developer: whereas in previous “parameter server” designs the management of shared state is built into the system, TensorFlow enables developers to experiment with novel optimizations and training algorithms. TensorFlow supports a variety of applications, with a focus on training and inference on deep neural networks. Several Google services use TensorFlow in production, we have released it as an open-source project, and it has become widely used for machine learning research. In this paper, we describe the TensorFlow dataflow model and demonstrate the compelling performance that Tensor- Flow achieves for several real-world applications.",
+      "bibliographic": {
+        "authors": "Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M., Ghemawat, S., Irving, G., Isard, M., Kudlur, M., Levenberg, J., Monga, R., Moore, S., Murray, D.G., Steiner, B., Tucker, P., Vasudevan, V., Warden, P., Wicke, M., Yu, Y., Zheng, X.",
+        "journal_abbreviation": "Venue not identified",
+        "pages": "265–283",
+        "conference_name": "Proceedings of the 12th USENIX Symposium on Operating Systems Design and Implementation (OSDI ’16)",
+        "conference_location": "Savannah, GA",
+        "conference_country": "USA",
+        "conference_date": "2-4 November 2016"
+      }
     },
     {
       "id": 467,
