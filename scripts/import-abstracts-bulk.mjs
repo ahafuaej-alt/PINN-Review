@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import process from 'node:process';
+import { gunzipSync } from 'node:zlib';
 import {
   buildAll,
   bumpPatchVersion,
@@ -10,8 +11,16 @@ import {
 } from './lib/dataset-core.mjs';
 import { generateDatasets } from './build-datasets.mjs';
 
-const importFile = process.argv[2] || 'data/abstract-import.json';
-const source = JSON.parse(fs.readFileSync(importFile, 'utf8'));
+const partsDirectory = process.argv[2] || 'data';
+const partNames = fs.readdirSync(partsDirectory)
+  .filter((name) => /^abstract-import\.part\d+\.b64$/u.test(name))
+  .sort((left, right) => left.localeCompare(right, 'en', { numeric: true }));
+if (!partNames.length) throw new Error('No abstract-import.partNN.b64 files were found');
+
+const encoded = partNames
+  .map((name) => fs.readFileSync(`${partsDirectory}/${name}`, 'utf8').replace(/\s+/gu, ''))
+  .join('');
+const source = JSON.parse(gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8'));
 
 if (source.schema_version !== '1.0.0') throw new Error('Unsupported abstract import schema');
 if (!Array.isArray(source.records) || source.records.length !== source.source?.record_count) {
@@ -131,6 +140,7 @@ const generated = generateDatasets();
 console.log(JSON.stringify({
   status: 'applied',
   version: nextVersion,
+  source_parts: partNames,
   supplied: source.records.length,
   changed: changed.length,
   unchanged: unchanged.length,
