@@ -15,6 +15,10 @@ on:
       - opened
       - synchronize
       - reopened
+    paths:
+      - data/abstract-import.part*.b64
+      - scripts/import-abstracts-bulk.mjs
+      - .github/workflows/import-exact-abstracts.yml
 
 permissions:
   contents: write
