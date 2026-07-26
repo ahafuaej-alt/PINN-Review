@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import process from 'node:process';
+import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import {
   buildAll,
@@ -17,9 +18,16 @@ const partNames = fs.readdirSync(partsDirectory)
   .sort((left, right) => left.localeCompare(right, 'en', { numeric: true }));
 if (!partNames.length) throw new Error('No abstract-import.partNN.b64 files were found');
 
-const encoded = partNames
-  .map((name) => fs.readFileSync(`${partsDirectory}/${name}`, 'utf8').replace(/\s+/gu, ''))
-  .join('');
+const partContents = partNames.map((name) => fs.readFileSync(`${partsDirectory}/${name}`, 'utf8').replace(/\s+/gu, ''));
+console.log(`PART_DIAGNOSTICS ${JSON.stringify(partNames.map((name, index) => ({
+  name,
+  length: partContents[index].length,
+  sha256: createHash('sha256').update(partContents[index]).digest('hex'),
+  first: partContents[index].slice(0, 40),
+  last: partContents[index].slice(-40)
+})))}`);
+const encoded = partContents.join('');
+console.log(`ENCODED_DIAGNOSTICS ${JSON.stringify({ length: encoded.length, first: encoded.slice(0, 40), last: encoded.slice(-40) })}`);
 const source = JSON.parse(gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8'));
 
 if (source.schema_version !== '1.0.0') throw new Error('Unsupported abstract import schema');
