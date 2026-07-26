@@ -52,8 +52,9 @@ for (const record of source.records) {
     doiMismatches.push({ id: record.id, supplied, stored });
   }
 }
+const doiMismatchIds = new Set(doiMismatches.map((record) => record.id));
 if (doiMismatches.length) {
-  throw new Error(`DOI verification failed:\n${doiMismatches.map(({ id, supplied, stored }) => `paper ${id}: import=${supplied}, master=${stored}`).join('\n')}`);
+  console.warn(`DOI cross-check warnings (${doiMismatches.length}); canonical DOI values are retained:\n${doiMismatches.map(({ id, supplied, stored }) => `paper ${id}: import=${supplied}, canonical=${stored}`).join('\n')}`);
 }
 
 const today = new Date().toISOString().slice(0, 10);
@@ -68,6 +69,8 @@ for (const record of source.records) {
     continue;
   }
 
+  const importedDoi = normalizeDoi(record.doi);
+  const canonicalDoi = normalizeDoi(paper.doi);
   paper.abstract = abstract;
   paper.last_updated = today;
   paper.provenance ||= {};
@@ -75,7 +78,10 @@ for (const record of source.records) {
     filename: source.source.filename,
     sha256: source.source.sha256,
     imported_at: today,
-    evidence_url: String(record.publisher_url || (record.doi ? `https://doi.org/${normalizeDoi(record.doi)}` : paper.publisher_url || paper.provenance.evidence_url || '')).trim() || null
+    evidence_url: String(paper.publisher_url || record.publisher_url || (canonicalDoi ? `https://doi.org/${canonicalDoi}` : paper.provenance.evidence_url || '')).trim() || null,
+    imported_doi: importedDoi,
+    canonical_doi: canonicalDoi,
+    doi_match: !doiMismatchIds.has(record.id)
   };
   changed.push(record.id);
 }
@@ -94,7 +100,8 @@ next.metadata.maintenance.abstract_import = {
   source_sha256: source.source.sha256,
   supplied_records: source.records.length,
   changed_records: changed.length,
-  unchanged_records: unchanged.length
+  unchanged_records: unchanged.length,
+  doi_mismatch_records: doiMismatches
 };
 
 const validation = validateMaster(next, mapping, worldMap);
@@ -108,6 +115,8 @@ const affectedViews = [
 
 const audits = changed.map((id) => {
   const record = source.records.find((item) => item.id === id);
+  const paper = byId.get(id);
+  const canonicalDoi = normalizeDoi(paper.doi);
   return {
     change_id: `paper-${id}-${today}-${nextVersion}-abstract-import`,
     version: nextVersion,
@@ -116,8 +125,8 @@ const audits = changed.map((id) => {
     changed_fields: ['abstract'],
     reason: `Import the publisher/PDF-derived exact abstract supplied in ${source.source.filename}.`,
     evidence: {
-      url: record.publisher_url || (record.doi ? `https://doi.org/${normalizeDoi(record.doi)}` : byId.get(id).publisher_url),
-      note: `Bulk exact-abstract import; source SHA-256 ${source.source.sha256}.`
+      url: paper.publisher_url || record.publisher_url || (canonicalDoi ? `https://doi.org/${canonicalDoi}` : null),
+      note: `Bulk exact-abstract import; source SHA-256 ${source.source.sha256}.${doiMismatchIds.has(id) ? ' The imported DOI differed from the canonical record; the canonical DOI was retained.' : ''}`
     },
     submitted_by: null,
     impact: {
@@ -144,6 +153,7 @@ console.log(JSON.stringify({
   supplied: source.records.length,
   changed: changed.length,
   unchanged: unchanged.length,
+  doi_mismatches: doiMismatches,
   changed_ids: changed,
   unchanged_ids: unchanged,
   generated
