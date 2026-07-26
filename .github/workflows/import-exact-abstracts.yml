@@ -1,0 +1,45 @@
+name: Import supplied exact abstracts
+
+on:
+  push:
+    branches:
+      - agent/import-exact-abstracts-20260726
+    paths:
+      - data/abstract-import.part*.b64
+      - scripts/import-abstracts-bulk.mjs
+      - .github/workflows/import-exact-abstracts.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-exact-abstracts-20260726
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out import branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Import and regenerate Atlas datasets
+        run: node scripts/import-abstracts-bulk.mjs data
+
+      - name: Validate canonical and generated data
+        run: |
+          node scripts/validate-dataset.mjs
+          node scripts/build-datasets.mjs --check
+          git diff --check
+
+      - name: Commit coordinated Atlas update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers-master.json data/references.json data/references-metadata.json data/pinn-realm.json data/changes.json
+          git diff --cached --quiet && { echo "No generated changes"; exit 1; }
+          git commit -m "Import 420 exact paper abstracts"
+          git push
