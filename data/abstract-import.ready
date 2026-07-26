@@ -1,0 +1,3 @@
+source=data/journal_articles_exact_abstracts_2.md
+expected_records=420
+source_sha256=f0500e96df2be7c5d204856edea7f6217716055de90984cac2ad6f01c6135641
