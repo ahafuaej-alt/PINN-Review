@@ -12349,19 +12349,21 @@
   {
     "id": 464,
     "title": "Successful Implementation of Artificial Intelligence and Machine Learning in Multiphase Flow Smart Proxy Modeling",
-    "citation": "Ansari, A.; Boosari, S.S.H.; Mohaghegh, S.D. Successful Implementation of Artificial Intelligence and Machine Learning in Multiphase Flow Smart Proxy Modeling. vol. 11.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "vol. 11",
+    "citation": "Ansari, A.; Boosari, S.S.H.; Mohaghegh, S.D. Successful Implementation of Artificial Intelligence and Machine Learning in Multiphase Flow Smart Proxy Modeling. Journal of Petroleum & Environmental Biotechnology 2020, 11, 1-8. https://doi.org/10.35248/2157-7463.20.11.401.",
+    "doi": "10.35248/2157-7463.20.11.401",
+    "publisher_url": "https://doi.org/10.35248/2157-7463.20.11.401",
+    "venue": "Journal of Petroleum & Environmental Biotechnology",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Ansari, A.; Boosari, S.S.H.; Mohaghegh, S.D",
-      "journal_abbreviation": "vol. 11"
+      "authors": "Ansari, A.; Boosari, S.S.H.; Mohaghegh, S.D.",
+      "journal_abbreviation": "Journal of Petroleum & Environmental Biotechnolog",
+      "volume": "11",
+      "pages": "1-8"
     },
     "abstract": "It is almost impossible to solve the modern fluid flow problems without the use of Computational Fluid Dynamics (CFD). In petroleum industry, flow simulations assist engineers to develop the most efficient well design and it is essential to understand the multiphase flow details. However, despite the high accuracy, performing the numerical simulation fall short in providing the required results in timely manner. This article presents two case studies of Smart Proxy Models (SPM) utilizing artificial intelligence (AI) and Machine Learning (ML) techniques to appraise the behavior of the chaotic system and predict the dynamic features including pressure, velocity and the evolution of phase fraction within the process at each time-step at a much lower run time. Proposed cases concentrate on 2-D dam-break and 3-D fluidized bed problems, using OpenFOAM and MFiX, CFD software applications, respectively. This paper focuses on building and improving the artificial neural network (ANN) models characterized by feedforward back propagation method and Levenberg-Marquardt algorithm (LMA). Each case study contains multiple scenarios to gradually enhance the model capabilities to forecast the dynamic parameters. Results for both cases indicate that 8-10 hours of computational time for running CFD simulation, reduces to a few minutes when is done by developed AI-based models along with less than 10% error for entire process.",
     "graphical_abstract": null,
-    "year": null,
-    "access": "Not verified",
+    "year": 2020,
+    "access": "Open access",
     "countries": [
       "United States"
     ],

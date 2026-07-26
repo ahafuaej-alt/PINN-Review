@@ -2,6 +2,62 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-464-2026-07-26-2.2.54",
+      "version": "2.2.54",
+      "date": "2026-07-26",
+      "paper_id": 464,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "info update",
+      "evidence": {
+        "url": "https://www.researchgate.net/publication/339738118_Successful_Implementation_of_Artificial_Intelligence_and_Machine_Learning_in_Multiphase_Flow_Smart_Proxy_Modeling_Two_Case_Studies_of_Gas-Liquid_and_Gas-Solid_CFD_Models",
+        "note": "info update"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 464,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2020,
+            "before": 43,
+            "after": 44
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-176-2026-07-26-2.2.53-abstract-import",
       "version": "2.2.53",
       "date": "2026-07-26",
