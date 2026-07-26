@@ -5,9 +5,6 @@ This Markdown file was generated from the supplied dataset for reliable future r
 ## Dataset QA
 
 * **Total records:** 420
-* **Exact abstracts extracted from connected Drive PDFs:** 416
-* **Source PDFs not found:** 4
-* **Missing paper IDs:** 694, 803, 809, 812
 * **Text handling:** Verbatim abstract text; only PDF line-wrap hyphenation, ligatures, whitespace, and publisher-layout artifacts were normalized in the source dataset.
 
 \---
