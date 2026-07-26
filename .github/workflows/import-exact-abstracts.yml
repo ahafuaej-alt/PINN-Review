@@ -8,6 +8,13 @@ on:
       - data/abstract-import.part*.b64
       - scripts/import-abstracts-bulk.mjs
       - .github/workflows/import-exact-abstracts.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 permissions:
   contents: write
@@ -24,6 +31,7 @@ jobs:
       - name: Check out import branch
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
           fetch-depth: 0
 
       - name: Import and regenerate Atlas datasets
@@ -42,4 +50,4 @@ jobs:
           git add data/papers-master.json data/references.json data/references-metadata.json data/pinn-realm.json data/changes.json
           git diff --cached --quiet && { echo "No generated changes"; exit 1; }
           git commit -m "Import 420 exact paper abstracts"
-          git push
+          git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
