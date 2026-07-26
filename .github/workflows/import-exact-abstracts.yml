@@ -5,9 +5,7 @@ on:
     branches:
       - agent/import-exact-abstracts-20260726
     paths:
-      - data/abstract-import.part*.b64
-      - scripts/import-abstracts-bulk.mjs
-      - .github/workflows/import-exact-abstracts.yml
+      - data/abstract-import.ready
   pull_request:
     branches:
       - main
@@ -16,9 +14,7 @@ on:
       - synchronize
       - reopened
     paths:
-      - data/abstract-import.part*.b64
-      - scripts/import-abstracts-bulk.mjs
-      - .github/workflows/import-exact-abstracts.yml
+      - data/abstract-import.ready
 
 permissions:
   contents: write
@@ -39,20 +35,7 @@ jobs:
           fetch-depth: 0
 
       - name: Import and regenerate Atlas datasets
-        run: |
-          set +e
-          node scripts/import-abstracts-bulk.mjs data > /tmp/abstract-import.log 2>&1
-          status=$?
-          cat /tmp/abstract-import.log
-          if [ "$status" -ne 0 ]; then
-            cp /tmp/abstract-import.log data/abstract-import-error.txt
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/abstract-import-error.txt
-            git commit -m "Capture abstract import diagnostic"
-            git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
-            exit "$status"
-          fi
+        run: node scripts/import-abstracts-bulk.mjs data
 
       - name: Validate canonical and generated data
         run: |
