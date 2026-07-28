@@ -12672,20 +12672,25 @@
   {
     "id": 477,
     "title": "Modeling two-phase flows with complicated interface evolution using parallel physics-informed neural networks",
-    "citation": "Qiu, R., Dong, H., Wang, J., Fan, C., Wang, Y., 2024. Modeling two-phase flows with complicated interface evolution using parallel physics-informed neural networks. Phys. Fluids 36 (9), 093330.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Qiu, R., Dong, H., Wang, J., Fan, C., Wang, Y. Modeling two-phase flows with complicated interface evolution using parallel physics-informed neural networks. Physics of Fluids 2024, 36, 093330. https://doi.org/10.1063/5.0216609.",
+    "doi": "10.1063/5.0216609",
+    "publisher_url": "https://pubs.aip.org/aip/pof/article-abstract/36/9/093330/3313027/Modeling-two-phase-flows-with-complicated?redirectedFrom=fulltext",
+    "venue": "Physics of Fluids",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Qiu, R., Dong, H., Wang, J., Fan, C., Wang, Y.",
+      "journal_abbreviation": "Phys. Fluids",
+      "volume": "36",
+      "article_number": "093330"
+    },
+    "abstract": "The physics-informed neural networks (PINNs) have shown great potential in solving a variety of high-dimensional partial differential equations (PDEs), but the complexity of a realistic problem still restricts the practical application of the PINNs for solving most complicated PDEs. In this paper, we propose a parallel framework for PINNs that is capable of modeling two-phase flows with complicated interface evolution. The proposed framework divides the problem into several simplified subproblems and solves them through training several PINNs on corresponding subdomains simultaneously. To enhance the accuracy of the parallel training framework in two-phase flow, the overlapping domain decomposition method is adopted. The optimal subnetwork sizes and partitioned method are systematically discussed, and a series of cases including a bubble rising, droplet splashing, and the Rayleigh–Taylor instability are applied for quantitative validation. The maximum relative error of quantitative values in these cases is 0.1319. Our results show that the proposed framework not only can accelerate the training procedure of PINNs, but also can capture the spatiotemporal evolution of the interface between various phases. This framework overcomes the difficulties of training PINNs to solve a forward problem in two-phase flow, and it is expected to model more realistic dynamic systems in nature.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 478,
