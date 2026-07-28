@@ -12796,23 +12796,26 @@
   {
     "id": 482,
     "title": "Physics-informed neural network for engineers a review from an implementation aspect",
-    "citation": "Ryu, I., Park, G.-B., Lee, Y., Choi, D.-H., 2024. Physics-informed neural network for engineers a review from an implementation aspect. D.-H 2024.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "D.-H.",
+    "citation": "Ryu, I., Park, G.-B., Lee, Y., Choi, D.-H. Physics-informed neural network for engineers a review from an implementation aspect. Journal of Mechanical Science and Technology 2024, 38, 3499–3519. https://doi.org/10.1007/s12206-024-0624-9.",
+    "doi": "10.1007/s12206-024-0624-9",
+    "publisher_url": "https://doi.org/10.1007/s12206-024-0624-9",
+    "venue": "Journal of Mechanical Science and Technology",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Ryu, I., Park, G.-B., Lee, Y., Choi, D.-H., 2024",
-      "journal_abbreviation": "D.-H."
+      "authors": "Ryu, I., Park, G.-B., Lee, Y., Choi, D.-H.",
+      "journal_abbreviation": "Journal of Mechanical Science and Technology",
+      "volume": "38",
+      "issue": "2024",
+      "pages": "3499–3519"
     },
     "abstract": "In order to offer guidelines for physics-informed neural network (PINN) implementation, this study presents a comprehensive review of PINN, an emerging field at the intersection of deep learning and computational physics. PINN offers a novel approach to solve physics problems by leveraging the flexibility and scalability of neural networks, even with small or no data. First, a general description of different physics problem types and target tasks addressable with PINN was provided. A generic PINN architecture was described in detail using a component-wise approach, with components ranging from collocation points to optimization methods. Then, we surveyed studies that sought to improve upon each of these components. To offer practical insights, we highlighted studies that focused on key issues of PINN implementation and showcased three practical applications. Lastly, a summary and potential research directions were provided to offer guidelines for reliable and customized PINN implementations.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "South Korea"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 483,
