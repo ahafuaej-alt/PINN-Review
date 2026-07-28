@@ -12599,20 +12599,26 @@
   {
     "id": 474,
     "title": "Understanding the difficulty of training deep feedforward neural networks",
-    "citation": "Glorot, X., Bengio, Y., 2010. Understanding the difficulty of training deep feedforward neural networks. J. Mach. Learn. Res. - Proc. Track 9, 249–256.",
+    "citation": "Glorot, X., Bengio, Y. Understanding the difficulty of training deep feedforward neural networks. Journal of machine learning research 2010, 9, 249-256.",
     "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "publisher_url": "https://proceedings.mlr.press/v9/glorot10a",
+    "venue": "Journal of machine learning research",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Glorot, X., Bengio, Y.",
+      "journal_abbreviation": "Venue not identified",
+      "volume": "9",
+      "issue": "JMLR",
+      "pages": "249-256"
+    },
+    "abstract": "Whereas before 2006 it appears that deep multi-layer neural networks were not successfully trained, since then several algorithms have been shown to successfully train them, with experimental results showing the superiority of deeper vs less deep architectures. All these experimental results were obtained with new initialization or training mechanisms. Our objective here is to understand better why standard gradient descent from random initialization is doing so poorly with deep neural networks, to better understand these recent relative successes and help design better algorithms in the future. We first observe the influence of the non-linear activations functions. We find that the logistic sigmoid activation is unsuited for deep networks with random initialization because of its mean value, which can drive especially the top hidden layer into saturation. Surprisingly, we find that saturated units can move out of saturation by themselves, albeit slowly, and explaining the plateaus sometimes seen when training neural networks. We find that a new non-linearity that saturates less can often be beneficial. Finally, we study how activations and gradients vary across layers and during training, with the idea that training may be more difficult when the singular values of the Jacobian associated with each layer are far from 1. Based on these considerations, we propose a new initialization scheme that brings substantially faster convergence.",
     "graphical_abstract": null,
     "year": 2010,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Canada"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 475,

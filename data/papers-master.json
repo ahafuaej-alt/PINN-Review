@@ -3,8 +3,8 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.57",
-    "last_updated": "2026-07-26",
+    "dataset_version": "2.2.58",
+    "last_updated": "2026-07-28",
     "record_count": 853,
     "id_range": "1-853",
     "sources": {
@@ -38628,25 +38628,34 @@
     {
       "id": 474,
       "title": "Understanding the difficulty of training deep feedforward neural networks",
-      "citation": "Glorot, X., Bengio, Y., 2010. Understanding the difficulty of training deep feedforward neural networks. J. Mach. Learn. Res. - Proc. Track 9, 249–256.",
+      "citation": "Glorot, X., Bengio, Y. Understanding the difficulty of training deep feedforward neural networks. Journal of machine learning research 2010, 9, 249-256.",
       "doi": null,
-      "publisher_url": null,
+      "publisher_url": "https://proceedings.mlr.press/v9/glorot10a",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Journal of machine learning research",
+        "type": "journal"
       },
       "year": 2010,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Canada"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://proceedings.mlr.press/v9/glorot10a",
+        "note": "all info",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-28",
+      "abstract": "Whereas before 2006 it appears that deep multi-layer neural networks were not successfully trained, since then several algorithms have been shown to successfully train them, with experimental results showing the superiority of deeper vs less deep architectures. All these experimental results were obtained with new initialization or training mechanisms. Our objective here is to understand better why standard gradient descent from random initialization is doing so poorly with deep neural networks, to better understand these recent relative successes and help design better algorithms in the future. We first observe the influence of the non-linear activations functions. We find that the logistic sigmoid activation is unsuited for deep networks with random initialization because of its mean value, which can drive especially the top hidden layer into saturation. Surprisingly, we find that saturated units can move out of saturation by themselves, albeit slowly, and explaining the plateaus sometimes seen when training neural networks. We find that a new non-linearity that saturates less can often be beneficial. Finally, we study how activations and gradients vary across layers and during training, with the idea that training may be more difficult when the singular values of the Jacobian associated with each layer are far from 1. Based on these considerations, we propose a new initialization scheme that brings substantially faster convergence.",
+      "bibliographic": {
+        "authors": "Glorot, X., Bengio, Y.",
+        "journal_abbreviation": "Venue not identified",
+        "volume": "9",
+        "issue": "JMLR",
+        "pages": "249-256"
+      }
     },
     {
       "id": 475,
