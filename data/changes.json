@@ -2,6 +2,64 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-484-2026-07-28-2.2.61",
+      "version": "2.2.61",
+      "date": "2026-07-28",
+      "paper_id": 484,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "all info",
+      "evidence": {
+        "url": "https://pubs.aip.org/aip/pof/article-abstract/36/1/013617/3105948/Physics-informed-neural-networks-for?redirectedFrom=fulltext",
+        "note": "all info"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 484,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 158,
+            "after": 159
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-482-2026-07-28-2.2.60",
       "version": "2.2.60",
       "date": "2026-07-28",

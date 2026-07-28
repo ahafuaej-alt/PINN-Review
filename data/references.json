@@ -12846,20 +12846,25 @@
   {
     "id": 484,
     "title": "Physics-informed neural networks for incompressible flows with moving boundaries",
-    "citation": "Zhu, Y., Kong, W., Deng, J., Bian, X., 2024b. Physics-informed neural networks for incompressible flows with moving boundaries. Phys. Fluids 36 (1), 013617.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "citation": "Zhu, Y., Kong, W., Deng, J., Bian, X. Physics-informed neural networks for incompressible flows with moving boundaries. Physics of Fluids 2024, 36, 013617. https://doi.org/10.1063/5.0186809.",
+    "doi": "10.1063/5.0186809",
+    "publisher_url": "https://doi.org/10.1063/5.0186809",
+    "venue": "Physics of Fluids",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Zhu, Y., Kong, W., Deng, J., Bian, X.",
+      "journal_abbreviation": "Venue not identified",
+      "volume": "36",
+      "article_number": "013617"
+    },
+    "abstract": "Physics-informed neural networks (PINNs) employed in fluid mechanics deal primarily with stationary boundaries. This hinders the capability to address a wide range of flow problems involving moving bodies. To this end, we propose a novel extension, which enables PINNs to solve incompressible flows with time-dependent moving boundaries. More specifically, we impose Dirichlet constraints of velocity at the moving interfaces and define new loss functions for the corresponding training points. Moreover, we refine training points for flows around the moving boundaries for accuracy. This effectively enforces the no-slip condition of the moving boundaries. With an initial condition, the extended PINNs solve unsteady flow problems with time-dependent moving boundaries and still have the flexibility to leverage partial data to reconstruct the entire flow field. Therefore, the extended version inherits the amalgamation of both physics and data from the original PINNs. With a series of typical flow problems, we demonstrate the effectiveness and accuracy of the extended PINNs. The proposed concept allows for solving inverse problems as well, which calls for further investigations.",
     "graphical_abstract": null,
-    "year": null,
-    "access": "Not verified",
+    "year": 2024,
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 485,
