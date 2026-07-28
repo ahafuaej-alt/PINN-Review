@@ -13195,26 +13195,32 @@
   },
   {
     "id": 498,
-    "title": "Breaking Boundaries Distributed Domain Decomposition with Scalable Physics-Informed Neural PDE Solvers",
-    "citation": "Feeney, A., Li, Z., Bostanabad, R., Chandramowlishwaran, A., 2023. Breaking Boundaries Distributed Domain Decomposition with Scalable Physics-Informed Neural PDE Solvers. Storage and Analysis 2023, Denver, CO.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Storage and Analysis",
-    "reference_type": "journal",
+    "title": "Breaking Boundaries: Distributed Domain Decomposition with Scalable Physics-Informed Neural PDE Solvers",
+    "citation": "Feeney, A., Li, Z., Bostanabad, R., Chandramowlishwaran, A. Breaking Boundaries: Distributed Domain Decomposition with Scalable Physics-Informed Neural PDE Solvers. In Proceedings of In Conference IEEE CS: Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis, New York, NY, USA, 12-17 November 2023; Abstract 80, pp. 1-15. https://doi.org/10.1145/3581784.3613217.",
+    "doi": "10.1145/3581784.3613217",
+    "publisher_url": "https://dl.acm.org/doi/10.1145/3581784.3613217",
+    "venue": "Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+    "reference_type": "conference",
     "bibliographic": {
-      "authors": "Feeney, A., Li, Z., Bostanabad, R., Chandramowlishwaran, A., 2023",
+      "authors": "Feeney, A., Li, Z., Bostanabad, R., Chandramowlishwaran, A.",
       "journal_abbreviation": "Storage and Analysis",
       "volume": "Denver",
-      "article_number": "CO"
+      "pages": "1-15",
+      "article_number": "CO",
+      "conference_name": "In Conference IEEE CS: Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+      "conference_location": "New York, NY",
+      "conference_country": "USA",
+      "conference_date": "12-17  November  2023",
+      "abstract_number": "80"
     },
     "abstract": "Mosaic Flow is a novel domain decomposition method designed to scale physics-informed neural PDE solvers to large domains. Its unique approach leverages pre-trained networks on small domains to solve partial differential equations on large domains purely through inference, resulting in high reusability. This paper presents an end-to-end parallelization of Mosaic Flow, combining data parallel training and domain parallelism for inference on large-scale problems. By optimizing the network architecture and data parallel training, we significantly reduce the training time for learning the Laplacian operator to minutes on 32 GPUs. Moreover, our distributed domain decomposition algorithm enables scalable inferences for solving the Laplace equation on domains 4096× larger than the training domain, demonstrating strong scaling while maintaining accuracy on 32 GPUs. The reusability of Mosaic Flow, combined with the improved performance achieved through the distributedmemory algorithms, makes it a promising tool for modeling complex physical phenomena and accelerating scientific discovery.",
     "graphical_abstract": null,
     "year": 2023,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 499,
