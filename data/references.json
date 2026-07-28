@@ -13020,23 +13020,25 @@
   {
     "id": 491,
     "title": "A hybrid phase boundary detection technique for two-phase-flow PIV measurements",
-    "citation": "Ergin, F.G., Olofsson, J., Petersson, P., Gade-Nielsen, N.F., 2020. A hybrid phase boundary detection technique for two-phase-flow PIV measurements. N.F 2020.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "N.F.",
+    "citation": "Ergin, F.G., Olofsson, J., Petersson, P., Gade-Nielsen, N.F. A hybrid phase boundary detection technique for two-phase-flow PIV measurements. journal Flow Measurement and Instrumentation 2020, 74, 101776. https://doi.org/10.1016/j.flowmeasinst.2020.101776.",
+    "doi": "10.1016/j.flowmeasinst.2020.101776",
+    "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0955598620301229",
+    "venue": "journal Flow Measurement and Instrumentation",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Ergin, F.G., Olofsson, J., Petersson, P., Gade-Nielsen, N.F., 2020",
-      "journal_abbreviation": "N.F."
+      "authors": "Ergin, F.G., Olofsson, J., Petersson, P., Gade-Nielsen, N.F.",
+      "journal_abbreviation": "journal Flow Measurement and Instrumentation",
+      "volume": "74",
+      "article_number": "101776"
     },
     "abstract": "Particle Image Velocimetry (PIV) measurement accuracy is lower along the phase boundaries of two-phaseflows, because the interrogation windows contain information from both phases. Different seeding density, background intensity, velocity magnitude and flow direction conditions often exist across the boundary, and the cross-correlation-based PIV algorithm selects only the highest correlation peak. The highest correlation peak is either influenced by the wrong phase (across the boundary), or the correctly calculated displacement is erroneously detected as an outlier at a later stage and is subsequently replaced. Phase-separated PIV measurements minimize this problem, and increase accuracy along the boundary by treating each phase separately. This type of measurement requires for each time step; (i) the accurate detection of the phase boundary in consecutive frames, (ii) generation of dynamic phase masks, (iii) an accurate PIV evaluation of each phase and (iv) recombination of the flow fields. In this article, we focus on the first step and test a hybrid phase boundary detection (PBD) technique in three different two-phase-flow configurations which manifest different challenges: The first configuration is the mixing of two liquids in a magnetic micromixer, the second is a combustion experiment where a turbulent, pre-mixed, low-swirl, lifted flame is investigated, and the third is a bubble column reactor where air bubbles are rising in a water tank. The PBD implementation uses a three-step procedure: approximate global thresholding, local Otsu thresholding, and discrimination of image gradients. Comparison of results with and without the use of PBD and phase separation indicate that there are significant measurement accuracy improvements along the boundary.",
     "graphical_abstract": null,
     "year": 2020,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "Denmark"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 492,
