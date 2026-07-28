@@ -15151,25 +15151,30 @@
   {
     "id": 573,
     "title": "Physics-Informed CNN for the Design of Acoustic Equipment",
-    "citation": "Yokota, K., Ogura, M., Kurahashi, T., Abe, M., 2024. Physics-Informed CNN for the Design of Acoustic Equipment. In 2024, Yokohama, Japan.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "In:",
-    "reference_type": "journal",
+    "citation": "Yokota, K., Ogura, M., Kurahashi, T., Abe, M. Physics-Informed CNN for the Design of Acoustic Equipment. In Proceedings of 2024 International Joint Conference on Neural Networks (IJCNN), Yokohama, Japan, 30 June 2024; pp. 1-8. https://doi.org/10.1109/IJCNN60899.2024.10650136.",
+    "doi": "10.1109/IJCNN60899.2024.10650136",
+    "publisher_url": "https://doi.org/10.1109/IJCNN60899.2024.10650136",
+    "venue": "International Joint Conference on Neural Networks (IJCNN)",
+    "reference_type": "conference",
     "bibliographic": {
-      "authors": "Yokota, K., Ogura, M., Kurahashi, T., Abe, M., 2024",
+      "authors": "Yokota, K., Ogura, M., Kurahashi, T., Abe, M.",
       "journal_abbreviation": "In:",
       "volume": "Yokohama",
-      "article_number": "Japan"
+      "pages": "1-8",
+      "article_number": "Japan",
+      "conference_name": "2024 International Joint Conference on Neural Networks (IJCNN)",
+      "conference_location": "Yokohama",
+      "conference_country": "Japan",
+      "conference_date": "30 June 2024"
     },
     "abstract": "In recent years, there has been growing interest in the development of Physics-informed Neural Networks (PINNs) as useful methods for inverse analysis based on partial differential equations. However, there are few reports on design optimization of machines and equipment using PINNs. This study proposes a physics-informed CNN for acoustic equipment design optimization. Similar to the original PINNs, the Physics-informed CNN proposed in this study has a loss function with respect to partial differential equations. The proposed method is designed to identify the design variables by simultaneously minimizing the loss function with respect to the target acoustic properties and the loss function with respect to the wave equation. As a fundamental study, the performance of the proposed method was evaluated by optimizing a trumpet design. By feeding the neural network with velocity data at the lips and sound pressure data at the bell as known information, we were able to identify the tube length and bell diameter with good accuracy. Since the method is based on a CNN, it can define loss functions in the frequency domain, such as spectrograms, and is expected to have a wide range of applications in the future.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "Japan"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 574,
