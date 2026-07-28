@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.63",
+    "version": "2.2.64",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-28",
     "source_file": "papers-countries-and-year.md",
@@ -6240,7 +6240,7 @@
     },
     {
       "id": 510,
-      "title": "NeuroDiffEq A Python package for solving differential equations with neural networks",
+      "title": "NeuroDiffEq: A Python package for solving differential equations with neural networks",
       "year": 2020,
       "countries": [
         "United States",

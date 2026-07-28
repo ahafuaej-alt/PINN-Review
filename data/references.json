@@ -13503,23 +13503,29 @@
   },
   {
     "id": 510,
-    "title": "NeuroDiffEq A Python package for solving differential equations with neural networks",
-    "citation": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M., 2020. Neurodiffeq: A python package for solving differential equations with neural networks. J. Open Source Softw. 5, 1931.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "title": "NeuroDiffEq: A Python package for solving differential equations with neural networks",
+    "citation": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M. NeuroDiffEq: A Python package for solving differential equations with neural networks. Journal of open source software 1931, 5, 46. https://doi.org/10.21105/joss.01931.",
+    "doi": "10.21105/joss.01931",
+    "publisher_url": "https://doi.org/10.21105/joss.01931",
+    "venue": "Journal of open source software",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M.",
+      "journal_abbreviation": "Venue not identified",
+      "volume": "5",
+      "issue": "J. Open Source Softw.",
+      "article_number": "46"
+    },
+    "abstract": "Differential equations underpin modeling in many areas of science and engineering, yet most problems of practical interest do not admit closed-form solutions and are traditionally treated with numerical time–space discretization schemes such as FDM, FVM, FEM, and spectral methods. These classical approaches are efficient and well-studied, but their expressivity is constrained by the underlying function representation, motivating the use of artificial neural networks as universal function approximators for solving ordinary and partial differential equations. We present NeuroDiffEq, a Python package built on PyTorch that formulates differential equation solution as an optimization problem in which the residual of the governing equations is minimized over the parameters of a neural network ansatz. The software supports systems of nonlinear ODEs and canonical PDEs, including the heat and Poisson equations in Cartesian domains with up to two spatial dimensions, and enforces initial and boundary conditions exactly via trial-function transformations of the neural network output. NeuroDiffEq has already been applied to investigate convergence properties of neural-network solvers and to tackle differential equations arising in general relativity, and is being actively extended to handle three-dimensional domains and more complex geometrie",
     "graphical_abstract": null,
     "year": 1931,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "United States",
       "China",
       "Italy"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 511,
