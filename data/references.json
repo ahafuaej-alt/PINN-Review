@@ -15259,25 +15259,30 @@
   {
     "id": 577,
     "title": "A Physics Informed Fusion CNN for Bearing Fault Diagnosis under Variable Rotation Speed",
-    "citation": "Zhang, Y., Zhang, Z., Xia, Z., Wen, H., Dai, M., 2024e. A Physics Informed Fusion CNN for Bearing Fault Diagnosis under Variable Rotation Speed. In 2024, Leeds, UK.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "In:",
-    "reference_type": "journal",
+    "citation": "Zhang, Y., Zhang, Z., Xia, Z., Wen, H., Dai, M. A Physics Informed Fusion CNN for Bearing Fault Diagnosis under Variable Rotation Speed. In Proceedings of 2024 30th International Conference on Mechatronics and Machine Vision in Practice (M2VIP), Leeds, UK, 03-05 October 2024https://ieeexplore.ieee.org/abstract/document/10746066; pp. 1-6. https://doi.org/10.1109/M2VIP62491.2024.10746066.",
+    "doi": "10.1109/M2VIP62491.2024.10746066",
+    "publisher_url": "https://doi.org/10.1109/M2VIP62491.2024.10746066",
+    "venue": "IEEE International Conference on Mechatronics and Machine Vision in Practice (M2VIP) 30th",
+    "reference_type": "conference",
     "bibliographic": {
-      "authors": "Zhang, Y., Zhang, Z., Xia, Z., Wen, H., Dai, M., 2024e",
+      "authors": "Zhang, Y., Zhang, Z., Xia, Z., Wen, H., Dai, M.",
       "journal_abbreviation": "In:",
       "volume": "Leeds",
-      "article_number": "UK"
+      "pages": "1-6",
+      "article_number": "UK",
+      "conference_name": "2024 30th International Conference on Mechatronics and Machine Vision in Practice (M2VIP)",
+      "conference_location": "Leeds",
+      "conference_country": "UK",
+      "conference_date": "03-05 October 2024https://ieeexplore.ieee.org/abstract/document/10746066"
     },
     "abstract": "Rolling bearings are one of the key components in many mechanical equipment. Effective fault diagnosis of bearings is crucial for production safety and maintenance work. Despite variety of data driven fault diagnosis methods with high performance have been proposed, most of them learn fault features entirely from the training samples without the guide of physical knowledge, which leads to violation of physical laws and weak generalization ability. To solve this problem, this paper proposes a physics informed fusion convolutional neural network model for fault diagnosis of bearings under variable rotation speed. By embedding domain knowledge, the model’s accuracy and robustness are reinforced. The effectiveness of the proposed method is verified by comparative study under real data of fault bearings. The results show that the proposed model has a better interpretability and higher performance under high noise environments.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-28"
   },
   {
     "id": 578,
