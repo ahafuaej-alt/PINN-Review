@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.64",
+    "version": "2.2.65",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-28",
     "source_file": "papers-countries-and-year.md",
@@ -6351,7 +6351,7 @@
     },
     {
       "id": 519,
-      "title": "ADAHESSIAN An Adaptive Second Order Optimizer for Machine Learning",
+      "title": "ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning",
       "year": 2021,
       "countries": [
         "United States"
