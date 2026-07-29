@@ -20431,20 +20431,29 @@
   {
     "id": 776,
     "title": "Physics-Informed Neural Networks for Flow-Induced Vibration Prediction of a Subsea Pipeline",
-    "citation": "Yin, G.; Janocha, M.J.; Ong, M.C. Physics-Informed Neural Networks for Flow-Induced Vibration Prediction of a Subsea Pipeline. In Proceedings of the ASME 2024 43rd International Conference on Ocean, Offshore and Arctic Engineering, Singapore, 9–14 June 2024; American Society of Mechanical Engineers: New York, NY, USA, 2024; Volume 87837, p. V05BT06A080.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "In Proceedings of the ASME",
+    "citation": "Yin, G.; Janocha, M.J.; Ong, M.C. Physics-Informed Neural Networks for Flow-Induced Vibration Prediction of a Subsea Pipeline. In Proceedings of Proceedings of the ASME 2024 43rd International Conference on Ocean, Offshore and Arctic Engineering. Volume 5B: Ocean Engineering, Singapore, Singapore, 9–14 June 2024; Abstract OMAE2024-128147, V05BT06A080, pp. 1-11. https://doi.org/10.1115/OMAE2024-128147.",
+    "doi": "10.1115/OMAE2024-128147",
+    "publisher_url": "https://asmedigitalcollection.asme.org/OMAE/proceedings-abstract/OMAE2024/87837/1202589",
+    "venue": "International Conference on Ocean, Offshore and Arctic Engineering, Proceedings of the ASME 43rd",
     "reference_type": "conference",
-    "bibliographic": null,
-    "abstract": null,
+    "bibliographic": {
+      "authors": "Yin, G.; Janocha, M.J.; Ong, M.C.",
+      "journal_abbreviation": "In Proceedings of the ASME",
+      "pages": "1-11",
+      "conference_name": "Proceedings of the ASME 2024 43rd International Conference on Ocean, Offshore and Arctic Engineering. Volume 5B: Ocean Engineering.",
+      "conference_location": "Singapore",
+      "conference_country": "Singapore",
+      "conference_date": "9–14 June 2024",
+      "abstract_number": "OMAE2024-128147, V05BT06A080"
+    },
+    "abstract": "Flow-induced vibration (FIV) is a common phenomenon in ocean engineering for subsea structures with circular-shaped cross sections. A large amount of computational resources or experimental efforts are required to predict or measure the complicated motions and flow field surrounding a circular cylinder undergoing VIV. Physics-informed neural networks (PINNs) are powerful deep learning techniques for solving governing partial differential equations (PDEs) of dynamic systems as an alternative to complex numerical methods. In the present study, a framework is built employing PINNs for solving the Navier-Stokes equations to predict flows past an FIV cylinder by using sparsely distributed spatiotemporal data inside the domain. The training process involves minimizing the supervised loss of flow data at these sparse points and the residuals of the governing PDEs. For the training of the PINN model, a moving frame around an FIV cylinder is used to collect the training flow data from two-dimensional direct numerical simulation results at a low Reynolds number. The structural displacements of the cylinder are also implemented in the residuals of the equations of the developed PINN. The performance of the PINN is evaluated by comparing the predicted contours of the surrounding flow velocities with the training data. The hydrodynamic forces prediction is achieved using the PINN-obtained flow field predictions combined with the force partitioning method.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "Norway"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 777,
