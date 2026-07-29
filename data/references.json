@@ -20482,25 +20482,26 @@
   {
     "id": 778,
     "title": "Physics-Informed Neural Networks for Cantilever Dynamics and Fluid-Induced Excitation",
-    "citation": "Lee, J.; Park, K.; Jung, W. Physics-Informed Neural Networks for Cantilever Dynamics and Fluid-Induced Excitation. Neural Networks for Cantilever Dynamics and Fluid-Induced Excitation. Appl. Sci 2024, 14, 7002.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Neural Networks for Cantilever Dynamics and Fluid-Induced Excitation. Appl. Sci.",
+    "citation": "Lee, J.; Park, K.; Jung, W. Physics-Informed Neural Networks for Cantilever Dynamics and Fluid-Induced Excitation. Applied Sciences 2024, 14, 7002. https://doi.org/10.3390/app14167002.",
+    "doi": "10.3390/app14167002",
+    "publisher_url": "https://www.mdpi.com/2076-3417/14/16/7002",
+    "venue": "Applied Sciences",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Lee, J.; Park, K.; Jung, W",
-      "journal_abbreviation": "Neural Networks for Cantilever Dynamics and Fluid-Induced Excitation. Appl. Sci.",
+      "authors": "Lee, J.; Park, K.; Jung, W.",
+      "journal_abbreviation": "Appl. Sci.",
       "volume": "14",
-      "pages": "7002"
+      "pages": "7002",
+      "article_number": "16"
     },
     "abstract": "Physics-informed neural networks (PINNs) represent a continuous and differentiable mapping function, approximating solution curves for given differential equations. Recent studies have demonstrated the significant potential of PINNs as an alternative or complementary approach to conventional numerical methods. However, their application in structural dynamics, such as cantilever dynamics and fluid-induced excitations, poses challenges. In particular, limited accuracy and robustness in resolving high-order differential equations, including fourth-order differential equations encountered in structural dynamics, are major problems with PINNs. To address these challenges, this study explores optimal strategies for constructing PINNs in the context of cantilever dynamics: (1) performing scaling analysis for the configuration, (2) incorporating the second-order non-linear term of the input variables, and (3) utilizing a neural network architecture that reflects a series solution of decomposed bases. These proposed methods have significantly enhanced the predictive capabilities of PINNs, showing an order-of-magnitude improvement in accuracy compared to standard PINNs in resolving the dynamic oscillation of cantilevers and fluid-induced excitation driven by added mass forces. Furthermore, this study extends to the domain of fluid-induced excitation in cantilever dynamics, representing an extreme case of coupled dynamics in fluid–structure interaction. This research is expected to establish crucial baselines for the further development of PINNs in structural dynamics, with potential applicability to high-order coupled differential equations.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "South Korea"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 779,
