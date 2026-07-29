@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.86",
+    "dataset_version": "2.2.87",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -65351,25 +65351,36 @@
     {
       "id": 815,
       "title": "Two-Phase Flow Rate Prediction and Pattern Classification from Differential Pressure Signal through Machine Learning Models with Feature Engineering and PINN",
-      "citation": "T.F.B. Camargo, Two-Phase Flow Rate Prediction and Pattern Classification from Differential Pressure Signal through Machine Learning Models with Feature Engineering and Physics-Guided Neural Networks, Doctorate, Federal University of Santa Catarina, 2024.",
+      "citation": "Camargo, T.F.B. Two-Phase Flow Rate Prediction and Pattern Classification from Differential Pressure Signal through Machine Learning Models with Feature Engineering and PINN. Ph. D. thesis, FEDERAL UNIVERSITY OF SANTA CATARINA, Florianópolis, Brazil, 09 May of 2024.https://repositorio.ufsc.br/handle/123456789/262884",
       "doi": null,
-      "publisher_url": null,
+      "publisher_url": "https://repositorio.ufsc.br/handle/123456789/262884",
       "venue": {
         "name": "Venue not identified",
-        "type": "unknown"
+        "type": "thesis"
       },
       "year": 2024,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Brazil"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://repositorio.ufsc.br/handle/123456789/262884",
+        "note": "all",
+        "citation_mode": "manual"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-29",
+      "abstract": "This study presents the development of a model based on neural networks for the determina￾tion of local flow patterns and phase mass flow rates in gas-liquid two-phase flow using data from the transient differential pressure signal in an orifice plate. Phase interactions of gas-liquid flow through a constriction result in distinctive differential pressure Δp signal characteristics that will depend on the phase flow rates and fluid properties. These pressure fluctuation data are transformed using signal processing tools and then used as features in multilayer neural networks. Typical inline differential pressure flowmeters relate the average differential pressure Δp to the flow rate and require additional information, as phase volume fractions, to determine phase flow rates. However, transient Δp signals from throttle devices carries a wealth of infor￾mation that can be systematized and used to determine flow rate and flow pattern. In addition to these signal signatures, the model integrates physical parameters based on literature cor￾relations and simplified phase fraction estimators as input attributes. This is incorporated into a physics-driven hybrid neural network, which is trained from data while embedding physical phenomena and constraints into the learning process. Bench tests were conducted for liquid superficial velocities (j l ) ranging from 0.03 m/s to 1.10 m/s and gas superficial velocities (jg) from 0.03 m/s to 19 m/s in a 25.4 mm internal diameter tube, and considering two orifice to pipe diameter relations, β. The operating envelope generated covers most flow patterns observed in horizontal pipelines. Results from training non-hybrid neural networks with bench data yielded an average percentage error of 7.2% for water flow and 18.1% for airflow while physics-guided neural networks achieved 6.6% and 14.4%, respectively. Although the improvements are not significant, this work seeks to lay some foundations for incorporating physical support into virtual multiphase flow sensors. Furthermore, this work presents an extensive characterization of the differential pressure signal via feature engineering, trying to relate them to the aspects of the flow upstream of the orifice. This approach is designed to extract a signature of two-phase flow, overcoming geometry change challenges by employing a novel feature selection method. This method enhances the generalization and robustness of machine learning model extrapolations.",
+      "bibliographic": {
+        "authors": "Camargo, T.F.B.",
+        "journal_abbreviation": "Venue not identified",
+        "city": "Florianópolis",
+        "country": "Brazil",
+        "thesis_level": "Ph. D. thesis",
+        "institution": "FEDERAL UNIVERSITY OF SANTA CATARINA",
+        "publication_date": "09 May of 2024"
+      }
     },
     {
       "id": 816,
