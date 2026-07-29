@@ -2,6 +2,51 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-775-2026-07-29-2.2.81",
+      "version": "2.2.81",
+      "date": "2026-07-29",
+      "paper_id": 775,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue",
+        "access"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S026382312400137X",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 775,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue",
+          "access"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-773-2026-07-29-2.2.80",
       "version": "2.2.80",
       "date": "2026-07-29",

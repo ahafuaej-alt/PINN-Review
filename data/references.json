@@ -20407,25 +20407,26 @@
   {
     "id": 775,
     "title": "Application of Fourier feature physics-information neural network in model of pipeline conveying fluid",
-    "citation": "Zhang, T.; Yan, R.; Zhang, S.; Yang, D.; Chen, A. Application of Fourier feature physics-information neural network in model of pipeline conveying fluid. Thin-Walled Struct 2024, 198, 111693.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Thin-Walled Struct.",
+    "citation": "Zhang, T.; Yan, R.; Zhang, S.; Yang, D.; Chen, A. Application of Fourier feature physics-information neural network in model of pipeline conveying fluid. Thin-Walled Structures 2024, 198, 1-11. https://doi.org/10.1016/j.tws.2024.111693.",
+    "doi": "10.1016/j.tws.2024.111693",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S026382312400137X",
+    "venue": "Thin-Walled Structures",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Zhang, T.; Yan, R.; Zhang, S.; Yang, D.; Chen, A",
+      "authors": "Zhang, T.; Yan, R.; Zhang, S.; Yang, D.; Chen, A.",
       "journal_abbreviation": "Thin-Walled Struct.",
       "volume": "198",
-      "pages": "111693"
+      "pages": "1-11",
+      "article_number": "111693"
     },
     "abstract": "In addressing the intricate dynamic responses of pipeline conveying fluid characterized by spatiotemporal multi- scales and multi-modal contributions, Fourier feature-embedded physics-information neural network (FF-PINN) is proposed. By introducing Fourier feature mapping to decompose the temporal and spatial scale information, FF-PINN precisely captures the relatively low-frequencies on the macroscopic time scale as well as the relatively high-frequencies on the microscopic scale of the pipeline’s vibration. This approach significantly overcomes the spectral bias encountered by PINN when learning high-frequency information. To verify the effectiveness and accuracy of this method, the proposed FF-PINN is applied to solve the pipeline conveying fluid model with fixed support at both ends. The relative L2 error between the obtained results and the reference solution is 1.8 × 10−2, concurrently with a significant reduction in computational time. Additionally, an analysis of hyperparameter σ selection is conducted to evaluate its impact on the performance of FF-PINN, while establishing the correspondence between hyperparameter and eigenvector frequency. The results demonstrate that choosing appropriate hyperparameters empowers FF-PINN to better learn the vibration of specific frequencies, enabling the accurate modeling of pipeline vibrations’ dynamic response. It provides a potent solution for solving spatiotemporal multi-scale complexity problems involving the superposition of high-and low-frequencies.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 776,
