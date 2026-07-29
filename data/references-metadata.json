@@ -1,6 +1,6 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "2.2.78",
+  "version": "2.2.79",
   "schema_version": "1.0.0",
   "last_updated": "2026-07-29",
   "record_count": 853,
@@ -9,9 +9,9 @@
   "doi_fields": 800,
   "publisher_or_doi_links": 818,
   "accessibility": {
-    "open_access": 387,
+    "open_access": 388,
     "subscription": 439,
-    "not_verified": 27
+    "not_verified": 26
   },
   "reference_types": {
     "journal": 741,

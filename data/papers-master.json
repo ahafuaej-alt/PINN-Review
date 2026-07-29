@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.78",
+    "dataset_version": "2.2.79",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -61690,7 +61690,7 @@
         "type": "journal"
       },
       "year": 2023,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "China",
         "United States"
@@ -61699,7 +61699,7 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://www.global-sci.com/cicp/article/view/7207",
-        "note": null,
+        "note": "some",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -61712,7 +61712,7 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-07-29",
       "bibliographic": {
         "authors": "Wang, H.; Lu, L.; Song, S.; Huang, G.",
         "journal_abbreviation": "Commun. Comput. Phys.",
