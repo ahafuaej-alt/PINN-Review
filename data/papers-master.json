@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.82",
+    "dataset_version": "2.2.83",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -62380,23 +62380,23 @@
     {
       "id": 777,
       "title": "Overcoming the Spectral Bias Problem of Physics-Informed Neural Networks in Solving the Frequency-Domain Acoustic Wave Equation",
-      "citation": "Chai, X.; Cao, W.; Li, J.; Long, H.; Sun, X. Overcoming the Spectral Bias Problem of Physics-Informed Neural Networks in Solving the Frequency-Domain Acoustic Wave Equation. IEEE Trans. Geosci. Remote Sens 2024, 62, 5923520.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Chai, X.; Cao, W.; Li, J.; Long, H.; Sun, X. Overcoming the Spectral Bias Problem of Physics-Informed Neural Networks in Solving the Frequency-Domain Acoustic Wave Equation. IEEE Transactions on Geoscience and Remote Sensing 2024, 62, 1-20. https://doi.org/10.1109/TGRS.2024.3440471.",
+      "doi": "10.1109/TGRS.2024.3440471",
+      "publisher_url": "https://ieeexplore.ieee.org/abstract/document/10630853",
       "venue": {
-        "name": "IEEE Trans. Geosci. Remote Sens.",
+        "name": "IEEE Transactions on Geoscience and Remote Sensing",
         "type": "journal"
       },
       "year": 2024,
-      "access": "Not verified",
+      "access": "Subscription",
       "countries": [
         "China"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/abstract/document/10630853",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -62409,12 +62409,13 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-07-29",
       "bibliographic": {
-        "authors": "Chai, X.; Cao, W.; Li, J.; Long, H.; Sun, X",
+        "authors": "Chai, X.; Cao, W.; Li, J.; Long, H.; Sun, X.",
         "journal_abbreviation": "IEEE Trans. Geosci. Remote Sens.",
         "volume": "62",
-        "pages": "5923520"
+        "pages": "1-20",
+        "article_number": "5923520"
       },
       "abstract": "Physics-informed neural networks (PINNs) have recently been utilized to tackle wave equation-based forward and inverse problems. However, they encounter challenges in accurately predicting the high-frequency wavefields, known as the spectral bias problem. Based on the previously used frequency upscaling (FU) and neuron splitting (NS) concepts to help with the high frequency wavefields, we present a sequence of strategies \\[i.e., multiscale Fourier feature mapping (MFFM), frequency transferring (FT), a revised NS (RNS), and denser sampling (DS)] to overcome the spectral bias challenge of PINN in solving the frequency-domain acoustic wave equation. MFFM projects PINN inputs onto sinusoids with off-axis frequency distributions, characterizing the PINN wavefield by a Fourier decomposition. FT initializes the NN for higher frequency (e.g., 16 Hz) using the pretrained NN for the nearest lower frequency (e.g., 15 Hz), which is refined from FU (where the 16 Hz NN is initialized by that of 8 Hz). Thus, we show that FT is more effective than FU. We also introduce RNS, which is a modified strategy derived from NS by adding a small amount of random noise, drawn from a uniform distribution, to the replicated weights/biases to break the symmetry after replication, improving the NN’s representational capacity. Because MFFM, FT, and RNS alone are inadequate for generating high-frequency wavefields, we further develop DS to use a smaller spatial sampling interval within the same computational domain (the wavefield is more continuous and smoother). DS helps PINN simulate high-frequency components easier. The experiments on typical models validate the effectiveness of the introduced strategies. We share the codes and data through a public repository."
     },
