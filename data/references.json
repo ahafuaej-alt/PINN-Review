@@ -21729,26 +21729,27 @@
   },
   {
     "id": 827,
-    "title": "MESHLESS PHYSICS-INFORMED DEEP LEARNING METHOD FOR THREE-DIMENSIONAL SOLID MECHANICS",
-    "citation": "Abueidda, D.W.; Lu, Q.; Koric, S. MESHLESS PHYSICS-INFORMED DEEP LEARNING METHOD FOR THREE-DIMENSIONAL SOLID MECHANICS. Method for Three-Dimensional Solid Mechanics. Int. J. Numer. Methods Eng 2021, 122, 7182–7201.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Method for Three-Dimensional Solid Mechanics. Int. J. Numer. Methods Eng.",
+    "title": "Meshless physics-informed deep learning method for three-dimensional solid mechanics",
+    "citation": "Abueidda, D.W.; Lu, Q.; Koric, S. Meshless physics-informed deep learning method for three-dimensional solid mechanics. International Journal for Numerical Methods in Engineering 2021, 122, 7182-7201. https://doi.org/10.1002/nme.6828.",
+    "doi": "10.1002/nme.6828",
+    "publisher_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.6828",
+    "venue": "International Journal for Numerical Methods in Engineering",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Abueidda, D.W.; Lu, Q.; Koric, S",
-      "journal_abbreviation": "Method for Three-Dimensional Solid Mechanics. Int. J. Numer. Methods Eng.",
+      "authors": "Abueidda, D.W.; Lu, Q.; Koric, S.",
+      "journal_abbreviation": "International Journal for Numerical Methods in Engineering",
       "volume": "122",
-      "pages": "7182–7201"
+      "issue": "23",
+      "pages": "7182-7201"
     },
     "abstract": "Deep learning and the collocation method are merged and used to solve partial differential equations describing structures’ deformation. We have considered different types of materials: linear elasticity, hyperelasticity (neo-Hookean) with large deformation, and von Mises plasticity with isotropic and kinematic hardening. The performance of this deep collocation method (DCM) depends on the architecture of the neural network and the corresponding hyperparameters. The presented DCM is meshfree and avoids any spatial discretization, which is usually needed for the finite element method (FEM). We show that the DCM can capture the response qualitatively and quantitatively, without the need for any data generation using other numerical methods such as the FEM. Data generation usually is the main bottleneck in most data-driven models. The deep learning model is trained to learn the model’s parameters yielding accurate approximate solutions. Once the model is properly trained, solutions can be obtained almost instantly at any point in the domain, given its spatial coordinates. Therefore, the deep collocation method is potentially a promising standalone technique to solve partial differential equations involved in the deformation of materials and structural systems as well as other physical phenomena.",
     "graphical_abstract": null,
     "year": 2021,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 828,
