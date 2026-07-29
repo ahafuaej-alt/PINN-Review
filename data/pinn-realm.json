@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.79",
+    "version": "2.2.80",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-29",
     "source_file": "papers-countries-and-year.md",
@@ -9285,7 +9285,7 @@
     },
     {
       "id": 773,
-      "title": "AT-PINN Advanced time-marching physics-informed neural network for structural vibration analysis",
+      "title": "AT-PINN: Advanced time-marching physics-informed neural network for structural vibration analysis",
       "year": 2024,
       "countries": [
         "China"

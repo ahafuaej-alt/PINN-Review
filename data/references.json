@@ -20359,26 +20359,27 @@
   },
   {
     "id": 773,
-    "title": "AT-PINN Advanced time-marching physics-informed neural network for structural vibration analysis",
-    "citation": "Chen, Z.; Lai, S.-K.; Yang, Z. AT-PINN Advanced time-marching physics-informed neural network for structural vibration analysis. Thin-Walled Struct 2024, 196, 111423.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Thin-Walled Struct.",
+    "title": "AT-PINN: Advanced time-marching physics-informed neural network for structural vibration analysis",
+    "citation": "Chen, Z.; Lai, S.-K.; Yang, Z. AT-PINN: Advanced time-marching physics-informed neural network for structural vibration analysis. Thin-Walled Structures 2024, 196, 1-29. https://doi.org/10.1016/j.tws.2023.111423.",
+    "doi": "10.1016/j.tws.2023.111423",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0263823123009011",
+    "venue": "Thin-Walled Structures",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Chen, Z.; Lai, S.-K.; Yang, Z",
+      "authors": "Chen, Z.; Lai, S.-K.; Yang, Z.",
       "journal_abbreviation": "Thin-Walled Struct.",
       "volume": "196",
-      "pages": "111423"
+      "pages": "1-29",
+      "article_number": "111423"
     },
     "abstract": "Solving partial differential equations through deep learning has recently received wide attention, with physics- informed neural networks (PINNs) being successfully used and showing great potential. This study focuses on the development of an efficient PINN approach for structural vibration analysis in “long-duration” simulation that is still a technical but unresolved issue of PINN. The accuracies of the standard PINN (STD-PINN) and conventional time-marching PINN (CT-PINN) methods in solving vibration equations, especially free-vibration equations, are shown to decrease to varying degrees with the simulation time. To resolve this problem, an advanced time- marching PINN (AT-PINN) approach is proposed. This method is used to solve structural vibration problems over successive time segments by adopting four key techniques: normalization of the spatiotemporal domain in each time segment, a reactivating optimization algorithm, transfer learning and the sine activation function. To illustrate the advantages of the AT-PINN approach, numerical simulations for the forced and free vibration analysis of strings, beams and plates are performed. In addition, the vibration analysis of plates under multi- physics loads is also studied. The results show that the AT-PINN approach can provide accurate solutions with lower computational cost even in long-duration simulation. The techniques adopted are verified to effectively avoid the offset of the spatiotemporal domain, reduce the accumulative error and enhance the training efficiency. The present one overcomes the drawback of the existing PINN methods and is expected to become an effective method for solving time-dependent partial differential equations in long-duration simulation.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 774,
