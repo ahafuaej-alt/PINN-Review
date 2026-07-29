@@ -20031,24 +20031,24 @@
   {
     "id": 760,
     "title": "Rectified Linear Units Improve Restricted Boltzmann Machines",
-    "citation": "Nair and G. E. Hinton, V. Rectified Linear Units Improve Restricted Boltzmann Machines. in Proc. 27th Int. Conf. Mach. Learn. (ICML), 2010 2010, 807–814.",
+    "citation": "Nair and G. E. Hinton, V. Rectified Linear Units Improve Restricted Boltzmann Machines. In Proceedings of International Conference on Machine Learning (ICML) 27th;",
     "doi": null,
-    "publisher_url": null,
-    "venue": "in Proc. 27th Int. Conf. Mach. Learn. (ICML), 2010",
-    "reference_type": "journal",
+    "publisher_url": "https://www.cs.toronto.edu/~hinton/absps/reluICML.pdf",
+    "venue": "International Conference on Machine Learning (ICML) 27th",
+    "reference_type": "conference",
     "bibliographic": {
-      "authors": "Nair and G. E. Hinton, V",
+      "authors": "Nair and G. E. Hinton, V.",
       "journal_abbreviation": "in Proc. 27th Int. Conf. Mach. Learn. (ICML), 2010",
       "volume": "807–814"
     },
     "abstract": "Restricted Boltzmann machines were developed using binary stochastic hidden units. These can be generalized by replacing each binary unit by an infinite number of copies that all have the same weights but have progressively more negative biases. The learning and inference rules for these “Stepped Sigmoid Units” are unchanged. They can be approximated efficiently by noisy, rectified linear units. Compared with binary units, these units learn features that are better for object recognition on the NORB dataset and face verification on the Labeled Faces in the Wild dataset. Unlike binary units, rectified linear units preserve information about relative intensities as information travels through multiple layers of feature detectors.",
     "graphical_abstract": null,
     "year": 2010,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Canada"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 761,
