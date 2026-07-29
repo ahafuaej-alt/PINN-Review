@@ -21808,25 +21808,25 @@
   {
     "id": 830,
     "title": "Neural networks based surrogate modeling for efficient uncertainty quantification and calibration of MEMS accelerometers",
-    "citation": "Zacchei, F.; Rizzini, F.; Gattere, G.; Frangi, A.; Manzoni, A. Neural networks based surrogate modeling for efficient uncertainty quantification and calibration of MEMS accelerometers. Quantification and Calibration of MEMS Accelerometers. Int. J. Non-Linear Mech 2024, 167, 104902.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Quantification and Calibration of MEMS Accelerometers. Int. J. Non-Linear Mech.",
+    "citation": "Zacchei, F.; Rizzini, F.; Gattere, G.; Frangi, A.; Manzoni, A. Neural networks based surrogate modeling for efficient uncertainty quantification and calibration of MEMS accelerometers. International Journal of Non-Linear Mechanics 2024, 167, 104902. https://doi.org/10.1016/j.ijnonlinmec.2024.104902.",
+    "doi": "10.1016/j.ijnonlinmec.2024.104902",
+    "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0020746224002671",
+    "venue": "International Journal of Non-Linear Mechanics",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Zacchei, F.; Rizzini, F.; Gattere, G.; Frangi, A.; Manzoni, A",
-      "journal_abbreviation": "Quantification and Calibration of MEMS Accelerometers. Int. J. Non-Linear Mech.",
+      "authors": "Zacchei, F.; Rizzini, F.; Gattere, G.; Frangi, A.; Manzoni, A.",
+      "journal_abbreviation": "International Journal of Non-Linear Mechanics",
       "volume": "167",
-      "pages": "104902"
+      "article_number": "104902"
     },
     "abstract": "This paper addresses the computational challenges inherent in the stochastic characterization and uncertainty quantification of Micro-Electro-Mechanical Systems (MEMS) capacitive accelerometers. Traditional methods, such as Markov Chain Monte Carlo (MCMC) algorithms, are often constrained by the computational intensity required for high-fidelity (e.g., finite element) simulations. To overcome these limitations, we propose to use supervised learning-based surrogate models, specifically artificial neural networks, to effectively approximate the response of MEMS capacitive accelerometers. Our approach involves training the surrogate models with data derived from initial high-fidelity finite element analyses (FEA), providing rich datasets to be generated in an offline phase. The surrogate models replicate the FEA accuracy in predicting the behavior of the accelerometer under a wide range of fabrication parameters, thereby reducing the online computational cost without compromising accuracy. This enables extensive and efficient stochastic analyses of complex MEMS devices, offering a flexible framework for their characterization. A key application of our framework is demonstrated in estimating the sensitivity of an accelerometer, accounting for unknown mechanical offsets, over-etching, and thickness variations. We employ an MCMC approach to estimate the posterior distribution of the device’s unknown fabrication parameters, informed by its response to transient voltage signals. The integration of surrogate models for mapping fabrication parameters to device responses, and subsequently to sensitivity measures, greatly enhances both backward and forward uncertainty quantification, yielding accurate results while significantly improving the efficiency and effectiveness of the characterization process. This process allows for the reconstruction of device sensitivity using only voltage signals, without the need for direct mechanical acceleration stimuli.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Italy"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 831,
