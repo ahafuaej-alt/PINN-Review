@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.73",
+    "dataset_version": "2.2.74",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -56842,23 +56842,23 @@
     {
       "id": 701,
       "title": "Physics-Informed Machine Learning for Power Grid Frequency Modeling",
-      "citation": "Kruse, J., Cramer, E., Schafer, B., Witthaut, D., 2023. Physics-Informed Machine Learning for Power Grid Frequency Modeling. PRX Energy 2023.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Kruse, J., Cramer, E., Schafer, B., Witthaut, D. Physics-Informed Machine Learning for Power Grid Frequency Modeling. PRX Energy 2023, 2, 1-20. https://doi.org/10.1103/PRXEnergy.2.043003.",
+      "doi": "10.1103/PRXEnergy.2.043003",
+      "publisher_url": "https://journals.aps.org/prxenergy/pdf/10.1103/PRXEnergy.2.043003",
       "venue": {
         "name": "PRX Energy",
         "type": "journal"
       },
       "year": 2023,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Germany"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://journals.aps.org/prxenergy/pdf/10.1103/PRXEnergy.2.043003",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -56871,10 +56871,13 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-07-29",
       "bibliographic": {
-        "authors": "Kruse, J., Cramer, E., Schafer, B., Witthaut, D., 2023",
-        "journal_abbreviation": "PRX Energy"
+        "authors": "Kruse, J., Cramer, E., Schafer, B., Witthaut, D.",
+        "journal_abbreviation": "PRX Energy",
+        "volume": "2",
+        "pages": "1-20",
+        "article_number": "043003"
       },
       "abstract": "The operation of power systems is aﬀected by diverse technical, economic, and social factors. Social behavior determines load patterns, electricity markets regulate the generation, and weather-dependent renewables introduce power fluctuations. Thus, power system dynamics must be regarded as a nonautonomous system whose parameters vary strongly with time. However, the external driving factors are usually only available on coarse scales and the actual dependencies of the dynamic system parameters are generally unknown. Here, we propose a physics-informed machine learning model that bridges the gap between large-scale drivers and short-term dynamics of the power system. Integrating stochastic diﬀerential equations and artificial neural networks, we construct a probabilistic model of the power grid frequency dynamics in continental Europe. Its probabilistic prediction outperforms the daily average profile, which is an important benchmark, on a time horizon of 15 min. Using the integrated model, we identify and explain the parameters of the dynamical system from the data, which reveal their strong time-dependence and their relation to external drivers such as wind power feed-in and fast generation ramps. Finally, we generate synthetic time series from the model, which successfully reproduce central characteristics of the grid frequency such as their heavy-tailed distribution. All in all, our work emphasizes the importance of modeling power system dynamics as a stochastic nonautonomous system with both intrinsic dynamics and external drivers."
     },
