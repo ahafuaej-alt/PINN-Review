@@ -15313,20 +15313,26 @@
   {
     "id": 579,
     "title": "Improving physics-informed neural networks with meta-learned optimization",
-    "citation": "Bihlo, A., 2024. Improving physics-informed neural networks with meta-learned optimization. J. Mach. Learn. Res. 25, 1–26.",
+    "citation": "Bihlo, A. Improving physics-informed neural networks with meta-learned optimization. Journal of Machine Learning Research 2024, 15, 1−26. https://www.jmlr.org/papers/v25/23-0356.html",
     "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "publisher_url": "https://www.jmlr.org/papers/v25/23-0356.html",
+    "venue": "Journal of Machine Learning Research",
+    "reference_type": "journal",
+    "bibliographic": {
+      "authors": "Bihlo, A.",
+      "journal_abbreviation": "JMLR",
+      "volume": "15",
+      "pages": "1−26",
+      "article_number": "14"
+    },
+    "abstract": "We show that the error achievable using physics-informed neural networks for solving differential equations can be substantially reduced when these networks are trained using meta-learned optimization methods rather than using fixed, hand-crafted optimizers as traditionally done. We choose a learnable optimization method based on a shallow multi-layer perceptron that is meta-trained for specific classes of differential equations. We illustrate meta-trained optimizers for several equations of practical relevance in mathematical physics, including the linear advection equation, Poisson's equation, the Korteweg-de Vries equation and Burgers' equation. We also illustrate that meta-learned optimizers exhibit transfer learning abilities, in that a meta-trained optimizer on one differential equation can also be successfully deployed on another differential equation.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Canada"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 580,
