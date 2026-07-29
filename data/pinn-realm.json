@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.84",
+    "version": "2.2.85",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-29",
     "source_file": "papers-countries-and-year.md",
@@ -9351,7 +9351,7 @@
     },
     {
       "id": 779,
-      "title": "Advancing fluid dynamics simulations A comprehensive approach to optimizing physics-informed neural networks",
+      "title": "Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks Available to Purchase",
       "year": 2024,
       "countries": [
         "Japan"

@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.84",
+    "dataset_version": "2.2.85",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -62463,24 +62463,24 @@
     },
     {
       "id": 779,
-      "title": "Advancing fluid dynamics simulations A comprehensive approach to optimizing physics-informed neural networks",
-      "citation": "Zhou, W.; Miwa, S.; Okamoto, K. Advancing fluid dynamics simulations A comprehensive approach to optimizing physics-informed neural networks. Phys. Fluids 2024, 36, 013615.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks Available to Purchase",
+      "citation": "Zhou, W.; Miwa, S.; Okamoto, K. Advancing fluid dynamics simulations: A comprehensive approach to optimizing physics-informed neural networks Available to Purchase. Physics of Fluids 2024, 36, 1-22. https://doi.org/10.1063/5.0180770.",
+      "doi": "10.1063/5.0180770",
+      "publisher_url": "https://pubs.aip.org/aip/pof/article-abstract/36/1/013615/3023015/Advancing-fluid-dynamics-simulations-A?redirectedFrom=fulltext",
       "venue": {
-        "name": "Phys. Fluids",
+        "name": "Physics of Fluids",
         "type": "journal"
       },
       "year": 2024,
-      "access": "Not verified",
+      "access": "Subscription",
       "countries": [
         "Japan"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://pubs.aip.org/aip/pof/article-abstract/36/1/013615/3023015/Advancing-fluid-dynamics-simulations-A?redirectedFrom=fulltext",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -62493,12 +62493,14 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-07-29",
       "bibliographic": {
-        "authors": "Zhou, W.; Miwa, S.; Okamoto, K",
+        "authors": "Zhou, W.; Miwa, S.; Okamoto, K.",
         "journal_abbreviation": "Phys. Fluids",
         "volume": "36",
-        "pages": "013615"
+        "issue": "1",
+        "pages": "1-22",
+        "article_number": "013615"
       },
       "abstract": "Flow modeling based on physics-informed neural networks (PINNs) is emerging as a potential artificial intelligence (AI) technique for solving fluid dynamics problems. However, conventional PINNs encounter inherent limitations when simulating incompressible fluids, such as difficulties in selecting the sampling points, balancing the loss items, and optimizing the hyperparameters. These limitations often lead to non-convergence of PINNs. To overcome these issues, an improved and generic PINN for fluid dynamic analysis is proposed. This approach incorporates three key improvements: residual-based adaptive sampling, which automatically samples points in areas with larger residuals; adaptive loss weights, which balance the loss terms effectively; and utilization of the differential evolution optimization algorithm. Then, three case studies at low Reynolds number, Kovasznay flow, vortex shedding past a cylinder, and Beltrami flow are employed to validate the improved PINNs. The contribution of each improvement to the final simulation results is investigated and quantified. The simulation results demonstrate good agreement with both analytical solutions and benchmarked computational fluid dynamics (CFD) calculation results, showcasing the efficiency and validity of the improved PINNs. These PINNs have the potential to reduce the reliance on CFD simulations for solving fluid dynamics problems."
     },
