@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.88",
+    "version": "2.2.89",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-29",
     "source_file": "papers-countries-and-year.md",
@@ -9890,7 +9890,7 @@
     },
     {
       "id": 826,
-      "title": "PINNs and GaLS a priori error estimates for shallow physics informed neural networks applied to elliptic problems",
+      "title": "PINNs and GaLS: A Priori Error Estimates for Shallow Physics Informed Neural Networks Applied to Elliptic Problems",
       "year": 2022,
       "countries": [
         "Saudi Arabia"

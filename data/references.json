@@ -21705,26 +21705,27 @@
   },
   {
     "id": 826,
-    "title": "PINNs and GaLS a priori error estimates for shallow physics informed neural networks applied to elliptic problems",
-    "citation": "Zerbinati, U. PINNs and GaLS a priori error estimates for shallow physics informed neural networks applied to elliptic problems. Physics Informed Neural Networks Applied to Elliptic Problems. FAC-PapersOnLine 2022, 55, 61–66.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Physics Informed Neural Networks Applied to Elliptic Problems. FAC-PapersOnLine",
+    "title": "PINNs and GaLS: A Priori Error Estimates for Shallow Physics Informed Neural Networks Applied to Elliptic Problems",
+    "citation": "Zerbinati, U. PINNs and GaLS: A Priori Error Estimates for Shallow Physics Informed Neural Networks Applied to Elliptic Problems. IFAC-PapersOnLine 2022, 55, 61–66. https://doi.org/10.1016/j.ifacol.2022.09.072.",
+    "doi": "10.1016/j.ifacol.2022.09.072",
+    "publisher_url": "https://www.sciencedirect.com/science/article/pii/S2405896322012551",
+    "venue": "IFAC-PapersOnLine",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Zerbinati, U",
-      "journal_abbreviation": "Physics Informed Neural Networks Applied to Elliptic Problems. FAC-PapersOnLine",
+      "authors": "Zerbinati, U.",
+      "journal_abbreviation": "IFAC-PapersOnLine",
       "volume": "55",
+      "issue": "20",
       "pages": "61–66"
     },
     "abstract": "Physics Informed Neural Networks (PINNs) have recently gained popularity for solving partial diﬀerential equations, given the fact they escape the curse of dimensionality. In this paper, we present Physics Informed Neural Networks as an underdetermined point matching collocation method then expose the connection between Galerkin Least Squares (GALS) and PINNs, to develop an a priori error estimate, in the context of elliptic problems. In particular, techniques that belong to the realm of least squares finite elements and Rademacher complexity analysis are used to obtain the error estimate.",
     "graphical_abstract": null,
     "year": 2022,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "Saudi Arabia"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 827,

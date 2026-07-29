@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.88",
+    "dataset_version": "2.2.89",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -66157,24 +66157,24 @@
     },
     {
       "id": 826,
-      "title": "PINNs and GaLS a priori error estimates for shallow physics informed neural networks applied to elliptic problems",
-      "citation": "Zerbinati, U. PINNs and GaLS a priori error estimates for shallow physics informed neural networks applied to elliptic problems. Physics Informed Neural Networks Applied to Elliptic Problems. FAC-PapersOnLine 2022, 55, 61–66.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "PINNs and GaLS: A Priori Error Estimates for Shallow Physics Informed Neural Networks Applied to Elliptic Problems",
+      "citation": "Zerbinati, U. PINNs and GaLS: A Priori Error Estimates for Shallow Physics Informed Neural Networks Applied to Elliptic Problems. IFAC-PapersOnLine 2022, 55, 61–66. https://doi.org/10.1016/j.ifacol.2022.09.072.",
+      "doi": "10.1016/j.ifacol.2022.09.072",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S2405896322012551",
       "venue": {
-        "name": "Physics Informed Neural Networks Applied to Elliptic Problems. FAC-PapersOnLine",
+        "name": "IFAC-PapersOnLine",
         "type": "journal"
       },
       "year": 2022,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Saudi Arabia"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.sciencedirect.com/science/article/pii/S2405896322012551",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66187,11 +66187,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-07-29",
       "bibliographic": {
-        "authors": "Zerbinati, U",
-        "journal_abbreviation": "Physics Informed Neural Networks Applied to Elliptic Problems. FAC-PapersOnLine",
+        "authors": "Zerbinati, U.",
+        "journal_abbreviation": "IFAC-PapersOnLine",
         "volume": "55",
+        "issue": "20",
         "pages": "61–66"
       },
       "abstract": "Physics Informed Neural Networks (PINNs) have recently gained popularity for solving partial diﬀerential equations, given the fact they escape the curse of dimensionality. In this paper, we present Physics Informed Neural Networks as an underdetermined point matching collocation method then expose the connection between Galerkin Least Squares (GALS) and PINNs, to develop an a priori error estimate, in the context of elliptic problems. In particular, techniques that belong to the realm of least squares finite elements and Rademacher complexity analysis are used to obtain the error estimate."
