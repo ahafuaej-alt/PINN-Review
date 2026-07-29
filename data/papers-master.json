@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.87",
+    "dataset_version": "2.2.88",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -66111,16 +66111,16 @@
     },
     {
       "id": 825,
-      "title": "Data-driven Tissue Mechanics with Polyconvex Neural Ordinary Differential Equations",
-      "citation": "Tac, V.; Sahli Costabal, F.; Tepole, A.B. Data-driven Tissue Mechanics with Polyconvex Neural Ordinary Differential Equations. Neural Ordinary Differential Equations. Comput. Methods Appl. Mech. Eng 2022, 398, 115248.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Data-driven tissue mechanics with polyconvex neural ordinary differential equations",
+      "citation": "Tac, V.; Sahli Costabal, F.; Tepole, A.B. Data-driven tissue mechanics with polyconvex neural ordinary differential equations. Computer Methods in Applied Mechanics and Engineering 2022, 398, 1-31. https://doi.org/10.1016/j.cma.2022.115248.",
+      "doi": "10.1016/j.cma.2022.115248",
+      "publisher_url": "https://https://www.sciencedirect.com/science/article/abs/pii/S0045782522003838doi.org/10.1016/j.cma.2022.115248",
       "venue": {
-        "name": "Neural Ordinary Differential Equations. Comput. Methods Appl. Mech. Eng.",
+        "name": "Computer Methods in Applied Mechanics and Engineering",
         "type": "journal"
       },
       "year": 2022,
-      "access": "Not verified",
+      "access": "Subscription",
       "countries": [
         "United States",
         "Chile"
@@ -66131,8 +66131,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0045782522003838",
+        "note": "asll",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66145,12 +66145,13 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-07-29",
       "bibliographic": {
-        "authors": "Tac, V.; Sahli Costabal, F.; Tepole, A.B",
-        "journal_abbreviation": "Neural Ordinary Differential Equations. Comput. Methods Appl. Mech. Eng.",
+        "authors": "Tac, V.; Sahli Costabal, F.; Tepole, A.B.",
+        "journal_abbreviation": "Computer Methods in Applied Mechanics and Engineering",
         "volume": "398",
-        "pages": "115248"
+        "pages": "1-31",
+        "article_number": "115248"
       },
       "abstract": "Data-driven methods are becoming an essential part of computational mechanics due to their advantages over traditional material modeling. Deep neural networks are able to learn complex material response without the constraints of closed-form models. However, data-driven approaches do not a priori satisfy physics-based mathematical requirements such as polyconvexity, a condition needed for the existence of minimizers for boundary value problems in elasticity. In this study, we use a recent class of neural networks, neural ordinary diﬀerential equations (N-ODEs), to develop data-driven material models that automatically satisfy polyconvexity of the strain energy. We take advantage of the properties of ordinary diﬀerential equations to create monotonic functions that approximate the derivatives of the strain energy with respect to deformation invariants. The monotonicity of the derivatives guarantees the convexity of the energy. The N-ODE material model is able to capture synthetic data generated from closed-form material models, and it outperforms conventional models when tested against experimental data on skin, a highly nonlinear and anisotropic material. We also showcase the use of the N-ODE material model in finite element simulations of reconstructive surgery. The framework is general and can be used to model a large class of materials, especially biological soft tissues. We therefore expect our methodology to further enable data-driven methods in computational mechanics."
     },

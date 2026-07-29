@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.87",
+    "version": "2.2.88",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-29",
     "source_file": "papers-countries-and-year.md",
@@ -9877,7 +9877,7 @@
     },
     {
       "id": 825,
-      "title": "Data-driven Tissue Mechanics with Polyconvex Neural Ordinary Differential Equations",
+      "title": "Data-driven tissue mechanics with polyconvex neural ordinary differential equations",
       "year": 2023,
       "countries": [
         "United States",
