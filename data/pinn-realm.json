@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.70",
+    "version": "2.2.71",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-29",
     "source_file": "papers-countries-and-year.md",
@@ -7669,7 +7669,7 @@
     },
     {
       "id": 633,
-      "title": "Application of conservation laws to the learning of physicsinformed neural networks",
+      "title": "Application of conservation laws to the learning of physics-informed neural networks",
       "year": 2022,
       "countries": [
         "Russian Federation"

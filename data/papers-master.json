@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.70",
+    "dataset_version": "2.2.71",
     "last_updated": "2026-07-29",
     "record_count": 853,
     "id_range": "1-853",
@@ -51500,26 +51500,34 @@
     },
     {
       "id": 633,
-      "title": "Application of conservation laws to the learning of physicsinformed neural networks",
-      "citation": "Gurieva, J., Vasiliev, E., Smirnov, L., 2022. Application of conservation laws to the learning of physics-informed neural networks. Procedia Comput. Sci. 464–473.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Application of conservation laws to the learning of physics-informed neural networks",
+      "citation": "Gurieva, J., Vasiliev, E., Smirnov, L. Application of conservation laws to the learning of physics-informed neural networks. Procedia Computer Science 2022, 212, 464-473. https://doi.org/10.1016/j.procs.2022.11.030.",
+      "doi": "10.1016/j.procs.2022.11.030",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S1877050922017215",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Procedia Computer Science",
+        "type": "journal"
       },
       "year": 2022,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Russian Federation"
       ],
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null
+        "evidence_url": "https://www.sciencedirect.com/science/article/pii/S1877050922017215",
+        "note": "all",
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-22"
+      "last_updated": "2026-07-29",
+      "abstract": "We consider the modifications of a physics-informed neural network, based on conservation law constraint as the important feature of integrable physical models. This method implies introduction of the conservative properties of nonlinear physical systems into neural network to force qualitatively correctness of the solution during training. The conservation law constraint is put into neural network solver by adding the conserved quantity's residual to the loss function to train the neural network. We apply the modification on the one-dimensional nonlinear Schrӧdinger equation as the example of integrable system. In our experiments, Continuity Planes method was implemented to add the conservation constraint to the loss function. For further generalization on high dimension systems, we also considered Monte Carlo approach to control the conserved quantity through sum over interior points of the domain. The results obtained demonstrate an increase in the accuracy of prediction compared to conventional training for several cases.",
+      "bibliographic": {
+        "authors": "Gurieva, J., Vasiliev, E., Smirnov, L.",
+        "journal_abbreviation": "Procedia Computer Science",
+        "volume": "212",
+        "pages": "464-473"
+      }
     },
     {
       "id": 634,
