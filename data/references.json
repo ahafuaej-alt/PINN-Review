@@ -20850,21 +20850,29 @@
   {
     "id": 793,
     "title": "Gradient weighted physics-informed neural networks for capturing shocks in porous media flows",
-    "citation": "S. Kapoor, A. Chandra, T. Kapoor, M. Curti, Gradient weighted physics-informed neural networks for capturing shocks in porous media flows, 2023.",
+    "citation": "Kapoor, S.; Chandra, A.; Kapoor, T.; Curti M. Gradient weighted physics-informed neural networks for capturing shocks in porous media flows. In Machine Learning and the Physical Sciences Workshop, NeurIPS 2023; NeurIPS: New Orleans, USA, 2023; pp. 1-6.",
     "doi": null,
-    "publisher_url": null,
-    "venue": "Venue not identified",
-    "reference_type": "unknown",
-    "bibliographic": null,
-    "abstract": null,
+    "publisher_url": "https://www.researchgate.net/profile/Taniya-Kapoor-2/publication/375423845_Gradient_weighted_physics-informed_neural_networks_for_capturing_shocks_in_porous_media_flows/links/654a174eb86a1d521bc21a71/Gradient-weighted-physics-informed-neural-networks-for-capturing-shocks-in-porous-media-flows.pdf",
+    "venue": "Conference on Neural Information Processing Systems (NeurIPS) 37th, workshop",
+    "reference_type": "conference_book",
+    "bibliographic": {
+      "authors": "Kapoor, S.; Chandra, A.; Kapoor, T.; Curti M.",
+      "journal_abbreviation": "Venue not identified",
+      "pages": "1-6",
+      "book_title": "Machine Learning and the Physical Sciences Workshop, NeurIPS 2023.",
+      "publisher": "NeurIPS",
+      "city": "New Orleans",
+      "country": "USA"
+    },
+    "abstract": "Physics-informed neural networks (PINNs) seamlessly integrate physical laws into machine learning models, enabling accurate simulations while preserving the underlying physics. However, PINNs are still suboptimal in approximating discontinuities in the form of shocks compared to the traditional numerical shock- capturing methods. This paper proposes a framework to approximate shocks arising in dynamic porous media flows by weighting the governing nonlinear partial differential equation (PDE) with a physical gradient-based term in the loss function. The applicability of the proposed framework is investigated on the forward problem of immiscible two-phase fluid transport in porous media governed by a nonlinear first-order hyperbolic Buckley–Leverett PDE. Particularly, convex and non-convex flux functions are studied involving shocks and rarefaction. The results demonstrate that the proposed framework consistently learns accurate approximations containing shocks and rarefaction by weighting the underlying PDE with a physical gradient term and outperforms state-of-the-art artificial viscosity- based neural network methods to capture shocks on the standard L2-norm metric.",
     "graphical_abstract": null,
     "year": 2023,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "India",
       "Netherlands"
     ],
-    "last_updated": "2026-07-22"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 794,
