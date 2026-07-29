@@ -17899,25 +17899,30 @@
   {
     "id": 678,
     "title": "Inner Defect Detection via Physics-Informed Machine Learning",
-    "citation": "Zhu, S., Li, H., Jiang, Y., Deng, Y., 2024b. Inner Defect Detection via Physics-Informed Machine Learning. In 2024, Hangzhou, China. arxiv.org/pdf/2109.02788.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "In:",
-    "reference_type": "journal",
+    "citation": "Zhu, S., Li, H., Jiang, Y., Deng, Y. Inner Defect Detection via Physics-Informed Machine Learning. In Proceedings of 2024 6th International Conference on System Reliability and Safety Engineering (SRSE), Hangzhou, China, 11-14 October 2024; pp. 212-216. https://doi.org/10.1109/SRSE63568.2024.10772527.",
+    "doi": "10.1109/SRSE63568.2024.10772527",
+    "publisher_url": "https://ieeexplore.ieee.org/abstract/document/10772527",
+    "venue": "IEEE International Conference on System Reliability and Safety Engineering (SRSE) 6th",
+    "reference_type": "conference",
     "bibliographic": {
-      "authors": "Zhu, S., Li, H., Jiang, Y., Deng, Y., 2024b",
+      "authors": "Zhu, S., Li, H., Jiang, Y., Deng, Y.",
       "journal_abbreviation": "In:",
       "volume": "Hangzhou",
-      "article_number": "China. arxiv.org/pdf/2109.02788"
+      "pages": "212-216",
+      "article_number": "China. arxiv.org/pdf/2109.02788",
+      "conference_name": "2024 6th International Conference on System Reliability and Safety Engineering (SRSE)",
+      "conference_location": "Hangzhou",
+      "conference_country": "China",
+      "conference_date": "11-14 October 2024"
     },
     "abstract": "This paper focuses on inner defect detection with outside inspection data for linearly elastic square solid material. We transform this inner defect detection problem into an inverse problem for partial differential equations, which is generally time consuming for traditional computation algorithms. For efficiency, we introduced physics-informed neural networks (PINN) to solve the inverse problem in a purely data-driven way, where the loss function is constructed by considering the boundary condition, the equation, and the inspection data. In the simulation study, a defect (a hole) is preset and PINN performs well to search for the preset defect, allowing the exact defect location accurately and quickly.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-29"
   },
   {
     "id": 679,
