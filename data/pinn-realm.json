@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.72",
+    "version": "2.2.73",
     "schema_version": "1.0.0",
     "last_updated": "2026-07-29",
     "source_file": "papers-countries-and-year.md",
@@ -8254,7 +8254,7 @@
     },
     {
       "id": 684,
-      "title": "Research on Laser Ultrasonic Surface MicroCrack Detection Based on Physics-Informed Neural Networks",
+      "title": "Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks",
       "year": 2025,
       "countries": [
         "China"
