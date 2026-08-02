@@ -81,5 +81,10 @@
     "all_ids_unique": true,
     "taxonomy_has_11_groups": true,
     "taxonomy_has_123_metrics": true
-  }
+  },
+  "unrecognized_metric_ids": [
+    "validation_loss",
+    "wasserstein_distance"
+  ],
+  "unrecognized_metric_note": "Preserved in raw paper records; not silently forced into the 123-metric taxonomy."
 }
