@@ -1,0 +1,35 @@
+{
+  "generated_on": "2026-08-02",
+  "source_sha256": "e3d510b6916deb89e4e2f14e08ce6beef21199933af5aee03385aab8aa0a5ac4",
+  "research_notes_sha256": "5b22a7f1595447e4a26ae1389430ec33b3134f9c43d0e1b6291b0b3579632d00",
+  "checks": {
+    "source_rows_853": true,
+    "unique_source_ids_853": true,
+    "no_duplicate_ids": true,
+    "id_range_1_to_853": true,
+    "all_reference_ids_represented": true,
+    "reported_records_566": true,
+    "explicit_na_records_287": true,
+    "all_labels_bracketed": true,
+    "raw_optimizer_text_retained": true,
+    "all_raw_forms_mapped": true,
+    "all_normalized_ids_in_taxonomy": true,
+    "raw_aliases_retained": true,
+    "taxonomy_counts_unique_papers": true,
+    "explicit_na_has_no_optimizer": true,
+    "completed_records_researched": true
+  },
+  "duplicate_ids": [],
+  "missing_ids": [],
+  "formerly_missing_ids": [
+    194,
+    452,
+    694,
+    776,
+    803,
+    809,
+    812,
+    813
+  ],
+  "unmapped_raw_forms": []
+}

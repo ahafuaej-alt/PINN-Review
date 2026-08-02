@@ -1,0 +1,108 @@
+{
+  "source_rows": 853,
+  "valid_paper_ids": 853,
+  "id_range": [
+    1,
+    853
+  ],
+  "references_reporting_an_optimizer": 566,
+  "explicit_na_records": 287,
+  "missing_source_records": 0,
+  "missing_ids": [],
+  "formerly_missing_ids": [
+    194,
+    452,
+    694,
+    776,
+    803,
+    809,
+    812,
+    813
+  ],
+  "distinct_raw_optimizer_forms": 69,
+  "canonical_optimizer_forms": 53,
+  "single_optimizer_records": 409,
+  "multi_optimizer_records": 156,
+  "sequential_or_hybrid_records": 1,
+  "optimizer_families": 8,
+  "manual_review_required": 11,
+  "top_optimizers": [
+    {
+      "optimizer_id": "adam",
+      "optimizer_name": "Adam",
+      "count": 480
+    },
+    {
+      "optimizer_id": "l_bfgs",
+      "optimizer_name": "L-BFGS",
+      "count": 122
+    },
+    {
+      "optimizer_id": "l_bfgs_b",
+      "optimizer_name": "L-BFGS-B",
+      "count": 34
+    },
+    {
+      "optimizer_id": "sgd",
+      "optimizer_name": "SGD",
+      "count": 16
+    },
+    {
+      "optimizer_id": "adamw",
+      "optimizer_name": "AdamW",
+      "count": 12
+    },
+    {
+      "optimizer_id": "bfgs",
+      "optimizer_name": "BFGS",
+      "count": 10
+    },
+    {
+      "optimizer_id": "rmsprop",
+      "optimizer_name": "RMSprop",
+      "count": 10
+    },
+    {
+      "optimizer_id": "levenberg_marquardt",
+      "optimizer_name": "Levenberg–Marquardt",
+      "count": 9
+    },
+    {
+      "optimizer_id": "gradient_descent",
+      "optimizer_name": "Gradient descent",
+      "count": 5
+    },
+    {
+      "optimizer_id": "adagrad",
+      "optimizer_name": "AdaGrad",
+      "count": 4
+    },
+    {
+      "optimizer_id": "adamax",
+      "optimizer_name": "AdaMax",
+      "count": 4
+    },
+    {
+      "optimizer_id": "adadelta",
+      "optimizer_name": "AdaDelta",
+      "count": 2
+    },
+    {
+      "optimizer_id": "amsgrad",
+      "optimizer_name": "AMSGrad",
+      "count": 2
+    },
+    {
+      "optimizer_id": "bayesian_optimization",
+      "optimizer_name": "Bayesian optimization",
+      "count": 2
+    },
+    {
+      "optimizer_id": "hamiltonian_monte_carlo",
+      "optimizer_name": "Hamiltonian Monte Carlo",
+      "count": 2
+    }
+  ],
+  "generated_from": "data/optimizers/reference-optimizer-source.md",
+  "research_notes": "data/optimizers/reference-optimizer-web-research-notes.md"
+}

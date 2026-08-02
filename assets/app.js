@@ -91,18 +91,24 @@
   const rootHref = document.querySelector('.brand')?.getAttribute('href') || './';
   if (navLinks) {
     const citeLink = [...navLinks.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Cite');
-    const addNavLink = (label, route) => {
-      if ([...navLinks.querySelectorAll('a')].some((link) => link.textContent.trim() === label)) return;
-      const link = document.createElement('a');
-      link.href = `${rootHref}${route}`;
-      link.textContent = label;
+    const orderedAtlasLinks = [
+      ['PINN types', 'pinn-types/'],
+      ['PINN Realm', 'pinn-realm/'],
+      ['Performance Metrics', 'performance-metrics/'],
+      ['Optimizers', 'optimizers/'],
+      ['Abbreviations', 'abbreviations/'],
+      ['References', 'references/'],
+      ['Dataset Manager', 'dataset-manager/']
+    ];
+    orderedAtlasLinks.forEach(([label, route]) => {
+      let link = [...navLinks.querySelectorAll('a')].find((candidate) => candidate.textContent.trim() === label);
+      if (!link) {
+        link = document.createElement('a');
+        link.href = `${rootHref}${route}`;
+        link.textContent = label;
+      }
       navLinks.insertBefore(link, citeLink || navLinks.lastElementChild);
-    };
-    addNavLink('PINN Realm', 'pinn-realm/');
-    addNavLink('Abbreviations', 'abbreviations/');
-    addNavLink('References', 'references/');
-    addNavLink('Performance Metrics', 'performance-metrics/');
-    addNavLink('Dataset Manager', 'dataset-manager/');
+    });
   }
 
   const footer = document.querySelector('.footer-inner');

@@ -7,6 +7,7 @@
   <title>Publisher Metadata Review | PINN Review Atlas</title>
   <script src="../../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../../assets/styles.css">
+  <script src="../../assets/app.js?v=ux-20260802c" defer></script>
   <style>
     .review-shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 4rem; }
     .review-hero, .review-controls, .review-card, .review-stat { border: 1px solid var(--border, #cfd7e3); border-radius: 1rem; background: var(--surface, #fff); }
@@ -49,7 +50,13 @@
   </style>
 </head>
 <body>
-  <main class="review-shell">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="../../"><img src="../../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+    <div class="nav-links" id="nav-links"><a href="../../#atlas">Explore</a><a href="../../pinn-types/">PINN types</a><a href="../../performance-metrics/">Performance Metrics</a><a href="../../optimizers/">Optimizers</a><a href="../../references/">References</a><a href="../">Dataset Manager</a><a href="../../cite/">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a></div>
+  </nav></header>
+  <main class="review-shell" id="main">
     <section class="review-hero">
       <p class="eyebrow">Dataset Manager</p>
       <h1>Publisher metadata review</h1>
