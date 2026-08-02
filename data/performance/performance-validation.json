@@ -1,8 +1,9 @@
 {
   "id_format_regex": "^\\[\\d+\\]$",
-  "source_rows": 845,
+  "source_rows": 853,
   "duplicate_ids": [],
-  "missing_ids": [
+  "missing_ids": [],
+  "supplemented_paper_ids": [
     194,
     452,
     694,
@@ -12,6 +13,7 @@
     812,
     813
   ],
+  "supplement_provenance": "Web research completed on 2026-08-02 using publisher DOI records, institutional publication records, and indexed abstracts. Only [694] contains publicly exposed numerical values; the other seven records remain qualitative.",
   "manual_review_paper_ids": [
     5,
     24,
@@ -79,8 +81,10 @@
   "checks": {
     "all_labels_bracketed": true,
     "all_ids_unique": true,
+    "all_reference_ids_represented": true,
     "taxonomy_has_11_groups": true,
-    "taxonomy_has_123_metrics": true
+    "taxonomy_has_123_metrics": true,
+    "supplement_sources_present": true
   },
   "unrecognized_metric_ids": [
     "validation_loss",

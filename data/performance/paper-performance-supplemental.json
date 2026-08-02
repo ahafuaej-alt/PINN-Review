@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-08-02",
+  "provenance": "Web-researched supplement for the eight reference IDs absent from the original paper-level performance extraction. Numerical claims are included only where they are explicitly exposed by an indexed publication abstract or authoritative record; all other entries remain qualitative.",
+  "records": [
+    {
+      "paper_id": 194,
+      "paper_label": "[194]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "test_solution_error",
+        "accuracy_cost_trade_off"
+      ],
+      "reported_metrics_raw": "Voltage-stability-margin prediction accuracy; out-of-sample generalization; robustness and adaptability under uncertain or changing grid conditions; comparative performance; online-monitoring suitability.",
+      "metric_details_raw": "The indexed publication record reports extensive comparative experiments across power systems of different scales and states that the physics-informed guided model improves estimation accuracy, adaptability, and practical online voltage-stability monitoring. Publicly indexed material does not expose the scalar result-table values, so this record is classified as qualitative and no numerical error is inferred.",
+      "research_sources": [
+        {
+          "title": "Improving Online Voltage Stability Monitoring in Smart Grids: A Physics-Informed Guided Deep Learning Model",
+          "url": "https://doi.org/10.1109/TIA.2025.3529813",
+          "source_type": "publisher DOI record",
+          "accessed_at": "2026-08-02"
+        },
+        {
+          "title": "National Taipei University of Technology publication record",
+          "url": "https://academic.ntut.edu.tw/1781/1556/16751/",
+          "source_type": "institutional publication record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 452,
+      "paper_label": "[452]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "parameter_relative_error",
+        "test_solution_error",
+        "accuracy_cost_trade_off",
+        "pde_residual_l2_norm"
+      ],
+      "reported_metrics_raw": "Computed-versus-measured wavefield mismatch; recovered petroelastic-property accuracy; absorbing-boundary representation; data efficiency; concurrent wavefield and inverse-parameter workflow efficiency.",
+      "metric_details_raw": "The IBM Research record describes two proof-of-concept numerical examples and evaluates the inversion through wavefield mismatch and recovery of subsurface elastic or petroelastic properties. It reports qualitative benefits over conventional full-waveform inversion, including smaller data dependency, improved absorbing-boundary representation, and a single workflow that estimates the wavefield and inverse parameters concurrently. No scalar error table is publicly exposed in the indexed record.",
+      "research_sources": [
+        {
+          "title": "Physics-based machine learning inversion of subsurface elastic properties",
+          "url": "https://research.ibm.com/publications/physics-based-machine-learning-inversion-of-subsurface-elastic-properties",
+          "source_type": "authoritative institutional publication record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 694,
+      "paper_label": "[694]",
+      "reporting_status": "reported_numerically",
+      "normalized_metric_ids": [
+        "test_solution_error",
+        "baseline_improvement_over_numerical_solver",
+        "inference_time",
+        "accuracy_cost_trade_off"
+      ],
+      "reported_metrics_raw": "Euclidean-distance error for pressure and total velocity; surface pressure-coefficient agreement; target-shape recovery; online computational time.",
+      "metric_details_raw": "The LF-PINN corrects low-fidelity flowfields toward ground truth with a mean improvement of approximately 19% in pressure and approximately 5% in total velocity, based on Euclidean-distance comparisons. Surface pressure-coefficient distributions improve particularly near the suction peak. In inverse design, the model approaches the expected target shapes while reducing online computational time by at least one order of magnitude relative to direct airfoil-analysis tools.",
+      "research_sources": [
+        {
+          "title": "Physics-Informed Machine Learning Using Low-Fidelity Flowfields for Inverse Airfoil Shape Design",
+          "url": "https://doi.org/10.2514/1.J063570",
+          "source_type": "publisher DOI record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 776,
+      "paper_label": "[776]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "test_solution_error",
+        "pde_residual_l2_norm"
+      ],
+      "reported_metrics_raw": "Supervised flow-data loss; Navier-Stokes residual loss; velocity-contour agreement; reconstructed flow-field accuracy; hydrodynamic-force prediction; structural-displacement consistency.",
+      "metric_details_raw": "The conference abstract evaluates the PINN by comparing predicted surrounding-flow velocity contours with direct numerical simulation training data. Training minimizes sparse supervised flow-data loss and governing-equation residuals, while cylinder displacement is incorporated into the residual formulation. Hydrodynamic forces are evaluated from the PINN-predicted flow field through a force-partitioning method. The indexed abstract does not expose scalar errors.",
+      "research_sources": [
+        {
+          "title": "Physics-Informed Neural Networks for Flow-Induced Vibration Prediction of a Subsea Pipeline",
+          "url": "https://doi.org/10.1115/OMAE2024-128147",
+          "source_type": "publisher DOI record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 803,
+      "paper_label": "[803]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "test_solution_error",
+        "pde_residual_l2_norm"
+      ],
+      "reported_metrics_raw": "Pressure-field error; saturation-field error; labeled-data mismatch; governing-equation residuals; boundary and initial-condition satisfaction; sparse-data performance; noise robustness; well-condition generalization; transfer-learning performance.",
+      "metric_details_raw": "The authoritative institutional record reports that the theory-guided neural network predicts pressure and saturation more accurately and stably than a conventional DNN. Evaluation covers sparse labeled data and collocation points, training without labeled data, artificial noise, changed well conditions, transfer learning, and different dynamic-capillary-pressure levels. The indexed record provides qualitative comparative findings but does not expose the numerical result tables.",
+      "research_sources": [
+        {
+          "title": "Deep Learning of Two-Phase Flow in Porous Media via Theory-Guided Neural Networks",
+          "url": "https://doi.org/10.2118/208602-PA",
+          "source_type": "publisher DOI record",
+          "accessed_at": "2026-08-02"
+        },
+        {
+          "title": "Heriot-Watt Research Portal publication record",
+          "url": "https://researchportal.hw.ac.uk/en/publications/deep-learning-of-two-phase-flow-in-porous-media-via-theory-guided/",
+          "source_type": "institutional publication record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 809,
+      "paper_label": "[809]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "test_solution_error",
+        "inference_time",
+        "accuracy_cost_trade_off"
+      ],
+      "reported_metrics_raw": "Pressure-distribution accuracy; saturation-distribution accuracy; time-series prediction; inverse estimation; comparison with PINN and fully convolutional networks; mesh independence; unseen-configuration generalization; superresolution; boundary-condition satisfaction; computational efficiency.",
+      "metric_details_raw": "The indexed SPE Journal abstract reports evaluation of pressure and saturation predictions, time-series forecasting, inverse problems, different spatial resolutions, mesh independence, generalization to unseen configurations, superresolution, physical boundary constraints, and efficiency from Fourier-operator learning. It states that the FNO is more accurate and applicable than PINN and fully convolutional baselines, but the indexed abstract does not expose scalar result values.",
+      "research_sources": [
+        {
+          "title": "Fourier Neural Operator for Solving Subsurface Oil/Water Two-Phase Flow Partial Differential Equation",
+          "url": "https://doi.org/10.2118/209223-PA",
+          "source_type": "publisher DOI record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 812,
+      "paper_label": "[812]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "test_solution_error",
+        "pde_residual_l2_norm",
+        "total_training_loss"
+      ],
+      "reported_metrics_raw": "Least-squares loss functional; approximation error and accuracy; PDE satisfaction in separate subdomains; interface jump and coupling conditions; high-contrast-parameter accuracy; sampling-point sensitivity.",
+      "metric_details_raw": "The SIAM publisher record evaluates two dynamic interface problems through a least-squares PINN formulation, theoretical approximation-error analysis, and two numerical examples. Reported evaluation dimensions include solution accuracy, PDE satisfaction in each subdomain, interface conditions, high-contrast physical parameters, and the effect of space-time sampling. The public abstract confirms numerical validation but does not expose the scalar tables.",
+      "research_sources": [
+        {
+          "title": "Physics-Informed Neural Networks for Solving Dynamic Two-Phase Interface Problems",
+          "url": "https://doi.org/10.1137/22M1517081",
+          "source_type": "publisher DOI record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "paper_id": 813,
+      "paper_label": "[813]",
+      "reporting_status": "reported_qualitatively",
+      "normalized_metric_ids": [
+        "parameter_relative_error",
+        "test_solution_error",
+        "pde_residual_l2_norm",
+        "predictive_variance"
+      ],
+      "reported_metrics_raw": "Observational-data mismatch; PDE residual; boundary and initial-condition losses; recovery-curve agreement; saturation-profile agreement; pressure agreement; capillary-diffusion-coefficient recovery; identifiability; initialization variability; noise robustness; extrapolation accuracy.",
+      "metric_details_raw": "The publication evaluates whether countercurrent spontaneous-imbibition observations identify the capillary diffusion coefficient and the underlying saturation functions. A complete recovery curve yields a unique correct diffusion coefficient and saturation profiles, while relative-permeability and capillary-pressure decompositions can remain nonunique. Limited early-time recovery admits multiple fitted diffusion coefficients and divergent future predictions; adding an in-situ saturation profile improves constraint, pressure data help constrain capillary pressure, and artificial noise broadens the range of estimated diffusion coefficients. Publicly indexed summaries do not expose scalar error values.",
+      "research_sources": [
+        {
+          "title": "Application of Physics-Informed Neural Networks for Estimation of Saturation Functions from Countercurrent Spontaneous Imbibition Tests",
+          "url": "https://doi.org/10.2118/218402-PA",
+          "source_type": "journal DOI record",
+          "accessed_at": "2026-08-02"
+        },
+        {
+          "title": "IOR+ 2023 conference version",
+          "url": "https://doi.org/10.3997/2214-4609.202331054",
+          "source_type": "conference DOI record",
+          "accessed_at": "2026-08-02"
+        }
+      ]
+    }
+  ]
+}
