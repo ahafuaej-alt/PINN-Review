@@ -21,19 +21,22 @@ const captures = [
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 
 async function bodyLayout(page) {
-  return page.evaluate(() => ({
-    bodyScrollWidth: document.body.scrollWidth,
-    documentScrollWidth: document.documentElement.scrollWidth,
-    documentClientWidth: document.documentElement.clientWidth,
-    viewportWidth: innerWidth,
-    theme: document.documentElement.dataset.theme || 'system',
-    kpiCount: document.querySelectorAll('.kpi').length,
-    familyCount: document.querySelectorAll('[data-family-card]').length,
-    paperCardCount: document.querySelectorAll('[data-paper-card]').length,
-    compareBarHidden: document.querySelector('[data-compare-bar]')?.hidden ?? false,
-    compareBarDisplay: getComputedStyle(document.querySelector('[data-compare-bar]')).display,
-    summary: document.querySelector('[data-result-summary]')?.textContent?.trim() || ''
-  }));
+  return page.evaluate(() => {
+    const compareBar = document.querySelector('[data-compare-bar]');
+    return {
+      bodyScrollWidth: document.body.scrollWidth,
+      documentScrollWidth: document.documentElement.scrollWidth,
+      documentClientWidth: document.documentElement.clientWidth,
+      viewportWidth: innerWidth,
+      theme: document.documentElement.dataset.theme || 'system',
+      kpiCount: document.querySelectorAll('.kpi').length,
+      familyCount: document.querySelectorAll('[data-family-card]').length,
+      paperCardCount: document.querySelectorAll('[data-paper-card]').length,
+      compareBarHidden: compareBar?.hidden ?? true,
+      compareBarDisplay: compareBar ? getComputedStyle(compareBar).display : 'absent',
+      summary: document.querySelector('[data-result-summary]')?.textContent?.trim() || ''
+    };
+  });
 }
 
 function assertNoBodyOverflow(layout, modeName, checkpoint) {
