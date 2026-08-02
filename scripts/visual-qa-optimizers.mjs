@@ -40,6 +40,8 @@ async function bodyLayout(page) {
     kpiCount: document.querySelectorAll('.kpi').length,
     familyCount: document.querySelectorAll('[data-family-card]').length,
     paperCardCount: document.querySelectorAll('[data-paper-card]').length,
+    compareBarHidden: document.querySelector('[data-compare-bar]')?.hidden ?? false,
+    compareBarDisplay: getComputedStyle(document.querySelector('[data-compare-bar]')).display,
     summary: document.querySelector('[data-result-summary]')?.textContent?.trim() || ''
   }));
 }
@@ -99,6 +101,8 @@ try {
     assert(initial.kpiCount === 10, `${mode.name}: expected 10 KPI cards`);
     assert(initial.familyCount === 8, `${mode.name}: expected 8 optimizer-family cards`);
     assert(initial.paperCardCount === 30, `${mode.name}: expected 30 paper cards on the first page`);
+    assert(initial.compareBarHidden, `${mode.name}: zero-selection comparison bar is not marked hidden`);
+    assert(initial.compareBarDisplay === 'none', `${mode.name}: zero-selection comparison bar is visibly rendered`);
     assert(initial.summary.includes('853 paper records'), `${mode.name}: 853-record summary is missing`);
     assertNoBodyOverflow(initial, mode.name, 'initial');
 
@@ -151,6 +155,7 @@ try {
     ));
     await page.locator('[data-compare="1"]').check();
     await page.locator('[data-compare="2"]').check();
+    assert(await page.locator('[data-compare-bar]').isVisible(), `${mode.name}: comparison bar did not appear after selecting two papers`);
     await page.locator('[data-open-compare]').click();
     await page.locator('[data-compare-dialog][open]').waitFor();
     assert(
