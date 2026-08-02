@@ -101,6 +101,7 @@
     addNavLink('PINN Realm', 'pinn-realm/');
     addNavLink('Abbreviations', 'abbreviations/');
     addNavLink('References', 'references/');
+    addNavLink('Performance Metrics', 'performance-metrics/');
     addNavLink('Dataset Manager', 'dataset-manager/');
   }
 
