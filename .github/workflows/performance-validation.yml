@@ -4,17 +4,25 @@ on:
   pull_request:
     paths:
       - 'performance-metrics/**'
+      - 'references/**'
       - 'assets/performance.*'
+      - 'assets/performance-fixes.*'
+      - 'assets/reference-technical-details.*'
+      - 'assets/app.js'
       - 'data/performance/**'
       - 'scripts/validate-performance-metrics.mjs'
       - '.github/workflows/performance-validation.yml'
       - 'index.html'
   push:
     branches:
-      - 'agent/add-performance-metrics-explorer'
+      - main
     paths:
       - 'performance-metrics/**'
+      - 'references/**'
       - 'assets/performance.*'
+      - 'assets/performance-fixes.*'
+      - 'assets/reference-technical-details.*'
+      - 'assets/app.js'
       - 'data/performance/**'
       - 'scripts/validate-performance-metrics.mjs'
       - '.github/workflows/performance-validation.yml'
@@ -32,6 +40,10 @@ jobs:
         with:
           node-version: '22'
       - name: Check JavaScript syntax
-        run: node --check assets/performance.js
+        run: |
+          node --check assets/app.js
+          node --check assets/performance.js
+          node --check assets/performance-fixes.js
+          node --check assets/reference-technical-details.js
       - name: Validate source-derived datasets
         run: node scripts/validate-performance-metrics.mjs
