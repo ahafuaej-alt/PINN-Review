@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore paper-level performance evaluation metrics reported across the PINN Review Atlas.">
+  <meta name="theme-color" content="#09111d">
+  <title>Performance Metrics · PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=ux-20260722"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=ux-20260722">
+  <link rel="stylesheet" href="../assets/performance.css?v=20260802">
+  <script src="../assets/app.js?v=ux-20260722" defer></script>
+  <script src="../assets/performance.js?v=20260802" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../pinn-types/">PINN types</a>
+        <a href="../pinn-realm/">PINN Realm</a>
+        <a href="../references/">References</a>
+        <a href="./" aria-current="page">Performance Metrics</a>
+        <a href="../dataset-manager/">Dataset Manager</a>
+        <a href="../cite/">Cite</a>
+        <a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="performance-hero">
+      <div class="container">
+        <p class="eyebrow">Evidence explorer</p>
+        <h1>PINN performance metrics,<br><span class="gradient">paper by paper.</span></h1>
+        <p class="lede">Explore reported accuracy, physics satisfaction, robustness, efficiency, uncertainty, and reporting completeness. Every paper is represented by its Atlas ID in square brackets.</p>
+        <div class="performance-notice" role="note"><strong>Scientific comparison rule:</strong> a shared metric name does not make values directly comparable. Variables, units, benchmarks, normalization, data regimes, and evaluation sets must also match.</div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Dataset overview</p><h2 id="overview-title">Reporting coverage</h2></div><p>Counts are generated from the attached paper-level extraction and the 123-metric taxonomy.</p></div>
+        <div class="kpi-grid" data-kpis aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="filters-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Find evidence</p><h2 id="filters-title">Filter papers and metrics</h2></div><p>Search accepts either <code>248</code> or <code>[248]</code>; results always display <strong>[248]</strong>.</p></div>
+        <div class="filter-panel">
+          <label class="field wide"><span>Search</span><input type="search" data-search placeholder="Reference ID, metric, abbreviation, details…" autocomplete="off"></label>
+          <label class="field"><span>Metric group</span><select data-group><option value="">All groups</option></select></label>
+          <label class="field"><span>Metric</span><select data-metric><option value="">All metrics</option></select></label>
+          <label class="field"><span>Reporting status</span><select data-status><option value="">All statuses</option><option value="reported_numerically">Numerical value reported</option><option value="reported_qualitatively">Qualitative reporting</option><option value="not_reported">Not reported</option><option value="review_paper">Review paper</option><option value="non_pinn_record">Non-PINN record</option><option value="software_or_framework">Software or framework</option></select></label>
+          <div class="filter-actions"><button class="button primary" type="button" data-reset>Reset filters</button><button class="button" type="button" data-export-json>Export JSON</button><button class="button" type="button" data-export-csv>Export CSV</button></div>
+        </div>
+        <p class="result-summary" data-result-summary aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="prevalence-title">
+      <div class="container performance-grid two">
+        <article class="performance-card"><div class="card-head"><div><p class="eyebrow">Prevalence</p><h2 id="prevalence-title">Most reported metrics</h2></div></div><div class="bar-list" data-top-metrics></div></article>
+        <article class="performance-card"><div class="card-head"><div><p class="eyebrow">Taxonomy</p><h2>Metric groups</h2></div></div><div class="group-grid" data-groups></div></article>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="matrix-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Coverage matrix</p><h2 id="matrix-title">Papers × metric groups</h2></div><p>Shows up to 50 filtered papers. Select a cell to inspect the underlying source text.</p></div>
+        <div class="matrix-legend" aria-label="Matrix legend"><span><i class="dot numerical"></i> Numerical</span><span><i class="dot qualitative"></i> Qualitative</span><span><i class="dot absent"></i> Not reported / not applicable</span></div>
+        <div class="matrix-wrap"><table class="matrix"><thead data-matrix-head></thead><tbody data-matrix-body></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="papers-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Paper records</p><h2 id="papers-title">Performance evidence by reference ID</h2></div><p>Select two to five papers for side-by-side reporting comparison.</p></div>
+        <div class="compare-bar" data-compare-bar hidden><span data-compare-count></span><button class="button primary" type="button" data-open-compare>Compare selected</button><button class="button" type="button" data-clear-compare>Clear</button></div>
+        <div class="paper-grid" data-papers></div>
+        <div class="pager" data-pager></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="explorer-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Metric dictionary</p><h2 id="explorer-title">Metric Explorer</h2></div><p>Definitions, interpretation, preferred direction, typical PINN use, aliases, and supporting paper IDs.</p></div>
+        <div class="metric-explorer" data-metric-explorer></div>
+      </div>
+    </section>
+
+    <dialog class="performance-dialog" data-detail-dialog><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><div data-detail-content></div></dialog>
+    <dialog class="performance-dialog wide" data-compare-dialog><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><div data-compare-content></div></dialog>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Evidence-led · Versioned · Open for review</span></div></footer>
+</body>
+</html>

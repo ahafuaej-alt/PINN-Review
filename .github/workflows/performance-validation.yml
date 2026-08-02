@@ -1,0 +1,37 @@
+name: Performance metrics validation
+
+on:
+  pull_request:
+    paths:
+      - 'performance-metrics/**'
+      - 'assets/performance.*'
+      - 'data/performance/**'
+      - 'scripts/validate-performance-metrics.mjs'
+      - '.github/workflows/performance-validation.yml'
+      - 'index.html'
+  push:
+    branches:
+      - 'agent/add-performance-metrics-explorer'
+    paths:
+      - 'performance-metrics/**'
+      - 'assets/performance.*'
+      - 'data/performance/**'
+      - 'scripts/validate-performance-metrics.mjs'
+      - '.github/workflows/performance-validation.yml'
+      - 'index.html'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: node --check assets/performance.js
+      - name: Validate source-derived datasets
+        run: node scripts/validate-performance-metrics.mjs
