@@ -2,12 +2,20 @@
 
 This directory powers the **Performance Metrics** section of the PINN Review Atlas.
 
-## Authoritative sources
+## Sources
+
+Primary source files:
 
 - `Reference_PINN_Performance_Eval.md`: paper-level metric names, details, values, and source classifications.
 - `PINN_Performance_Evaluation_Metrics_Table(1).docx`: the 123-metric taxonomy, organized into 11 metric groups, including definitions, calculation ideas, preferred directions, and typical PINN uses.
 
-No external values are added. Ambiguous mappings remain auditable and are marked for manual review rather than guessed.
+Supplemental research:
+
+- `paper-performance-supplemental.json`: web-researched records for [194], [452], [694], [776], [803], [809], [812], and [813], which were absent from the primary paper-level extraction.
+- Every supplemental record retains its publisher DOI or authoritative institutional source URL and access date.
+- Exact numerical claims are stored only when publicly exposed by the indexed publication record. [694] is numerical; the other seven records remain qualitative because their indexed pages do not expose scalar result tables.
+
+Ambiguous mappings remain auditable and are not silently converted to invented values or zeros.
 
 ## Reference-ID invariant
 
@@ -16,11 +24,12 @@ Every paper is represented by its Atlas reference ID in square brackets, for exa
 ## Files
 
 - `performance-summary.json`: aggregate counts used by the overview cards and prevalence views.
-- `performance-validation.json`: duplicate, missing-ID, manual-review, and label-format checks.
+- `performance-validation.json`: duplicate, coverage, supplemental-provenance, manual-review, and label-format checks.
+- `paper-performance-supplemental.json`: the eight researched records that complete coverage from [1] through [853].
 - `metric-taxonomy.json.gz.b64.part1/part2`: gzip-compressed, base64-encoded metric dictionary split for repository transport.
-- `paper-data.part*.txt`: gzip-compressed, base64-encoded paper records, split into ordered chunks. Chunk `05` is represented by `05a` and `05b`.
+- `paper-data.part*.txt`: gzip-compressed, base64-encoded primary paper records, split into ordered chunks. Chunk `05` is represented by `05a` and `05b`.
 
-The browser concatenates the ordered text chunks, decodes base64, decompresses gzip with `DecompressionStream`, and parses the resulting JSON.
+`assets/performance-data-supplement-loader.js` reconstructs the primary compressed datasets in the browser, merges the researched supplement, updates metric paper counts and summary statistics, and supplies the resulting 853-paper dataset to both the Performance Metrics explorer and reference Technical details.
 
 ## Reporting statuses
 
@@ -45,18 +54,21 @@ From the repository root, run:
 
 ```bash
 node --check assets/performance.js
+node --check assets/performance-data-supplement-loader.js
 node scripts/validate-performance-metrics.mjs
 ```
 
-The validator reconstructs both compressed datasets and checks:
+The validator reconstructs the compressed datasets and checks:
 
-- 845 unique paper records;
+- 845 records in the original extraction plus eight researched supplemental records;
+- complete unique coverage of [1] through [853];
 - labels formatted as `[ID]`;
-- the eight source-missing IDs;
+- source URLs for every supplemental record;
+- the numerical/qualitative distinction for the researched records;
 - 123 unique metrics and 11 source-defined groups;
-- known taxonomy mappings and the explicitly tracked unrecognized IDs `validation_loss` and `wasserstein_distance`;
+- known taxonomy mappings and the explicitly tracked primary-source IDs `validation_loss` and `wasserstein_distance`;
 - consistency of summary counts and reporting statuses.
 
 ## Updating the data
 
-Regenerate the normalized records from the two authoritative source files, preserve raw metric text, rebuild the compressed chunks and summary files, then run the validator before publishing. Do not renumber papers or silently repair missing IDs.
+Regenerate the normalized primary records from the two original source files when those files change. Preserve raw metric text and source provenance. New supplemental web research must retain authoritative URLs, access dates, and a clear distinction between exact numerical reporting and qualitative evaluation. Run the validator before publishing.
