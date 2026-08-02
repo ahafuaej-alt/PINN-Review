@@ -1,0 +1,9 @@
+.metric-bar-track{display:block;position:relative;min-width:80px;height:12px;border:1px solid var(--line);background:var(--panel-strong)}
+.metric-bar-fill{display:block!important;min-width:3px;height:100%!important;border-radius:inherit;background:linear-gradient(90deg,var(--mint),var(--violet));transition:width .25s ease}
+.metric-bar{width:100%;border:1px solid transparent}
+.metric-bar:hover,.metric-bar:focus-visible{border-color:var(--line-strong);background:var(--surface-hover);outline:none}
+.metric-bar.is-active,.metric-bar[aria-pressed="true"]{border-color:var(--mint);background:color-mix(in srgb,var(--mint) 10%,var(--panel));box-shadow:0 0 0 2px color-mix(in srgb,var(--mint) 24%,transparent)}
+.metric-bar-count{min-width:2.5rem;text-align:right;font-weight:800}
+.source-only-metric-note{grid-column:1/-1}
+.source-only-metric-note h3{margin:.25rem 0 .55rem}
+@media(max-width:520px){.metric-bar{grid-template-columns:minmax(105px,1fr) minmax(72px,1fr) auto;gap:.4rem}.metric-bar-label{white-space:normal;line-height:1.25}}
