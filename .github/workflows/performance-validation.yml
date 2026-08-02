@@ -7,6 +7,7 @@ on:
       - 'references/**'
       - 'assets/performance.*'
       - 'assets/performance-fixes.*'
+      - 'assets/performance-data-supplement-loader.js'
       - 'assets/reference-technical-details.*'
       - 'assets/app.js'
       - 'data/performance/**'
@@ -21,6 +22,7 @@ on:
       - 'references/**'
       - 'assets/performance.*'
       - 'assets/performance-fixes.*'
+      - 'assets/performance-data-supplement-loader.js'
       - 'assets/reference-technical-details.*'
       - 'assets/app.js'
       - 'data/performance/**'
@@ -44,6 +46,7 @@ jobs:
           node --check assets/app.js
           node --check assets/performance.js
           node --check assets/performance-fixes.js
+          node --check assets/performance-data-supplement-loader.js
           node --check assets/reference-technical-details.js
       - name: Validate source-derived datasets
         run: node scripts/validate-performance-metrics.mjs
