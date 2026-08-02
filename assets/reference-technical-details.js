@@ -21,6 +21,22 @@
     not_reported: 'Explicit N/A in optimizer source',
     source_record_missing: 'Optimizer source record missing'
   }[status] || String(status || 'Status not identified').replaceAll('_', ' '));
+  const activationStatusLabel = (status) => ({
+    reported: 'Activation function reported or mentioned',
+    not_explicitly_stated: 'Activation function not explicitly stated',
+    review_or_survey: 'Review or survey context',
+    non_pinn_record: 'Non-PINN record',
+    conceptual_or_not_implemented: 'Conceptual or not implemented',
+    paper_unavailable: 'Paper unavailable',
+    other_na: 'Other source N/A'
+  }[status] || String(status || 'Status not identified').replaceAll('_', ' '));
+  const activationRoleLabel = (role) => ({
+    hidden_layer: 'Hidden layer', output_layer: 'Output layer', gate: 'Gate',
+    constraint_or_loss: 'Constraint or loss', cnn_or_encoder_module: 'CNN / encoder module',
+    operator_network_module: 'Operator-network module', compared_candidate: 'Compared candidate',
+    adaptive_or_trainable: 'Adaptive or trainable', custom_basis_or_kernel: 'Custom basis or kernel',
+    general_mention: 'General mention', role_not_specified: 'Role not specified'
+  }[role] || String(role || '').replaceAll('_', ' '));
 
   const loadGzipJson = async (paths) => {
     if (!('DecompressionStream' in window)) throw new Error('Compressed Atlas data are not supported by this browser.');
@@ -83,13 +99,23 @@
       fetch('../data/optimizers/optimizer-taxonomy.json', { cache: 'no-store' }).then((response) => {
         if (!response.ok) throw new Error(`Optimizer taxonomy returned ${response.status}`);
         return response.json();
+      }),
+      fetch('../data/activation-functions/activation-records.json', { cache: 'no-store' }).then((response) => {
+        if (!response.ok) throw new Error(`Activation records returned ${response.status}`);
+        return response.json();
+      }),
+      fetch('../data/activation-functions/activation-taxonomy.json', { cache: 'no-store' }).then((response) => {
+        if (!response.ok) throw new Error(`Activation taxonomy returned ${response.status}`);
+        return response.json();
       })
-    ]).then(([paperData, taxonomyData, abbreviationText, optimizerRecords, optimizerTaxonomy]) => ({
+    ]).then(([paperData, taxonomyData, abbreviationText, optimizerRecords, optimizerTaxonomy, activationRecords, activationTaxonomy]) => ({
       papers: new Map((paperData.papers || []).map((paper) => [Number(paper.paper_id), paper])),
       metrics: new Map((taxonomyData.metrics || []).map((metric) => [metric.metric_id, metric])),
       abbreviations: parseAbbreviations(abbreviationText),
       optimizerRecords: new Map((optimizerRecords.records || []).map((record) => [Number(record.paper_id), record])),
-      optimizers: new Map((optimizerTaxonomy.optimizers || []).map((optimizer) => [optimizer.optimizer_id, optimizer]))
+      optimizers: new Map((optimizerTaxonomy.optimizers || []).map((optimizer) => [optimizer.optimizer_id, optimizer])),
+      activationRecords: new Map((activationRecords.records || []).map((record) => [Number(record.paper_id), record])),
+      activations: new Map((activationTaxonomy.activations || []).map((activation) => [activation.activation_id, activation]))
     }));
     return technicalDataPromise;
   };
@@ -127,6 +153,21 @@
     return `<section class="technical-module"><div class="technical-module-head"><h4>Performance metrics</h4><a href="../performance-metrics/?q=${paperId}">Open ${label(paperId)} in explorer ↗</a></div><p><span class="technical-status">${escapeHtml(statusLabel(record.reporting_status))}</span>${resolved.length ? ` · ${resolved.length} normalized metric${resolved.length === 1 ? '' : 's'}` : ''}</p>${groupsHtml || '<p class="technical-empty">No normalized metric is assigned to this record.</p>'}${rawDetails ? `<details class="technical-raw"><summary>Original extracted metric description</summary><p>${escapeHtml(rawDetails)}</p></details>` : ''}</section>`;
   };
 
+  const activationsHtml = (paperId, data) => {
+    const record = data.activationRecords.get(paperId);
+    if (!record) return `<section class="technical-module"><div class="technical-module-head"><h4>Activation functions</h4><a href="../activation-functions/?q=${paperId}">Open explorer ↗</a></div><p class="technical-empty">No activation-function source record is available for ${label(paperId)}.</p></section>`;
+    const resolved = (record.normalized_activation_ids || []).map((activationId) => data.activations.get(activationId)).filter(Boolean);
+    const grouped = new Map();
+    resolved.forEach((activation) => grouped.set(activation.family, [...(grouped.get(activation.family) || []), activation.activation_name]));
+    const groupsHtml = [...grouped].map(([family, names]) => `<div class="technical-group"><strong>${escapeHtml(family)}</strong><div class="technical-chips">${[...new Set(names)].map((name) => `<span>${escapeHtml(name)}</span>`).join('')}</div></div>`).join('');
+    const roleHtml = (record.activation_roles || []).length ? `<div class="technical-group"><strong>Source-supported roles</strong><div class="technical-chips">${record.activation_roles.map((role) => `<span>${escapeHtml(activationRoleLabel(role))}</span>`).join('')}</div></div>` : '';
+    const raw = String(record.activation_raw || '').trim();
+    const sourceNote = String(record.notes_raw || '').trim();
+    const normalizationNotes = (record.normalization_notes || []).join(' ');
+    const classification = record.adaptive_classification === 'adaptive_or_trainable' ? 'Adaptive or trainable' : record.adaptive_classification === 'fixed_or_standard' ? 'Fixed or standard' : 'Not applicable';
+    return `<section class="technical-module"><div class="technical-module-head"><h4>Activation functions</h4><a href="../activation-functions/?q=${paperId}">Open ${label(paperId)} in explorer ↗</a></div><p><span class="technical-status">${escapeHtml(activationStatusLabel(record.reporting_status))}</span> · ${escapeHtml(classification)}${resolved.length ? ` · ${resolved.length} canonical entr${resolved.length === 1 ? 'y' : 'ies'}` : ''}</p>${groupsHtml}${roleHtml}${!groupsHtml ? `<p class="technical-empty">${escapeHtml(sourceNote || 'No normalized activation is assigned; the source reason is retained below.')}</p>` : ''}<details class="technical-raw"><summary>Exact raw activation field and note</summary><p><strong>Field:</strong> ${escapeHtml(raw || 'N/A')}</p><p><strong>Note:</strong> ${escapeHtml(sourceNote || '(blank source note)')}</p></details>${normalizationNotes || record.manual_review_required ? `<p class="technical-warning"><strong>${record.manual_review_required ? 'Manual review warning:' : 'Normalization note:'}</strong> ${escapeHtml(normalizationNotes || 'Raw wording remains authoritative.')}</p>` : ''}</section>`;
+  };
+
   const abbreviationsHtml = (paperId, data) => {
     const terms = data.abbreviations.get(paperId) || [];
     return `<section class="technical-module"><div class="technical-module-head"><h4>Abbreviations</h4><a href="../abbreviations/#ref=${paperId}">Open ${label(paperId)} in abbreviation index ↗</a></div>${terms.length ? `<div class="technical-chips">${terms.map((term) => `<span>${escapeHtml(term)}</span>`).join('')}</div>` : `<p class="technical-empty">No abbreviation record is available for ${label(paperId)} in the current abbreviation source.</p>`}</section>`;
@@ -140,11 +181,12 @@
     body.innerHTML = '<div class="technical-loading"><strong>Loading Atlas technical evidence…</strong><span>Combining paper-level records from current Atlas modules.</span></div>';
     try {
       const data = await loadTechnicalData();
-      body.innerHTML = `<div class="technical-details-grid">${performanceHtml(paperId, data)}${optimizersHtml(paperId, data)}${abbreviationsHtml(paperId, data)}<section class="technical-module technical-future"><h4>Future technical modules</h4><p>Architecture, activation-function, sampling, software, dataset, and other technical fields can be added here as their Atlas pages and validated paper-level datasets become available.</p></section></div>`;
+      body.innerHTML = `<div class="technical-details-grid">${performanceHtml(paperId, data)}${optimizersHtml(paperId, data)}${activationsHtml(paperId, data)}${abbreviationsHtml(paperId, data)}<section class="technical-module technical-future"><h4>Future technical modules</h4><p>Architecture, sampling, software, dataset, and other technical fields can be added here as their Atlas pages and validated paper-level datasets become available.</p></section></div>`;
       const performanceCount = data.papers.get(paperId)?.normalized_metric_ids?.length || 0;
       const optimizerCount = data.optimizerRecords.get(paperId)?.normalized_optimizer_ids?.length || 0;
+      const activationCount = data.activationRecords.get(paperId)?.normalized_activation_ids?.length || 0;
       const abbreviationCount = data.abbreviations.get(paperId)?.length || 0;
-      summaryStatus.textContent = `${performanceCount} metrics · ${optimizerCount} optimizers · ${abbreviationCount} abbreviations`;
+      summaryStatus.textContent = `${performanceCount} metrics · ${optimizerCount} optimizers · ${activationCount} activations · ${abbreviationCount} abbreviations`;
       details.dataset.loaded = 'true';
     } catch (error) {
       body.innerHTML = `<div class="detail-empty"><strong>Technical details could not be loaded.</strong><p>${escapeHtml(error.message)}</p></div>`;
@@ -162,7 +204,7 @@
     const technical = document.createElement('details');
     technical.className = 'nested-reference-detail technical-reference-detail';
     technical.dataset.technicalDetail = String(paperId);
-    technical.innerHTML = `<summary><span>Technical details</span><small>Metrics, optimizers, abbreviations, and Atlas evidence</small></summary><div class="nested-detail-body"><div class="technical-loading"><strong>Open this panel to load technical details.</strong></div></div>`;
+    technical.innerHTML = `<summary><span>Technical details</span><small>Metrics, optimizers, activations, abbreviations, and Atlas evidence</small></summary><div class="nested-detail-body"><div class="technical-loading"><strong>Open this panel to load technical details.</strong></div></div>`;
     list.insertBefore(technical, list.children[1] || null);
     technical.addEventListener('toggle', () => {
       if (technical.open) renderTechnicalDetails(technical, paperId);

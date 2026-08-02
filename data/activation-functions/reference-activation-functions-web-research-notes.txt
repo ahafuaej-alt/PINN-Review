@@ -1,0 +1,158 @@
+WEB RESEARCH NOTES FOR PREVIOUSLY MISSING ACTIVATION-FUNCTION RECORDS
+Research date: 2026-08-03
+
+SOURCE FILE CHECK
+- Original rows: 844
+- Original unique reference IDs: 844
+- Original missing IDs: [170], [194], [452], [694], [776], [803], [809], [812], [813]
+- Original duplicate IDs: none
+
+RESEARCH POLICY
+- Each missing Atlas ID was matched to its target publication by title and DOI.
+- A named activation function was added only when the target publication or a directly
+  corresponding target-paper record explicitly exposed it.
+- Activation functions were not inferred from related papers, cited papers, standard
+  architecture defaults, or common practice.
+- "N/A" therefore means that the source classification or accessible target-paper
+  evidence does not support a named activation function. The accompanying note preserves
+  the reason.
+
+[170]
+Title: Physics-Informed Neural Networks for the Structural Analysis and Monitoring
+of Railway Bridges: A Systematic Review
+DOI: 10.3390/math13101571
+Added value: N/A
+Added note: Review paper
+Evidence:
+- https://doi.org/10.3390/math13101571
+Reason:
+The target publication is a systematic review. It discusses example activations such as
+ReLU, tanh, and sine conceptually, but it does not report one implemented paper-level
+network whose activation should be assigned to this Atlas record.
+
+[194]
+Title: Improving Online Voltage Stability Monitoring in Smart Grids:
+A Physics-Informed Guided Deep Learning Model
+DOI: 10.1109/TIA.2025.3529813
+Added value: N/A
+Added note: Not explicitly stated (physics-informed guided deep-learning model;
+activation function not identified in accessible target-paper sources)
+Evidence:
+- https://doi.org/10.1109/TIA.2025.3529813
+- https://www.researchgate.net/publication/388056076_Improving_Online_Voltage_Stability_Monitoring_in_Smart_Grids_A_Physics-Informed_Guided_Deep_Learning_Model
+Reason:
+The accessible target record identifies the iTCN, feature-fusion scheme, and twin
+attention mechanism, but it does not identify the activation function. ReLU was not
+inferred from generic TCN practice.
+
+[452]
+Title: Physics-Based Machine Learning Inversion of Subsurface Elastic Properties
+DOI: 10.3997/2214-4609.201901147
+Added value: N/A
+Added note: Not explicitly stated (activation function not identified in accessible
+target-paper sources)
+Evidence:
+- https://research.ibm.com/publications/physics-based-machine-learning-inversion-of-subsurface-elastic-properties
+- https://doi.org/10.3997/2214-4609.201901147
+Reason:
+The official IBM publication record describes the elastic-wave inversion workflow but
+does not identify the network activation.
+
+[694]
+Title: Physics-Informed Machine Learning Using Low-Fidelity Flowfields for
+Inverse Airfoil Shape Design
+DOI: 10.2514/1.J063570
+Added value: N/A
+Added note: Not explicitly stated (activation function not identified in accessible
+target-paper sources)
+Evidence:
+- https://doi.org/10.2514/1.J063570
+- https://www.researchgate.net/publication/380692414_Physics-Informed_Machine_Learning_Using_Low-Fidelity_Flowfields_for_Inverse_Airfoil_Shape_Design
+Reason:
+The accessible target-paper abstract describes the LF-PINN and its low-fidelity and
+Navier-Stokes residual inputs, but it does not name the activation function.
+
+[776]
+Title: Physics-Informed Neural Networks for Flow-Induced Vibration Prediction
+of a Subsea Pipeline
+DOI: 10.1115/OMAE2024-128147
+Added value: N/A
+Added note: Not explicitly stated (activation function not identified in accessible
+target-paper sources)
+Evidence:
+- https://doi.org/10.1115/OMAE2024-128147
+- https://www.researchgate.net/publication/383007236_Physics-Informed_Neural_Networks_for_Flow-Induced_Vibration_Prediction_of_a_Subsea_Pipeline
+Reason:
+The accessible target-paper record describes the moving-frame PINN and DNS training
+data, but it does not name the activation function.
+
+[803]
+Title: Deep Learning of Two-Phase Flow in Porous Media via Theory-Guided
+Neural Networks
+DOI: 10.2118/208602-PA
+Added value: N/A
+Added note: Not explicitly stated (theory-guided neural network; activation function
+not identified in accessible target-paper sources)
+Evidence:
+- https://doi.org/10.2118/208602-PA
+- https://researchportal.hw.ac.uk/en/publications/deep-learning-of-two-phase-flow-in-porous-media-via-theory-guided/
+Reason:
+The institutional target-paper record describes two coupled neural networks and a
+two-stage training strategy, but it does not identify their activation function.
+
+[809]
+Title: Fourier Neural Operator for Solving Subsurface Oil/Water Two-Phase Flow
+Partial Differential Equation
+DOI: 10.2118/209223-PA
+Added value: N/A
+Added note: Not a PINN paper (Fourier neural operator; activation function not
+identified in accessible target-paper sources)
+Evidence:
+- https://doi.org/10.2118/209223-PA
+- https://www.researchgate.net/publication/358679836_Fourier_Neural_Operator_for_Solving_Subsurface_OilWater_Two-Phase_Flow_Partial_Differential_Equation
+Reason:
+The target record is an FNO study rather than a classical PINN implementation.
+Accessible target-paper material did not expose its activation. GeLU or ReLU was not
+transferred from later FNO papers or generic FNO architecture descriptions.
+
+[812]
+Title: Physics-Informed Neural Networks for Solving Dynamic Two-Phase
+Interface Problems
+DOI: 10.1137/22M1517081
+Added value: N/A
+Added note: Not explicitly stated (activation function not identified in accessible
+target-paper sources)
+Evidence:
+- https://doi.org/10.1137/22M1517081
+Reason:
+The accessible SIAM target record describes the piecewise DNN/PINN formulation,
+least-squares loss, and numerical experiments, but it does not name the activation.
+The tanh activation reported by a later 2026 moving-interface paper was not transferred
+to this 2023 target paper.
+
+[813]
+Title: Application of Physics-Informed Neural Networks for Estimation of
+Saturation Functions from Countercurrent Spontaneous Imbibition Tests
+DOIs:
+- Conference version: 10.3997/2214-4609.202331054
+- Journal version: 10.2118/218402-PA
+Added value: adaptive tanh
+Added note: Mentioned (feed-forward neural networks with Fourier/inverse-Fourier
+transformation and adaptive tanh activation)
+Evidence:
+- https://doi.org/10.2118/218402-PA
+- https://eurekamag.com/research/096/936/096936872.php
+- https://www.citedrive.com/en/discovery/application-of-physics-informed-neural-networks-for-estimation-of-saturation-functions-from-countercurrent-spontaneous-imbibition-tests/
+Reason:
+The target-paper summaries explicitly describe feed-forward neural networks,
+Fourier/inverse-Fourier transformation, and an adaptive tanh activation function.
+
+COMPLETED-FILE VALIDATION
+- Total rows: 853
+- Unique reference IDs: 853
+- ID range: 1–853
+- Missing IDs: none
+- Duplicate IDs: none
+- Rows with a named activation-function field: 482
+- Rows with N/A: 371
+- Distinct non-N/A raw activation-function fields: 163

@@ -110,7 +110,7 @@ const collectHtml = (directory) => {
   });
 };
 collectHtml(root);
-assert.ok(htmlFiles.every((filePath) => fs.readFileSync(filePath, 'utf8').includes('assets/app.js?v=ux-20260802c')), 'An Atlas HTML page does not load the cache-busted shared navigation script');
+assert.ok(htmlFiles.every((filePath) => fs.readFileSync(filePath, 'utf8').includes('assets/app.js?v=ux-20260803a')), 'An Atlas HTML page does not load the cache-busted shared navigation script');
 
 for (const scriptPath of ['assets/optimizers.js', 'assets/reference-technical-details.js', 'scripts/build-optimizers.mjs', 'scripts/validate-optimizers.mjs']) {
   execFileSync(process.execPath, ['--check', path.join(root, scriptPath)], { stdio: 'pipe' });

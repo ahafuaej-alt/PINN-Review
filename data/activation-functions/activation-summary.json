@@ -1,0 +1,188 @@
+{
+  "source_records": 853,
+  "named_activation_records": 482,
+  "explicit_na_records": 371,
+  "distinct_raw_non_na_fields": 163,
+  "canonical_activation_functions": 62,
+  "activation_families": 8,
+  "adaptive_or_trainable_records": 17,
+  "multi_activation_records": 133,
+  "review_or_survey_records": 59,
+  "non_pinn_records": 211,
+  "not_explicitly_stated_records": 93,
+  "conceptual_or_not_implemented_records": 9,
+  "paper_unavailable_records": 1,
+  "other_na_records": 0,
+  "manual_review_records": 4,
+  "implementation_oriented_records": 480,
+  "all_source_mention_records": 482,
+  "missing_ids": [],
+  "duplicate_ids": [],
+  "formerly_missing_ids": [
+    170,
+    194,
+    452,
+    694,
+    776,
+    803,
+    809,
+    812,
+    813
+  ],
+  "top_activations_implementation": [
+    {
+      "activation_id": "tanh",
+      "activation_name": "tanh",
+      "count": 293
+    },
+    {
+      "activation_id": "relu",
+      "activation_name": "ReLU",
+      "count": 109
+    },
+    {
+      "activation_id": "sigmoid",
+      "activation_name": "sigmoid",
+      "count": 63
+    },
+    {
+      "activation_id": "sine",
+      "activation_name": "sine",
+      "count": 35
+    },
+    {
+      "activation_id": "swish",
+      "activation_name": "Swish",
+      "count": 32
+    },
+    {
+      "activation_id": "leaky_relu",
+      "activation_name": "Leaky ReLU",
+      "count": 18
+    },
+    {
+      "activation_id": "linear",
+      "activation_name": "linear",
+      "count": 16
+    },
+    {
+      "activation_id": "softplus",
+      "activation_name": "Softplus",
+      "count": 16
+    },
+    {
+      "activation_id": "gelu",
+      "activation_name": "GELU",
+      "count": 12
+    },
+    {
+      "activation_id": "elu",
+      "activation_name": "ELU",
+      "count": 10
+    },
+    {
+      "activation_id": "softmax",
+      "activation_name": "Softmax",
+      "count": 6
+    },
+    {
+      "activation_id": "exponential",
+      "activation_name": "exponential",
+      "count": 4
+    },
+    {
+      "activation_id": "gaussian_rbf",
+      "activation_name": "Gaussian RBF",
+      "count": 4
+    },
+    {
+      "activation_id": "adaptive_tanh",
+      "activation_name": "adaptive tanh",
+      "count": 3
+    },
+    {
+      "activation_id": "arctan",
+      "activation_name": "arctan",
+      "count": 3
+    }
+  ],
+  "top_activations_all_mentions": [
+    {
+      "activation_id": "tanh",
+      "activation_name": "tanh",
+      "count": 294
+    },
+    {
+      "activation_id": "relu",
+      "activation_name": "ReLU",
+      "count": 111
+    },
+    {
+      "activation_id": "sigmoid",
+      "activation_name": "sigmoid",
+      "count": 65
+    },
+    {
+      "activation_id": "sine",
+      "activation_name": "sine",
+      "count": 36
+    },
+    {
+      "activation_id": "swish",
+      "activation_name": "Swish",
+      "count": 34
+    },
+    {
+      "activation_id": "leaky_relu",
+      "activation_name": "Leaky ReLU",
+      "count": 18
+    },
+    {
+      "activation_id": "linear",
+      "activation_name": "linear",
+      "count": 16
+    },
+    {
+      "activation_id": "softplus",
+      "activation_name": "Softplus",
+      "count": 16
+    },
+    {
+      "activation_id": "elu",
+      "activation_name": "ELU",
+      "count": 12
+    },
+    {
+      "activation_id": "gelu",
+      "activation_name": "GELU",
+      "count": 12
+    },
+    {
+      "activation_id": "softmax",
+      "activation_name": "Softmax",
+      "count": 7
+    },
+    {
+      "activation_id": "exponential",
+      "activation_name": "exponential",
+      "count": 4
+    },
+    {
+      "activation_id": "gaussian_rbf",
+      "activation_name": "Gaussian RBF",
+      "count": 4
+    },
+    {
+      "activation_id": "adaptive_tanh",
+      "activation_name": "adaptive tanh",
+      "count": 3
+    },
+    {
+      "activation_id": "arctan",
+      "activation_name": "arctan",
+      "count": 3
+    }
+  ],
+  "generated_from": "data/activation-functions/reference-activation-functions-source.txt",
+  "research_notes": "data/activation-functions/reference-activation-functions-web-research-notes.txt"
+}

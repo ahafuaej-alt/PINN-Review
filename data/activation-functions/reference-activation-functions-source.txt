@@ -1,0 +1,855 @@
+| reference | activation function | notes |
+|-----------|---------------------|-------|
+| 1 | N/A | Not a PINN paper |
+| 2 | tanh, sigmoid, exponential | Mentioned |
+| 3 | N/A | Review paper |
+| 4 | tanh, GELU | Mentioned |
+| 5 | N/A | Not a PINN paper |
+| 6 | N/A | Not a PINN paper |
+| 7 | tansig (tanh) | Mentioned |
+| 8 | tanh | Mentioned |
+| 9 | N/A | Review paper |
+| 10 | N/A | Review paper |
+| 11 | tanh, ReLU, sigmoid, sin, Swish, ELU | Mentioned |
+| 12 | tansig (tanh) | Mentioned |
+| 13 | tanh | Mentioned |
+| 14 | sigmoid, tanh (LSTM gates) | Mentioned |
+| 15 | ReLU | Mentioned |
+| 16 | tanh, sigmoid (LSTM) | Mentioned |
+| 17 | N/A | Review paper |
+| 18 | ReLU | Mentioned |
+| 19 | N/A | Not a PINN paper |
+| 20 | N/A | Not a PINN paper |
+| 21 | N/A | Review paper |
+| 22 | tanh, ReLU | Mentioned |
+| 23 | N/A | Review paper |
+| 24 | N/A | Not explicitly stated |
+| 25 | N/A | Not explicitly stated |
+| 26 | ReLU | Mentioned |
+| 27 | ReLU, tanh, sigmoid | Mentioned |
+| 28 | ReLU, sigmoid | Mentioned |
+| 29 | N/A | Review paper |
+| 30 | tanh | Mentioned |
+| 31 | tanh | Mentioned |
+| 32 | tanh, sigmoid | Mentioned |
+| 33 | tanh | Mentioned |
+| 34 | N/A | Not a PINN paper |
+| 35 | N/A | Not a PINN paper |
+| 36 | N/A | Not a PINN paper |
+| 37 | N/A | Not a PINN paper |
+| 38 | N/A | Not a PINN paper |
+| 39 | N/A | Not a PINN paper |
+| 40 | tanh | Mentioned |
+| 41 | N/A | Not a PINN paper |
+| 42 | N/A | Not a PINN paper |
+| 43 | N/A | Not a PINN paper |
+| 44 | N/A | Not a PINN paper |
+| 45 | N/A | Not a PINN paper |
+| 46 | N/A | PINN mentioned but not implemented |
+| 47 | ReLU | Mentioned |
+| 48 | N/A | Not a PINN paper |
+| 49 | N/A | Not a PINN paper |
+| 50 | ReLU | Mentioned |
+| 51 | N/A | Not a PINN paper |
+| 52 | N/A | Not a PINN paper |
+| 53 | N/A | Not a PINN paper |
+| 54 | N/A | PINN cited but not implemented |
+| 55 | N/A | Not a PINN paper |
+| 56 | N/A | Review paper |
+| 57 | N/A | Not a PINN paper |
+| 58 | N/A | PINN mentioned as future direction, not implemented |
+| 59 | N/A | Not a PINN paper |
+| 60 | N/A | PINN mentioned as future direction, not implemented |
+| 61 | N/A | Not explicitly stated |
+| 62 | ReLU, sigmoid, softmax | Mentioned |
+| 63 | N/A | PINN cited but not implemented |
+| 64 | N/A | PINN mentioned as future direction, not implemented |
+| 65 | N/A | PINN cited but not implemented |
+| 66 | ReLU | Mentioned |
+| 67 | N/A | Review paper |
+| 68 | tanh | Mentioned |
+| 69 | N/A | Not a PINN paper |
+| 70 | tanh | Mentioned |
+| 71 | N/A | Not a PINN paper |
+| 72 | N/A | PINN cited but not implemented |
+| 73 | N/A | PINN cited but not implemented |
+| 74 | ReLU | Mentioned |
+| 75 | tanh | Mentioned |
+| 76 | tanh | Mentioned |
+| 77 | tanh | Mentioned |
+| 78 | N/A | Not a PINN paper (UPINN method for power flow; no activation function specified) |
+| 79 | N/A | Not a PINN paper |
+| 80 | N/A | Not explicitly stated |
+| 81 | N/A | Not explicitly stated (KAN‑based PINN using B‑splines; activation not specified) |
+| 82 | N/A | Not a PINN paper |
+| 83 | adaptive Swish | Mentioned |
+| 84 | N/A | Review paper |
+| 85 | N/A | Review paper |
+| 86 | N/A | Not a PINN paper |
+| 87 | tanh | Mentioned |
+| 88 | N/A | Not a PINN paper |
+| 89 | N/A | Not a PINN paper |
+| 90 | N/A | Not a PINN paper |
+| 91 | N/A | Not a PINN paper |
+| 92 | N/A | Not a PINN paper |
+| 93 | N/A | Not a PINN paper (physics‑guided model, not a PINN) |
+| 94 | N/A | Not a PINN paper |
+| 95 | tanh | Mentioned |
+| 96 | N/A | Not a PINN paper |
+| 97 | N/A | Not a PINN paper |
+| 98 | N/A | Review paper (PINNs mentioned as future direction, no implementation) |
+| 99 | N/A | Not a PINN paper |
+| 100 | N/A | Not a PINN paper |
+| 101 | N/A | Not a PINN paper |
+| 102 | N/A | Not a PINN paper |
+| 103 | N/A | Not a PINN paper |
+| 104 | ReLU | Mentioned |
+| 105 | N/A | Not a PINN paper |
+| 106 | N/A | Not a PINN paper |
+| 107 | ReLU | Mentioned |
+| 108 | N/A | Review paper (PINN mentioned conceptually only) |
+| 109 | N/A | Not a PINN paper |
+| 110 | ReLU, Softmax | Mentioned |
+| 111 | N/A | Not explicitly stated (PINN mentioned in review context) |
+| 112 | N/A | Not a PINN paper |
+| 113 | N/A | Not a PINN paper |
+| 114 | N/A | Not a PINN paper |
+| 115 | N/A | Not explicitly stated |
+| 116 | ReLU, Sigmoid | Mentioned |
+| 117 | tanh | Mentioned |
+| 118 | N/A | Not a PINN paper (uses empirical model-informed NN, not PINN) |
+| 119 | ReLU, Softmax | Mentioned |
+| 120 | N/A | Review paper (PINN mentioned conceptually only) |
+| 121 | T-Softplus | Mentioned |
+| 122 | N/A | Review paper (PINN mentioned conceptually only) |
+| 123 | N/A | Not a PINN paper |
+| 124 | N/A | Not a PINN paper |
+| 125 | N/A | Not a PINN paper |
+| 126 | N/A | Not a PINN paper |
+| 127 | N/A | Not a PINN paper |
+| 128 | N/A | Not a PINN paper |
+| 129 | N/A | Review paper |
+| 130 | N/A | Not a PINN paper |
+| 131 | N/A | Not a PINN paper |
+| 132 | N/A | Review paper |
+| 133 | N/A | Not a PINN paper |
+| 134 | relu, sigmoid, tanh, leaky_relu, elu, selu | Mentioned for the ANN models used in the PINN framework |
+| 135 | N/A | Not a PINN paper |
+| 136 | N/A | Not a PINN paper |
+| 137 | ReLU | Mentioned |
+| 138 | GELU | Mentioned (used instead of ReLU to avoid stiff predictions) |
+| 139 | N/A | Not explicitly stated |
+| 140 | tanh | Mentioned |
+| 141 | N/A | Not a PINN paper |
+| 142 | ReLU | Mentioned |
+| 143 | tanh, sigmoid | Mentioned (tanh in hidden layers, sigmoid in output layer) |
+| 144 | N/A | Not explicitly stated |
+| 145 | N/A | Not a PINN paper (physics-inspired, not PINN) |
+| 146 | N/A | Not a PINN paper |
+| 147 | N/A | Not a PINN paper (quantum neural network) |
+| 148 | N/A | Not a PINN paper |
+| 149 | N/A | Review paper |
+| 150 | N/A | Review paper |
+| 151 | N/A | Not a PINN paper |
+| 152 | N/A | Not a PINN paper |
+| 153 | N/A | Not a PINN paper |
+| 154 | swish | Mentioned |
+| 155 | N/A | Not a PINN paper |
+| 156 | N/A | Not a PINN paper |
+| 157 | N/A | Not explicitly stated |
+| 158 | PReLU | Mentioned |
+| 159 | softplus, sigmoid, ReLU | Mentioned |
+| 160 | Tanh | Mentioned |
+| 161 | N/A | Not a PINN paper |
+| 162 | tanh, sigmoid | Mentioned |
+| 163 | sin, tanh | Mentioned |
+| 164 | N/A | Review paper |
+| 165 | N/A | Review paper |
+| 166 | N/A | Not a PINN paper |
+| 167 | N/A | Not a PINN paper |
+| 168 | N/A | Review paper |
+| 169 | N/A | Not a PINN paper |
+| 170 | N/A | Review paper |
+| 171 | N/A | Not a PINN paper |
+| 172 | tanh | Mentioned |
+| 173 | ReLU | Mentioned |
+| 174 | tanh, linear | Mentioned |
+| 175 | ReLU | Mentioned |
+| 176 | ReLU, Leaky-ReLU | Mentioned |
+| 177 | tanh, sigmoid | Mentioned |
+| 178 | Leaky-ReLU | Mentioned |
+| 179 | tanh, ReLU, sigmoid | Mentioned |
+| 180 | N/A | Review paper |
+| 181 | N/A | Not a PINN paper |
+| 182 | leaky ReLU, ReLU, softmax | Mentioned |
+| 183 | ReLU | Mentioned |
+| 184 | leaky ReLU | Mentioned |
+| 185 | LeakyReLU | Mentioned |
+| 186 | ReLU | Mentioned |
+| 187 | N/A | Not a PINN paper |
+| 188 | N/A | Not a PINN paper (editorial) |
+| 189 | N/A | Not a PINN paper |
+| 190 | tanh | Mentioned (adaptive tanh) |
+| 191 | Gaussian RBF | Mentioned |
+| 192 | N/A | Not explicitly stated |
+| 193 | tanh | Mentioned |
+| 194 | N/A | Not explicitly stated (physics-informed guided deep-learning model; activation function not identified in accessible target-paper sources) |
+| 195 | N/A | Not explicitly stated |
+| 196 | ReLU, sigmoid | Mentioned |
+| 197 | ReLU | Mentioned |
+| 198 | N/A | Not explicitly stated |
+| 199 | adaptive tanh | Mentioned |
+| 200 | N/A | Not a PINN paper |
+| 201 | ReLU, Sigmoid | Mentioned |
+| 202 | GeLU | Mentioned |
+| 203 | ReLU, Tanh, Softmax | Mentioned |
+| 204 | Softplus | Mentioned |
+| 205 | N/A | Not a PINN paper (circuit-informed neural network for antenna design) |
+| 206 | Sin, Tanh, Logistic | Mentioned |
+| 207 | Tanh, ReLU, Sigmoid | Mentioned |
+| 208 | N/A | Not explicitly stated |
+| 209 | N/A | Not explicitly stated |
+| 210 | Sigmoid, Tanh | Mentioned |
+| 211 | ReLU | Mentioned |
+| 212 | N/A | Not a PINN paper (physics-informed reinforcement learning for optimal power flow) |
+| 213 | N/A | Not explicitly stated |
+| 214 | Sigmoid, ReLU | Mentioned |
+| 215 | Tanh | Mentioned |
+| 216 | N/A | Not a PINN paper |
+| 217 | N/A | Not a PINN paper |
+| 218 | N/A | Not a PINN paper |
+| 219 | tanh | Mentioned |
+| 220 | tanh | Mentioned |
+| 221 | Sigmoid | Mentioned |
+| 222 | tanh | Mentioned |
+| 223 | N/A | Not a PINN paper |
+| 224 | GRU gating mechanisms, SoftMax | Mentioned |
+| 225 | ReLU | Mentioned |
+| 226 | ReLU | Mentioned |
+| 227 | tanh | Mentioned |
+| 228 | tanh | Mentioned |
+| 229 | LeakyReLU | Mentioned |
+| 230 | learnable splines (KAN), sine functions | Mentioned |
+| 231 | Sine | SIREN (sinusoidal representation) activation function σ(x) = sin(ω₀x) |
+| 232 | N/A | Not a PINN paper |
+| 233 | Tanh, ReLU | Tanh for hidden layers; ReLU for final layer |
+| 234 | Tanh | Mentioned |
+| 235 | N/A | Not a standard PINN paper (CCR uses ReLU in CNN but not PINN) |
+| 236 | N/A | Not a standard PINN paper |
+| 237 | ReLU | Mentioned |
+| 238 | Tanh | Tanh outperformed sigmoid and ReLU; compared with cos and sin |
+| 239 | Tanh | Tanh found to be better than sigmoid, ReLU, cos, and sin |
+| 240 | N/A | Not a PINN paper |
+| 241 | Sigmoid | Sigmoid used only in output layer for positivity; hidden layers not specified |
+| 242 | N/A | Not a standard PINN paper (POD-ANN uses ReLU) |
+| 243 | ReLU, Swish | ReLU for MLP; Swish for hybrid model |
+| 244 | Swish | Mentioned |
+| 245 | N/A | Review/Conference proceedings volume (multiple papers/chapters) |
+| 246 | N/A | Not a PINN paper |
+| 247 | N/A | Not explicitly stated (DARTS-PINN uses operation search with fully connected operations; activation functions of individual layers not specified) |
+| 248 | Swish | Mentioned |
+| 249 | N/A | Not a PINN paper |
+| 250 | tanh | Mentioned |
+| 251 | tanh | Mentioned |
+| 252 | tanh | Mentioned |
+| 253 | sigmoid | Mentioned |
+| 254 | N/A | Not a PINN paper |
+| 255 | leaky ReLU | Mentioned |
+| 256 | N/A | Not explicitly stated (the paper uses neural networks but does not name the activation function) |
+| 257 | ReLU | Mentioned |
+| 258 | Swish | Mentioned |
+| 259 | N/A | Not a PINN paper |
+| 260 | tanh | Mentioned |
+| 261 | ReLU | Mentioned |
+| 262 | B-spline (KAN), tanh | Mentioned (KAN uses B-spline activation functions; tanh is also mentioned for comparison/benchmarking) |
+| 263 | tanh | Mentioned |
+| 264 | tanh | Mentioned |
+| 265 | sigmoid | Mentioned |
+| 266 | tanh | Mentioned |
+| 267 | N/A | Review paper |
+| 268 | N/A | Not explicitly stated |
+| 269 | ReLU | Mentioned |
+| 270 | spherical Hankel function (h₀⁽¹⁾) | Mentioned |
+| 271 | tanh | Mentioned |
+| 272 | SiLU | Mentioned |
+| 273 | N/A | Not a PINN paper (VAE-WGAN-gp, generative model) |
+| 274 | N/A | Not a PINN paper (CNN surrogate) |
+| 275 | tanh | Mentioned (with locally adaptive slopes) |
+| 276 | N/A | Not a PINN paper (field inversion with U‑Net/FFNN) |
+| 277 | tanh | Mentioned |
+| 278 | N/A | Not a PINN paper (Transformer-based data-driven model) |
+| 279 | sine (SIREN) | Mentioned |
+| 280 | ReLU | Mentioned |
+| 281 | tanh | Mentioned |
+| 282 | N/A | Not a PINN paper (CNN-based super‑resolution) |
+| 283 | N/A | Not a PINN paper |
+| 284 | N/A | Not a PINN paper |
+| 285 | Tanh | Mentioned |
+| 286 | N/A | Not a PINN paper |
+| 287 | N/A | Not explicitly stated |
+| 288 | N/A | Not a PINN paper |
+| 289 | N/A | Review paper |
+| 290 | N/A | Not a PINN paper |
+| 291 | Adaptive ReLU | Mentioned |
+| 292 | ReLU | Mentioned |
+| 293 | Tanh | Mentioned |
+| 294 | Tanh | Mentioned |
+| 295 | N/A | Not a PINN paper |
+| 296 | N/A | Not a PINN paper |
+| 297 | Tanh, elu | Mentioned |
+| 298 | Tanh | Mentioned |
+| 299 | N/A | Not explicitly stated |
+| 300 | N/A | Review paper |
+| 301 | N/A | Review paper |
+| 302 | ReLU | Mentioned |
+| 303 | tanh (with nodewise adaptive coefficients) | Mentioned |
+| 304 | N/A | Review paper / Discussion of PINNs as potential tool |
+| 305 | N/A | Not a PINN paper (super-resolution CNN) |
+| 306 | N/A | Review paper |
+| 307 | N/A | Not a PINN paper (parallel-in-time multiple shooting) |
+| 308 | tanh (hidden layers); sigmoid (output layer) | Mentioned |
+| 309 | N/A | Not a PINN paper (MLP-based surrogate; PINN discussed as future work) |
+| 310 | swish | Mentioned |
+| 311 | tanh | Mentioned |
+| 312 | tanh | Mentioned |
+| 313 | ReLU | Mentioned |
+| 314 | N/A | Not a PINN paper (RCI CT-RL control algorithm) |
+| 315 | N/A | Not explicitly stated |
+| 316 | SELU | Mentioned |
+| 317 | sin (default); tanh | Mentioned |
+| 318 | ReLU | Mentioned |
+| 319 | N/A | Not explicitly stated |
+| 320 | tanh | Mentioned |
+| 321 | ReLU | Mentioned |
+| 322 | N/A | Not a PINN paper |
+| 323 | tanh | Mentioned |
+| 324 | tanh | Mentioned |
+| 325 | N/A | Not a PINN paper |
+| 326 | N/A | Not explicitly stated |
+| 327 | N/A | Review paper |
+| 328 | tanh | Mentioned |
+| 329 | N/A | Review paper |
+| 330 | N/A | Review paper |
+| 331 | LeakyReLU (α=0.2), tanh, linear | Mentioned |
+| 332 | tanh, ReLU (in loss), linear | ReLU used in loss formulation for physics constraints; network uses tanh and linear |
+| 333 | tanh | Mentioned |
+| 334 | tanh | Mentioned |
+| 335 | N/A | Not a PINN paper |
+| 336 | eLU | Mentioned |
+| 337 | N/A | Not a PINN paper |
+| 338 | tanh, sigmoid (for inequality constraints) | Sigmoid used to approximate Heaviside for inequality constraints; tanh for hidden layers |
+| 339 | tanh, swish, sigmoid | Mentioned |
+| 340 | tanh, swish, sigmoid | Mentioned |
+| 341 | N/A | Not a PINN paper |
+| 342 | N/A | Not a PINN paper (GNN-based, not PINN) |
+| 343 | tanh, 0.1-leaky ReLU | Mentioned |
+| 344 | N/A | Not explicitly stated |
+| 345 | N/A | Not a PINN paper |
+| 346 | tanh, sigmoid, leaky ReLU | Mentioned |
+| 347 | tanh | Mentioned |
+| 348 | tanh | Mentioned |
+| 349 | tanh | Mentioned |
+| 350 | tanh, sigmoid | Mentioned |
+| 351 | ReLU | Mentioned |
+| 352 | N/A | Not a PINN paper |
+| 353 | SiLU | Mentioned |
+| 354 | ReLU | Mentioned |
+| 355 | Tanh | Mentioned |
+| 356 | N/A | Review paper |
+| 357 | N/A | Review paper |
+| 358 | N/A | Not explicitly stated |
+| 359 | Sigmoid, Tanh | Mentioned (LSTM gates) |
+| 360 | ReLU | Mentioned (in Attention Gate) |
+| 361 | N/A | Not a PINN paper |
+| 362 | Swish, ReLU, sigmoid, tanh | Mentioned |
+| 363 | Swish, ELU | Not a standard PINN (TgCNN) |
+| 364 | N/A | Not a PINN paper |
+| 365 | tanh | Mentioned |
+| 366 | N/A | Not a PINN paper |
+| 367 | N/A | Review paper |
+| 368 | tanh | Mentioned |
+| 369 | tanh | Mentioned |
+| 370 | N/A | Not a PINN paper |
+| 371 | N/A | Not a PINN paper |
+| 372 | Swish, ReLU, sigmoid | Mentioned |
+| 373 | N/A | Review paper |
+| 374 | tanh | Mentioned |
+| 375 | N/A | Review paper |
+| 376 | N/A | PINN uses LSTM gates; activation function for the PINN itself not explicitly stated |
+| 377 | N/A | Review paper |
+| 378 | N/A | Review paper |
+| 379 | ReLU | Mentioned |
+| 380 | N/A | Review paper |
+| 381 | tanh | Mentioned |
+| 382 | N/A | Survey paper |
+| 383 | tanh, ReLU | Mentioned (both in search space) |
+| 384 | N/A | Review paper |
+| 385 | N/A | Not explicitly stated |
+| 386 | tanh | Mentioned |
+| 387 | PReLU, ReLU | Mentioned (PReLU used; ReLU also experimented with) |
+| 388 | tanh, Softplus, Sigmoid | Mentioned |
+| 389 | N/A | Not a PINN paper |
+| 390 | N/A | Not a PINN paper |
+| 391 | tanh | Mentioned |
+| 392 | tanh | Mentioned |
+| 393 | Swish | Mentioned |
+| 394 | N/A | Not a PINN paper |
+| 395 | N/A | Review paper |
+| 396 | tanh, ReLU | Mentioned |
+| 397 | N/A | Not a PINN paper |
+| 398 | N/A | Not a PINN paper |
+| 399 | N/A | Not a PINN paper |
+| 400 | N/A | Not a PINN paper |
+| 401 | N/A | Review paper |
+| 402 | N/A | Not a PINN paper |
+| 403 | N/A | Not explicitly stated |
+| 404 | ReLU, ELU, Hyperbolic tangent, Logistic | Mentioned |
+| 405 | N/A | Not a PINN paper |
+| 406 | Swish | Mentioned |
+| 407 | N/A | Review paper |
+| 408 | Swish | Mentioned |
+| 409 | N/A | Not a PINN paper |
+| 410 | Hyperbolic tangent | Mentioned |
+| 411 | Sinus | Mentioned |
+| 412 | tanh | Mentioned |
+| 413 | N/A | Not explicitly stated |
+| 414 | Hyperbolic tangent | Mentioned |
+| 415 | tanh (fixed), adaptive tanh (with parameter a) | Mentioned |
+| 416 | N/A | Not explicitly stated |
+| 417 | ReLU, Leaky ReLU | Mentioned |
+| 418 | tanh | Mentioned |
+| 419 | ReLU | Mentioned |
+| 420 | tanh | Mentioned |
+| 421 | tanh | Mentioned |
+| 422 | tanh | Mentioned |
+| 423 | ReLU, Leaky ReLU, tanh | Mentioned |
+| 424 | tanh | Mentioned |
+| 425 | Swish | Mentioned |
+| 426 | tanh | Mentioned |
+| 427 | tanh | Mentioned |
+| 428 | tanh, sin, ReLU | Mentioned |
+| 429 | tanh | Mentioned |
+| 430 | N/A | Not a PINN paper |
+| 431 | N/A | Not explicitly stated |
+| 432 | tanh | Mentioned |
+| 433 | N/A | Not a PINN paper |
+| 434 | N/A | Not a PINN paper |
+| 435 | tanh | Mentioned |
+| 436 | softplus | Mentioned |
+| 437 | N/A | Not a PINN paper |
+| 438 | layer‑wise tanh (adaptive) | Mentioned |
+| 439 | arctan (hidden), linear (output) | Mentioned |
+| 440 | N/A | Not a PINN paper |
+| 441 | N/A | Not a PINN paper |
+| 442 | tanh | Mentioned |
+| 443 | N/A | Not a PINN paper |
+| 444 | tanh | Mentioned |
+| 445 | tanh | Mentioned |
+| 446 | N/A | Not a PINN paper |
+| 447 | tanh | Mentioned |
+| 448 | N/A | Not a PINN paper |
+| 449 | N/A | Not a PINN paper |
+| 450 | tanh | Mentioned |
+| 451 | N/A | Not a PINN paper |
+| 452 | N/A | Not explicitly stated (activation function not identified in accessible target-paper sources) |
+| 453 | N/A | Not a PINN paper |
+| 454 | N/A | Not a PINN paper |
+| 455 | N/A | Not a PINN paper |
+| 456 | N/A | Not a PINN paper |
+| 457 | tanh, ReLU | Mentioned |
+| 458 | N/A | Not a PINN paper |
+| 459 | N/A | Not a PINN paper |
+| 460 | N/A | Not a PINN paper |
+| 461 | tanh; sigmoid | Mentioned |
+| 462 | N/A | Not a PINN paper |
+| 463 | tanh | Mentioned |
+| 464 | N/A | Not explicitly stated |
+| 465 | ReLU; GeLU | Mentioned |
+| 466 | N/A | Not a PINN paper |
+| 467 | N/A | Survey paper |
+| 468 | N/A | Review paper |
+| 469 | N/A | Not a PINN paper |
+| 470 | tanh | Mentioned |
+| 471 | N/A | Not a PINN paper |
+| 472 | N/A | Not a PINN paper |
+| 473 | tanh | Mentioned |
+| 474 | N/A | Not a PINN paper |
+| 475 | tanh; sigmoid; linear; exponential | Mentioned |
+| 476 | tanh | Mentioned |
+| 477 | N/A | Not explicitly stated |
+| 478 | tanh; linear; exponential; logistic | Mentioned |
+| 479 | tanh | Mentioned |
+| 480 | tanh | Mentioned |
+| 481 | tanh |  |
+| 482 | tanh, ReLU, sigmoid, softmax, elu, sine, Swish, Stan | Review paper |
+| 483 | N/A | Not explicitly stated |
+| 484 | tanh |  |
+| 485 | Swish (adaptive) |  |
+| 486 | tanh |  |
+| 487 | tanh (with nodewise coefficients), ReLU |  |
+| 488 | tanh |  |
+| 489 | tanh |  |
+| 490 | N/A | Not a PINN paper |
+| 491 | N/A | Not a PINN paper |
+| 492 | N/A | Not a PINN paper |
+| 493 | tanh, sine, ReLU |  |
+| 494 | N/A | Not a PINN paper |
+| 495 | N/A | Review paper |
+| 496 | tanh |  |
+| 497 | sine |  |
+| 498 | GELU |  |
+| 499 | tanh |  |
+| 500 | tanh |  |
+| 501 | Tanh | Mentioned |
+| 502 | Tanh | Mentioned |
+| 503 | N/A | Review paper |
+| 504 | Tanh | Mentioned |
+| 505 | Tanh | Mentioned |
+| 506 | Sin(2π), tanhshrink, Tanh | Mentioned |
+| 507 | Tanh | Mentioned |
+| 508 | Swish | Mentioned |
+| 509 | N/A | Not a PINN paper |
+| 510 | N/A | Not explicitly stated |
+| 511 | N/A | Not a PINN paper |
+| 512 | Tanh | Mentioned |
+| 513 | Sigmoid | Mentioned |
+| 514 | N/A | Not explicitly stated |
+| 515 | N/A | Not a PINN paper |
+| 516 | Tanh (with locally adaptive scaling) | Mentioned |
+| 517 | tanh | Mentioned |
+| 518 | N/A | Not a PINN paper |
+| 519 | N/A | Not a PINN paper |
+| 520 | tanh | Mentioned |
+| 521 | N/A | Not a PINN paper |
+| 522 | N/A | Not a PINN paper |
+| 523 | N/A | Not a PINN paper |
+| 524 | N/A | Not a PINN paper |
+| 525 | tanh | Mentioned |
+| 526 | tanh | Mentioned |
+| 527 | tanh, swish | Mentioned |
+| 528 | tanh | Mentioned |
+| 529 | tanh, sigmoid, linear | Mentioned |
+| 530 | N/A | Not a PINN paper |
+| 531 | tanh, swish, sigmoid, softplus, ReLU, ReCU | Mentioned |
+| 532 | N/A | Not a PINN paper |
+| 533 | tanh | Mentioned |
+| 534 | sine | Mentioned |
+| 535 | ReLU | Mentioned |
+| 536 | swish | Mentioned |
+| 537 | tanh | Mentioned |
+| 538 | tanh | Mentioned |
+| 539 | LeakyReLU | Mentioned |
+| 540 | sin | Mentioned |
+| 541 | tanh | Mentioned |
+| 542 | tanh | Mentioned |
+| 543 | tanh | Mentioned |
+| 544 | tanh | Mentioned |
+| 545 | tanh | Mentioned |
+| 546 | N/A | Not explicitly stated |
+| 547 | N/A | Not explicitly stated |
+| 548 | tanh | Mentioned |
+| 549 | sigmoid | Mentioned |
+| 550 | N/A | Not explicitly stated |
+| 551 | tanh | Mentioned |
+| 552 | N/A | Not explicitly stated |
+| 553 | tanh; softplus | Mentioned |
+| 554 | sine | Mentioned |
+| 555 | N/A | Not a PINN paper |
+| 556 | N/A | Not explicitly stated |
+| 557 | N/A | Not explicitly stated |
+| 558 | tanh; periodic activation function | Mentioned |
+| 559 | ReLU; tanh | Mentioned |
+| 560 | N/A | Not explicitly stated |
+| 561 | N/A | Not explicitly stated |
+| 562 | N/A | Not explicitly stated |
+| 563 | ReLU | Mentioned |
+| 564 | N/A | Not explicitly stated |
+| 565 | ReLU | Mentioned |
+| 566 | Hardswish; LeakyReLU | Mentioned |
+| 567 | N/A | Not explicitly stated |
+| 568 | N/A | GAN-based approach, not a standard PINN implementation |
+| 569 | Tanh | Mentioned |
+| 570 | N/A | Not explicitly stated |
+| 571 | ReLU | Mentioned |
+| 572 | N/A | Not explicitly stated |
+| 573 | Mish, tanh | Mentioned |
+| 574 | N/A | Not explicitly stated |
+| 575 | N/A | Not explicitly stated |
+| 576 | N/A | Not explicitly stated |
+| 577 | N/A | Not explicitly stated |
+| 578 | cos(z) | Mentioned (cosine activation for Klein-Gordon equation) |
+| 579 | Tanh | Mentioned |
+| 580 | ReLU | Mentioned |
+| 581 | N/A | Not explicitly stated |
+| 582 | N/A | Not a PINN paper (CNN architecture) |
+| 583 | Tanh | Mentioned |
+| 584 | Tanh | Mentioned |
+| 585 | Arctan, Tanh, Swish, LeCun's Tanh, Bipolar sigmoid, Mish, Sigmoid | Multiple compared; Arctan found most stable and accurate |
+| 586 | Sine | Explicitly stated |
+| 587 | Swish | Explicitly stated |
+| 588 | Tanh (hidden layers); Linear (output layer) | Explicitly stated |
+| 589 | Tanh | Explicitly stated |
+| 590 | ReLU (autoencoder hidden); Linear (autoencoder output) | Explicitly stated |
+| 591 | ReLU (hidden); Linear (output) | Explicitly stated |
+| 592 | Tanh | Explicitly stated |
+| 593 | Tanh | Explicitly stated |
+| 594 | ReLU (GoogleNet) | Explicitly stated for CNN |
+| 595 | ReLU or Tanh | "ReLU^k or tanh" stated |
+| 596 | N/A | Not explicitly stated |
+| 597 | ReLU (PINN approach); unspecified for DeepONet | ReLU mentioned for PINN approach; DeepONet activation not specified |
+| 598 | Tanh | Explicitly stated |
+| 599 | Tanh (all hidden layers); ReLU (CNN branch) | Explicitly stated |
+| 600 | ReLU (no second-order derivatives); GELU (with second-order derivatives) | GELU preferred when second-order derivatives involved |
+| 601 | Tanh | Mentioned |
+| 602 | Tanh | Mentioned |
+| 603 | N/A | Not explicitly stated |
+| 604 | Sinusoidal (sin) | Mentioned |
+| 605 | Tanh; Sine | Mentioned |
+| 606 | Tanh | Mentioned |
+| 607 | Tanh | Mentioned |
+| 608 | Sine | Mentioned |
+| 609 | Tanh | Mentioned |
+| 610 | Physics-informed kernel functions (PIKFs) | Activation functions are problem-specific kernel functions; not standard activation |
+| 611 | Gabor function | Activation via multiplicative filter network |
+| 612 | Tanh | Mentioned |
+| 613 | Tanh | Mentioned |
+| 614 | N/A | Not a PINN paper |
+| 615 | N/A | Not a PINN paper |
+| 616 | Tanh | Mentioned |
+| 617 | tanh | Mentioned |
+| 618 | tanh; sin | tanh for CFD, sin for Lotka-Volterra |
+| 619 | sin; tanh | Mentioned |
+| 620 | N/A | Not a PINN paper |
+| 621 | inverse tangent | Mentioned |
+| 622 | ReLU | Mentioned |
+| 623 | N/A | Paper not available |
+| 624 | swish | Mentioned |
+| 625 | sine | Mentioned |
+| 626 | tanh | Mentioned |
+| 627 | Fourier feature mapping; ½ sin(x)+½ cos(x) | Fourier feature in first hidden layer; ½ sin(x)+½ cos(x) in other hidden layers |
+| 628 | tanh; sin; cos | Locally adaptive activation functions; different functions used in different sub-domains |
+| 629 | N/A | Not explicitly stated |
+| 630 | tanh; linear | tanh in hidden layers; linear in output layers |
+| 631 | sin | Mentioned |
+| 632 | N/A | Not explicitly stated |
+| 633 | tanh | Mentioned |
+| 634 | tanh, ELU | Mentioned |
+| 635 | tanh | Mentioned |
+| 636 | tanh | Mentioned |
+| 637 | tanh | Mentioned |
+| 638 | tanh, ReLU | Mentioned |
+| 639 | tanh | Mentioned |
+| 640 | Gaussian RBF | Mentioned |
+| 641 | Gaussian RBF | Mentioned |
+| 642 | tanh | Mentioned |
+| 643 | N/A | Not explicitly stated |
+| 644 | tanh | Mentioned |
+| 645 | swish, tanh | Mentioned |
+| 646 | sine | Mentioned (with positional encoding) |
+| 647 | tanh, sin | Mentioned |
+| 648 | N/A | Not explicitly stated |
+| 649 | N/A | Not explicitly stated |
+| 650 | N/A | Not explicitly stated |
+| 651 | GELU, sine | Mentioned |
+| 652 | N/A | Not explicitly stated |
+| 653 | N/A | Not a PINN paper |
+| 654 | N/A | Not a PINN paper |
+| 655 | N/A | Not explicitly stated |
+| 656 | ReLU | Mentioned |
+| 657 | N/A | Not a PINN paper |
+| 658 | N/A | Review paper |
+| 659 | ReLU | Mentioned |
+| 660 | tanh, neuron-wise locally adaptive activation | Mentioned |
+| 661 | N/A | Not explicitly stated |
+| 662 | sigmoid | Mentioned |
+| 663 | tanh | Mentioned |
+| 664 | N/A | Not a PINN paper |
+| 665 | N/A | Not a PINN paper |
+| 666 | N/A | Not explicitly stated |
+| 667 | Tanh, Softplus | Mentioned |
+| 668 | ReLU | Mentioned |
+| 669 | Tanh | Mentioned |
+| 670 | Tanh, LeakyReLU, Sigmoid | Mentioned |
+| 671 | Swish | Mentioned |
+| 672 | sine, sigmoid | Mentioned |
+| 673 | Tanh | Mentioned |
+| 674 | ReLU | Mentioned |
+| 675 | N/A | Not a PINN paper |
+| 676 | Tanh, Linear | Mentioned |
+| 677 | N/A | Not a PINN paper (uses CNN for comparison, but main method is physics-informed feature extraction with KNN/SVM/LR) |
+| 678 | Tanh | Mentioned |
+| 679 | Tanh, Softplus | Mentioned |
+| 680 | N/A | Not explicitly stated |
+| 681 | Tanh, Leaky-ReLU | Mentioned |
+| 682 | sigmoid, log (logarithmic) | Mentioned |
+| 683 | N/A | Not a PINN paper |
+| 684 | Tanh | Mentioned |
+| 685 | tanh | Mentioned |
+| 686 | tanh, sinusoidal (trainable) | Mentioned |
+| 687 | Swish | Mentioned |
+| 688 | tanh | Mentioned |
+| 689 | tanh | Mentioned |
+| 690 | tanh, softplus | Mentioned (softplus on outputs for positivity) |
+| 691 | tanh | Mentioned |
+| 692 | tanh | Mentioned |
+| 693 | GELU | Mentioned |
+| 694 | N/A | Not explicitly stated (activation function not identified in accessible target-paper sources) |
+| 695 | tanh | Mentioned |
+| 696 | N/A | Not a PINN paper |
+| 697 | sigmoid | Mentioned |
+| 698 | N/A | Not a PINN paper |
+| 699 | N/A | Not explicitly stated |
+| 700 | N/A | Not explicitly stated |
+| 701 | Sigmoid, Tanh | Mentioned |
+| 702 | ELU | Mentioned |
+| 703 | ReLU | Mentioned |
+| 704 | Tanh, Sigmoid | Mentioned |
+| 705 | RBF | Mentioned |
+| 706 | N/A | Not a PINN paper |
+| 707 | Tanh | Mentioned |
+| 708 | Tanh | Mentioned |
+| 709 | Swish | Mentioned |
+| 710 | Tanh | Mentioned |
+| 711 | Sin | Mentioned |
+| 712 | ReLU, Sigmoid, Tanh | Mentioned |
+| 713 | Tanh | Mentioned |
+| 714 | Tanh | Mentioned |
+| 715 | Tanh | Mentioned |
+| 716 | N/A | Review paper |
+| 717 | N/A | Not explicitly stated |
+| 718 | N/A | Not a PINN paper |
+| 719 | N/A | Not explicitly stated |
+| 720 | Tanh | Mentioned |
+| 721 | N/A | Review paper |
+| 722 | Tanh | Mentioned |
+| 723 | N/A | Not explicitly stated (mentions "smooth activation functions" generally) |
+| 724 | Tanh | Mentioned |
+| 725 | ReLU | Mentioned |
+| 726 | ReLU, Tanh | Mentioned |
+| 727 | Swish | Mentioned |
+| 728 | Tanh | Mentioned |
+| 729 | N/A | Not explicitly stated |
+| 730 | N/A | Quantum gates used (Kerr gate provides non-linearity); not a classical activation function |
+| 731 | Sine | Mentioned |
+| 732 | Tanh | Mentioned |
+| 733 | Tanh (with adaptive activation functions and slope recovery) | Mentioned |
+| 734 | tanh | Mentioned |
+| 735 | tanh | Mentioned |
+| 736 | sin | Mentioned for the MLP component of the cell-based model |
+| 737 | N/A | Not explicitly stated |
+| 738 | tanh | Mentioned for the Echo State Network reservoir |
+| 739 | Gaussian Error Linear Units (GELUs) | Mentioned |
+| 740 | tanh | Mentioned |
+| 741 | tanh | Mentioned |
+| 742 | ReLU, leaky ReLU | Mentioned |
+| 743 | N/A | Not explicitly stated |
+| 744 | N/A | Not explicitly stated |
+| 745 | N/A | Not explicitly stated |
+| 746 | tanh, ReLU, GeLU | Mentioned for DeepONet (tanh), FNO/RIFNO (ReLU), WNO (GeLU) |
+| 747 | φ(x)=max{x³,0}, φ(x)=max(0,x)² | Mentioned; first for main experiments, second for eigenvalue problems |
+| 748 | ReLU, tanh, sigmoid | Mentioned for encoder (ReLU), ConvLSTM gates (tanh/sigmoid) |
+| 749 | ReLU | Mentioned |
+| 750 | tanh | Mentioned |
+| 751 | tanh | Mentioned |
+| 752 | ReLU, max(0,x³) | Mentioned |
+| 753 | N/A | Not explicitly stated |
+| 754 | N/A | Not explicitly stated |
+| 755 | ReLU | Mentioned |
+| 756 | Tanh | Mentioned |
+| 757 | ELU, ReLU | Mentioned |
+| 758 | swish | Mentioned |
+| 759 | ReLU | Mentioned |
+| 760 | N/A | Not a PINN paper |
+| 761 | N/A | Not a PINN paper |
+| 762 | N/A | Not a PINN paper |
+| 763 | N/A | Not a PINN paper |
+| 764 | N/A | Not a PINN paper |
+| 765 | N/A | Not a PINN paper |
+| 766 | ABU-PINN (adaptive blending), sin, tanh, GELU, Swish, Softplus, ELU, sigmoid, exp, cos, Softplus, ELU, GELU, Swish | Mentioned (candidate set and standard activations) |
+| 767 | N/A | Not a PINN paper |
+| 768 | N/A | Not a PINN paper |
+| 769 | N/A | Not a PINN paper |
+| 770 | N/A | Not a PINN paper |
+| 771 | N/A | Not a PINN paper |
+| 772 | N/A | Not a PINN paper |
+| 773 | sine | Mentioned |
+| 774 | sine | Mentioned |
+| 775 | tanh | Mentioned |
+| 776 | N/A | Not explicitly stated (activation function not identified in accessible target-paper sources) |
+| 777 | N/A | Not explicitly stated (adaptive activation functions mentioned but specific function not named) |
+| 778 | x + sin²(x) | Mentioned |
+| 779 | Softsign, Softplus, Tanh, Tanhshrink, RReLU | Mentioned (optimized via DE algorithm) |
+| 780 | tanh | Mentioned |
+| 781 | softplus | Mentioned |
+| 782 | tanh | Mentioned |
+| 783 | ReLU | Mentioned |
+| 784 | N/A | Not a PINN paper |
+| 785 | tanh | Mentioned |
+| 786 | ReLU, linear | Mentioned |
+| 787 | tanh | Mentioned |
+| 788 | tanh | Mentioned |
+| 789 | tanh | Mentioned |
+| 790 | sin, tanh, selu, poly, elu, swish | Mentioned |
+| 791 | N/A | Not explicitly stated |
+| 792 | N/A | Not explicitly stated |
+| 793 | tanh | Mentioned |
+| 794 | N/A | Not explicitly stated; uses GRU/attention mechanism |
+| 795 | tanh, sigmoid | Mentioned |
+| 796 | N/A | Not explicitly stated; uses Transformer architecture |
+| 797 | sigmoid | Mentioned |
+| 798 | tanh | Mentioned |
+| 799 | sin, tanh | Mentioned |
+| 800 | N/A | Not explicitly stated |
+| 801 | ReLU | Mentioned |
+| 802 | ReLU | Mentioned |
+| 803 | N/A | Not explicitly stated (theory-guided neural network; activation function not identified in accessible target-paper sources) |
+| 804 | Gaussian RBF | Mentioned |
+| 805 | N/A | Not explicitly stated |
+| 806 | sigmoid | Mentioned |
+| 807 | tanh | Mentioned |
+| 808 | N/A | Not a PINN paper (FNO) |
+| 809 | N/A | Not a PINN paper (Fourier neural operator; activation function not identified in accessible target-paper sources) |
+| 810 | Softsign | Mentioned |
+| 811 | Softsign | Mentioned |
+| 812 | N/A | Not explicitly stated (activation function not identified in accessible target-paper sources) |
+| 813 | adaptive tanh | Mentioned (feed-forward neural networks with Fourier/inverse-Fourier transformation and adaptive tanh activation) |
+| 814 | tanh | Mentioned |
+| 815 | sigmoid, ReLU | Mentioned |
+| 816 | tanh | Mentioned |
+| 817 | Softplus | Mentioned |
+| 818 | tanh | Mentioned |
+| 819 | tanh | Mentioned |
+| 820 | tanh, sine, Gaussian, swish, softplus | Mentioned |
+| 821 | sin, tanh, GELU, Swish, Softplus | Mentioned; adaptive activation functions |
+| 822 | tanh, sigmoid, ReLU | Mentioned |
+| 823 | tanh | Mentioned |
+| 824 | N/A | Not a PINN paper |
+| 825 | tanh | Mentioned |
+| 826 | sigmoid, tanh | Mentioned |
+| 827 | tanh | Mentioned |
+| 828 | ReLU | Mentioned |
+| 829 | tansig, purelin | Mentioned (MATLAB terminology for tanh and linear) |
+| 830 | tanh | Mentioned |
+| 831 | identity (linear) | Mentioned only for the linear building block; other activations not specified |
+| 832 | tanh | Mentioned |
+| 833 | tanh | Mentioned |
+| 834 | tanh | Mentioned |
+| 835 | sigmoid, tanh, scaled sigmoid | Mentioned |
+| 836 | tanh, sigmoid | Mentioned |
+| 837 | tanh | Mentioned |
+| 838 | N/A | Review paper |
+| 839 | N/A | Review paper |
+| 840 | tanh | Mentioned |
+| 841 | N/A | Not explicitly stated |
+| 842 | tanh | Mentioned |
+| 843 | tanh | Mentioned |
+| 844 | LeakyReLU | Mentioned |
+| 845 | SLU, sigmoid | Mentioned |
+| 846 | N/A | Perspective review |
+| 847 | ReLU | Mentioned |
+| 848 | tanh | Mentioned |
+| 849 | tanh, sigmoid | Mentioned |
+| 850 | ReLU, Linear | Mentioned |
+| 851 | Softplus | Mentioned |
+| 852 | tanh | Mentioned |
+| 853 | ReLU, LeakyReLU | Mentioned |

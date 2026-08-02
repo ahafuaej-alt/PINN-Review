@@ -96,6 +96,7 @@
       ['PINN Realm', 'pinn-realm/'],
       ['Performance Metrics', 'performance-metrics/'],
       ['Optimizers', 'optimizers/'],
+      ['Activation Functions', 'activation-functions/'],
       ['Abbreviations', 'abbreviations/'],
       ['References', 'references/'],
       ['Dataset Manager', 'dataset-manager/']

@@ -1,0 +1,32 @@
+{
+  "generated_on": "2026-08-03",
+  "source_sha256": "d8a824bb6734cc01797df2f48f826faf9dfc6885c713a8ab8029d694bbb1b9cf",
+  "research_notes_sha256": "cea2dde5441e23ebf35c7933f74100208d6bc0fe0ab687920630a9e2f8c9cd89",
+  "checks": {
+    "source_rows_853": true,
+    "unique_source_ids_853": true,
+    "ids_exactly_1_to_853": true,
+    "no_missing_ids": true,
+    "no_duplicate_ids": true,
+    "named_activation_records_482": true,
+    "explicit_na_records_371": true,
+    "distinct_raw_non_na_fields_163": true,
+    "all_labels_bracketed": true,
+    "raw_fields_and_notes_preserved": true,
+    "all_forms_accounted_for": true,
+    "all_normalized_ids_in_taxonomy": true,
+    "taxonomy_counts_use_unique_papers": true,
+    "paper_count_deduplicates_canonical_mentions": true,
+    "implementation_and_review_distinguishable": true,
+    "contextual_roles_retained": true,
+    "na_status_derived_from_notes": true,
+    "formula_commas_not_split": true,
+    "paper_813_adaptive_tanh": true,
+    "paper_170_review_not_implementation": true,
+    "paper_809_fno_non_pinn": true,
+    "completed_records_researched": true
+  },
+  "duplicate_ids": [],
+  "missing_ids": [],
+  "unmapped_raw_forms": []
+}
