@@ -16,6 +16,11 @@
     non_pinn_record: 'Non-PINN record',
     software_or_framework: 'Software or framework'
   }[status] || String(status || 'Status not identified').replaceAll('_', ' '));
+  const optimizerStatusLabel = (status) => ({
+    reported: 'Optimizer/training algorithm reported',
+    not_reported: 'Explicit N/A in optimizer source',
+    source_record_missing: 'Optimizer source record missing'
+  }[status] || String(status || 'Status not identified').replaceAll('_', ' '));
 
   const loadGzipJson = async (paths) => {
     if (!('DecompressionStream' in window)) throw new Error('Compressed Atlas data are not supported by this browser.');
@@ -70,13 +75,38 @@
       fetch('../data/reference-pinn-abbreviations.txt', { cache: 'no-store' }).then((response) => {
         if (!response.ok) throw new Error(`Abbreviation source returned ${response.status}`);
         return response.text();
+      }),
+      fetch('../data/optimizers/optimizer-records.json', { cache: 'no-store' }).then((response) => {
+        if (!response.ok) throw new Error(`Optimizer records returned ${response.status}`);
+        return response.json();
+      }),
+      fetch('../data/optimizers/optimizer-taxonomy.json', { cache: 'no-store' }).then((response) => {
+        if (!response.ok) throw new Error(`Optimizer taxonomy returned ${response.status}`);
+        return response.json();
       })
-    ]).then(([paperData, taxonomyData, abbreviationText]) => ({
+    ]).then(([paperData, taxonomyData, abbreviationText, optimizerRecords, optimizerTaxonomy]) => ({
       papers: new Map((paperData.papers || []).map((paper) => [Number(paper.paper_id), paper])),
       metrics: new Map((taxonomyData.metrics || []).map((metric) => [metric.metric_id, metric])),
-      abbreviations: parseAbbreviations(abbreviationText)
+      abbreviations: parseAbbreviations(abbreviationText),
+      optimizerRecords: new Map((optimizerRecords.records || []).map((record) => [Number(record.paper_id), record])),
+      optimizers: new Map((optimizerTaxonomy.optimizers || []).map((optimizer) => [optimizer.optimizer_id, optimizer]))
     }));
     return technicalDataPromise;
+  };
+
+  const optimizersHtml = (paperId, data) => {
+    const record = data.optimizerRecords.get(paperId);
+    if (!record) return `<section class="technical-module"><div class="technical-module-head"><h4>Optimizers</h4><a href="../optimizers/?q=${paperId}">Open explorer ↗</a></div><p class="technical-empty">No optimizer source record is available for ${label(paperId)} in the current optimizer dataset.</p></section>`;
+    const resolved = (record.normalized_optimizer_ids || []).map((optimizerId) => data.optimizers.get(optimizerId)).filter(Boolean);
+    const grouped = new Map();
+    resolved.forEach((optimizer) => {
+      const families = [optimizer.family, ...(optimizer.secondary_tags || [])];
+      families.forEach((family) => grouped.set(family, [...(grouped.get(family) || []), optimizer.optimizer_name]));
+    });
+    const groupsHtml = [...grouped].map(([family, names]) => `<div class="technical-group"><strong>${escapeHtml(family)}</strong><div class="technical-chips">${[...new Set(names)].map((name) => `<span>${escapeHtml(name)}</span>`).join('')}</div></div>`).join('');
+    const raw = String(record.optimizer_raw || '').trim();
+    const notes = (record.normalization_notes || []).join(' ');
+    return `<section class="technical-module"><div class="technical-module-head"><h4>Optimizers</h4><a href="../optimizers/?q=${paperId}">Open ${label(paperId)} in explorer ↗</a></div><p><span class="technical-status">${escapeHtml(optimizerStatusLabel(record.reporting_status))}</span>${resolved.length ? ` · ${resolved.length} canonical form${resolved.length === 1 ? '' : 's'}` : ''}</p>${groupsHtml || `<p class="technical-empty">${record.reporting_status === 'not_reported' ? 'The optimizer source explicitly reports N/A; no optimizer is inferred.' : `No normalized optimizer is assigned to ${label(paperId)}.`}</p>`}${raw ? `<details class="technical-raw"><summary>Exact raw optimizer field</summary><p>${escapeHtml(raw)}</p></details>` : ''}${notes ? `<p class="technical-warning"><strong>${record.manual_review_required ? 'Manual review warning:' : 'Normalization note:'}</strong> ${escapeHtml(notes)}</p>` : ''}</section>`;
   };
 
   const performanceHtml = (paperId, data) => {
@@ -110,10 +140,11 @@
     body.innerHTML = '<div class="technical-loading"><strong>Loading Atlas technical evidence…</strong><span>Combining paper-level records from current Atlas modules.</span></div>';
     try {
       const data = await loadTechnicalData();
-      body.innerHTML = `<div class="technical-details-grid">${performanceHtml(paperId, data)}${abbreviationsHtml(paperId, data)}<section class="technical-module technical-future"><h4>Future technical modules</h4><p>Optimizer, architecture, activation-function, sampling, software, dataset, and other technical fields can be added here as their Atlas pages and validated paper-level datasets become available.</p></section></div>`;
+      body.innerHTML = `<div class="technical-details-grid">${performanceHtml(paperId, data)}${optimizersHtml(paperId, data)}${abbreviationsHtml(paperId, data)}<section class="technical-module technical-future"><h4>Future technical modules</h4><p>Architecture, activation-function, sampling, software, dataset, and other technical fields can be added here as their Atlas pages and validated paper-level datasets become available.</p></section></div>`;
       const performanceCount = data.papers.get(paperId)?.normalized_metric_ids?.length || 0;
+      const optimizerCount = data.optimizerRecords.get(paperId)?.normalized_optimizer_ids?.length || 0;
       const abbreviationCount = data.abbreviations.get(paperId)?.length || 0;
-      summaryStatus.textContent = `${performanceCount} metrics · ${abbreviationCount} abbreviations`;
+      summaryStatus.textContent = `${performanceCount} metrics · ${optimizerCount} optimizers · ${abbreviationCount} abbreviations`;
       details.dataset.loaded = 'true';
     } catch (error) {
       body.innerHTML = `<div class="detail-empty"><strong>Technical details could not be loaded.</strong><p>${escapeHtml(error.message)}</p></div>`;
@@ -131,7 +162,7 @@
     const technical = document.createElement('details');
     technical.className = 'nested-reference-detail technical-reference-detail';
     technical.dataset.technicalDetail = String(paperId);
-    technical.innerHTML = `<summary><span>Technical details</span><small>Metrics, abbreviations, and Atlas evidence</small></summary><div class="nested-detail-body"><div class="technical-loading"><strong>Open this panel to load technical details.</strong></div></div>`;
+    technical.innerHTML = `<summary><span>Technical details</span><small>Metrics, optimizers, abbreviations, and Atlas evidence</small></summary><div class="nested-detail-body"><div class="technical-loading"><strong>Open this panel to load technical details.</strong></div></div>`;
     list.insertBefore(technical, list.children[1] || null);
     technical.addEventListener('toggle', () => {
       if (technical.open) renderTechnicalDetails(technical, paperId);

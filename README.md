@@ -12,6 +12,8 @@ PINN Review Atlas is the web companion to a review of physics-informed neural ne
 - `/datasets/` — ready-made and generated datasets
 - `/abbreviations/` — reported abbreviations, frequencies, and reference-level evidence
 - `/pinn-realm/` — interactive country distribution and international affiliation co-occurrence across all 853 papers
+- `/performance-metrics/` — paper-level evaluation metrics, taxonomy, completeness, and scientifically guarded comparison
+- `/optimizers/` — reported optimizer and training/inference algorithms with raw wording, conservative normalization, and paper-level evidence
 - `/references/` — complete review bibliography with advanced search, shareable filters, reading lists, pagination, analytics, and BibTeX/RIS/EndNote/CSV exports
 - `/references/changelog/` — bibliography version history and data-quality methodology
 - `/dataset-manager/` — prepare and submit validated, evidence-backed updates with automatic MDPI ACS citation formatting
@@ -57,6 +59,8 @@ node scripts/apply-paper-update.mjs update.json
 node scripts/build-datasets.mjs --check
 node scripts/validate-dataset.mjs
 node scripts/validate-citation-format.mjs
+node scripts/build-optimizers.mjs --check
+node scripts/validate-optimizers.mjs
 ```
 
 Legacy note: 112 pre-existing year disagreements between the bibliography extraction and standardized country/year source remain explicit `overrides.realm_year` values. A sourced year update removes that paper's override by default and uses the corrected year throughout the Atlas.

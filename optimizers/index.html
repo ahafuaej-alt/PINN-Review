@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore paper-level optimizers and training or inference algorithms reported across the PINN Review Atlas.">
+  <meta name="theme-color" content="#09111d">
+  <title>Optimizers · PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=ux-20260802c"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=ux-20260802c">
+  <link rel="stylesheet" href="../assets/performance.css?v=20260802">
+  <link rel="stylesheet" href="../assets/optimizers.css?v=20260802">
+  <script src="../assets/app.js?v=ux-20260802c" defer></script>
+  <script src="../assets/optimizers.js?v=20260802" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../pinn-types/">PINN types</a>
+        <a href="../pinn-realm/">PINN Realm</a>
+        <a href="../performance-metrics/">Performance Metrics</a>
+        <a href="./" aria-current="page">Optimizers</a>
+        <a href="../abbreviations/">Abbreviations</a>
+        <a href="../references/">References</a>
+        <a href="../dataset-manager/">Dataset Manager</a>
+        <a href="../cite/">Cite</a>
+        <a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="performance-hero optimizer-hero">
+      <div class="container">
+        <p class="eyebrow">Training evidence explorer</p>
+        <h1>PINN optimizers,<br><span class="gradient">paper by paper.</span></h1>
+        <p class="lede">Explore the optimization and training algorithms reported across the PINN Review Atlas. Every paper remains linked to its bracketed Atlas reference ID.</p>
+        <div class="performance-notice" role="note"><strong>Scientific interpretation:</strong> An optimizer being frequently reported does not mean it is universally superior. Optimizer effectiveness depends on the governing problem, loss landscape, network architecture, learning-rate schedule, initialization, stopping criteria, implementation, and training budget.</div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Dataset overview</p><h2 id="overview-title">Reporting coverage</h2></div><p>Counts are generated from the completed 853-row source. The field covers any optimizer or training/inference algorithm reported by the paper.</p></div>
+        <div class="kpi-grid optimizer-kpis" data-kpis aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="filters-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Find evidence</p><h2 id="filters-title">Filter papers and algorithms</h2></div><p>Search accepts either <code>248</code> or <code>[248]</code>; an ID-only query returns exactly one paper.</p></div>
+        <div class="filter-panel optimizer-filters">
+          <label class="field wide"><span>Search</span><input type="search" data-search placeholder="Reference ID, optimizer, alias, or source annotation…" autocomplete="off"></label>
+          <label class="field"><span>Optimizer family</span><select data-family><option value="">All families</option></select></label>
+          <label class="field"><span>Canonical optimizer</span><select data-optimizer><option value="">All optimizers</option></select></label>
+          <label class="field"><span>Reporting status</span><select data-status><option value="">All statuses</option><option value="reported">Reported</option><option value="not_reported">Explicit N/A</option><option value="source_record_missing">Source record missing</option></select></label>
+          <label class="field"><span>Training strategy</span><select data-strategy><option value="">All strategies</option><option value="single_optimizer">Single optimizer</option><option value="multiple_optimizers">Multiple optimizers</option><option value="sequential_or_hybrid_optimizer_set">Sequential/hybrid set</option></select></label>
+          <label class="field"><span>Manual review</span><select data-review><option value="">All records</option><option value="required">Review required</option><option value="not_required">No review flag</option></select></label>
+          <div class="filter-actions"><button class="button primary" type="button" data-reset>Reset filters</button><button class="button" type="button" data-export-json>Export JSON</button><button class="button" type="button" data-export-csv>Export CSV</button></div>
+        </div>
+        <p class="result-summary" data-result-summary tabindex="-1" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="prevalence-title">
+      <div class="container performance-grid two optimizer-overview-grid">
+        <article class="performance-card"><div class="card-head"><div><p class="eyebrow">Reporting prevalence</p><h2 id="prevalence-title">Most reported optimizers</h2></div></div><p class="optimizer-card-note">Each paper contributes at most once to an optimizer count.</p><div class="bar-list" data-top-optimizers></div></article>
+        <article class="performance-card"><div class="card-head"><div><p class="eyebrow">Browsing taxonomy</p><h2>Optimizer families</h2></div></div><div class="group-grid optimizer-family-grid" data-families></div></article>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="matrix-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Coverage matrix</p><h2 id="matrix-title">Papers × optimizer families</h2></div><p>Shows up to 50 filtered papers. Select a reported cell to inspect that paper and family.</p></div>
+        <div class="matrix-legend" aria-label="Matrix legend"><span><i class="dot optimizer-reported"></i> Reported</span><span><i class="dot optimizer-na"></i> Explicit N/A</span><span><i class="dot optimizer-missing"></i> Source record missing</span></div>
+        <div class="matrix-wrap"><table class="matrix optimizer-matrix"><thead data-matrix-head></thead><tbody data-matrix-body></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="papers-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Paper records</p><h2 id="papers-title">Algorithms by reference ID</h2></div><p>Select two to five papers for side-by-side reporting comparison.</p></div>
+        <div class="compare-bar" data-compare-bar hidden><span data-compare-count></span><button class="button primary" type="button" data-open-compare>Compare selected</button><button class="button" type="button" data-clear-compare>Clear</button></div>
+        <div class="paper-grid" data-papers></div>
+        <div class="pager" data-pager></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="explorer-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Neutral dictionary</p><h2 id="explorer-title">Optimizer Explorer</h2></div><p>Canonical forms, source aliases, families, method types, source annotations, and supporting bracketed IDs—without performance ranking.</p></div>
+        <div class="metric-explorer" data-optimizer-explorer></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell optimizer-provenance" aria-labelledby="provenance-title">
+      <div class="container performance-card">
+        <div class="section-head compact"><div><p class="eyebrow">Provenance</p><h2 id="provenance-title">Auditable source and method</h2></div><p>Raw wording is retained beside every normalized form. The completed source includes research-backed entries for eight records absent from an earlier extraction.</p></div>
+        <div class="filter-actions"><a class="button" href="../data/optimizers/reference-optimizer-source.md">View source table</a><a class="button" href="../data/optimizers/reference-optimizer-web-research-notes.md">View research notes</a><a class="button" href="../data/optimizers/optimizer-records.json" download>Download all records</a><a class="button" href="../data/optimizers/README.md">Read methodology</a></div>
+      </div>
+    </section>
+
+    <dialog class="performance-dialog" data-detail-dialog aria-labelledby="optimizer-detail-title"><form method="dialog"><button class="dialog-close" aria-label="Close optimizer details">×</button></form><div data-detail-content></div></dialog>
+    <dialog class="performance-dialog wide" data-compare-dialog aria-labelledby="optimizer-compare-title"><form method="dialog"><button class="dialog-close" aria-label="Close comparison">×</button></form><div data-compare-content></div></dialog>
+    <div class="toast optimizer-toast" data-toast role="status" aria-live="polite" hidden></div>
+    <noscript><div class="container performance-notice"><strong>JavaScript is required for interactive filtering.</strong> The complete source and JSON downloads remain available in the provenance section.</div></noscript>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Evidence-led · Versioned · Open for review</span></div></footer>
+</body>
+</html>

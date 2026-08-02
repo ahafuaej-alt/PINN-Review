@@ -1,0 +1,1669 @@
+{
+  "families": [
+    "Adaptive first-order optimizers",
+    "Gradient-descent and stochastic-gradient methods",
+    "Quasi-Newton and second-order methods",
+    "Conjugate-gradient, least-squares, and related solvers",
+    "Metaheuristic and evolutionary methods",
+    "Reinforcement-learning algorithms",
+    "Bayesian optimization and probabilistic inference",
+    "Meta-learned and specialized methods"
+  ],
+  "optimizers": [
+    {
+      "optimizer_id": "adam",
+      "optimizer_name": "Adam",
+      "aliases": [
+        "Adam",
+        "ADAM"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adaptive first-order gradient optimization algorithm.",
+      "paper_count": 480,
+      "paper_ids": [
+        2,
+        3,
+        8,
+        11,
+        13,
+        14,
+        15,
+        16,
+        18,
+        22,
+        24,
+        25,
+        26,
+        28,
+        30,
+        31,
+        32,
+        33,
+        40,
+        47,
+        50,
+        61,
+        62,
+        66,
+        68,
+        74,
+        75,
+        76,
+        77,
+        80,
+        83,
+        87,
+        95,
+        104,
+        107,
+        110,
+        115,
+        116,
+        118,
+        119,
+        121,
+        137,
+        138,
+        139,
+        140,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        150,
+        158,
+        159,
+        160,
+        162,
+        163,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        179,
+        182,
+        183,
+        189,
+        190,
+        191,
+        193,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        204,
+        206,
+        207,
+        208,
+        209,
+        213,
+        214,
+        218,
+        219,
+        220,
+        221,
+        222,
+        225,
+        226,
+        227,
+        228,
+        229,
+        231,
+        233,
+        235,
+        237,
+        239,
+        241,
+        242,
+        243,
+        244,
+        245,
+        247,
+        248,
+        250,
+        252,
+        253,
+        257,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        276,
+        277,
+        279,
+        281,
+        282,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        293,
+        294,
+        295,
+        297,
+        298,
+        302,
+        303,
+        309,
+        310,
+        311,
+        312,
+        313,
+        315,
+        316,
+        317,
+        318,
+        319,
+        323,
+        326,
+        328,
+        332,
+        333,
+        334,
+        336,
+        339,
+        340,
+        342,
+        343,
+        344,
+        346,
+        347,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        362,
+        363,
+        374,
+        379,
+        381,
+        383,
+        384,
+        387,
+        388,
+        391,
+        392,
+        393,
+        396,
+        402,
+        403,
+        404,
+        406,
+        408,
+        410,
+        412,
+        413,
+        415,
+        416,
+        417,
+        420,
+        421,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        431,
+        432,
+        435,
+        436,
+        438,
+        439,
+        442,
+        444,
+        445,
+        447,
+        450,
+        457,
+        465,
+        470,
+        471,
+        473,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        489,
+        493,
+        494,
+        495,
+        496,
+        500,
+        501,
+        502,
+        503,
+        505,
+        506,
+        507,
+        508,
+        512,
+        513,
+        514,
+        517,
+        520,
+        525,
+        526,
+        527,
+        528,
+        529,
+        531,
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543,
+        544,
+        545,
+        546,
+        548,
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        565,
+        566,
+        567,
+        568,
+        569,
+        570,
+        571,
+        573,
+        574,
+        575,
+        578,
+        579,
+        580,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        608,
+        610,
+        611,
+        612,
+        613,
+        616,
+        617,
+        619,
+        621,
+        622,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        634,
+        635,
+        636,
+        637,
+        638,
+        639,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        655,
+        656,
+        659,
+        660,
+        662,
+        666,
+        667,
+        668,
+        669,
+        670,
+        671,
+        672,
+        673,
+        674,
+        677,
+        678,
+        679,
+        680,
+        681,
+        682,
+        684,
+        685,
+        686,
+        687,
+        689,
+        690,
+        691,
+        692,
+        693,
+        695,
+        697,
+        701,
+        702,
+        703,
+        704,
+        707,
+        708,
+        711,
+        712,
+        713,
+        714,
+        715,
+        720,
+        722,
+        723,
+        725,
+        726,
+        728,
+        730,
+        731,
+        733,
+        734,
+        736,
+        737,
+        739,
+        740,
+        741,
+        742,
+        744,
+        745,
+        746,
+        747,
+        748,
+        749,
+        750,
+        751,
+        753,
+        754,
+        755,
+        756,
+        757,
+        758,
+        759,
+        766,
+        773,
+        774,
+        775,
+        777,
+        778,
+        780,
+        782,
+        783,
+        785,
+        786,
+        789,
+        790,
+        791,
+        794,
+        795,
+        796,
+        798,
+        800,
+        801,
+        802,
+        804,
+        806,
+        807,
+        815,
+        817,
+        818,
+        819,
+        820,
+        821,
+        822,
+        823,
+        825,
+        827,
+        828,
+        830,
+        833,
+        834,
+        835,
+        836,
+        837,
+        839,
+        840,
+        841,
+        842,
+        843,
+        844,
+        845,
+        847,
+        848,
+        849,
+        851,
+        852
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "l_bfgs",
+      "optimizer_name": "L-BFGS",
+      "aliases": [
+        "L‑BFGS",
+        "L-BFGS",
+        "LBFGS"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Limited-memory quasi-Newton optimization method.",
+      "paper_count": 122,
+      "paper_ids": [
+        2,
+        3,
+        4,
+        8,
+        22,
+        25,
+        32,
+        61,
+        66,
+        68,
+        81,
+        150,
+        162,
+        170,
+        209,
+        220,
+        227,
+        233,
+        238,
+        245,
+        248,
+        253,
+        260,
+        262,
+        263,
+        264,
+        265,
+        275,
+        323,
+        338,
+        339,
+        340,
+        343,
+        346,
+        362,
+        368,
+        369,
+        381,
+        383,
+        404,
+        409,
+        416,
+        421,
+        426,
+        427,
+        432,
+        445,
+        450,
+        463,
+        473,
+        479,
+        482,
+        484,
+        486,
+        489,
+        495,
+        496,
+        500,
+        503,
+        504,
+        506,
+        516,
+        517,
+        520,
+        528,
+        536,
+        538,
+        541,
+        542,
+        543,
+        545,
+        556,
+        579,
+        583,
+        593,
+        604,
+        608,
+        612,
+        617,
+        621,
+        624,
+        626,
+        627,
+        630,
+        633,
+        636,
+        639,
+        642,
+        644,
+        649,
+        665,
+        671,
+        673,
+        679,
+        685,
+        688,
+        690,
+        697,
+        703,
+        713,
+        723,
+        724,
+        728,
+        750,
+        751,
+        766,
+        773,
+        785,
+        789,
+        790,
+        814,
+        816,
+        818,
+        820,
+        822,
+        823,
+        827,
+        832,
+        833,
+        834,
+        839,
+        849
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "l_bfgs_b",
+      "optimizer_name": "L-BFGS-B",
+      "aliases": [
+        "L-BFGS-B"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Bound-constrained limited-memory quasi-Newton method.",
+      "paper_count": 34,
+      "paper_ids": [
+        24,
+        40,
+        70,
+        75,
+        143,
+        293,
+        298,
+        308,
+        311,
+        320,
+        347,
+        388,
+        391,
+        410,
+        411,
+        413,
+        420,
+        422,
+        429,
+        476,
+        480,
+        482,
+        495,
+        585,
+        587,
+        605,
+        609,
+        691,
+        738,
+        778,
+        788,
+        793,
+        799,
+        807
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "sgd",
+      "optimizer_name": "SGD",
+      "aliases": [
+        "SGD",
+        "SGD (or variants)"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Stochastic gradient descent; source annotations about variants are retained.",
+      "paper_count": 16,
+      "paper_ids": [
+        3,
+        150,
+        177,
+        359,
+        474,
+        482,
+        495,
+        564,
+        574,
+        576,
+        579,
+        580,
+        627,
+        676,
+        812,
+        818
+      ],
+      "source_annotations": [
+        "or variants"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adamw",
+      "optimizer_name": "AdamW",
+      "aliases": [
+        "AdamW"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adam variant with decoupled weight decay.",
+      "paper_count": 12,
+      "paper_ids": [
+        4,
+        5,
+        27,
+        185,
+        202,
+        292,
+        299,
+        300,
+        609,
+        810,
+        811,
+        850
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "bfgs",
+      "optimizer_name": "BFGS",
+      "aliases": [
+        "quasi-Newton BFGS",
+        "BFGS"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Quasi-Newton optimization using a BFGS Hessian approximation.",
+      "paper_count": 10,
+      "paper_ids": [
+        461,
+        482,
+        495,
+        544,
+        636,
+        637,
+        663,
+        727,
+        818,
+        819
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "rmsprop",
+      "optimizer_name": "RMSprop",
+      "aliases": [
+        "RMSprop",
+        "RMSProp"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adaptive method using a moving average of squared gradients.",
+      "paper_count": 10,
+      "paper_ids": [
+        3,
+        405,
+        457,
+        475,
+        540,
+        572,
+        583,
+        595,
+        815,
+        818
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "levenberg_marquardt",
+      "optimizer_name": "Levenberg–Marquardt",
+      "aliases": [
+        "Levenberg-Marquardt"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "second-order",
+      "description": "Damped least-squares method combining Gauss–Newton and gradient updates.",
+      "paper_count": 9,
+      "paper_ids": [
+        139,
+        289,
+        418,
+        463,
+        464,
+        610,
+        640,
+        641,
+        829
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "gradient_descent",
+      "optimizer_name": "Gradient descent",
+      "aliases": [
+        "Gradient descent",
+        "GD (Gradient Descent)",
+        "gradient descent"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Generic gradient-based optimization method.",
+      "paper_count": 5,
+      "paper_ids": [
+        358,
+        595,
+        641,
+        797,
+        831
+      ],
+      "source_annotations": [
+        "Gradient Descent"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adagrad",
+      "optimizer_name": "AdaGrad",
+      "aliases": [
+        "Adagrad",
+        "AdaGrad",
+        "Ada Grad"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adaptive gradient method with coordinate-wise accumulated scaling.",
+      "paper_count": 4,
+      "paper_ids": [
+        3,
+        354,
+        531,
+        540
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adamax",
+      "optimizer_name": "AdaMax",
+      "aliases": [
+        "AdaMax",
+        "Adamax"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Infinity-norm variant of Adam.",
+      "paper_count": 4,
+      "paper_ids": [
+        3,
+        234,
+        260,
+        705
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adadelta",
+      "optimizer_name": "AdaDelta",
+      "aliases": [
+        "AdaDelta"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adaptive method based on running windows of gradient updates.",
+      "paper_count": 2,
+      "paper_ids": [
+        590,
+        664
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "amsgrad",
+      "optimizer_name": "AMSGrad",
+      "aliases": [
+        "AMSGrad (Adam variant)",
+        "AMSGrad"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adam-family method with a nondecreasing second-moment estimate.",
+      "paper_count": 2,
+      "paper_ids": [
+        275,
+        663
+      ],
+      "source_annotations": [
+        "Adam variant"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "bayesian_optimization",
+      "optimizer_name": "Bayesian optimization",
+      "aliases": [
+        "Bayesian optimization"
+      ],
+      "family": "Bayesian optimization and probabilistic inference",
+      "secondary_tags": [],
+      "method_type": "probabilistic",
+      "description": "Surrogate-based probabilistic search over an objective.",
+      "paper_count": 2,
+      "paper_ids": [
+        139,
+        146
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "hamiltonian_monte_carlo",
+      "optimizer_name": "Hamiltonian Monte Carlo",
+      "aliases": [
+        "Hamiltonian Monte Carlo",
+        "HMC"
+      ],
+      "family": "Bayesian optimization and probabilistic inference",
+      "secondary_tags": [],
+      "method_type": "probabilistic",
+      "description": "Gradient-informed Markov chain Monte Carlo inference algorithm.",
+      "paper_count": 2,
+      "paper_ids": [
+        616,
+        618
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "meta_learned_optimizer",
+      "optimizer_name": "Meta-learned optimizer",
+      "aliases": [
+        "Meta-learned optimizer"
+      ],
+      "family": "Meta-learned and specialized methods",
+      "secondary_tags": [],
+      "method_type": "meta-learned",
+      "description": "Optimizer whose update rule is reported as learned through meta-learning.",
+      "paper_count": 2,
+      "paper_ids": [
+        579,
+        581
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "nadam",
+      "optimizer_name": "Nadam",
+      "aliases": [
+        "Nadam",
+        "NAdam"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adam-family method incorporating Nesterov momentum.",
+      "paper_count": 2,
+      "paper_ids": [
+        186,
+        853
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "nesterov",
+      "optimizer_name": "Nesterov",
+      "aliases": [
+        "Nesterov"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Gradient optimization reported with Nesterov acceleration or momentum.",
+      "paper_count": 2,
+      "paper_ids": [
+        640,
+        641
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "rprop",
+      "optimizer_name": "RProp",
+      "aliases": [
+        "RProp",
+        "RProp (trainrp)"
+      ],
+      "family": "Conjugate-gradient, least-squares, and related solvers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Resilient backpropagation; source implementation annotations are retained.",
+      "paper_count": 2,
+      "paper_ids": [
+        4,
+        7
+      ],
+      "source_annotations": [
+        "trainrp"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "scaled_conjugate_gradient",
+      "optimizer_name": "Scaled conjugate gradient",
+      "aliases": [
+        "Scaled Conjugate Gradient (trainscg)",
+        "scaled conjugate gradient backpropagation"
+      ],
+      "family": "Conjugate-gradient, least-squares, and related solvers",
+      "secondary_tags": [],
+      "method_type": "other",
+      "description": "Conjugate-gradient training method; implementation annotations are retained.",
+      "paper_count": 2,
+      "paper_ids": [
+        12,
+        224
+      ],
+      "source_annotations": [
+        "trainscg"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adahessian",
+      "optimizer_name": "AdaHessian",
+      "aliases": [
+        "AdaHessian"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "second-order",
+      "description": "Adaptive method that incorporates diagonal Hessian information.",
+      "paper_count": 1,
+      "paper_ids": [
+        3
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adam_adaptive_learning_rate_decay",
+      "optimizer_name": "Adam with adaptive learning-rate decay",
+      "aliases": [
+        "Adam (with adaptive learning rate decay)"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adam reported with an adaptive learning-rate decay configuration.",
+      "paper_count": 1,
+      "paper_ids": [
+        779
+      ],
+      "source_annotations": [
+        "with adaptive learning rate decay"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adam_adaptive_learning_rate_scheme",
+      "optimizer_name": "Adam with adaptive learning-rate scheme",
+      "aliases": [
+        "Adam (adaptive learning rate scheme)"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adam reported with a source-specific adaptive learning-rate scheme.",
+      "paper_count": 1,
+      "paper_ids": [
+        324
+      ],
+      "source_annotations": [
+        "adaptive learning rate scheme"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adam_learning_rate_decay",
+      "optimizer_name": "Adam with learning-rate decay",
+      "aliases": [
+        "Adam (with learning rate decay)"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Adam reported with learning-rate decay.",
+      "paper_count": 1,
+      "paper_ids": [
+        781
+      ],
+      "source_annotations": [
+        "with learning rate decay"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "adamdelta",
+      "optimizer_name": "AdamDelta",
+      "aliases": [
+        "AdamDelta"
+      ],
+      "family": "Meta-learned and specialized methods",
+      "secondary_tags": [],
+      "method_type": "other",
+      "description": "Source-specific algorithm label retained without assuming equivalence to Adam or AdaDelta.",
+      "paper_count": 1,
+      "paper_ids": [
+        360
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "adaptive_gradient_update",
+      "optimizer_name": "Adaptive Gradient Update",
+      "aliases": [
+        "Adaptive Gradient Update"
+      ],
+      "family": "Meta-learned and specialized methods",
+      "secondary_tags": [],
+      "method_type": "other",
+      "description": "Source-specific adaptive gradient-update label retained without forced equivalence.",
+      "paper_count": 1,
+      "paper_ids": [
+        255
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "aw_hmc",
+      "optimizer_name": "AW-HMC",
+      "aliases": [
+        "AW-HMC"
+      ],
+      "family": "Bayesian optimization and probabilistic inference",
+      "secondary_tags": [],
+      "method_type": "probabilistic",
+      "description": "Source-reported adaptive-weight Hamiltonian Monte Carlo method.",
+      "paper_count": 1,
+      "paper_ids": [
+        618
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "davidson_fletcher_powell",
+      "optimizer_name": "Davidson–Fletcher–Powell",
+      "aliases": [
+        "Davidson-Fletcher-Powell"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Source-reported Davidson–Fletcher–Powell quasi-Newton method.",
+      "paper_count": 1,
+      "paper_ids": [
+        719
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "evidence_procedure",
+      "optimizer_name": "Evidence Procedure",
+      "aliases": [
+        "Evidence Procedure"
+      ],
+      "family": "Bayesian optimization and probabilistic inference",
+      "secondary_tags": [],
+      "method_type": "probabilistic",
+      "description": "Source-reported evidence-based probabilistic training or model-selection procedure.",
+      "paper_count": 1,
+      "paper_ids": [
+        584
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "fractional_order_gradient_descent",
+      "optimizer_name": "Fractional-order gradient descent",
+      "aliases": [
+        "FOGD (fractional-order gradient descent)"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Gradient-descent method reported with a fractional-order update.",
+      "paper_count": 1,
+      "paper_ids": [
+        699
+      ],
+      "source_annotations": [
+        "fractional-order gradient descent"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "gauss_newton",
+      "optimizer_name": "Gauss–Newton",
+      "aliases": [
+        "Gauss-Newton"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "second-order",
+      "description": "Least-squares optimization method based on a Gauss–Newton curvature approximation.",
+      "paper_count": 1,
+      "paper_ids": [
+        150
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "genetic_algorithm",
+      "optimizer_name": "Genetic Algorithm",
+      "aliases": [
+        "GA (Genetic Algorithm)"
+      ],
+      "family": "Metaheuristic and evolutionary methods",
+      "secondary_tags": [],
+      "method_type": "evolutionary",
+      "description": "Evolutionary search based on selection and variation operators.",
+      "paper_count": 1,
+      "paper_ids": [
+        543
+      ],
+      "source_annotations": [
+        "Genetic Algorithm"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "gradient_descent_adagrad_variable_momentum",
+      "optimizer_name": "Gradient descent with AdaGrad and variable momentum",
+      "aliases": [
+        "Gradient descent (with AdaGrad; variable momentum)"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Source-specific hybrid gradient-descent configuration retaining AdaGrad and variable-momentum annotations.",
+      "paper_count": 1,
+      "paper_ids": [
+        700
+      ],
+      "source_annotations": [
+        "with AdaGrad; variable momentum"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "gradient_descent_with_momentum",
+      "optimizer_name": "Gradient descent with momentum",
+      "aliases": [
+        "Gradient descent with momentum"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Gradient descent explicitly reported with momentum.",
+      "paper_count": 1,
+      "paper_ids": [
+        140
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "grey_wolf_optimizer",
+      "optimizer_name": "Grey Wolf Optimizer",
+      "aliases": [
+        "Grey Wolf Optimizer (GWO)"
+      ],
+      "family": "Metaheuristic and evolutionary methods",
+      "secondary_tags": [],
+      "method_type": "evolutionary",
+      "description": "Population-based metaheuristic inspired by grey-wolf social behavior.",
+      "paper_count": 1,
+      "paper_ids": [
+        14
+      ],
+      "source_annotations": [
+        "GWO"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "iterative_least_squares",
+      "optimizer_name": "Iterative least-squares",
+      "aliases": [
+        "Iterative least-squares"
+      ],
+      "family": "Conjugate-gradient, least-squares, and related solvers",
+      "secondary_tags": [],
+      "method_type": "other",
+      "description": "Iterative least-squares procedure reported by the source.",
+      "paper_count": 1,
+      "paper_ids": [
+        729
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "lamb_fusedlamb",
+      "optimizer_name": "LAMB/FusedLAMB",
+      "aliases": [
+        "Lamb (FusedLAMB)"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Layer-wise adaptive moments method, reported with its fused implementation annotation.",
+      "paper_count": 1,
+      "paper_ids": [
+        498
+      ],
+      "source_annotations": [
+        "FusedLAMB"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "mma",
+      "optimizer_name": "MMA",
+      "aliases": [
+        "MMA"
+      ],
+      "family": "Meta-learned and specialized methods",
+      "secondary_tags": [],
+      "method_type": "other",
+      "description": "Source-reported MMA method retained without expanding an unstated acronym.",
+      "paper_count": 1,
+      "paper_ids": [
+        832
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "momentum",
+      "optimizer_name": "Momentum",
+      "aliases": [
+        "Momentum"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Gradient optimization using a momentum term.",
+      "paper_count": 1,
+      "paper_ids": [
+        627
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "natural_gradient",
+      "optimizer_name": "Natural gradient",
+      "aliases": [
+        "Natural gradient"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Gradient method using a geometry-aware parameter-space metric.",
+      "paper_count": 1,
+      "paper_ids": [
+        150
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "nncg",
+      "optimizer_name": "NNCG",
+      "aliases": [
+        "NNCG"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [
+        "Conjugate-gradient, least-squares, and related solvers"
+      ],
+      "method_type": "second-order",
+      "description": "Source-reported neural-network conjugate-gradient method.",
+      "paper_count": 1,
+      "paper_ids": [
+        823
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "nsga_ii",
+      "optimizer_name": "NSGA-II",
+      "aliases": [
+        "NSGA-II"
+      ],
+      "family": "Metaheuristic and evolutionary methods",
+      "secondary_tags": [],
+      "method_type": "evolutionary",
+      "description": "Nondominated sorting genetic algorithm for multi-objective optimization.",
+      "paper_count": 1,
+      "paper_ids": [
+        482
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "nuts",
+      "optimizer_name": "NUTS",
+      "aliases": [
+        "NUTS"
+      ],
+      "family": "Bayesian optimization and probabilistic inference",
+      "secondary_tags": [],
+      "method_type": "probabilistic",
+      "description": "No-U-Turn Sampler for Hamiltonian Monte Carlo inference.",
+      "paper_count": 1,
+      "paper_ids": [
+        618
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "particle_swarm_optimization",
+      "optimizer_name": "Particle Swarm Optimization",
+      "aliases": [
+        "PSO"
+      ],
+      "family": "Metaheuristic and evolutionary methods",
+      "secondary_tags": [],
+      "method_type": "evolutionary",
+      "description": "Population-based particle-swarm metaheuristic.",
+      "paper_count": 1,
+      "paper_ids": [
+        482
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "ppo",
+      "optimizer_name": "PPO",
+      "aliases": [
+        "PPO"
+      ],
+      "family": "Reinforcement-learning algorithms",
+      "secondary_tags": [],
+      "method_type": "reinforcement learning",
+      "description": "Proximal Policy Optimization reinforcement-learning algorithm.",
+      "paper_count": 1,
+      "paper_ids": [
+        224
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "quasi_newton",
+      "optimizer_name": "Quasi-Newton",
+      "aliases": [
+        "Quasi-Newton"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Generic quasi-Newton method where the source does not name a more specific update.",
+      "paper_count": 1,
+      "paper_ids": [
+        289
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "radam",
+      "optimizer_name": "RAdam",
+      "aliases": [
+        "Rectified Adam (RAdam)"
+      ],
+      "family": "Adaptive first-order optimizers",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Rectified Adam-family optimization method.",
+      "paper_count": 1,
+      "paper_ids": [
+        331
+      ],
+      "source_annotations": [
+        "RAdam"
+      ],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "ridge_regression",
+      "optimizer_name": "Ridge regression",
+      "aliases": [
+        "Ridge regression"
+      ],
+      "family": "Meta-learned and specialized methods",
+      "secondary_tags": [],
+      "method_type": "regression",
+      "description": "Regularized linear regression procedure reported in the training field.",
+      "paper_count": 1,
+      "paper_ids": [
+        738
+      ],
+      "source_annotations": [],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "sgd_with_momentum",
+      "optimizer_name": "SGD with momentum",
+      "aliases": [
+        "Stochastic Gradient Descent with momentum"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Stochastic gradient descent explicitly reported with momentum.",
+      "paper_count": 1,
+      "paper_ids": [
+        594
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "soft_actor_critic",
+      "optimizer_name": "Soft Actor-Critic",
+      "aliases": [
+        "Soft Actor-Critic (SAC)"
+      ],
+      "family": "Reinforcement-learning algorithms",
+      "secondary_tags": [],
+      "method_type": "reinforcement learning",
+      "description": "Entropy-regularized actor–critic reinforcement-learning algorithm.",
+      "paper_count": 1,
+      "paper_ids": [
+        13
+      ],
+      "source_annotations": [
+        "SAC"
+      ],
+      "manual_review_required": true
+    },
+    {
+      "optimizer_id": "ssbfgs",
+      "optimizer_name": "SSBFGS",
+      "aliases": [
+        "SSBFGS"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Source-reported structured or self-scaled BFGS variant.",
+      "paper_count": 1,
+      "paper_ids": [
+        819
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "ssbroyden",
+      "optimizer_name": "SSBroyden",
+      "aliases": [
+        "SSBroyden"
+      ],
+      "family": "Quasi-Newton and second-order methods",
+      "secondary_tags": [],
+      "method_type": "quasi-Newton",
+      "description": "Source-reported structured or self-scaled Broyden variant.",
+      "paper_count": 1,
+      "paper_ids": [
+        819
+      ],
+      "source_annotations": [],
+      "manual_review_required": false
+    },
+    {
+      "optimizer_id": "vanilla_gradient_descent",
+      "optimizer_name": "Vanilla gradient descent",
+      "aliases": [
+        "vanilla gradient descent (VGD)"
+      ],
+      "family": "Gradient-descent and stochastic-gradient methods",
+      "secondary_tags": [],
+      "method_type": "first-order",
+      "description": "Gradient descent explicitly described by the source as vanilla gradient descent.",
+      "paper_count": 1,
+      "paper_ids": [
+        190
+      ],
+      "source_annotations": [
+        "VGD"
+      ],
+      "manual_review_required": false
+    }
+  ]
+}

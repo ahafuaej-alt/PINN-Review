@@ -30,3 +30,7 @@ jobs:
           node scripts/validate-dataset.mjs
           node scripts/validate-citation-format.mjs
           node scripts/validate-pinn-realm.mjs
+          node scripts/build-optimizers.mjs --check
+          node --check assets/optimizers.js
+          node --check assets/reference-technical-details.js
+          node scripts/validate-optimizers.mjs
