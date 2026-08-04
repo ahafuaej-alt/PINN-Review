@@ -1,0 +1,55 @@
+name: Activation functions validation
+
+on:
+  pull_request:
+    paths:
+      - 'activation-functions/**'
+      - 'references/**'
+      - 'assets/activation-functions.*'
+      - 'assets/reference-technical-details.*'
+      - 'assets/app.js'
+      - 'data/activation-functions/**'
+      - 'scripts/build-activation-functions.mjs'
+      - 'scripts/validate-activation-functions.mjs'
+      - '.github/workflows/activation-functions-validation.yml'
+      - 'index.html'
+  push:
+    branches:
+      - main
+    paths:
+      - 'activation-functions/**'
+      - 'references/**'
+      - 'assets/activation-functions.*'
+      - 'assets/reference-technical-details.*'
+      - 'assets/app.js'
+      - 'data/activation-functions/**'
+      - 'scripts/build-activation-functions.mjs'
+      - 'scripts/validate-activation-functions.mjs'
+      - '.github/workflows/activation-functions-validation.yml'
+      - 'index.html'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/app.js
+          node --check assets/activation-functions.js
+          node --check assets/reference-technical-details.js
+          node --check scripts/build-activation-functions.mjs
+          node --check scripts/validate-activation-functions.mjs
+      - name: Validate source-derived activation datasets
+        run: node scripts/validate-activation-functions.mjs
+      - name: Re-run existing Atlas regression validators
+        run: |
+          node scripts/validate-dataset.mjs
+          node scripts/validate-performance-metrics.mjs
+          node scripts/validate-optimizers.mjs

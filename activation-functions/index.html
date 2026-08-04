@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore paper-level activation functions, adaptive variants, layer roles, and source-reporting completeness across the PINN Review Atlas.">
+  <meta name="theme-color" content="#09111d">
+  <title>Activation Functions · PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=ux-20260803a"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=ux-20260803a">
+  <link rel="stylesheet" href="../assets/performance.css?v=20260803">
+  <link rel="stylesheet" href="../assets/activation-functions.css?v=20260803">
+  <script src="../assets/app.js?v=ux-20260803a" defer></script>
+  <script src="../assets/activation-functions.js?v=20260803" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../pinn-types/">PINN types</a>
+        <a href="../pinn-realm/">PINN Realm</a>
+        <a href="../performance-metrics/">Performance Metrics</a>
+        <a href="../optimizers/">Optimizers</a>
+        <a href="./" aria-current="page">Activation Functions</a>
+        <a href="../abbreviations/">Abbreviations</a>
+        <a href="../references/">References</a>
+        <a href="../dataset-manager/">Dataset Manager</a>
+        <a href="../cite/">Cite</a>
+        <a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="performance-hero activation-hero">
+      <div class="container">
+        <p class="eyebrow">Architecture evidence explorer</p>
+        <h1>PINN activation functions,<br><span class="gradient">paper by paper.</span></h1>
+        <p class="lede">Explore activation functions, adaptive variants, layer-specific roles, and source-reporting completeness across the PINN Review Atlas. Every record remains linked to its bracketed Atlas reference ID.</p>
+        <div class="performance-notice" role="note"><strong>Scientific interpretation:</strong> Frequency of use does not establish superiority. Activation-function behavior depends on the governing equation, derivative order, solution regularity, spectral content, architecture, initialization, optimizer, loss scaling, and training regime.</div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Dataset overview</p><h2 id="overview-title">Reporting coverage and context</h2></div><p>All counts are generated from the normalized 853-record dataset; no chart total is maintained separately.</p></div>
+        <div class="kpi-grid activation-kpis" data-kpis aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="filters-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Find evidence</p><h2 id="filters-title">Filter papers and reported functions</h2></div><p>Search accepts an unbracketed numeric query or a bracketed ID such as <code>[248]</code>; an ID-only query returns exactly one record.</p></div>
+        <div class="filter-panel activation-filters">
+          <label class="field wide"><span>Reference ID, activation, or alias</span><input type="search" data-search placeholder="[813], adaptive tanh, SIREN, output layer…" autocomplete="off"></label>
+          <label class="field"><span>Activation family</span><select data-family><option value="">All families</option></select></label>
+          <label class="field"><span>Canonical activation</span><select data-activation><option value="">All activations</option></select></label>
+          <label class="field"><span>Reporting status</span><select data-status><option value="">All statuses</option><option value="reported">Reported</option><option value="not_explicitly_stated">Not explicitly stated</option><option value="review_or_survey">Review or survey</option><option value="non_pinn_record">Non-PINN record</option><option value="conceptual_or_not_implemented">Conceptual / not implemented</option><option value="paper_unavailable">Paper unavailable</option><option value="other_na">Other N/A</option></select></label>
+          <label class="field"><span>Source field presence</span><select data-presence><option value="">Named and N/A</option><option value="named">Named activation field</option><option value="na">Explicit N/A field</option></select></label>
+          <label class="field"><span>Activation role</span><select data-role><option value="">All roles</option><option value="hidden_layer">Hidden layer</option><option value="output_layer">Output layer</option><option value="gate">Gate</option><option value="constraint_or_loss">Constraint or loss</option><option value="cnn_or_encoder_module">CNN / encoder module</option><option value="operator_network_module">Operator-network module</option><option value="compared_candidate">Compared candidate</option><option value="adaptive_or_trainable">Adaptive or trainable</option><option value="custom_basis_or_kernel">Custom basis or kernel</option><option value="general_mention">General mention</option><option value="role_not_specified">Role not specified</option></select></label>
+          <label class="field"><span>Fixed versus adaptive</span><select data-adaptive><option value="">All classifications</option><option value="false">Fixed / standard</option><option value="true">Adaptive / trainable</option></select></label>
+          <label class="field"><span>Standard versus custom</span><select data-standardness><option value="">All types</option><option value="standard">Standard only</option><option value="custom">Contains custom / basis / kernel</option><option value="module">Module-specific</option></select></label>
+          <label class="field"><span>Reported multiplicity</span><select data-multiplicity><option value="">Single and multiple</option><option value="single">Single canonical activation</option><option value="multiple">Multiple canonical activations</option></select></label>
+          <label class="field"><span>Manual review</span><select data-review><option value="">All records</option><option value="required">Review required</option><option value="not_required">No review flag</option></select></label>
+          <label class="field"><span>Frequency count mode</span><select data-count-mode><option value="implementation">Implementation-oriented records</option><option value="all_mentions">All source mentions</option></select></label>
+          <div class="filter-actions"><button class="button primary" type="button" data-reset>Reset filters</button><button class="button" type="button" data-export-json>Export JSON</button><button class="button" type="button" data-export-csv>Export CSV</button></div>
+        </div>
+        <p class="count-explanation" data-count-explanation></p>
+        <p class="result-summary" data-result-summary tabindex="-1" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="prevalence-title">
+      <div class="container performance-grid two activation-overview-grid">
+        <article class="performance-card"><div class="card-head"><div><p class="eyebrow">Reporting prevalence</p><h2 id="prevalence-title">Most reported activation functions</h2></div></div><p class="activation-card-note">Each canonical activation contributes at most once per paper. Switch the count mode above to include or exclude contextual mentions.</p><div class="bar-list" data-top-activations></div></article>
+        <article class="performance-card"><div class="card-head"><div><p class="eyebrow">Transparent taxonomy</p><h2>Activation families</h2></div></div><div class="group-grid activation-family-grid" data-families></div></article>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="matrix-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Coverage matrix</p><h2 id="matrix-title">Papers × activation families</h2></div><p>Up to 50 filtered papers. Select a reported cell to inspect its occurrence-level evidence.</p></div>
+        <div class="matrix-legend" aria-label="Matrix legend"><span><i class="dot activation-reported"></i> Reported</span><span><i class="dot activation-not-explicit"></i> ? Not explicitly stated</span><span><i class="dot activation-review"></i> R Review/survey</span><span><i class="dot activation-non-pinn"></i> N Non-PINN/conceptual</span><span><i class="dot activation-unavailable"></i> — Unavailable/other N/A</span></div>
+        <div class="matrix-wrap"><table class="matrix activation-matrix"><thead data-matrix-head></thead><tbody data-matrix-body></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="papers-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Paper records</p><h2 id="papers-title">Activation evidence by reference ID</h2></div><p>Select two to five papers for side-by-side reporting comparison.</p></div>
+        <div class="compare-bar" data-compare-bar hidden><span data-compare-count></span><button class="button primary" type="button" data-open-compare>Compare selected</button><button class="button" type="button" data-clear-compare>Clear</button></div>
+        <div class="paper-grid" data-papers></div>
+        <div class="pager" data-pager></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell" aria-labelledby="explorer-title">
+      <div class="container">
+        <div class="section-head compact"><div><p class="eyebrow">Auditable dictionary</p><h2 id="explorer-title">Activation Function Explorer</h2></div><p>Source facts, general definitions, and normalization decisions are shown separately. No entry is ranked for performance.</p></div>
+        <div class="metric-explorer" data-activation-explorer></div>
+      </div>
+    </section>
+
+    <section class="section performance-shell activation-provenance" aria-labelledby="provenance-title">
+      <div class="container performance-card">
+        <div class="section-head compact"><div><p class="eyebrow">Provenance</p><h2 id="provenance-title">Auditable source and method</h2></div><p>Raw wording and notes remain authoritative. Nine formerly absent records are documented without repeating the completed research cycle.</p></div>
+        <div class="filter-actions"><a class="button" href="../data/activation-functions/reference-activation-functions-source.txt">View source table</a><a class="button" href="../data/activation-functions/reference-activation-functions-web-research-notes.txt">View research notes</a><a class="button" href="../data/activation-functions/activation-records.json" download>Download all records</a><a class="button" href="../data/activation-functions/README.md">Read methodology</a></div>
+      </div>
+    </section>
+
+    <dialog class="performance-dialog" data-detail-dialog aria-labelledby="activation-detail-title"><form method="dialog"><button class="dialog-close" aria-label="Close activation details">×</button></form><div data-detail-content></div></dialog>
+    <dialog class="performance-dialog wide" data-compare-dialog aria-labelledby="activation-compare-title"><form method="dialog"><button class="dialog-close" aria-label="Close comparison">×</button></form><div data-compare-content></div></dialog>
+    <div class="toast activation-toast" data-toast role="status" aria-live="polite" hidden></div>
+    <noscript><div class="container performance-notice"><strong>JavaScript is required for interactive filtering.</strong> The complete source and JSON downloads remain available in the provenance section.</div></noscript>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Evidence-led · Versioned · Open for review</span></div></footer>
+</body>
+</html>
