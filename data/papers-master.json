@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.103",
+    "dataset_version": "2.2.104",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -67161,15 +67161,15 @@
     {
       "id": 849,
       "title": "Physics-informed neural networks for dynamic process operations with limited physical knowledge and data",
-      "citation": "Velioglu, M.; Zhai, S.; Rupprecht, S.; Mitsos, A.; Jupke, A.; Dahmen, M. Physics-informed neural networks for dynamic process operations with limited physical knowledge and data. Comput. Chem. Eng 2025, 192, 108899.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Velioglu, M.; Zhai, S.; Rupprecht, S.; Mitsos, A.; Jupke, A.; Dahmen, M. Physics-informed neural networks for dynamic process operations with limited physical knowledge and data. Computers & Chemical Engineering 2025, 192, 1-13. https://doi.org/10.1016/j.compchemeng.2024.108899.",
+      "doi": "10.1016/j.compchemeng.2024.108899",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S009813542400317X",
       "venue": {
-        "name": "Comput. Chem. Eng.",
+        "name": "Computers & Chemical Engineering",
         "type": "journal"
       },
       "year": 2025,
-      "access": "Not verified",
+      "access": "Open access",
       "countries": [
         "Germany",
         "Netherlands"
@@ -67177,8 +67177,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.sciencedirect.com/science/article/pii/S009813542400317X",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67191,12 +67191,13 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-06",
       "bibliographic": {
-        "authors": "Velioglu, M.; Zhai, S.; Rupprecht, S.; Mitsos, A.; Jupke, A.; Dahmen, M",
+        "authors": "Velioglu, M.; Zhai, S.; Rupprecht, S.; Mitsos, A.; Jupke, A.; Dahmen, M.",
         "journal_abbreviation": "Comput. Chem. Eng.",
         "volume": "192",
-        "pages": "108899"
+        "pages": "1-13",
+        "article_number": "108899"
       },
       "abstract": "In chemical engineering, process data are expensive to acquire, and complex phenomena are difficult to fully model. We explore the use of physics-informed neural networks (PINNs) for modeling dynamic processes with incomplete mechanistic semi-explicit differential–algebraic equation systems and scarce process data. In particular, we focus on estimating states for which neither direct observational data nor constitutive equations are available. We propose an easy-to-apply heuristic to assess whether estimation of such states may be possible. As numerical examples, we consider a continuously stirred tank reactor and a liquid–liquid separator. We find that PINNs can infer immeasurable states with reasonable accuracy, even if respective constitutive equations are unknown. We thus show that PINNs are capable of modeling processes when relatively few experimental data and only partially known mechanistic descriptions are available, and conclude that they constitute a promising avenue that warrants further investigation."
     },
