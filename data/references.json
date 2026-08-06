@@ -8525,10 +8525,10 @@
   {
     "id": 319,
     "title": "Prediction of the Development Morphology of Streamer in Insulating Oil based on Physics-Informed Neural Network",
-    "citation": "Zuo, H.; Li, J.; Huang, Z.; Zhang, K.; Wang, C.; He, R. Prediction of the Development Morphology of Streamer in Insulating Oil based on Physics-Informed Neural Network. In Proceedings of 2023 2nd Asia Power and Electrical Technology Conference (APET), Shanghai, China, 2023-12-28–2023-12-30; pp. 56-59. https://doi.org/10.1109/APET59977.2023.10489159.",
+    "citation": "Zuo, H.; Li, J.; Huang, Z.; Zhang, K.; Wang, C.; He, R. Prediction of the Development Morphology of Streamer in Insulating Oil based on Physics-Informed Neural Network. In Proceedings of 2023 2nd Asia Power and Electrical Technology Conference (APET), Shanghai, China, 28-30 December 2023; pp. 56-59. https://doi.org/10.1109/APET59977.2023.10489159.",
     "doi": "10.1109/APET59977.2023.10489159",
     "publisher_url": "https://ieeexplore.ieee.org/document/10489159/",
-    "venue": "2023 2nd Asia Power and Electrical Technology Conference (APET)",
+    "venue": "IEEE Asia Power and Electrical Technology Conference (APET) 2nd",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Zuo, H.; Li, J.; Huang, Z.; Zhang, K.; Wang, C.; He, R.",
@@ -8536,18 +8536,19 @@
       "pages": "56-59",
       "publisher": "IEEE",
       "conference_name": "2023 2nd Asia Power and Electrical Technology Conference (APET)",
-      "conference_location": "Shanghai, China",
-      "conference_date": "2023-12-28–2023-12-30",
+      "conference_location": "Shanghai",
+      "conference_country": "China",
+      "conference_date": "28-30 December 2023",
       "publication_date": "2023-12-28"
     },
-    "abstract": null,
+    "abstract": "The simulation and prediction of the morphology of streamer discharge always limit the work of revealing streamer discharge and establishing theoretical models. The finite element method requires a large number of grids to handle, making it difficult to converge the calculation process and obtain the complete morphology of the streamer. Physical information neural networks have the characteristics of processing multi-dimensional and large-scale information, which can accurately learn and predict target feature quantities. This article proposes to use physical information neural networks to couple streamer discharge formulas and experimental data to learn and predict the development morphology of streamer discharge in liquid electrolytes. The results show that the neural network can achieve good prediction performance after 80000 steps of training. After 100000 training iterations, the physical information neural network can minimize training errors. In addition, physical information neural networks can accurately predict the branch morphology of streamer discharge and obtain the development process of streamer morphology.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 320,

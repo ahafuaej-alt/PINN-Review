@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.121",
+    "dataset_version": "2.2.122",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -26161,11 +26161,11 @@
     {
       "id": 319,
       "title": "Prediction of the Development Morphology of Streamer in Insulating Oil based on Physics-Informed Neural Network",
-      "citation": "Zuo, H.; Li, J.; Huang, Z.; Zhang, K.; Wang, C.; He, R. Prediction of the Development Morphology of Streamer in Insulating Oil based on Physics-Informed Neural Network. In Proceedings of 2023 2nd Asia Power and Electrical Technology Conference (APET), Shanghai, China, 2023-12-28–2023-12-30; pp. 56-59. https://doi.org/10.1109/APET59977.2023.10489159.",
+      "citation": "Zuo, H.; Li, J.; Huang, Z.; Zhang, K.; Wang, C.; He, R. Prediction of the Development Morphology of Streamer in Insulating Oil based on Physics-Informed Neural Network. In Proceedings of 2023 2nd Asia Power and Electrical Technology Conference (APET), Shanghai, China, 28-30 December 2023; pp. 56-59. https://doi.org/10.1109/APET59977.2023.10489159.",
       "doi": "10.1109/APET59977.2023.10489159",
       "publisher_url": "https://ieeexplore.ieee.org/document/10489159/",
       "venue": {
-        "name": "2023 2nd Asia Power and Electrical Technology Conference (APET)",
+        "name": "IEEE Asia Power and Electrical Technology Conference (APET) 2nd",
         "type": "conference"
       },
       "year": 2023,
@@ -26176,8 +26176,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/APET59977.2023.10489159",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10489159/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FAPET59977.2023.10489159",
@@ -26222,19 +26222,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Zuo, H.; Li, J.; Huang, Z.; Zhang, K.; Wang, C.; He, R.",
         "journal_abbreviation": "2023 2nd Asia Power and Electrical Technology Conference (APET)",
         "pages": "56-59",
         "publisher": "IEEE",
         "conference_name": "2023 2nd Asia Power and Electrical Technology Conference (APET)",
-        "conference_location": "Shanghai, China",
-        "conference_date": "2023-12-28–2023-12-30",
+        "conference_location": "Shanghai",
+        "conference_country": "China",
+        "conference_date": "28-30 December 2023",
         "publication_date": "2023-12-28"
-      }
+      },
+      "abstract": "The simulation and prediction of the morphology of streamer discharge always limit the work of revealing streamer discharge and establishing theoretical models. The finite element method requires a large number of grids to handle, making it difficult to converge the calculation process and obtain the complete morphology of the streamer. Physical information neural networks have the characteristics of processing multi-dimensional and large-scale information, which can accurately learn and predict target feature quantities. This article proposes to use physical information neural networks to couple streamer discharge formulas and experimental data to learn and predict the development morphology of streamer discharge in liquid electrolytes. The results show that the neural network can achieve good prediction performance after 80000 steps of training. After 100000 training iterations, the physical information neural network can minimize training errors. In addition, physical information neural networks can accurately predict the branch morphology of streamer discharge and obtain the development process of streamer morphology."
     },
     {
       "id": 320,
