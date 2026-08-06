@@ -14709,10 +14709,10 @@
   {
     "id": 556,
     "title": "Physics-Informed LSTM Network-Based Nonlinear Model Predictive Control",
-    "citation": "Chen, Y.; Qui, Q.; Zhang, H.; Wang, Y.; Zheng, Y. Physics-Informed LSTM Network-Based Nonlinear Model Predictive Control. In Proceedings of 2023 IEEE 12th Data Driven Control and Learning Systems Conference (DDCLS), Xiangtan, China, 2023-05-12–2023-05-14; pp. 2026-2031. https://doi.org/10.1109/DDCLS58216.2023.10167324.",
+    "citation": "Chen, Y.; Qui, Q.; Zhang, H.; Wang, Y.; Zheng, Y. Physics-Informed LSTM Network-Based Nonlinear Model Predictive Control. In Proceedings of 2023 IEEE 12th Data Driven Control and Learning Systems Conference (DDCLS), Xiangtan, China, 12-14 May 2023; pp. 2026-2031. https://doi.org/10.1109/DDCLS58216.2023.10167324.",
     "doi": "10.1109/DDCLS58216.2023.10167324",
     "publisher_url": "https://ieeexplore.ieee.org/document/10167324/",
-    "venue": "2023 IEEE 12th Data Driven Control and Learning Systems Conference (DDCLS)",
+    "venue": "IEEE Data Driven Control and Learning Systems Conference (DDCLS) 12th",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Chen, Y.; Qui, Q.; Zhang, H.; Wang, Y.; Zheng, Y.",
@@ -14720,18 +14720,19 @@
       "pages": "2026-2031",
       "publisher": "IEEE",
       "conference_name": "2023 IEEE 12th Data Driven Control and Learning Systems Conference (DDCLS)",
-      "conference_location": "Xiangtan, China",
-      "conference_date": "2023-05-12–2023-05-14",
+      "conference_location": "Xiangtan",
+      "conference_country": "China",
+      "conference_date": "12-14 May 2023",
       "publication_date": "2023-05-12"
     },
-    "abstract": null,
+    "abstract": "To address the problems of poor physical interpretability and huge sample size requirement when using neural networks to fit nonlinear control system models for state prediction, this paper proposes a model predictive control algorithm based on a physics-informed long short-term memory(LSTM) network. Firstly, the neural network incorporating physical information is extended to model the ordinary differential equations with variable initial states and external control quantities, which makes the network adaptable to the control task and makes the training model physically interpretable. Secondly, a network structure with a mixture of fully connected layers and LSTM layers is built by using the good learning ability of LSTM for time-series data, and the loss function is designed according to the system characteristics and prediction requirements. The trained neural network model is then used as an internal prediction model to construct a nonlinear model predictive control algorithm. Finally, taking the continuous stirring reactor system as an example, the method is verified to be able to fit the system model highly and reduce the time to reach the steady state with a small number of samples.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 557,
