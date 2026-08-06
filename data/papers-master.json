@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.138",
+    "dataset_version": "2.2.139",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -63470,15 +63470,15 @@
     {
       "id": 791,
       "title": "Conservative Physics-Informed Neural Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States",
-      "citation": "Quita, R.; Chen, Y.-S.; Hu, H.-Y.L.A.C.; Hong, J.M. Conservative Physics-Informed Neural Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States. arXiv 2023. https://doi.org/10.48550/arXiv.2305.12817.",
+      "citation": "Quita, R.; Chen, Y.-S.; Hu, H.-Y.L.A.C.; Hong, J.M. Conservative Physics-Informed Neural Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States. arXiv [Computer Science. Machine Learning] 2023, 2305, 1-22. https://doi.org/10.48550/arXiv.2305.12817.",
       "doi": "10.48550/arXiv.2305.12817",
       "publisher_url": "https://doi.org/10.48550/arXiv.2305.12817",
       "venue": {
-        "name": "arXiv",
-        "type": "other"
+        "name": "arXiv [Computer Science. Machine Learning]",
+        "type": "preprint"
       },
       "year": 2023,
-      "access": "Subscription",
+      "access": "Open access",
       "countries": [
         "Taiwan"
       ],
@@ -63489,7 +63489,7 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://doi.org/10.48550/arXiv.2305.12817",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "note": "all",
         "publisher_enrichment": {
           "source": "DOI content negotiation",
           "source_url": "https://doi.org/10.48550/arXiv.2305.12817",
@@ -63521,14 +63521,20 @@
           ],
           "conflict_count": 3,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Quita, R.; Chen, Y.-S.; Hu, H.-Y.L.A.C.; Hong, J.M.",
+        "journal_abbreviation": "[cs.LG]",
+        "volume": "2305",
+        "pages": "1-22",
+        "article_number": "12817v2",
         "publisher": "arXiv",
         "publication_date": "2023"
-      }
+      },
+      "abstract": "In this paper, a modified version of conservative Physics-informed Neural Networks (cPINN for short) is provided to construct the weak solutions of Riemann problem for the hyperbolic scalar conservation laws in non-conservative form. To demonstrate the results, we use the model of generalized Buckley-Leverett equation (GBL equation for short) with discontinuous porosity in porous media. By inventing a new unknown, the GBL equation is transformed into a two-by-two resonant hyperbolic conservation laws in conservative form. The modified method of cPINN is invented to overcome the difficulties due to the discontinuity of the porosity and the appearance of the critical states (near vacuum) in the Riemann data. We experiment with our idea by using a deep learning algorithm to solve the GBL equation in both conservative and non-conservative forms, as well as the cases of critical and non-critical states. This method provides a combination of two different neural networks and corresponding loss functions, one is for the two-by-two resonant hyperbolic system, and the other is for the scalar conservation law with a discontinuous perturbation term in the non-convex flux. The technique of re-scaling to the unknowns is adopted to avoid the oscillation of the Riemann solutions in the cases of critical Riemann data. The solutions constructed by the modified cPINN match the exact solutions constructed by the theoretical analysis for hyperbolic conservation laws. In addition, the solutions are identical in both conservative and non-conservative cases. Finally, we compare the performance of the modified cPINN with numerical method called WENO5. Whereas WENO5 struggles with the highly oscillation of approximate solutions for the Riemann problems of GBL equation in non-conservative form, cPINN works admirably."
     },
     {
       "id": 792,
