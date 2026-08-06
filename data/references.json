@@ -20340,10 +20340,10 @@
   {
     "id": 772,
     "title": "Unassisted True Analog Neural Network Training Chip",
-    "citation": "Kohda, Y.; Li, Y.; Hosokawa, K.; Kim, S.; Khaddam-Aljameh, R.; Ren, Z.; Solomon, P.; Gokmen, T.; Rajalingam, S.; Baks, C.; Haensch, W.; Leobandung, E. Unassisted True Analog Neural Network Training Chip. In Proceedings of 2020 IEEE International Electron Devices Meeting (IEDM), San Francisco, CA, USA, 2020-12-12–2020-12-18; pp. 36.2.1-36.2.4. https://doi.org/10.1109/IEDM13553.2020.9371973.",
+    "citation": "Kohda, Y.; Li, Y.; Hosokawa, K.; Kim, S.; Khaddam-Aljameh, R.; Ren, Z.; Solomon, P.; Gokmen, T.; Rajalingam, S.; Baks, C.; Haensch, W.; Leobandung, E. Unassisted True Analog Neural Network Training Chip. In Proceedings of 2020 IEEE International Electron Devices Meeting (IEDM), San Francisco, CA, USA, 12-18 December 2020; pp. 36.2.1-36.2.4. https://doi.org/10.1109/IEDM13553.2020.9371973.",
     "doi": "10.1109/IEDM13553.2020.9371973",
     "publisher_url": "https://ieeexplore.ieee.org/document/9371973/",
-    "venue": "2020 IEEE International Electron Devices Meeting (IEDM)",
+    "venue": "IEEE International Electron Devices Meeting (IEDM)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Kohda, Y.; Li, Y.; Hosokawa, K.; Kim, S.; Khaddam-Aljameh, R.; Ren, Z.; Solomon, P.; Gokmen, T.; Rajalingam, S.; Baks, C.; Haensch, W.; Leobandung, E.",
@@ -20351,11 +20351,12 @@
       "pages": "36.2.1-36.2.4",
       "publisher": "IEEE",
       "conference_name": "2020 IEEE International Electron Devices Meeting (IEDM)",
-      "conference_location": "San Francisco, CA, USA",
-      "conference_date": "2020-12-12–2020-12-18",
+      "conference_location": "San Francisco, CA",
+      "conference_country": "USA",
+      "conference_date": "12-18 December 2020",
       "publication_date": "2020-12-12"
     },
-    "abstract": null,
+    "abstract": "Analog In-Memory Computing using Resistive Processing Unit (RPU) has been proposed for Neural Network (NN) training. However, hardware demonstration has been limited to using some digital emulation to assist the analog chip function. Using capacitor as analog weight, we report the first analog Neural Network training chip, where ALL Multiple and Accumulate (MAC) function are performed in analog cross-point arrays, and all weights are updated in parallel. The chip measure full MNIST training accuracy of 92.7% with run time faster than digital system in real time.",
     "graphical_abstract": null,
     "year": 2020,
     "access": "Subscription",
@@ -20364,7 +20365,7 @@
       "United States",
       "Switzerland"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 773,
