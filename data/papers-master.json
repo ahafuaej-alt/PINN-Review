@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.113",
+    "dataset_version": "2.2.114",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -60992,11 +60992,11 @@
     {
       "id": 754,
       "title": "Physics-Informed Deep Learning for Time-Domain Electromagnetic Radiation Problem",
-      "citation": "Ge, Y.; Guo, L.; Li, M. Physics-Informed Deep Learning for Time-Domain Electromagnetic Radiation Problem. In Proceedings of 2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC), Suzhou, China, 2022-05-16–2022-05-18; pp. 114-116. https://doi.org/10.1109/IMBioC52515.2022.9790302.",
+      "citation": "Ge, Y.; Guo, L.; Li, M. Physics-Informed Deep Learning for Time-Domain Electromagnetic Radiation Problem. In Proceedings of 2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC), Suzhou, China, 16-18 May 2022; pp. 114-116. https://doi.org/10.1109/IMBioC52515.2022.9790302.",
       "doi": "10.1109/IMBioC52515.2022.9790302",
       "publisher_url": "https://ieeexplore.ieee.org/document/9790302/",
       "venue": {
-        "name": "2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC), Suzhou, China, 2022",
+        "name": "IEEE MTT-S International Microwave Biomedical Conference (IMBioC)",
         "type": "conference"
       },
       "year": 2022,
@@ -61007,8 +61007,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/IMBioC52515.2022.9790302",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/9790302/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FIMBioC52515.2022.9790302",
@@ -61053,19 +61053,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Ge, Y.; Guo, L.; Li, M.",
         "journal_abbreviation": "2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC)",
         "pages": "114-116",
         "publisher": "IEEE",
         "conference_name": "2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC)",
-        "conference_location": "Suzhou, China",
-        "conference_date": "2022-05-16–2022-05-18",
+        "conference_location": "Suzhou",
+        "conference_country": "China",
+        "conference_date": "16-18 May 2022",
         "publication_date": "2022-05-16"
-      }
+      },
+      "abstract": "We explore the application of physics-informed deep learning to solve time-domain electromagnetic problems. This method takes advantage of the differentiability of neural networks and fully integrated with first principles. Compared to traditional approach, there is no need of discretization. Numerical experiment verifies the accuracy of this scheme."
     },
     {
       "id": 755,

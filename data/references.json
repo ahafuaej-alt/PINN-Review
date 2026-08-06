@@ -19888,10 +19888,10 @@
   {
     "id": 754,
     "title": "Physics-Informed Deep Learning for Time-Domain Electromagnetic Radiation Problem",
-    "citation": "Ge, Y.; Guo, L.; Li, M. Physics-Informed Deep Learning for Time-Domain Electromagnetic Radiation Problem. In Proceedings of 2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC), Suzhou, China, 2022-05-16–2022-05-18; pp. 114-116. https://doi.org/10.1109/IMBioC52515.2022.9790302.",
+    "citation": "Ge, Y.; Guo, L.; Li, M. Physics-Informed Deep Learning for Time-Domain Electromagnetic Radiation Problem. In Proceedings of 2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC), Suzhou, China, 16-18 May 2022; pp. 114-116. https://doi.org/10.1109/IMBioC52515.2022.9790302.",
     "doi": "10.1109/IMBioC52515.2022.9790302",
     "publisher_url": "https://ieeexplore.ieee.org/document/9790302/",
-    "venue": "2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC), Suzhou, China, 2022",
+    "venue": "IEEE MTT-S International Microwave Biomedical Conference (IMBioC)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Ge, Y.; Guo, L.; Li, M.",
@@ -19899,18 +19899,19 @@
       "pages": "114-116",
       "publisher": "IEEE",
       "conference_name": "2022 IEEE MTT-S International Microwave Biomedical Conference (IMBioC)",
-      "conference_location": "Suzhou, China",
-      "conference_date": "2022-05-16–2022-05-18",
+      "conference_location": "Suzhou",
+      "conference_country": "China",
+      "conference_date": "16-18 May 2022",
       "publication_date": "2022-05-16"
     },
-    "abstract": null,
+    "abstract": "We explore the application of physics-informed deep learning to solve time-domain electromagnetic problems. This method takes advantage of the differentiability of neural networks and fully integrated with first principles. Compared to traditional approach, there is no need of discretization. Numerical experiment verifies the accuracy of this scheme.",
     "graphical_abstract": null,
     "year": 2022,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 755,
