@@ -8580,10 +8580,10 @@
   {
     "id": 321,
     "title": "Prediction of Multiphase Flow in Fractured Porous Media Using Physics-Informed Convolutional Neural Network",
-    "citation": "Yan, X.; Wang, S.; Zhang, Z.; Liu, P.; Zhang, K.; Yao, J. Prediction of Multiphase Flow in Fractured Porous Media Using Physics-Informed Convolutional Neural Network. In Proceedings of 2023 International Conference on New Trends in Computational Intelligence (NTCI), Qingdao, China, 2023-11-03–2023-11-05; pp. 66-72. https://doi.org/10.1109/NTCI60157.2023.10403734.",
+    "citation": "Yan, X.; Wang, S.; Zhang, Z.; Liu, P.; Zhang, K.; Yao, J. Prediction of Multiphase Flow in Fractured Porous Media Using Physics-Informed Convolutional Neural Network. In Proceedings of 2023 International Conference on New Trends in Computational Intelligence (NTCI), Qingdao, China, 03-05 November 2023; pp. 66-72. https://doi.org/10.1109/NTCI60157.2023.10403734.",
     "doi": "10.1109/NTCI60157.2023.10403734",
     "publisher_url": "https://ieeexplore.ieee.org/document/10403734/",
-    "venue": "2023 International Conference on New Trends in Computational Intelligence (NTCI)",
+    "venue": "IEEE International Conference on New Trends in Computational Intelligence (NTCI)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Yan, X.; Wang, S.; Zhang, Z.; Liu, P.; Zhang, K.; Yao, J.",
@@ -8591,18 +8591,19 @@
       "pages": "66-72",
       "publisher": "IEEE",
       "conference_name": "2023 International Conference on New Trends in Computational Intelligence (NTCI)",
-      "conference_location": "Qingdao, China",
-      "conference_date": "2023-11-03–2023-11-05",
+      "conference_location": "Qingdao",
+      "conference_country": "China",
+      "conference_date": "03-05 November 2023",
       "publication_date": "2023-11-03"
     },
-    "abstract": null,
+    "abstract": "Prediction of multiphase flow in fractured porous media is important to lots of engineering practices. In this work, we present a Physics-Informed Convolutional Neural Network (PICNN) for solving multiphase flow in fractured porous media. Specifically, the Embedded Discrete Fracture Model (EDFM) is adopted to explicitly represent fractures, the PDE residual in loss function is constructed via the Finite Volume Method (FVM) such that the flux continuity between neighboring cells of different properties (e.g. matrix and fracture) is defined rigorously, and then we apply the Implicit-Pressure Explicit-Saturation (IMPES) scheme to calculate pressure and saturation, in which only a single CNN needs to be trained per time step. Finally, we demonstrate the accuracy and application of the proposed approach to capture the impact of fractures on multiphase flow in fractured porous media.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 322,

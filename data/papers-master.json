@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.123",
+    "dataset_version": "2.2.124",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -26330,11 +26330,11 @@
     {
       "id": 321,
       "title": "Prediction of Multiphase Flow in Fractured Porous Media Using Physics-Informed Convolutional Neural Network",
-      "citation": "Yan, X.; Wang, S.; Zhang, Z.; Liu, P.; Zhang, K.; Yao, J. Prediction of Multiphase Flow in Fractured Porous Media Using Physics-Informed Convolutional Neural Network. In Proceedings of 2023 International Conference on New Trends in Computational Intelligence (NTCI), Qingdao, China, 2023-11-03–2023-11-05; pp. 66-72. https://doi.org/10.1109/NTCI60157.2023.10403734.",
+      "citation": "Yan, X.; Wang, S.; Zhang, Z.; Liu, P.; Zhang, K.; Yao, J. Prediction of Multiphase Flow in Fractured Porous Media Using Physics-Informed Convolutional Neural Network. In Proceedings of 2023 International Conference on New Trends in Computational Intelligence (NTCI), Qingdao, China, 03-05 November 2023; pp. 66-72. https://doi.org/10.1109/NTCI60157.2023.10403734.",
       "doi": "10.1109/NTCI60157.2023.10403734",
       "publisher_url": "https://ieeexplore.ieee.org/document/10403734/",
       "venue": {
-        "name": "2023 International Conference on New Trends in Computational Intelligence (NTCI)",
+        "name": "IEEE International Conference on New Trends in Computational Intelligence (NTCI)",
         "type": "conference"
       },
       "year": 2023,
@@ -26345,8 +26345,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/NTCI60157.2023.10403734",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10403734/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FNTCI60157.2023.10403734",
@@ -26391,19 +26391,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Yan, X.; Wang, S.; Zhang, Z.; Liu, P.; Zhang, K.; Yao, J.",
         "journal_abbreviation": "2023 International Conference on New Trends in Computational Intelligence (NTCI)",
         "pages": "66-72",
         "publisher": "IEEE",
         "conference_name": "2023 International Conference on New Trends in Computational Intelligence (NTCI)",
-        "conference_location": "Qingdao, China",
-        "conference_date": "2023-11-03–2023-11-05",
+        "conference_location": "Qingdao",
+        "conference_country": "China",
+        "conference_date": "03-05 November 2023",
         "publication_date": "2023-11-03"
-      }
+      },
+      "abstract": "Prediction of multiphase flow in fractured porous media is important to lots of engineering practices. In this work, we present a Physics-Informed Convolutional Neural Network (PICNN) for solving multiphase flow in fractured porous media. Specifically, the Embedded Discrete Fracture Model (EDFM) is adopted to explicitly represent fractures, the PDE residual in loss function is constructed via the Finite Volume Method (FVM) such that the flux continuity between neighboring cells of different properties (e.g. matrix and fracture) is defined rigorously, and then we apply the Implicit-Pressure Explicit-Saturation (IMPES) scheme to calculate pressure and saturation, in which only a single CNN needs to be trained per time step. Finally, we demonstrate the accuracy and application of the proposed approach to capture the impact of fractures on multiphase flow in fractured porous media."
     },
     {
       "id": 322,
