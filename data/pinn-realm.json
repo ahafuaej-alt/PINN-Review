@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.112",
+    "version": "2.2.113",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-06",
     "source_file": "papers-countries-and-year.md",
@@ -6874,7 +6874,7 @@
     },
     {
       "id": 564,
-      "title": "PIX-GAN Enhance Physics-Informed Estimation via Generative Adversarial Network",
+      "title": "PIX-GAN: Enhance Physics-Informed Estimation via Generative Adversarial Network",
       "year": 2023,
       "countries": [
         "United States"

@@ -14915,11 +14915,11 @@
   },
   {
     "id": 564,
-    "title": "PIX-GAN Enhance Physics-Informed Estimation via Generative Adversarial Network",
-    "citation": "Li, H.; Weng, Y. PIX-GAN Enhance Physics-Informed Estimation via Generative Adversarial Network. In Proceedings of 2023 IEEE International Conference on Data Mining (ICDM), Shanghai, China, 2023-12-01–2023-12-04; pp. 1085-1090. https://doi.org/10.1109/ICDM58522.2023.00128.",
+    "title": "PIX-GAN: Enhance Physics-Informed Estimation via Generative Adversarial Network",
+    "citation": "Li, H.; Weng, Y. PIX-GAN: Enhance Physics-Informed Estimation via Generative Adversarial Network. In Proceedings of 2023 IEEE International Conference on Data Mining (ICDM), Shanghai, China, 01-04 December 2023; pp. 1085-1090. https://doi.org/10.1109/ICDM58522.2023.00128.",
     "doi": "10.1109/ICDM58522.2023.00128",
     "publisher_url": "https://ieeexplore.ieee.org/document/10415845/",
-    "venue": "2023 IEEE International Conference on Data Mining (ICDM)",
+    "venue": "IEEE International Conference on Data Mining (ICDM)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Li, H.; Weng, Y.",
@@ -14927,18 +14927,19 @@
       "pages": "1085-1090",
       "publisher": "IEEE",
       "conference_name": "2023 IEEE International Conference on Data Mining (ICDM)",
-      "conference_location": "Shanghai, China",
-      "conference_date": "2023-12-01–2023-12-04",
+      "conference_location": "Shanghai",
+      "conference_country": "China",
+      "conference_date": "01-04 December 2023",
       "publication_date": "2023-12-01"
     },
-    "abstract": null,
+    "abstract": "Worldwide urbanization requires control systems to accommodate uncertain sources, e.g., wind and solar generations in the energy sector. This uncertainty poses significant challenges to optimal system operations. One solution is the data-driven approach, requiring great data qualities. To produce high-fidelity data, recent studies combine Generative Adversarial Networks (GANs) with physics to explore the stochastic physical data generation. Such an idea belongs to Physics-Informed Neural Networks (PINNs). However, PINN is not implementable when the parameters of system equations are unknown. While parameters of equations can be estimated via measurements, the estimation is inaccurate due to insufficient and/or missing data (e.g., derivatives of system states). We tackle the problem with an intuitive design: enhance the estimation by leveraging highfidelity fake data from GANs. Therefore, we propose to Enhance Physics-Informed Estimation via GAN (PIX-GAN). Specifically, PIX-GAN is based on the stochastic State Space Model (SSM) of physical systems. Then, we design a stochastic PINN to generate fake data. For example, the generator of PIX-GAN contains a probabilistic boundary-condition loss, quantified via a distribution difference. To measure the difference, a discriminator is utilized. Additionally, we design a parameter estimator to estimate the parameters of the SSM, bringing a function-form loss to PIX-GAN to better fit the underlying physics. Finally, we propose an iterative algorithm to train PIX-GAN efficiently. Extensive experiments demonstrate the high performance of PIXGAN using diversified physical systems.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 565,
