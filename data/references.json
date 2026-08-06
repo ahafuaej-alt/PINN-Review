@@ -22157,13 +22157,13 @@
   {
     "id": 844,
     "title": "Developing block-based physics-informed multi-layered neural network model for simulating the inelastic response of base-isolated structures",
-    "citation": "Habib, A.; Yildirim, U. Developing block-based physics-informed multi-layered neural network model for simulating the inelastic response of base-isolated structures. Neural Comput. Appl 2025, 37, 8963–8986.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Neural Comput. Appl.",
+    "citation": "Habib, A.; Yildirim, U. Developing block-based physics-informed multi-layered neural network model for simulating the inelastic response of base-isolated structures. Neural Computing and Applications 2025, 37, 8963–8986. https://doi.org/10.1007/s00521-025-11040-9.",
+    "doi": "10.1007/s00521-025-11040-9",
+    "publisher_url": "https://link.springer.com/article/10.1007/s00521-025-11040-9",
+    "venue": "Neural Computing and Applications",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Habib, A.; Yildirim, U",
+      "authors": "Habib, A.; Yildirim, U.",
       "journal_abbreviation": "Neural Comput. Appl.",
       "volume": "37",
       "pages": "8963–8986"
@@ -22171,11 +22171,11 @@
     "abstract": "The advancement of base isolation systems over recent years has been significant, enhancing the performance of structures under seismic conditions. A particularly effective system is the multi-stage friction pendulum, which offers a variety of effective pendula for energy dissipation. However, conducting nonlinear analyses of these structures using finite element analysis is computationally expensive and time-consuming due to the multiple sources of nonlinearity involved. This limitation poses a significant challenge for developing large-scale systems for post-earthquake rapid assessment. Accordingly, this research aims to address this challenge by developing a block-based physics-informed neural network (PINN) model as an alternative to finite element models for rapidly estimating the inelastic response of base-isolated structures. By embedding the governing physics into the neural network, the PINN model mitigates the data dependency issues associated with traditional artificial intelligence techniques and provides physically consistent predictions. Additionally, incorporating long short-term memory networks enhances the model’s predictive capabilities. The proposed technique operates in similar to general finite element models where it infers results specific to the structures it was trained on. This capability is crucial for applications requiring rapid post-earthquake assessment, making it suitable for integration into smart city infrastructure where fast earthquake damage detection systems are needed. The study demonstrates the effectiveness of the PINN model, showing superior performance compared to traditional data-driven models and partially informed PINNs, thereby offering a viable solution for overcoming the limitations of finite element analysis in rapid seismic response estimation.",
     "graphical_abstract": null,
     "year": 2025,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "Cyprus"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 845,

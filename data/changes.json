@@ -2,6 +2,51 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-844-2026-08-06-2.2.101",
+      "version": "2.2.101",
+      "date": "2026-08-06",
+      "paper_id": 844,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue",
+        "access"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://link.springer.com/article/10.1007/s00521-025-11040-9",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 844,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue",
+          "access"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-842-2026-08-06-2.2.100",
       "version": "2.2.100",
       "date": "2026-08-06",
