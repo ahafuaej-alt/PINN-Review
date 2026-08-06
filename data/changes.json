@@ -2,6 +2,47 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-838-2026-08-06-2.2.97",
+      "version": "2.2.97",
+      "date": "2026-08-06",
+      "paper_id": 838,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "publisher_url",
+        "access"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://asmedigitalcollection.asme.org/computingengineering/article/24/4/040802/1193884/Physics-Guided-Physics-Informed-and-Physics",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 838,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "publisher_url",
+          "access"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-834-2026-08-06-2.2.96",
       "version": "2.2.96",
       "date": "2026-08-06",

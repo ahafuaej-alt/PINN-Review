@@ -22007,9 +22007,9 @@
   {
     "id": 838,
     "title": "Physics-Guided, Physics-Informed, and Physics-Encoded Neural Networks and Operators in Scientific Computing: Fluid and Solid Mechanics",
-    "citation": "Faroughi, S.A.; Pawar, N.M.; Fernandes, C.; Raissi, M.; Das, S.; Kalantari, N.K.; Mahjour, S.K. Physics-Guided, Physics-Informed, and Physics-Encoded Neural Networks and Operators in Scientific Computing: Fluid and Solid Mechanics. Journal of Computing and Information Science in Engineering 2024, 24, 040802. https://doi.org/10.1115/1.4064449.",
+    "citation": "Faroughi, S.A.; Pawar, N.M.; Fernandes, C.; Raissi, M.; Das, S.; Kalantari, N.K.; Mahjour, S.K. Physics-Guided, Physics-Informed, and Physics-Encoded Neural Networks and Operators in Scientific Computing: Fluid and Solid Mechanics. Journal of Computing and Information Science in Engineering 2024, 24, 1-31. https://doi.org/10.1115/1.4064449.",
     "doi": "10.1115/1.4064449",
-    "publisher_url": "https://doi.org/10.1115/1.4064449",
+    "publisher_url": "https://asmedigitalcollection.asme.org/computingengineering/article/24/4/040802/1193884/Physics-Guided-Physics-Informed-and-Physics",
     "venue": "Journal of Computing and Information Science in Engineering",
     "reference_type": "journal",
     "bibliographic": {
@@ -22017,7 +22017,7 @@
       "journal_abbreviation": "J. Comput. Inf. Sci. Eng.",
       "volume": "24",
       "issue": "4",
-      "pages": "040802",
+      "pages": "1-31",
       "article_number": "040802",
       "publisher": "ASME International",
       "publication_date": "2024-01-29"
@@ -22025,12 +22025,12 @@
     "abstract": "Advancements in computing power have recently made it possible to utilize machine learning and deep learning to push scientific computing forward in a range of disciplines, such as fluid mechanics, solid mechanics, materials science, etc. The incorporation of neural networks is particularly crucial in this hybridization process. Due to their intrinsic architecture, conventional neural networks cannot be successfully trained and scoped when data are sparse, which is the case in many scientific and engineering domains. Nonetheless, neural networks provide a solid foundation to respect physics-driven or knowledge-based constraints during training. Generally speaking, there are three distinct neural network frameworks to enforce the underlying physics: (i) physics-guided neural networks (PgNNs), (ii) physics-informed neural networks (PiNNs), and (iii) physics-encoded neural networks (PeNNs). These methods provide distinct advantages for accelerating the numerical modeling of complex multiscale multiphysics phenomena. In addition, the recent developments in neural operators (NOs) add another dimension to these new simulation paradigms, especially when the real-time prediction of complex multiphysics systems is required. All these models also come with their own unique drawbacks and limitations that call for further fundamental research. This study aims to present a review of the four neural network frameworks (i.e., PgNNs, PiNNs, PeNNs, and NOs) used in scientific computing research. The state-of-the-art architectures and their applications are reviewed, limitations are discussed, and future research opportunities are presented in terms of improving algorithms, considering causalities, expanding applications, and coupling scientific and deep learning solvers.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Not verified",
+    "access": "Open access",
     "countries": [
       "United States",
       "Portugal"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 839,
