@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.117",
+    "dataset_version": "2.2.118",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -26567,11 +26567,11 @@
     {
       "id": 324,
       "title": "PINN application for compressible gas flow transient analysis",
-      "citation": "Lee, S.; Lee, B.-T.; Ko, S.K. PINN application for compressible gas flow transient analysis. In Proceedings of 2023 14th International Conference on Information and Communication Technology Convergence (ICTC), Jeju Island, Korea, Republic of, 2023-10-11–2023-10-13; pp. 1703-1708. https://doi.org/10.1109/ICTC58733.2023.10393209.",
+      "citation": "Lee, S.; Lee, B.-T.; Ko, S.K. PINN application for compressible gas flow transient analysis. In Proceedings of 2023 14th International Conference on Information and Communication Technology Convergence (ICTC), Jeju Island, Republic of South Korea, 11-13 October 2023; pp. 1703-1708. https://doi.org/10.1109/ICTC58733.2023.10393209.",
       "doi": "10.1109/ICTC58733.2023.10393209",
       "publisher_url": "https://ieeexplore.ieee.org/document/10393209/",
       "venue": {
-        "name": "2023 14th International Conference on Information and Communication Technology Convergence (ICTC)",
+        "name": "IEEE International Conference on Information and Communication Technology Convergence (ICTC) 14th",
         "type": "conference"
       },
       "year": 2023,
@@ -26582,8 +26582,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/ICTC58733.2023.10393209",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10393209/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FICTC58733.2023.10393209",
@@ -26628,19 +26628,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Lee, S.; Lee, B.-T.; Ko, S.K.",
         "journal_abbreviation": "2023 14th International Conference on Information and Communication Technology Convergence (ICTC)",
         "pages": "1703-1708",
         "publisher": "IEEE",
         "conference_name": "2023 14th International Conference on Information and Communication Technology Convergence (ICTC)",
-        "conference_location": "Jeju Island, Korea, Republic of",
-        "conference_date": "2023-10-11–2023-10-13",
+        "conference_location": "Jeju Island",
+        "conference_country": "Republic of South Korea",
+        "conference_date": "11-13 October 2023",
         "publication_date": "2023-10-11"
-      }
+      },
+      "abstract": "Simulating transient flow inside pipeline networks has been an important topic in the field of civil engineering safety. The recent development of the Physics-Informed Neural Network (PINN) shed light to solve this problem by the means of machine learning. In this paper, we apply PINN to a transient compressible fluid pipeline flow problem. We show that PINN requires a specific data normalization to preserve all necessary physics information for accurate training. We compare the PINN prediction with the estimation provided by finite difference method (FDM), which previously has been the main tool to solve such problems. As a result, we obtained a mesh-free PINN model with the difference of less than 0.6% for pressure mapping and less than 2.3% for mass flow mapping, compared to the FDM analysis."
     },
     {
       "id": 325,
