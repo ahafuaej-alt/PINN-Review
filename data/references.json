@@ -7482,10 +7482,10 @@
   {
     "id": 280,
     "title": "A Physics and Data-Driven Hybrid PINNs Intelligent Computing Method for Nuclear Engineering Simulation",
-    "citation": "Xie, Y.; Wang, W.; Wu, G.; Yu, Y.; An, P.; Sun, Z.; Zhang, H.; Luo, S.; Li, Y. A Physics and Data-Driven Hybrid PINNs Intelligent Computing Method for Nuclear Engineering Simulation. In Proceedings of 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS), Yanji, China, 2024-09-27–2024-09-29; pp. 780-785. https://doi.org/10.1109/EIECS63941.2024.10800727.",
+    "citation": "Xie, Y.; Wang, W.; Wu, G.; Yu, Y.; An, P.; Sun, Z.; Zhang, H.; Luo, S.; Li, Y. A Physics and Data-Driven Hybrid PINNs Intelligent Computing Method for Nuclear Engineering Simulation. In Proceedings of 2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS), Yanji, China, 27-29 September 2024; pp. 780-785. https://doi.org/10.1109/EIECS63941.2024.10800727.",
     "doi": "10.1109/EIECS63941.2024.10800727",
     "publisher_url": "https://ieeexplore.ieee.org/document/10800727/",
-    "venue": "2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS)",
+    "venue": "IEEE International Conference on Electronic Information Engineering and Computer Science (EIECS) 4th",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Xie, Y.; Wang, W.; Wu, G.; Yu, Y.; An, P.; Sun, Z.; Zhang, H.; Luo, S.; Li, Y.",
@@ -7493,18 +7493,19 @@
       "pages": "780-785",
       "publisher": "IEEE",
       "conference_name": "2024 4th International Conference on Electronic Information Engineering and Computer Science (EIECS)",
-      "conference_location": "Yanji, China",
-      "conference_date": "2024-09-27–2024-09-29",
+      "conference_location": "Yanji",
+      "conference_country": "China",
+      "conference_date": "27-29 September 2024",
       "publication_date": "2024-09-27"
     },
-    "abstract": null,
+    "abstract": "In the field of nuclear energy, the Loss of Coolant Accident (LOCA) is recognized as one of the most severe types of nuclear reactor accidents, characterized by its complex physical processes and potentially catastrophic consequences. These challenges impose stringent requirements on safety analysis and emergency response. Accurate prediction and analysis of fluid behavior within pipelines under LOCA conditions are critical for evaluating accident outcomes and formulating response strategies. This paper introduces an innovative intelligent computing approach—a Physics-Informed Neural Networks (PINNs) model driven by both physical data and simulation data, specifically tailored for LOCA conditions. To address the challenges posed by multivariable and complex physical relationships, the six-equation two-fluid model is first simplified to represent the physical processes. Subsequently, a dual-driven PINNs network is developed, integrating both simulation data and physical constraints. The proposed model demonstrates a root mean square error (RMSE) of 0.02, a mean absolute error (MAE) of 0.044, and an R2 of 0.81 in predicting the outcomes under the six-equation model.",
     "graphical_abstract": null,
     "year": 2024,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 281,
