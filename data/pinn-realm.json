@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.107",
+    "version": "2.2.108",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-06",
     "source_file": "papers-countries-and-year.md",
@@ -7783,7 +7783,7 @@
     },
     {
       "id": 643,
-      "title": "HierPINN-EM",
+      "title": "HierPINN-EM: Fast Learning-Based Electromigration Analysis for Multi-Segment Interconnects Using Hierarchical Physics-Informed Neural Network",
       "year": 2022,
       "countries": [
         "United States"

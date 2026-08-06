@@ -16990,11 +16990,11 @@
   },
   {
     "id": 643,
-    "title": "HierPINN-EM",
-    "citation": "Jin, W.; Chen, L.; Lamichhane, S.; Kavousi, M.; Tan, S.X.-D. HierPINN-EM. In Proceedings of ICCAD '22: IEEE/ACM International Conference on Computer-Aided Design, San Diego California; pp. 1-9. https://doi.org/10.1145/3508352.3549371.",
+    "title": "HierPINN-EM: Fast Learning-Based Electromigration Analysis for Multi-Segment Interconnects Using Hierarchical Physics-Informed Neural Network",
+    "citation": "Jin, W.; Chen, L.; Lamichhane, S.; Kavousi, M.; Tan, S.X.-D. HierPINN-EM: Fast Learning-Based Electromigration Analysis for Multi-Segment Interconnects Using Hierarchical Physics-Informed Neural Network. In Proceedings of ICCAD '22: IEEE/ACM International Conference on Computer-Aided Design, San Diego, CA, USA, 30 October 2022; Abstract 28, pp. 1-9. https://doi.org/10.1145/3508352.3549371.",
     "doi": "10.1145/3508352.3549371",
     "publisher_url": "https://dl.acm.org/doi/10.1145/3508352.3549371",
-    "venue": "Proceedings of the 41st IEEE/ACM International Conference on Computer-Aided Design",
+    "venue": "IEEE/ACM International Conference on Computer-Aided Design 41st",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Jin, W.; Chen, L.; Lamichhane, S.; Kavousi, M.; Tan, S.X.-D.",
@@ -17002,17 +17002,20 @@
       "pages": "1-9",
       "publisher": "ACM",
       "conference_name": "ICCAD '22: IEEE/ACM International Conference on Computer-Aided Design",
-      "conference_location": "San Diego California",
+      "conference_location": "San Diego, CA",
+      "conference_country": "USA",
+      "conference_date": "30 October 2022",
+      "abstract_number": "28",
       "publication_date": "2022-10-30"
     },
-    "abstract": null,
+    "abstract": "Electromigration (EM) becomes a major concern for VLSI circuits as the technology advances in the nanometer regime. The crux of problem is to solve the partial differential Korhonen equations, which remains challenging due to the increasing integrated density. Recently, scientific machine learning has been explored to solve partial differential equations (PDE) due to breakthrough success in deep neural networks and existing approach such as physics-informed neural networks (PINN) shows promising results for some small PDE problems. However, for large engineering problems like EM analysis for large interconnect trees, it was shown that the plain PINN does not work well due the to large number of variables. In this work, we propose a novel hierarchical PINN approach, HierPINN-EM for fast EM induced stress analysis for multi-segment interconnects. Instead of solving the interconnect tree as a whole, we first solve EM problem for one wire segment under different boundary and geometrical parameters using supervised learning. Then we apply unsupervised PINN concept to solve the whole interconnects by enforcing the physics laws in the boundaries for all wire segments. In this way, HierPINN-EM can significantly reduce the number of variables at plain PINN solver. Numerical results on a number of synthetic interconnect trees show that HierPINN-EM can lead to orders of magnitude speedup in training and more than 79× better accuracy over the plain PINN method. Furthermore, HierPINN-EM yields 19% better accuracy with 99% reduction in training cost over recently proposed Graph Neural Network-based EM solver, EMGraph.",
     "graphical_abstract": null,
     "year": 2022,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 644,
