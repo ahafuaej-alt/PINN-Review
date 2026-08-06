@@ -12119,10 +12119,10 @@
   {
     "id": 455,
     "title": "Modeling EM Problem with Deep Neural Networks",
-    "citation": "Xu, F.; Fu, S. Modeling EM Problem with Deep Neural Networks. In Proceedings of 2018 IEEE International Conference on Computational Electromagnetics (ICCEM), Chengdu, 2018-03-26–2018-03-28; pp. 1-2. https://doi.org/10.1109/COMPEM.2018.8496532.",
+    "citation": "Xu, F.; Fu, S. Modeling EM Problem with Deep Neural Networks. In Proceedings of 2018 IEEE International Conference on Computational Electromagnetics (ICCEM), Chengdu, China, 26-28 March 2018; pp. 1-2. https://doi.org/10.1109/COMPEM.2018.8496532.",
     "doi": "10.1109/COMPEM.2018.8496532",
     "publisher_url": "https://ieeexplore.ieee.org/document/8496532/",
-    "venue": "2018 IEEE International Conference on Computational Electromagnetics (ICCEM)",
+    "venue": "IEEE International Conference on Computational Electromagnetics (ICCEM)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Xu, F.; Fu, S.",
@@ -12131,17 +12131,18 @@
       "publisher": "IEEE",
       "conference_name": "2018 IEEE International Conference on Computational Electromagnetics (ICCEM)",
       "conference_location": "Chengdu",
-      "conference_date": "2018-03-26–2018-03-28",
+      "conference_country": "China",
+      "conference_date": "26-28 March 2018",
       "publication_date": "2018-03"
     },
-    "abstract": null,
+    "abstract": "This paper investigates the potential of using deep neural network (DNN) to model electromagnetic forward problems. As a preliminary attempt, we use a deep convolutional neural network (CNN) to fit the scattered field of an inhomogeneous circular region as calculated by a 2D Finite Element-Boundary Integral (FE-BI) model. This approach provides a new tool to fast map input to output of a specific EM problem, which builds basis for further study on solving inverse problem with DNN.",
     "graphical_abstract": null,
     "year": 2018,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 456,
