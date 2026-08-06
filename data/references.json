@@ -19335,10 +19335,10 @@
   {
     "id": 732,
     "title": "A Neural Network Model of Smoke Plume Dynamics for Arbitrary Wind Speeds and Landscapes",
-    "citation": "Ranjith, Y. A Neural Network Model of Smoke Plume Dynamics for Arbitrary Wind Speeds and Landscapes. In Proceedings of 2024 Conference on AI, Science, Engineering, and Technology (AIxSET), Laguna Hills, CA, USA, 2024-09-30–2024-10-02; pp. 106-114. https://doi.org/10.1109/AIxSET62544.2024.00020.",
+    "citation": "Ranjith, Y. A Neural Network Model of Smoke Plume Dynamics for Arbitrary Wind Speeds and Landscapes. In Proceedings of 2024 Conference on AI, Science, Engineering, and Technology (AIxSET), Laguna Hills, CA, USA, 30 September 2024; pp. 106-114. https://doi.org/10.1109/AIxSET62544.2024.00020.",
     "doi": "10.1109/AIxSET62544.2024.00020",
     "publisher_url": "https://ieeexplore.ieee.org/document/10770901/",
-    "venue": "2024 Conference on AI, Science, Engineering, and Technology (AIxSET), Laguna Hills, CA, USA, 2024",
+    "venue": "IEEE Conference on AI, Science, Engineering, and Technology (AIxSET)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Ranjith, Y.",
@@ -19346,18 +19346,19 @@
       "pages": "106-114",
       "publisher": "IEEE",
       "conference_name": "2024 Conference on AI, Science, Engineering, and Technology (AIxSET)",
-      "conference_location": "Laguna Hills, CA, USA",
-      "conference_date": "2024-09-30–2024-10-02",
+      "conference_location": "Laguna Hills, CA",
+      "conference_country": "USA",
+      "conference_date": "30 September 2024",
       "publication_date": "2024-09-30"
     },
-    "abstract": null,
+    "abstract": "Smoke plume dynamics play a crucial role in environmental monitoring and wildfire management. Scientists and engineers rely on their understanding of these dynamics to predict the spread and impact of wildfire smoke. Traditionally, scientists model smoke plumes using physical simulations, which are both resource-intensive and time-consuming. A faster alternative to these explicit methods is the physics-informed neural network (PINN). Because neural networks function as operators, they can directly solve time-dependent partial differential equations (PDEs) at any time, bypassing the need for sequential time-step calculations. Additionally, PINNs can provide solutions for any subdomain within a larger space, enabling faster simulations. In our research, we developed three ensemble PINNs that can model smoke plume dynamics. In Experiment 1, the PINN learned the simulation for 40000 time steps, an arbitrary inlet wind speed, one smoke source, and a fixed grid geometry. In Experiment 2, the PINN learned the same simulation but with two smoke sources. In Experiment 3, the PINN learned the simulation for 20000 time steps, a fixed inlet wind speed, two smoke sources, and an arbitrary grid geometry defined using an 8-point spline. In all experiments, our ensemble PINNs had an inference time of only 15 seconds, whereas the explicit method took up to 7 hours. Our ensemble PINNs had errors down to the order of E-05. The training time on a TPU was only 23 minutes per epoch. For future work, we would like to create PINNs that can model any number of smoke sources using convolutions and pooling.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Open access",
+    "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 733,
