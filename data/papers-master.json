@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.118",
+    "dataset_version": "2.2.119",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -57265,11 +57265,11 @@
     {
       "id": 706,
       "title": "Automatic Detection of Diabetic Retinopathy from Fundus Images using Machine Learning Based Approaches",
-      "citation": "Bangyal, W.H.; Shakir, R.; Ashraf, A.; Qayyum, Z.U.; Rehman, N.U. Automatic Detection of Diabetic Retinopathy from Fundus Images using Machine Learning Based Approaches. In Proceedings of 2023 25th International Multitopic Conference (INMIC), Lahore, Pakistan, 2023-11-17–2023-11-18; pp. 1-6. https://doi.org/10.1109/INMIC60434.2023.10465796.",
+      "citation": "Bangyal, W.H.; Shakir, R.; Ashraf, A.; Qayyum, Z.U.; Rehman, N.U. Automatic Detection of Diabetic Retinopathy from Fundus Images using Machine Learning Based Approaches. In Proceedings of 2023 25th International Multitopic Conference (INMIC), Lahore, Pakistan, 17-18 November 2023; pp. 1-6. https://doi.org/10.1109/INMIC60434.2023.10465796.",
       "doi": "10.1109/INMIC60434.2023.10465796",
       "publisher_url": "https://ieeexplore.ieee.org/document/10465796/",
       "venue": {
-        "name": "2023 25th International Multitopic Conference (INMIC), Lahore, Pakistan, 2023",
+        "name": "IEEE International Multitopic Conference (INMIC) 25th",
         "type": "conference"
       },
       "year": 2023,
@@ -57281,8 +57281,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/INMIC60434.2023.10465796",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10465796/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FINMIC60434.2023.10465796",
@@ -57327,19 +57327,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Bangyal, W.H.; Shakir, R.; Ashraf, A.; Qayyum, Z.U.; Rehman, N.U.",
         "journal_abbreviation": "2023 25th International Multitopic Conference (INMIC)",
         "pages": "1-6",
         "publisher": "IEEE",
         "conference_name": "2023 25th International Multitopic Conference (INMIC)",
-        "conference_location": "Lahore, Pakistan",
-        "conference_date": "2023-11-17–2023-11-18",
+        "conference_location": "Lahore",
+        "conference_country": "Pakistan",
+        "conference_date": "17-18 November 2023",
         "publication_date": "2023-11-17"
-      }
+      },
+      "abstract": "Diabetes-related retinopathy (DR) is the primary cause of blindness in the modern world. It affects retinal blood vessels. It causes blindness over time with no initial symptoms. Early detection of DR helps prevent vision loss. The method for detecting DR is based on Machine Learning (ML) network algorithms that categorize patient fundus photos by DR severity. This research proposes accurate ML-based architectures. Cropping and scaling are used to preprocess Kaggle DR Dataset photos. Unbalanced data affects our model’s accuracy. 70:30 split evaluates prediction performance. 94% accurate decision model ML-based approaches have a more robust and generic method for quantitative DR image analysis. These results are useful for imbalanced large-scale datasets. Machine learning-based approaches have better results."
     },
     {
       "id": 707,

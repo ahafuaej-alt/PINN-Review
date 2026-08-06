@@ -18639,10 +18639,10 @@
   {
     "id": 706,
     "title": "Automatic Detection of Diabetic Retinopathy from Fundus Images using Machine Learning Based Approaches",
-    "citation": "Bangyal, W.H.; Shakir, R.; Ashraf, A.; Qayyum, Z.U.; Rehman, N.U. Automatic Detection of Diabetic Retinopathy from Fundus Images using Machine Learning Based Approaches. In Proceedings of 2023 25th International Multitopic Conference (INMIC), Lahore, Pakistan, 2023-11-17–2023-11-18; pp. 1-6. https://doi.org/10.1109/INMIC60434.2023.10465796.",
+    "citation": "Bangyal, W.H.; Shakir, R.; Ashraf, A.; Qayyum, Z.U.; Rehman, N.U. Automatic Detection of Diabetic Retinopathy from Fundus Images using Machine Learning Based Approaches. In Proceedings of 2023 25th International Multitopic Conference (INMIC), Lahore, Pakistan, 17-18 November 2023; pp. 1-6. https://doi.org/10.1109/INMIC60434.2023.10465796.",
     "doi": "10.1109/INMIC60434.2023.10465796",
     "publisher_url": "https://ieeexplore.ieee.org/document/10465796/",
-    "venue": "2023 25th International Multitopic Conference (INMIC), Lahore, Pakistan, 2023",
+    "venue": "IEEE International Multitopic Conference (INMIC) 25th",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Bangyal, W.H.; Shakir, R.; Ashraf, A.; Qayyum, Z.U.; Rehman, N.U.",
@@ -18650,11 +18650,12 @@
       "pages": "1-6",
       "publisher": "IEEE",
       "conference_name": "2023 25th International Multitopic Conference (INMIC)",
-      "conference_location": "Lahore, Pakistan",
-      "conference_date": "2023-11-17–2023-11-18",
+      "conference_location": "Lahore",
+      "conference_country": "Pakistan",
+      "conference_date": "17-18 November 2023",
       "publication_date": "2023-11-17"
     },
-    "abstract": null,
+    "abstract": "Diabetes-related retinopathy (DR) is the primary cause of blindness in the modern world. It affects retinal blood vessels. It causes blindness over time with no initial symptoms. Early detection of DR helps prevent vision loss. The method for detecting DR is based on Machine Learning (ML) network algorithms that categorize patient fundus photos by DR severity. This research proposes accurate ML-based architectures. Cropping and scaling are used to preprocess Kaggle DR Dataset photos. Unbalanced data affects our model’s accuracy. 70:30 split evaluates prediction performance. 94% accurate decision model ML-based approaches have a more robust and generic method for quantitative DR image analysis. These results are useful for imbalanced large-scale datasets. Machine learning-based approaches have better results.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
@@ -18662,7 +18663,7 @@
       "Pakistan",
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 707,
