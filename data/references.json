@@ -12092,25 +12092,29 @@
   },
   {
     "id": 453,
-    "title": "Compressed Convolutional LSTM An Efficient Deep Learning framework to Model High Fidelity 3D Turbulence",
-    "citation": "Mohan, A.; Daniel, D.; Chertkov, M.; Livescu, D. Compressed Convolutional LSTM An Efficient Deep Learning framework to Model High Fidelity 3D Turbulence. arXiv 2019. https://doi.org/10.48550/ARXIV.1903.00033.",
+    "title": "Compressed Convolutional LSTM: An Efficient Deep Learning framework to Model High Fidelity 3D Turbulence",
+    "citation": "Mohan, A.; Daniel, D.; Chertkov, M.; Livescu, D. Compressed Convolutional LSTM: An Efficient Deep Learning framework to Model High Fidelity 3D Turbulence. arXiv [Physics. Fluid Dynamics] 2019, 1903, 1-27. https://doi.org/10.48550/ARXIV.1903.00033.",
     "doi": "10.48550/ARXIV.1903.00033",
     "publisher_url": "https://doi.org/10.48550/ARXIV.1903.00033",
-    "venue": "arXiv",
-    "reference_type": "other",
+    "venue": "arXiv [Physics. Fluid Dynamics]",
+    "reference_type": "preprint",
     "bibliographic": {
       "authors": "Mohan, A.; Daniel, D.; Chertkov, M.; Livescu, D.",
+      "journal_abbreviation": "[physics.flu-dyn]",
+      "volume": "1903",
+      "pages": "1-27",
+      "article_number": "00033v2",
       "publisher": "arXiv",
       "publication_date": "2019"
     },
-    "abstract": null,
+    "abstract": "High-fidelity modeling of turbulent flows is one of the major challenges in computational physics, with diverse applications in engineering, earth sciences and astrophysics, among many others. The rising popularity of high-fidelity computational fluid dynamics (CFD) techniques like direct numerical simulation (DNS) and large eddy simulation (LES) have made significant inroads into the problem. However, they remain out of reach for many practical three-dimensional flows characterized by extremely large domains and transient phenomena. Therefore designing efficient and accurate data-driven generative approaches to model turbulence is a necessity. We propose a novel training approach for dimensionality reduction and spatio-temporal modeling of the three-dimensional dynamics of turbulence using a combination of Convolutional autoencoder and the Convolutional LSTM neural networks. The quality of the emulated turbulent fields is assessed with rigorous physics-based statistical tests, instead of visual assessments. The results show significant promise in the training methodology to generate physically consistent turbulent flows at a small fraction of the computing resources required for DNS.",
     "graphical_abstract": null,
     "year": 2019,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 454,
