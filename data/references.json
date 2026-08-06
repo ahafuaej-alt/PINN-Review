@@ -13439,24 +13439,27 @@
   {
     "id": 506,
     "title": "Application of Physics-Informed Neural Networks for Solving the Inverse Advection-Diffusion Problem to Localize Pollution Sources",
-    "citation": "Ivan Chuprov; Denis Derkach; Dmitry Efremenko; Aleksei Kychkin. Application of Physics-Informed Neural Networks for Solving the Inverse Advection-Diffusion Problem to Localize Pollution Sources. arXiv [Computer Science > Neural and Evolutionary Computing] 2025. https://doi.org/10.48550/arXiv.2503.18849.",
+    "citation": "Chuprov, I.; Derkach, D.; Efremenko, D.; Kychkin A. Application of Physics-Informed Neural Networks for Solving the Inverse Advection-Diffusion Problem to Localize Pollution Sources. arXiv [Computer Science. Neural and Evolutionary Computing] 2025, 2503, 1-15. https://doi.org/10.48550/arXiv.2503.18849.",
     "doi": "10.48550/arXiv.2503.18849",
     "publisher_url": "https://arxiv.org/abs/2503.18849",
-    "venue": "arXiv [Computer Science > Neural and Evolutionary Computing]",
+    "venue": "arXiv [Computer Science. Neural and Evolutionary Computing]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Ivan Chuprov; Denis Derkach; Dmitry Efremenko; Aleksei Kychkin",
-      "journal_abbreviation": "arXiv [Computer Science > Neural and Evolutionary Computing]",
+      "authors": "Chuprov, I.; Derkach, D.; Efremenko, D.; Kychkin A.",
+      "journal_abbreviation": "[cs.NE]",
+      "volume": "2503",
+      "pages": "1-15",
+      "article_number": "18849v1",
       "publication_date": "2025-03-24"
     },
-    "abstract": null,
+    "abstract": "This paper investigates the application of Physics-Informed Neural Networks (PINNs) for solving the inverse advection-diffusion problem to localize pollution sources. The study focuses on optimizing neural network architectures to accurately model pollutant dispersion dynamics under diverse conditions, including scenarios with weak and strong winds and multiple pollution sources. Various PINN configurations are evaluated, showing the strong dependence of solution accuracy on hyperparameter selection. Recommendations for efficient PINN configurations are provided based on these comparisons. The approach is tested across multiple scenarios and validated using real-world data that accounts for atmospheric variability. The results demonstrate that the proposed methodology achieves high accuracy in source localization, showcasing the stability and potential of PINNs for addressing environmental monitoring and pollution management challenges under complex weather conditions.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Open access",
     "countries": [
       "Russian Federation"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 507,
