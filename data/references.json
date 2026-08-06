@@ -10259,25 +10259,29 @@
   },
   {
     "id": 383,
-    "title": "AutoPINN When AutoML Meets Physics-Informed Neural Networks",
-    "citation": "Wu, X.; Zhang, D.; Zhang, M.; Guo, C.; Zhao, S.; Zhang, Y.; Wang, H.; Yang, B. AutoPINN When AutoML Meets Physics-Informed Neural Networks. arXiv 2022. https://doi.org/10.48550/ARXIV.2212.04058.",
+    "title": "AutoPINN: When AutoML Meets Physics-Informed Neural Networks",
+    "citation": "Wu, X.; Zhang, D.; Zhang, M.; Guo, C.; Zhao, S.; Zhang, Y.; Wang, H.; Yang, B. AutoPINN: When AutoML Meets Physics-Informed Neural Networks. arXiv [Computer Science. Machine Learning] 2022, 2212, 1-5. https://doi.org/10.48550/ARXIV.2212.04058.",
     "doi": "10.48550/ARXIV.2212.04058",
     "publisher_url": "https://doi.org/10.48550/ARXIV.2212.04058",
-    "venue": "arXiv",
-    "reference_type": "other",
+    "venue": "arXiv [Computer Science. Machine Learning]",
+    "reference_type": "preprint",
     "bibliographic": {
       "authors": "Wu, X.; Zhang, D.; Zhang, M.; Guo, C.; Zhao, S.; Zhang, Y.; Wang, H.; Yang, B.",
+      "journal_abbreviation": "[cs.LG]",
+      "volume": "2212",
+      "pages": "1-5",
+      "article_number": "04058v1",
       "publisher": "arXiv",
       "publication_date": "2022"
     },
-    "abstract": null,
+    "abstract": "Physics-Informed Neural Networks (PINNs) have recently been proposed to solve scientific and engineering problems, where physical laws are introduced into neural networks as prior knowledge. With the embedded physical laws, PINNs enable the estimation of critical parameters, which are unobservable via physical tools, through observable variables. For example, Power Electronic Converters (PECs) are essential building blocks for the green energy transition. PINNs have been applied to estimate the capacitance, which is unobservable during PEC operations, using current and voltage, which can be observed easily during operations. The estimated capacitance facilitates self-diagnostics of PECs. Existing PINNs are often manually designed, which is time-consuming and may lead to suboptimal performance due to a large number of design choices for neural network architectures and hyperparameters. In addition, PINNs are often deployed on different physical devices, e.g., PECs, with limited and varying resources. Therefore, it requires designing different PINN models under different resource constraints, making it an even more challenging task for manual design. To contend with the challenges, we propose Automated Physics-Informed Neural Networks (AutoPINN), a framework that enables the automated design of PINNs by combining AutoML and PINNs. Specifically, we first tailor a search space that allows finding high-accuracy PINNs for PEC internal parameter estimation. We then propose a resource-aware search strategy to explore the search space to find the best PINN model under different resource constraints. We experimentally demonstrate that AutoPINN is able to find more accurate PINN models than human-designed, state-of-the-art PINN models using fewer resources.",
     "graphical_abstract": null,
     "year": 2022,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "Denmark"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 384,
