@@ -14998,10 +14998,10 @@
   {
     "id": 567,
     "title": "Automotive LiDAR Based Precipitation State Estimation Using Physics Informed Spatio-Temporal 3D Convolutional Neural Networks (PIST-CNN)",
-    "citation": "Kettelgerdes, M.; Pandey, A.; Unruh, D.; Erdogan, H.; Wunderle, B.; Elger, G. Automotive LiDAR Based Precipitation State Estimation Using Physics Informed Spatio-Temporal 3D Convolutional Neural Networks (PIST-CNN). In Proceedings of 2023 29th International Conference on Mechatronics and Machine Vision in Practice (M2VIP), Queenstown, New Zealand, 2023-11-21–2023-11-24; pp. 1-6. https://doi.org/10.1109/M2VIP58386.2023.10413394.",
+    "citation": "Kettelgerdes, M.; Pandey, A.; Unruh, D.; Erdogan, H.; Wunderle, B.; Elger, G. Automotive LiDAR Based Precipitation State Estimation Using Physics Informed Spatio-Temporal 3D Convolutional Neural Networks (PIST-CNN). In Proceedings of 2023 29th International Conference on Mechatronics and Machine Vision in Practice (M2VIP), Queenstown, New Zealand, 21-24 November 2023; pp. 1-6. https://doi.org/10.1109/M2VIP58386.2023.10413394.",
     "doi": "10.1109/M2VIP58386.2023.10413394",
     "publisher_url": "https://ieeexplore.ieee.org/document/10413394/",
-    "venue": "2023 29th International Conference on Mechatronics and Machine Vision in Practice (M2VIP)",
+    "venue": "IEEE International Conference on Mechatronics and Machine Vision in Practice (M2VIP) 29th",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Kettelgerdes, M.; Pandey, A.; Unruh, D.; Erdogan, H.; Wunderle, B.; Elger, G.",
@@ -15009,18 +15009,19 @@
       "pages": "1-6",
       "publisher": "IEEE",
       "conference_name": "2023 29th International Conference on Mechatronics and Machine Vision in Practice (M2VIP)",
-      "conference_location": "Queenstown, New Zealand",
-      "conference_date": "2023-11-21–2023-11-24",
+      "conference_location": "Queenstown",
+      "conference_country": "New Zealand",
+      "conference_date": "21-24 November 2023",
       "publication_date": "2023-11-21"
     },
-    "abstract": null,
+    "abstract": "With the rise of driving automation, optical sensors like cameras and LiDAR are playing a crucial role in vehicle perception. However, these sensors face challenges from harsh environmental conditions, including extreme temperatures and weather effects like fog and precipitation, which degrade their performance due to particle scattering. Consequently, significant efforts are being made to understand, model, and mitigate these effects. In this work, we address the reverse research question and demonstrate that the precise present precipitation state in form of the particle size and velocity distribution can be predicted using degraded Automotive LiDAR measurements and spatio-temporal 3D convolutional neural networks. By that, this approach provides a cost-effective solution for characterizing precipitation with a commercial Flash LiDAR sensor, which can be implemented as a lightweight vehicle software feature to issue advanced driver warnings, adapt driving dynamics, or serve as a data quality measure for weighted heterogeneous sensor data fusion and adaptive filtering during data pre-processing.",
     "graphical_abstract": null,
     "year": 2023,
     "access": "Subscription",
     "countries": [
       "Germany"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 568,
