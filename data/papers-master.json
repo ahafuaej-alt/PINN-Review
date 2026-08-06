@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.104",
+    "dataset_version": "2.2.105",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -67203,16 +67203,16 @@
     },
     {
       "id": 850,
-      "title": "Physics_GNN Towards Physics-informed graph neural network for the real-time simulation of obstructed gas explosion",
-      "citation": "Shi, J.; Li, J.; Tam, W.C.; Gardoni, P.; Usmani, A.S. Physics_GNN Towards Physics-informed graph neural network for the real-time simulation of obstructed gas explosion. Real-Time Simulation of Obstructed Gas Explosion. Reliab. Eng. Syst. Saf 2025, 256, 110777.",
-      "doi": null,
-      "publisher_url": null,
+      "title": "Physics_GNN: Towards Physics-informed graph neural network for the real-time simulation of obstructed gas explosion",
+      "citation": "Shi, J.; Li, J.; Tam, W.C.; Gardoni, P.; Usmani, A.S. Physics_GNN: Towards Physics-informed graph neural network for the real-time simulation of obstructed gas explosion. Reliability Engineering & System Safety 2025, 256, 1-17. https://doi.org/10.1016/j.ress.2024.110777.",
+      "doi": "10.1016/j.ress.2024.110777",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832024008482",
       "venue": {
-        "name": "Real-Time Simulation of Obstructed Gas Explosion. Reliab. Eng. Syst. Saf.",
+        "name": "Reliability Engineering & System Safety",
         "type": "journal"
       },
       "year": 2025,
-      "access": "Not verified",
+      "access": "Subscription",
       "countries": [
         "China",
         "United States"
@@ -67220,8 +67220,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0951832024008482",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67234,12 +67234,13 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-06",
       "bibliographic": {
-        "authors": "Shi, J.; Li, J.; Tam, W.C.; Gardoni, P.; Usmani, A.S",
-        "journal_abbreviation": "Real-Time Simulation of Obstructed Gas Explosion. Reliab. Eng. Syst. Saf.",
+        "authors": "Shi, J.; Li, J.; Tam, W.C.; Gardoni, P.; Usmani, A.S.",
+        "journal_abbreviation": "Reliab. Eng. Syst. Saf.",
         "volume": "256",
-        "pages": "110777"
+        "pages": "1-17",
+        "article_number": "110777"
       },
       "abstract": "Explosion risk assessment (ERA) is essential for ensuring effective process safety and reliability management. Deep learning has been used to reduce the computational burden of computational fluid dynamics (CFD)-based ERA, but its ’black-box’ nature without considering relevant physics can lead to inaccuracies, especially in complex, obstructed scenarios. This paper develops a Physics-informed graph neural network approach, i.e., Physics\\_GNN for real-time obstructed gas explosion simulation. An autoregressive GNN, namely GNN\\_f is first applied to iteratively predict the spatiotemporal flame evolution. An ordinary differential equation (ODE) governing the interaction mechanism between the flame and blast wave propagation is used to predict the blast dynamics with the GNN\\_f. A physical enhancement factor β is proposed to calibrate the overpressure dynamics prediction with congestions, which can be predicted by developing another GNN, namely GNN\\_β. The integration of GNN\\_f, GNN\\_β and ODE leads to the final Physics\\_GNN. A benchmark numerical dataset is constructed, using which Physics\\_GNN and the state-of-the-art are then compared. The comparison demonstrates the superior accuracy of the proposed approach in real-time blast load prediction in congested scenarios. The Physics\\_GNN approach also enables the description of the physical interactions between congestion, flame propagation, and blast load distribution. This paper provides an efficient and accurate approach to predict industrial explosion consequences, supporting robust ERA and risk-informed decision-makings about mitigation design of industrial facilities."
     },
