@@ -7105,10 +7105,10 @@
   {
     "id": 266,
     "title": "A Transient Simulation Framework for Hydrogen Blending Pipeline Transportation with Physics-Informed Neural Networks",
-    "citation": "Ma, J.; He, Y.; Su, H.; Zhang, J. A Transient Simulation Framework for Hydrogen Blending Pipeline Transportation with Physics-Informed Neural Networks. In Proceedings of 2024 2nd International Conference on Artificial Intelligence and Automation Control (AIAC), Guangzhou, China, 2024-12-20–2024-12-22; pp. 62-66. https://doi.org/10.1109/AIAC63745.2024.10899670.",
+    "citation": "Ma, J.; He, Y.; Su, H.; Zhang, J. A Transient Simulation Framework for Hydrogen Blending Pipeline Transportation with Physics-Informed Neural Networks. In Proceedings of 2024 2nd International Conference on Artificial Intelligence and Automation Control (AIAC), Guangzhou, China, 20-22 December 2024; pp. 62-66. https://doi.org/10.1109/AIAC63745.2024.10899670.",
     "doi": "10.1109/AIAC63745.2024.10899670",
     "publisher_url": "https://ieeexplore.ieee.org/document/10899670/",
-    "venue": "2024 2nd International Conference on Artificial Intelligence and Automation Control (AIAC)",
+    "venue": "IEEE International Conference on Artificial Intelligence and Automation Control (AIAC) 2nd",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Ma, J.; He, Y.; Su, H.; Zhang, J.",
@@ -7116,18 +7116,19 @@
       "pages": "62-66",
       "publisher": "IEEE",
       "conference_name": "2024 2nd International Conference on Artificial Intelligence and Automation Control (AIAC)",
-      "conference_location": "Guangzhou, China",
-      "conference_date": "2024-12-20–2024-12-22",
+      "conference_location": "Guangzhou",
+      "conference_country": "China",
+      "conference_date": "20-22 December 2024",
       "publication_date": "2024-12-20"
     },
-    "abstract": null,
+    "abstract": "In addressing the hydraulic simulation of hydrogen-blended pipeline transportation, this paper establishes a physics-informed neural network (PINN) model for solving the physical field of hydraulic transport in hydrogen-blended pipelines. Through data normalization, the model effectively avoids the issue of multi-scale dimensional gradient conflicts during neural network training in hydraulic simulations. Case studies in classic transient gas pipeline simulations demonstrate that the proposed model achieves small errors in predicting flow rate and pressure.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Open access",
+    "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 267,
