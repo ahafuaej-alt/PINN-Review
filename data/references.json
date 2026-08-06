@@ -15737,11 +15737,11 @@
   },
   {
     "id": 595,
-    "title": "SVD-PINNs Transfer Learning of Physics-Informed Neural Networks via Singular Value Decomposition",
-    "citation": "Gao, Y.; Cheung, K.C.; Ng, M.K. SVD-PINNs Transfer Learning of Physics-Informed Neural Networks via Singular Value Decomposition. In Proceedings of 2022 IEEE Symposium Series on Computational Intelligence (SSCI), Singapore, Singapore, 2022-12-04–2022-12-07; pp. 1443-1450. https://doi.org/10.1109/SSCI51031.2022.10022281.",
+    "title": "SVD-PINNs: Transfer Learning of Physics-Informed Neural Networks via Singular Value Decomposition",
+    "citation": "Gao, Y.; Cheung, K.C.; Ng, M.K. SVD-PINNs: Transfer Learning of Physics-Informed Neural Networks via Singular Value Decomposition. In Proceedings of 2022 IEEE Symposium Series on Computational Intelligence (SSCI), Singapore, Singapore, 04-07 December 2022; pp. 1443-1450. https://doi.org/10.1109/SSCI51031.2022.10022281.",
     "doi": "10.1109/SSCI51031.2022.10022281",
     "publisher_url": "https://ieeexplore.ieee.org/document/10022281/",
-    "venue": "2022 IEEE Symposium Series on Computational Intelligence (SSCI)",
+    "venue": "IEEE Symposium Series on Computational Intelligence (SSCI)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Gao, Y.; Cheung, K.C.; Ng, M.K.",
@@ -15749,18 +15749,19 @@
       "pages": "1443-1450",
       "publisher": "IEEE",
       "conference_name": "2022 IEEE Symposium Series on Computational Intelligence (SSCI)",
-      "conference_location": "Singapore, Singapore",
-      "conference_date": "2022-12-04–2022-12-07",
+      "conference_location": "Singapore",
+      "conference_country": "Singapore",
+      "conference_date": "04-07 December 2022",
       "publication_date": "2022-12-04"
     },
-    "abstract": null,
+    "abstract": "Physics-informed neural networks (PINNs) have attracted significant attention for solving partial differential equations (PDEs) in recent years because they alleviate the curse of dimensionality that appears in traditional methods. However, the most disadvantage of PINNs is that one neural network corresponds to one PDE. In practice, we usually need to solve a class of PDEs, not just one. With the explosive growth of deep learning, many useful techniques in general deep learning tasks are also suitable for PINNs. Transfer learning methods may reduce the cost for PINNs in solving a class of PDEs. In this paper, we proposed a transfer learning method of PINNs via keeping singular vectors and optimizing singular values (namely SVD-PINNs). Numerical experiments on high dimensional PDEs (10-d linear parabolic equations and l0-d Allen-Cahn equations) show that SVD-PINNs work for solving a class of PDEs with different but close right-hand-side functions.",
     "graphical_abstract": null,
     "year": 2022,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 596,
