@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.95",
+    "version": "2.2.96",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-06",
     "source_file": "papers-countries-and-year.md",
@@ -9984,7 +9984,7 @@
     },
     {
       "id": 834,
-      "title": "EP-PINNs Cardiac Electrophysiology Characterisation Using Physics-Informed Neural Networks",
+      "title": "EP-PINNs: Cardiac Electrophysiology Characterisation Using Physics-Informed Neural Networks",
       "year": 2022,
       "countries": [
         "United Kingdom",
