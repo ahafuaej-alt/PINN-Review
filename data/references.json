@@ -21853,26 +21853,27 @@
   },
   {
     "id": 832,
-    "title": "JAX-FEM A differentiable GPU-accelerated 3D finite element solver for automatic inverse design and mechanistic data science",
-    "citation": "Xue, T.; Liao, S.; Gan, Z.; Park, C.; Xie, X.; Liu, W.K.; Cao, J. JAX-FEM A differentiable GPU-accelerated 3D finite element solver for automatic inverse design and mechanistic data science. Automatic Inverse Design and Mechanistic Data Science. Comput. Phys. Commun 2023, 291, 108802.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Automatic Inverse Design and Mechanistic Data Science. Comput. Phys. Commun.",
+    "title": "JAX-FEM: A differentiable GPU-accelerated 3D finite element solver for automatic inverse design and mechanistic data science",
+    "citation": "Xue, T.; Liao, S.; Gan, Z.; Park, C.; Xie, X.; Liu, W.K.; Cao, J. JAX-FEM: A differentiable GPU-accelerated 3D finite element solver for automatic inverse design and mechanistic data science. Computer Physics Communications 2023, 291, 1-30. https://doi.org/10.1016/j.cpc.2023.108802.",
+    "doi": "10.1016/j.cpc.2023.108802",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0010465523001479",
+    "venue": "Computer Physics Communications",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Xue, T.; Liao, S.; Gan, Z.; Park, C.; Xie, X.; Liu, W.K.; Cao, J",
-      "journal_abbreviation": "Automatic Inverse Design and Mechanistic Data Science. Comput. Phys. Commun.",
+      "authors": "Xue, T.; Liao, S.; Gan, Z.; Park, C.; Xie, X.; Liu, W.K.; Cao, J.",
+      "journal_abbreviation": "Computer Physics Communications",
       "volume": "291",
-      "pages": "108802"
+      "pages": "1-30",
+      "article_number": "108802"
     },
     "abstract": "This paper introduces JAX-FEM, an open-source differentiable finite element method (FEM) library. Constructed on top of Google JAX, a rising machine learning library focusing on highperformance numerical computing, JAX-FEM is implemented with pure Python while scalable to efficiently solve problems with moderate to large sizes. For example, in a 3D tensile loading problem with 7.7 million degrees of freedom, JAX-FEM with GPU achieves around 10× acceleration compared to a commercial FEM code depending on platform. Beyond efficiently solving forward problems, JAX-FEM employs the automatic differentiation technique so that inverse problems are solved in a fully automatic manner without the need to manually derive sensitivities. Examples of 3D topology optimization of nonlinear materials are shown to achieve optimal compliance. Finally, JAX-FEM is an integrated platform for machine learning-aided computational mechanics. We show an example of data-driven multi-scale computations of a composite material where JAX-FEM provides an all-in-one solution from microscopic data generation and model training to macroscopic FE computations. The source code of the library and these examples are shared with the community to facilitate computational mechanics research.",
     "graphical_abstract": null,
     "year": 2023,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 833,
