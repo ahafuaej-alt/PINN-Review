@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.139",
+    "version": "2.2.140",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-06",
     "source_file": "papers-countries-and-year.md",
@@ -9499,7 +9499,7 @@
     {
       "id": 792,
       "title": "Coupled Integral PINN for Discontinuity",
-      "year": 2024,
+      "year": 2026,
       "countries": [
         "China"
       ],
@@ -11426,8 +11426,8 @@
           "international": 16
         },
         "2024": {
-          "total": 54,
-          "national": 42,
+          "total": 53,
+          "national": 41,
           "international": 12
         },
         "2025": {
@@ -11436,8 +11436,8 @@
           "international": 36
         },
         "2026": {
-          "total": 2,
-          "national": 2,
+          "total": 3,
+          "national": 3,
           "international": 0
         }
       }

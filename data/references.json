@@ -20884,24 +20884,28 @@
   {
     "id": 792,
     "title": "Coupled Integral PINN for Discontinuity",
-    "citation": "Wang, Y.; Yang, S. Coupled Integral PINN for Discontinuity. arXiv 2024. https://doi.org/10.48550/arXiv.2411.11276.",
+    "citation": "Wang, Y.; Yang, S. Coupled Integral PINN for Discontinuity. arXiv [Physics. Fluid Dynamics] 2026, 2411, 1-26. https://doi.org/10.48550/arXiv.2411.11276.",
     "doi": "10.48550/arXiv.2411.11276",
     "publisher_url": "https://doi.org/10.48550/arXiv.2411.11276",
-    "venue": "arXiv",
-    "reference_type": "other",
+    "venue": "arXiv [Physics. Fluid Dynamics]",
+    "reference_type": "preprint",
     "bibliographic": {
       "authors": "Wang, Y.; Yang, S.",
+      "journal_abbreviation": "[physics.flu-dyn]",
+      "volume": "2411",
+      "pages": "1-26",
+      "article_number": "11276v2",
       "publisher": "arXiv",
       "publication_date": "2024"
     },
-    "abstract": null,
+    "abstract": "Physics-Informed Neural Networks (PINNs) solve forward PDEs by minimizing residual losses from the governing equations with initial and boundary conditions, but they often struggle with discontinuities such as shocks. In contrast, finite volume methods (FVM) handle discontinuities by enforcing integral conservation, which admits weak solutions. Motivated by this, we propose a Coupled Integral PINN (CI-PINN) that augments a standard PINN with an auxiliary network for integral potentials and coupled integral constraints. This improves robustness near shocks while avoiding meshing and the numerical flux integration/reconstruction used in classical schemes. We validate CI-PINN on forward benchmarks including Burgers, Buckley--Leverett, the Euler system, and the Shallow-Water equations.",
     "graphical_abstract": null,
-    "year": 2024,
-    "access": "Subscription",
+    "year": 2026,
+    "access": "Open access",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 793,
