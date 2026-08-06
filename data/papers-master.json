@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.109",
+    "dataset_version": "2.2.110",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -34058,12 +34058,12 @@
     },
     {
       "id": 414,
-      "title": "Special Session Physics- Informed Neural Networks for Securing Water Distribution Systems",
-      "citation": "Falas, S.; Konstantinou, C.; Michael, M.K. Special Session Physics- Informed Neural Networks for Securing Water Distribution Systems. In Proceedings of 2020 IEEE 38th International Conference on Computer Design (ICCD), Hartford, CT, USA, 2020-10-18–2020-10-21; pp. 37-40. https://doi.org/10.1109/ICCD50377.2020.00022.",
+      "title": "Special Session: Physics- Informed Neural Networks for Securing Water Distribution Systems",
+      "citation": "Falas, S.; Konstantinou, C.; Michael, M.K. Special Session: Physics- Informed Neural Networks for Securing Water Distribution Systems. In Proceedings of 2020 IEEE 38th International Conference on Computer Design (ICCD), Hartford, CT, USA, 18-21 October 2020; pp. 37-40. https://doi.org/10.1109/ICCD50377.2020.00022.",
       "doi": "10.1109/ICCD50377.2020.00022",
       "publisher_url": "https://ieeexplore.ieee.org/document/9283596/",
       "venue": {
-        "name": "2020 IEEE 38th International Conference on Computer Design (ICCD)",
+        "name": "IEEE International Conference on Computer Design (ICCD) 38th",
         "type": "conference"
       },
       "year": 2020,
@@ -34075,8 +34075,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/ICCD50377.2020.00022",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/9283596/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FICCD50377.2020.00022",
@@ -34122,19 +34122,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Falas, S.; Konstantinou, C.; Michael, M.K.",
         "journal_abbreviation": "2020 IEEE 38th International Conference on Computer Design (ICCD)",
         "pages": "37-40",
         "publisher": "IEEE",
         "conference_name": "2020 IEEE 38th International Conference on Computer Design (ICCD)",
-        "conference_location": "Hartford, CT, USA",
-        "conference_date": "2020-10-18–2020-10-21",
+        "conference_location": "Hartford, CT",
+        "conference_country": "USA",
+        "conference_date": "18-21 October 2020",
         "publication_date": "2020-10"
-      }
+      },
+      "abstract": "Physics-informed neural networks (PINNs) is an emerging category of neural networks which can be trained to solve supervised learning tasks while taking into consideration given laws of physics described by general nonlinear partial differential equations. PINNs demonstrate promising characteristics such as performance and accuracy using minimal amount of data for training, utilized to accurately represent the physical properties of a system's dynamic environment. In this work, we employ the emerging paradigm of PINNs to demonstrate their potential in enhancing the security of intelligent cyberphysical systems. In particular, we present a proof-of-concept scenario using the use case of water distribution networks, which involves an attack on a controller in charge of regulating a liquid pump through liquid flow sensor measurements. PINNs are used to mitigate the effects of the attack while demonstrating the applicability and challenges of the approach."
     },
     {
       "id": 415,

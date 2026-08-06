@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.109",
+    "version": "2.2.110",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-06",
     "source_file": "papers-countries-and-year.md",
@@ -5132,7 +5132,7 @@
     },
     {
       "id": 414,
-      "title": "Special Session Physics- Informed Neural Networks for Securing Water Distribution Systems",
+      "title": "Special Session: Physics- Informed Neural Networks for Securing Water Distribution Systems",
       "year": 2020,
       "countries": [
         "Cyprus",
