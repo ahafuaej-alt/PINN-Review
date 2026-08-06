@@ -22204,26 +22204,27 @@
   {
     "id": 846,
     "title": "Perspectives for artificial intelligence in sustainable energy systems",
-    "citation": "Chen, D.; Lin, X.; Qiao, Y. Perspectives for artificial intelligence in sustainable energy systems. Energy 2025, 318, 134711.",
-    "doi": null,
-    "publisher_url": null,
+    "citation": "Chen, D.; Lin, X.; Qiao, Y. Perspectives for artificial intelligence in sustainable energy systems. Energy 2025, 318, 1-18. https://doi.org/10.1016/j.energy.2025.134711.",
+    "doi": "10.1016/j.energy.2025.134711",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0360544225003536",
     "venue": "Energy",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Chen, D.; Lin, X.; Qiao, Y",
+      "authors": "Chen, D.; Lin, X.; Qiao, Y.",
       "journal_abbreviation": "Energy",
       "volume": "318",
-      "pages": "134711"
+      "pages": "1-18",
+      "article_number": "134711"
     },
     "abstract": "This forward-looking perspective introduces the current applications of AI in sustainable energy systems, focusing on machine learning (ML) in three key areas: (i) system modeling and prediction, (ii) energy operation and management, and (iii) anomaly detection and diagnostics. For future low-carbon, decentralized and multi-energy systems, increasing complexity and communication pose challenges for system forecasting, operational control, grid planning, and energy security. AI offers revolutionary solutions by enhancing renewable energy integration, optimizing energy storage, and improving fault detection and cybersecurity. However, AI methods face limitations, including dependence on extensive data, lack of physical interpretability, and issues of transferability and robustness, hindering broader adoption in the energy sector. Therefore, perspectives are offered on four aspects: (1) developing generative AI to provide synthetic energy data, (2) adopting physics-informed AI to mitigate inherent AI limitations, (3) utilizing AI-based control and energy planning to address multi-energy complexities, and (4) implementing layered AI-based cybersecurity measures to defend smart energy systems. Overall, this perspective provides insights into the evolving role of AI in future energy systems.",
     "graphical_abstract": null,
     "year": 2025,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "China",
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 847,
