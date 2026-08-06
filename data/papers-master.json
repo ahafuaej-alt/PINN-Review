@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.106",
+    "dataset_version": "2.2.107",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -40428,11 +40428,11 @@
     {
       "id": 499,
       "title": "Highly-scalable, physics-informed GANs for learning solutions of stochastic PDEs",
-      "citation": "Yang, L.; Treichler, S.; Kurth, T.; Fischer, K.; Barajas-Solano, D.; Romero, J.; Churavy, V.; Tartakovsky, A.; Houston, M.; Prabhat, M.; Karniadakis, G. Highly-scalable, physics-informed GANs for learning solutions of stochastic PDEs. In Proceedings of 2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS), Denver, CO, USA, 2019-11-17; pp. 1-11. https://doi.org/10.1109/DLS49591.2019.00006.",
+      "citation": "Yang, L.; Treichler, S.; Kurth, T.; Fischer, K.; Barajas-Solano, D.; Romero, J.; Churavy, V.; Tartakovsky, A.; Houston, M.; Prabhat, M.; Karniadakis, G. Highly-scalable, physics-informed GANs for learning solutions of stochastic PDEs. In Proceedings of 2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS), Denver, CO, USA, 17 November 2019; pp. 1-11. https://doi.org/10.1109/DLS49591.2019.00006.",
       "doi": "10.1109/DLS49591.2019.00006",
       "publisher_url": "https://ieeexplore.ieee.org/document/8945120/",
       "venue": {
-        "name": "2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS)",
+        "name": "IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS)",
         "type": "conference"
       },
       "year": 2019,
@@ -40443,8 +40443,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/DLS49591.2019.00006",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/8945120/",
+        "note": "name",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FDLS49591.2019.00006",
@@ -40490,19 +40490,22 @@
           ],
           "conflict_count": 2,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Yang, L.; Treichler, S.; Kurth, T.; Fischer, K.; Barajas-Solano, D.; Romero, J.; Churavy, V.; Tartakovsky, A.; Houston, M.; Prabhat, M.; Karniadakis, G.",
         "journal_abbreviation": "2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS)",
         "pages": "1-11",
         "publisher": "IEEE",
         "conference_name": "2019 IEEE/ACM Third Workshop on Deep Learning on Supercomputers (DLS)",
-        "conference_location": "Denver, CO, USA",
-        "conference_date": "2019-11-17",
+        "conference_location": "Denver, CO",
+        "conference_country": "USA",
+        "conference_date": "17 November 2019",
         "publication_date": "2019-11"
-      }
+      },
+      "abstract": "Uncertainty quantification for forward and inverse problems is a central challenge across physical and biomedical disciplines. We address this challenge for the problem of modeling subsurface flow at the Hanford Site by combining stochastic computational models with observational data using physics-informed GAN models. The geographic extent, spatial heterogeneity, and multiple correlation length scales of the Hanford Site require training a computationally intensive GAN model to thousands of dimensions. We develop a highly optimized implementation that scales to 27,500 NVIDIA Volta GPUs. We develop a hierarchical scheme based on a multi-player game-theoretic approach for exploiting domain parallelism, map discriminators and generators to multiple GPUs, and employ efficient communication schemes to ensure training stability and convergence. Our implementation scales to 4584 nodes on the Summit supercomputer with a 93.1%scaling efficiency, achieving peak and sustained half-precision . rates of 1228 PF/s and 1207 PF/s."
     },
     {
       "id": 500,
