@@ -15086,10 +15086,10 @@
   {
     "id": 570,
     "title": "Zero-Shot Multi-Frequency Ultrasound Simulation using Physics Informed GAN",
-    "citation": "Ghosh, R.K.; Sheet, D. Zero-Shot Multi-Frequency Ultrasound Simulation using Physics Informed GAN. In Proceedings of 2024 IEEE South Asian Ultrasonics Symposium (SAUS), Gujarat, India, 2024-03-27–2024-03-29; pp. 1-4. https://doi.org/10.1109/SAUS61785.2024.10563470.",
+    "citation": "Ghosh, R.K.; Sheet, D. Zero-Shot Multi-Frequency Ultrasound Simulation using Physics Informed GAN. In Proceedings of 2024 IEEE South Asian Ultrasonics Symposium (SAUS), Gujarat, India, 27-29 March 2024; pp. 1-4. https://doi.org/10.1109/SAUS61785.2024.10563470.",
     "doi": "10.1109/SAUS61785.2024.10563470",
     "publisher_url": "https://ieeexplore.ieee.org/document/10563470/",
-    "venue": "2024 IEEE South Asian Ultrasonics Symposium (SAUS)",
+    "venue": "IEEE South Asian Ultrasonics Symposium (SAUS)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Ghosh, R.K.; Sheet, D.",
@@ -15097,18 +15097,19 @@
       "pages": "1-4",
       "publisher": "IEEE",
       "conference_name": "2024 IEEE South Asian Ultrasonics Symposium (SAUS)",
-      "conference_location": "Gujarat, India",
-      "conference_date": "2024-03-27–2024-03-29",
+      "conference_location": "Gujarat",
+      "conference_country": "India",
+      "conference_date": "27-29 March 2024",
       "publication_date": "2024-03-27"
     },
-    "abstract": null,
+    "abstract": "Ultrasound (US) simulators are safe and cost-effective alternatives to real US systems for education and research. Numerical simulators employ heavy computations and simplifying assumptions of US propagation physics. Deep learning (DL) methods require comparably lesser computations and generalize better compared to numerical solvers, however they require large image datasets acquired at different transducer frequency in order to be optimized. We propose a physics informed DL approach to tackle these challenges. A generative adversarial network (GAN) is trained with an US image dataset imaged with a single transducer frequency. A kernel stretching method is proposed that is used during inference to simulate resolution change associated with varying transducer frequency. The proposed method retains aspects of frequency controllability of numerical simulators while preserving realism and computational simplicity of DL models. This approach has application in medical imaging domains where limited access to datasets and low computational resources handicap training of GANs.",
     "graphical_abstract": null,
     "year": 2024,
     "access": "Subscription",
     "countries": [
       "India"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 571,
