@@ -18483,10 +18483,10 @@
   {
     "id": 700,
     "title": "Optimizing Smart Grid Energy and Load Prediction with Namib Beetle Algorithm and Self-Adaptive Physics-Informed Neural Networks",
-    "citation": "Santhakumar, D.; Mishra, D.; Mallala, B.; S, S.; Dhanadhya, T. Optimizing Smart Grid Energy and Load Prediction with Namib Beetle Algorithm and Self-Adaptive Physics-Informed Neural Networks. In Proceedings of 2024 3rd International Conference on Automation, Computing and Renewable Systems (ICACRS), Pudukkottai, India, 2024-12-04–2024-12-06; pp. 367-373. https://doi.org/10.1109/ICACRS62842.2024.10841617.",
+    "citation": "Santhakumar, D.; Mishra, D.; Mallala, B.; S, S.; Dhanadhya, T. Optimizing Smart Grid Energy and Load Prediction with Namib Beetle Algorithm and Self-Adaptive Physics-Informed Neural Networks. In Proceedings of 2024 3rd International Conference on Automation, Computing and Renewable Systems (ICACRS), Pudukkottai, India, 04-06 December 2024; pp. 367-373. https://doi.org/10.1109/ICACRS62842.2024.10841617.",
     "doi": "10.1109/ICACRS62842.2024.10841617",
     "publisher_url": "https://ieeexplore.ieee.org/document/10841617/",
-    "venue": "2024 3rd International Conference on Automation, Computing and Renewable Systems (ICACRS), Pudukkottai, India, 2024",
+    "venue": "IEEE International Conference on Automation, Computing and Renewable Systems (ICACRS) 3rd",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Santhakumar, D.; Mishra, D.; Mallala, B.; S, S.; Dhanadhya, T.",
@@ -18494,18 +18494,19 @@
       "pages": "367-373",
       "publisher": "IEEE",
       "conference_name": "2024 3rd International Conference on Automation, Computing and Renewable Systems (ICACRS)",
-      "conference_location": "Pudukkottai, India",
-      "conference_date": "2024-12-04–2024-12-06",
+      "conference_location": "Pudukkottai",
+      "conference_country": "India",
+      "conference_date": "04-06 December 2024",
       "publication_date": "2024-12-04"
     },
-    "abstract": null,
+    "abstract": "For smart grid (SG) operations to be effective and improve resource allocation and grid stability, it is essential to forecast electricity load and renewable energy generation. However, because renewable energy sources are very variable and load demand patterns in smart grid environments are complicated, it is still difficult to estimate renewable energy output and electrical load with any degree of accuracy. This paper proposes a hybrid approach for predicting wind energy generation. The proposed method is combined execution of Namib Beetle Optimization Algorithm (NBOA) and Self-Adaptive Physics-Informed Neural Networks (SAPINN). Hence, it is named as NBOA-SAPINN Approach. The input data is collected from the Germany Wind Energy and Weather Dataset. Then, the input data is fed to pre-processing using Generalized Multi-kernel Maximum Correntropy Kalman Filter (GMKMCKF). The GMKMCKF is used to normalize the data. The pre-processed data is then fed to SAPINN for wind energy generation forecast. To achieve this prediction, the SAPINN is fine-tuned using the NBOA. The proposed method is implemented in MATLAB. It is therefore feasible to use several performance criteria to measure the efficiency of the proposed NBOA-SAPINN model such as Accuracy, Root Mean Square Error (MSE), Mean Squared Error (MSE). The NBOA-SAPINN model achieves an accuracy of 98%, with MSE and RMSE values converging to 0.23 and 0.22 by epoch 100 compared with existing methods such as Gated Recurrent Unit-Recurrent Neural Network (GRU-RNN), Feed-Forward Neural Network (FFNN), Deep Reinforcement Learning (DRL), and Recurrent Trend Predictive Neural Network (RTNN).",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Open access",
+    "access": "Subscription",
     "countries": [
       "India"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 701,
