@@ -12053,10 +12053,10 @@
   {
     "id": 452,
     "title": "Physics-Based Machine Learning Inversion of Subsurface Elastic Properties",
-    "citation": "Costa Nogueira Junior, A.; De Sousa Almeida, J.; Paredes Quiñones, M.; de Albuquerque Martins, L.S. Physics-Based Machine Learning Inversion of Subsurface Elastic Properties. In Proceedings of 81st EAGE Conference and Exhibition 2019, London, UK; pp. 1-5. https://doi.org/10.3997/2214-4609.201901147.",
+    "citation": "Costa Nogueira Junior, A.; De Sousa Almeida, J.; Paredes Quiñones, M.; de Albuquerque Martins, L.S. Physics-Based Machine Learning Inversion of Subsurface Elastic Properties. In Proceedings of 81st EAGE Conference and Exhibition 2019, London, UK, 3-6 June 2019; pp. 1-5. https://doi.org/10.3997/2214-4609.201901147.",
     "doi": "10.3997/2214-4609.201901147",
     "publisher_url": "https://www.earthdoc.org/content/papers/10.3997/2214-4609.201901147",
-    "venue": "81st EAGE Conference and Exhibition 2019",
+    "venue": "EAGE Conference and Exhibition 81st 2019",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Costa Nogueira Junior, A.; De Sousa Almeida, J.; Paredes Quiñones, M.; de Albuquerque Martins, L.S.",
@@ -12064,17 +12064,19 @@
       "pages": "1-5",
       "publisher": "European Association of Geoscientists & Engineers",
       "conference_name": "81st EAGE Conference and Exhibition 2019",
-      "conference_location": "London, UK,",
+      "conference_location": "London",
+      "conference_country": "UK",
+      "conference_date": "3-6 June 2019",
       "publication_date": "2019"
     },
-    "abstract": null,
+    "abstract": "Inverse problems abound in many areas of science and engineering as a method to infer parameters of a given domain that, under certain mathematical relationships, produce results as observed. One of the state-of-the-art inversion techniques employed in seismic interpretation workflows is the Full Waveform Inversion algorithm. This is an iterative method based on both forward and backward steps aiming at the subsurface characterization by minimizing the mismatch between the computed wave field response and the measured response assuming an initial material distribution for the soil. This work presents a new approach for seismic inversion by proposing the application of Physics-Informed Neural Network (PINN) concept to solve the elastic wave equation for the estimation of petroelastic properties. Through two proof of concept numerical examples, we demonstrated the viability of our Machine Learning approach with some benefits compared to the standard methods, namely, small data dependency, better absorbing boundaries representation and, more efficient algorithm based on a single learning workflow that computes the wave field and the inverse parameters concurrently. It is worth mentioning that once trained with a large enough range of values for each material property, the Neural Network estimation can be straightforwardly extended for different site characterizations.",
     "graphical_abstract": null,
     "year": 2019,
     "access": "Subscription",
     "countries": [
       "Brazil"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 453,
