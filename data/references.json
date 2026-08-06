@@ -9568,10 +9568,10 @@
   {
     "id": 358,
     "title": "Neural Network Driven by Space-time Partial Differential Equation for Predicting Sea Surface Temperature",
-    "citation": "Yuan, T.; Zhu, J.; Ren, K.; Wang, W.; Wang, X.; Li, X. Neural Network Driven by Space-time Partial Differential Equation for Predicting Sea Surface Temperature. In Proceedings of 2022 IEEE International Conference on Data Mining (ICDM), Orlando, FL, USA, 2022-11-28–2022-12-01; pp. 656-665. https://doi.org/10.1109/ICDM54844.2022.00076.",
+    "citation": "Yuan, T.; Zhu, J.; Ren, K.; Wang, W.; Wang, X.; Li, X. Neural Network Driven by Space-time Partial Differential Equation for Predicting Sea Surface Temperature. In Proceedings of 2022 IEEE International Conference on Data Mining (ICDM), Orlando, FL, USA, 28 November 2022; pp. 656-665. https://doi.org/10.1109/ICDM54844.2022.00076.",
     "doi": "10.1109/ICDM54844.2022.00076",
     "publisher_url": "https://ieeexplore.ieee.org/document/10027628/",
-    "venue": "2022 IEEE International Conference on Data Mining (ICDM)",
+    "venue": "IEEE International Conference on Data Mining (ICDM)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Yuan, T.; Zhu, J.; Ren, K.; Wang, W.; Wang, X.; Li, X.",
@@ -9579,18 +9579,19 @@
       "pages": "656-665",
       "publisher": "IEEE",
       "conference_name": "2022 IEEE International Conference on Data Mining (ICDM)",
-      "conference_location": "Orlando, FL, USA",
-      "conference_date": "2022-11-28–2022-12-01",
+      "conference_location": "Orlando, FL",
+      "conference_country": "USA",
+      "conference_date": "28 November 2022",
       "publication_date": "2022-11"
     },
-    "abstract": null,
+    "abstract": "Sea Surface Temperature (SST) prediction has attracted increasing attention due to its critical role in climate change. Traditional SST prediction methods can be mainly divided into two types, the physics-based numerical methods and the data-driven methods. However, the above methods have certain limitations, the former type can not perform well when the physical prior information is incomplete, while latter type can not perform well when the training data is insufficient. This paper uses a deep neural network to extract some valuable information from the data, and then introduces the space-time partial differential equation (PDE) to model the prior physical information referring to SST. By incorporating them together, a new Space-Time PDE-guided Neural Network (STPDE-NET), which can better deal with the prior physical information incompleteness and data insufficiency problems mentioned above is proposed. In the experiments, we compare our STPDE-NET with several famous or state-of-the-art SST prediction methods. The experimental results show that STPDE-NET outperforms the compared methods in most SST prediction circumstances, especially when the training data is insufficient.",
     "graphical_abstract": null,
     "year": 2022,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 359,
