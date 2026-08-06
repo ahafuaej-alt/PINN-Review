@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.92",
+    "version": "2.2.93",
     "schema_version": "1.0.0",
-    "last_updated": "2026-07-29",
+    "last_updated": "2026-08-06",
     "source_file": "papers-countries-and-year.md",
     "reference_source": "papers-master.json",
     "paper_count": 853,
@@ -9945,7 +9945,7 @@
     },
     {
       "id": 831,
-      "title": "HiDeNN-FEM A seamless machine learning approach to nonlinear finite element analysis",
+      "title": "HiDeNN-FEM: a seamless machine learning approach to nonlinear finite element analysis",
       "year": 2023,
       "countries": [
         "United States"

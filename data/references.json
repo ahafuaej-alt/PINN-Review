@@ -21830,26 +21830,26 @@
   },
   {
     "id": 831,
-    "title": "HiDeNN-FEM A seamless machine learning approach to nonlinear finite element analysis",
-    "citation": "Liu, Y.; Park, C.; Lu, Y.; Mojumder, S.; Liu, W.K.; Qian, D. HiDeNN-FEM A seamless machine learning approach to nonlinear finite element analysis. Machine Learning Approach to Nonlinear Finite Element Analysis. Comput. Mech 2023, 72, 173–194.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Machine Learning Approach to Nonlinear Finite Element Analysis. Comput. Mech.",
+    "title": "HiDeNN-FEM: a seamless machine learning approach to nonlinear finite element analysis",
+    "citation": "Liu, Y.; Park, C.; Lu, Y.; Mojumder, S.; Liu, W.K.; Qian, D. HiDeNN-FEM: a seamless machine learning approach to nonlinear finite element analysis. Computational Mechanics 2023, 72, 173–194. https://doi.org/10.1007/s00466-023-02293-z.",
+    "doi": "10.1007/s00466-023-02293-z",
+    "publisher_url": "https://link.springer.com/article/10.1007/s00466-023-02293-z#citeas",
+    "venue": "Computational Mechanics",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Liu, Y.; Park, C.; Lu, Y.; Mojumder, S.; Liu, W.K.; Qian, D",
-      "journal_abbreviation": "Machine Learning Approach to Nonlinear Finite Element Analysis. Comput. Mech.",
+      "authors": "Liu, Y.; Park, C.; Lu, Y.; Mojumder, S.; Liu, W.K.; Qian, D.",
+      "journal_abbreviation": "Comput Mech",
       "volume": "72",
       "pages": "173–194"
     },
     "abstract": "The hierarchical deep-learning neural network (HiDeNN) (Zhang et al, Computational Mechanics, 67:207–230) provides a systematic approach to constructing numerical approximations that can be incorporated into a wide variety of Partial differential equations (PDE) and/or Ordinary differential equations (ODE) solvers. This paper presents a framework of the nonlinear finite element based on HiDeNN approximation (nonlinear HiDeNN-FEM). This is enabled by three basic building blocks employing structured deep neural networks: 1) A partial derivative operator block that performs the differentiation of the shape functions with respect to the element coordinates, 2) An r-adaptivity block that improves the local and global convergence properties and 3) A materials derivative block that evaluates the material derivatives of the shape function. While these building blocks can be applied to any element, specific implementations are presented in 1D and 2D to illustrate the application of the deep learning neural network. Two-step optimization schemes are further developed to allow for the capabilities of r-adaptivity and easy integration with any existing FE solver. Numerical examples of 2D and 3D demonstrate that the proposed nonlinear HiDeNNFEM with r-adaptivity provides much higher accuracy than regular FEM. It also significantly reduces element distortion and suppresses the hourglass mode.",
     "graphical_abstract": null,
     "year": 2023,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 832,
