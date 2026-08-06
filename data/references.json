@@ -22180,25 +22180,26 @@
   {
     "id": 845,
     "title": "Physics informed neural network based multi-zone electric water heater modeling for demand response",
-    "citation": "Pandiyan, S.V.; Gros, S.; Rajasekharan, J. Physics informed neural network based multi-zone electric water heater modeling for demand response. Appl. Energy 2025, 380, 125037.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Appl. Energy",
+    "citation": "Pandiyan, S.V.; Gros, S.; Rajasekharan, J. Physics informed neural network based multi-zone electric water heater modeling for demand response. Applied Energy 2025, 380, 1-13. https://doi.org/10.1016/j.apenergy.2024.125037.",
+    "doi": "10.1016/j.apenergy.2024.125037",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0306261924024218",
+    "venue": "Applied Energy",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Pandiyan, S.V.; Gros, S.; Rajasekharan, J",
+      "authors": "Pandiyan, S.V.; Gros, S.; Rajasekharan, J.",
       "journal_abbreviation": "Appl. Energy",
       "volume": "380",
-      "pages": "125037"
+      "pages": "1-13",
+      "article_number": "125037"
     },
     "abstract": "Devising an effective control strategy to maximize the flexibility potential of electric water heaters (EWHs) requires a highly accurate and computationally inexpensive EWH model. Existing physics-based models are either too simplistic or computationally complex. This paper models EWHs using a physics-informed neural network (PINN) that integrates domain knowledge into the training process to ensure better physical consistency for capturing EWH thermal dynamics at a lower computational cost. Using a physics-based multizone (MZ) differential equation model (DEM), the EWH is discretized into multiple zones and modeled using a standard Multiple-Input-Multiple-Output (MIMO) PINN architecture to develop a generic and efficient EWH model. To improve the accuracy and interpretability further, a hybrid model that employs a Multiple-InputSingle-Output (MISO) PINN architecture together with physics derived features from the MZ DEM and a custom designed function for resolving temperature inversion is investigated in detail. Additionally, a customized recursive training strategy is developed to enable longer time-horizon simulations without performance degradation. Performance evaluations in both simulation and optimization frameworks using real-world data demonstrate the computational gains offered by PINN models over traditional MZ DEM.",
     "graphical_abstract": null,
     "year": 2025,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "Norway"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 846,
