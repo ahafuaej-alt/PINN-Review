@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.108",
+    "dataset_version": "2.2.109",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -57981,12 +57981,12 @@
     },
     {
       "id": 715,
-      "title": "2d and 3d physics informed neural networks to model pollution spread with obstructions",
-      "citation": "Ranjith, Y. 2d and 3d physics informed neural networks to model pollution spread with obstructions. In Proceedings of BDCAT '23: IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies, Taormina (Messina) Italy; pp. 1-2. https://doi.org/10.1145/3632366.3632380.",
+      "title": "2D and 3D Physics Informed Neural Networks to Model Pollution Spread with Obstructions",
+      "citation": "Ranjith, Y. 2D and 3D Physics Informed Neural Networks to Model Pollution Spread with Obstructions. In Proceedings of BDCAT '23: Proceedings of the IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies, Taormina (Messina), Italy, 4-7 December 2023; Abstract 28, pp. 1-2. https://doi.org/10.1145/3632366.3632380.",
       "doi": "10.1145/3632366.3632380",
       "publisher_url": "https://dl.acm.org/doi/10.1145/3632366.3632380",
       "venue": {
-        "name": "Proceedings of the IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies",
+        "name": "IEEE/ACM International Conference on Big Data Computing, Applications and Technologies 10th",
         "type": "conference"
       },
       "year": 2023,
@@ -58000,8 +58000,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1145/3632366.3632380",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://dl.acm.org/doi/10.1145/3632366.3632380",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1145%2F3632366.3632380",
@@ -58049,18 +58049,23 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Ranjith, Y.",
         "journal_abbreviation": "Proceedings of the IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies",
         "pages": "1-2",
         "publisher": "ACM",
-        "conference_name": "BDCAT '23: IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies",
-        "conference_location": "Taormina (Messina) Italy",
+        "conference_name": "BDCAT '23: Proceedings of the IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies",
+        "conference_location": "Taormina (Messina)",
+        "conference_country": "Italy",
+        "conference_date": "4-7 December 2023",
+        "abstract_number": "28",
         "publication_date": "2023-12-04"
-      }
+      },
+      "abstract": "Pollution simulations rely on math models to solve Partial Differential Equations (PDEs). Although accurate, they are slow, as they sequentially compute one timestep at a time. Recent research advancements in Physics Informed Neural Networks (PINNs) like Neural Operators have solved PDEs but they are able to do so only in 2D environments without obstructions. This research creates a PINN that can jump directly to any timestep to simulate pollution spread for laminar flow by solving 2D and 3D advection-diffusion PDEs in an environment with obstructions. The PDEs are solved using the Finite Difference Method and Zero Flux Neumann boundaries are applied to obstruction surfaces. Then, the solution space is sampled, and the resulting colocation dataset is used to train the PINN via supervised learning. Results show that both 2D and 3D PINNs were over 1900 times faster than the math models with an MSE at or lower than 9E-5."
     },
     {
       "id": 716,
