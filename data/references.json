@@ -19862,10 +19862,10 @@
   {
     "id": 753,
     "title": "Physics-Informed Neural Networks For the Solution of Electromagnetic Scattering by Integral Equations",
-    "citation": "Zhang, J.-B.; Yu, D.-M.; Pan, X.-M. Physics-Informed Neural Networks For the Solution of Electromagnetic Scattering by Integral Equations. In Proceedings of 2022 International Applied Computational Electromagnetics Society Symposium (ACES-China), Xuzhou, China, 2022-12-09–2022-12-12; pp. 1-2. https://doi.org/10.1109/ACES-China56081.2022.10065316.",
+    "citation": "Zhang, J.-B.; Yu, D.-M.; Pan, X.-M. Physics-Informed Neural Networks For the Solution of Electromagnetic Scattering by Integral Equations. In Proceedings of 2022 International Applied Computational Electromagnetics Society Symposium (ACES-China), Xuzhou, China, 09-12 December 2022; pp. 1-2. https://doi.org/10.1109/ACES-China56081.2022.10065316.",
     "doi": "10.1109/ACES-China56081.2022.10065316",
     "publisher_url": "https://ieeexplore.ieee.org/document/10065316/",
-    "venue": "2022 International Applied Computational Electromagnetics Society Symposium (ACES-China), Xuzhou, China, 2022",
+    "venue": "IEEE International Applied Computational Electromagnetics Society Symposium (ACES-China)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Zhang, J.-B.; Yu, D.-M.; Pan, X.-M.",
@@ -19873,18 +19873,19 @@
       "pages": "1-2",
       "publisher": "IEEE",
       "conference_name": "2022 International Applied Computational Electromagnetics Society Symposium (ACES-China)",
-      "conference_location": "Xuzhou, China",
-      "conference_date": "2022-12-09–2022-12-12",
+      "conference_location": "Xuzhou",
+      "conference_country": "China",
+      "conference_date": "09-12 December 2022",
       "publication_date": "2022-12-09"
     },
-    "abstract": null,
+    "abstract": "The physics-informed neural network approach is applied to the integral equation to solve 2D electromagnetic scattering problems. Numerical results indicate that the integral equation can be accurately solved by a simple FCN with the PINN.",
     "graphical_abstract": null,
     "year": 2022,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 754,
