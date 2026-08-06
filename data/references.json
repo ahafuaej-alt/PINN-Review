@@ -14793,11 +14793,11 @@
   },
   {
     "id": 559,
-    "title": "Emissions Aware Car Following Model A Physics Informed LSTM Application",
-    "citation": "Das, T.; Tanvir, S. Emissions Aware Car Following Model A Physics Informed LSTM Application. In Proceedings of 2024 Forum for Innovative Sustainable Transportation Systems (FISTS), Riverside, CA, USA, 2024-02-26–2024-02-28; pp. 1-5. https://doi.org/10.1109/FISTS60717.2024.10485538.",
+    "title": "Emissions Aware Car Following Model: A Physics Informed LSTM Application",
+    "citation": "Das, T.; Tanvir, S. Emissions Aware Car Following Model: A Physics Informed LSTM Application. In Proceedings of 2024 Forum for Innovative Sustainable Transportation Systems (FISTS), Riverside, CA, USA, 26-28 February 2024; pp. 1-5. https://doi.org/10.1109/FISTS60717.2024.10485538.",
     "doi": "10.1109/FISTS60717.2024.10485538",
     "publisher_url": "https://ieeexplore.ieee.org/document/10485538/",
-    "venue": "2024 Forum for Innovative Sustainable Transportation Systems (FISTS)",
+    "venue": "IEEE Forum for Innovative Sustainable Transportation Systems (FISTS)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Das, T.; Tanvir, S.",
@@ -14805,18 +14805,19 @@
       "pages": "1-5",
       "publisher": "IEEE",
       "conference_name": "2024 Forum for Innovative Sustainable Transportation Systems (FISTS)",
-      "conference_location": "Riverside, CA, USA",
-      "conference_date": "2024-02-26–2024-02-28",
+      "conference_location": "Riverside, CA",
+      "conference_country": "USA",
+      "conference_date": "26-28 February 2024",
       "publication_date": "2024-02-26"
     },
-    "abstract": null,
+    "abstract": "The growing integration of autonomous vehicles (AVs) equipped with adaptive cruise control (ACC) into mixed traffic environments brings about both advantages and challenges. While AVs offer safety and efficiency benefits, their presence can introduce traffic flow instability, potentially leading to increased emissions. Nonetheless, limited research exists on the development of AV car-following models with a specific focus on emission reduction. This study introduces a novel car-following model tailored for AVs in mixed traffic scenarios, harnessing the power of a physics-informed Long Short-Term Memory (LSTM) deep neural network. The model uses a multi-objective loss function, with a dual mission: to accurately mimic the real-world positions of AVs over time and to reduce emissions effectively. In pursuit of the latter goal, the model integrates Vehicle-Specific Power (VSP), as a proxy of emissions, into its physics-based equations. This study utilizes the OpenACC dataset. A robust training dataset is drawn from OpenACC encompassing 18,817 seconds of AV-AV interactions, and traditional vehicle-AV (TV-AV) interactions. The model performance is evaluated on an independent test dataset spanning 1,881 seconds. The results indicate that the proposed model achieves a significant reduction in positive VSP up to the 30th percentile (p-value: 0.00, t-statistic: 8.71) and accurately models AV acceleration (RMSE: 0.092 m/s2).",
     "graphical_abstract": null,
     "year": 2024,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 560,
