@@ -2,6 +2,78 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-459-2026-08-06-2.2.138",
+      "version": "2.2.138",
+      "date": "2026-08-06",
+      "paper_id": 459,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic",
+        "abstract",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://doi.org/10.48550/ARXIV.1710.09099",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 459,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic",
+          "abstract",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2017,
+            "before": 4,
+            "after": 3
+          },
+          {
+            "year": 2018,
+            "before": 10,
+            "after": 11
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2018,
+            "before": 9,
+            "after": 10
+          },
+          {
+            "year": 2019,
+            "before": 23,
+            "after": 22
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-453-2026-08-06-2.2.137",
       "version": "2.2.137",
       "date": "2026-08-06",
