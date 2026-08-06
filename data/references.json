@@ -21877,27 +21877,34 @@
   },
   {
     "id": 833,
-    "title": "Learning atrial fiber orientations and conductivity tensors from intracardiac maps using physics-informed neural networks",
-    "citation": "Grandits, T.; Pezzuto, S.; Costabal, F.S.; Perdikaris, P.; Pock, T.; Plank, G.; Krause, R. Learning atrial fiber orientations and conductivity tensors from intracardiac maps using physics-informed neural networks. Switzerland 2021.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Switzerland",
-    "reference_type": "journal",
+    "title": "Learning Atrial Fiber Orientations and Conductivity Tensors from Intracardiac Maps Using Physics-Informed Neural Networks",
+    "citation": "Grandits, T.; Pezzuto, S.; Costabal, F.S.; Perdikaris, P.; Pock, T.; Plank, G.; Krause, R. Learning Atrial Fiber Orientations and Conductivity Tensors from Intracardiac Maps Using Physics-Informed Neural Networks. In Lecture Notes in Computer Science; Ennis, D.B., Perotti, L.E., Wang, V.Y, Eds.; Springer, Cham: Stanford, CA, USA, 2021; Volume 12738, pp. 650–658. https://doi.org/10.1007/978-3-030-78710-3_62.",
+    "doi": "10.1007/978-3-030-78710-3_62",
+    "publisher_url": "https://link.springer.com/chapter/10.1007/978-3-030-78710-3_62#citeas",
+    "venue": "Functional Imaging and Modeling of the Heart. FIMH 2021.",
+    "reference_type": "conference_book",
     "bibliographic": {
-      "authors": "Grandits, T.; Pezzuto, S.; Costabal, F.S.; Perdikaris, P.; Pock, T.; Plank, G.; Krause, R",
-      "journal_abbreviation": "Switzerland"
+      "authors": "Grandits, T.; Pezzuto, S.; Costabal, F.S.; Perdikaris, P.; Pock, T.; Plank, G.; Krause, R.",
+      "editors": "Ennis, D.B., Perotti, L.E., Wang, V.Y.",
+      "journal_abbreviation": "Switzerland",
+      "volume": "12738",
+      "pages": "650–658",
+      "book_title": "Lecture Notes in Computer Science",
+      "publisher": "Springer, Cham",
+      "city": "Stanford, CA",
+      "country": "USA"
     },
     "abstract": "Electroanatomical maps are a key tool in the diagnosis and treatment of atrial fibrillation. Current approaches focus on the activation times recorded. However, more information can be extracted from the available data. The fibers in cardiac tissue conduct the electrical wave faster, and their direction could be inferred from activation times. In this work, we employ a recently developed approach, called physics informed neural networks, to learn the fiber orientations from electroanatomical maps, taking into account the physics of the electrical wave propagation. In particular, we train the neural network to weakly satisfy the anisotropic eikonal equation and to predict the measured activation times. We use a local basis for the anisotropic conductivity tensor, which encodes the fiber orientation. The methodology is tested both in a synthetic example and for patient data. Our approach shows good agreement in both cases and it outperforms a state of the art method in the patient data. The results show a first step towards learning the fiber orientations from electroanatomical maps with physics-informed neural networks.",
     "graphical_abstract": null,
     "year": 2021,
-    "access": "Not verified",
+    "access": "Subscription",
     "countries": [
       "Austria",
       "Switzerland",
       "Chile",
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 834,

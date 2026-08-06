@@ -2,6 +2,54 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-833-2026-08-06-2.2.95",
+      "version": "2.2.95",
+      "date": "2026-08-06",
+      "paper_id": 833,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue",
+        "access"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://link.springer.com/chapter/10.1007/978-3-030-78710-3_62#citeas",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 833,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue",
+          "access"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-832-2026-08-06-2.2.94",
       "version": "2.2.94",
       "date": "2026-08-06",
