@@ -10057,10 +10057,10 @@
   {
     "id": 376,
     "title": "Circuit Parameter Identification of Degrading DC-DC Converters Based on Physics-informed Neural Network",
-    "citation": "Chen, S.; Zhang, J.; Wang, S.; Wen, P.; Zhao, S. Circuit Parameter Identification of Degrading DC-DC Converters Based on Physics-informed Neural Network. In Proceedings of 2022 Prognostics and Health Management Conference (PHM-2022 London), London, United Kingdom, 2022-05-27–2022-05-29; pp. 260-268. https://doi.org/10.1109/PHM2022-London52454.2022.00053.",
+    "citation": "Chen, S.; Zhang, J.; Wang, S.; Wen, P.; Zhao, S. Circuit Parameter Identification of Degrading DC-DC Converters Based on Physics-informed Neural Network. In Proceedings of 2022 Prognostics and Health Management Conference (PHM-2022 London), London, UK, 27-29 May 2022; pp. 260-268. https://doi.org/10.1109/PHM2022-London52454.2022.00053.",
     "doi": "10.1109/PHM2022-London52454.2022.00053",
     "publisher_url": "https://ieeexplore.ieee.org/document/9808547/",
-    "venue": "2022 Prognostics and Health Management Conference (PHM-2022 London)",
+    "venue": "IEEE Prognostics and Health Management Conference (PHM)",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Chen, S.; Zhang, J.; Wang, S.; Wen, P.; Zhao, S.",
@@ -10068,11 +10068,12 @@
       "pages": "260-268",
       "publisher": "IEEE",
       "conference_name": "2022 Prognostics and Health Management Conference (PHM-2022 London)",
-      "conference_location": "London, United Kingdom",
-      "conference_date": "2022-05-27–2022-05-29",
+      "conference_location": "London",
+      "conference_country": "UK",
+      "conference_date": "27-29 May 2022",
       "publication_date": "2022-05"
     },
-    "abstract": null,
+    "abstract": "Power Electronic Systems (PES) is widely used in energy sectors such as renewable energy and aerospace. It is very important to design a reliable PES health monitoring system. This paper provides a new condition monitoring method based on Physics-informed Neural Network (PINN). Although the actual PES has a complex topology and is in a dynamically changing operating environment, the operation process does not violate the circuit physical models. Considering the charge and discharge process in the DC-DC converter, the physical formula is derived through the state-space average method. Then the physical formula is added to the deep learning model of LSTM as prior knowledge, to estimate the degradation parameters of the DC-DC converter. The uncertainty method is used to determine the weighting coefficients for data fitting and physical information fitting tasks. The PINN method can improve the estimation accuracy and generalization ability of the model in the case of limited data, which is conducive to the realization of the condition monitoring of complex PES. It is significant to improve the reliability of new energy vehicles and military equipment.",
     "graphical_abstract": null,
     "year": 2022,
     "access": "Subscription",
@@ -10080,7 +10081,7 @@
       "China",
       "Denmark"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-06"
   },
   {
     "id": 377,

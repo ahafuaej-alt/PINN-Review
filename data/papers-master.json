@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.116",
+    "dataset_version": "2.2.117",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -30879,11 +30879,11 @@
     {
       "id": 376,
       "title": "Circuit Parameter Identification of Degrading DC-DC Converters Based on Physics-informed Neural Network",
-      "citation": "Chen, S.; Zhang, J.; Wang, S.; Wen, P.; Zhao, S. Circuit Parameter Identification of Degrading DC-DC Converters Based on Physics-informed Neural Network. In Proceedings of 2022 Prognostics and Health Management Conference (PHM-2022 London), London, United Kingdom, 2022-05-27–2022-05-29; pp. 260-268. https://doi.org/10.1109/PHM2022-London52454.2022.00053.",
+      "citation": "Chen, S.; Zhang, J.; Wang, S.; Wen, P.; Zhao, S. Circuit Parameter Identification of Degrading DC-DC Converters Based on Physics-informed Neural Network. In Proceedings of 2022 Prognostics and Health Management Conference (PHM-2022 London), London, UK, 27-29 May 2022; pp. 260-268. https://doi.org/10.1109/PHM2022-London52454.2022.00053.",
       "doi": "10.1109/PHM2022-London52454.2022.00053",
       "publisher_url": "https://ieeexplore.ieee.org/document/9808547/",
       "venue": {
-        "name": "2022 Prognostics and Health Management Conference (PHM-2022 London)",
+        "name": "IEEE Prognostics and Health Management Conference (PHM)",
         "type": "conference"
       },
       "year": 2022,
@@ -30895,8 +30895,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/PHM2022-London52454.2022.00053",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/9808547/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FPHM2022-London52454.2022.00053",
@@ -30941,19 +30941,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Chen, S.; Zhang, J.; Wang, S.; Wen, P.; Zhao, S.",
         "journal_abbreviation": "2022 Prognostics and Health Management Conference (PHM-2022 London)",
         "pages": "260-268",
         "publisher": "IEEE",
         "conference_name": "2022 Prognostics and Health Management Conference (PHM-2022 London)",
-        "conference_location": "London, United Kingdom",
-        "conference_date": "2022-05-27–2022-05-29",
+        "conference_location": "London",
+        "conference_country": "UK",
+        "conference_date": "27-29 May 2022",
         "publication_date": "2022-05"
-      }
+      },
+      "abstract": "Power Electronic Systems (PES) is widely used in energy sectors such as renewable energy and aerospace. It is very important to design a reliable PES health monitoring system. This paper provides a new condition monitoring method based on Physics-informed Neural Network (PINN). Although the actual PES has a complex topology and is in a dynamically changing operating environment, the operation process does not violate the circuit physical models. Considering the charge and discharge process in the DC-DC converter, the physical formula is derived through the state-space average method. Then the physical formula is added to the deep learning model of LSTM as prior knowledge, to estimate the degradation parameters of the DC-DC converter. The uncertainty method is used to determine the weighting coefficients for data fitting and physical information fitting tasks. The PINN method can improve the estimation accuracy and generalization ability of the model in the case of limited data, which is conducive to the realization of the condition monitoring of complex PES. It is significant to improve the reliability of new energy vehicles and military equipment."
     },
     {
       "id": 377,
