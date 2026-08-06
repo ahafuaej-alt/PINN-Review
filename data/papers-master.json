@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.127",
+    "dataset_version": "2.2.128",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -23386,11 +23386,11 @@
     {
       "id": 285,
       "title": "Physics-Informed Neural Network for Solving Buckley-Leverett Equation of Plane Radial Flow",
-      "citation": "Zang, J.; Song, Y.; Bai, J.; Zhang, K.; Wang, J.; Ablameyko, S.V. Physics-Informed Neural Network for Solving Buckley-Leverett Equation of Plane Radial Flow. In Proceedings of 2024 6th International Conference on Data-driven Optimization of Complex Systems (DOCS), Hangzhou, China, 2024-08-16–2024-08-18; pp. 39-44. https://doi.org/10.1109/DOCS63458.2024.10704290.",
+      "citation": "Zang, J.; Song, Y.; Bai, J.; Zhang, K.; Wang, J.; Ablameyko, S.V. Physics-Informed Neural Network for Solving Buckley-Leverett Equation of Plane Radial Flow. In Proceedings of 2024 6th International Conference on Data-driven Optimization of Complex Systems (DOCS), Hangzhou, China, 16-18 August 2024; pp. 39-44. https://doi.org/10.1109/DOCS63458.2024.10704290.",
       "doi": "10.1109/DOCS63458.2024.10704290",
       "publisher_url": "https://ieeexplore.ieee.org/document/10704290/",
       "venue": {
-        "name": "2024 6th International Conference on Data-driven Optimization of Complex Systems (DOCS)",
+        "name": "IEEE International Conference on Data-driven Optimization of Complex Systems (DOCS) 6th",
         "type": "conference"
       },
       "year": 2024,
@@ -23402,8 +23402,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1109/DOCS63458.2024.10704290",
-        "note": null,
+        "evidence_url": "https://ieeexplore.ieee.org/document/10704290/",
+        "note": "name and abs",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1109%2FDOCS63458.2024.10704290",
@@ -23448,19 +23448,22 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Zang, J.; Song, Y.; Bai, J.; Zhang, K.; Wang, J.; Ablameyko, S.V.",
         "journal_abbreviation": "2024 6th International Conference on Data-driven Optimization of Complex Systems (DOCS)",
         "pages": "39-44",
         "publisher": "IEEE",
         "conference_name": "2024 6th International Conference on Data-driven Optimization of Complex Systems (DOCS)",
-        "conference_location": "Hangzhou, China",
-        "conference_date": "2024-08-16–2024-08-18",
+        "conference_location": "Hangzhou",
+        "conference_country": "China",
+        "conference_date": "16-18 August 2024",
         "publication_date": "2024-08-16"
-      }
+      },
+      "abstract": "The Buckley-Leverett (BL) equation of plane radial flow describes the flow state of two phases of oil and water in an ideal planar porous medium. It is a nonlinear hyperbolic conservation partial differential equation (PDE) with a jump value, making it difficult to solve numerically. This paper presents a physics-informed neural network (PINN) with entropy constraints to solve the BL equation of plane radial flow. Specifically, the Oleinik entropy condition is used to limit the change of the relationship between water content and saturation in accordance with the physical law, which does not change the structure of the target PDE to be fitted by the model. Benefit from the interpretability of PINN and its fit in solving PDE problems, the model can be trained in an unsupervised way, thus eliminating the effort of obtaining sample labels. The experimental results show that the root mean square error fluctuates between the interval [0.03436,0.16054], indicating a good fitting effect. Especially the jump value, which refers to the position of the leading edge of water saturation, can be clearly output by the model."
     },
     {
       "id": 286,
