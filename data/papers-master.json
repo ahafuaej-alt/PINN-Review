@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.134",
+    "dataset_version": "2.2.135",
     "last_updated": "2026-08-06",
     "record_count": 853,
     "id_range": "1-853",
@@ -28714,15 +28714,15 @@
     {
       "id": 350,
       "title": "Predicting Multi-Joint Kinematics of the Upper Limb from EMG Signals Across Varied Loads with a Physics-Informed Neural Network",
-      "citation": "Kumar, R.; Muthukrishnan, S.P.; Kumar, L.; Roy, S. Predicting Multi-Joint Kinematics of the Upper Limb from EMG Signals Across Varied Loads with a Physics-Informed Neural Network. arXiv 2023. https://doi.org/10.48550/ARXIV.2312.09418.",
+      "citation": "Kumar, R.; Muthukrishnan, S.P.; Kumar, L.; Roy, S. Predicting Multi-Joint Kinematics of the Upper Limb from EMG Signals Across Varied Loads with a Physics-Informed Neural Network. arXiv [Electrical Engineering and Systems Science. Signal Processing] 2023, 2312, 1-13. https://doi.org/10.48550/ARXIV.2312.09418.",
       "doi": "10.48550/ARXIV.2312.09418",
       "publisher_url": "https://doi.org/10.48550/ARXIV.2312.09418",
       "venue": {
-        "name": "arXiv",
-        "type": "other"
+        "name": "arXiv [Electrical Engineering and Systems Science. Signal Processing]",
+        "type": "preprint"
       },
       "year": 2023,
-      "access": "Subscription",
+      "access": "Open access",
       "countries": [
         "India"
       ],
@@ -28730,7 +28730,7 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://doi.org/10.48550/ARXIV.2312.09418",
-        "note": null,
+        "note": "all",
         "publisher_enrichment": {
           "source": "DOI content negotiation",
           "source_url": "https://doi.org/10.48550/ARXIV.2312.09418",
@@ -28762,14 +28762,20 @@
           ],
           "conflict_count": 2,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-06",
       "bibliographic": {
         "authors": "Kumar, R.; Muthukrishnan, S.P.; Kumar, L.; Roy, S.",
+        "journal_abbreviation": "[eess.SP]",
+        "volume": "2312",
+        "pages": "1-13",
+        "article_number": "09418v1",
         "publisher": "arXiv",
         "publication_date": "2023"
-      }
+      },
+      "abstract": "In this research, we present an innovative method known as a physics-informed neural network (PINN) model to predict multi-joint kinematics using electromyography (EMG) signals recorded from the muscles surrounding these joints across various loads. The primary aim is to simultaneously predict both the shoulder and elbow joint angles while executing elbow flexion-extension (FE) movements, especially under varying load conditions. The PINN model is constructed by combining a feed-forward Artificial Neural Network (ANN) with a joint torque computation model. During the training process, the model utilizes a custom loss function derived from an inverse dynamics joint torque musculoskeletal model, along with a mean square angle loss. The training dataset for the PINN model comprises EMG and time data collected from four different subjects. To assess the model's performance, we conducted a comparison between the predicted joint angles and experimental data using a testing data set. The results demonstrated strong correlations of 58% to 83% in joint angle prediction. The findings highlight the potential of incorporating physical principles into the model, not only increasing its versatility but also enhancing its accuracy. The findings could have significant implications for the precise estimation of multi-joint kinematics in dynamic scenarios, particularly concerning the advancement of human-machine interfaces (HMIs) for exoskeletons and prosthetic control systems."
     },
     {
       "id": 351,
