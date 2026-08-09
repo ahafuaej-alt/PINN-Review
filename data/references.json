@@ -18969,15 +18969,16 @@
   {
     "id": 717,
     "title": "ClimODE Climate and Weather Forecasting with Physics-informed Neural ODEs",
-    "citation": "Verma, Y.; Heinonen, M.; Garg, V. ClimODE Climate and Weather Forecasting with Physics-informed Neural ODEs. Arxiv [Computer Science. Artificial Intelligence] 2024, 2404, 1-23. https://doi.org/10.48550/arXiv.2404.10024.",
+    "citation": "Verma, Y.; Heinonen, M.; Garg, V. ClimODE Climate and Weather Forecasting with Physics-informed Neural ODEs. arXiv [Computer Science. Artificial Intelligence] 2024, 2404, 1-23. https://doi.org/10.48550/arXiv.2404.10024.",
     "doi": "10.48550/arXiv.2404.10024",
-    "publisher_url": "https://doi.org/10.48550/arXiv.2404.10024",
-    "venue": "Arxiv [Computer Science. Artificial Intelligence]",
+    "publisher_url": "https://arxiv.org/abs/2404.10024",
+    "venue": "arXiv [Computer Science. Artificial Intelligence]",
     "reference_type": "preprint",
     "bibliographic": {
       "authors": "Verma, Y.; Heinonen, M.; Garg, V.",
-      "journal_abbreviation": "Arxiv [Computer Science. Artificial Intelligence]",
+      "journal_abbreviation": "arXiv [Computer Science. Artificial Intelligence]",
       "volume": "2404",
+      "issue": "2404.10024v1",
       "pages": "1-23",
       "article_number": "10024v1"
     },
@@ -18988,7 +18989,7 @@
     "countries": [
       "Finland"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 718,
