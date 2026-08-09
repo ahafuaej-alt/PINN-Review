@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.161",
+    "version": "2.2.162",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-09",
     "source_file": "papers-countries-and-year.md",
@@ -9157,7 +9157,7 @@
     {
       "id": 762,
       "title": "Gaussian Error Linear Units (GELUs)",
-      "year": 2016,
+      "year": 2023,
       "countries": [
         "United States"
       ],
@@ -14371,8 +14371,8 @@
           "international": 0
         },
         "2016": {
-          "total": 5,
-          "national": 5,
+          "total": 4,
+          "national": 4,
           "international": 0
         },
         "2017": {
@@ -14406,8 +14406,8 @@
           "international": 11
         },
         "2023": {
-          "total": 44,
-          "national": 29,
+          "total": 45,
+          "national": 30,
           "international": 15
         },
         "2024": {
