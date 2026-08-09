@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.157",
+    "version": "2.2.158",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-09",
     "source_file": "papers-countries-and-year.md",
@@ -9005,7 +9005,7 @@
     },
     {
       "id": 749,
-      "title": "BINet Learning to Solve Partial Differential Equations with Boundary Integral Networks",
+      "title": "BINet: Learning to Solve Partial Differential Equations with Boundary Integral Networks",
       "year": 2023,
       "countries": [
         "China",

@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.157",
+    "dataset_version": "2.2.158",
     "last_updated": "2026-08-09",
     "record_count": 853,
     "id_range": "1-853",
@@ -60732,12 +60732,12 @@
     },
     {
       "id": 749,
-      "title": "BINet Learning to Solve Partial Differential Equations with Boundary Integral Networks",
-      "citation": "Guochang Lin; Pipi Hu; Fukai Chen; Xiang Chen; Junqing Chen; Jun Wang; Zuoqiang Shi. BINet Learning to Solve Partial Differential Equations with Boundary Integral Networks. arXiv [Mathematics > Numerical Analysis] 2021. https://doi.org/10.48550/arXiv.2110.00352.",
+      "title": "BINet: Learning to Solve Partial Differential Equations with Boundary Integral Networks",
+      "citation": "Lin, G.; Hu, P.; Chen, F.; Chen, X.; Chen, J.; Wang, J.; Shi, Z. BINet: Learning to Solve Partial Differential Equations with Boundary Integral Networks. arXiv [Mathematics. Numerical Analysis] 2021, 2110, 1-27. https://doi.org/10.48550/arXiv.2110.00352.",
       "doi": "10.48550/arXiv.2110.00352",
       "publisher_url": "https://arxiv.org/abs/2110.00352",
       "venue": {
-        "name": "arXiv [Mathematics > Numerical Analysis]",
+        "name": "arXiv [Mathematics. Numerical Analysis]",
         "type": "preprint"
       },
       "year": 2021,
@@ -60753,7 +60753,7 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://arxiv.org/abs/2110.00352",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "note": "all",
         "publisher_enrichment": {
           "source": "arXiv API",
           "source_url": "https://arxiv.org/abs/2110.00352",
@@ -60799,12 +60799,17 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-09",
       "bibliographic": {
-        "authors": "Guochang Lin; Pipi Hu; Fukai Chen; Xiang Chen; Junqing Chen; Jun Wang; Zuoqiang Shi",
-        "journal_abbreviation": "arXiv [Mathematics > Numerical Analysis]",
+        "authors": "Lin, G.; Hu, P.; Chen, F.; Chen, X.; Chen, J.; Wang, J.; Shi, Z.",
+        "journal_abbreviation": "arXiv [math.NA]",
+        "volume": "2110",
+        "issue": "arXiv:2110.00352v1",
+        "pages": "1-27",
+        "article_number": "00352v1",
         "publication_date": "2021-10-01"
-      }
+      },
+      "abstract": "We propose a method combining boundary integral equations and neural networks (BINet) to solve partial differential equations (PDEs) in both bounded and unbounded domains. Unlike existing solutions that directly operate over original PDEs, BINet learns to solve, as a proxy, associated boundary integral equations using neural networks. The benefits are three-fold. Firstly, only the boundary conditions need to be fitted since the PDE can be automatically satisfied with single or double layer representations according to the potential theory. Secondly, the dimension of the boundary integral equations is typically smaller, and as such, the sample complexity can be reduced significantly. Lastly, in the proposed method, all differential operators of the original PDEs have been removed, hence the numerical efficiency and stability are improved. Adopting neural tangent kernel (NTK) techniques, we provide proof of the convergence of BINets in the limit that the width of the neural network goes to infinity. Extensive numerical experiments show that, without calculating high-order derivatives, BINet is much easier to train and usually gives more accurate solutions, especially in the cases that the boundary conditions are not smooth enough. Further, BINet outperforms strong baselines for both one single PDE and parameterized PDEs in the bounded and unbounded domains."
     },
     {
       "id": 750,
