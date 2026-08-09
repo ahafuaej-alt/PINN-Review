@@ -13628,24 +13628,28 @@
   {
     "id": 513,
     "title": "Elvet -- a neural network-based differential equation and variational problem solver",
-    "citation": "Jack Y. Araz; Juan Carlos Criado; Michael Spannowsky. Elvet -- a neural network-based differential equation and variational problem solver. arXiv [Computer Science > Machine Learning] 2021. https://doi.org/10.48550/arXiv.2103.14575.",
+    "citation": "Araz, J. Y.; Criado, J. C.; Spannowsky, M. Elvet -- a neural network-based differential equation and variational problem solver. arXiv [Computer Science. Machine Learning] 2021, 2103, 1-24. https://doi.org/10.48550/arXiv.2103.14575.",
     "doi": "10.48550/arXiv.2103.14575",
     "publisher_url": "https://arxiv.org/abs/2103.14575",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Jack Y. Araz; Juan Carlos Criado; Michael Spannowsky",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "authors": "Araz, J. Y.; Criado, J. C.; Spannowsky, M.",
+      "journal_abbreviation": "arXiv [cs.LG]",
+      "volume": "2103",
+      "issue": "arXiv:2103.14575v2",
+      "pages": "1-24",
+      "article_number": "14575v2",
       "publication_date": "2021-03-26"
     },
-    "abstract": null,
+    "abstract": "We present Elvet, a Python package for solving differential equations and variational problems using machine learning methods. Elvet can deal with any system of coupled ordinary or partial differential equations with arbitrary initial and boundary conditions. It can also minimize any functional that depends on a collection of functions of several variables while imposing constraints on them. The solution to any of these problems is represented as a neural network trained to produce the desired function.",
     "graphical_abstract": null,
     "year": 2021,
     "access": "Open access",
     "countries": [
       "United Kingdom"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 514,
