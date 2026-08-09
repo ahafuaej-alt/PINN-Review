@@ -19723,24 +19723,28 @@
   {
     "id": 745,
     "title": "Recent Advances of NeuroDiffEq -- An Open-Source Library for Physics-Informed Neural Networks",
-    "citation": "Shuheng Liu; Pavlos Protopapas; David Sondak; Feiyu Chen. Recent Advances of NeuroDiffEq -- An Open-Source Library for Physics-Informed Neural Networks. arXiv [Computer Science > Machine Learning] 2025. https://doi.org/10.48550/arxiv.2502.12177.",
+    "citation": "Liu, S.; Protopapas, P.; Sondak, D.; Chen, F. Recent Advances of NeuroDiffEq -- An Open-Source Library for Physics-Informed Neural Networks. arXiv [Computer Science. Machine Learning] 2025, 2502, 1-13. https://doi.org/10.48550/arxiv.2502.12177.",
     "doi": "10.48550/arxiv.2502.12177",
     "publisher_url": "https://arxiv.org/abs/2502.12177",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Shuheng Liu; Pavlos Protopapas; David Sondak; Feiyu Chen",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "authors": "Liu, S.; Protopapas, P.; Sondak, D.; Chen, F.",
+      "journal_abbreviation": "arXiv [cs.LG]",
+      "volume": "2502",
+      "issue": "arXiv:2502.12177v1",
+      "pages": "1-13",
+      "article_number": "12177v1",
       "publication_date": "2025-02-14"
     },
-    "abstract": null,
+    "abstract": "Solving differential equations is a critical challenge across a host of domains. While many software packages efficiently solve these equations using classical numerical approaches, there has been less effort in developing a library for researchers interested in solving such systems using neural networks. With PyTorch as its backend, NeuroDiffEq is a software library that exploits neural networks to solve differential equations. In this paper, we highlight the latest features of the NeuroDiffEq library since its debut. We show that NeuroDiffEq can solve complex boundary value problems in arbitrary dimensions, tackle boundary conditions at infinity, and maintain flexibility for dynamic injection at runtime.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 746,
