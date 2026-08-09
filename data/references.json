@@ -11711,24 +11711,28 @@
   {
     "id": 438,
     "title": "Physics-Informed Neural Networks for Nonhomogeneous Material Identification in Elasticity Imaging",
-    "citation": "Enrui Zhang; Minglang Yin; George Em Karniadakis. Physics-Informed Neural Networks for Nonhomogeneous Material Identification in Elasticity Imaging. arXiv [Computer Science > Machine Learning] 2020. https://doi.org/10.48550/ARXIV.2009.04525.",
+    "citation": "Zhang, E.; Yin, M.; Karniadakis, G. E. Physics-Informed Neural Networks for Nonhomogeneous Material Identification in Elasticity Imaging. arXiv [Computer Science. Machine Learning] 2020, 2009, 1-10. https://doi.org/10.48550/ARXIV.2009.04525.",
     "doi": "10.48550/ARXIV.2009.04525",
     "publisher_url": "https://arxiv.org/abs/2009.04525",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Enrui Zhang; Minglang Yin; George Em Karniadakis",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "authors": "Zhang, E.; Yin, M.; Karniadakis, G. E.",
+      "journal_abbreviation": "arXiv [cs.LG]",
+      "volume": "2009",
+      "issue": "arXiv:2009.04525v1",
+      "pages": "1-10",
+      "article_number": "04525v1",
       "publication_date": "2020-09-02"
     },
-    "abstract": null,
+    "abstract": "We apply Physics-Informed Neural Networks (PINNs) for solving identification problems of nonhomogeneous materials. We focus on the problem with a background in elasticity imaging, where one seeks to identify the nonhomogeneous mechanical properties of soft tissue based on the full-field displacement measurements under quasi-static loading. In our model, we apply two independent neural networks, one for approximating the solution of the corresponding forward problem, and the other for approximating the unknown material parameter field. As a proof of concept, we validate our model on a prototypical plane strain problem for incompressible hyperelastic tissue. The results show that the PINNs are effective in accurately recovering the unknown distribution of mechanical properties. By employing two neural networks in our model, we extend the capability of material identification of PINNs to include nonhomogeneous material parameter fields, which enables more flexibility of PINNs in representing complex material properties.",
     "graphical_abstract": null,
     "year": 2020,
     "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 439,
