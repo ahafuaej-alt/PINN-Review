@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.168",
+    "version": "2.2.169",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-09",
     "source_file": "papers-countries-and-year.md",
@@ -9443,7 +9443,7 @@
     },
     {
       "id": 787,
-      "title": "PHYSICS INFORMED DEEP LEARNING FOR TRANSPORT IN POROUS MEDIA. BUCKLEY LEVERETT PROBLEM",
+      "title": "Physics Informed Deep Learning for Transport in Porous Media. Buckley Leverett Problem",
       "year": 2020,
       "countries": [
         "United States"

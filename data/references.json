@@ -20824,25 +20824,29 @@
   },
   {
     "id": 787,
-    "title": "PHYSICS INFORMED DEEP LEARNING FOR TRANSPORT IN POROUS MEDIA. BUCKLEY LEVERETT PROBLEM",
-    "citation": "Cedric G. Fraces; Adrien Papaioannou; Hamdi Tchelepi. PHYSICS INFORMED DEEP LEARNING FOR TRANSPORT IN POROUS MEDIA. BUCKLEY LEVERETT PROBLEM. arXiv [Statistics > Machine Learning] 2020. https://doi.org/10.48550/ARXIV.2001.05172.",
+    "title": "Physics Informed Deep Learning for Transport in Porous Media. Buckley Leverett Problem",
+    "citation": "Fraces, C. G.; Papaioannou, A.; Tchelepi, H. Physics Informed Deep Learning for Transport in Porous Media. Buckley Leverett Problem. arXiv [Statistics. Machine Learning] 2020, 2001, 1-21. https://doi.org/10.48550/ARXIV.2001.05172.",
     "doi": "10.48550/ARXIV.2001.05172",
     "publisher_url": "https://arxiv.org/abs/2001.05172",
-    "venue": "arXiv [Statistics > Machine Learning]",
+    "venue": "arXiv [Statistics. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Cedric G. Fraces; Adrien Papaioannou; Hamdi Tchelepi",
-      "journal_abbreviation": "arXiv [Statistics > Machine Learning]",
+      "authors": "Fraces, C. G.; Papaioannou, A.; Tchelepi, H.",
+      "journal_abbreviation": "arXiv [stat.ML]",
+      "volume": "2001",
+      "issue": "arXiv:2001.05172v1",
+      "pages": "1-21",
+      "article_number": "05172v1",
       "publication_date": "2020-01-15"
     },
-    "abstract": null,
+    "abstract": "We present a new hybrid physics-based machine-learning approach to reservoir modeling. The methodology relies on a series of deep adversarial neural network architecture with physics-based regularization. The network is used to simulate the dynamic behavior of physical quantities (i.e. saturation) subject to a set of governing laws (e.g. mass conservation) and corresponding boundary and initial conditions. A residual equation is formed from the governing partial-differential equation and used as part of the training. Derivatives of the estimated physical quantities are computed using automatic differentiation algorithms. This allows the model to avoid overfitting, by reducing the variance and permits extrapolation beyond the range of the training data including uncertainty implicitely derived from the distribution output of the generative adversarial networks. The approach is used to simulate a 2 phase immiscible transport problem (Buckley Leverett). From a very limited dataset, the model learns the parameters of the governing equation and is able to provide an accurate physical solution, both in terms of shock and rarefaction. We demonstrate how this method can be applied in the context of a forward simulation for continuous problems. The use of these models for the inverse problem is also presented, where the model simultaneously learns the physical laws and determines key uncertainty subsurface parameters. The proposed methodology is a simple and elegant way to instill physical knowledge to machine-learning algorithms. This alleviates the two most significant shortcomings of machine-learning algorithms: the requirement for large datasets and the reliability of extrapolation. The principles presented in this paper can be generalized in innumerable ways in the future and should lead to a new class of algorithms to solve both forward and inverse physical problems.",
     "graphical_abstract": null,
     "year": 2020,
     "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 788,
