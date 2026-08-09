@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.164",
+    "dataset_version": "2.2.165",
     "last_updated": "2026-08-09",
     "record_count": 853,
     "id_range": "1-853",
@@ -35978,11 +35978,11 @@
     {
       "id": 436,
       "title": "Solving the wave equation with physics-informed deep learning",
-      "citation": "Ben Moseley; Andrew Markham; Tarje Nissen-Meyer. Solving the wave equation with physics-informed deep learning. arXiv [Physics > Computational Physics] 2020. https://doi.org/10.48550/ARXIV.2006.11894.",
+      "citation": "Moseley, B.; Markham, A.; Nissen-Meyer, T. Solving the wave equation with physics-informed deep learning. arXiv [Physics. Computational Physics] 2020, 2006, 1-13. https://doi.org/10.48550/ARXIV.2006.11894.",
       "doi": "10.48550/ARXIV.2006.11894",
       "publisher_url": "https://arxiv.org/abs/2006.11894",
       "venue": {
-        "name": "arXiv [Physics > Computational Physics]",
+        "name": "arXiv [Physics. Computational Physics]",
         "type": "preprint"
       },
       "year": 2020,
@@ -35993,8 +35993,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.48550/ARXIV.2006.11894",
-        "note": null,
+        "evidence_url": "https://arxiv.org/abs/2006.11894",
+        "note": "all",
         "publisher_enrichment": {
           "source": "arXiv API",
           "source_url": "https://arxiv.org/abs/2006.11894",
@@ -36044,12 +36044,17 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-09",
       "bibliographic": {
-        "authors": "Ben Moseley; Andrew Markham; Tarje Nissen-Meyer",
-        "journal_abbreviation": "arXiv [Physics > Computational Physics]",
+        "authors": "Moseley, B.; Markham, A.; Nissen-Meyer, T.",
+        "journal_abbreviation": "arXiv [physics.comp-ph]",
+        "volume": "2006",
+        "issue": "arXiv:2006.11894v1",
+        "pages": "1-13",
+        "article_number": "11894v1",
         "publication_date": "2020-06-21"
-      }
+      },
+      "abstract": "We investigate the use of Physics-Informed Neural Networks (PINNs) for solving the wave equation. Whilst PINNs have been successfully applied across many physical systems, the wave equation presents unique challenges due to the multi-scale, propagating and oscillatory nature of its solutions, and it is unclear how well they perform in this setting. We use a deep neural network to learn solutions of the wave equation, using the wave equation and a boundary condition as direct constraints in the loss function when training the network. We test the approach by solving the 2D acoustic wave equation for spatially-varying velocity models of increasing complexity, including homogeneous, layered and Earth-realistic models, and find the network is able to accurately simulate the wavefield across these cases. By using the physics constraint in the loss function the network is able to solve for the wavefield far outside of its boundary training data, offering a way to reduce the generalisation issues of existing deep learning approaches. We extend the approach for the Earth-realistic case by conditioning the network on the source location and find that it is able to generalise over this initial condition, removing the need to retrain the network for each solution. In contrast to traditional numerical simulation this approach is very efficient when computing arbitrary space-time points in the wavefield, as once trained the network carries out inference in a single step without needing to compute the entire wavefield. We discuss the potential applications, limitations and further research directions of this work."
     },
     {
       "id": 437,
