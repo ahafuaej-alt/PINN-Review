@@ -14521,24 +14521,28 @@
   {
     "id": 547,
     "title": "Geometry-aware PINNs for Turbulent Flow Prediction",
-    "citation": "Shinjan Ghosh; Julian Busch; Georgia Olympia Brikis; Biswadip Dey. Geometry-aware PINNs for Turbulent Flow Prediction. arXiv [Computer Science > Machine Learning] 2024. https://doi.org/10.48550/arXiv.2412.01954.",
+    "citation": "Ghosh, S.; Busch, J.; Brikis, G. O.; Dey, B. Geometry-aware PINNs for Turbulent Flow Prediction. arXiv [Computer Science. Machine Learning] 2024, 2412, 1-7. https://doi.org/10.48550/arXiv.2412.01954.",
     "doi": "10.48550/arXiv.2412.01954",
     "publisher_url": "https://arxiv.org/abs/2412.01954",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Shinjan Ghosh; Julian Busch; Georgia Olympia Brikis; Biswadip Dey",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "authors": "Ghosh, S.; Busch, J.; Brikis, G. O.; Dey, B.",
+      "journal_abbreviation": "arXiv [cs.LG]",
+      "volume": "2412",
+      "issue": "arXiv:2412.01954v1",
+      "pages": "1-7",
+      "article_number": "01954v1",
       "publication_date": "2024-12-02"
     },
-    "abstract": null,
+    "abstract": "Design exploration or optimization using computational fluid dynamics (CFD) is commonly used in the industry. Geometric variation is a key component of such design problems, especially in turbulent flow scenarios, which involves running costly simulations at every design iteration. While parametric RANS-PINN type approaches have been proven to make effective turbulent surrogates, as a means of predicting unknown Reynolds number flows for a given geometry at near real-time, geometry aware physics informed surrogates with the ability to predict varying geometries are a relatively less studied topic. A novel geometry aware parametric PINN surrogate model has been created, which can predict flow fields for NACA 4 digit airfoils in turbulent conditions, for unseen shapes as well as inlet flow conditions. A local+global approach for embedding has been proposed, where known global design parameters for an airfoil as well as local SDF values can be used as inputs to the model along with velocity inlet/Reynolds number (Re) to predict the flow fields. A RANS formulation of the Navier-Stokes equations with a 2-equation k-epsilon turbulence model has been used for the PDE losses, in addition to limited CFD data from 8 different NACA airfoils for training. The models have then been validated with unknown NACA airfoils at unseen Reynolds numbers.",
     "graphical_abstract": null,
     "year": 2024,
     "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 548,
