@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.167",
+    "dataset_version": "2.2.168",
     "last_updated": "2026-08-09",
     "record_count": 853,
     "id_range": "1-853",
@@ -41397,11 +41397,11 @@
     {
       "id": 509,
       "title": "Neural Tangents Fast and Easy Infinite Neural Networks in Python",
-      "citation": "Roman Novak; Lechao Xiao; Jiri Hron; Jaehoon Lee; Alexander A. Alemi; Jascha Sohl-Dickstein; Samuel S. Schoenholz. Neural Tangents Fast and Easy Infinite Neural Networks in Python. arXiv [Statistics > Machine Learning] 2019. https://doi.org/10.48550/arXiv.1912.02803.",
+      "citation": "Novak, R.; Xiao, L.; Hron, J.; Lee, J.; Alemi, A. A.; Sohl-Dickstein, J.; Schoenholz, S. S. Neural Tangents Fast and Easy Infinite Neural Networks in Python. arXiv [Statistics. Machine Learning] 2019, 1912, 1-19. https://doi.org/10.48550/arXiv.1912.02803.",
       "doi": "10.48550/arXiv.1912.02803",
       "publisher_url": "https://arxiv.org/abs/1912.02803",
       "venue": {
-        "name": "arXiv [Statistics > Machine Learning]",
+        "name": "arXiv [Statistics. Machine Learning]",
         "type": "preprint"
       },
       "year": 2019,
@@ -41416,8 +41416,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://arxiv.org/abs/1912.02803",
+        "note": "all",
         "publisher_enrichment": {
           "source": "arXiv API",
           "source_url": "https://arxiv.org/abs/1912.02803",
@@ -41467,12 +41467,17 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-09",
       "bibliographic": {
-        "authors": "Roman Novak; Lechao Xiao; Jiri Hron; Jaehoon Lee; Alexander A. Alemi; Jascha Sohl-Dickstein; Samuel S. Schoenholz",
-        "journal_abbreviation": "arXiv [Statistics > Machine Learning]",
+        "authors": "Novak, R.; Xiao, L.; Hron, J.; Lee, J.; Alemi, A. A.; Sohl-Dickstein, J.; Schoenholz, S. S.",
+        "journal_abbreviation": "arXiv [stat.ML]",
+        "volume": "1912",
+        "issue": "arXiv:1912.02803v1",
+        "pages": "1-19",
+        "article_number": "02803v1",
         "publication_date": "2019-12-05"
-      }
+      },
+      "abstract": "Neural Tangents is a library designed to enable research into infinite-width neural networks. It provides a high-level API for specifying complex and hierarchical neural network architectures. These networks can then be trained and evaluated either at finite-width as usual or in their infinite-width limit. Infinite-width networks can be trained analytically using exact Bayesian inference or using gradient descent via the Neural Tangent Kernel. Additionally, Neural Tangents provides tools to study gradient descent training dynamics of wide but finite networks in either function space or weight space."
     },
     {
       "id": 510,
