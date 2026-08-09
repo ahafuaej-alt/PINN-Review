@@ -20869,24 +20869,28 @@
   {
     "id": 789,
     "title": "PINNs for the Solution of the Hyperbolic Buckley-Leverett Problem with a Non-convex Flux Function",
-    "citation": "Waleed Diab; Mohammed Al Kobaisi. PINNs for the Solution of the Hyperbolic Buckley-Leverett Problem with a Non-convex Flux Function. arXiv [Physics > Fluid Dynamics] 2021. https://doi.org/10.48550/arXiv.2112.14826.",
+    "citation": "Diab, W.; Kobaisi, M. A. PINNs for the Solution of the Hyperbolic Buckley-Leverett Problem with a Non-convex Flux Function. arXiv [Physics. Fluid Dynamics] 2021, 2112, 1-15. https://doi.org/10.48550/arXiv.2112.14826.",
     "doi": "10.48550/arXiv.2112.14826",
     "publisher_url": "https://arxiv.org/abs/2112.14826",
-    "venue": "arXiv [Physics > Fluid Dynamics]",
+    "venue": "arXiv [Physics. Fluid Dynamics]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Waleed Diab; Mohammed Al Kobaisi",
-      "journal_abbreviation": "arXiv [Physics > Fluid Dynamics]",
+      "authors": "Diab, W.; Kobaisi, M. A.",
+      "journal_abbreviation": "arXiv [physics.flu-dyn]",
+      "volume": "2112",
+      "issue": "arXiv:2112.14826v1",
+      "pages": "1-15",
+      "article_number": "14826v1",
       "publication_date": "2021-12-29"
     },
-    "abstract": null,
+    "abstract": "The displacement of two immiscible fluids is a common problem in fluid flow in porous media. Such a problem can be posed as a partial differential equation (PDE) in what is commonly referred to as a Buckley-Leverett (B-L) problem. The B-L problem is a non-linear hyperbolic conservation law that is known to be notoriously difficult to solve using traditional numerical methods. Here, we address the forward hyperbolic B-L problem with a nonconvex flux function using physics-informed neural networks (PINNs). The contributions of this paper are twofold. First, we present a PINN approach to solve the hyperbolic B-L problem by embedding the Oleinik entropy condition into the neural network residual. We do not use a diffusion term (artificial viscosity) in the residual-loss, but we rely on the strong form of the PDE. Second, we use the Adam optimizer with residual-based adaptive refinement (RAR) algorithm to achieve an ultra-low loss without weighting. Our solution method can accurately capture the shock-front and produce an accurate overall solution. We report a L2 validation error of 2 x 10-2 and a L2 loss of 1x 10-6. The proposed method does not require any additional regularization or weighting of losses to obtain such accurate solution.",
     "graphical_abstract": null,
     "year": 2021,
     "access": "Open access",
     "countries": [
       "United Arab Emirates"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 790,
