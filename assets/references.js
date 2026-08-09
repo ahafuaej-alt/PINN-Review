@@ -592,11 +592,12 @@
         select.append(option);
       });
     });
-    const venues = [...new Set(state.rows.map((row) => row.venue).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+    const venueCounts = state.rows.reduce((counts, row) => row.venue ? counts.set(row.venue, (counts.get(row.venue) || 0) + 1) : counts, new Map());
+    const venues = [...venueCounts.keys()].sort((a, b) => a.localeCompare(b));
     venues.forEach((name) => {
       const option = document.createElement('option');
       option.value = name;
-      option.textContent = name;
+      option.textContent = `${name} (${venueCounts.get(name).toLocaleString()})`;
       elements.venue.append(option);
     });
     const typeCounts = state.rows.reduce((counts, row) => counts.set(row.reference_type, (counts.get(row.reference_type) || 0) + 1), new Map());
