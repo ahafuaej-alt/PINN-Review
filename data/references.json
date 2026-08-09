@@ -19499,15 +19499,16 @@
   {
     "id": 736,
     "title": "Physics informed cell representations for variational formulation of multiscale problems",
-    "citation": "Gao, Y.; Kolouri, S.; Duddu, R. Physics informed cell representations for variational formulation of multiscale problems. Arxiv [Computer Science. Machine Learning] 2024, 2405, 1-50. https://doi.org/10.48550/arXiv.2405.16770.",
+    "citation": "Gao, Y.; Kolouri, S.; Duddu, R. Physics informed cell representations for variational formulation of multiscale problems. arXiv [Computer Science. Machine Learning] 2024, 2405, 1-50. https://doi.org/10.48550/arXiv.2405.16770.",
     "doi": "10.48550/arXiv.2405.16770",
-    "publisher_url": "https://doi.org/10.48550/arXiv.2405.16770",
-    "venue": "Arxiv [Computer Science. Machine Learning]",
+    "publisher_url": "https://arxiv.org/abs/2405.16770",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
       "authors": "Gao, Y.; Kolouri, S.; Duddu, R.",
-      "journal_abbreviation": "Arxiv [Computer Science. Machine Learning]",
+      "journal_abbreviation": "arXiv [cs.LG]",
       "volume": "2405",
+      "issue": "arXiv:2405.16770v1",
       "pages": "1-50",
       "article_number": "16770v1"
     },
@@ -19518,7 +19519,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 737,
