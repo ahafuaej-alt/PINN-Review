@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.165",
+    "dataset_version": "2.2.166",
     "last_updated": "2026-08-09",
     "record_count": 853,
     "id_range": "1-853",
@@ -37163,11 +37163,11 @@
     {
       "id": 451,
       "title": "Physics-informed Autoencoders for Lyapunov-stable Fluid Flow Prediction",
-      "citation": "N. Benjamin Erichson; Michael Muehlebach; Michael W. Mahoney. Physics-informed Autoencoders for Lyapunov-stable Fluid Flow Prediction. arXiv [Physics > Computational Physics] 2019. https://doi.org/10.48550/ARXIV.1905.10866.",
+      "citation": "Erichson, N. B.; Muehlebach, M.; Mahoney, M. W. Physics-informed Autoencoders for Lyapunov-stable Fluid Flow Prediction. arXiv [Physics. Computational Physics] 2019, 1905, 1-14. https://doi.org/10.48550/ARXIV.1905.10866.",
       "doi": "10.48550/ARXIV.1905.10866",
       "publisher_url": "https://arxiv.org/abs/1905.10866",
       "venue": {
-        "name": "arXiv [Physics > Computational Physics]",
+        "name": "arXiv [Physics. Computational Physics]",
         "type": "preprint"
       },
       "year": 2019,
@@ -37178,8 +37178,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.48550/ARXIV.1905.10866",
-        "note": null,
+        "evidence_url": "https://arxiv.org/abs/1905.10866",
+        "note": "all",
         "publisher_enrichment": {
           "source": "arXiv API",
           "source_url": "https://arxiv.org/abs/1905.10866",
@@ -37229,12 +37229,17 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-09",
       "bibliographic": {
-        "authors": "N. Benjamin Erichson; Michael Muehlebach; Michael W. Mahoney",
-        "journal_abbreviation": "arXiv [Physics > Computational Physics]",
+        "authors": "Erichson, N. B.; Muehlebach, M.; Mahoney, M. W.",
+        "journal_abbreviation": "arXiv [physics.comp-ph]",
+        "volume": "1905",
+        "issue": "arXiv:1905.10866v1",
+        "pages": "1-14",
+        "article_number": "10866v1",
         "publication_date": "2019-05-26"
-      }
+      },
+      "abstract": "In addition to providing high-profile successes in computer vision and natural language processing, neural networks also provide an emerging set of techniques for scientific problems. Such data-driven models, however, typically ignore physical insights from the scientific system under consideration. Among other things, a physics-informed model formulation should encode some degree of stability or robustness or well-conditioning (in that a small change of the input will not lead to drastic changes in the output), characteristic of the underlying scientific problem. We investigate whether it is possible to include physics-informed prior knowledge for improving the model quality (e.g., generalization performance, sensitivity to parameter tuning, or robustness in the presence of noisy data). To that extent, we focus on the stability of an equilibrium, one of the most basic properties a dynamic system can have, via the lens of Lyapunov analysis. For the prototypical problem of fluid flow prediction, we show that models preserving Lyapunov stability improve the generalization error and reduce the prediction uncertainty."
     },
     {
       "id": 452,
