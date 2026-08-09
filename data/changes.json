@@ -2,6 +2,45 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-737-2026-08-09-2.2.159",
+      "version": "2.2.159",
+      "date": "2026-08-09",
+      "paper_id": 737,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "venue"
+      ],
+      "reason": "name",
+      "evidence": {
+        "url": "https://arxiv.org/abs/2207.02338",
+        "note": "name"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 737,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-749-2026-08-09-2.2.158",
       "version": "2.2.158",
       "date": "2026-08-09",
