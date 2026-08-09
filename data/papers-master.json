@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.171",
+    "dataset_version": "2.2.172",
     "last_updated": "2026-08-09",
     "record_count": 853,
     "id_range": "1-853",
@@ -65777,12 +65777,12 @@
     {
       "id": 818,
       "title": "Physics informed machine learning and uncertainty propagation for multiphase transport in porous media",
-      "citation": "Fuks, Olga; Tchelepi, Hamdi; Darve, Eric; Tartakovsky, Daniel; Stanford University. Department of Energy Resources Engineering.; [Stanford University]. Physics informed machine learning and uncertainty propagation for multiphase transport in porous media. California 2020.",
+      "citation": "Fuks, O. Physics informed machine learning and uncertainty propagation for multiphase transport in porous media. Ph.D. Thesis, Stanford University. Department of Energy Resources Engineering, Stanford, California, USA, 2020.",
       "doi": null,
       "publisher_url": "https://purl.stanford.edu/xy319cq8534",
       "venue": {
-        "name": "California",
-        "type": "journal"
+        "name": "Stanford University",
+        "type": "thesis"
       },
       "year": 2020,
       "access": "Open access",
@@ -65793,7 +65793,7 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://purl.stanford.edu/xy319cq8534",
-        "note": null,
+        "note": "all",
         "publisher_enrichment": {
           "source": "Publisher HTML citation metadata",
           "source_url": "https://purl.stanford.edu/xy319cq8534",
@@ -65832,10 +65832,15 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-09",
       "bibliographic": {
-        "authors": "Fuks, Olga; Tchelepi, Hamdi; Darve, Eric; Tartakovsky, Daniel; Stanford University. Department of Energy Resources Engineering.; [Stanford University]",
-        "journal_abbreviation": "California"
+        "authors": "Fuks, O.",
+        "journal_abbreviation": "California",
+        "city": "Stanford, California",
+        "country": "USA",
+        "thesis_level": "Ph.D. Thesis",
+        "institution": "Stanford University. Department of Energy Resources Engineering.",
+        "publication_date": "2020"
       },
       "abstract": "Uncertainty quantification is an increasingly important aspect of many areas of computational sci- ence, where the challenge is to make reliable predictions about the performance of complex physical systems in the absence of complete or reliable data. Multiphase flow and transport of fluids through subsurface reservoirs is an example of a complex system where prediction accuracy is of high demand. Reservoir simulation with realistic porous systems often involves large-scale and complex porous media, coupled with incomplete geological information due to scarce and expensive data acquisition processes. Nevertheless, reservoir simulation aims at predicting the state of the oil production at wells by, for example, providing the saturation fields at any given moment of the simulation. The uncertain properties of the media translate into significant uncertainties in how flow evolves with time, thus encouraging a stochastic treatment of the saturation fields, especially through the study of saturation probability density functions (PDF) and cumulative distribution functions (CDF), or saturation statistical moments. Stochastic treatment of subsurface flow has been an active area of research for a long time. Diﬀerent approaches have been developed so far for stochastic analysis of subsurface flow – Monte Carlo methods, statistical moment equations method, stochastic spectral methods, and probability distribution methods (i.e., PDF methods). However, in many practical applications computationally expensive Monte Carlo simulations remain the preferred option. Thus, the goal of this work is to develop computational methods for efficient uncertainty quantifi- cation of subsurface multiphase transport. Particularly, we focus on two methods – streamline-based probability distribution method, called FROST (Ibrahima et al., 2018), and physics informed ma- chine learning method (PIML). The distribution method is inspired by a Lagrangian approach of the stochastic transport problem and expresses the saturation cumulative distribution function in terms of a deterministic analytical mapping of scalar random fields. In many subsurface applications these random fields are smooth and can be estimated at low computational costs (e.g., using few Monte Carlo runs), thus making the distribution method computationally attractive. The following describes each contribution briefly. Natural subsurface systems often have highly heterogeneous multiscale features and complex geological structures. However, existing uncertainty quantification methods for stochastic subsurface flow are rarely tested on complex geostatistical models, while they often assume simple statistical models of the random fields describing input reservoir properties (e.g., log-Gaussian fields). Yet, geological realism is often a critical aspect of the uncertainty assessment in subsurface fluid flow simulations. Thus, in this thesis, we first study the performance of the streamline-based distribution method with regard to the complexity of the input geological distributions. Specifically, we are interested in channelized porous systems modeled by the methods of multipoint geostatistics. First, we study the behavior of travel time in these systems – the key variable that aﬀects the propagation of uncertainty to the saturation field within the framework of the FROST distribution method. Then, we demonstrate the application of the FROST method in the case of single-phase and nonlinear two-phase flow regimes. We compare the FROST results – the obtained water saturation CDFs and the statistical moments – with those of the standard Monte-Carlo approach. Two-phase displacement problems may also involve more than two components – in this case, we have to deal with multicomponent displacements, which are essential for modeling enhanced oil recovery and carbon-storage processes. The interaction between components usually leads to the hyperbolic system of coupled nonlinear equations governing the evolution of such systems. These compositional problems often have much more complex solutions (i.e., than oil-water displacements in standard Buckley-Leverett problem), and are already quite challenging for numerical modeling due to a large number of unknowns (e.g., multiple components, grid dimensions) and strong non- linear eﬀects. Hence, uncertainty quantification in such systems is usually particularly difficult and computationally expensive. However, the study of uncertainty propagation methods for this chal- lenging multicomponent setting is limited. So, in the second part of the thesis, we focus on extending the streamline-based uncertainty propagation method to two-phase multicomponent displacements. We also show that within the FROST framework one can obtain the joint probability distribution of any two compositions at specific spatial location and time. To illustrate the performance and applicability of the developed method we provide various numerical examples that include three- and four-component displacement problems in 1-D and three-component displacements in 2-D space subject to the random reservoir properties. In the past decades, machine learning (ML) methods achieved remarkable results across ap- plications and disciplines, including computer vision, speech recognition, robotics, and healthcare. Undoubtedly, the range of ML applications will grow and the impact of ML methods will continue to spread. Currently, there is a growing interest in employing ML strategies to solve forward and inverse computational physics problems. The physics informed machine learning (PIML) frame- works developed by (Raissi et al., 2019a) and (Zhu et al., 2019) are prominent examples. However, why these methods work or what are their limitations when applied to diﬀerent partial diﬀerential equations is not well understood yet and remains an open question. Thus, in the third part of the thesis, we study the physics informed machine learning framework for solving nonlinear hyperbolic PDEs describing immiscible two-phase transport. The basic idea of physics informed machine learning approaches is to encode the partial diﬀeren- tial equations (PDE) that govern the physics into the neural network. The encoding is achieved by enriching the loss function with the governing conservation equation. Using the initial and bound- ary conditions, the network learns the solution of the forward problem without any labeled data. The scarcity of site-specific “labeled” data presents a serious challenge to the modeling of fluid flow processes. Thus, if PIML approaches can be used to model the nonlinear flow and transport that govern these processes, then they could change the practice of reservoir simulation. In this work, we explore the application of a particular PIML approach to solving the nonlinear hyperbolic equation that describes the nonlinear immiscible two-phase flow in porous media. Specifically, we focus on the forward solution of a Riemann problem (i.e., a nonlinear conservation law together with piecewise constant data having a single discontinuity) with a non-convex flux function, which is notoriously hard to solve with standard numerical methods due to the emergence of saturation shocks in the domain. We have found that under the current implementation a PIML approach produces large errors in the presence of shocks in the saturation field. We investigated several architectures and experimented with a large number of neural-network parameters, but this had little impact on the overall performance of the method. However, we have found that by employing a parabolic form of the conservation equation or using a discrete form of the PDE residual, whereby a small amount of diﬀusion is added to the underlying transport PDE, the neural network is consistently able to learn an accurate approximation of the solutions containing shocks and mixed waves (i.e., shocks and rarefactions)."
     },
