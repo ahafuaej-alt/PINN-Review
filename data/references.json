@@ -13666,15 +13666,16 @@
   {
     "id": 515,
     "title": "PN-Net Conjoined Triple Deep Network for Learning Local Image Descriptors",
-    "citation": "Balntas, V.; Johns, E.; Tang, L.; Mikolajczyk, K. PN-Net Conjoined Triple Deep Network for Learning Local Image Descriptors. Arxiv [Computer Science. Computer Vision and Pattern Recognition] 2016, 1601, 1-9. https://doi.org/10.48550/arXiv.1601.05030.",
+    "citation": "Balntas, V.; Johns, E.; Tang, L.; Mikolajczyk, K. PN-Net Conjoined Triple Deep Network for Learning Local Image Descriptors. arXiv [Computer Science. Computer Vision and Pattern Recognition] 2016, 1601, 1-9. https://doi.org/10.48550/arXiv.1601.05030.",
     "doi": "10.48550/arXiv.1601.05030",
-    "publisher_url": "https://doi.org/10.48550/arXiv.1601.05030",
-    "venue": "Arxiv [Computer Science. Computer Vision and Pattern Recognition]",
+    "publisher_url": "https://arxiv.org/abs/1601.05030",
+    "venue": "arXiv [Computer Science. Computer Vision and Pattern Recognition]",
     "reference_type": "preprint",
     "bibliographic": {
       "authors": "Balntas, V.; Johns, E.; Tang, L.; Mikolajczyk, K.",
-      "journal_abbreviation": "Arxiv [Computer Science. Computer Vision and Pattern Recognition]",
+      "journal_abbreviation": "arXiv [Computer Science. Computer Vision and Pattern Recognition]",
       "volume": "1601",
+      "issue": "arXiv:1601.05030v1",
       "pages": "1-9",
       "article_number": "05030"
     },
@@ -13685,7 +13686,7 @@
     "countries": [
       "United Kingdom"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 516,
