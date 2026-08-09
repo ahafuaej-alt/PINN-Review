@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.148",
+    "dataset_version": "2.2.149",
     "last_updated": "2026-08-09",
     "record_count": 853,
     "id_range": "1-853",
@@ -42053,11 +42053,11 @@
     {
       "id": 519,
       "title": "ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning",
-      "citation": "Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., Mahoney, M.W. ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. arXiv [Computer Science > Machine Learning] 2021, 2006, 1-18. https://doi.org/10.48550/arXiv.2006.00719.",
+      "citation": "Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., Mahoney, M.W. ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. arXiv [Computer Science. Machine Learning] 2021, 2006, 1-18. https://doi.org/10.48550/arXiv.2006.00719.",
       "doi": "10.48550/arXiv.2006.00719",
-      "publisher_url": "https://doi.org/10.48550/arXiv.2006.00719",
+      "publisher_url": "https://arxiv.org/abs/2006.00719",
       "venue": {
-        "name": "arXiv [Computer Science > Machine Learning]",
+        "name": "arXiv [Computer Science. Machine Learning]",
         "type": "preprint"
       },
       "year": 2021,
@@ -42068,16 +42068,17 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://arxiv.org/abs/2006.00719",
-        "note": "all info",
+        "evidence_url": "https://doi.org/10.48550/arXiv.2006.00719",
+        "note": "all",
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-28",
+      "last_updated": "2026-08-09",
       "abstract": "We introduce ADAHESSIAN, a second order stochastic optimization algorithm which dynamically incorporates the curvature of the loss function via ADAptive estimates of the HESSIAN. Second order algorithms are among the most powerful optimization algorithms with superior convergence properties as compared to first order methods such as SGD and Adam. The main disadvantage of traditional second order methods is their heavier per iteration computation and poor accuracy as compared to first order methods. To address these, we incorporate several novel approaches in ADAHESSIAN, including: (i) a fast Hutchinson based method to approximate the curvature matrix with low computational overhead; (ii) a root-mean-square exponential moving average to smooth out variations of the Hessian diagonal across different iterations; and (iii) a block diagonal averaging to reduce the variance of Hessian diagonal elements. We show that ADAHESSIAN achieves new state-of-the-art results by a large margin as compared to other adaptive optimization methods, including variants of Adam. In particular, we perform extensive tests on CV, NLP, and recommendation system tasks and find that ADAHESSIAN: (i) achieves 1.80%/1.45% higher accuracy on ResNets20/32 on Cifar10, and 5.55% higher accuracy on ImageNet as compared to Adam; (ii) outperforms AdamW for transformers by 0.13/0.33 BLEU score on IWSLT14/WMT14 and 2.7/1.0 PPL on PTB/Wikitext-103; (iii) outperforms AdamW for SqueezeBert by 0.41 points on GLUE; and (iv) achieves 0.032% better score than Adagrad for DLRM on the Criteo Ad Kaggle dataset. Importantly, we show that the cost per iteration of ADAHESSIAN is comparable to first order methods, and that it exhibits robustness towards its hyperparameters.",
       "bibliographic": {
         "authors": "Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., Mahoney, M.W.",
-        "journal_abbreviation": "[cs.LG]",
+        "journal_abbreviation": "arXiv [cs.LG]",
         "volume": "2006",
+        "issue": "arXiv:2006.00719v3",
         "pages": "1-18",
         "article_number": "00719v3"
       }

@@ -13782,15 +13782,16 @@
   {
     "id": 519,
     "title": "ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning",
-    "citation": "Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., Mahoney, M.W. ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. arXiv [Computer Science > Machine Learning] 2021, 2006, 1-18. https://doi.org/10.48550/arXiv.2006.00719.",
+    "citation": "Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., Mahoney, M.W. ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. arXiv [Computer Science. Machine Learning] 2021, 2006, 1-18. https://doi.org/10.48550/arXiv.2006.00719.",
     "doi": "10.48550/arXiv.2006.00719",
-    "publisher_url": "https://doi.org/10.48550/arXiv.2006.00719",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "publisher_url": "https://arxiv.org/abs/2006.00719",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
       "authors": "Yao, Z., Gholami, A., Shen, S., Mustafa, M., Keutzer, K., Mahoney, M.W.",
-      "journal_abbreviation": "[cs.LG]",
+      "journal_abbreviation": "arXiv [cs.LG]",
       "volume": "2006",
+      "issue": "arXiv:2006.00719v3",
       "pages": "1-18",
       "article_number": "00719v3"
     },
@@ -13801,7 +13802,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-28"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 520,
