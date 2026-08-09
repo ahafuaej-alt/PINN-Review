@@ -7838,16 +7838,16 @@
   {
     "id": 293,
     "title": "Investigation of physics-informed deep learning for the prediction of parametric, three-dimensional flow based on boundary data",
-    "citation": "Heger, P.; Hilger, D.; Full, M.; Hosters, N. Investigation of physics-informed deep learning for the prediction of parametric, three-dimensional flow based on boundary data. Computers \\& Fluids 2024, 278, 106302. https://doi.org/10.1016/j.compfluid.2024.106302.",
+    "citation": "Heger, P.; Hilger, D.; Full, M.; Hosters, N. Investigation of physics-informed deep learning for the prediction of parametric, three-dimensional flow based on boundary data. Computers & Fluids 2024, 278, 1-12. https://doi.org/10.1016/j.compfluid.2024.106302.",
     "doi": "10.1016/j.compfluid.2024.106302",
     "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0045793024001348",
-    "venue": "Computers \\& Fluids",
+    "venue": "Computers & Fluids",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Heger, P.; Hilger, D.; Full, M.; Hosters, N.",
       "journal_abbreviation": "Computers & Fluids",
       "volume": "278",
-      "pages": "106302",
+      "pages": "1-12",
       "article_number": "106302",
       "publisher": "Elsevier BV",
       "publication_date": "2024-06"
@@ -7859,7 +7859,7 @@
     "countries": [
       "Germany"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 294,
