@@ -18888,15 +18888,16 @@
   {
     "id": 713,
     "title": "Physics informed neural network for forward and inverse modeling of low grade brain tumors",
-    "citation": "Murari, K.; Roul, P.; Sundar, S. Physics informed neural network for forward and inverse modeling of low grade brain tumors. Arxiv [Mathematics. Numerical Analysis] 2025, 2504, 1-37.",
-    "doi": null,
-    "publisher_url": "https://arxiv.org/pdf/2504.07058v1",
-    "venue": "Arxiv [Mathematics. Numerical Analysis]",
+    "citation": "Murari, K.; Roul, P.; Sundar, S. Physics informed neural network for forward and inverse modeling of low grade brain tumors. arXiv [Mathematics. Numerical Analysis] 2025, 2504, 1-37. https://doi.org/10.48550/arXiv.2504.07058.",
+    "doi": "10.48550/arXiv.2504.07058",
+    "publisher_url": "https://arxiv.org/abs/2504.07058v1",
+    "venue": "arXiv [Mathematics. Numerical Analysis]",
     "reference_type": "preprint",
     "bibliographic": {
       "authors": "Murari, K.; Roul, P.; Sundar, S.",
-      "journal_abbreviation": "Arxiv [Mathematics. Numerical Analysis]",
+      "journal_abbreviation": "arXiv [math.NA]",
       "volume": "2504",
+      "issue": "arXiv:2504.07058v1",
       "pages": "1-37",
       "article_number": "07058v1"
     },
@@ -18907,7 +18908,7 @@
     "countries": [
       "India"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 714,
