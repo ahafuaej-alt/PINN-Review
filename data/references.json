@@ -13399,24 +13399,28 @@
   {
     "id": 504,
     "title": "A residual weighted physics informed neural network for forward and inverse problems of reaction diffusion equations",
-    "citation": "K. Murari; P. Roul; S. Sundar. A residual weighted physics informed neural network for forward and inverse problems of reaction diffusion equations. arXiv [Mathematics > Numerical Analysis] 2025. https://doi.org/10.48550/arXiv.2504.07058.",
+    "citation": "Murari, K.; Roul, P.; Sundar, S. A residual weighted physics informed neural network for forward and inverse problems of reaction diffusion equations. arXiv [Mathematics. Numerical Analysis] 2025, 2504, 1-31. https://doi.org/10.48550/arXiv.2504.07058.",
     "doi": "10.48550/arXiv.2504.07058",
     "publisher_url": "https://arxiv.org/abs/2504.07058",
-    "venue": "arXiv [Mathematics > Numerical Analysis]",
+    "venue": "arXiv [Mathematics. Numerical Analysis]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "K. Murari; P. Roul; S. Sundar",
-      "journal_abbreviation": "arXiv [Mathematics > Numerical Analysis]",
+      "authors": "Murari, K.; Roul, P.; Sundar, S.",
+      "journal_abbreviation": "arXiv [math.NA]",
+      "volume": "2504",
+      "issue": "arXiv:2504.07058v3",
+      "pages": "1-31",
+      "article_number": "07058v3",
       "publication_date": "2025-04-09"
     },
-    "abstract": null,
+    "abstract": "In this work, we propose the Residual-Weighted Physics-Informed Neural Network (RW-PINN), a new method designed to enhance the accuracy of Physics-Informed Neural Network (PINN) based algorithms. We construct a deep learning framework with two residual-weighting schemes to solve reaction diffusion equations and evaluate its performance on both forward and inverse problems. The approach computes weights proportional to the PDE residuals, rescales them, and incorporates these scaled residuals into the loss function, leading to more stable training. Furthermore, we establish generalized error bounds that account for training and quadrature errors, and we analyze the convergence and stability of the method. The proposed algorithms are validated through numerical experiments on nonlinear equations, supported by statistical error analysis. To further demonstrate the effectiveness of our methodology, we implemented PINN-based forward and inverse frameworks for the nonlinear equations and conducted a comparative analysis with the proposed RW-PINN approach.",
     "graphical_abstract": null,
     "year": 2025,
     "access": "Open access",
     "countries": [
       "India"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 505,
