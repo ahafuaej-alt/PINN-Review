@@ -14124,24 +14124,28 @@
   {
     "id": 532,
     "title": "SGDR Stochastic Gradient Descent with Warm Restarts",
-    "citation": "Ilya Loshchilov; Frank Hutter. SGDR Stochastic Gradient Descent with Warm Restarts. arXiv [Computer Science > Machine Learning] 2016. https://doi.org/10.48550/arXiv.1608.03983.",
+    "citation": "Loshchilov, I.; Hutter, F. SGDR Stochastic Gradient Descent with Warm Restarts. arXiv [Computer Science. Machine Learning] 2017, 1608, 1-16. https://doi.org/10.48550/arXiv.1608.03983.",
     "doi": "10.48550/arXiv.1608.03983",
     "publisher_url": "https://arxiv.org/abs/1608.03983",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Ilya Loshchilov; Frank Hutter",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "authors": "Loshchilov, I.; Hutter, F.",
+      "journal_abbreviation": "arXiv [cs.LG]",
+      "volume": "1608",
+      "issue": "arXiv:1608.03983v5",
+      "pages": "1-16",
+      "article_number": "03983v5",
       "publication_date": "2016-08-13"
     },
-    "abstract": null,
+    "abstract": "Restart techniques are common in gradient-free optimization to deal with multimodal functions. Partial warm restarts are also gaining popularity in gradient-based optimization to improve the rate of convergence in accelerated gradient schemes to deal with ill-conditioned functions. In this paper, we propose a simple warm restart technique for stochastic gradient descent to improve its anytime performance when training deep neural networks. We empirically study its performance on the CIFAR-10 and CIFAR-100 datasets, where we demonstrate new state-of-the-art results at 3.14% and 16.21%, respectively. We also demonstrate its advantages on a dataset of EEG recordings and on a downsampled version of the ImageNet dataset. Our source code is available at this https URL",
     "graphical_abstract": null,
-    "year": 2016,
+    "year": 2017,
     "access": "Open access",
     "countries": [
       "Germany"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 533,
