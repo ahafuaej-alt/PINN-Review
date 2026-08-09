@@ -17261,15 +17261,16 @@
   {
     "id": 651,
     "title": "Domain-decoupled Physics-informed Neural Networks with Closed-form Gradients for Fast Model Learning of Dynamical Systems",
-    "citation": "Krauss, H.; Habich, T.-L.; Bartholdt, M.; Seel, T.; Schappler, M. Domain-decoupled Physics-informed Neural Networks with Closed-form Gradients for Fast Model Learning of Dynamical Systems. arXiv [Electrical Engineering and Systems Science > Systems and Control] 2024, 2408, 1-13. https://doi.org/10.48550/arXiv.2408.14951.",
+    "citation": "Krauss, H.; Habich, T.-L.; Bartholdt, M.; Seel, T.; Schappler, M. Domain-decoupled Physics-informed Neural Networks with Closed-form Gradients for Fast Model Learning of Dynamical Systems. arXiv [Electrical Engineering and Systems Science. Systems and Control] 2024, 2408, 1-13. https://doi.org/10.48550/arXiv.2408.14951.",
     "doi": "10.48550/arXiv.2408.14951",
-    "publisher_url": "https://doi.org/10.48550/arXiv.2408.14951",
-    "venue": "arXiv [Electrical Engineering and Systems Science > Systems and Control]",
+    "publisher_url": "https://arxiv.org/abs/2408.14951",
+    "venue": "arXiv [Electrical Engineering and Systems Science. Systems and Control]",
     "reference_type": "preprint",
     "bibliographic": {
       "authors": "Krauss, H.; Habich, T.-L.; Bartholdt, M.; Seel, T.; Schappler, M.",
-      "journal_abbreviation": "arXiv [Electrical Engineering and Systems Science > Systems and Control]",
+      "journal_abbreviation": "arXiv [eess.SY]",
       "volume": "2408",
+      "issue": "arXiv:2408.14951v2",
       "pages": "1-13",
       "article_number": "14951v2"
     },
@@ -17281,7 +17282,7 @@
       "Japan",
       "Germany"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 652,
