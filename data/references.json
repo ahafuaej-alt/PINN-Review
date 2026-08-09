@@ -20146,15 +20146,16 @@
   {
     "id": 761,
     "title": "Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)",
-    "citation": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S. Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs). Arxiv [Computer Science. Machine Learning] 2015, 1511, 1-14. https://doi.org/10.48550/arXiv.1511.07289.",
+    "citation": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S. Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs). arXiv [Computer Science. Machine Learning] 2015, 1511, 1-14. https://doi.org/10.48550/arXiv.1511.07289.",
     "doi": "10.48550/arXiv.1511.07289",
-    "publisher_url": "https://doi.org/10.48550/arXiv.1511.07289",
-    "venue": "Arxiv [Computer Science. Machine Learning]",
+    "publisher_url": "https://arxiv.org/abs/1511.07289",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S",
-      "journal_abbreviation": "Arxiv [Computer Science. Machine Learning]",
+      "authors": "Clevert, D.-A.; Unterthiner, T.; Hochreiter, S.",
+      "journal_abbreviation": "arXiv [cs.LG]",
       "volume": "1511",
+      "issue": "arXiv:1511.07289v5",
       "pages": "1-14",
       "article_number": "07289v5"
     },
@@ -20165,7 +20166,7 @@
     "countries": [
       "Austria"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 762,
