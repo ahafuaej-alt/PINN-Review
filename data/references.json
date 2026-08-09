@@ -13415,12 +13415,12 @@
     "title": "Gradient-enhanced fractional physics-informed neural networks for solving forward and inverse problems of the multiterm time-fractional Burger-type equation",
     "citation": "Yuan, S.; Liu, Y.; Xu, Y.; Li, Q.; Guo, C.; Shen, Y. Gradient-enhanced fractional physics-informed neural networks for solving forward and inverse problems of the multiterm time-fractional Burger-type equation. AIMS Mathematics 2024, 9, 27418-27437. https://doi.org/10.3934/math.20241332.",
     "doi": "10.3934/math.20241332",
-    "publisher_url": "https://doi.org/10.3934/math.20241332",
+    "publisher_url": "https://www.aimspress.com/article/doi/10.3934/math.20241332",
     "venue": "AIMS Mathematics",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Yuan, S.; Liu, Y.; Xu, Y.; Li, Q.; Guo, C.; Shen, Y.",
-      "journal_abbreviation": "MATH",
+      "journal_abbreviation": "AIMS Mathematics",
       "volume": "9",
       "issue": "10",
       "pages": "27418-27437",
@@ -13430,11 +13430,11 @@
     "abstract": "In this paper, we introduced the gradient-enhanced fractional physics-informed neural networks (gfPINNs) for solving the forward and inverse problems of the multiterm time-fractional Burger-type equation. The gfPINNs leverage gradient information derived from the residual of the fractional partial differential equation and embed the gradient into the loss function. Since the standard chain rule in integer calculus is invalid in fractional calculus, the automatic differentiation of neural networks does not apply to fractional operators. The automatic differentiation for the integer order operators and the finite difference discretization for the fractional operators were used to construct the residual in the loss function. The numerical results demonstrate the effectiveness of gfPINNs in solving the multiterm time-fractional Burger-type equation. By comparing the experimental results of fractional physics-informed neural networks (fPINNs) and gfPINNs, it can be seen that the training performance of gfPINNs is better than fPINNs.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 506,
