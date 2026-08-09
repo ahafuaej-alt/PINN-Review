@@ -14594,17 +14594,17 @@
   {
     "id": 549,
     "title": "Solving the non-local Fokker–Planck equations by deep learning",
-    "citation": "Jiang, S.; Li, X. Solving the non-local Fokker–Planck equations by deep learning. CHAOS 2023, 33, 043107. https://doi.org/10.1063/5.0128935.",
+    "citation": "Jiang, S.; Li, X. Solving the non-local Fokker–Planck equations by deep learning. Chaos 2023, 33, 1-14. https://doi.org/10.1063/5.0128935.",
     "doi": "10.1063/5.0128935",
     "publisher_url": "https://pubs.aip.org/cha/article/33/4/043107/2882752/Solving-the-non-local-Fokker-Planck-equations-by",
-    "venue": "CHAOS",
+    "venue": "Chaos",
     "reference_type": "journal",
     "bibliographic": {
       "authors": "Jiang, S.; Li, X.",
       "journal_abbreviation": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
       "volume": "33",
       "issue": "4",
-      "pages": "043107",
+      "pages": "1-14",
       "article_number": "043107",
       "publisher": "AIP Publishing",
       "publication_date": "2023-04-01"
@@ -14616,7 +14616,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 550,
