@@ -21890,29 +21890,32 @@
   {
     "id": 828,
     "title": "Credibility Assessment of Machine Learning-Based Surrogate Model Predictions on Naca 0012 Airfoil Flow",
-    "citation": "Kirsch, J.; Rider, W.; Fathi, N. Credibility Assessment of Machine Learning-Based Surrogate Model Predictions on Naca 0012 Airfoil Flow. In Proceedings of ASME 2024 Verification, Validation, and Uncertainty Quantification Symposium, College Station, Texas, USA, 2024-05-15–2024-05-17; https://doi.org/10.1115/VVUQ2024-132964.",
+    "citation": "Kirsch, J.; Rider, W.; Fathi, N. Credibility Assessment of Machine Learning-Based Surrogate Model Predictions on Naca 0012 Airfoil Flow. In Proceedings of Proceedings of the ASME 2024 Verification, Validation, and Uncertainty Quantification Symposium, College Station, Texas, USA, 15–17 May 2024; Abstract VVUQ2024-132964, V001T01A002, pp. 1-12. https://doi.org/10.1115/VVUQ2024-132964.",
     "doi": "10.1115/VVUQ2024-132964",
     "publisher_url": "https://asmedigitalcollection.asme.org/VVS/proceedings/VVUQ2024/87769/V001T01A002/1201235",
-    "venue": "ASME 2024 Verification, Validation, and Uncertainty Quantification Symposium",
+    "venue": "ASME Verification, Validation, and Uncertainty Quantification Symposium",
     "reference_type": "conference",
     "bibliographic": {
       "authors": "Kirsch, J.; Rider, W.; Fathi, N.",
       "journal_abbreviation": "ASME 2024 Verification, Validation, and Uncertainty Quantification Symposium",
+      "pages": "1-12",
       "article_number": "V001T01A002",
       "publisher": "American Society of Mechanical Engineers",
-      "conference_name": "ASME 2024 Verification, Validation, and Uncertainty Quantification Symposium",
-      "conference_location": "College Station, Texas, USA",
-      "conference_date": "2024-05-15–2024-05-17",
+      "conference_name": "Proceedings of the ASME 2024 Verification, Validation, and Uncertainty Quantification Symposium",
+      "conference_location": "College Station, Texas",
+      "conference_country": "USA",
+      "conference_date": "15–17 May 2024",
+      "abstract_number": "VVUQ2024-132964, V001T01A002",
       "publication_date": "2024-05-15"
     },
-    "abstract": null,
+    "abstract": "The use of surrogate models in computational mechanics is an area of high interest due to the potential for significant savings in computational cost. However, assessment and presentation of evidence for surrogate model credibility has yet to reach a standard form. The present study utilizes a deep neural network as a surrogate for a computational fluid dynamics simulation in order to predict the coefficients of lift and drag on a NACA 0012 airfoil for various Reynolds numbers and angles of attack. Using best practices, the credibility of the underlying simulation predictions and of the surrogate model predictions are analyzed. Conclusions are drawn which should better inform future uses of surrogate models in the context of their credibility.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 829,
