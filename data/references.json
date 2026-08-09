@@ -11032,24 +11032,28 @@
   {
     "id": 412,
     "title": "Improved Surrogate Modeling of Fluid Dynamics with Physics-Informed Neural Networks",
-    "citation": "Jian Cheng Wong; Chinchun Ooi; Pao-Hsiung Chiu; My Ha Dao. Improved Surrogate Modeling of Fluid Dynamics with Physics-Informed Neural Networks. arXiv [Computer Science > Machine Learning] 2021. https://doi.org/10.48550/ARXIV.2105.01838.",
+    "citation": "Wong, J. C.; Ooi, C.; Chiu, P. H.; Dao, M. H. Improved Surrogate Modeling of Fluid Dynamics with Physics-Informed Neural Networks. arXiv [Computer Science. Machine Learning] 2021, 2105, 1-24. https://doi.org/10.48550/ARXIV.2105.01838.",
     "doi": "10.48550/ARXIV.2105.01838",
     "publisher_url": "https://arxiv.org/abs/2105.01838",
-    "venue": "arXiv [Computer Science > Machine Learning]",
+    "venue": "arXiv [Computer Science. Machine Learning]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Jian Cheng Wong; Chinchun Ooi; Pao-Hsiung Chiu; My Ha Dao",
-      "journal_abbreviation": "arXiv [Computer Science > Machine Learning]",
+      "authors": "Wong, J. C.; Ooi, C.; Chiu, P. H.; Dao, M. H.",
+      "journal_abbreviation": "arXiv [cs.LG]",
+      "volume": "2105",
+      "issue": "arXiv:2105.01838v1",
+      "pages": "1-24",
+      "article_number": "01838v1",
       "publication_date": "2021-05-05"
     },
-    "abstract": null,
+    "abstract": "Physics-Informed Neural Networks (PINNs) have recently shown great promise as a way of incorporating physics-based domain knowledge, including fundamental governing equations, into neural network models for many complex engineering systems. They have been particularly effective in the area of inverse problems, where boundary conditions may be ill-defined, and data-absent scenarios, where typical supervised learning approaches will fail. Here, we further explore the use of this modeling methodology to surrogate modeling of a fluid dynamical system, and demonstrate additional undiscussed and interesting advantages of such a modeling methodology over conventional data-driven approaches: 1) improving the model's predictive performance even with incomplete description of the underlying physics; 2) improving the robustness of the model to noise in the dataset; 3) reduced effort to convergence during optimization for a new, previously unseen scenario by transfer optimization of a pre-existing model. Hence, we noticed the inclusion of a physics-based regularization term can substantially improve the equivalent data-driven surrogate model in many substantive ways, including an order of magnitude improvement in test error when the dataset is very noisy, and a 2-3x improvement when only partial physics is included. In addition, we propose a novel transfer optimization scheme for use in such surrogate modeling scenarios and demonstrate an approximately 3x improvement in speed to convergence and an order of magnitude improvement in predictive performance over conventional Xavier initialization for training of new scenarios.",
     "graphical_abstract": null,
     "year": 2021,
     "access": "Open access",
     "countries": [
       "Singapore"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 413,
