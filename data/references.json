@@ -12795,24 +12795,28 @@
   {
     "id": 480,
     "title": "Solving Allen-Cahn and Cahn-Hilliard Equations using the Adaptive Physics Informed Neural Networks",
-    "citation": "Wight, Colby L.; Zhao, Jia. Solving Allen-Cahn and Cahn-Hilliard Equations using the Adaptive Physics Informed Neural Networks. ArXiv Preprint arXiv 2020.",
-    "doi": null,
-    "publisher_url": "https://arxiv.org/abs/2007.04542",
-    "venue": "ArXiv Preprint arXiv:",
+    "citation": "Wight, C. L.; Zhao, J. Solving Allen-Cahn and Cahn-Hilliard Equations using the Adaptive Physics Informed Neural Networks. arXiv [Mathematics. Numerical Analysis] 2020, 2007, 1-25. https://doi.org/10.48550/arXiv.2007.04542.",
+    "doi": "10.48550/arXiv.2007.04542",
+    "publisher_url": "https://doi.org/10.48550/arXiv.2007.04542",
+    "venue": "arXiv [Mathematics. Numerical Analysis]",
     "reference_type": "preprint",
     "bibliographic": {
-      "authors": "Wight, Colby L.; Zhao, Jia",
-      "journal_abbreviation": "ArXiv Preprint arXiv:",
+      "authors": "Wight, C. L.; Zhao, J.",
+      "journal_abbreviation": "arXiv [math.NA]",
+      "volume": "2007",
+      "issue": "arXiv:2007.04542v1",
+      "pages": "1-25",
+      "article_number": "04542v1",
       "publication_date": "2020/07/09"
     },
-    "abstract": null,
+    "abstract": "Phase field models, in particular, the Allen-Cahn type and Cahn-Hilliard type equations, have been widely used to investigate interfacial dynamic problems. Designing accurate, efficient, and stable numerical algorithms for solving the phase field models has been an active field for decades. In this paper, we focus on using the deep neural network to design an automatic numerical solver for the Allen-Cahn and Cahn-Hilliard equations by proposing an improved physics informed neural network (PINN). Though the PINN has been embraced to investigate many differential equation problems, we find a direct application of the PINN in solving phase-field equations won't provide accurate solutions in many cases. Thus, we propose various techniques that add to the approximation power of the PINN. As a major contribution of this paper, we propose to embrace the adaptive idea in both space and time and introduce various sampling strategies, such that we are able to improve the efficiency and accuracy of the PINN on solving phase field equations. In addition, the improved PINN has no restriction on the explicit form of the PDEs, making it applicable to a wider class of PDE problems, and shedding light on numerical approximations of other PDEs in general.",
     "graphical_abstract": null,
     "year": 2020,
     "access": "Open access",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-09"
   },
   {
     "id": 481,
