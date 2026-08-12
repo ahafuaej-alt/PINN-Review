@@ -62,6 +62,7 @@ assert(app.includes("fetch(`${rootHref}data/site-reach.json`"), 'Shared applicat
 assert(!app.includes('GOATCOUNTER_API_TOKEN') && !snapshotText.includes('Bearer '), 'No protected GoatCounter token may enter public assets.');
 assert(privacy.includes('id="analytics"') && privacy.includes('GoatCounter') && privacy.includes('earlier traffic is not reconstructed'), 'Privacy page must explain aggregated analytics and its start boundary.');
 assert(updateWorkflow.includes('secrets.GOATCOUNTER_API_TOKEN') && updateWorkflow.includes('vars.GOATCOUNTER_SITE_CODE'), 'Daily workflow must obtain configuration from GitHub Secrets and Variables.');
+assert(updateWorkflow.includes('published_sha') && updateWorkflow.includes('uses: ./.github/workflows/pages.yml'), 'Daily workflow must deploy the exact refreshed snapshot commit.');
 
 const pages = await htmlFiles('.');
 const appPages = [];
