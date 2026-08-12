@@ -386,6 +386,60 @@ h1 .gradient {
 .signal-legend strong { display: block; color: var(--ink); font-size: 0.83rem; }
 .signal-legend span { color: var(--faint); font-size: 0.7rem; }
 
+.reach-section { padding: 0 0 clamp(2.3rem, 5vw, 4rem); }
+
+.reach-panel {
+  display: grid;
+  grid-template-columns: minmax(210px, .82fr) minmax(390px, 1.35fr) minmax(250px, .88fr);
+  grid-template-areas: "intro metrics countries" "meta meta meta";
+  gap: 1.25rem 1.6rem;
+  align-items: center;
+  padding: 1.35rem 1.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--surface-soft), var(--panel-strong));
+  box-shadow: 0 14px 40px rgba(42, 66, 88, 0.08);
+}
+
+.reach-intro { grid-area: intro; }
+.reach-intro .eyebrow { margin-bottom: .62rem; }
+.reach-intro h2 { margin-bottom: .45rem; font-size: clamp(1.35rem, 2.2vw, 1.8rem); line-height: 1.08; letter-spacing: -.035em; }
+.reach-intro > p:not(.eyebrow) { margin-bottom: .65rem; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.reach-method { color: var(--mint); font-size: .72rem; font-weight: 700; text-decoration: none; }
+.reach-method:hover { text-decoration: underline; text-underline-offset: .2rem; }
+
+.reach-metrics {
+  grid-area: metrics;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface-faint);
+  overflow: hidden;
+}
+
+.reach-metrics > div { min-width: 0; padding: .85rem .9rem; border-right: 1px solid var(--line); }
+.reach-metrics > div:last-child { border-right: 0; }
+.reach-metrics dt { color: var(--faint); font-family: var(--mono); font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.reach-metrics dd { margin: .18rem 0 .08rem; color: var(--ink); font-size: clamp(1.55rem, 3vw, 2.3rem); font-weight: 750; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.reach-metrics span { color: var(--faint); font-size: .65rem; }
+
+.reach-countries { grid-area: countries; min-width: 0; }
+.reach-countries-head { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .45rem; }
+.reach-countries-head h3 { margin: 0; font-size: .78rem; }
+.reach-countries-head span { color: var(--faint); font-family: var(--mono); font-size: .6rem; text-transform: uppercase; }
+.reach-countries ol { display: grid; gap: .3rem; margin: 0; padding: 0; list-style: none; }
+.reach-country { display: grid; grid-template-columns: minmax(5.5rem, 1fr) minmax(3.4rem, .8fr) auto; gap: .5rem; align-items: center; font-size: .68rem; }
+.reach-country-name { min-width: 0; overflow: hidden; color: var(--muted); text-overflow: ellipsis; white-space: nowrap; }
+.reach-country-track { height: 5px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.reach-country-fill { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--mint), var(--violet)); }
+.reach-country-count { min-width: 2.1rem; color: var(--ink); font-family: var(--mono); font-size: .62rem; text-align: right; font-variant-numeric: tabular-nums; }
+.reach-empty { color: var(--faint); font-size: .7rem; }
+.reach-meta { grid-area: meta; margin: -.2rem 0 0; padding-top: .72rem; border-top: 1px solid var(--line); color: var(--faint); font-family: var(--mono); font-size: .61rem; letter-spacing: .025em; }
+[data-reach-status="setup_required"] .reach-metrics,
+[data-reach-status="unavailable"] .reach-metrics { opacity: .58; }
+
 .section { padding: clamp(4rem, 8vw, 7rem) 0; border-top: 1px solid var(--line); }
 
 .section-head { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 2rem; margin-bottom: 2.4rem; align-items: end; }
@@ -834,6 +888,7 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .nav-links.open { display: grid; }
   .hero-grid, .section-head { grid-template-columns: 1fr; }
   .signal-card { max-width: 620px; }
+  .reach-panel { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); grid-template-areas: "intro countries" "metrics metrics" "meta meta"; align-items: start; }
   .atlas-card, .atlas-card:nth-child(1), .atlas-card:nth-child(6), .atlas-card:nth-child(7), .atlas-card:nth-child(8), .atlas-card:nth-child(9) { grid-column: span 6; }
   .protocol { grid-template-columns: repeat(2, 1fr); }
   .protocol-step:nth-child(2) { border-right: 0; }
@@ -863,6 +918,11 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .signal-card { min-height: 330px; }
   .signal-plot { height: 190px; }
   .signal-legend { gap: 0.4rem; }
+  .reach-panel { grid-template-columns: 1fr; grid-template-areas: "intro" "metrics" "countries" "meta"; padding: 1.15rem; }
+  .reach-metrics { grid-template-columns: 1fr; }
+  .reach-metrics > div { display: grid; grid-template-columns: 1fr auto; gap: .2rem .8rem; align-items: end; border-right: 0; border-bottom: 1px solid var(--line); }
+  .reach-metrics > div:last-child { border-bottom: 0; }
+  .reach-metrics dd { grid-column: 2; grid-row: 1 / span 2; font-size: 1.8rem; }
   .atlas-card, .atlas-card:nth-child(1), .atlas-card:nth-child(6), .atlas-card:nth-child(7), .atlas-card:nth-child(8), .atlas-card:nth-child(9) { grid-column: 1 / -1; }
   .protocol { grid-template-columns: 1fr; }
   .protocol-step { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }

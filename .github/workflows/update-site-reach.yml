@@ -1,0 +1,68 @@
+name: Update Atlas reach
+
+on:
+  schedule:
+    - cron: '27 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atlas-reach-refresh
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'ahafuaej-alt/PINN-Review'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check protected configuration
+        id: configuration
+        env:
+          SITE_CODE: ${{ vars.GOATCOUNTER_SITE_CODE }}
+          API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+        run: |
+          if [[ -z "$SITE_CODE" && -z "$API_TOKEN" ]]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Atlas reach is ready but inactive. Add GOATCOUNTER_SITE_CODE and GOATCOUNTER_API_TOKEN to activate it."
+          elif [[ -z "$SITE_CODE" || -z "$API_TOKEN" ]]; then
+            echo "::error::Atlas reach is only partially configured. Both the site-code variable and API-token secret are required."
+            exit 1
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Retrieve aggregate GoatCounter statistics
+        if: steps.configuration.outputs.configured == 'true'
+        env:
+          GOATCOUNTER_SITE_CODE: ${{ vars.GOATCOUNTER_SITE_CODE }}
+          GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+          GOATCOUNTER_TRACKING_START: ${{ vars.GOATCOUNTER_TRACKING_START }}
+        run: node scripts/update-site-reach.mjs
+      - name: Validate public reach snapshot
+        run: |
+          node --check assets/app.js
+          node --check scripts/update-site-reach.mjs
+          node scripts/validate-site-reach.mjs
+          node --test scripts/site-reach.test.mjs
+      - name: Publish refreshed aggregate snapshot
+        if: steps.configuration.outputs.configured == 'true'
+        run: |
+          if git diff --quiet -- data/site-reach.json; then
+            echo "No aggregate reach changes to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/site-reach.json
+          git commit -m "Refresh aggregate Atlas reach"
+          git pull --rebase origin main
+          git push origin HEAD:main

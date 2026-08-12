@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "setup_required",
+  "provider": "GoatCounter",
+  "trackingEndpoint": null,
+  "trackingStartedAt": null,
+  "updatedAt": null,
+  "visits": {
+    "total": null,
+    "last30Days": null
+  },
+  "countries": {
+    "reached": null,
+    "top": []
+  },
+  "methodology": "Aggregated visit totals and country-level statistics; no visitor-level records are published."
+}

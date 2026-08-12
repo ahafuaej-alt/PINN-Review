@@ -18,7 +18,7 @@ PINN Review Atlas is the web companion to a review of physics-informed neural ne
 - `/references/changelog/` — bibliography version history and data-quality methodology
 - `/dataset-manager/` — prepare and submit validated, evidence-backed updates with automatic MDPI ACS citation formatting
 - `/cite/` — citation and version guidance
-- `/privacy/` — local-storage and privacy policy for the static site
+- `/privacy/` — local-storage, aggregated analytics, and privacy policy
 
 ## Local preview
 
@@ -34,11 +34,25 @@ Then open <http://localhost:8000>.
 
 The workflow in `.github/workflows/pages.yml` deploys the repository to GitHub Pages after a push to `main`. In the repository settings, choose **Pages → Build and deployment → GitHub Actions** if Pages has not already been configured.
 
+## Atlas reach analytics
+
+The homepage contains a compact, aggregate-only reach panel backed by GoatCounter. The shared application script activates counting only when `/data/site-reach.json` reports an active configuration. Until then, the panel explicitly shows a setup state and publishes no invented statistics.
+
+To activate collection:
+
+1. Create a GoatCounter site for `ahafuaej-alt.github.io/PINN-Review` and note its site code.
+2. Create a GoatCounter API key with permission to read statistics.
+3. In **Settings → Secrets and variables → Actions**, add the repository variable `GOATCOUNTER_SITE_CODE` and the repository secret `GOATCOUNTER_API_TOKEN`.
+4. Optionally add `GOATCOUNTER_TRACKING_START` as a `YYYY-MM-DD` repository variable. If omitted, the first successful refresh date becomes the tracking start.
+5. Run **Update Atlas reach** once from GitHub Actions. It then refreshes the public aggregate snapshot every day at 03:27 UTC.
+
+The API token remains in GitHub Secrets. The public JSON contains only total visits, visits in the previous 30 days, the number of countries reached, the five leading country totals, timestamps, and the public counting endpoint. No historical traffic is reconstructed.
+
 ## Evidence policy
 
-The website separates presentation from evidence. Counts, classifications, and citation IDs should only be added after the source data have been checked. Every published view should provide its source data and a stable URL.
+The website separates presentation from evidence. Counts, classifications, and citation IDs should only be added after the source data have been checked. Every published view should provide its source data and a stable URL. Site-reach counts are operational usage statistics rather than manuscript evidence and remain explicitly labeled as aggregated analytics.
 
-The authoritative record is `/data/papers-master.json`, validated against `/data/papers-master.schema.json`. The public bibliography, PINN Realm records, collaboration pairs, annual totals, filters, exports, and machine-readable metadata are generated from that master. Reader selections, recent searches, Dataset Manager drafts, and theme preferences remain in the reader's browser unless the user explicitly confirms a prefilled GitHub update request.
+The authoritative record is `/data/papers-master.json`, validated against `/data/papers-master.schema.json`. The public bibliography, PINN Realm records, collaboration pairs, annual totals, filters, exports, and machine-readable metadata are generated from that master. Reader selections, recent searches, Dataset Manager drafts, and theme preferences remain in the reader's browser unless the user explicitly confirms a prefilled GitHub update request. GoatCounter separately processes visits into aggregate reach statistics as documented on `/privacy/`.
 
 ## Updating one paper
 

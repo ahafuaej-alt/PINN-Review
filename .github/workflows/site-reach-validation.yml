@@ -1,0 +1,89 @@
+name: Atlas reach validation
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - '404.html'
+      - '*/index.html'
+      - '*/*/index.html'
+      - 'assets/app.js'
+      - 'assets/styles.css'
+      - 'data/site-reach.json'
+      - 'scripts/*site-reach*.mjs'
+      - '.github/workflows/site-reach-validation.yml'
+      - '.github/workflows/update-site-reach.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/app.js'
+      - 'assets/styles.css'
+      - 'privacy/index.html'
+      - 'data/site-reach.json'
+      - 'scripts/*site-reach*.mjs'
+      - '.github/workflows/site-reach-validation.yml'
+      - '.github/workflows/update-site-reach.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate aggregate data and privacy boundaries
+        run: |
+          node --check assets/app.js
+          node --check scripts/update-site-reach.mjs
+          node --check scripts/visual-qa-site-reach.mjs
+          node scripts/validate-site-reach.mjs
+          node --test scripts/site-reach.test.mjs
+
+  render:
+    if: github.event_name == 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Locate runner browser
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --no-save --package-lock=false playwright-core@1.55.0
+      - name: Start static preview
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/pinn-atlas-reach-preview.log 2>&1 &
+          echo "PREVIEW_PID=$!" >> "$GITHUB_ENV"
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/pinn-atlas-reach-preview.log
+          exit 1
+      - name: Render desktop and mobile themes
+        run: node scripts/visual-qa-site-reach.mjs
+      - name: Stop static preview
+        if: always()
+        run: kill "$PREVIEW_PID" 2>/dev/null || true
+      - name: Upload visual report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-reach-visual-qa
+          path: artifacts/site-reach-visual-qa/
+          if-no-files-found: error
+          retention-days: 14
