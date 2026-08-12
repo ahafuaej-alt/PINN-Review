@@ -81,6 +81,7 @@ assert.ok(Object.values(validation.checks).every(Boolean), 'Generated validation
 const optimizerJs = fs.readFileSync(path.join(root, 'assets', 'optimizers.js'), 'utf8');
 const technicalJs = fs.readFileSync(path.join(root, 'assets', 'reference-technical-details.js'), 'utf8');
 const optimizerHtml = fs.readFileSync(path.join(root, 'optimizers', 'index.html'), 'utf8');
+const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const optimizerCss = fs.readFileSync(path.join(root, 'assets', 'optimizers.css'), 'utf8');
 const referencesHtml = fs.readFileSync(path.join(root, 'references', 'index.html'), 'utf8');
 const appJs = fs.readFileSync(path.join(root, 'assets', 'app.js'), 'utf8');
@@ -110,7 +111,9 @@ const collectHtml = (directory) => {
   });
 };
 collectHtml(root);
-assert.ok(htmlFiles.every((filePath) => fs.readFileSync(filePath, 'utf8').includes('assets/app.js?v=ux-20260803a')), 'An Atlas HTML page does not load the cache-busted shared navigation script');
+const sharedAppScript = indexHtml.match(/assets\/app\.js\?v=[^"']+/)?.[0];
+assert.ok(sharedAppScript, 'The Atlas homepage does not load a versioned shared navigation script');
+assert.ok(htmlFiles.every((filePath) => fs.readFileSync(filePath, 'utf8').includes(sharedAppScript)), 'An Atlas HTML page does not load the current cache-busted shared navigation script');
 
 for (const scriptPath of ['assets/optimizers.js', 'assets/reference-technical-details.js', 'scripts/build-optimizers.mjs', 'scripts/validate-optimizers.mjs']) {
   execFileSync(process.execPath, ['--check', path.join(root, scriptPath)], { stdio: 'pipe' });

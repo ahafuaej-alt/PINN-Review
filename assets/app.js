@@ -89,6 +89,118 @@
   systemTheme.addEventListener?.('change', () => { if (savedTheme() === 'system') updateThemeControls(); });
 
   const rootHref = document.querySelector('.brand')?.getAttribute('href') || './';
+
+  // Load one public, aggregate-only snapshot for both the homepage reach panel
+  // and the privacy-preserving visit counter. The protected GoatCounter API
+  // token is used only by GitHub Actions and is never present in this file or
+  // the generated JSON.
+  const reachMount = document.querySelector('[data-atlas-reach]');
+  const reachNumber = new Intl.NumberFormat('en');
+  const reachDate = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  const nonNegativeInteger = (value) => Number.isSafeInteger(value) && value >= 0;
+  const formatReachDate = (value) => {
+    const parsed = new Date(value);
+    return Number.isNaN(parsed.getTime()) ? null : reachDate.format(parsed);
+  };
+
+  const setReachUnavailable = (status, message) => {
+    if (!reachMount) return;
+    reachMount.dataset.reachStatus = status;
+    const summary = reachMount.querySelector('[data-reach-summary]');
+    if (summary) summary.textContent = message;
+  };
+
+  const renderReach = (snapshot) => {
+    if (!reachMount) return;
+    const active = snapshot?.status === 'active'
+      && nonNegativeInteger(snapshot?.visits?.total)
+      && nonNegativeInteger(snapshot?.visits?.last30Days)
+      && nonNegativeInteger(snapshot?.countries?.reached)
+      && Array.isArray(snapshot?.countries?.top);
+    if (!active) {
+      setReachUnavailable('setup_required', 'Aggregated reach statistics will appear here when collection begins.');
+      const meta = reachMount.querySelector('[data-reach-meta]');
+      if (meta) meta.textContent = 'No historical visitor data is reconstructed · Method documented transparently';
+      return;
+    }
+
+    reachMount.dataset.reachStatus = 'active';
+    const started = formatReachDate(snapshot.trackingStartedAt);
+    const updated = formatReachDate(snapshot.updatedAt);
+    const summary = reachMount.querySelector('[data-reach-summary]');
+    if (summary) summary.textContent = 'An aggregate view of how widely the open Atlas is being used.';
+    reachMount.querySelector('[data-reach-total]').textContent = reachNumber.format(snapshot.visits.total);
+    reachMount.querySelector('[data-reach-recent]').textContent = reachNumber.format(snapshot.visits.last30Days);
+    reachMount.querySelector('[data-reach-countries]').textContent = reachNumber.format(snapshot.countries.reached);
+
+    const countryList = reachMount.querySelector('[data-reach-country-list]');
+    countryList.replaceChildren();
+    const countries = snapshot.countries.top
+      .filter((country) => country && typeof country.name === 'string' && country.name.trim() && nonNegativeInteger(country.visits))
+      .slice(0, 5);
+    const maximum = Math.max(1, ...countries.map((country) => country.visits));
+    if (!countries.length) {
+      const empty = document.createElement('li');
+      empty.className = 'reach-empty';
+      empty.textContent = 'Country totals will appear after the first recorded visits.';
+      countryList.append(empty);
+    } else {
+      countries.forEach((country) => {
+        const item = document.createElement('li');
+        item.className = 'reach-country';
+        const name = document.createElement('span');
+        name.className = 'reach-country-name';
+        name.textContent = country.name;
+        name.title = country.name;
+        const track = document.createElement('span');
+        track.className = 'reach-country-track';
+        track.setAttribute('aria-hidden', 'true');
+        const fill = document.createElement('span');
+        fill.className = 'reach-country-fill';
+        fill.style.width = `${Math.max(4, (country.visits / maximum) * 100).toFixed(2)}%`;
+        track.append(fill);
+        const count = document.createElement('span');
+        count.className = 'reach-country-count';
+        count.textContent = reachNumber.format(country.visits);
+        item.setAttribute('aria-label', `${country.name}: ${reachNumber.format(country.visits)} visits`);
+        item.append(name, track, count);
+        countryList.append(item);
+      });
+    }
+
+    const details = ['Aggregated by GoatCounter', 'Updated daily'];
+    if (started) details.push(`Tracking began ${started}`);
+    if (updated) details.push(`Last refreshed ${updated}`);
+    reachMount.querySelector('[data-reach-meta]').textContent = details.join(' · ');
+  };
+
+  const loadReachCounter = (snapshot) => {
+    if (snapshot?.status !== 'active' || typeof snapshot.trackingEndpoint !== 'string') return;
+    let endpoint;
+    try { endpoint = new URL(snapshot.trackingEndpoint); } catch (_) { return; }
+    if (endpoint.protocol !== 'https:' || !endpoint.hostname.endsWith('.goatcounter.com') || endpoint.pathname !== '/count') return;
+    if (document.querySelector('script[data-atlas-reach-counter]')) return;
+    const counter = document.createElement('script');
+    counter.async = true;
+    counter.src = 'https://gc.zgo.at/count.v5.js';
+    counter.crossOrigin = 'anonymous';
+    counter.integrity = 'sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ';
+    counter.dataset.goatcounter = endpoint.href;
+    counter.dataset.atlasReachCounter = '';
+    document.head.append(counter);
+  };
+
+  fetch(`${rootHref}data/site-reach.json`, { cache: 'no-store' })
+    .then((response) => {
+      if (!response.ok) throw new Error(`Reach snapshot returned ${response.status}`);
+      return response.json();
+    })
+    .then((snapshot) => {
+      renderReach(snapshot);
+      loadReachCounter(snapshot);
+    })
+    .catch(() => setReachUnavailable('unavailable', 'Aggregated reach statistics are temporarily unavailable.'));
+
   if (navLinks) {
     const citeLink = [...navLinks.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Cite');
     const orderedAtlasLinks = [
