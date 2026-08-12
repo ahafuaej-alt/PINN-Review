@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "status": "setup_required",
+  "status": "active",
   "provider": "GoatCounter",
-  "trackingEndpoint": null,
-  "trackingStartedAt": null,
-  "updatedAt": null,
+  "trackingEndpoint": "https://pinn-review-atlas.goatcounter.com/count",
+  "trackingStartedAt": "2026-08-12",
+  "updatedAt": "2026-08-12T07:00:00.000Z",
   "visits": {
-    "total": null,
-    "last30Days": null
+    "total": 0,
+    "last30Days": 0
   },
   "countries": {
-    "reached": null,
+    "reached": 0,
     "top": []
   },
   "methodology": "Aggregated visit totals and country-level statistics; no visitor-level records are published."
