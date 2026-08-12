@@ -34,15 +34,34 @@ async function requestJson(url, token) {
   const response = await fetch(url, {
     headers: {
       Accept: 'application/json',
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     },
     signal: AbortSignal.timeout(apiTimeoutMs)
   });
   if (!response.ok) {
-    const detail = (await response.text()).slice(0, 300).replaceAll(token, '[redacted]');
+    const detail = (await response.text())
+      .replaceAll(token, '[redacted]')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 600);
     throw new Error(`GoatCounter returned ${response.status} for ${url.pathname}: ${detail}`);
   }
   return response.json();
+}
+
+export async function getCurrentSite(apiBase, token, siteCode) {
+  const response = await requestJson(new URL(`${apiBase}/sites`), token);
+  assert(Array.isArray(response.sites), 'GoatCounter sites response must contain a sites array.');
+  const normalizedCode = String(siteCode || '').trim().toLowerCase();
+  const site = response.sites.find((candidate) => String(candidate?.code || '').trim().toLowerCase() === normalizedCode);
+  assert(site, `The API token cannot access GoatCounter site ${normalizedCode}.`);
+  return {
+    code: normalizedCode,
+    receivedData: site.received_data === true
+  };
 }
 
 async function getTotal(apiBase, token, start, end) {
@@ -136,11 +155,19 @@ export async function updateSiteReach() {
   const recentStart = new Date(now.getTime() - (30 * 24 * 60 * 60 * 1000));
   const apiBase = `https://${siteCode.toLowerCase()}.goatcounter.com/api/v0`;
 
-  const [total, last30Days, locations] = await Promise.all([
-    getTotal(apiBase, token, allTimeStart, now),
-    getTotal(apiBase, token, recentStart, now),
-    getLocations(apiBase, token, allTimeStart, now)
-  ]);
+  const site = await getCurrentSite(apiBase, token, siteCode);
+  let total = 0;
+  let last30Days = 0;
+  let locations = [];
+  if (site.receivedData) {
+    [total, last30Days, locations] = await Promise.all([
+      getTotal(apiBase, token, allTimeStart, now),
+      getTotal(apiBase, token, recentStart, now),
+      getLocations(apiBase, token, allTimeStart, now)
+    ]);
+  } else {
+    console.log('GoatCounter has no pageviews yet; publishing an active zero-count snapshot to begin collection.');
+  }
   const snapshot = buildSnapshot({ siteCode, trackingStartedAt, updatedAt: now, total, last30Days, locations });
   const temporaryPath = `${outputPath}.tmp`;
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
