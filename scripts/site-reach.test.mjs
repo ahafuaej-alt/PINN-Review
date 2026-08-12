@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildSnapshot, normalizeCountries } from './update-site-reach.mjs';
+import { buildSnapshot, getCurrentSite, normalizeCountries } from './update-site-reach.mjs';
 
 const locations = [
   { id: 'SE', name: 'Sweden', count: 17 },
@@ -48,4 +48,42 @@ test('rejects invalid counts and site codes', () => {
     last30Days: 1,
     locations: []
   }), /unsupported characters/);
+});
+
+test('checks site access with GoatCounter-required request headers', async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = async (url, options) => {
+      assert.equal(url.pathname, '/api/v0/sites');
+      assert.equal(options.headers.Accept, 'application/json');
+      assert.equal(options.headers['Content-Type'], 'application/json');
+      assert.equal(options.headers.Authorization, 'Bearer protected-test-token');
+      return new Response(JSON.stringify({
+        sites: [{ code: 'pinn-review-atlas', received_data: false }]
+      }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    };
+    const site = await getCurrentSite(
+      'https://pinn-review-atlas.goatcounter.com/api/v0',
+      'protected-test-token',
+      'PINN-Review-Atlas'
+    );
+    assert.deepEqual(site, { code: 'pinn-review-atlas', receivedData: false });
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('rejects a token that cannot access the configured site', async () => {
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = async () => new Response(JSON.stringify({
+      sites: [{ code: 'another-site', received_data: true }]
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    await assert.rejects(
+      getCurrentSite('https://pinn-review-atlas.goatcounter.com/api/v0', 'token', 'pinn-review-atlas'),
+      /cannot access GoatCounter site/
+    );
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
