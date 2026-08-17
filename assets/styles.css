@@ -876,7 +876,7 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .nav-actions { gap: 0.35rem; }
 }
 
-@media (max-width: 1380px) {
+@media (max-width: 1500px) {
   .nav-toggle { display: inline-grid; place-items: center; }
   .nav-links { position: absolute; top: 64px; left: 1rem; right: 1rem; display: none; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--nav-popover); box-shadow: var(--shadow); }
   .nav-links.open { display: grid; }
