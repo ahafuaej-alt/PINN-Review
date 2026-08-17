@@ -9,9 +9,9 @@
   <script src="../assets/theme-init.js?v=ux-20260722"></script>
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/styles.css?v=ux-20260812-reach">
-  <link rel="stylesheet" href="../assets/pinn-ecosystem.css?v=ecosystem-20260817">
+  <link rel="stylesheet" href="../assets/pinn-ecosystem.css?v=ecosystem-20260817-r2">
   <script src="../assets/app.js?v=ux-20260812-reach" defer></script>
-  <script src="../assets/pinn-ecosystem.js?v=ecosystem-20260817" defer></script>
+  <script src="../assets/pinn-ecosystem.js?v=ecosystem-20260817-r2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#ecosystem-map">Skip to PINN Ecosystem</a>
@@ -74,7 +74,8 @@
         <div class="studio-head-actions"><button class="button" type="button" data-load-standard>Load standard PINN</button><button class="button" type="button" data-clear-builder>Clear design</button></div>
       </div>
 
-      <div class="design-caveat"><strong>Design aid, not an automatic method selector.</strong><span>The studio makes dependencies visible and flags common incompatibilities. Final choices still require equation-specific analysis, controlled comparison, and independent validation.</span></div>
+      <div class="design-caveat"><strong>Evidence-scoped selection rules.</strong><span>Logical contradictions are blocked. Scientifically valid hybrid combinations are allowed with an interpretation notice. Performance-sensitive choices remain advisory because their validity depends on the equation, geometry, data, and numerical experiment.</span></div>
+      <details class="selection-policy"><summary>How selection rules and “required” fields are justified</summary><div><p><strong>No arbitrary count caps:</strong> select every element that materially belongs to the design.</p><p><strong>Core record field:</strong> at least one entry is needed to describe a reproducible Atlas design record; this does not claim that one method is universally mandatory.</p><p><strong>Three rule levels:</strong> blocked = logical contradiction or undefined specification; conditional = valid only with an explicit hybrid/staged scope; advisory = a scientific risk or recommendation that does not prevent selection.</p></div></details>
 
       <div class="studio-status" data-builder-status role="status" aria-live="polite">Loading the design studio…</div>
       <div class="studio-layout" data-builder-shell hidden>
@@ -85,14 +86,7 @@
           <div class="stage-controls"><button class="button" type="button" data-stage-previous>← Previous</button><button class="button primary" type="button" data-stage-next>Next stage →</button></div>
         </section>
 
-        <aside class="builder-output" aria-label="Generated PINN design">
-          <section class="diagram-card" aria-labelledby="diagram-title">
-            <div class="diagram-head"><div><p class="eyebrow compact">Live architecture</p><h3 id="diagram-title">Your PINN</h3></div><span class="diagram-state" data-diagram-state>Standard configuration</span></div>
-            <div class="diagram-wrap"><svg class="pinn-diagram" data-pinn-diagram viewBox="0 0 1000 700" role="img" aria-labelledby="diagram-title diagram-description"></svg><p class="visually-hidden" id="diagram-description" data-diagram-description>A generated diagram of the selected PINN architecture.</p></div>
-            <div class="diagram-legend"><span><i class="legend-context"></i>Context</span><span><i class="legend-model"></i>Model</span><span><i class="legend-physics"></i>Physics</span><span><i class="legend-training"></i>Training</span><span><i class="legend-trust"></i>Validation</span></div>
-            <div class="diagram-actions"><button class="button primary" type="button" data-download-svg>Download SVG</button><button class="button" type="button" data-copy-summary>Copy design summary</button><button class="button" type="button" data-copy-link>Copy shareable link</button></div>
-          </section>
-
+        <aside class="builder-output" aria-label="PINN design review">
           <section class="compatibility-card" aria-labelledby="compatibility-title">
             <div class="compatibility-head"><div><p class="eyebrow compact">Dependency review</p><h3 id="compatibility-title">Compatibility signals</h3></div><span data-signal-count>—</span></div>
             <div class="compatibility-list" data-compatibility-list></div>
@@ -100,6 +94,29 @@
 
           <section class="design-summary-card" aria-labelledby="summary-title"><p class="eyebrow compact">Portable record</p><h3 id="summary-title">Configuration summary</h3><div data-design-summary></div></section>
         </aside>
+
+        <section class="diagram-card studio-diagram" aria-labelledby="diagram-title">
+          <div class="diagram-head"><div><p class="eyebrow compact">Live architecture · complete flowchart</p><h3 id="diagram-title">Your PINN</h3></div><div class="diagram-head-tools"><span class="diagram-state" data-diagram-state>Standard configuration</span><div class="diagram-zoom" aria-label="Diagram zoom controls"><button type="button" data-diagram-zoom-out aria-label="Zoom out">−</button><button type="button" data-diagram-zoom-fit><span data-diagram-zoom-value>100%</span> · Fit</button><button type="button" data-diagram-zoom-in aria-label="Zoom in">＋</button></div></div></div>
+          <div class="diagram-wrap" data-diagram-viewport><svg class="pinn-diagram" data-pinn-diagram viewBox="0 0 1280 1800" role="img" aria-labelledby="diagram-title diagram-description"></svg><p class="visually-hidden" id="diagram-description" data-diagram-description>A generated flowchart containing every selected PINN element.</p></div>
+          <div class="diagram-legend" data-diagram-legend>
+            <div class="legend-group"><strong>Design stages</strong><div class="legend-buttons">
+              <button type="button" data-legend-stage="context" aria-pressed="false" style="--legend-color:#005a9c"><i></i>Problem</button>
+              <button type="button" data-legend-stage="representation" aria-pressed="false" style="--legend-color:#5b2ea6"><i></i>Representation</button>
+              <button type="button" data-legend-stage="physics" aria-pressed="false" style="--legend-color:#00796b"><i></i>Physics</button>
+              <button type="button" data-legend-stage="numerics" aria-pressed="false" style="--legend-color:#006d87"><i></i>Numerics</button>
+              <button type="button" data-legend-stage="training" aria-pressed="false" style="--legend-color:#9a4d00"><i></i>Training</button>
+              <button type="button" data-legend-stage="extensions" aria-pressed="false" style="--legend-color:#a8246f"><i></i>Extensions</button>
+              <button type="button" data-legend-stage="verification" aria-pressed="false" style="--legend-color:#455466"><i></i>Verification</button>
+            </div></div>
+            <div class="legend-group"><strong>Arrow relationships</strong><div class="legend-buttons relation-legend">
+              <button type="button" data-legend-edge="primary" aria-pressed="false"><i class="edge-swatch primary"></i>Design dependency</button>
+              <button type="button" data-legend-edge="optional" aria-pressed="false"><i class="edge-swatch optional"></i>Conditional extension</button>
+              <button type="button" data-legend-edge="feedback" aria-pressed="false"><i class="edge-swatch feedback"></i>Validation feedback</button>
+            </div></div>
+            <p class="legend-detail" data-diagram-legend-detail aria-live="polite">Select a stage color or arrow type to highlight its role in the generated flowchart.</p>
+          </div>
+          <div class="diagram-actions"><button class="button primary" type="button" data-download-svg>Download complete SVG</button><button class="button" type="button" data-copy-summary>Copy design summary</button><button class="button" type="button" data-copy-link>Copy shareable link</button></div>
+        </section>
       </div>
     </div></section>
 
@@ -133,6 +150,10 @@
       <div class="proposal-actions"><button class="button primary" type="submit">Open review request on GitHub ↗</button><button class="button" type="button" data-copy-proposal>Copy proposal text</button><button class="button" type="button" data-close-proposal>Cancel</button></div>
       <p class="proposal-help">A maintainer checks terminology, evidence, duplication, subgroup placement, and cross-layer relations before inclusion.</p>
     </form>
+  </dialog>
+
+  <dialog class="ecosystem-dialog selection-rule-dialog" data-selection-rule-dialog aria-labelledby="selection-rule-title">
+    <div data-selection-rule-content></div>
   </dialog>
 
   <div class="ecosystem-toast" data-ecosystem-toast role="status" aria-live="polite" hidden></div>

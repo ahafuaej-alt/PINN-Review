@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.0",
-  "datasetVersion": "2026.08.17",
+  "schemaVersion": "1.1.0",
+  "datasetVersion": "2026.08.17.2",
   "title": "PINN Ecosystem",
   "description": "A layered taxonomy of the coupled choices, extensions, evaluation practices, infrastructure, and scientific contexts that define a physics-informed neural network workflow.",
   "source": "data/pinn-ecosystem/reference-pinn-ecosystem-source.md",
@@ -5122,6 +5122,11 @@
   "builder": {
     "title": "PINN Design Studio",
     "description": "Select compatible elements, inspect design warnings, and generate a portable architecture diagram.",
+    "selectionPolicy": {
+      "countLimits": "No arbitrary item-count caps are imposed. Select every element that materially belongs to the design.",
+      "requiredMeaning": "Required marks the minimum information needed for a complete Atlas design record; it is not a claim that one method is universally mandatory.",
+      "enforcement": "Only logical contradictions are blocked. Valid hybrid combinations remain selectable with a scientific interpretation notice; performance-sensitive choices remain advisory."
+    },
     "stages": [
       {
         "id": "context",
@@ -5135,7 +5140,6 @@
             "subgroups": [
               "Governing physics"
             ],
-            "max": 2,
             "required": true,
             "defaults": [
               "Partial differential equations — PDEs"
@@ -5148,7 +5152,6 @@
             "subgroups": [
               "Problem characteristics"
             ],
-            "max": 5,
             "defaults": [
               "Steady / transient"
             ],
@@ -5157,7 +5160,6 @@
           {
             "id": "role",
             "label": "Computational role",
-            "max": 3,
             "required": true,
             "defaults": [
               "Forward solution"
@@ -5172,7 +5174,6 @@
               "Data quality",
               "Fidelity"
             ],
-            "max": 4,
             "defaults": [
               "Sparse data",
               "Noise-free"
@@ -5190,7 +5191,6 @@
           {
             "id": "inputs",
             "label": "Inputs",
-            "max": 5,
             "required": true,
             "defaults": [
               "Spatial coordinates x,y",
@@ -5201,7 +5201,6 @@
           {
             "id": "outputs",
             "label": "Outputs",
-            "max": 5,
             "required": true,
             "defaults": [
               "Scalar fields"
@@ -5211,7 +5210,6 @@
           {
             "id": "architecture",
             "label": "Architecture",
-            "max": 3,
             "required": true,
             "defaults": [
               "Multilayer perceptron — MLP"
@@ -5221,7 +5219,6 @@
           {
             "id": "activation",
             "label": "Activation",
-            "max": 3,
             "required": true,
             "defaults": [
               "tanh"
@@ -5239,7 +5236,6 @@
           {
             "id": "enforcement",
             "label": "Physics enforcement",
-            "max": 4,
             "required": true,
             "defaults": [
               "PDE residual"
@@ -5249,7 +5245,6 @@
           {
             "id": "constraints",
             "label": "Physical constraints",
-            "max": 6,
             "defaults": [
               "Initial conditions",
               "Boundary conditions"
@@ -5259,7 +5254,6 @@
           {
             "id": "objective",
             "label": "Loss / objective",
-            "max": 6,
             "required": true,
             "defaults": [
               "Composite loss",
@@ -5272,7 +5266,6 @@
           {
             "id": "weighting",
             "label": "Loss balancing",
-            "max": 3,
             "defaults": [
               "Fixed weights"
             ],
@@ -5289,7 +5282,6 @@
           {
             "id": "differentiation",
             "label": "Differentiation",
-            "max": 3,
             "required": true,
             "defaults": [
               "Higher-order AD"
@@ -5299,7 +5291,6 @@
           {
             "id": "sampling",
             "label": "Collocation / sampling",
-            "max": 5,
             "required": true,
             "defaults": [
               "Interior collocation points",
@@ -5320,7 +5311,6 @@
           {
             "id": "optimizer",
             "label": "Optimizer",
-            "max": 3,
             "required": true,
             "defaults": [
               "Adam → L-BFGS"
@@ -5330,7 +5320,6 @@
           {
             "id": "learning-rate",
             "label": "Learning-rate strategy",
-            "max": 2,
             "defaults": [
               "Adaptive learning rate"
             ],
@@ -5339,7 +5328,6 @@
           {
             "id": "initialization",
             "label": "Initialization",
-            "max": 2,
             "defaults": [
               "Xavier"
             ],
@@ -5348,7 +5336,6 @@
           {
             "id": "scaling",
             "label": "Scaling / normalization",
-            "max": 5,
             "defaults": [
               "Input normalization",
               "Output normalization",
@@ -5359,7 +5346,6 @@
           {
             "id": "stabilization",
             "label": "Stabilization",
-            "max": 4,
             "defaults": [
               "Gradient clipping",
               "Early stopping"
@@ -5369,7 +5355,6 @@
           {
             "id": "training-strategy",
             "label": "Training strategy",
-            "max": 4,
             "defaults": [
               "Full-batch",
               "Staged training"
@@ -5387,7 +5372,6 @@
           {
             "id": "decomposition",
             "label": "Decomposition",
-            "max": 4,
             "optional": true,
             "defaults": [],
             "groupId": "decomposition"
@@ -5395,7 +5379,6 @@
           {
             "id": "operator-learning",
             "label": "Operator learning",
-            "max": 3,
             "optional": true,
             "defaults": [],
             "groupId": "operator-learning"
@@ -5403,7 +5386,6 @@
           {
             "id": "reduced-order",
             "label": "Reduced-order / basis",
-            "max": 3,
             "optional": true,
             "defaults": [],
             "groupId": "reduced-order-basis-approaches"
@@ -5411,7 +5393,6 @@
           {
             "id": "hybrid",
             "label": "Numerical hybrid",
-            "max": 3,
             "optional": true,
             "defaults": [],
             "groupId": "hybrid-numerical-pinn-methods"
@@ -5419,7 +5400,6 @@
           {
             "id": "uncertainty",
             "label": "Uncertainty method",
-            "max": 4,
             "optional": true,
             "defaults": [],
             "groupId": "uncertainty-quantification-probabilistic-pinns"
@@ -5427,7 +5407,6 @@
           {
             "id": "reuse",
             "label": "Generalization / reuse",
-            "max": 4,
             "optional": true,
             "defaults": [],
             "groupId": "generalization-knowledge-reuse"
@@ -5435,7 +5414,6 @@
           {
             "id": "parallelization",
             "label": "Parallel execution",
-            "max": 3,
             "optional": true,
             "defaults": [],
             "groupId": "parallelization-computational-execution"
@@ -5451,7 +5429,6 @@
           {
             "id": "evaluation",
             "label": "Evaluation metrics",
-            "max": 7,
             "required": true,
             "defaults": [
               "Relative L2",
@@ -5463,7 +5440,6 @@
           {
             "id": "benchmarking",
             "label": "Validation / benchmarking",
-            "max": 4,
             "required": true,
             "defaults": [
               "Analytical benchmark",
@@ -5474,7 +5450,6 @@
           {
             "id": "software",
             "label": "Software / infrastructure",
-            "max": 3,
             "defaults": [
               "DeepXDE"
             ],
@@ -5483,7 +5458,6 @@
           {
             "id": "reproducibility",
             "label": "Reproducibility record",
-            "max": 8,
             "defaults": [
               "Equation specification",
               "Random seed",

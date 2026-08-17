@@ -8,6 +8,7 @@ on:
       - 'data/pinn-ecosystem/**'
       - 'scripts/build-pinn-ecosystem.mjs'
       - 'scripts/validate-pinn-ecosystem.mjs'
+      - 'scripts/visual-qa-pinn-ecosystem.mjs'
       - '.github/ISSUE_TEMPLATE/pinn-ecosystem-item.yml'
       - '.github/workflows/pinn-ecosystem-validation.yml'
       - 'index.html'
@@ -21,6 +22,7 @@ on:
       - 'data/pinn-ecosystem/**'
       - 'scripts/build-pinn-ecosystem.mjs'
       - 'scripts/validate-pinn-ecosystem.mjs'
+      - 'scripts/visual-qa-pinn-ecosystem.mjs'
       - '.github/ISSUE_TEMPLATE/pinn-ecosystem-item.yml'
       - '.github/workflows/pinn-ecosystem-validation.yml'
       - 'index.html'
@@ -42,6 +44,7 @@ jobs:
           node --check assets/pinn-ecosystem.js
           node --check scripts/build-pinn-ecosystem.mjs
           node --check scripts/validate-pinn-ecosystem.mjs
+          node --check scripts/visual-qa-pinn-ecosystem.mjs
       - name: Rebuild the source-derived taxonomy
         run: |
           cp data/pinn-ecosystem/pinn-ecosystem.json /tmp/pinn-ecosystem-before.json

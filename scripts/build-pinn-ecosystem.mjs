@@ -196,67 +196,67 @@ const builderStages = [
   {
     id: "context", number: 1, title: "Problem & purpose", description: "Define the physical system, task, and data regime.",
     fields: [
-      { id: "governing-physics", groupNumber: 1, label: "Governing physics", subgroups: ["Governing physics"], max: 2, required: true, defaults: ["Partial differential equations — PDEs"] },
-      { id: "problem-characteristics", groupNumber: 1, label: "Problem characteristics", subgroups: ["Problem characteristics"], max: 5, defaults: ["Steady / transient"] },
-      { id: "role", groupNumber: 2, label: "Computational role", max: 3, required: true, defaults: ["Forward solution"] },
-      { id: "data-regime", groupNumber: 24, label: "Data regime", subgroups: ["Data amount", "Data quality", "Fidelity"], max: 4, defaults: ["Sparse data", "Noise-free"] }
+      { id: "governing-physics", groupNumber: 1, label: "Governing physics", subgroups: ["Governing physics"], required: true, defaults: ["Partial differential equations — PDEs"] },
+      { id: "problem-characteristics", groupNumber: 1, label: "Problem characteristics", subgroups: ["Problem characteristics"], defaults: ["Steady / transient"] },
+      { id: "role", groupNumber: 2, label: "Computational role", required: true, defaults: ["Forward solution"] },
+      { id: "data-regime", groupNumber: 24, label: "Data regime", subgroups: ["Data amount", "Data quality", "Fidelity"], defaults: ["Sparse data", "Noise-free"] }
     ]
   },
   {
     id: "representation", number: 2, title: "Representation", description: "Choose model inputs, outputs, architecture, and activation.",
     fields: [
-      { id: "inputs", groupNumber: 3, label: "Inputs", max: 5, required: true, defaults: ["Spatial coordinates x,y", "Time t"] },
-      { id: "outputs", groupNumber: 4, label: "Outputs", max: 5, required: true, defaults: ["Scalar fields"] },
-      { id: "architecture", groupNumber: 5, label: "Architecture", max: 3, required: true, defaults: ["Multilayer perceptron — MLP"] },
-      { id: "activation", groupNumber: 7, label: "Activation", max: 3, required: true, defaults: ["tanh"] }
+      { id: "inputs", groupNumber: 3, label: "Inputs", required: true, defaults: ["Spatial coordinates x,y", "Time t"] },
+      { id: "outputs", groupNumber: 4, label: "Outputs", required: true, defaults: ["Scalar fields"] },
+      { id: "architecture", groupNumber: 5, label: "Architecture", required: true, defaults: ["Multilayer perceptron — MLP"] },
+      { id: "activation", groupNumber: 7, label: "Activation", required: true, defaults: ["tanh"] }
     ]
   },
   {
     id: "physics", number: 3, title: "Physics construction", description: "Select the imposed physics, enforcement route, and objective.",
     fields: [
-      { id: "enforcement", groupNumber: 8, label: "Physics enforcement", max: 4, required: true, defaults: ["PDE residual"] },
-      { id: "constraints", groupNumber: 9, label: "Physical constraints", max: 6, defaults: ["Initial conditions", "Boundary conditions"] },
-      { id: "objective", groupNumber: 10, label: "Loss / objective", max: 6, required: true, defaults: ["Composite loss", "PDE loss", "IC loss", "BC loss"] },
-      { id: "weighting", groupNumber: 11, label: "Loss balancing", max: 3, defaults: ["Fixed weights"] }
+      { id: "enforcement", groupNumber: 8, label: "Physics enforcement", required: true, defaults: ["PDE residual"] },
+      { id: "constraints", groupNumber: 9, label: "Physical constraints", defaults: ["Initial conditions", "Boundary conditions"] },
+      { id: "objective", groupNumber: 10, label: "Loss / objective", required: true, defaults: ["Composite loss", "PDE loss", "IC loss", "BC loss"] },
+      { id: "weighting", groupNumber: 11, label: "Loss balancing", defaults: ["Fixed weights"] }
     ]
   },
   {
     id: "numerics", number: 4, title: "Numerical evaluation", description: "Decide how the residual is differentiated and where it is evaluated.",
     fields: [
-      { id: "differentiation", groupNumber: 12, label: "Differentiation", max: 3, required: true, defaults: ["Higher-order AD"] },
-      { id: "sampling", groupNumber: 13, label: "Collocation / sampling", max: 5, required: true, defaults: ["Interior collocation points", "Boundary points", "Initial-condition points", "Latin hypercube sampling"] }
+      { id: "differentiation", groupNumber: 12, label: "Differentiation", required: true, defaults: ["Higher-order AD"] },
+      { id: "sampling", groupNumber: 13, label: "Collocation / sampling", required: true, defaults: ["Interior collocation points", "Boundary points", "Initial-condition points", "Latin hypercube sampling"] }
     ]
   },
   {
     id: "training", number: 5, title: "Training", description: "Configure optimization, scaling, initialization, and stabilization.",
     fields: [
-      { id: "optimizer", groupNumber: 14, label: "Optimizer", max: 3, required: true, defaults: ["Adam → L-BFGS"] },
-      { id: "learning-rate", groupNumber: 15, label: "Learning-rate strategy", max: 2, defaults: ["Adaptive learning rate"] },
-      { id: "initialization", groupNumber: 16, label: "Initialization", max: 2, defaults: ["Xavier"] },
-      { id: "scaling", groupNumber: 17, label: "Scaling / normalization", max: 5, defaults: ["Input normalization", "Output normalization", "Residual scaling"] },
-      { id: "stabilization", groupNumber: 18, label: "Stabilization", max: 4, defaults: ["Gradient clipping", "Early stopping"] },
-      { id: "training-strategy", groupNumber: 19, label: "Training strategy", max: 4, defaults: ["Full-batch", "Staged training"] }
+      { id: "optimizer", groupNumber: 14, label: "Optimizer", required: true, defaults: ["Adam → L-BFGS"] },
+      { id: "learning-rate", groupNumber: 15, label: "Learning-rate strategy", defaults: ["Adaptive learning rate"] },
+      { id: "initialization", groupNumber: 16, label: "Initialization", defaults: ["Xavier"] },
+      { id: "scaling", groupNumber: 17, label: "Scaling / normalization", defaults: ["Input normalization", "Output normalization", "Residual scaling"] },
+      { id: "stabilization", groupNumber: 18, label: "Stabilization", defaults: ["Gradient clipping", "Early stopping"] },
+      { id: "training-strategy", groupNumber: 19, label: "Training strategy", defaults: ["Full-batch", "Staged training"] }
     ]
   },
   {
     id: "extensions", number: 6, title: "Structural extensions", description: "Add only the neighboring methods required by the problem.",
     fields: [
-      { id: "decomposition", groupNumber: 20, label: "Decomposition", max: 4, optional: true, defaults: [] },
-      { id: "operator-learning", groupNumber: 21, label: "Operator learning", max: 3, optional: true, defaults: [] },
-      { id: "reduced-order", groupNumber: 22, label: "Reduced-order / basis", max: 3, optional: true, defaults: [] },
-      { id: "hybrid", groupNumber: 23, label: "Numerical hybrid", max: 3, optional: true, defaults: [] },
-      { id: "uncertainty", groupNumber: 26, label: "Uncertainty method", max: 4, optional: true, defaults: [] },
-      { id: "reuse", groupNumber: 27, label: "Generalization / reuse", max: 4, optional: true, defaults: [] },
-      { id: "parallelization", groupNumber: 28, label: "Parallel execution", max: 3, optional: true, defaults: [] }
+      { id: "decomposition", groupNumber: 20, label: "Decomposition", optional: true, defaults: [] },
+      { id: "operator-learning", groupNumber: 21, label: "Operator learning", optional: true, defaults: [] },
+      { id: "reduced-order", groupNumber: 22, label: "Reduced-order / basis", optional: true, defaults: [] },
+      { id: "hybrid", groupNumber: 23, label: "Numerical hybrid", optional: true, defaults: [] },
+      { id: "uncertainty", groupNumber: 26, label: "Uncertainty method", optional: true, defaults: [] },
+      { id: "reuse", groupNumber: 27, label: "Generalization / reuse", optional: true, defaults: [] },
+      { id: "parallelization", groupNumber: 28, label: "Parallel execution", optional: true, defaults: [] }
     ]
   },
   {
     id: "verification", number: 7, title: "Verification & reporting", description: "Specify how the design will be tested, implemented, and reproduced.",
     fields: [
-      { id: "evaluation", groupNumber: 29, label: "Evaluation metrics", max: 7, required: true, defaults: ["Relative L2", "PDE residual", "Training time"] },
-      { id: "benchmarking", groupNumber: 30, label: "Validation / benchmarking", max: 4, required: true, defaults: ["Analytical benchmark", "Repeated-seed analysis"] },
-      { id: "software", groupNumber: 32, label: "Software / infrastructure", max: 3, defaults: ["DeepXDE"] },
-      { id: "reproducibility", groupNumber: 33, label: "Reproducibility record", max: 8, defaults: ["Equation specification", "Random seed", "Hardware", "Training time", "Code"] }
+      { id: "evaluation", groupNumber: 29, label: "Evaluation metrics", required: true, defaults: ["Relative L2", "PDE residual", "Training time"] },
+      { id: "benchmarking", groupNumber: 30, label: "Validation / benchmarking", required: true, defaults: ["Analytical benchmark", "Repeated-seed analysis"] },
+      { id: "software", groupNumber: 32, label: "Software / infrastructure", defaults: ["DeepXDE"] },
+      { id: "reproducibility", groupNumber: 33, label: "Reproducibility record", defaults: ["Equation specification", "Random seed", "Hardware", "Training time", "Code"] }
     ]
   }
 ];
@@ -288,8 +288,8 @@ const enrichedLayers = layers.map((layer) => ({
 
 const allItems = groups.flatMap((group) => group.subgroups.flatMap((entry) => entry.items.map((item) => item.name)));
 const data = {
-  schemaVersion: "1.0.0",
-  datasetVersion: "2026.08.17",
+  schemaVersion: "1.1.0",
+  datasetVersion: "2026.08.17.2",
   title: "PINN Ecosystem",
   description: "A layered taxonomy of the coupled choices, extensions, evaluation practices, infrastructure, and scientific contexts that define a physics-informed neural network workflow.",
   source: "data/pinn-ecosystem/reference-pinn-ecosystem-source.md",
@@ -318,6 +318,11 @@ const data = {
   builder: {
     title: "PINN Design Studio",
     description: "Select compatible elements, inspect design warnings, and generate a portable architecture diagram.",
+    selectionPolicy: {
+      countLimits: "No arbitrary item-count caps are imposed. Select every element that materially belongs to the design.",
+      requiredMeaning: "Required marks the minimum information needed for a complete Atlas design record; it is not a claim that one method is universally mandatory.",
+      enforcement: "Only logical contradictions are blocked. Valid hybrid combinations remain selectable with a scientific interpretation notice; performance-sensitive choices remain advisory."
+    },
     stages
   }
 };

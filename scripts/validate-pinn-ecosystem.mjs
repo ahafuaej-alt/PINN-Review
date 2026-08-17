@@ -5,14 +5,21 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = path.join(root, "data/pinn-ecosystem/pinn-ecosystem.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
+const builderScript = fs.readFileSync(path.join(root, "assets/pinn-ecosystem.js"), "utf8");
+const pageMarkup = fs.readFileSync(path.join(root, "pinn-ecosystem/index.html"), "utf8");
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 
-assert(data.schemaVersion === "1.0.0", "Unexpected schema version.");
+assert(data.schemaVersion === "1.1.0", "Unexpected schema version.");
 assert(data.layers.length === 9, `Expected 9 layers, found ${data.layers.length}.`);
 assert(data.groups.length === 35, `Expected 35 groups, found ${data.groups.length}.`);
 assert(data.stats.itemOccurrences >= 800, `Expected at least 800 item occurrences, found ${data.stats.itemOccurrences}.`);
 assert(data.relations.length >= 60, `Expected at least 60 relationships, found ${data.relations.length}.`);
+assert(!builderScript.includes("Select up to"), "Builder UI still exposes an arbitrary count cap.");
+assert(builderScript.includes("coordinate-dimensionality") && builderScript.includes("residual-only-observations") && builderScript.includes("strong-weak-hybrid"), "Scientific selection-rule inventory is incomplete.");
+assert(builderScript.includes("dataset.diagramHeight") && builderScript.includes("diagramFieldCard"), "Dynamic complete-flowchart rendering is missing.");
+assert(pageMarkup.includes("data-selection-rule-dialog"), "Selection-rule explanation dialog is missing.");
+assert(pageMarkup.includes("data-legend-edge=\"primary\"") && pageMarkup.includes("data-legend-edge=\"feedback\""), "Interactive arrow legend is incomplete.");
 
 const layerIds = new Set(data.layers.map((layer) => layer.id));
 const groupIds = new Set(data.groups.map((group) => group.id));
@@ -40,9 +47,12 @@ for (const relation of data.relations) {
 }
 
 const fieldIds = new Set();
+assert(Boolean(data.builder.selectionPolicy), "Builder selection policy is missing.");
+assert(data.builder.selectionPolicy?.countLimits?.includes("No arbitrary item-count caps"), "Builder must disclose that arbitrary count caps are not imposed.");
 for (const stage of data.builder.stages) {
   for (const field of stage.fields) {
     assert(!fieldIds.has(field.id), `Duplicate builder field ID ${field.id}.`);
+    assert(field.max === undefined, `Builder field ${field.id} still contains an arbitrary selection cap.`);
     fieldIds.add(field.id);
     const group = data.groups.find((entry) => entry.id === field.groupId);
     assert(Boolean(group), `Builder field ${field.id} references missing group ${field.groupId}.`);
