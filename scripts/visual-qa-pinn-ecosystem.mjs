@@ -15,6 +15,10 @@ const modes = [
   { name: 'mobile-dark', width: 390, height: 844, theme: 'dark' }
 ];
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
+const choose = async (page, value) => page.locator(`[data-option="${value}"]`).evaluate((node) => {
+  node.checked = true;
+  node.dispatchEvent(new Event('change', { bubbles: true }));
+});
 
 await fs.rm(outputDir, { recursive: true, force: true });
 await fs.mkdir(outputDir, { recursive: true });
@@ -61,15 +65,15 @@ try {
 
     if (mode.name === 'desktop-light') {
       await page.locator('[data-stage-index="1"]').click();
-      await page.locator('[data-option="Spatial coordinate x"]').click({ force: true });
+      await choose(page, 'Spatial coordinate x');
       await page.locator('[data-selection-rule-dialog]').waitFor({ state: 'visible' });
       assert((await page.locator('[data-selection-rule-content]').textContent()).includes('Choose one spatial-coordinate bundle'), 'Strict coordinate rule did not explain the block.');
       assert(!(await page.locator('[data-option="Spatial coordinate x"]').isChecked()), 'Blocked coordinate selection remained checked.');
       await page.locator('[data-close-rule]').click();
 
       await page.locator('[data-stage-index="2"]').click();
-      await page.locator('[data-option="Strong form"]').click({ force: true });
-      await page.locator('[data-option="Weak form"]').click({ force: true });
+      await choose(page, 'Strong form');
+      await choose(page, 'Weak form');
       await page.locator('[data-selection-rule-dialog]').waitFor({ state: 'visible' });
       const hybridNotice = await page.locator('[data-selection-rule-content]').textContent();
       assert(hybridNotice.includes('explicit hybrid formulation'), 'Strong + weak did not produce the hybrid interpretation notice.');
@@ -78,7 +82,7 @@ try {
       assert(await page.locator('[data-option="Weak form"]').isChecked(), 'Weak form was incorrectly rejected.');
 
       const constraintOptions = ['Governing equation', 'Dirichlet', 'Neumann', 'Robin', 'Periodic', 'Conservation', 'Incompressibility'];
-      for (const value of constraintOptions) await page.locator(`[data-option="${value}"]`).click({ force: true });
+      for (const value of constraintOptions) await choose(page, value);
       assert(constraintOptions.every((value) => diagramText.includes(value)) || (await page.locator('[data-pinn-diagram]').textContent()).includes('Incompressibility'), 'Selections beyond the former six-item cap did not reach the flowchart.');
 
       await page.locator('[data-legend-edge="feedback"]').click();
