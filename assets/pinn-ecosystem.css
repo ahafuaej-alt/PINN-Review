@@ -331,25 +331,14 @@
 .diagram-zoom button { min-width: 34px; min-height: 31px; padding: 0 0.55rem; border: 0; border-right: 1px solid var(--line); color: var(--ink); background: transparent; font: 700 0.67rem/1 var(--mono); cursor: pointer; }
 .diagram-zoom button:last-child { border-right: 0; }
 .diagram-zoom button:hover { background: var(--panel-strong); }
-.diagram-wrap { max-height: min(76vh, 820px); overflow: auto; padding: clamp(0.55rem, 1.5vw, 1rem); background: #dfe8f0; scrollbar-width: thin; }
+.diagram-wrap { max-height: min(76vh, 820px); overflow: auto; padding: clamp(0.55rem, 1.5vw, 1rem); background: radial-gradient(circle at 52% 28%, color-mix(in srgb, var(--mint) 8%, transparent), transparent 42%), linear-gradient(135deg, var(--panel-strong), var(--surface-faint)); scrollbar-width: thin; }
 .studio-diagram[data-expanded="true"] .diagram-wrap { max-height: none; }
-.pinn-diagram { width: 100%; max-width: none; height: auto; display: block; margin: 0 auto; border: 1px solid #aebdca; border-radius: 12px; background: #f7fafc; box-shadow: 0 12px 34px rgba(19, 39, 58, 0.14); transition: width 180ms ease; }
+.pinn-diagram { width: 100%; max-width: none; height: auto; aspect-ratio: 16 / 9; display: block; margin: 0 auto; border: 1px solid var(--line-strong); border-radius: 18px; background: var(--surface-faint); box-shadow: 0 24px 60px rgba(19, 39, 58, 0.18), 0 3px 10px rgba(19, 39, 58, 0.12); transition: width 180ms ease, box-shadow 180ms ease; }
 .diagram-stage { transition: opacity 160ms ease, filter 160ms ease; }
-.diagram-stage-shell { stroke-width: 2.5; }
-.diagram-stage-title { font: 700 20px/1 var(--sans); fill: #142536; }
-.diagram-stage-number { font: 700 12px/1 var(--mono); letter-spacing: 1.2px; }
-.diagram-stage-count { font: 600 12px/1 var(--sans); fill: #526476; }
-.diagram-field rect { fill: #fff; stroke: #b9c8d6; stroke-width: 1.4; }
-.diagram-field-title { font: 700 14px/1 var(--sans); fill: #142536; }
-.diagram-field-values { font: 500 13px/1.4 var(--sans); fill: #34495e; }
 .diagram-edge { transition: opacity 160ms ease; }
-.diagram-edge path { fill: none; stroke-width: 4; }
-.diagram-edge.primary path { stroke: #334e68; }
-.diagram-edge.optional path { stroke: #a8246f; stroke-dasharray: 10 7; }
-.diagram-edge.feedback path { stroke: #b04b22; stroke-dasharray: 5 8; }
 .diagram-stage.is-dimmed,
 .diagram-edge.is-dimmed { opacity: 0.16; filter: saturate(0.35); }
-.diagram-edge.is-emphasized path { stroke-width: 7; }
+.diagram-edge.is-emphasized path { stroke-width: 3.5; filter: drop-shadow(0 2px 3px color-mix(in srgb, currentColor 28%, transparent)); }
 .diagram-legend { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr); gap: 0.8rem 1.2rem; padding: 0.9rem 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.67rem; }
 .legend-group > strong { display: block; margin-bottom: 0.45rem; color: var(--ink); font-size: 0.68rem; }
 .legend-buttons { display: flex; flex-wrap: wrap; gap: 0.38rem; }

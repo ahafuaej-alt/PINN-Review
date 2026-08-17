@@ -609,90 +609,207 @@
     return lines;
   }
 
-  function diagramFieldCard(field, x, y, width) {
-    const values = selected(field.id);
-    const lineWidth = Math.max(22, Math.floor((width - 44) / 7.2));
-    const valueLines = (values.length ? values : [field.required ? "Not yet specified" : "Optional · none"]).flatMap((value) => {
-      const wrapped = wrapText(value, lineWidth);
-      return wrapped.map((line, index) => ({ text: line, bullet: index === 0 }));
+  const diagramCanvas = { width: 1600, height: 900 };
+  const diagramStageSubtitles = {
+    context: "Define what the PINN must solve.",
+    representation: "Map coordinates to physical state.",
+    physics: "Couple state, residuals, constraints, and objective.",
+    numerics: "Differentiate and place evidence.",
+    training: "Optimize, scale, and stabilize.",
+    extensions: "Add only problem-required structural branches.",
+    verification: "Test accuracy, physics, cost, and reproducibility."
+  };
+  const diagramStageSpecs = {
+    context: { x: 24, y: 185, width: 350, height: 174, indicator: "side", contentY: 101, contentHeight: 59 },
+    representation: { x: 24, y: 420, width: 350, height: 210, indicator: "side", contentY: 101, contentHeight: 91 },
+    numerics: { x: 430, y: 645, width: 338, height: 214, indicator: "top", contentY: 96, contentHeight: 102 },
+    training: { x: 832, y: 645, width: 338, height: 214, indicator: "top", contentY: 94, contentHeight: 106 },
+    extensions: { x: 1230, y: 185, width: 350, height: 198, indicator: "side", contentY: 101, contentHeight: 78 },
+    verification: { x: 1230, y: 427, width: 350, height: 420, indicator: "side", contentY: 101, contentHeight: 300 }
+  };
+
+  function diagramStageValues(stage, includeRequiredPlaceholders = true) {
+    return stage.fields.flatMap((field) => {
+      const values = selected(field.id);
+      if (values.length) return values;
+      return includeRequiredPlaceholders && field.required ? ["Not yet specified"] : [];
     });
-    const height = 52 + Math.max(1, valueLines.length) * 19 + 12;
-    const text = valueLines.map((line, index) => `<tspan x="${line.bullet ? 23 : 39}" dy="${index ? 19 : 0}">${line.bullet ? "• " : "  "}${escapeXml(line.text)}</tspan>`).join("");
-    return {
-      height,
-      svg: `<g class="diagram-field" transform="translate(${x} ${y})"><title>${escapeXml(field.label)}: ${escapeXml(values.length ? values.join(" · ") : (field.required ? "Not yet specified" : "Optional · none"))}</title><rect width="${width}" height="${height}" rx="12"/><text class="diagram-field-title" x="18" y="27">${escapeXml(field.label)}${field.required ? " *" : ""}</text><text class="diagram-field-values" x="23" y="51">${text}</text></g>`
-    };
   }
 
-  function diagramStage(stage, y, canvasWidth, compactDiagram = false) {
-    const palette = stagePalette[stage.id];
-    const x = compactDiagram ? 18 : 52;
-    const width = canvasWidth - x * 2;
-    const fields = stage.fields.filter((field) => selected(field.id).length || field.required);
-    const shownFields = fields.length ? fields : [{ id: `${stage.id}-empty`, label: "Stage status", required: false }];
-    const columns = compactDiagram ? 1 : shownFields.length <= 2 ? shownFields.length : shownFields.length <= 4 ? 2 : 3;
-    const headerWidth = compactDiagram ? 0 : 194;
-    const headerHeight = compactDiagram ? 92 : 0;
-    const gap = 14;
-    const cardAreaX = compactDiagram ? x + 16 : x + headerWidth;
-    const cardAreaWidth = compactDiagram ? width - 32 : width - headerWidth - 20;
-    const cardWidth = (cardAreaWidth - gap * (columns - 1)) / columns;
-    const rows = [];
-    for (let index = 0; index < shownFields.length; index += columns) {
-      const cards = shownFields.slice(index, index + columns).map((field, column) => {
-        if (!state.selections.has(field.id)) state.selections.set(field.id, new Set());
-        return { field, column, ...diagramFieldCard(field, cardAreaX + column * (cardWidth + gap), 0, cardWidth) };
+  function diagramChipLayout(values, box, { emptyLabel = "No elements selected" } = {}) {
+    const items = values.length ? values : [emptyLabel];
+    const empty = values.length === 0;
+    let fontSize = items.length > 18 ? 7.2 : items.length > 12 ? 8.2 : items.length > 8 ? 9.2 : 10.5;
+    let chipHeight = Math.max(18, fontSize + 13);
+    let gapX = 7;
+    let gapY = 6;
+    const build = () => {
+      let cursorX = 0;
+      let cursorY = 0;
+      let row = 0;
+      const chips = items.map((value) => {
+        const estimatedTextWidth = String(value).length * fontSize * 0.56;
+        const width = Math.min(box.width, Math.max(52, estimatedTextWidth + 20));
+        if (cursorX && cursorX + width > box.width + 0.5) {
+          cursorX = 0;
+          cursorY += chipHeight + gapY;
+          row += 1;
+        }
+        const chip = { value: String(value), x: cursorX, y: cursorY, width, estimatedTextWidth, row };
+        cursorX += width + gapX;
+        return chip;
       });
-      rows.push({ cards, height: Math.max(...cards.map((card) => card.height)) });
+      return { chips, height: cursorY + chipHeight, rows: row + 1 };
+    };
+    let layout = build();
+    while (layout.height > box.height && fontSize > 5.2) {
+      fontSize -= 0.45;
+      chipHeight = Math.max(13, fontSize + 9);
+      gapX = Math.max(3, gapX - 0.35);
+      gapY = Math.max(2, gapY - 0.4);
+      layout = build();
     }
-    const contentHeight = rows.reduce((sum, row) => sum + row.height, 0) + Math.max(0, rows.length - 1) * gap;
-    const height = Math.max(122, contentHeight + headerHeight + (compactDiagram ? 24 : 36));
-    let cursorY = y + (compactDiagram ? headerHeight : 18);
-    const cardsSvg = rows.map((row) => {
-      const value = row.cards.map((card) => card.svg.replace(`translate(${cardAreaX + card.column * (cardWidth + gap)} 0)`, `translate(${cardAreaX + card.column * (cardWidth + gap)} ${cursorY})`)).join("");
-      cursorY += row.height + gap;
-      return value;
+    if (layout.height > box.height) {
+      const fittedHeight = Math.max(9, (box.height - Math.max(0, layout.rows - 1) * 1.5) / layout.rows);
+      chipHeight = fittedHeight;
+      fontSize = Math.max(4.4, fittedHeight - 4.5);
+      gapY = 1.5;
+      layout = build();
+    }
+    const chips = layout.chips.map((chip) => {
+      const availableTextWidth = Math.max(18, chip.width - 18);
+      const compress = chip.estimatedTextWidth > availableTextWidth;
+      return `<g class="diagram-chip${empty ? " is-empty" : ""}" transform="translate(${box.x + chip.x} ${box.y + chip.y})"><rect width="${chip.width}" height="${chipHeight}" rx="${Math.min(8, chipHeight / 2)}"/><text x="${chip.width / 2}" y="${chipHeight / 2 + fontSize * 0.35}" text-anchor="middle" style="font-size:${fontSize}px"${compress ? ` textLength="${availableTextWidth}" lengthAdjust="spacingAndGlyphs"` : ""}>${escapeXml(chip.value)}</text></g>`;
     }).join("");
-    const selectedCount = stage.fields.reduce((sum, field) => sum + selected(field.id).length, 0);
-    const headerX = x + (compactDiagram ? 22 : 28);
-    const svg = `<g class="diagram-stage" data-diagram-stage="${stage.id}"><rect class="diagram-stage-shell" x="${x}" y="${y}" width="${width}" height="${height}" rx="18" fill="${palette.tint}" stroke="${palette.color}"/><rect x="${x}" y="${y}" width="9" height="${height}" rx="5" fill="${palette.color}"/><text class="diagram-stage-number" x="${headerX}" y="${y + 28}" fill="${palette.color}">STAGE ${String(stage.number).padStart(2, "0")}</text><text class="diagram-stage-title" x="${headerX}" y="${y + 55}">${escapeXml(stage.title)}</text><text class="diagram-stage-count" x="${headerX}" y="${y + 77}">${selectedCount} selected element${selectedCount === 1 ? "" : "s"}</text>${cardsSvg}</g>`;
-    return { svg, y, height, centerX: canvasWidth / 2, top: y, bottom: y + height };
+    return `<g class="diagram-chip-field" data-chip-count="${items.length}">${chips}</g>`;
   }
 
-  const edgeSvg = (path, type, label) => `<g class="diagram-edge ${type}" data-diagram-edge="${type}"><path d="${path}" marker-end="url(#arrow-${type})"/><title>${escapeXml(label)}</title></g>`;
+  function diagramStageIndicator(spec, color) {
+    if (spec.indicator === "top") return `<rect class="diagram-stage-indicator" x="${spec.x + 14}" y="${spec.y + 12}" width="${spec.width - 28}" height="5" rx="2.5" fill="${color}"/>`;
+    return `<rect class="diagram-stage-indicator" x="${spec.x + 9}" y="${spec.y + 16}" width="5" height="${spec.height - 32}" rx="2.5" fill="${color}"/>`;
+  }
+
+  function diagramStageCard(stage) {
+    const spec = diagramStageSpecs[stage.id];
+    const palette = stagePalette[stage.id];
+    const values = diagramStageValues(stage);
+    const selectedCount = stage.fields.reduce((sum, field) => sum + selected(field.id).length, 0);
+    const headerX = spec.x + 22;
+    const countX = spec.x + spec.width - 22;
+    const badgeY = spec.y + 19;
+    let content;
+    if (stage.id === "extensions" && !selectedCount) {
+      content = `<g class="diagram-empty-state" transform="translate(${spec.x + 22} ${spec.y + spec.contentY})"><rect width="${spec.width - 44}" height="${spec.contentHeight}" rx="13"/><circle cx="24" cy="24" r="8"/><path d="M24 19V29M19 24H29"/><text class="diagram-empty-title" x="44" y="27">No extension selected</text><text class="diagram-empty-copy" x="20" y="51">Optional path remains explicit and auditable.</text></g>`;
+    } else {
+      content = diagramChipLayout(values, {
+        x: spec.x + 22,
+        y: spec.y + spec.contentY,
+        width: spec.width - 44,
+        height: spec.contentHeight
+      });
+    }
+    return `<g class="diagram-stage diagram-stage-card" data-diagram-stage="${stage.id}" style="--stage-color:${palette.color};--stage-tint:${palette.tint}"><title>${escapeXml(stage.title)}: ${escapeXml(values.join(" · ") || "No optional elements selected")}</title><rect class="diagram-stage-shell" x="${spec.x}" y="${spec.y}" width="${spec.width}" height="${spec.height}" rx="20"/>${diagramStageIndicator(spec, palette.color)}<rect class="diagram-stage-badge" x="${headerX}" y="${badgeY}" width="72" height="21" rx="10.5"/><text class="diagram-stage-number" x="${headerX + 12}" y="${badgeY + 14.5}">STAGE ${String(stage.number).padStart(2, "0")}</text><circle class="diagram-stage-count-dot" cx="${countX}" cy="${badgeY + 10.5}" r="11" fill="${palette.color}"/><text class="diagram-stage-count" x="${countX}" y="${badgeY + 14}" text-anchor="middle">${selectedCount}</text><text class="diagram-stage-title" x="${headerX}" y="${spec.y + 70}">${escapeXml(stage.title)}</text><text class="diagram-stage-subtitle" x="${headerX}" y="${spec.y + 89}">${escapeXml(diagramStageSubtitles[stage.id])}</text>${content}</g>`;
+  }
+
+  function diagramInfoBox(fieldId, title, x, y, width, height) {
+    const field = allBuilderFields().find((entry) => entry.id === fieldId);
+    const values = selected(fieldId);
+    const shown = values.length ? values : [field?.required ? "Not yet specified" : "Optional · none"];
+    let fontSize = 10.5;
+    let lineHeight = 17;
+    let lines;
+    const rebuild = () => {
+      const maxChars = Math.max(17, Math.floor((width - 36) / (fontSize * 0.55)));
+      return shown.flatMap((value) => wrapText(value, maxChars).map((line, index) => ({ text: line, bullet: index === 0 })));
+    };
+    lines = rebuild();
+    while (44 + lines.length * lineHeight > height && fontSize > 5.3) {
+      fontSize -= 0.5;
+      lineHeight = Math.max(8, fontSize + 4);
+      lines = rebuild();
+    }
+    const text = lines.map((line, index) => `<tspan x="${line.bullet ? 18 : 31}" dy="${index ? lineHeight : 0}">${line.bullet ? "• " : "  "}${escapeXml(line.text)}</tspan>`).join("");
+    return `<g class="diagram-core-box" data-diagram-field="${fieldId}" transform="translate(${x} ${y})"><title>${escapeXml(title)}: ${escapeXml(shown.join(" · "))}</title><rect width="${width}" height="${height}" rx="15"/><circle cx="18" cy="20" r="6"/><text class="diagram-core-label" x="31" y="24">${escapeXml(title.toUpperCase())}</text><text class="diagram-core-values" x="18" y="52" style="font-size:${fontSize}px">${text}</text></g>`;
+  }
+
+  function diagramStateSignature() {
+    const inputText = selected("inputs").join(" ").toLowerCase();
+    const args = [];
+    if (inputText.includes("x,y,z") || inputText.includes("x, y, z")) args.push("x, y, z");
+    else if (inputText.includes("x,y") || inputText.includes("x, y")) args.push("x, y");
+    else if (inputText.includes("spatial") || inputText.includes("coordinate")) args.push("x");
+    if (inputText.includes("time") || inputText.includes(" t")) args.push("t");
+    return `uθ(${args.join(", ") || "ξ"})`;
+  }
+
+  function diagramPhysicsCore(stage) {
+    const palette = stagePalette.physics;
+    const selectedCount = stage.fields.reduce((sum, field) => sum + selected(field.id).length, 0);
+    return `<g class="diagram-stage diagram-core-stage" data-diagram-stage="physics" style="--stage-color:${palette.color};--stage-tint:${palette.tint}"><title>Physics-informed model core: trainable state generates residual and constraint evaluations; their losses and the selected balancing weights feed the composite objective.</title><rect class="diagram-core-shell" x="430" y="185" width="724" height="408" rx="26"/><rect class="diagram-stage-indicator" x="448" y="198" width="688" height="6" rx="3" fill="${palette.color}"/><rect class="diagram-stage-badge" x="456" y="207" width="72" height="21" rx="10.5"/><text class="diagram-stage-number" x="468" y="221.5">STAGE 03</text><circle class="diagram-stage-count-dot" cx="1116" cy="217.5" r="11" fill="${palette.color}"/><text class="diagram-stage-count" x="1116" y="221" text-anchor="middle">${selectedCount}</text><text class="diagram-core-title" x="456" y="261">Physics-informed model core</text><text class="diagram-stage-subtitle" x="456" y="282">Trainable state → residuals and constraints → weighted composite objective.</text><g class="diagram-state-box" transform="translate(456 331)"><rect width="190" height="160" rx="26"/><text class="diagram-state-label" x="95" y="39" text-anchor="middle">TRAINABLE STATE</text><text class="diagram-state-equation" x="95" y="90" text-anchor="middle">${escapeXml(diagramStateSignature())}</text><text class="diagram-state-copy" x="95" y="121" text-anchor="middle">neural approximation</text><circle cx="37" cy="139" r="4"/><path d="M47 139H143"/><circle cx="153" cy="139" r="4"/></g>${diagramInfoBox("enforcement", "Governing residual", 700, 309, 190, 95)}${diagramInfoBox("constraints", "Physical constraints", 700, 424, 190, 115)}${diagramInfoBox("objective", "Composite objective", 938, 309, 190, 115)}${diagramInfoBox("weighting", "Loss balancing", 938, 464, 190, 75)}<g class="diagram-core-edge" data-core-edge="state-to-residual"><path d="M646 369C668 369 674 356 700 356" marker-start="url(#port-inner)" marker-end="url(#arrow-inner)"/></g><g class="diagram-core-edge" data-core-edge="state-to-constraints"><path d="M646 455C668 455 674 481 700 481" marker-start="url(#port-inner)" marker-end="url(#arrow-inner)"/></g><g class="diagram-core-edge" data-core-edge="residual-to-objective"><path d="M890 356H938" marker-start="url(#port-inner)" marker-end="url(#arrow-inner)"/></g><g class="diagram-core-edge" data-core-edge="constraints-to-objective"><path d="M890 481C916 481 912 405 938 405" marker-start="url(#port-inner)" marker-end="url(#arrow-inner)"/></g><g class="diagram-core-edge" data-core-edge="weights-to-objective"><path d="M1033 464V424" marker-start="url(#port-inner)" marker-end="url(#arrow-inner)"/></g></g>`;
+  }
+
+  const edgeSvg = (path, type, label) => `<g class="diagram-edge ${type}" data-diagram-edge="${type}"><path d="${path}" marker-start="url(#port-${type})" marker-end="url(#arrow-${type})"/><title>${escapeXml(label)}</title></g>`;
+
+  function diagramRelationLabel(x, y, width, text, type = "primary") {
+    return `<g class="diagram-relation-label ${type}" transform="translate(${x} ${y})"><rect width="${width}" height="22" rx="11"/><text x="${width / 2}" y="15" text-anchor="middle">${escapeXml(text)}</text></g>`;
+  }
+
+  function diagramHeader(total) {
+    const label = `${total} SELECTED ELEMENT${total === 1 ? "" : "S"}`;
+    const pillWidth = Math.max(188, 48 + label.length * 6.6);
+    return `<g class="diagram-atlas-heading" transform="translate(48 34)"><circle class="diagram-atlas-mark" cx="18" cy="18" r="17"/><path class="diagram-atlas-wave" d="M5 22L11 12L17 25L23 10L31 22"/><text class="diagram-eyebrow" x="48" y="12">LIVE ARCHITECTURE · COMPLETE FLOWCHART</text><text class="diagram-main-title" x="48" y="42">Your PINN</text><g class="diagram-status" transform="translate(48 58)"><rect width="${pillWidth}" height="27" rx="13.5"/><circle cx="15" cy="13.5" r="4"/><text x="29" y="17">${label}</text></g></g>`;
+  }
+
+  function diagramIntegratedLegend() {
+    const stages = [
+      ["context", "Problem", 0],
+      ["representation", "Representation", 86],
+      ["physics", "Physics core", 201],
+      ["numerics", "Numerics", 301],
+      ["training", "Training", 391],
+      ["extensions", "Extensions", 476],
+      ["verification", "Verification", 573]
+    ];
+    const stageItems = stages.map(([id, label, x]) => `<g transform="translate(${x} 0)"><circle cx="6" cy="6" r="6" fill="${stagePalette[id].color}"/><text x="17" y="10">${label}</text></g>`).join("");
+    return `<g class="diagram-integrated-legend" transform="translate(854 30)"><rect class="diagram-integrated-legend-shell" width="698" height="112" rx="18"/><text class="diagram-eyebrow" x="18" y="23">LEGEND · STAGES &amp; RELATIONSHIPS</text><g class="diagram-integrated-stage-items" transform="translate(18 36)">${stageItems}</g><line x1="18" y1="66" x2="680" y2="66"/><g class="diagram-integrated-edge-items" transform="translate(18 81)"><path class="primary" d="M0 7H68" marker-start="url(#port-primary)" marker-end="url(#arrow-primary)"/><text x="80" y="11">Design dependency</text><path class="optional" d="M220 7H288" marker-start="url(#port-optional)" marker-end="url(#arrow-optional)"/><text x="300" y="11">Conditional extension</text><path class="feedback" d="M462 7H530" marker-start="url(#port-feedback)" marker-end="url(#arrow-feedback)"/><text x="542" y="11">Validation feedback</text></g></g>`;
+  }
+
+  function diagramDefinitions() {
+    return `<defs><pattern id="diagram-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="var(--d-grid)" stroke-width=".65"/></pattern><linearGradient id="diagram-stage-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--d-surface-top)"/><stop offset=".56" stop-color="var(--d-surface-mid)"/><stop offset="1" stop-color="var(--d-surface-bottom)"/></linearGradient><linearGradient id="diagram-core-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--d-core-top)"/><stop offset=".58" stop-color="var(--d-core-mid)"/><stop offset="1" stop-color="var(--d-core-bottom)"/></linearGradient><linearGradient id="diagram-inner-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--d-inner-top)"/><stop offset="1" stop-color="var(--d-inner-bottom)"/></linearGradient><linearGradient id="diagram-state-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--d-state-top)"/><stop offset=".55" stop-color="var(--d-state-mid)"/><stop offset="1" stop-color="var(--d-state-bottom)"/></linearGradient><linearGradient id="diagram-chip-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--d-chip-top)"/><stop offset="1" stop-color="var(--d-chip-bottom)"/></linearGradient><filter id="diagram-shadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="10" result="farBlur"/><feOffset in="farBlur" dy="12" result="farOffset"/><feFlood flood-color="var(--d-shadow)" flood-opacity=".16" result="farColor"/><feComposite in="farColor" in2="farOffset" operator="in" result="farShadow"/><feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="nearBlur"/><feOffset in="nearBlur" dy="2.5" result="nearOffset"/><feFlood flood-color="var(--d-shadow)" flood-opacity=".2" result="nearColor"/><feComposite in="nearColor" in2="nearOffset" operator="in" result="nearShadow"/><feMerge><feMergeNode in="farShadow"/><feMergeNode in="nearShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="diagram-core-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blur"/><feOffset in="blur" dy="8" result="offset"/><feFlood flood-color="#078b79" flood-opacity=".19" result="color"/><feComposite in="color" in2="offset" operator="in" result="shadowColor"/><feMerge><feMergeNode in="shadowColor"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="diagram-micro-shadow" x="-15%" y="-18%" width="130%" height="145%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.4" result="blur"/><feOffset in="blur" dy="3" result="offset"/><feFlood flood-color="var(--d-shadow)" flood-opacity=".14" result="color"/><feComposite in="color" in2="offset" operator="in" result="shadowColor"/><feMerge><feMergeNode in="shadowColor"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="diagram-pill-shadow" x="-12%" y="-25%" width="124%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.1" result="blur"/><feOffset in="blur" dy="1.5" result="offset"/><feFlood flood-color="var(--d-shadow)" flood-opacity=".13" result="color"/><feComposite in="color" in2="offset" operator="in" result="shadowColor"/><feMerge><feMergeNode in="shadowColor"/><feMergeNode in="SourceGraphic"/></feMerge></filter>${diagramMarker("primary", "var(--d-edge)")}${diagramMarker("optional", "#b12a72")}${diagramMarker("feedback", "#c24d20")}${diagramMarker("inner", "#078b79")}<style>${diagramSvgStyles()}</style></defs>`;
+  }
+
+  function diagramMarker(id, color) {
+    return `<marker id="arrow-${id}" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1.5 1.2L8.5 5L1.5 8.8" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="port-${id}" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto" markerUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.5" fill="${color}"/></marker>`;
+  }
+
+  function diagramSvgStyles() {
+    return `.pinn-diagram{--d-canvas:#edf4f7;--d-grid:#d8e4ea;--d-surface-top:#fff;--d-surface-mid:#fbfdfe;--d-surface-bottom:#edf3f6;--d-core-top:#fff;--d-core-mid:#fbfefd;--d-core-bottom:#edf8f6;--d-inner-top:#fff;--d-inner-bottom:#eef4f7;--d-state-top:#f7fffd;--d-state-mid:#e8f7f4;--d-state-bottom:#d7efeb;--d-chip-top:#fff;--d-chip-bottom:#eef4f7;--d-ink:#14283a;--d-muted:#607589;--d-line:#b9cbd7;--d-edge:#314d66;--d-shadow:#0c2438;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}@media(prefers-color-scheme:dark){.pinn-diagram{--d-canvas:#0c1928;--d-grid:#1c3144;--d-surface-top:#172739;--d-surface-mid:#132334;--d-surface-bottom:#101e2d;--d-core-top:#142b34;--d-core-mid:#102830;--d-core-bottom:#0d2229;--d-inner-top:#1a2d3f;--d-inner-bottom:#142536;--d-state-top:#123c3a;--d-state-mid:#10332f;--d-state-bottom:#0d2927;--d-chip-top:#203448;--d-chip-bottom:#17293a;--d-ink:#edf6fb;--d-muted:#a6b7c6;--d-line:#385065;--d-edge:#8aa0b4;--d-shadow:#000}}[data-theme="light"] .pinn-diagram{--d-canvas:#edf4f7;--d-grid:#d8e4ea;--d-surface-top:#fff;--d-surface-mid:#fbfdfe;--d-surface-bottom:#edf3f6;--d-core-top:#fff;--d-core-mid:#fbfefd;--d-core-bottom:#edf8f6;--d-inner-top:#fff;--d-inner-bottom:#eef4f7;--d-state-top:#f7fffd;--d-state-mid:#e8f7f4;--d-state-bottom:#d7efeb;--d-chip-top:#fff;--d-chip-bottom:#eef4f7;--d-ink:#14283a;--d-muted:#607589;--d-line:#b9cbd7;--d-edge:#314d66;--d-shadow:#0c2438}[data-theme="dark"] .pinn-diagram{--d-canvas:#0c1928;--d-grid:#1c3144;--d-surface-top:#172739;--d-surface-mid:#132334;--d-surface-bottom:#101e2d;--d-core-top:#142b34;--d-core-mid:#102830;--d-core-bottom:#0d2229;--d-inner-top:#1a2d3f;--d-inner-bottom:#142536;--d-state-top:#123c3a;--d-state-mid:#10332f;--d-state-bottom:#0d2927;--d-chip-top:#203448;--d-chip-bottom:#17293a;--d-ink:#edf6fb;--d-muted:#a6b7c6;--d-line:#385065;--d-edge:#8aa0b4;--d-shadow:#000}.diagram-canvas{fill:var(--d-canvas)}.diagram-grid{fill:url(#diagram-grid);opacity:.66}.diagram-grid+*{}.diagram-stage-card{filter:url(#diagram-shadow)}.diagram-stage-shell{fill:url(#diagram-stage-face);stroke:var(--d-line);stroke-width:1.4}.diagram-core-shell{fill:url(#diagram-core-face);stroke:#459d92;stroke-width:2.2;filter:url(#diagram-core-glow)}.diagram-stage-indicator,.diagram-stage-count-dot{filter:url(#diagram-pill-shadow)}.diagram-stage-badge{fill:var(--stage-tint);stroke:color-mix(in srgb,var(--stage-color) 18%,var(--d-line));stroke-width:.8}.diagram-stage-number,.diagram-eyebrow,.diagram-state-label{fill:var(--d-muted);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10px;font-weight:700;letter-spacing:1.1px}.diagram-stage-count{fill:#fff;font-size:10px;font-weight:760}.diagram-stage-title{fill:var(--d-ink);font-size:18px;font-weight:730}.diagram-core-title{fill:var(--d-ink);font-size:23px;font-weight:760}.diagram-stage-subtitle{fill:var(--d-muted);font-size:11.5px;font-weight:520}.diagram-chip rect{fill:url(#diagram-chip-face);stroke:var(--d-line);stroke-width:1;filter:url(#diagram-pill-shadow)}.diagram-chip text{fill:var(--d-ink);font-weight:540}.diagram-chip.is-empty text{fill:var(--d-muted)}.diagram-core-box rect{fill:url(#diagram-inner-face);stroke:var(--d-line);stroke-width:1.2;filter:url(#diagram-micro-shadow)}.diagram-core-box circle{fill:#078b79}.diagram-core-label{fill:var(--d-muted);font-size:10px;font-weight:720;letter-spacing:.55px}.diagram-core-values{fill:var(--d-ink);font-weight:540}.diagram-state-box rect{fill:url(#diagram-state-face);stroke:#078b79;stroke-width:2.2;filter:url(#diagram-micro-shadow)}.diagram-state-label{fill:var(--d-muted);font-size:11px;letter-spacing:1.7px}.diagram-state-equation{fill:var(--d-ink);font-family:Georgia,"Times New Roman",serif;font-size:28px;font-weight:600;font-style:italic}.diagram-state-copy{fill:var(--d-muted);font-size:10.5px}.diagram-state-box circle{fill:#078b79}.diagram-state-box path,.diagram-core-edge path{fill:none;stroke:#078b79;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.diagram-empty-state rect{fill:color-mix(in srgb,#b12a72 7%,var(--d-inner-bottom));stroke:color-mix(in srgb,#b12a72 38%,var(--d-line));stroke-dasharray:5 5}.diagram-empty-state circle{fill:none;stroke:#b12a72;stroke-width:1.7}.diagram-empty-state path{stroke:#b12a72;stroke-width:1.7;stroke-linecap:round}.diagram-empty-title{fill:var(--d-ink);font-size:11.5px}.diagram-empty-copy{fill:var(--d-muted);font-size:10.5px}.diagram-edge{transition:opacity 160ms ease}.diagram-edge path{fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}.diagram-edge.primary path{stroke:var(--d-edge)}.diagram-edge.optional path{stroke:#b12a72;stroke-dasharray:7 7}.diagram-edge.feedback path{stroke:#c24d20;stroke-dasharray:2 8}.diagram-stage.is-dimmed,.diagram-edge.is-dimmed{opacity:.16;filter:saturate(.35)}.diagram-edge.is-emphasized path{stroke-width:3.5}.diagram-relation-label rect{fill:var(--d-surface-top);stroke:var(--d-line)}.diagram-relation-label text{fill:var(--d-muted);font-size:9.5px;font-weight:620}.diagram-relation-label.optional rect{stroke:color-mix(in srgb,#b12a72 38%,var(--d-line))}.diagram-relation-label.feedback rect{stroke:color-mix(in srgb,#c24d20 38%,var(--d-line))}.diagram-atlas-mark{fill:none;stroke:#078b79;stroke-width:2}.diagram-atlas-wave{fill:none;stroke:var(--d-ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.diagram-eyebrow{font-size:11px;letter-spacing:1.7px}.diagram-main-title{fill:var(--d-ink);font-size:28px;font-weight:760;letter-spacing:-.55px}.diagram-status rect,.diagram-integrated-legend-shell{fill:url(#diagram-stage-face);stroke:var(--d-line);stroke-width:1.1;filter:url(#diagram-shadow)}.diagram-status circle{fill:#078b79}.diagram-status text{fill:var(--d-ink);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10px;font-weight:760;letter-spacing:.8px}.diagram-integrated-legend>line{stroke:var(--d-line)}.diagram-integrated-stage-items text,.diagram-integrated-edge-items text{fill:var(--d-muted);font-size:9.5px;font-weight:620}.diagram-integrated-edge-items path{fill:none;stroke-width:2.1;stroke-linecap:round}.diagram-integrated-edge-items .primary{stroke:var(--d-edge)}.diagram-integrated-edge-items .optional{stroke:#b12a72;stroke-dasharray:7 7}.diagram-integrated-edge-items .feedback{stroke:#c24d20;stroke-dasharray:2 8}`;
+  }
 
   function renderDiagram() {
-    const compactDiagram = window.matchMedia("(max-width: 600px)").matches;
-    const canvasWidth = compactDiagram ? 420 : 1280;
-    const topPadding = 34;
-    const stageGap = 66;
-    let cursorY = topPadding;
-    const layouts = state.data.builder.stages.map((stage) => {
-      const layout = diagramStage(stage, cursorY, canvasWidth, compactDiagram);
-      cursorY += layout.height + stageGap;
-      return layout;
-    });
-    const canvasHeight = cursorY - stageGap + 54;
-    const centerX = canvasWidth / 2;
-    const primaryEdges = layouts.slice(0, 5).flatMap((layout, index) => index < 4 ? [edgeSvg(`M${centerX} ${layout.bottom} L${centerX} ${layouts[index + 1].top - 12}`, "primary", "Upstream design dependency")] : []);
-    const extensionEdges = [
-      edgeSvg(`M${centerX} ${layouts[4].bottom} L${centerX} ${layouts[5].top - 12}`, "optional", "Optional structural extension"),
-      edgeSvg(`M${centerX} ${layouts[5].bottom} L${centerX} ${layouts[6].top - 12}`, "optional", "Extension carried into verification")
-    ];
-    const sideOffset = compactDiagram ? centerX - 34 : 470;
-    const outerGutter = compactDiagram ? 7 : 22;
-    const directVerification = edgeSvg(`M${layouts[4].centerX - sideOffset} ${layouts[4].bottom - 20} C${outerGutter} ${layouts[4].bottom - 20} ${outerGutter} ${layouts[6].top - 12} ${layouts[6].centerX - sideOffset} ${layouts[6].top - 12}`, "primary", "Training proceeds to verification independently of optional extensions");
-    const feedbackX = canvasWidth - outerGutter;
-    const feedback = edgeSvg(`M${layouts[6].centerX + sideOffset} ${layouts[6].bottom - 20} C${feedbackX} ${layouts[6].bottom - 20} ${feedbackX} ${layouts[2].top - 12} ${layouts[2].centerX + sideOffset} ${layouts[2].top - 12}`, "feedback", "Validation feedback to physics construction");
-    els.diagram.setAttribute("viewBox", `0 0 ${canvasWidth} ${canvasHeight}`);
-    els.diagram.dataset.diagramHeight = String(canvasHeight);
+    const stages = Object.fromEntries(state.data.builder.stages.map((stage) => [stage.id, stage]));
+    const total = [...state.selections.values()].reduce((sum, values) => sum + values.size, 0);
+    const edges = [
+      edgeSvg("M199 359V411", "primary", "Problem definition constrains the selected representation."),
+      edgeSvg("M374 525H421", "primary", "Representation defines the trainable physical state."),
+      edgeSvg("M599 593V636", "primary", "Physics construction determines numerical evaluation requirements."),
+      edgeSvg("M768 752H823", "primary", "Numerical evaluation supplies derivatives and sampled evidence to training."),
+      edgeSvg("M1170 752H1221", "primary", "Training proceeds to verification independently of optional extensions."),
+      edgeSvg("M1154 286H1221", "optional", "Physics construction may require a structural extension."),
+      edgeSvg("M1405 383V418", "optional", "Selected structural extensions must be carried into verification."),
+      edgeSvg("M1230 560C1202 560 1192 568 1145 568", "feedback", "Validation feedback returns the design to physics construction.")
+    ].join("");
+    const labels = [
+      diagramRelationLabel(366, 494, 66, "defines"),
+      diagramRelationLabel(1169, 252, 68, "optional", "optional"),
+      diagramRelationLabel(1164, 533, 82, "validate", "feedback")
+    ].join("");
+    els.diagram.setAttribute("viewBox", "0 0 1600 900");
+    els.diagram.dataset.diagramHeight = "900";
+    els.diagram.dataset.diagramAspect = "16:9";
     applyDiagramWidth();
-    els.diagram.innerHTML = `<defs>
-      <marker id="arrow-primary" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#334e68"/></marker>
-      <marker id="arrow-optional" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#a8246f"/></marker>
-      <marker id="arrow-feedback" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#b04b22"/></marker>
-    </defs>${[...primaryEdges, ...extensionEdges, directVerification, feedback].join("")}${layouts.map((layout) => layout.svg).join("")}`;
-    els.diagramDescription.textContent = `Generated seven-stage PINN flowchart with every selected element shown. ${summaryRows().map(([label, value]) => `${label}: ${value}.`).join(" ")}`;
+    els.diagram.innerHTML = `${diagramDefinitions()}<rect class="diagram-canvas" width="1600" height="900" rx="28"/><rect class="diagram-grid" x="1" y="1" width="1598" height="898" rx="27"/>${diagramHeader(total)}${diagramIntegratedLegend()}${edges}${diagramStageCard(stages.context)}${diagramStageCard(stages.representation)}${diagramPhysicsCore(stages.physics)}${diagramStageCard(stages.numerics)}${diagramStageCard(stages.training)}${diagramStageCard(stages.extensions)}${diagramStageCard(stages.verification)}${labels}<text class="diagram-eyebrow" x="48" y="878">PINN REVIEW ATLAS · DYNAMIC LANDSCAPE ARCHITECTURE · 16:9</text><text class="diagram-stage-subtitle" x="1552" y="878" text-anchor="end">Every selected element remains explicit · no “+N” summaries</text>`;
+    els.diagramDescription.textContent = `Generated 16:9 seven-stage PINN architecture with every selected element shown. Trainable state feeds governing residual and physical-constraint evaluations; their losses and the selected balancing weights feed the composite objective. ${summaryRows().map(([label, value]) => `${label}: ${value}.`).join(" ")}`;
   }
 
   function includesSelection(fieldIds, terms) {
@@ -809,9 +926,9 @@
   }
 
   function portableSvg() {
-    const viewBox = els.diagram.getAttribute("viewBox") || "0 0 1280 1800";
+    const viewBox = els.diagram.getAttribute("viewBox") || "0 0 1600 900";
     const [, , width, height] = viewBox.split(/\s+/).map(Number);
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" role="img" aria-label="Generated PINN architecture"><style>.diagram-stage-title{font:700 20px Inter,Segoe UI,sans-serif;fill:#142536}.diagram-stage-number{font:700 12px SFMono-Regular,Consolas,monospace;letter-spacing:1.2px}.diagram-stage-count{font:600 12px Inter,Segoe UI,sans-serif;fill:#526476}.diagram-field rect{fill:#fff;stroke:#b9c8d6;stroke-width:1.4}.diagram-field-title{font:700 14px Inter,Segoe UI,sans-serif;fill:#142536}.diagram-field-values{font:500 13px Inter,Segoe UI,sans-serif;fill:#34495e}.diagram-edge path{fill:none;stroke-width:4}.diagram-edge.primary path{stroke:#334e68}.diagram-edge.optional path{stroke:#a8246f;stroke-dasharray:10 7}.diagram-edge.feedback path{stroke:#b04b22;stroke-dasharray:5 8}</style><rect width="${width}" height="${height}" rx="22" fill="#f7fafc"/>${els.diagram.innerHTML}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="${viewBox}" class="pinn-diagram" role="img" aria-label="Generated PINN architecture">${els.diagram.innerHTML}</svg>`;
   }
 
   function applyDiagramWidth() {

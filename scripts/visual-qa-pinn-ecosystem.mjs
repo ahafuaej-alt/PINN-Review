@@ -41,7 +41,27 @@ try {
     await page.goto(`${baseUrl}/pinn-ecosystem/`, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => !document.querySelector('[data-builder-shell]')?.hidden && document.querySelectorAll('[data-field-id]').length > 0);
     await page.addStyleTag({ content: '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}' });
-    const layout = await page.evaluate(() => ({
+    const layout = await page.evaluate(() => {
+      const svg = document.querySelector('[data-pinn-diagram]');
+      const svgRect = svg?.getBoundingClientRect();
+      const contained = (element, container = svgRect, tolerance = 1) => {
+        if (!element || !container) return false;
+        const rect = element.getBoundingClientRect();
+        return rect.left >= container.left - tolerance && rect.top >= container.top - tolerance && rect.right <= container.right + tolerance && rect.bottom <= container.bottom + tolerance;
+      };
+      const status = svg?.querySelector('.diagram-status');
+      const statusRect = status?.querySelector('rect')?.getBBox();
+      const statusText = status?.querySelector('text')?.getBBox();
+      const statusContained = Boolean(statusRect && statusText && statusText.x >= statusRect.x && statusText.y >= statusRect.y && statusText.x + statusText.width <= statusRect.x + statusRect.width && statusText.y + statusText.height <= statusRect.y + statusRect.height);
+      const indicatorsContained = [...(svg?.querySelectorAll('.diagram-stage') || [])].every((stage) => {
+        const shell = stage.querySelector('.diagram-stage-shell, .diagram-core-shell');
+        const indicator = stage.querySelector('.diagram-stage-indicator');
+        if (!shell || !indicator) return false;
+        const shellBox = shell.getBBox();
+        const indicatorBox = indicator.getBBox();
+        return indicatorBox.x >= shellBox.x && indicatorBox.y >= shellBox.y && indicatorBox.x + indicatorBox.width <= shellBox.x + shellBox.width && indicatorBox.y + indicatorBox.height <= shellBox.y + shellBox.height;
+      });
+      return {
       bodyWidth: document.body.scrollWidth,
       documentWidth: document.documentElement.scrollWidth,
       clientWidth: document.documentElement.clientWidth,
@@ -53,24 +73,38 @@ try {
       navigatorCollapsed: document.querySelector('[data-live-navigator]')?.dataset.collapsed || '',
       navigatorPosition: getComputedStyle(document.querySelector('[data-live-navigator]')).position,
       diagramHeight: Number(document.querySelector('[data-pinn-diagram]')?.dataset.diagramHeight || 0),
+      diagramAspect: document.querySelector('[data-pinn-diagram]')?.dataset.diagramAspect || '',
       diagramViewBox: document.querySelector('[data-pinn-diagram]')?.getAttribute('viewBox') || '',
+      diagramStages: document.querySelectorAll('[data-pinn-diagram] [data-diagram-stage]').length,
+      integratedLegend: Boolean(document.querySelector('[data-pinn-diagram] .diagram-integrated-legend')),
+      coreEdges: [...document.querySelectorAll('[data-pinn-diagram] [data-core-edge]')].map((node) => node.dataset.coreEdge),
+      statusContained,
+      indicatorsContained,
+      textContained: [...(svg?.querySelectorAll('text') || [])].every((text) => contained(text)),
       diagramScrollWidth: document.querySelector('[data-diagram-viewport]')?.scrollWidth || 0,
       diagramClientWidth: document.querySelector('[data-diagram-viewport]')?.clientWidth || 0,
       diagramViewportHeight: document.querySelector('[data-diagram-viewport]')?.clientHeight || 0,
       capText: document.body.textContent.includes('Select up to')
-    }));
+      };
+    });
     assert(layout.theme === mode.theme, `${mode.name}: expected ${mode.theme} theme.`);
     assert(layout.fields === 31, `${mode.name}: expected 31 design fields.`);
     assert(layout.selected > 0, `${mode.name}: standard design did not load.`);
     assert(layout.navigatorStages === 7, `${mode.name}: live navigator does not show all seven stages.`);
     assert(layout.navigatorPosition === 'sticky', `${mode.name}: live navigator is not sticky while selecting.`);
-    assert(layout.diagramHeight > 1800, `${mode.name}: flowchart did not expand dynamically.`);
+    assert(layout.diagramHeight === 900 && layout.diagramViewBox === '0 0 1600 900' && layout.diagramAspect === '16:9', `${mode.name}: flowchart is not a stable 16:9 landscape canvas.`);
+    assert(layout.diagramStages === 7, `${mode.name}: landscape flowchart does not contain all seven stages.`);
+    assert(layout.integratedLegend, `${mode.name}: top-right integrated legend is missing.`);
+    assert(['state-to-residual', 'state-to-constraints', 'residual-to-objective', 'constraints-to-objective', 'weights-to-objective'].every((edge) => layout.coreEdges.includes(edge)), `${mode.name}: physics-core causal relationships are incomplete.`);
+    assert(layout.statusContained, `${mode.name}: selected-elements text exceeds its status pill.`);
+    assert(layout.indicatorsContained, `${mode.name}: a stage color indicator exceeds its card.`);
+    assert(layout.textContained, `${mode.name}: flowchart text exceeds the SVG canvas.`);
     assert(layout.diagramViewportHeight < 900, `${mode.name}: complete flowchart is not contained in a balanced viewport.`);
     assert(!layout.capText, `${mode.name}: arbitrary count-cap text remains.`);
     assert(layout.bodyWidth <= layout.viewportWidth + 1 && layout.documentWidth <= layout.clientWidth + 1, `${mode.name}: horizontal overflow detected.`);
     if (mode.width < 600) {
       assert(layout.navigatorCollapsed === 'true', `${mode.name}: mobile navigator should begin in compact mode.`);
-      assert(layout.diagramViewBox.startsWith('0 0 420 '), `${mode.name}: compact single-column flowchart was not applied.`);
+      assert(layout.diagramViewBox === '0 0 1600 900', `${mode.name}: mobile fit view did not preserve the complete landscape architecture.`);
       assert(layout.diagramScrollWidth <= layout.diagramClientWidth + 2, `${mode.name}: fit view should not require horizontal panning.`);
       await page.locator('[data-live-navigator-toggle]').click();
       assert((await page.locator('[data-live-navigator]').getAttribute('data-collapsed')) === 'false', `${mode.name}: live navigator did not expand on request.`);
