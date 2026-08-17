@@ -50,6 +50,7 @@ try {
       fields: document.querySelectorAll('[data-builder-field]').length,
       selected: document.querySelectorAll('[data-field-id]:checked').length,
       diagramHeight: Number(document.querySelector('[data-pinn-diagram]')?.dataset.diagramHeight || 0),
+      diagramViewBox: document.querySelector('[data-pinn-diagram]')?.getAttribute('viewBox') || '',
       diagramScrollWidth: document.querySelector('[data-diagram-viewport]')?.scrollWidth || 0,
       diagramClientWidth: document.querySelector('[data-diagram-viewport]')?.clientWidth || 0,
       capText: document.body.textContent.includes('Select up to')
@@ -60,7 +61,10 @@ try {
     assert(layout.diagramHeight > 1800, `${mode.name}: flowchart did not expand dynamically.`);
     assert(!layout.capText, `${mode.name}: arbitrary count-cap text remains.`);
     assert(layout.bodyWidth <= layout.viewportWidth + 1 && layout.documentWidth <= layout.clientWidth + 1, `${mode.name}: horizontal overflow detected.`);
-    if (mode.width < 600) assert(layout.diagramScrollWidth > layout.diagramClientWidth, `${mode.name}: readable mobile panning width was not applied.`);
+    if (mode.width < 600) {
+      assert(layout.diagramViewBox.startsWith('0 0 420 '), `${mode.name}: compact single-column flowchart was not applied.`);
+      assert(layout.diagramScrollWidth <= layout.diagramClientWidth + 2, `${mode.name}: fit view should not require horizontal panning.`);
+    }
 
     const checkedValues = await page.locator('[data-field-id]:checked').evaluateAll((nodes) => nodes.map((node) => node.value));
     const diagramText = await page.locator('[data-pinn-diagram]').textContent();

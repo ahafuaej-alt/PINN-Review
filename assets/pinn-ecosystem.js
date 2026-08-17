@@ -572,17 +572,18 @@
     };
   }
 
-  function diagramStage(stage, y, canvasWidth) {
+  function diagramStage(stage, y, canvasWidth, compactDiagram = false) {
     const palette = stagePalette[stage.id];
-    const x = 52;
-    const width = canvasWidth - 104;
+    const x = compactDiagram ? 18 : 52;
+    const width = canvasWidth - x * 2;
     const fields = stage.fields.filter((field) => selected(field.id).length || field.required);
     const shownFields = fields.length ? fields : [{ id: `${stage.id}-empty`, label: "Stage status", required: false }];
-    const columns = shownFields.length <= 2 ? shownFields.length : shownFields.length <= 4 ? 2 : 3;
-    const headerWidth = 194;
+    const columns = compactDiagram ? 1 : shownFields.length <= 2 ? shownFields.length : shownFields.length <= 4 ? 2 : 3;
+    const headerWidth = compactDiagram ? 0 : 194;
+    const headerHeight = compactDiagram ? 92 : 0;
     const gap = 14;
-    const cardAreaX = x + headerWidth;
-    const cardAreaWidth = width - headerWidth - 20;
+    const cardAreaX = compactDiagram ? x + 16 : x + headerWidth;
+    const cardAreaWidth = compactDiagram ? width - 32 : width - headerWidth - 20;
     const cardWidth = (cardAreaWidth - gap * (columns - 1)) / columns;
     const rows = [];
     for (let index = 0; index < shownFields.length; index += columns) {
@@ -593,15 +594,16 @@
       rows.push({ cards, height: Math.max(...cards.map((card) => card.height)) });
     }
     const contentHeight = rows.reduce((sum, row) => sum + row.height, 0) + Math.max(0, rows.length - 1) * gap;
-    const height = Math.max(122, contentHeight + 36);
-    let cursorY = y + 18;
+    const height = Math.max(122, contentHeight + headerHeight + (compactDiagram ? 24 : 36));
+    let cursorY = y + (compactDiagram ? headerHeight : 18);
     const cardsSvg = rows.map((row) => {
       const value = row.cards.map((card) => card.svg.replace(`translate(${cardAreaX + card.column * (cardWidth + gap)} 0)`, `translate(${cardAreaX + card.column * (cardWidth + gap)} ${cursorY})`)).join("");
       cursorY += row.height + gap;
       return value;
     }).join("");
     const selectedCount = stage.fields.reduce((sum, field) => sum + selected(field.id).length, 0);
-    const svg = `<g class="diagram-stage" data-diagram-stage="${stage.id}"><rect class="diagram-stage-shell" x="${x}" y="${y}" width="${width}" height="${height}" rx="18" fill="${palette.tint}" stroke="${palette.color}"/><rect x="${x}" y="${y}" width="9" height="${height}" rx="5" fill="${palette.color}"/><text class="diagram-stage-number" x="${x + 28}" y="${y + 36}" fill="${palette.color}">STAGE ${String(stage.number).padStart(2, "0")}</text><text class="diagram-stage-title" x="${x + 28}" y="${y + 65}">${escapeXml(stage.title)}</text><text class="diagram-stage-count" x="${x + 28}" y="${y + 91}">${selectedCount} selected element${selectedCount === 1 ? "" : "s"}</text>${cardsSvg}</g>`;
+    const headerX = x + (compactDiagram ? 22 : 28);
+    const svg = `<g class="diagram-stage" data-diagram-stage="${stage.id}"><rect class="diagram-stage-shell" x="${x}" y="${y}" width="${width}" height="${height}" rx="18" fill="${palette.tint}" stroke="${palette.color}"/><rect x="${x}" y="${y}" width="9" height="${height}" rx="5" fill="${palette.color}"/><text class="diagram-stage-number" x="${headerX}" y="${y + 28}" fill="${palette.color}">STAGE ${String(stage.number).padStart(2, "0")}</text><text class="diagram-stage-title" x="${headerX}" y="${y + 55}">${escapeXml(stage.title)}</text><text class="diagram-stage-count" x="${headerX}" y="${y + 77}">${selectedCount} selected element${selectedCount === 1 ? "" : "s"}</text>${cardsSvg}</g>`;
     return { svg, y, height, centerX: canvasWidth / 2, top: y, bottom: y + height };
   }
 
@@ -609,12 +611,12 @@
 
   function renderDiagram() {
     const compactDiagram = window.matchMedia("(max-width: 600px)").matches;
-    const canvasWidth = compactDiagram ? 840 : 1280;
+    const canvasWidth = compactDiagram ? 420 : 1280;
     const topPadding = 34;
     const stageGap = 66;
     let cursorY = topPadding;
     const layouts = state.data.builder.stages.map((stage) => {
-      const layout = diagramStage(stage, cursorY, canvasWidth);
+      const layout = diagramStage(stage, cursorY, canvasWidth, compactDiagram);
       cursorY += layout.height + stageGap;
       return layout;
     });
@@ -625,9 +627,11 @@
       edgeSvg(`M${centerX} ${layouts[4].bottom} L${centerX} ${layouts[5].top - 12}`, "optional", "Optional structural extension"),
       edgeSvg(`M${centerX} ${layouts[5].bottom} L${centerX} ${layouts[6].top - 12}`, "optional", "Extension carried into verification")
     ];
-    const directVerification = edgeSvg(`M${layouts[4].centerX - 470} ${layouts[4].bottom - 20} C22 ${layouts[4].bottom - 20} 22 ${layouts[6].top - 12} ${layouts[6].centerX - 470} ${layouts[6].top - 12}`, "primary", "Training proceeds to verification independently of optional extensions");
-    const feedbackX = canvasWidth - 22;
-    const feedback = edgeSvg(`M${layouts[6].centerX + 470} ${layouts[6].bottom - 20} C${feedbackX} ${layouts[6].bottom - 20} ${feedbackX} ${layouts[2].top - 12} ${layouts[2].centerX + 470} ${layouts[2].top - 12}`, "feedback", "Validation feedback to physics construction");
+    const sideOffset = compactDiagram ? centerX - 34 : 470;
+    const outerGutter = compactDiagram ? 7 : 22;
+    const directVerification = edgeSvg(`M${layouts[4].centerX - sideOffset} ${layouts[4].bottom - 20} C${outerGutter} ${layouts[4].bottom - 20} ${outerGutter} ${layouts[6].top - 12} ${layouts[6].centerX - sideOffset} ${layouts[6].top - 12}`, "primary", "Training proceeds to verification independently of optional extensions");
+    const feedbackX = canvasWidth - outerGutter;
+    const feedback = edgeSvg(`M${layouts[6].centerX + sideOffset} ${layouts[6].bottom - 20} C${feedbackX} ${layouts[6].bottom - 20} ${feedbackX} ${layouts[2].top - 12} ${layouts[2].centerX + sideOffset} ${layouts[2].top - 12}`, "feedback", "Validation feedback to physics construction");
     els.diagram.setAttribute("viewBox", `0 0 ${canvasWidth} ${canvasHeight}`);
     els.diagram.dataset.diagramHeight = String(canvasHeight);
     applyDiagramWidth();
@@ -759,8 +763,7 @@
   }
 
   function applyDiagramWidth() {
-    const compactDiagram = window.matchMedia("(max-width: 600px)").matches;
-    els.diagram.style.width = compactDiagram ? `${Math.round(780 * state.diagramZoom)}px` : `${Math.round(state.diagramZoom * 100)}%`;
+    els.diagram.style.width = `${Math.round(state.diagramZoom * 100)}%`;
   }
 
   function setDiagramZoom(value) {
