@@ -72,6 +72,6 @@ for (const file of pages) {
   appPages.push(file);
   assert(html.includes('assets/app.js?v=ux-20260812-reach'), `${file} has a stale shared-app cache key.`);
 }
-assert(appPages.length === 19, `Expected 19 pages using the shared application script; found ${appPages.length}.`);
+assert(appPages.length === 20, `Expected 20 pages using the shared application script; found ${appPages.length}.`);
 
 console.log(`Atlas reach validation passed: ${snapshot.status}; ${appPages.length} shared-script pages; no protected token in public data.`);
