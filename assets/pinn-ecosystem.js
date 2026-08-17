@@ -13,6 +13,15 @@
     extensions: { color: "#a8246f", tint: "#fbe8f2", label: "Structural extensions" },
     verification: { color: "#455466", tint: "#edf1f5", label: "Verification & reporting" }
   };
+  const stageShortLabels = {
+    context: "Problem",
+    representation: "Represent.",
+    physics: "Physics",
+    numerics: "Numerics",
+    training: "Training",
+    extensions: "Extend",
+    verification: "Verify"
+  };
 
   const selectionRules = [
     {
@@ -134,6 +143,12 @@
     stageNav: document.querySelector("[data-builder-stage-nav]"),
     stagePanels: document.querySelector("[data-builder-stage-panels]"),
     selectionCount: document.querySelector("[data-selection-count]"),
+    liveNavigator: document.querySelector("[data-live-navigator]"),
+    liveSelectionCount: document.querySelector("[data-live-selection-count]"),
+    liveStageTrack: document.querySelector("[data-live-stage-track]"),
+    liveStageFocus: document.querySelector("[data-live-stage-focus]"),
+    liveNavigatorToggle: document.querySelector("[data-live-navigator-toggle]"),
+    liveNavigatorToggleLabel: document.querySelector("[data-live-navigator-toggle-label]"),
     diagram: document.querySelector("[data-pinn-diagram]"),
     diagramDescription: document.querySelector("[data-diagram-description]"),
     diagramState: document.querySelector("[data-diagram-state]"),
@@ -143,7 +158,9 @@
     ruleDialog: document.querySelector("[data-selection-rule-dialog]"),
     ruleDialogContent: document.querySelector("[data-selection-rule-content]"),
     legendDetail: document.querySelector("[data-diagram-legend-detail]"),
-    diagramViewport: document.querySelector("[data-diagram-viewport]")
+    diagramViewport: document.querySelector("[data-diagram-viewport]"),
+    studioDiagram: document.querySelector(".studio-diagram"),
+    diagramExpand: document.querySelector("[data-diagram-expand]")
   };
 
   const state = {
@@ -383,6 +400,7 @@
   function initializeBuilder() {
     loadDefaultSelections();
     loadSharedSelections();
+    setLiveNavigatorCollapsed(window.matchMedia("(max-width: 1040px)").matches);
     renderStageNavigation();
     renderStagePanels();
     updateBuilderOutputs();
@@ -502,6 +520,39 @@
     document.querySelectorAll(".stage-tab").forEach((tab, tabIndex) => { tab.setAttribute("aria-selected", String(tabIndex === state.activeStage)); });
     document.querySelectorAll(".builder-stage-panel").forEach((panel, panelIndex) => { panel.hidden = panelIndex !== state.activeStage; });
     updateStageButtons();
+    renderLiveNavigator();
+  }
+
+  function setLiveNavigatorCollapsed(collapsed) {
+    if (!els.liveNavigator) return;
+    els.liveNavigator.dataset.collapsed = String(collapsed);
+    els.liveNavigatorToggle?.setAttribute("aria-expanded", String(!collapsed));
+    if (els.liveNavigatorToggleLabel) els.liveNavigatorToggleLabel.textContent = collapsed ? "Expand" : "Collapse";
+  }
+
+  function renderLiveNavigator() {
+    if (!els.liveNavigator || !els.liveStageTrack || !els.liveStageFocus) return;
+    const stages = state.data.builder.stages;
+    const total = [...state.selections.values()].reduce((sum, values) => sum + values.size, 0);
+    const activeStage = stages[state.activeStage];
+    const palette = stagePalette[activeStage.id];
+    const activeCount = activeStage.fields.reduce((sum, field) => sum + selected(field.id).length, 0);
+    els.liveNavigator.style.setProperty("--live-stage-color", palette.color);
+    if (els.liveSelectionCount) els.liveSelectionCount.textContent = `${total} selected`;
+    els.liveStageTrack.innerHTML = stages.map((stage, index) => {
+      const count = stage.fields.reduce((sum, field) => sum + selected(field.id).length, 0);
+      const stageColor = stagePalette[stage.id];
+      return `<button class="live-stage-button" type="button" data-live-stage-index="${index}" data-has-selection="${count > 0}" aria-current="${index === state.activeStage ? "step" : "false"}" aria-label="Edit ${escapeHtml(stage.title)}; ${count} selected element${count === 1 ? "" : "s"}" title="${escapeHtml(stage.title)}"><span class="live-stage-node" style="--stage-color:${stageColor.color}">${String(stage.number).padStart(2, "0")}<b class="live-stage-count">${count}</b></span><span class="live-stage-label">${escapeHtml(stageShortLabels[stage.id] || stage.title)}</span></button>`;
+    }).join("");
+    const fields = activeStage.fields.map((field) => {
+      const values = selected(field.id);
+      const valueMarkup = values.length
+        ? values.map((value) => `<span>${escapeHtml(value)}</span>`).join("")
+        : `<em>${field.required ? "Not yet specified" : "Optional · none"}</em>`;
+      return `<div class="live-field-row"><dt>${escapeHtml(field.label)}${field.required ? " *" : ""}</dt><dd>${valueMarkup}</dd></div>`;
+    }).join("");
+    const conditionalCount = matchingRules(state.selections, "conditional").length;
+    els.liveStageFocus.innerHTML = `<div class="live-stage-focus-head"><strong>${escapeHtml(activeStage.title)}</strong><span>${activeCount} selected${conditionalCount ? ` · ${conditionalCount} conditional` : ""}</span></div><dl class="live-field-list">${fields}</dl>`;
   }
 
   function findBuilderLocation(groupId) {
@@ -539,6 +590,7 @@
     const count = [...state.selections.values()].reduce((sum, values) => sum + values.size, 0);
     els.selectionCount.textContent = `${count} selected`;
     renderStageNavigation();
+    renderLiveNavigator();
     renderDiagram();
     renderCompatibility();
     renderDesignSummary();
@@ -895,6 +947,14 @@
       const tab = event.target.closest("[data-stage-index]");
       if (tab) setActiveStage(Number(tab.dataset.stageIndex));
     });
+    els.liveStageTrack?.addEventListener("click", (event) => {
+      const stage = event.target.closest("[data-live-stage-index]");
+      if (!stage) return;
+      setActiveStage(Number(stage.dataset.liveStageIndex));
+      document.querySelector(`#stage-panel-${CSS.escape(state.data.builder.stages[state.activeStage].id)}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    els.liveNavigatorToggle?.addEventListener("click", () => setLiveNavigatorCollapsed(els.liveNavigator.dataset.collapsed !== "true"));
+    document.querySelector("[data-view-full-diagram]")?.addEventListener("click", () => els.studioDiagram?.scrollIntoView({ behavior: "smooth", block: "start" }));
     els.stagePanels.addEventListener("input", (event) => {
       const search = event.target.closest("[data-field-search]");
       if (!search) return;
@@ -948,6 +1008,12 @@
     document.querySelector("[data-diagram-zoom-out]")?.addEventListener("click", () => setDiagramZoom(state.diagramZoom - 0.25));
     document.querySelector("[data-diagram-zoom-fit]")?.addEventListener("click", () => setDiagramZoom(1));
     document.querySelector("[data-diagram-zoom-in]")?.addEventListener("click", () => setDiagramZoom(state.diagramZoom + 0.25));
+    els.diagramExpand?.addEventListener("click", () => {
+      const expanded = els.studioDiagram.dataset.expanded !== "true";
+      els.studioDiagram.dataset.expanded = String(expanded);
+      els.diagramExpand.setAttribute("aria-expanded", String(expanded));
+      els.diagramExpand.textContent = expanded ? "Compact view" : "Expand view";
+    });
     document.querySelector("[data-diagram-legend]")?.addEventListener("click", (event) => {
       const stage = event.target.closest("[data-legend-stage]");
       const edge = event.target.closest("[data-legend-edge]");
