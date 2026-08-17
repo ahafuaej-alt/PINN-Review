@@ -9,9 +9,9 @@
   <script src="../assets/theme-init.js?v=ux-20260722"></script>
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/styles.css?v=ux-20260812-reach">
-  <link rel="stylesheet" href="../assets/pinn-ecosystem.css?v=ecosystem-20260817-r2">
+  <link rel="stylesheet" href="../assets/pinn-ecosystem.css?v=ecosystem-20260817-r3">
   <script src="../assets/app.js?v=ux-20260812-reach" defer></script>
-  <script src="../assets/pinn-ecosystem.js?v=ecosystem-20260817-r2" defer></script>
+  <script src="../assets/pinn-ecosystem.js?v=ecosystem-20260817-r3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#ecosystem-map">Skip to PINN Ecosystem</a>
@@ -86,6 +86,20 @@
           <div class="stage-controls"><button class="button" type="button" data-stage-previous>← Previous</button><button class="button primary" type="button" data-stage-next>Next stage →</button></div>
         </section>
 
+        <div class="builder-side">
+        <section class="live-navigator-card" data-live-navigator data-collapsed="false" aria-labelledby="live-navigator-title">
+          <div class="live-navigator-head">
+            <div><p class="eyebrow compact">Always-visible architecture</p><h3 id="live-navigator-title">Live PINN navigator</h3></div>
+            <div class="live-navigator-tools"><span data-live-selection-count>0 selected</span><button type="button" data-live-navigator-toggle aria-expanded="true"><span data-live-navigator-toggle-label>Collapse</span></button></div>
+          </div>
+          <p class="live-navigator-intro">Follow the complete seven-stage design while selecting. Choose a stage here to edit it directly.</p>
+          <div class="live-stage-track" data-live-stage-track aria-label="Live PINN design stages"></div>
+          <div class="live-navigator-body" data-live-navigator-body>
+            <div class="live-stage-focus" data-live-stage-focus aria-live="polite"></div>
+            <button class="live-full-link" type="button" data-view-full-diagram>Inspect the complete flowchart <span aria-hidden="true">↓</span></button>
+          </div>
+        </section>
+
         <aside class="builder-output" aria-label="PINN design review">
           <section class="compatibility-card" aria-labelledby="compatibility-title">
             <div class="compatibility-head"><div><p class="eyebrow compact">Dependency review</p><h3 id="compatibility-title">Compatibility signals</h3></div><span data-signal-count>—</span></div>
@@ -94,9 +108,10 @@
 
           <section class="design-summary-card" aria-labelledby="summary-title"><p class="eyebrow compact">Portable record</p><h3 id="summary-title">Configuration summary</h3><div data-design-summary></div></section>
         </aside>
+        </div>
 
         <section class="diagram-card studio-diagram" aria-labelledby="diagram-title">
-          <div class="diagram-head"><div><p class="eyebrow compact">Live architecture · complete flowchart</p><h3 id="diagram-title">Your PINN</h3></div><div class="diagram-head-tools"><span class="diagram-state" data-diagram-state>Standard configuration</span><div class="diagram-zoom" aria-label="Diagram zoom controls"><button type="button" data-diagram-zoom-out aria-label="Zoom out">−</button><button type="button" data-diagram-zoom-fit><span data-diagram-zoom-value>100%</span> · Fit</button><button type="button" data-diagram-zoom-in aria-label="Zoom in">＋</button></div></div></div>
+          <div class="diagram-head"><div><p class="eyebrow compact">Live architecture · complete flowchart</p><h3 id="diagram-title">Your PINN</h3></div><div class="diagram-head-tools"><span class="diagram-state" data-diagram-state>Standard configuration</span><button class="diagram-expand" type="button" data-diagram-expand aria-expanded="false">Expand view</button><div class="diagram-zoom" aria-label="Diagram zoom controls"><button type="button" data-diagram-zoom-out aria-label="Zoom out">−</button><button type="button" data-diagram-zoom-fit><span data-diagram-zoom-value>100%</span> · Fit</button><button type="button" data-diagram-zoom-in aria-label="Zoom in">＋</button></div></div></div>
           <div class="diagram-wrap" data-diagram-viewport><svg class="pinn-diagram" data-pinn-diagram viewBox="0 0 1280 1800" role="img" aria-labelledby="diagram-title diagram-description"></svg><p class="visually-hidden" id="diagram-description" data-diagram-description>A generated flowchart containing every selected PINN element.</p></div>
           <div class="diagram-legend" data-diagram-legend>
             <div class="legend-group"><strong>Design stages</strong><div class="legend-buttons">

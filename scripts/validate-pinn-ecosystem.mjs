@@ -20,6 +20,8 @@ assert(builderScript.includes("coordinate-dimensionality") && builderScript.incl
 assert(builderScript.includes("dataset.diagramHeight") && builderScript.includes("diagramFieldCard"), "Dynamic complete-flowchart rendering is missing.");
 assert(pageMarkup.includes("data-selection-rule-dialog"), "Selection-rule explanation dialog is missing.");
 assert(pageMarkup.includes("data-legend-edge=\"primary\"") && pageMarkup.includes("data-legend-edge=\"feedback\""), "Interactive arrow legend is incomplete.");
+assert(pageMarkup.includes("data-live-navigator") && builderScript.includes("renderLiveNavigator"), "Always-visible live PINN navigator is missing.");
+assert(pageMarkup.includes("data-diagram-expand"), "Compact/expanded complete-flowchart control is missing.");
 
 const layerIds = new Set(data.layers.map((layer) => layer.id));
 const groupIds = new Set(data.groups.map((group) => group.id));

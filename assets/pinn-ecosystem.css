@@ -26,6 +26,7 @@
 .layer-band,
 .relation-focus,
 .builder-config,
+.live-navigator-card,
 .diagram-card,
 .compatibility-card,
 .design-summary-card,
@@ -242,8 +243,9 @@
 .selection-policy p { margin: 0; padding: 0.7rem; border-left: 3px solid var(--mint); border-radius: 0 8px 8px 0; color: var(--muted); background: var(--panel); font-size: 0.68rem; line-height: 1.5; }
 .selection-policy p strong { color: var(--ink); }
 
-.studio-layout { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr); gap: 1.5rem; align-items: start; }
+.studio-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(390px, 0.88fr); gap: 1.5rem; align-items: start; }
 .builder-config { min-width: 0; overflow: hidden; }
+.builder-side { min-width: 0; align-self: stretch; display: grid; align-content: start; gap: 1rem; }
 .builder-config-head,
 .diagram-head,
 .compatibility-head { display: flex; justify-content: space-between; gap: 1rem; align-items: start; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--line); }
@@ -262,7 +264,7 @@
 .stage-tab[aria-selected="true"] { color: var(--ink); border-color: var(--line-strong); background: var(--panel); box-shadow: 0 5px 15px rgba(30, 56, 76, 0.07); }
 .stage-tab[data-complete="true"] b { color: var(--mint); }
 
-.builder-stage-panel { padding: 1rem; }
+.builder-stage-panel { padding: 1rem; scroll-margin-top: 190px; }
 .builder-stage-intro { margin-bottom: 0.9rem; color: var(--muted); font-size: 0.78rem; }
 .builder-fields { display: grid; gap: 0.7rem; }
 .builder-field { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-faint); }
@@ -285,6 +287,43 @@
 .field-limit strong { color: var(--ink); }
 .stage-controls { display: flex; justify-content: space-between; gap: 0.7rem; padding: 0.9rem 1rem 1rem; border-top: 1px solid var(--line); }
 
+.live-navigator-card { position: sticky; z-index: 16; top: 84px; min-width: 0; overflow: hidden; border-color: color-mix(in srgb, var(--live-stage-color, var(--mint)) 42%, var(--line)); box-shadow: 0 18px 44px rgba(16, 38, 56, 0.14); }
+.live-navigator-head { display: flex; justify-content: space-between; gap: 0.8rem; align-items: start; padding: 0.9rem 0.95rem 0.65rem; }
+.live-navigator-head h3 { margin: 0; font-size: 1.08rem; }
+.live-navigator-tools { display: flex; gap: 0.4rem; align-items: center; }
+.live-navigator-tools > span { padding: 0.27rem 0.46rem; border-radius: 999px; color: var(--muted); background: var(--panel-strong); font: 700 0.61rem/1 var(--mono); white-space: nowrap; }
+.live-navigator-tools button,
+.diagram-expand { min-height: 31px; padding: 0.4rem 0.55rem; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--ink); background: var(--panel); font-size: 0.63rem; font-weight: 750; cursor: pointer; }
+.live-navigator-tools button:hover,
+.diagram-expand:hover { background: var(--panel-strong); }
+.live-navigator-intro { margin: 0; padding: 0 0.95rem 0.72rem; color: var(--muted); font-size: 0.66rem; line-height: 1.45; }
+.live-stage-track { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.16rem; padding: 0.55rem 0.6rem 0.65rem; border-block: 1px solid var(--line); background: var(--surface-faint); }
+.live-stage-track::before { content: ""; position: absolute; z-index: 0; top: 26px; right: 8%; left: 8%; height: 2px; background: var(--line-strong); }
+.live-stage-button { position: relative; z-index: 1; min-width: 0; padding: 0.1rem; border: 0; color: var(--muted); background: transparent; text-align: center; cursor: pointer; }
+.live-stage-node { position: relative; width: 34px; height: 34px; display: grid; place-items: center; margin: 0 auto; border: 2px solid var(--stage-color); border-radius: 11px; color: var(--stage-color); background: var(--panel); font: 800 0.63rem/1 var(--mono); transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease; }
+.live-stage-button[data-has-selection="true"] .live-stage-node { background: color-mix(in srgb, var(--stage-color) 12%, var(--panel)); }
+.live-stage-count { position: absolute; top: -6px; right: -7px; min-width: 18px; height: 18px; display: grid; place-items: center; padding: 0 0.25rem; border: 2px solid var(--panel); border-radius: 999px; color: #fff; background: var(--stage-color); font: 800 0.52rem/1 var(--mono); }
+.live-stage-label { display: block; overflow: hidden; margin-top: 0.35rem; font-size: 0.54rem; font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
+.live-stage-button:hover .live-stage-node,
+.live-stage-button[aria-current="step"] .live-stage-node { transform: translateY(-2px); background: var(--stage-color); color: #fff; box-shadow: 0 0 0 4px color-mix(in srgb, var(--stage-color) 19%, transparent); }
+.live-stage-button[aria-current="step"] .live-stage-label { color: var(--ink); }
+.live-navigator-body { min-height: 0; }
+.live-stage-focus { max-height: min(28vh, 240px); overflow-y: auto; padding: 0.8rem 0.9rem; scrollbar-width: thin; }
+.live-stage-focus-head { display: flex; justify-content: space-between; gap: 0.7rem; align-items: baseline; margin-bottom: 0.55rem; }
+.live-stage-focus-head strong { color: var(--live-stage-color, var(--ink)); font-size: 0.78rem; }
+.live-stage-focus-head span { color: var(--muted); font: 700 0.58rem/1 var(--mono); }
+.live-field-list { display: grid; gap: 0.42rem; margin: 0; }
+.live-field-row { display: grid; grid-template-columns: minmax(90px, 0.36fr) minmax(0, 0.64fr); gap: 0.55rem; padding-top: 0.42rem; border-top: 1px solid var(--line); }
+.live-field-row dt { color: var(--muted); font-size: 0.59rem; font-weight: 750; }
+.live-field-row dd { display: flex; flex-wrap: wrap; gap: 0.22rem; margin: 0; min-width: 0; }
+.live-field-row dd span,
+.live-field-row dd em { max-width: 100%; padding: 0.19rem 0.32rem; border-radius: 5px; color: var(--ink); background: color-mix(in srgb, var(--live-stage-color, var(--mint)) 9%, var(--surface-faint)); font-size: 0.57rem; font-style: normal; line-height: 1.35; overflow-wrap: anywhere; }
+.live-field-row dd em { color: var(--faint); background: var(--surface-faint); }
+.live-full-link { width: 100%; padding: 0.65rem 0.9rem; border: 0; border-top: 1px solid var(--line); color: var(--live-stage-color, var(--mint)); background: var(--surface-faint); font-size: 0.64rem; font-weight: 800; text-align: left; cursor: pointer; }
+.live-full-link:hover { background: var(--panel-strong); }
+.live-navigator-card[data-collapsed="true"] .live-navigator-intro,
+.live-navigator-card[data-collapsed="true"] .live-navigator-body { display: none; }
+
 .builder-output { position: static; display: grid; gap: 1rem; }
 .studio-diagram { grid-column: 1 / -1; min-width: 0; overflow: hidden; }
 .diagram-head-tools { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; align-items: center; }
@@ -292,7 +331,8 @@
 .diagram-zoom button { min-width: 34px; min-height: 31px; padding: 0 0.55rem; border: 0; border-right: 1px solid var(--line); color: var(--ink); background: transparent; font: 700 0.67rem/1 var(--mono); cursor: pointer; }
 .diagram-zoom button:last-child { border-right: 0; }
 .diagram-zoom button:hover { background: var(--panel-strong); }
-.diagram-wrap { overflow: auto; padding: clamp(0.55rem, 1.5vw, 1rem); background: #dfe8f0; scrollbar-width: thin; }
+.diagram-wrap { max-height: min(76vh, 820px); overflow: auto; padding: clamp(0.55rem, 1.5vw, 1rem); background: #dfe8f0; scrollbar-width: thin; }
+.studio-diagram[data-expanded="true"] .diagram-wrap { max-height: none; }
 .pinn-diagram { width: 100%; max-width: none; height: auto; display: block; margin: 0 auto; border: 1px solid #aebdca; border-radius: 12px; background: #f7fafc; box-shadow: 0 12px 34px rgba(19, 39, 58, 0.14); transition: width 180ms ease; }
 .diagram-stage { transition: opacity 160ms ease, filter 160ms ease; }
 .diagram-stage-shell { stroke-width: 2.5; }
@@ -388,8 +428,11 @@
   .relation-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .focus-actions { max-width: 460px; }
   .studio-layout { grid-template-columns: 1fr; }
-  .builder-output { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
-  .studio-diagram { grid-column: 1 / -1; }
+  .builder-side { display: contents; }
+  .live-navigator-card { grid-column: 1; order: -1; top: 76px; }
+  .builder-config { grid-column: 1; order: 0; }
+  .builder-output { position: static; grid-column: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; order: 1; }
+  .studio-diagram { grid-column: 1 / -1; order: 2; }
   .selection-policy > div { grid-template-columns: 1fr; }
 }
 
@@ -403,6 +446,7 @@
   .studio-head-actions .button { flex: 1; justify-content: center; }
   .builder-output { grid-template-columns: 1fr; }
   .studio-diagram { grid-column: auto; }
+  .live-navigator-card { top: 70px; }
   .diagram-legend { grid-template-columns: 1fr; }
   .legend-detail { grid-column: auto; }
   .contribution-panel { grid-template-columns: 1fr; }
@@ -419,6 +463,16 @@
   .taxonomy-actions .button { flex: 1; justify-content: center; font-size: 0.7rem; }
   .relation-columns { grid-template-columns: 1fr; }
   .design-caveat { flex-direction: column; }
+  .live-navigator-head { padding: 0.72rem 0.75rem 0.55rem; }
+  .live-navigator-head h3 { font-size: 0.94rem; }
+  .live-navigator-tools > span { display: none; }
+  .live-navigator-intro { padding-inline: 0.75rem; }
+  .live-stage-track { padding-inline: 0.35rem; }
+  .live-stage-node { width: 31px; height: 31px; border-radius: 9px; }
+  .live-stage-track::before { top: 24px; }
+  .live-stage-label { font-size: 0.49rem; }
+  .live-stage-focus { max-height: 220px; padding: 0.7rem 0.75rem; }
+  .live-field-row { grid-template-columns: 1fr; gap: 0.22rem; }
   .diagram-head { flex-direction: column; }
   .diagram-head-tools { width: 100%; justify-content: space-between; }
   .diagram-wrap { position: relative; overscroll-behavior-inline: contain; }
@@ -433,7 +487,8 @@
 @media (prefers-reduced-motion: reduce) {
   .group-card,
   .layer-chevron,
-  .field-chevron { transition: none; }
+  .field-chevron,
+  .live-stage-node { transition: none; }
 }
 
 @media print {
@@ -441,6 +496,7 @@
   .taxonomy-toolbar,
   .group-card-actions,
   .stage-controls,
+  .live-navigator-card,
   .diagram-actions,
   .contribution-section,
   .proposal-dialog,
