@@ -285,7 +285,7 @@
 .field-limit strong { color: var(--ink); }
 .stage-controls { display: flex; justify-content: space-between; gap: 0.7rem; padding: 0.9rem 1rem 1rem; border-top: 1px solid var(--line); }
 
-.builder-output { position: sticky; top: 86px; display: grid; gap: 1rem; }
+.builder-output { position: static; display: grid; gap: 1rem; }
 .studio-diagram { grid-column: 1 / -1; min-width: 0; overflow: hidden; }
 .diagram-head-tools { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; align-items: center; }
 .diagram-zoom { display: inline-flex; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 9px; background: var(--panel); }
