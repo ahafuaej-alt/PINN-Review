@@ -17,7 +17,12 @@ assert(data.stats.itemOccurrences >= 800, `Expected at least 800 item occurrence
 assert(data.relations.length >= 60, `Expected at least 60 relationships, found ${data.relations.length}.`);
 assert(!builderScript.includes("Select up to"), "Builder UI still exposes an arbitrary count cap.");
 assert(builderScript.includes("coordinate-dimensionality") && builderScript.includes("residual-only-observations") && builderScript.includes("strong-weak-hybrid"), "Scientific selection-rule inventory is incomplete.");
-assert(builderScript.includes("dataset.diagramHeight") && builderScript.includes("diagramFieldCard"), "Dynamic complete-flowchart rendering is missing.");
+assert(builderScript.includes('setAttribute("viewBox", "0 0 1600 900")') && builderScript.includes('dataset.diagramAspect = "16:9"'), "The 16:9 landscape flowchart canvas is missing.");
+assert(builderScript.includes("diagramPhysicsCore") && builderScript.includes("diagramIntegratedLegend") && builderScript.includes("diagramChipLayout"), "The dynamic centered flowchart composition is incomplete.");
+for (const edge of ["state-to-residual", "state-to-constraints", "residual-to-objective", "constraints-to-objective", "weights-to-objective"]) {
+  assert(builderScript.includes(`data-core-edge="${edge}"`), `Physics-core relationship ${edge} is missing.`);
+}
+assert(pageMarkup.includes("ecosystem-20260817-r4"), "PINN ecosystem cache key was not advanced for the landscape renderer.");
 assert(pageMarkup.includes("data-selection-rule-dialog"), "Selection-rule explanation dialog is missing.");
 assert(pageMarkup.includes("data-legend-edge=\"primary\"") && pageMarkup.includes("data-legend-edge=\"feedback\""), "Interactive arrow legend is incomplete.");
 assert(pageMarkup.includes("data-live-navigator") && builderScript.includes("renderLiveNavigator"), "Always-visible live PINN navigator is missing.");
