@@ -49,29 +49,47 @@ try {
       theme: document.documentElement.dataset.theme || 'system',
       fields: document.querySelectorAll('[data-builder-field]').length,
       selected: document.querySelectorAll('[data-field-id]:checked').length,
+      navigatorStages: document.querySelectorAll('[data-live-stage-index]').length,
+      navigatorCollapsed: document.querySelector('[data-live-navigator]')?.dataset.collapsed || '',
+      navigatorPosition: getComputedStyle(document.querySelector('[data-live-navigator]')).position,
       diagramHeight: Number(document.querySelector('[data-pinn-diagram]')?.dataset.diagramHeight || 0),
       diagramViewBox: document.querySelector('[data-pinn-diagram]')?.getAttribute('viewBox') || '',
       diagramScrollWidth: document.querySelector('[data-diagram-viewport]')?.scrollWidth || 0,
       diagramClientWidth: document.querySelector('[data-diagram-viewport]')?.clientWidth || 0,
+      diagramViewportHeight: document.querySelector('[data-diagram-viewport]')?.clientHeight || 0,
       capText: document.body.textContent.includes('Select up to')
     }));
     assert(layout.theme === mode.theme, `${mode.name}: expected ${mode.theme} theme.`);
     assert(layout.fields === 31, `${mode.name}: expected 31 design fields.`);
     assert(layout.selected > 0, `${mode.name}: standard design did not load.`);
+    assert(layout.navigatorStages === 7, `${mode.name}: live navigator does not show all seven stages.`);
+    assert(layout.navigatorPosition === 'sticky', `${mode.name}: live navigator is not sticky while selecting.`);
     assert(layout.diagramHeight > 1800, `${mode.name}: flowchart did not expand dynamically.`);
+    assert(layout.diagramViewportHeight < 900, `${mode.name}: complete flowchart is not contained in a balanced viewport.`);
     assert(!layout.capText, `${mode.name}: arbitrary count-cap text remains.`);
     assert(layout.bodyWidth <= layout.viewportWidth + 1 && layout.documentWidth <= layout.clientWidth + 1, `${mode.name}: horizontal overflow detected.`);
     if (mode.width < 600) {
+      assert(layout.navigatorCollapsed === 'true', `${mode.name}: mobile navigator should begin in compact mode.`);
       assert(layout.diagramViewBox.startsWith('0 0 420 '), `${mode.name}: compact single-column flowchart was not applied.`);
       assert(layout.diagramScrollWidth <= layout.diagramClientWidth + 2, `${mode.name}: fit view should not require horizontal panning.`);
+      await page.locator('[data-live-navigator-toggle]').click();
+      assert((await page.locator('[data-live-navigator]').getAttribute('data-collapsed')) === 'false', `${mode.name}: live navigator did not expand on request.`);
+      await page.locator('[data-live-navigator-toggle]').click();
+    } else {
+      assert(layout.navigatorCollapsed === 'false', `${mode.name}: desktop navigator should begin expanded.`);
     }
 
     const checkedValues = await page.locator('[data-field-id]:checked').evaluateAll((nodes) => nodes.map((node) => node.value));
     const diagramText = await page.locator('[data-pinn-diagram]').textContent();
     for (const value of checkedValues) assert(diagramText.includes(value), `${mode.name}: diagram omitted selected element “${value}”.`);
 
+    await page.locator('.builder-config').scrollIntoViewIfNeeded();
+    const navigatorScreenshot = `${mode.name}-live-navigator.png`;
+    await page.screenshot({ path: path.join(outputDir, navigatorScreenshot) });
+
     if (mode.name === 'desktop-light') {
-      await page.locator('[data-stage-index="1"]').click();
+      await page.locator('[data-live-stage-index="1"]').click();
+      assert((await page.locator('[data-live-stage-focus]').textContent()).includes('Representation'), 'Live navigator did not switch the editable stage.');
       await choose(page, 'Spatial coordinate x');
       await page.locator('[data-selection-rule-dialog]').waitFor({ state: 'visible' });
       assert((await page.locator('[data-selection-rule-content]').textContent()).includes('Choose one spatial-coordinate bundle'), 'Strict coordinate rule did not explain the block.');
@@ -99,6 +117,9 @@ try {
       await page.locator('[data-diagram-zoom-in]').click();
       assert((await page.locator('[data-diagram-zoom-value]').textContent()).includes('125%'), 'Diagram zoom control did not update.');
       await page.locator('[data-diagram-zoom-fit]').click();
+      await page.locator('[data-diagram-expand]').click();
+      assert((await page.locator('.studio-diagram').getAttribute('data-expanded')) === 'true', 'Complete flowchart did not expand on request.');
+      await page.locator('[data-diagram-expand]').click();
     }
 
     await page.locator('.studio-diagram').scrollIntoViewIfNeeded();
@@ -106,7 +127,7 @@ try {
     await page.locator('.studio-diagram').screenshot({ path: path.join(outputDir, screenshot) });
     assert(errors.length === 0, `${mode.name}: browser errors:\n${errors.join('\n')}`);
     assert(badResponses.length === 0, `${mode.name}: HTTP errors:\n${badResponses.join('\n')}`);
-    report.modes.push({ ...mode, layout, screenshot, errors, badResponses });
+    report.modes.push({ ...mode, layout, navigatorScreenshot, screenshot, errors, badResponses });
     await context.close();
   }
 } finally {
