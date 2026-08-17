@@ -568,7 +568,7 @@
     const text = valueLines.map((line, index) => `<tspan x="${line.bullet ? 23 : 39}" dy="${index ? 19 : 0}">${line.bullet ? "• " : "  "}${escapeXml(line.text)}</tspan>`).join("");
     return {
       height,
-      svg: `<g class="diagram-field" transform="translate(${x} ${y})"><rect width="${width}" height="${height}" rx="12"/><text class="diagram-field-title" x="18" y="27">${escapeXml(field.label)}${field.required ? " *" : ""}</text><text class="diagram-field-values" x="23" y="51">${text}</text></g>`
+      svg: `<g class="diagram-field" transform="translate(${x} ${y})"><title>${escapeXml(field.label)}: ${escapeXml(values.length ? values.join(" · ") : (field.required ? "Not yet specified" : "Optional · none"))}</title><rect width="${width}" height="${height}" rx="12"/><text class="diagram-field-title" x="18" y="27">${escapeXml(field.label)}${field.required ? " *" : ""}</text><text class="diagram-field-values" x="23" y="51">${text}</text></g>`
     };
   }
 
