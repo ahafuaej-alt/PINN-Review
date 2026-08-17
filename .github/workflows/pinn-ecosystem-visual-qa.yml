@@ -1,0 +1,58 @@
+name: PINN Ecosystem visual QA
+
+on:
+  pull_request:
+    paths:
+      - 'pinn-ecosystem/**'
+      - 'assets/pinn-ecosystem.*'
+      - 'assets/styles.css'
+      - 'assets/app.js'
+      - 'assets/theme-init.js'
+      - 'data/pinn-ecosystem/**'
+      - 'scripts/visual-qa-pinn-ecosystem.mjs'
+      - '.github/workflows/pinn-ecosystem-visual-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Locate runner browser
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --no-save --package-lock=false playwright-core@1.55.0
+      - name: Start static preview
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/pinn-ecosystem-preview.log 2>&1 &
+          echo "PREVIEW_PID=$!" >> "$GITHUB_ENV"
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/pinn-ecosystem/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/pinn-ecosystem-preview.log
+          exit 1
+      - name: Exercise selection rules and render all themes
+        run: node scripts/visual-qa-pinn-ecosystem.mjs
+      - name: Stop static preview
+        if: always()
+        run: kill "$PREVIEW_PID" 2>/dev/null || true
+      - name: Upload visual report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pinn-ecosystem-visual-qa
+          path: artifacts/pinn-ecosystem-visual-qa/
+          if-no-files-found: error
+          retention-days: 14
