@@ -1,0 +1,5500 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "2026.08.17",
+  "title": "PINN Ecosystem",
+  "description": "A layered taxonomy of the coupled choices, extensions, evaluation practices, infrastructure, and scientific contexts that define a physics-informed neural network workflow.",
+  "source": "data/pinn-ecosystem/reference-pinn-ecosystem-source.md",
+  "governance": {
+    "evidencePolicy": "Community additions are proposals. They enter the curated taxonomy only after evidence review.",
+    "repository": "ahafuaej-alt/PINN-Review"
+  },
+  "stats": {
+    "layers": 9,
+    "groups": 35,
+    "itemOccurrences": 848,
+    "uniqueItemNames": 795,
+    "relations": 73
+  },
+  "layers": [
+    {
+      "id": "problem",
+      "number": 1,
+      "title": "Problem & Physics",
+      "shortTitle": "Problem",
+      "description": "Defines the governing relations, numerical character, observations, and physical context that drive every downstream choice.",
+      "groupIds": [
+        "problem-physical-system-definition",
+        "data"
+      ]
+    },
+    {
+      "id": "purpose",
+      "number": 2,
+      "title": "PINN Purpose",
+      "shortTitle": "Purpose",
+      "description": "States what the model must accomplish: solve, infer, discover, reuse, quantify, optimize, or control.",
+      "groupIds": [
+        "computational-role-pinn-task",
+        "inverse-problems-and-discovery"
+      ]
+    },
+    {
+      "id": "representation",
+      "number": 3,
+      "title": "Representation",
+      "shortTitle": "Representation",
+      "description": "Chooses how inputs, outputs, bases, architectures, and activations represent the physical state.",
+      "groupIds": [
+        "input-representation",
+        "output-state-representation",
+        "neural-architecture-approximation-model",
+        "network-hyperparameters",
+        "activation-function"
+      ]
+    },
+    {
+      "id": "enforcement",
+      "number": 4,
+      "title": "Physics Enforcement",
+      "shortTitle": "Enforcement",
+      "description": "Specifies which physical conditions are imposed, how they are encoded, and how competing objectives are balanced.",
+      "groupIds": [
+        "physics-enforcement-mechanism",
+        "physical-constraints",
+        "loss-function-objective-construction",
+        "loss-weighting-balancing"
+      ]
+    },
+    {
+      "id": "operators",
+      "number": 5,
+      "title": "Numerical Evaluation of Physics",
+      "shortTitle": "Operators",
+      "description": "Evaluates differential, integral, discrete, or time-stepping operators used to construct the physical residual.",
+      "groupIds": [
+        "differentiation-differential-operator-evaluation"
+      ]
+    },
+    {
+      "id": "training",
+      "number": 6,
+      "title": "Training",
+      "shortTitle": "Training",
+      "description": "Controls collocation, optimization, initialization, scaling, stabilization, schedules, and staged learning.",
+      "groupIds": [
+        "collocation-sampling",
+        "optimizer",
+        "learning-rate-strategy",
+        "initialization",
+        "scaling-normalization-preprocessing",
+        "regularization-training-stabilization",
+        "training-strategy"
+      ]
+    },
+    {
+      "id": "extensions",
+      "number": 7,
+      "title": "Structural Extensions",
+      "shortTitle": "Extensions",
+      "description": "Adds decomposition, operator learning, reduced models, probabilistic methods, numerical hybrids, reuse, and parallel execution.",
+      "groupIds": [
+        "decomposition",
+        "operator-learning",
+        "reduced-order-basis-approaches",
+        "hybrid-numerical-pinn-methods",
+        "uncertainty-quantification-probabilistic-pinns",
+        "generalization-knowledge-reuse",
+        "parallelization-computational-execution"
+      ]
+    },
+    {
+      "id": "reliability",
+      "number": 8,
+      "title": "Evaluation & Reliability",
+      "shortTitle": "Reliability",
+      "description": "Tests numerical accuracy, physical fidelity, robustness, uncertainty, computational cost, theory, and failure modes.",
+      "groupIds": [
+        "evaluation",
+        "validation-benchmarking",
+        "theory",
+        "failure-modes-challenges"
+      ]
+    },
+    {
+      "id": "ecosystem",
+      "number": 9,
+      "title": "Ecosystem",
+      "shortTitle": "Ecosystem",
+      "description": "Connects implementation software, reporting standards, reproducibility, and scientific application domains.",
+      "groupIds": [
+        "software-framework-infrastructure",
+        "reproducibility-reporting",
+        "application-scientific-domain"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "number": 1,
+      "id": "problem-physical-system-definition",
+      "title": "Problem / Physical-System Definition",
+      "layerId": "problem",
+      "description": "This is the level before the neural network itself. It determines nearly every downstream choice.",
+      "itemCount": 38,
+      "subgroups": [
+        {
+          "id": "governing-physics",
+          "title": "Governing physics",
+          "items": [
+            {
+              "id": "problem-physical-system-definition-partial-differential-equations-pdes-1",
+              "name": "Partial differential equations — PDEs"
+            },
+            {
+              "id": "problem-physical-system-definition-ordinary-differential-equations-odes-2",
+              "name": "Ordinary differential equations — ODEs"
+            },
+            {
+              "id": "problem-physical-system-definition-differential-algebraic-equations-daes-3",
+              "name": "Differential-algebraic equations — DAEs"
+            },
+            {
+              "id": "problem-physical-system-definition-integral-equations-4",
+              "name": "Integral equations"
+            },
+            {
+              "id": "problem-physical-system-definition-integro-differential-equations-5",
+              "name": "Integro-differential equations"
+            },
+            {
+              "id": "problem-physical-system-definition-constitutive-equations-6",
+              "name": "Constitutive equations"
+            },
+            {
+              "id": "problem-physical-system-definition-conservation-laws-7",
+              "name": "Conservation laws"
+            },
+            {
+              "id": "problem-physical-system-definition-algebraic-physical-relations-8",
+              "name": "Algebraic physical relations"
+            },
+            {
+              "id": "problem-physical-system-definition-energy-principles-9",
+              "name": "Energy principles"
+            },
+            {
+              "id": "problem-physical-system-definition-variational-principles-10",
+              "name": "Variational principles"
+            },
+            {
+              "id": "problem-physical-system-definition-inequality-constraints-11",
+              "name": "Inequality constraints"
+            },
+            {
+              "id": "problem-physical-system-definition-complementarity-conditions-12",
+              "name": "Complementarity conditions"
+            },
+            {
+              "id": "problem-physical-system-definition-kkt-type-conditions-13",
+              "name": "KKT-type conditions"
+            },
+            {
+              "id": "problem-physical-system-definition-stochastic-differential-equations-14",
+              "name": "Stochastic differential equations"
+            },
+            {
+              "id": "problem-physical-system-definition-coupled-multiphysics-equations-15",
+              "name": "Coupled multiphysics equations"
+            },
+            {
+              "id": "problem-physical-system-definition-fractional-differential-equations-16",
+              "name": "Fractional differential equations"
+            },
+            {
+              "id": "problem-physical-system-definition-nonlocal-operators-17",
+              "name": "Nonlocal operators"
+            }
+          ]
+        },
+        {
+          "id": "problem-characteristics",
+          "title": "Problem characteristics",
+          "items": [
+            {
+              "id": "problem-physical-system-definition-steady-transient-1",
+              "name": "Steady / transient"
+            },
+            {
+              "id": "problem-physical-system-definition-linear-nonlinear-2",
+              "name": "Linear / nonlinear"
+            },
+            {
+              "id": "problem-physical-system-definition-smooth-discontinuous-3",
+              "name": "Smooth / discontinuous"
+            },
+            {
+              "id": "problem-physical-system-definition-stiff-4",
+              "name": "Stiff"
+            },
+            {
+              "id": "problem-physical-system-definition-multiscale-5",
+              "name": "Multiscale"
+            },
+            {
+              "id": "problem-physical-system-definition-high-frequency-oscillatory-6",
+              "name": "High-frequency / oscillatory"
+            },
+            {
+              "id": "problem-physical-system-definition-high-dimensional-7",
+              "name": "High-dimensional"
+            },
+            {
+              "id": "problem-physical-system-definition-nonlocal-8",
+              "name": "Nonlocal"
+            },
+            {
+              "id": "problem-physical-system-definition-fractional-9",
+              "name": "Fractional"
+            },
+            {
+              "id": "problem-physical-system-definition-chaotic-10",
+              "name": "Chaotic"
+            },
+            {
+              "id": "problem-physical-system-definition-long-time-11",
+              "name": "Long-time"
+            },
+            {
+              "id": "problem-physical-system-definition-heterogeneous-12",
+              "name": "Heterogeneous"
+            },
+            {
+              "id": "problem-physical-system-definition-multiphase-13",
+              "name": "Multiphase"
+            },
+            {
+              "id": "problem-physical-system-definition-multimaterial-14",
+              "name": "Multimaterial"
+            },
+            {
+              "id": "problem-physical-system-definition-interface-dominated-15",
+              "name": "Interface-dominated"
+            },
+            {
+              "id": "problem-physical-system-definition-shock-dominated-16",
+              "name": "Shock-dominated"
+            },
+            {
+              "id": "problem-physical-system-definition-boundary-layer-dominated-17",
+              "name": "Boundary-layer dominated"
+            },
+            {
+              "id": "problem-physical-system-definition-irregular-geometry-18",
+              "name": "Irregular geometry"
+            },
+            {
+              "id": "problem-physical-system-definition-open-unbounded-domain-19",
+              "name": "Open/unbounded domain"
+            },
+            {
+              "id": "problem-physical-system-definition-stochastic-system-20",
+              "name": "Stochastic system"
+            },
+            {
+              "id": "problem-physical-system-definition-sparse-observation-problem-21",
+              "name": "Sparse-observation problem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "computational-role-pinn-task",
+      "title": "Computational Role / PINN Task",
+      "layerId": "purpose",
+      "description": "This is another major branch that should probably appear near the center of the final figure.",
+      "itemCount": 27,
+      "subgroups": [
+        {
+          "id": "core-tasks",
+          "title": "Core tasks",
+          "items": [
+            {
+              "id": "computational-role-pinn-task-forward-solution-1",
+              "name": "Forward solution"
+            },
+            {
+              "id": "computational-role-pinn-task-inverse-problem-2",
+              "name": "Inverse problem"
+            },
+            {
+              "id": "computational-role-pinn-task-parameter-identification-3",
+              "name": "Parameter identification"
+            },
+            {
+              "id": "computational-role-pinn-task-state-estimation-4",
+              "name": "State estimation"
+            },
+            {
+              "id": "computational-role-pinn-task-hidden-variable-inference-5",
+              "name": "Hidden-variable inference"
+            },
+            {
+              "id": "computational-role-pinn-task-source-identification-6",
+              "name": "Source identification"
+            },
+            {
+              "id": "computational-role-pinn-task-boundary-condition-inference-7",
+              "name": "Boundary-condition inference"
+            },
+            {
+              "id": "computational-role-pinn-task-constitutive-parameter-inference-8",
+              "name": "Constitutive parameter inference"
+            },
+            {
+              "id": "computational-role-pinn-task-data-assimilation-9",
+              "name": "Data assimilation"
+            },
+            {
+              "id": "computational-role-pinn-task-governing-equation-discovery-10",
+              "name": "Governing-equation discovery"
+            },
+            {
+              "id": "computational-role-pinn-task-system-identification-11",
+              "name": "System identification"
+            }
+          ]
+        },
+        {
+          "id": "reuse-oriented-tasks",
+          "title": "Reuse-oriented tasks",
+          "items": [
+            {
+              "id": "computational-role-pinn-task-surrogate-modeling-1",
+              "name": "Surrogate modeling"
+            },
+            {
+              "id": "computational-role-pinn-task-repeated-query-simulation-2",
+              "name": "Repeated-query simulation"
+            },
+            {
+              "id": "computational-role-pinn-task-parametric-modeling-3",
+              "name": "Parametric modeling"
+            },
+            {
+              "id": "computational-role-pinn-task-solution-family-learning-4",
+              "name": "Solution-family learning"
+            },
+            {
+              "id": "computational-role-pinn-task-operator-learning-5",
+              "name": "Operator learning"
+            },
+            {
+              "id": "computational-role-pinn-task-reduced-order-modeling-6",
+              "name": "Reduced-order modeling"
+            }
+          ]
+        },
+        {
+          "id": "decision-oriented-tasks",
+          "title": "Decision-oriented tasks",
+          "items": [
+            {
+              "id": "computational-role-pinn-task-optimization-1",
+              "name": "Optimization"
+            },
+            {
+              "id": "computational-role-pinn-task-control-2",
+              "name": "Control"
+            },
+            {
+              "id": "computational-role-pinn-task-model-predictive-control-3",
+              "name": "Model predictive control"
+            },
+            {
+              "id": "computational-role-pinn-task-reinforcement-learning-4",
+              "name": "Reinforcement learning"
+            },
+            {
+              "id": "computational-role-pinn-task-digital-twins-5",
+              "name": "Digital twins"
+            },
+            {
+              "id": "computational-role-pinn-task-online-model-updating-6",
+              "name": "Online model updating"
+            },
+            {
+              "id": "computational-role-pinn-task-design-optimization-7",
+              "name": "Design optimization"
+            }
+          ]
+        },
+        {
+          "id": "probabilistic-tasks",
+          "title": "Probabilistic tasks",
+          "items": [
+            {
+              "id": "computational-role-pinn-task-uncertainty-quantification-1",
+              "name": "Uncertainty quantification"
+            },
+            {
+              "id": "computational-role-pinn-task-bayesian-inference-2",
+              "name": "Bayesian inference"
+            },
+            {
+              "id": "computational-role-pinn-task-probabilistic-forecasting-3",
+              "name": "Probabilistic forecasting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "input-representation",
+      "title": "Input Representation",
+      "layerId": "representation",
+      "description": "This is a true PINN element.",
+      "itemCount": 27,
+      "subgroups": [
+        {
+          "id": "basic-inputs",
+          "title": "Basic inputs",
+          "items": [
+            {
+              "id": "input-representation-spatial-coordinate-x-1",
+              "name": "Spatial coordinate x"
+            },
+            {
+              "id": "input-representation-spatial-coordinates-x-y-2",
+              "name": "Spatial coordinates x,y"
+            },
+            {
+              "id": "input-representation-spatial-coordinates-x-y-z-3",
+              "name": "Spatial coordinates x,y,z"
+            },
+            {
+              "id": "input-representation-time-t-4",
+              "name": "Time t"
+            }
+          ]
+        },
+        {
+          "id": "extended-inputs",
+          "title": "Extended inputs",
+          "items": [
+            {
+              "id": "input-representation-physical-parameters-1",
+              "name": "Physical parameters"
+            },
+            {
+              "id": "input-representation-material-properties-2",
+              "name": "Material properties"
+            },
+            {
+              "id": "input-representation-geometry-parameters-3",
+              "name": "Geometry parameters"
+            },
+            {
+              "id": "input-representation-geometry-descriptors-4",
+              "name": "Geometry descriptors"
+            },
+            {
+              "id": "input-representation-frequency-5",
+              "name": "Frequency"
+            },
+            {
+              "id": "input-representation-reynolds-number-6",
+              "name": "Reynolds number"
+            },
+            {
+              "id": "input-representation-boundary-data-7",
+              "name": "Boundary data"
+            },
+            {
+              "id": "input-representation-initial-state-descriptors-8",
+              "name": "Initial-state descriptors"
+            },
+            {
+              "id": "input-representation-source-locations-9",
+              "name": "Source locations"
+            },
+            {
+              "id": "input-representation-forcing-functions-10",
+              "name": "Forcing functions"
+            },
+            {
+              "id": "input-representation-operating-conditions-11",
+              "name": "Operating conditions"
+            },
+            {
+              "id": "input-representation-control-variables-12",
+              "name": "Control variables"
+            },
+            {
+              "id": "input-representation-sensor-measurements-13",
+              "name": "Sensor measurements"
+            },
+            {
+              "id": "input-representation-stochastic-variables-14",
+              "name": "Stochastic variables"
+            },
+            {
+              "id": "input-representation-permeability-descriptors-15",
+              "name": "Permeability descriptors"
+            },
+            {
+              "id": "input-representation-equation-parameters-16",
+              "name": "Equation parameters"
+            }
+          ]
+        },
+        {
+          "id": "operator-learning-inputs",
+          "title": "Operator-learning inputs",
+          "items": [
+            {
+              "id": "input-representation-functions-1",
+              "name": "Functions"
+            },
+            {
+              "id": "input-representation-sensor-samples-of-functions-2",
+              "name": "Sensor samples of functions"
+            },
+            {
+              "id": "input-representation-initial-condition-functions-3",
+              "name": "Initial-condition functions"
+            },
+            {
+              "id": "input-representation-boundary-condition-functions-4",
+              "name": "Boundary-condition functions"
+            },
+            {
+              "id": "input-representation-coefficient-fields-5",
+              "name": "Coefficient fields"
+            },
+            {
+              "id": "input-representation-forcing-fields-6",
+              "name": "Forcing fields"
+            },
+            {
+              "id": "input-representation-geometry-fields-7",
+              "name": "Geometry fields"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "output-state-representation",
+      "title": "Output / State Representation",
+      "layerId": "representation",
+      "description": "Another fundamental PINN element.",
+      "itemCount": 33,
+      "subgroups": [
+        {
+          "id": "primary-outputs",
+          "title": "Primary outputs",
+          "items": [
+            {
+              "id": "output-state-representation-scalar-fields-1",
+              "name": "Scalar fields"
+            },
+            {
+              "id": "output-state-representation-vector-fields-2",
+              "name": "Vector fields"
+            },
+            {
+              "id": "output-state-representation-state-variables-3",
+              "name": "State variables"
+            },
+            {
+              "id": "output-state-representation-temperature-4",
+              "name": "temperature"
+            },
+            {
+              "id": "output-state-representation-pressure-5",
+              "name": "pressure"
+            },
+            {
+              "id": "output-state-representation-velocity-6",
+              "name": "velocity"
+            },
+            {
+              "id": "output-state-representation-displacement-7",
+              "name": "displacement"
+            },
+            {
+              "id": "output-state-representation-stress-8",
+              "name": "stress"
+            },
+            {
+              "id": "output-state-representation-saturation-9",
+              "name": "saturation"
+            },
+            {
+              "id": "output-state-representation-concentration-10",
+              "name": "concentration"
+            },
+            {
+              "id": "output-state-representation-electrical-magnetic-fields-11",
+              "name": "electrical/magnetic fields"
+            },
+            {
+              "id": "output-state-representation-potential-12",
+              "name": "potential"
+            },
+            {
+              "id": "output-state-representation-hydraulic-head-13",
+              "name": "hydraulic head"
+            },
+            {
+              "id": "output-state-representation-activation-time-14",
+              "name": "activation time"
+            }
+          ]
+        },
+        {
+          "id": "auxiliary-outputs",
+          "title": "Auxiliary outputs",
+          "items": [
+            {
+              "id": "output-state-representation-flux-1",
+              "name": "Flux"
+            },
+            {
+              "id": "output-state-representation-stress-2",
+              "name": "Stress"
+            },
+            {
+              "id": "output-state-representation-derivatives-3",
+              "name": "Derivatives"
+            },
+            {
+              "id": "output-state-representation-phase-variables-4",
+              "name": "Phase variables"
+            },
+            {
+              "id": "output-state-representation-recovery-variables-5",
+              "name": "Recovery variables"
+            },
+            {
+              "id": "output-state-representation-lagrange-multipliers-6",
+              "name": "Lagrange multipliers"
+            },
+            {
+              "id": "output-state-representation-constitutive-quantities-7",
+              "name": "Constitutive quantities"
+            },
+            {
+              "id": "output-state-representation-unknown-coefficients-8",
+              "name": "Unknown coefficients"
+            },
+            {
+              "id": "output-state-representation-hidden-physical-parameters-9",
+              "name": "Hidden physical parameters"
+            },
+            {
+              "id": "output-state-representation-latent-states-10",
+              "name": "Latent states"
+            }
+          ]
+        },
+        {
+          "id": "output-formulations",
+          "title": "Output formulations",
+          "items": [
+            {
+              "id": "output-state-representation-primitive-variable-formulation-1",
+              "name": "Primitive-variable formulation"
+            },
+            {
+              "id": "output-state-representation-mixed-variable-formulation-2",
+              "name": "Mixed-variable formulation"
+            },
+            {
+              "id": "output-state-representation-streamfunction-formulation-3",
+              "name": "Streamfunction formulation"
+            },
+            {
+              "id": "output-state-representation-stress-displacement-formulation-4",
+              "name": "Stress-displacement formulation"
+            },
+            {
+              "id": "output-state-representation-state-parameter-joint-formulation-5",
+              "name": "State-parameter joint formulation"
+            },
+            {
+              "id": "output-state-representation-complex-valued-representation-6",
+              "name": "Complex-valued representation"
+            },
+            {
+              "id": "output-state-representation-real-imaginary-separated-representation-7",
+              "name": "Real/imaginary separated representation"
+            },
+            {
+              "id": "output-state-representation-bounded-output-transformation-8",
+              "name": "Bounded-output transformation"
+            },
+            {
+              "id": "output-state-representation-positive-output-transformation-9",
+              "name": "Positive-output transformation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "neural-architecture-approximation-model",
+      "title": "Neural Architecture / Approximation Model",
+      "layerId": "representation",
+      "description": "This is what people usually think of first when they say “PINN architecture,” but it is only one branch.",
+      "itemCount": 38,
+      "subgroups": [
+        {
+          "id": "classical-architecture",
+          "title": "Classical architecture",
+          "items": [
+            {
+              "id": "neural-architecture-approximation-model-fully-connected-neural-network-1",
+              "name": "Fully connected neural network"
+            },
+            {
+              "id": "neural-architecture-approximation-model-multilayer-perceptron-mlp-2",
+              "name": "Multilayer perceptron — MLP"
+            },
+            {
+              "id": "neural-architecture-approximation-model-feedforward-neural-network-3",
+              "name": "Feedforward neural network"
+            }
+          ]
+        },
+        {
+          "id": "deep-learning-architectures",
+          "title": "Deep-learning architectures",
+          "items": [
+            {
+              "id": "neural-architecture-approximation-model-cnn-1",
+              "name": "CNN"
+            },
+            {
+              "id": "neural-architecture-approximation-model-u-net-2",
+              "name": "U-Net"
+            },
+            {
+              "id": "neural-architecture-approximation-model-encoder-decoder-3",
+              "name": "Encoder-decoder"
+            },
+            {
+              "id": "neural-architecture-approximation-model-rnn-4",
+              "name": "RNN"
+            },
+            {
+              "id": "neural-architecture-approximation-model-lstm-5",
+              "name": "LSTM"
+            },
+            {
+              "id": "neural-architecture-approximation-model-gru-6",
+              "name": "GRU"
+            },
+            {
+              "id": "neural-architecture-approximation-model-transformer-7",
+              "name": "Transformer"
+            },
+            {
+              "id": "neural-architecture-approximation-model-attention-network-8",
+              "name": "Attention network"
+            },
+            {
+              "id": "neural-architecture-approximation-model-graph-neural-network-gnn-9",
+              "name": "Graph neural network — GNN"
+            },
+            {
+              "id": "neural-architecture-approximation-model-graph-convolutional-network-10",
+              "name": "Graph convolutional network"
+            },
+            {
+              "id": "neural-architecture-approximation-model-graph-attention-network-11",
+              "name": "Graph attention network"
+            },
+            {
+              "id": "neural-architecture-approximation-model-pointnet-12",
+              "name": "PointNet"
+            },
+            {
+              "id": "neural-architecture-approximation-model-point-cloud-network-13",
+              "name": "Point-cloud network"
+            }
+          ]
+        },
+        {
+          "id": "structured-pinn-architectures",
+          "title": "Structured PINN architectures",
+          "items": [
+            {
+              "id": "neural-architecture-approximation-model-residual-networks-1",
+              "name": "Residual networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-low-rank-networks-2",
+              "name": "Low-rank networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-multi-network-pinns-3",
+              "name": "Multi-network PINNs"
+            },
+            {
+              "id": "neural-architecture-approximation-model-branching-networks-4",
+              "name": "Branching networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-shared-network-architectures-5",
+              "name": "Shared-network architectures"
+            },
+            {
+              "id": "neural-architecture-approximation-model-gated-networks-6",
+              "name": "Gated networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-hypernetworks-7",
+              "name": "Hypernetworks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-parameterized-pinns-8",
+              "name": "Parameterized PINNs"
+            }
+          ]
+        },
+        {
+          "id": "alternative-representations",
+          "title": "Alternative representations",
+          "items": [
+            {
+              "id": "neural-architecture-approximation-model-radial-basis-function-networks-1",
+              "name": "Radial basis function networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-kolmogorov-arnold-networks-kans-2",
+              "name": "Kolmogorov-Arnold networks — KANs"
+            },
+            {
+              "id": "neural-architecture-approximation-model-siren-3",
+              "name": "SIREN"
+            },
+            {
+              "id": "neural-architecture-approximation-model-fourier-feature-networks-4",
+              "name": "Fourier-feature networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-gabor-based-networks-5",
+              "name": "Gabor-based networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-discrete-cosine-networks-6",
+              "name": "Discrete cosine networks"
+            },
+            {
+              "id": "neural-architecture-approximation-model-kernel-based-representations-7",
+              "name": "Kernel-based representations"
+            },
+            {
+              "id": "neural-architecture-approximation-model-physics-derived-basis-functions-8",
+              "name": "Physics-derived basis functions"
+            }
+          ]
+        },
+        {
+          "id": "reduced-representations",
+          "title": "Reduced representations",
+          "items": [
+            {
+              "id": "neural-architecture-approximation-model-pod-based-models-1",
+              "name": "POD-based models"
+            },
+            {
+              "id": "neural-architecture-approximation-model-reduced-basis-models-2",
+              "name": "Reduced-basis models"
+            },
+            {
+              "id": "neural-architecture-approximation-model-tensor-decomposition-3",
+              "name": "Tensor decomposition"
+            },
+            {
+              "id": "neural-architecture-approximation-model-separation-of-variables-architectures-4",
+              "name": "Separation-of-variables architectures"
+            },
+            {
+              "id": "neural-architecture-approximation-model-low-rank-representations-5",
+              "name": "Low-rank representations"
+            },
+            {
+              "id": "neural-architecture-approximation-model-latent-space-models-6",
+              "name": "Latent-space models"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "network-hyperparameters",
+      "title": "Network Hyperparameters",
+      "layerId": "representation",
+      "description": "This should be a subordinate branch under architecture.",
+      "itemCount": 15,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "network-hyperparameters-number-of-hidden-layers-1",
+              "name": "Number of hidden layers"
+            },
+            {
+              "id": "network-hyperparameters-number-of-neurons-2",
+              "name": "Number of neurons"
+            },
+            {
+              "id": "network-hyperparameters-network-width-3",
+              "name": "Network width"
+            },
+            {
+              "id": "network-hyperparameters-network-depth-4",
+              "name": "Network depth"
+            },
+            {
+              "id": "network-hyperparameters-number-of-subnetworks-5",
+              "name": "Number of subnetworks"
+            },
+            {
+              "id": "network-hyperparameters-number-of-branches-6",
+              "name": "Number of branches"
+            },
+            {
+              "id": "network-hyperparameters-latent-dimension-7",
+              "name": "Latent dimension"
+            },
+            {
+              "id": "network-hyperparameters-parameter-count-8",
+              "name": "Parameter count"
+            },
+            {
+              "id": "network-hyperparameters-connectivity-9",
+              "name": "Connectivity"
+            },
+            {
+              "id": "network-hyperparameters-shared-vs-separate-parameters-10",
+              "name": "Shared vs separate parameters"
+            },
+            {
+              "id": "network-hyperparameters-network-topology-11",
+              "name": "Network topology"
+            },
+            {
+              "id": "network-hyperparameters-neural-architecture-search-12",
+              "name": "Neural architecture search"
+            },
+            {
+              "id": "network-hyperparameters-automated-architecture-design-13",
+              "name": "Automated architecture design"
+            },
+            {
+              "id": "network-hyperparameters-autopinn-type-configuration-14",
+              "name": "AutoPINN-type configuration"
+            },
+            {
+              "id": "network-hyperparameters-differentiable-architecture-search-15",
+              "name": "Differentiable architecture search"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "activation-function",
+      "title": "Activation Function",
+      "layerId": "representation",
+      "description": "Definitely one of the major PINN elements.",
+      "itemCount": 27,
+      "subgroups": [
+        {
+          "id": "conventional",
+          "title": "Conventional",
+          "items": [
+            {
+              "id": "activation-function-tanh-1",
+              "name": "tanh"
+            },
+            {
+              "id": "activation-function-sigmoid-2",
+              "name": "sigmoid"
+            },
+            {
+              "id": "activation-function-relu-3",
+              "name": "ReLU"
+            },
+            {
+              "id": "activation-function-leaky-relu-4",
+              "name": "Leaky ReLU"
+            },
+            {
+              "id": "activation-function-prelu-5",
+              "name": "PReLU"
+            },
+            {
+              "id": "activation-function-softplus-6",
+              "name": "Softplus"
+            },
+            {
+              "id": "activation-function-elu-selu-7",
+              "name": "ELU/SELU"
+            }
+          ]
+        },
+        {
+          "id": "modern-smooth-activations",
+          "title": "Modern smooth activations",
+          "items": [
+            {
+              "id": "activation-function-silu-1",
+              "name": "SiLU"
+            },
+            {
+              "id": "activation-function-swish-2",
+              "name": "Swish"
+            },
+            {
+              "id": "activation-function-gelu-3",
+              "name": "GELU"
+            }
+          ]
+        },
+        {
+          "id": "oscillatory-spectral",
+          "title": "Oscillatory / spectral",
+          "items": [
+            {
+              "id": "activation-function-sine-1",
+              "name": "sine"
+            },
+            {
+              "id": "activation-function-sinusoidal-activation-2",
+              "name": "sinusoidal activation"
+            },
+            {
+              "id": "activation-function-siren-3",
+              "name": "SIREN"
+            },
+            {
+              "id": "activation-function-fourier-based-activation-features-4",
+              "name": "Fourier-based activation/features"
+            }
+          ]
+        },
+        {
+          "id": "adaptive",
+          "title": "Adaptive",
+          "items": [
+            {
+              "id": "activation-function-adaptive-tanh-1",
+              "name": "adaptive tanh"
+            },
+            {
+              "id": "activation-function-adaptive-swish-2",
+              "name": "adaptive Swish"
+            },
+            {
+              "id": "activation-function-adaptive-slope-activation-3",
+              "name": "adaptive slope activation"
+            },
+            {
+              "id": "activation-function-neuron-wise-adaptive-activation-4",
+              "name": "neuron-wise adaptive activation"
+            },
+            {
+              "id": "activation-function-layer-wise-adaptive-activation-5",
+              "name": "layer-wise adaptive activation"
+            },
+            {
+              "id": "activation-function-adaptive-piecewise-linear-activation-6",
+              "name": "adaptive piecewise-linear activation"
+            }
+          ]
+        },
+        {
+          "id": "alternative-composite",
+          "title": "Alternative / composite",
+          "items": [
+            {
+              "id": "activation-function-rbf-1",
+              "name": "RBF"
+            },
+            {
+              "id": "activation-function-gabor-2",
+              "name": "Gabor"
+            },
+            {
+              "id": "activation-function-pade-based-3",
+              "name": "Padé-based"
+            },
+            {
+              "id": "activation-function-taylor-based-4",
+              "name": "Taylor-based"
+            },
+            {
+              "id": "activation-function-fourier-mixtures-5",
+              "name": "Fourier mixtures"
+            },
+            {
+              "id": "activation-function-kernelized-mixtures-6",
+              "name": "kernelized mixtures"
+            },
+            {
+              "id": "activation-function-hybrid-activation-combinations-7",
+              "name": "hybrid activation combinations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "physics-enforcement-mechanism",
+      "title": "Physics-Enforcement Mechanism",
+      "layerId": "enforcement",
+      "description": "This deserves a major branch of its own.",
+      "itemCount": 27,
+      "subgroups": [
+        {
+          "id": "soft-enforcement",
+          "title": "Soft enforcement",
+          "items": [
+            {
+              "id": "physics-enforcement-mechanism-penalty-based-enforcement-1",
+              "name": "Penalty-based enforcement"
+            },
+            {
+              "id": "physics-enforcement-mechanism-pde-residual-2",
+              "name": "PDE residual"
+            },
+            {
+              "id": "physics-enforcement-mechanism-ode-residual-3",
+              "name": "ODE residual"
+            },
+            {
+              "id": "physics-enforcement-mechanism-data-mismatch-4",
+              "name": "Data mismatch"
+            },
+            {
+              "id": "physics-enforcement-mechanism-boundary-condition-loss-5",
+              "name": "Boundary-condition loss"
+            },
+            {
+              "id": "physics-enforcement-mechanism-initial-condition-loss-6",
+              "name": "Initial-condition loss"
+            },
+            {
+              "id": "physics-enforcement-mechanism-interface-loss-7",
+              "name": "Interface loss"
+            },
+            {
+              "id": "physics-enforcement-mechanism-constitutive-loss-8",
+              "name": "Constitutive loss"
+            },
+            {
+              "id": "physics-enforcement-mechanism-conservation-loss-9",
+              "name": "Conservation loss"
+            }
+          ]
+        },
+        {
+          "id": "hard-enforcement",
+          "title": "Hard enforcement",
+          "items": [
+            {
+              "id": "physics-enforcement-mechanism-hard-boundary-constraints-1",
+              "name": "Hard boundary constraints"
+            },
+            {
+              "id": "physics-enforcement-mechanism-hard-initial-constraints-2",
+              "name": "Hard initial constraints"
+            },
+            {
+              "id": "physics-enforcement-mechanism-output-transformation-3",
+              "name": "Output transformation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-trial-test-solution-construction-4",
+              "name": "Trial/test-solution construction"
+            },
+            {
+              "id": "physics-enforcement-mechanism-distance-function-construction-5",
+              "name": "Distance-function construction"
+            },
+            {
+              "id": "physics-enforcement-mechanism-automatic-boundary-fitting-6",
+              "name": "Automatic boundary fitting"
+            },
+            {
+              "id": "physics-enforcement-mechanism-boundary-satisfying-ansatz-7",
+              "name": "Boundary-satisfying ansatz"
+            },
+            {
+              "id": "physics-enforcement-mechanism-constraint-aware-architecture-8",
+              "name": "Constraint-aware architecture"
+            }
+          ]
+        },
+        {
+          "id": "alternative-physics-formulations",
+          "title": "Alternative physics formulations",
+          "items": [
+            {
+              "id": "physics-enforcement-mechanism-strong-form-1",
+              "name": "Strong form"
+            },
+            {
+              "id": "physics-enforcement-mechanism-weak-form-2",
+              "name": "Weak form"
+            },
+            {
+              "id": "physics-enforcement-mechanism-variational-formulation-3",
+              "name": "Variational formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-energy-formulation-4",
+              "name": "Energy formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-galerkin-formulation-5",
+              "name": "Galerkin formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-integral-formulation-6",
+              "name": "Integral formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-boundary-integral-formulation-7",
+              "name": "Boundary-integral formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-finite-volume-informed-formulation-8",
+              "name": "Finite-volume-informed formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-discretization-aware-formulation-9",
+              "name": "Discretization-aware formulation"
+            },
+            {
+              "id": "physics-enforcement-mechanism-solver-in-the-loop-formulation-10",
+              "name": "Solver-in-the-loop formulation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "physical-constraints",
+      "title": "Physical Constraints",
+      "layerId": "enforcement",
+      "description": "Separate this from the mechanism used to enforce them.",
+      "itemCount": 34,
+      "subgroups": [
+        {
+          "id": "standard",
+          "title": "Standard",
+          "items": [
+            {
+              "id": "physical-constraints-governing-equation-1",
+              "name": "Governing equation"
+            },
+            {
+              "id": "physical-constraints-initial-conditions-2",
+              "name": "Initial conditions"
+            },
+            {
+              "id": "physical-constraints-boundary-conditions-3",
+              "name": "Boundary conditions"
+            },
+            {
+              "id": "physical-constraints-interface-conditions-4",
+              "name": "Interface conditions"
+            }
+          ]
+        },
+        {
+          "id": "boundary-condition-types",
+          "title": "Boundary-condition types",
+          "items": [
+            {
+              "id": "physical-constraints-dirichlet-1",
+              "name": "Dirichlet"
+            },
+            {
+              "id": "physical-constraints-neumann-2",
+              "name": "Neumann"
+            },
+            {
+              "id": "physical-constraints-robin-3",
+              "name": "Robin"
+            },
+            {
+              "id": "physical-constraints-periodic-4",
+              "name": "Periodic"
+            },
+            {
+              "id": "physical-constraints-no-slip-5",
+              "name": "No-slip"
+            },
+            {
+              "id": "physical-constraints-traction-6",
+              "name": "Traction"
+            },
+            {
+              "id": "physical-constraints-flux-7",
+              "name": "Flux"
+            },
+            {
+              "id": "physical-constraints-radiation-8",
+              "name": "Radiation"
+            },
+            {
+              "id": "physical-constraints-absorbing-9",
+              "name": "Absorbing"
+            },
+            {
+              "id": "physical-constraints-perfectly-conducting-10",
+              "name": "Perfectly conducting"
+            }
+          ]
+        },
+        {
+          "id": "additional-physical-constraints",
+          "title": "Additional physical constraints",
+          "items": [
+            {
+              "id": "physical-constraints-conservation-1",
+              "name": "Conservation"
+            },
+            {
+              "id": "physical-constraints-flux-continuity-2",
+              "name": "Flux continuity"
+            },
+            {
+              "id": "physical-constraints-traction-continuity-3",
+              "name": "Traction continuity"
+            },
+            {
+              "id": "physical-constraints-mass-balance-4",
+              "name": "Mass balance"
+            },
+            {
+              "id": "physical-constraints-energy-balance-5",
+              "name": "Energy balance"
+            },
+            {
+              "id": "physical-constraints-incompressibility-6",
+              "name": "Incompressibility"
+            },
+            {
+              "id": "physical-constraints-constitutive-consistency-7",
+              "name": "Constitutive consistency"
+            },
+            {
+              "id": "physical-constraints-symmetry-8",
+              "name": "Symmetry"
+            },
+            {
+              "id": "physical-constraints-reciprocity-9",
+              "name": "Reciprocity"
+            },
+            {
+              "id": "physical-constraints-positive-definiteness-10",
+              "name": "Positive definiteness"
+            },
+            {
+              "id": "physical-constraints-positivity-11",
+              "name": "Positivity"
+            },
+            {
+              "id": "physical-constraints-boundedness-12",
+              "name": "Boundedness"
+            },
+            {
+              "id": "physical-constraints-monotonicity-13",
+              "name": "Monotonicity"
+            },
+            {
+              "id": "physical-constraints-smoothness-14",
+              "name": "Smoothness"
+            },
+            {
+              "id": "physical-constraints-entropy-condition-15",
+              "name": "Entropy condition"
+            },
+            {
+              "id": "physical-constraints-admissibility-condition-16",
+              "name": "Admissibility condition"
+            },
+            {
+              "id": "physical-constraints-stability-constraints-17",
+              "name": "Stability constraints"
+            },
+            {
+              "id": "physical-constraints-inequality-constraints-18",
+              "name": "Inequality constraints"
+            },
+            {
+              "id": "physical-constraints-operational-constraints-19",
+              "name": "Operational constraints"
+            },
+            {
+              "id": "physical-constraints-kkt-consistency-20",
+              "name": "KKT consistency"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "loss-function-objective-construction",
+      "title": "Loss Function / Objective Construction",
+      "layerId": "enforcement",
+      "description": "Another central branch.",
+      "itemCount": 25,
+      "subgroups": [
+        {
+          "id": "base-components",
+          "title": "Base components",
+          "items": [
+            {
+              "id": "loss-function-objective-construction-pde-loss-1",
+              "name": "PDE loss"
+            },
+            {
+              "id": "loss-function-objective-construction-ode-loss-2",
+              "name": "ODE loss"
+            },
+            {
+              "id": "loss-function-objective-construction-data-loss-3",
+              "name": "Data loss"
+            },
+            {
+              "id": "loss-function-objective-construction-ic-loss-4",
+              "name": "IC loss"
+            },
+            {
+              "id": "loss-function-objective-construction-bc-loss-5",
+              "name": "BC loss"
+            },
+            {
+              "id": "loss-function-objective-construction-interface-loss-6",
+              "name": "Interface loss"
+            },
+            {
+              "id": "loss-function-objective-construction-auxiliary-loss-7",
+              "name": "Auxiliary loss"
+            },
+            {
+              "id": "loss-function-objective-construction-constitutive-loss-8",
+              "name": "Constitutive loss"
+            },
+            {
+              "id": "loss-function-objective-construction-conservation-loss-9",
+              "name": "Conservation loss"
+            }
+          ]
+        },
+        {
+          "id": "extended-losses",
+          "title": "Extended losses",
+          "items": [
+            {
+              "id": "loss-function-objective-construction-gradient-enhanced-residual-1",
+              "name": "Gradient-enhanced residual"
+            },
+            {
+              "id": "loss-function-objective-construction-entropy-loss-2",
+              "name": "Entropy loss"
+            },
+            {
+              "id": "loss-function-objective-construction-energy-loss-3",
+              "name": "Energy loss"
+            },
+            {
+              "id": "loss-function-objective-construction-variational-loss-4",
+              "name": "Variational loss"
+            },
+            {
+              "id": "loss-function-objective-construction-weak-form-loss-5",
+              "name": "Weak-form loss"
+            },
+            {
+              "id": "loss-function-objective-construction-integral-residual-6",
+              "name": "Integral residual"
+            },
+            {
+              "id": "loss-function-objective-construction-flux-residual-7",
+              "name": "Flux residual"
+            },
+            {
+              "id": "loss-function-objective-construction-discrete-conservation-loss-8",
+              "name": "Discrete conservation loss"
+            },
+            {
+              "id": "loss-function-objective-construction-inequality-loss-9",
+              "name": "Inequality loss"
+            },
+            {
+              "id": "loss-function-objective-construction-regularization-loss-10",
+              "name": "Regularization loss"
+            },
+            {
+              "id": "loss-function-objective-construction-probabilistic-likelihood-11",
+              "name": "Probabilistic likelihood"
+            },
+            {
+              "id": "loss-function-objective-construction-adversarial-objective-12",
+              "name": "Adversarial objective"
+            }
+          ]
+        },
+        {
+          "id": "objective-structure",
+          "title": "Objective structure",
+          "items": [
+            {
+              "id": "loss-function-objective-construction-single-objective-1",
+              "name": "Single objective"
+            },
+            {
+              "id": "loss-function-objective-construction-composite-loss-2",
+              "name": "Composite loss"
+            },
+            {
+              "id": "loss-function-objective-construction-multi-objective-loss-3",
+              "name": "Multi-objective loss"
+            },
+            {
+              "id": "loss-function-objective-construction-constrained-optimization-objective-4",
+              "name": "Constrained optimization objective"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "loss-weighting-balancing",
+      "title": "Loss Weighting / Balancing",
+      "layerId": "enforcement",
+      "description": "This should not be merged with the loss itself.",
+      "itemCount": 20,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "loss-weighting-balancing-fixed-weights-1",
+              "name": "Fixed weights"
+            },
+            {
+              "id": "loss-weighting-balancing-manual-weighting-2",
+              "name": "Manual weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-adaptive-weighting-3",
+              "name": "Adaptive weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-dynamic-weighting-4",
+              "name": "Dynamic weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-self-adaptive-weights-5",
+              "name": "Self-adaptive weights"
+            },
+            {
+              "id": "loss-weighting-balancing-pointwise-adaptive-weights-6",
+              "name": "Pointwise adaptive weights"
+            },
+            {
+              "id": "loss-weighting-balancing-gradient-norm-balancing-7",
+              "name": "Gradient-norm balancing"
+            },
+            {
+              "id": "loss-weighting-balancing-gradient-based-weighting-8",
+              "name": "Gradient-based weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-loss-ratio-weighting-9",
+              "name": "Loss-ratio weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-ntk-based-weighting-10",
+              "name": "NTK-based weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-uncertainty-based-weighting-11",
+              "name": "Uncertainty-based weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-credibility-based-weighting-12",
+              "name": "Credibility-based weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-adversarial-weighting-13",
+              "name": "Adversarial weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-minimax-weighting-14",
+              "name": "Minimax weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-multi-objective-weighting-15",
+              "name": "Multi-objective weighting"
+            },
+            {
+              "id": "loss-weighting-balancing-pareto-based-treatment-16",
+              "name": "Pareto-based treatment"
+            },
+            {
+              "id": "loss-weighting-balancing-augmented-lagrangian-17",
+              "name": "Augmented Lagrangian"
+            },
+            {
+              "id": "loss-weighting-balancing-lagrange-multipliers-18",
+              "name": "Lagrange multipliers"
+            },
+            {
+              "id": "loss-weighting-balancing-continuation-of-physics-weights-19",
+              "name": "Continuation of physics weights"
+            },
+            {
+              "id": "loss-weighting-balancing-learnable-penalty-coefficients-20",
+              "name": "Learnable penalty coefficients"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "differentiation-differential-operator-evaluation",
+      "title": "Differentiation / Differential-Operator Evaluation",
+      "layerId": "operators",
+      "description": "Another major PINN element.",
+      "itemCount": 24,
+      "subgroups": [
+        {
+          "id": "automatic-differentiation",
+          "title": "Automatic differentiation",
+          "items": [
+            {
+              "id": "differentiation-differential-operator-evaluation-ad-1",
+              "name": "AD"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-forward-mode-ad-2",
+              "name": "Forward-mode AD"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-reverse-mode-ad-3",
+              "name": "Reverse-mode AD"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-higher-order-ad-4",
+              "name": "Higher-order AD"
+            }
+          ]
+        },
+        {
+          "id": "numerical-differentiation",
+          "title": "Numerical differentiation",
+          "items": [
+            {
+              "id": "differentiation-differential-operator-evaluation-finite-difference-1",
+              "name": "Finite difference"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-finite-volume-2",
+              "name": "Finite volume"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-discrete-operators-3",
+              "name": "Discrete operators"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-grid-based-derivatives-4",
+              "name": "Grid-based derivatives"
+            }
+          ]
+        },
+        {
+          "id": "hybrid-approaches",
+          "title": "Hybrid approaches",
+          "items": [
+            {
+              "id": "differentiation-differential-operator-evaluation-ad-numerical-differentiation-1",
+              "name": "AD + numerical differentiation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-mixed-automatic-numerical-differentiation-2",
+              "name": "Mixed automatic-numerical differentiation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-spectral-differentiation-3",
+              "name": "Spectral differentiation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-physics-derived-derivatives-4",
+              "name": "Physics-derived derivatives"
+            }
+          ]
+        },
+        {
+          "id": "efficiency-oriented-differentiation",
+          "title": "Efficiency-oriented differentiation",
+          "items": [
+            {
+              "id": "differentiation-differential-operator-evaluation-closed-form-gradients-1",
+              "name": "Closed-form gradients"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-domain-decoupled-gradients-2",
+              "name": "Domain-decoupled gradients"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-first-order-reformulation-3",
+              "name": "First-order reformulation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-mixed-variable-formulation-4",
+              "name": "Mixed-variable formulation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-auxiliary-derivative-outputs-5",
+              "name": "Auxiliary derivative outputs"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-hessian-vector-products-6",
+              "name": "Hessian-vector products"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-taylor-mode-differentiation-7",
+              "name": "Taylor-mode differentiation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-stochastic-trace-estimation-8",
+              "name": "Stochastic trace estimation"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-learned-differential-operators-9",
+              "name": "Learned differential operators"
+            }
+          ]
+        },
+        {
+          "id": "time-discrete-treatment",
+          "title": "Time-discrete treatment",
+          "items": [
+            {
+              "id": "differentiation-differential-operator-evaluation-runge-kutta-1",
+              "name": "Runge-Kutta"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-implicit-runge-kutta-2",
+              "name": "Implicit Runge-Kutta"
+            },
+            {
+              "id": "differentiation-differential-operator-evaluation-time-stepping-residuals-3",
+              "name": "Time-stepping residuals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "collocation-sampling",
+      "title": "Collocation / Sampling",
+      "layerId": "training",
+      "description": "Your example of sampler should become this entire branch.",
+      "itemCount": 34,
+      "subgroups": [
+        {
+          "id": "point-type",
+          "title": "Point type",
+          "items": [
+            {
+              "id": "collocation-sampling-interior-collocation-points-1",
+              "name": "Interior collocation points"
+            },
+            {
+              "id": "collocation-sampling-boundary-points-2",
+              "name": "Boundary points"
+            },
+            {
+              "id": "collocation-sampling-initial-condition-points-3",
+              "name": "Initial-condition points"
+            },
+            {
+              "id": "collocation-sampling-interface-points-4",
+              "name": "Interface points"
+            },
+            {
+              "id": "collocation-sampling-observation-data-points-5",
+              "name": "Observation/data points"
+            },
+            {
+              "id": "collocation-sampling-measurement-points-6",
+              "name": "Measurement points"
+            },
+            {
+              "id": "collocation-sampling-quadrature-points-7",
+              "name": "Quadrature points"
+            }
+          ]
+        },
+        {
+          "id": "basic-sampling",
+          "title": "Basic sampling",
+          "items": [
+            {
+              "id": "collocation-sampling-uniform-grid-1",
+              "name": "Uniform grid"
+            },
+            {
+              "id": "collocation-sampling-random-sampling-2",
+              "name": "Random sampling"
+            },
+            {
+              "id": "collocation-sampling-uniform-random-sampling-3",
+              "name": "Uniform random sampling"
+            },
+            {
+              "id": "collocation-sampling-latin-hypercube-sampling-4",
+              "name": "Latin hypercube sampling"
+            },
+            {
+              "id": "collocation-sampling-sobol-sampling-5",
+              "name": "Sobol sampling"
+            },
+            {
+              "id": "collocation-sampling-low-discrepancy-sampling-6",
+              "name": "Low-discrepancy sampling"
+            },
+            {
+              "id": "collocation-sampling-mesh-node-sampling-7",
+              "name": "Mesh-node sampling"
+            },
+            {
+              "id": "collocation-sampling-full-grid-sampling-8",
+              "name": "Full-grid sampling"
+            },
+            {
+              "id": "collocation-sampling-quadrature-sampling-9",
+              "name": "Quadrature sampling"
+            }
+          ]
+        },
+        {
+          "id": "structured-sampling",
+          "title": "Structured sampling",
+          "items": [
+            {
+              "id": "collocation-sampling-sparse-grid-sampling-1",
+              "name": "Sparse-grid sampling"
+            },
+            {
+              "id": "collocation-sampling-mesh-assisted-sampling-2",
+              "name": "Mesh-assisted sampling"
+            },
+            {
+              "id": "collocation-sampling-geometry-aware-sampling-3",
+              "name": "Geometry-aware sampling"
+            },
+            {
+              "id": "collocation-sampling-interface-aware-sampling-4",
+              "name": "Interface-aware sampling"
+            }
+          ]
+        },
+        {
+          "id": "adaptive-sampling",
+          "title": "Adaptive sampling",
+          "items": [
+            {
+              "id": "collocation-sampling-residual-based-sampling-1",
+              "name": "Residual-based sampling"
+            },
+            {
+              "id": "collocation-sampling-residual-driven-resampling-2",
+              "name": "Residual-driven resampling"
+            },
+            {
+              "id": "collocation-sampling-importance-sampling-3",
+              "name": "Importance sampling"
+            },
+            {
+              "id": "collocation-sampling-gradient-based-sampling-4",
+              "name": "Gradient-based sampling"
+            },
+            {
+              "id": "collocation-sampling-distribution-aware-sampling-5",
+              "name": "Distribution-aware sampling"
+            },
+            {
+              "id": "collocation-sampling-error-focused-sampling-6",
+              "name": "Error-focused sampling"
+            },
+            {
+              "id": "collocation-sampling-high-residual-region-refinement-7",
+              "name": "High-residual-region refinement"
+            },
+            {
+              "id": "collocation-sampling-shock-focused-sampling-8",
+              "name": "Shock-focused sampling"
+            },
+            {
+              "id": "collocation-sampling-boundary-layer-sampling-9",
+              "name": "Boundary-layer sampling"
+            },
+            {
+              "id": "collocation-sampling-near-interface-refinement-10",
+              "name": "Near-interface refinement"
+            },
+            {
+              "id": "collocation-sampling-near-wall-refinement-11",
+              "name": "Near-wall refinement"
+            },
+            {
+              "id": "collocation-sampling-dynamic-resampling-12",
+              "name": "Dynamic resampling"
+            },
+            {
+              "id": "collocation-sampling-adaptive-grid-sampling-13",
+              "name": "Adaptive-grid sampling"
+            },
+            {
+              "id": "collocation-sampling-causal-sampling-14",
+              "name": "Causal sampling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "optimizer",
+      "title": "Optimizer",
+      "layerId": "training",
+      "description": "A major branch.",
+      "itemCount": 28,
+      "subgroups": [
+        {
+          "id": "first-order",
+          "title": "First-order",
+          "items": [
+            {
+              "id": "optimizer-gradient-descent-1",
+              "name": "Gradient descent"
+            },
+            {
+              "id": "optimizer-full-batch-gradient-descent-2",
+              "name": "Full-batch gradient descent"
+            },
+            {
+              "id": "optimizer-mini-batch-gradient-descent-3",
+              "name": "Mini-batch gradient descent"
+            },
+            {
+              "id": "optimizer-adam-4",
+              "name": "Adam"
+            },
+            {
+              "id": "optimizer-adam-variants-5",
+              "name": "Adam variants"
+            }
+          ]
+        },
+        {
+          "id": "quasi-newton",
+          "title": "Quasi-Newton",
+          "items": [
+            {
+              "id": "optimizer-l-bfgs-1",
+              "name": "L-BFGS"
+            },
+            {
+              "id": "optimizer-l-bfgs-b-2",
+              "name": "L-BFGS-B"
+            },
+            {
+              "id": "optimizer-bfgs-3",
+              "name": "BFGS"
+            },
+            {
+              "id": "optimizer-self-scaled-bfgs-4",
+              "name": "Self-scaled BFGS"
+            },
+            {
+              "id": "optimizer-broyden-type-methods-5",
+              "name": "Broyden-type methods"
+            }
+          ]
+        },
+        {
+          "id": "second-order-curvature-oriented",
+          "title": "Second-order / curvature-oriented",
+          "items": [
+            {
+              "id": "optimizer-newton-1",
+              "name": "Newton"
+            },
+            {
+              "id": "optimizer-newton-cg-2",
+              "name": "Newton-CG"
+            },
+            {
+              "id": "optimizer-levenberg-marquardt-3",
+              "name": "Levenberg-Marquardt"
+            },
+            {
+              "id": "optimizer-conjugate-gradient-methods-4",
+              "name": "Conjugate-gradient methods"
+            },
+            {
+              "id": "optimizer-curvature-aware-methods-5",
+              "name": "Curvature-aware methods"
+            }
+          ]
+        },
+        {
+          "id": "other-deterministic",
+          "title": "Other deterministic",
+          "items": [
+            {
+              "id": "optimizer-proximal-gradient-methods-1",
+              "name": "Proximal-gradient methods"
+            },
+            {
+              "id": "optimizer-complex-gradient-descent-2",
+              "name": "Complex gradient descent"
+            },
+            {
+              "id": "optimizer-scaled-conjugate-gradient-methods-3",
+              "name": "Scaled conjugate-gradient methods"
+            }
+          ]
+        },
+        {
+          "id": "global-population-methods",
+          "title": "Global / population methods",
+          "items": [
+            {
+              "id": "optimizer-particle-swarm-optimization-1",
+              "name": "Particle swarm optimization"
+            },
+            {
+              "id": "optimizer-differential-evolution-2",
+              "name": "Differential evolution"
+            },
+            {
+              "id": "optimizer-evolutionary-methods-3",
+              "name": "Evolutionary methods"
+            }
+          ]
+        },
+        {
+          "id": "probabilistic-inference-optimizers",
+          "title": "Probabilistic inference optimizers",
+          "items": [
+            {
+              "id": "optimizer-hamiltonian-monte-carlo-1",
+              "name": "Hamiltonian Monte Carlo"
+            },
+            {
+              "id": "optimizer-variational-inference-2",
+              "name": "Variational inference"
+            },
+            {
+              "id": "optimizer-ensemble-kalman-inversion-3",
+              "name": "Ensemble Kalman inversion"
+            }
+          ]
+        },
+        {
+          "id": "hybrid-optimization",
+          "title": "Hybrid optimization",
+          "items": [
+            {
+              "id": "optimizer-adam-l-bfgs-1",
+              "name": "Adam → L-BFGS"
+            },
+            {
+              "id": "optimizer-first-order-second-order-2",
+              "name": "First-order → second-order"
+            },
+            {
+              "id": "optimizer-staged-optimizer-switching-3",
+              "name": "Staged optimizer switching"
+            },
+            {
+              "id": "optimizer-adaptive-optimizer-transitions-4",
+              "name": "Adaptive optimizer transitions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "learning-rate-strategy",
+      "title": "Learning-Rate Strategy",
+      "layerId": "training",
+      "description": "This should be distinct from the optimizer.",
+      "itemCount": 10,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "learning-rate-strategy-fixed-learning-rate-1",
+              "name": "Fixed learning rate"
+            },
+            {
+              "id": "learning-rate-strategy-exponential-decay-2",
+              "name": "Exponential decay"
+            },
+            {
+              "id": "learning-rate-strategy-step-decay-3",
+              "name": "Step decay"
+            },
+            {
+              "id": "learning-rate-strategy-plateau-reduction-4",
+              "name": "Plateau reduction"
+            },
+            {
+              "id": "learning-rate-strategy-cosine-annealing-5",
+              "name": "Cosine annealing"
+            },
+            {
+              "id": "learning-rate-strategy-one-cycle-policy-6",
+              "name": "One-cycle policy"
+            },
+            {
+              "id": "learning-rate-strategy-staged-reduction-7",
+              "name": "Staged reduction"
+            },
+            {
+              "id": "learning-rate-strategy-adaptive-learning-rate-8",
+              "name": "Adaptive learning rate"
+            },
+            {
+              "id": "learning-rate-strategy-layer-wise-learning-rate-9",
+              "name": "Layer-wise learning rate"
+            },
+            {
+              "id": "learning-rate-strategy-curvature-aware-learning-rate-10",
+              "name": "Curvature-aware learning rate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "initialization",
+      "title": "Initialization",
+      "layerId": "training",
+      "description": "Another genuine PINN training element.",
+      "itemCount": 13,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "initialization-random-initialization-1",
+              "name": "Random initialization"
+            },
+            {
+              "id": "initialization-xavier-2",
+              "name": "Xavier"
+            },
+            {
+              "id": "initialization-glorot-3",
+              "name": "Glorot"
+            },
+            {
+              "id": "initialization-he-4",
+              "name": "He"
+            },
+            {
+              "id": "initialization-kaiming-5",
+              "name": "Kaiming"
+            },
+            {
+              "id": "initialization-orthogonal-initialization-6",
+              "name": "Orthogonal initialization"
+            },
+            {
+              "id": "initialization-negative-mean-initialization-7",
+              "name": "Negative-mean initialization"
+            },
+            {
+              "id": "initialization-pseudo-inverse-initialization-8",
+              "name": "Pseudo-inverse initialization"
+            },
+            {
+              "id": "initialization-pretrained-initialization-9",
+              "name": "Pretrained initialization"
+            },
+            {
+              "id": "initialization-transfer-initialization-10",
+              "name": "Transfer initialization"
+            },
+            {
+              "id": "initialization-meta-initialization-11",
+              "name": "Meta-initialization"
+            },
+            {
+              "id": "initialization-physics-informed-initialization-12",
+              "name": "Physics-informed initialization"
+            },
+            {
+              "id": "initialization-operator-pretrained-initialization-13",
+              "name": "Operator-pretrained initialization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "scaling-normalization-preprocessing",
+      "title": "Scaling / Normalization / Preprocessing",
+      "layerId": "training",
+      "description": "Often neglected, but your manuscript correctly treats it as part of the formulation.",
+      "itemCount": 15,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "scaling-normalization-preprocessing-nondimensionalization-1",
+              "name": "Nondimensionalization"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-input-normalization-2",
+              "name": "Input normalization"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-output-normalization-3",
+              "name": "Output normalization"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-standardization-4",
+              "name": "Standardization"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-feature-scaling-5",
+              "name": "Feature scaling"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-coordinate-scaling-6",
+              "name": "Coordinate scaling"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-output-rescaling-7",
+              "name": "Output rescaling"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-physical-unit-restoration-8",
+              "name": "Physical-unit restoration"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-residual-scaling-9",
+              "name": "Residual scaling"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-loss-normalization-10",
+              "name": "Loss normalization"
+            }
+          ]
+        },
+        {
+          "id": "data-preprocessing",
+          "title": "Data preprocessing",
+          "items": [
+            {
+              "id": "scaling-normalization-preprocessing-data-augmentation-1",
+              "name": "Data augmentation"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-noise-injection-2",
+              "name": "Noise injection"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-sliding-windows-3",
+              "name": "Sliding windows"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-train-validation-test-splitting-4",
+              "name": "Train/validation/test splitting"
+            },
+            {
+              "id": "scaling-normalization-preprocessing-synthetic-pretraining-5",
+              "name": "Synthetic pretraining"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "regularization-training-stabilization",
+      "title": "Regularization / Training Stabilization",
+      "layerId": "training",
+      "description": "Controls collocation, optimization, initialization, scaling, stabilization, schedules, and staged learning.",
+      "itemCount": 13,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "regularization-training-stabilization-weight-decay-1",
+              "name": "Weight decay"
+            },
+            {
+              "id": "regularization-training-stabilization-dropout-2",
+              "name": "Dropout"
+            },
+            {
+              "id": "regularization-training-stabilization-gradient-clipping-3",
+              "name": "Gradient clipping"
+            },
+            {
+              "id": "regularization-training-stabilization-batch-normalization-4",
+              "name": "Batch normalization"
+            },
+            {
+              "id": "regularization-training-stabilization-layer-normalization-5",
+              "name": "Layer normalization"
+            },
+            {
+              "id": "regularization-training-stabilization-moving-average-weights-6",
+              "name": "Moving-average weights"
+            },
+            {
+              "id": "regularization-training-stabilization-early-stopping-7",
+              "name": "Early stopping"
+            },
+            {
+              "id": "regularization-training-stabilization-slope-recovery-8",
+              "name": "Slope recovery"
+            },
+            {
+              "id": "regularization-training-stabilization-lipschitz-regularization-9",
+              "name": "Lipschitz regularization"
+            },
+            {
+              "id": "regularization-training-stabilization-minimax-regularization-10",
+              "name": "Minimax regularization"
+            },
+            {
+              "id": "regularization-training-stabilization-gradient-projection-11",
+              "name": "Gradient projection"
+            },
+            {
+              "id": "regularization-training-stabilization-dynamic-pulling-12",
+              "name": "Dynamic pulling"
+            },
+            {
+              "id": "regularization-training-stabilization-restart-strategies-13",
+              "name": "Restart strategies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "training-strategy",
+      "title": "Training Strategy",
+      "layerId": "training",
+      "description": "This is larger than the optimizer.",
+      "itemCount": 25,
+      "subgroups": [
+        {
+          "id": "basic",
+          "title": "Basic",
+          "items": [
+            {
+              "id": "training-strategy-full-batch-1",
+              "name": "Full-batch"
+            },
+            {
+              "id": "training-strategy-mini-batch-2",
+              "name": "Mini-batch"
+            },
+            {
+              "id": "training-strategy-gradient-based-training-3",
+              "name": "Gradient-based training"
+            }
+          ]
+        },
+        {
+          "id": "staged",
+          "title": "Staged",
+          "items": [
+            {
+              "id": "training-strategy-pretraining-1",
+              "name": "Pretraining"
+            },
+            {
+              "id": "training-strategy-fine-tuning-2",
+              "name": "Fine-tuning"
+            },
+            {
+              "id": "training-strategy-sequential-training-3",
+              "name": "Sequential training"
+            },
+            {
+              "id": "training-strategy-staged-training-4",
+              "name": "Staged training"
+            },
+            {
+              "id": "training-strategy-curriculum-learning-5",
+              "name": "Curriculum learning"
+            },
+            {
+              "id": "training-strategy-continuation-learning-6",
+              "name": "Continuation learning"
+            }
+          ]
+        },
+        {
+          "id": "time-oriented",
+          "title": "Time-oriented",
+          "items": [
+            {
+              "id": "training-strategy-causal-training-1",
+              "name": "Causal training"
+            },
+            {
+              "id": "training-strategy-time-marching-2",
+              "name": "Time marching"
+            },
+            {
+              "id": "training-strategy-temporal-windows-3",
+              "name": "Temporal windows"
+            },
+            {
+              "id": "training-strategy-block-time-marching-4",
+              "name": "Block time marching"
+            },
+            {
+              "id": "training-strategy-progressive-time-horizon-5",
+              "name": "Progressive time horizon"
+            }
+          ]
+        },
+        {
+          "id": "transfer-reuse",
+          "title": "Transfer/reuse",
+          "items": [
+            {
+              "id": "training-strategy-transfer-learning-1",
+              "name": "Transfer learning"
+            },
+            {
+              "id": "training-strategy-meta-learning-2",
+              "name": "Meta-learning"
+            },
+            {
+              "id": "training-strategy-multi-fidelity-learning-3",
+              "name": "Multi-fidelity learning"
+            },
+            {
+              "id": "training-strategy-online-adaptation-4",
+              "name": "Online adaptation"
+            },
+            {
+              "id": "training-strategy-fine-tuning-5",
+              "name": "Fine-tuning"
+            },
+            {
+              "id": "training-strategy-layer-freezing-6",
+              "name": "Layer freezing"
+            },
+            {
+              "id": "training-strategy-pretrained-basis-reuse-7",
+              "name": "Pretrained basis reuse"
+            }
+          ]
+        },
+        {
+          "id": "automated-training",
+          "title": "Automated training",
+          "items": [
+            {
+              "id": "training-strategy-learned-optimizer-1",
+              "name": "Learned optimizer"
+            },
+            {
+              "id": "training-strategy-automatic-hyperparameter-selection-2",
+              "name": "Automatic hyperparameter selection"
+            },
+            {
+              "id": "training-strategy-neural-architecture-search-3",
+              "name": "Neural architecture search"
+            },
+            {
+              "id": "training-strategy-automated-loss-design-4",
+              "name": "Automated loss design"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "decomposition",
+      "title": "Decomposition",
+      "layerId": "extensions",
+      "description": "This is exactly the type of “related approach” that should appear in the general PINN map.",
+      "itemCount": 27,
+      "subgroups": [
+        {
+          "id": "spatial-decomposition",
+          "title": "Spatial decomposition",
+          "items": [
+            {
+              "id": "decomposition-domain-decomposition-1",
+              "name": "Domain decomposition"
+            },
+            {
+              "id": "decomposition-subdomain-pinns-2",
+              "name": "Subdomain PINNs"
+            },
+            {
+              "id": "decomposition-local-pinns-3",
+              "name": "Local PINNs"
+            }
+          ]
+        },
+        {
+          "id": "temporal-decomposition",
+          "title": "Temporal decomposition",
+          "items": [
+            {
+              "id": "decomposition-time-decomposition-1",
+              "name": "Time decomposition"
+            },
+            {
+              "id": "decomposition-temporal-windows-2",
+              "name": "Temporal windows"
+            },
+            {
+              "id": "decomposition-time-marching-3",
+              "name": "Time marching"
+            }
+          ]
+        },
+        {
+          "id": "space-time-decomposition",
+          "title": "Space-time decomposition",
+          "items": [
+            {
+              "id": "decomposition-space-time-subdomains-1",
+              "name": "Space-time subdomains"
+            }
+          ]
+        },
+        {
+          "id": "named-general-variants-appearing-in-the-manuscript",
+          "title": "Named/general variants appearing in the manuscript",
+          "items": [
+            {
+              "id": "decomposition-xpinn-1",
+              "name": "XPINN"
+            },
+            {
+              "id": "decomposition-apinn-2",
+              "name": "APINN"
+            },
+            {
+              "id": "decomposition-conservative-pinn-decomposition-3",
+              "name": "Conservative PINN decomposition"
+            },
+            {
+              "id": "decomposition-extended-pinn-4",
+              "name": "Extended PINN"
+            },
+            {
+              "id": "decomposition-distributed-pinn-5",
+              "name": "Distributed PINN"
+            },
+            {
+              "id": "decomposition-parallel-pinn-6",
+              "name": "Parallel PINN"
+            },
+            {
+              "id": "decomposition-progressive-domain-decomposition-7",
+              "name": "Progressive domain decomposition"
+            },
+            {
+              "id": "decomposition-adaptive-decomposition-8",
+              "name": "Adaptive decomposition"
+            },
+            {
+              "id": "decomposition-soft-decomposition-9",
+              "name": "Soft decomposition"
+            },
+            {
+              "id": "decomposition-gated-decomposition-10",
+              "name": "Gated decomposition"
+            }
+          ]
+        },
+        {
+          "id": "physical-decomposition",
+          "title": "Physical decomposition",
+          "items": [
+            {
+              "id": "decomposition-one-network-per-material-1",
+              "name": "One network per material"
+            },
+            {
+              "id": "decomposition-one-network-per-phase-2",
+              "name": "One network per phase"
+            },
+            {
+              "id": "decomposition-one-network-per-physical-field-3",
+              "name": "One network per physical field"
+            },
+            {
+              "id": "decomposition-matrix-fracture-separation-4",
+              "name": "Matrix/fracture separation"
+            },
+            {
+              "id": "decomposition-state-parameter-network-separation-5",
+              "name": "State/parameter network separation"
+            }
+          ]
+        },
+        {
+          "id": "interface-coupling",
+          "title": "Interface coupling",
+          "items": [
+            {
+              "id": "decomposition-solution-continuity-1",
+              "name": "Solution continuity"
+            },
+            {
+              "id": "decomposition-flux-continuity-2",
+              "name": "Flux continuity"
+            },
+            {
+              "id": "decomposition-residual-continuity-3",
+              "name": "Residual continuity"
+            },
+            {
+              "id": "decomposition-traction-continuity-4",
+              "name": "Traction continuity"
+            },
+            {
+              "id": "decomposition-transmission-conditions-5",
+              "name": "Transmission conditions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "operator-learning",
+      "title": "Operator Learning",
+      "layerId": "extensions",
+      "description": "I would make this a separate neighboring branch rather than place it simply under “architecture.”",
+      "itemCount": 19,
+      "subgroups": [
+        {
+          "id": "approaches",
+          "title": "Approaches",
+          "items": [
+            {
+              "id": "operator-learning-deeponet-1",
+              "name": "DeepONet"
+            },
+            {
+              "id": "operator-learning-physics-informed-deeponet-2",
+              "name": "Physics-informed DeepONet"
+            },
+            {
+              "id": "operator-learning-pi-deeponet-3",
+              "name": "PI-DeepONet"
+            },
+            {
+              "id": "operator-learning-separable-deeponet-4",
+              "name": "Separable DeepONet"
+            },
+            {
+              "id": "operator-learning-variational-deeponet-5",
+              "name": "Variational DeepONet"
+            },
+            {
+              "id": "operator-learning-stacked-deeponet-6",
+              "name": "Stacked DeepONet"
+            },
+            {
+              "id": "operator-learning-fourier-neural-operator-7",
+              "name": "Fourier neural operator"
+            },
+            {
+              "id": "operator-learning-physics-informed-fno-8",
+              "name": "Physics-informed FNO"
+            },
+            {
+              "id": "operator-learning-graph-neural-operator-9",
+              "name": "Graph neural operator"
+            },
+            {
+              "id": "operator-learning-wavelet-neural-operator-10",
+              "name": "Wavelet neural operator"
+            },
+            {
+              "id": "operator-learning-laplace-operator-approaches-11",
+              "name": "Laplace operator approaches"
+            },
+            {
+              "id": "operator-learning-low-rank-operators-12",
+              "name": "Low-rank operators"
+            },
+            {
+              "id": "operator-learning-multiresolution-operators-13",
+              "name": "Multiresolution operators"
+            },
+            {
+              "id": "operator-learning-separable-operator-networks-14",
+              "name": "Separable operator networks"
+            }
+          ]
+        },
+        {
+          "id": "related-approaches",
+          "title": "Related approaches",
+          "items": [
+            {
+              "id": "operator-learning-hypernetwork-pinns-1",
+              "name": "Hypernetwork PINNs"
+            },
+            {
+              "id": "operator-learning-parameterized-pinns-2",
+              "name": "Parameterized PINNs"
+            },
+            {
+              "id": "operator-learning-solution-operator-regularization-3",
+              "name": "Solution-operator regularization"
+            },
+            {
+              "id": "operator-learning-operator-surrogate-4",
+              "name": "Operator surrogate"
+            },
+            {
+              "id": "operator-learning-learned-differential-operator-5",
+              "name": "Learned differential operator"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "reduced-order-basis-approaches",
+      "title": "Reduced-Order / Basis Approaches",
+      "layerId": "extensions",
+      "description": "Closely related but not identical to operator learning.",
+      "itemCount": 12,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "reduced-order-basis-approaches-pod-1",
+              "name": "POD"
+            },
+            {
+              "id": "reduced-order-basis-approaches-reduced-basis-2",
+              "name": "Reduced basis"
+            },
+            {
+              "id": "reduced-order-basis-approaches-deep-reduced-order-models-3",
+              "name": "Deep reduced-order models"
+            },
+            {
+              "id": "reduced-order-basis-approaches-separation-of-variables-4",
+              "name": "Separation of variables"
+            },
+            {
+              "id": "reduced-order-basis-approaches-time-space-separation-5",
+              "name": "Time-space separation"
+            },
+            {
+              "id": "reduced-order-basis-approaches-tensor-decomposition-6",
+              "name": "Tensor decomposition"
+            },
+            {
+              "id": "reduced-order-basis-approaches-svd-compression-7",
+              "name": "SVD compression"
+            },
+            {
+              "id": "reduced-order-basis-approaches-spectral-basis-8",
+              "name": "Spectral basis"
+            },
+            {
+              "id": "reduced-order-basis-approaches-fourier-basis-9",
+              "name": "Fourier basis"
+            },
+            {
+              "id": "reduced-order-basis-approaches-wavelet-basis-10",
+              "name": "Wavelet basis"
+            },
+            {
+              "id": "reduced-order-basis-approaches-rbf-basis-11",
+              "name": "RBF basis"
+            },
+            {
+              "id": "reduced-order-basis-approaches-green-function-basis-12",
+              "name": "Green-function basis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "hybrid-numerical-pinn-methods",
+      "title": "Hybrid Numerical–PINN Methods",
+      "layerId": "extensions",
+      "description": "This is another essential branch for the “general view.”",
+      "itemCount": 17,
+      "subgroups": [
+        {
+          "id": "pinn-classical-numerical-method",
+          "title": "PINN + classical numerical method",
+          "items": [
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-fem-1",
+              "name": "PINN + FEM"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-fvm-2",
+              "name": "PINN + FVM"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-fdm-3",
+              "name": "PINN + FDM"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-boundary-element-integral-method-4",
+              "name": "PINN + boundary element/integral method"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-runge-kutta-5",
+              "name": "PINN + Runge-Kutta"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-finite-volume-residual-6",
+              "name": "PINN + finite-volume residual"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-finite-difference-residual-7",
+              "name": "PINN + finite-difference residual"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-differentiable-fem-8",
+              "name": "PINN + differentiable FEM"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-control-volume-formulation-9",
+              "name": "PINN + control-volume formulation"
+            }
+          ]
+        },
+        {
+          "id": "solver-integration",
+          "title": "Solver integration",
+          "items": [
+            {
+              "id": "hybrid-numerical-pinn-methods-solver-in-the-loop-1",
+              "name": "Solver-in-the-loop"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-differentiable-solver-2",
+              "name": "Differentiable solver"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-numerical-operator-inside-loss-3",
+              "name": "Numerical operator inside loss"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-numerical-solver-as-data-generator-4",
+              "name": "Numerical solver as data generator"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-as-surrogate-for-solver-5",
+              "name": "PINN as surrogate for solver"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-pinn-correction-to-solver-6",
+              "name": "PINN correction to solver"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-learned-closure-7",
+              "name": "Learned closure"
+            },
+            {
+              "id": "hybrid-numerical-pinn-methods-learned-constitutive-model-8",
+              "name": "Learned constitutive model"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "data",
+      "title": "Data",
+      "layerId": "problem",
+      "description": "Data should also appear in the general figure.",
+      "itemCount": 26,
+      "subgroups": [
+        {
+          "id": "data-source",
+          "title": "Data source",
+          "items": [
+            {
+              "id": "data-experimental-measurements-1",
+              "name": "Experimental measurements"
+            },
+            {
+              "id": "data-sensor-data-2",
+              "name": "Sensor data"
+            },
+            {
+              "id": "data-analytical-solution-3",
+              "name": "Analytical solution"
+            },
+            {
+              "id": "data-numerical-simulation-4",
+              "name": "Numerical simulation"
+            },
+            {
+              "id": "data-fem-data-5",
+              "name": "FEM data"
+            },
+            {
+              "id": "data-cfd-data-6",
+              "name": "CFD data"
+            },
+            {
+              "id": "data-synthetic-data-7",
+              "name": "Synthetic data"
+            },
+            {
+              "id": "data-public-datasets-8",
+              "name": "Public datasets"
+            },
+            {
+              "id": "data-operational-data-9",
+              "name": "Operational data"
+            }
+          ]
+        },
+        {
+          "id": "data-amount",
+          "title": "Data amount",
+          "items": [
+            {
+              "id": "data-data-free-residual-only-1",
+              "name": "Data-free / residual-only"
+            },
+            {
+              "id": "data-sparse-data-2",
+              "name": "Sparse data"
+            },
+            {
+              "id": "data-dense-data-3",
+              "name": "Dense data"
+            }
+          ]
+        },
+        {
+          "id": "data-quality",
+          "title": "Data quality",
+          "items": [
+            {
+              "id": "data-noise-free-1",
+              "name": "Noise-free"
+            },
+            {
+              "id": "data-noisy-2",
+              "name": "Noisy"
+            },
+            {
+              "id": "data-incomplete-3",
+              "name": "Incomplete"
+            },
+            {
+              "id": "data-missing-4",
+              "name": "Missing"
+            },
+            {
+              "id": "data-irregular-5",
+              "name": "Irregular"
+            },
+            {
+              "id": "data-multi-fidelity-6",
+              "name": "Multi-fidelity"
+            }
+          ]
+        },
+        {
+          "id": "fidelity",
+          "title": "Fidelity",
+          "items": [
+            {
+              "id": "data-low-fidelity-1",
+              "name": "Low fidelity"
+            },
+            {
+              "id": "data-high-fidelity-2",
+              "name": "High fidelity"
+            },
+            {
+              "id": "data-multi-fidelity-3",
+              "name": "Multi-fidelity"
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "title": "Role",
+          "items": [
+            {
+              "id": "data-training-1",
+              "name": "Training"
+            },
+            {
+              "id": "data-validation-2",
+              "name": "Validation"
+            },
+            {
+              "id": "data-testing-3",
+              "name": "Testing"
+            },
+            {
+              "id": "data-calibration-4",
+              "name": "Calibration"
+            },
+            {
+              "id": "data-independent-verification-5",
+              "name": "Independent verification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "inverse-problems-and-discovery",
+      "title": "Inverse Problems and Discovery",
+      "layerId": "purpose",
+      "description": "Although these are computational roles, they deserve a visible methodological branch.",
+      "itemCount": 14,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "inverse-problems-and-discovery-unknown-parameter-estimation-1",
+              "name": "Unknown parameter estimation"
+            },
+            {
+              "id": "inverse-problems-and-discovery-unknown-coefficient-recovery-2",
+              "name": "Unknown coefficient recovery"
+            },
+            {
+              "id": "inverse-problems-and-discovery-source-identification-3",
+              "name": "Source identification"
+            },
+            {
+              "id": "inverse-problems-and-discovery-material-property-identification-4",
+              "name": "Material-property identification"
+            },
+            {
+              "id": "inverse-problems-and-discovery-boundary-condition-inference-5",
+              "name": "Boundary-condition inference"
+            },
+            {
+              "id": "inverse-problems-and-discovery-initial-state-inference-6",
+              "name": "Initial-state inference"
+            },
+            {
+              "id": "inverse-problems-and-discovery-hidden-state-reconstruction-7",
+              "name": "Hidden-state reconstruction"
+            },
+            {
+              "id": "inverse-problems-and-discovery-field-reconstruction-8",
+              "name": "Field reconstruction"
+            },
+            {
+              "id": "inverse-problems-and-discovery-constitutive-law-discovery-9",
+              "name": "Constitutive-law discovery"
+            },
+            {
+              "id": "inverse-problems-and-discovery-pde-discovery-10",
+              "name": "PDE discovery"
+            },
+            {
+              "id": "inverse-problems-and-discovery-governing-equation-discovery-11",
+              "name": "Governing-equation discovery"
+            },
+            {
+              "id": "inverse-problems-and-discovery-model-calibration-12",
+              "name": "Model calibration"
+            },
+            {
+              "id": "inverse-problems-and-discovery-system-identification-13",
+              "name": "System identification"
+            }
+          ]
+        },
+        {
+          "id": "related-concept",
+          "title": "Related concept",
+          "items": [
+            {
+              "id": "inverse-problems-and-discovery-identifiability-1",
+              "name": "Identifiability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "uncertainty-quantification-probabilistic-pinns",
+      "title": "Uncertainty Quantification / Probabilistic PINNs",
+      "layerId": "extensions",
+      "description": "A major neighboring family.",
+      "itemCount": 26,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-bayesian-pinns-1",
+              "name": "Bayesian PINNs"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-bayesian-neural-networks-2",
+              "name": "Bayesian neural networks"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-monte-carlo-dropout-3",
+              "name": "Monte Carlo dropout"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-ensembles-4",
+              "name": "Ensembles"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-multi-output-pinns-5",
+              "name": "Multi-output PINNs"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-physics-informed-gan-6",
+              "name": "Physics-informed GAN"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-physics-informed-vae-7",
+              "name": "Physics-informed VAE"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-normalizing-flows-8",
+              "name": "Normalizing flows"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-invertible-neural-networks-9",
+              "name": "Invertible neural networks"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-stochastic-pinns-10",
+              "name": "Stochastic PINNs"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-posterior-inference-11",
+              "name": "Posterior inference"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-hamiltonian-monte-carlo-12",
+              "name": "Hamiltonian Monte Carlo"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-variational-inference-13",
+              "name": "Variational inference"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-ensemble-kalman-inversion-14",
+              "name": "Ensemble Kalman inversion"
+            }
+          ]
+        },
+        {
+          "id": "uq-targets",
+          "title": "UQ targets",
+          "items": [
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-state-uncertainty-1",
+              "name": "State uncertainty"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-parameter-uncertainty-2",
+              "name": "Parameter uncertainty"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-observation-uncertainty-3",
+              "name": "Observation uncertainty"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-epistemic-uncertainty-4",
+              "name": "Epistemic uncertainty"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-aleatoric-uncertainty-5",
+              "name": "Aleatoric uncertainty"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-model-form-uncertainty-6",
+              "name": "Model-form uncertainty"
+            }
+          ]
+        },
+        {
+          "id": "uq-evaluation",
+          "title": "UQ evaluation",
+          "items": [
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-calibration-1",
+              "name": "Calibration"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-coverage-2",
+              "name": "Coverage"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-credible-intervals-3",
+              "name": "Credible intervals"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-reliability-4",
+              "name": "Reliability"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-predictive-variance-5",
+              "name": "Predictive variance"
+            },
+            {
+              "id": "uncertainty-quantification-probabilistic-pinns-distributional-agreement-6",
+              "name": "Distributional agreement"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "generalization-knowledge-reuse",
+      "title": "Generalization / Knowledge Reuse",
+      "layerId": "extensions",
+      "description": "Adds decomposition, operator learning, reduced models, probabilistic methods, numerical hybrids, reuse, and parallel execution.",
+      "itemCount": 19,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "generalization-knowledge-reuse-transfer-learning-1",
+              "name": "Transfer learning"
+            },
+            {
+              "id": "generalization-knowledge-reuse-meta-learning-2",
+              "name": "Meta-learning"
+            },
+            {
+              "id": "generalization-knowledge-reuse-fine-tuning-3",
+              "name": "Fine-tuning"
+            },
+            {
+              "id": "generalization-knowledge-reuse-parameterized-pinns-4",
+              "name": "Parameterized PINNs"
+            },
+            {
+              "id": "generalization-knowledge-reuse-operator-learning-5",
+              "name": "Operator learning"
+            },
+            {
+              "id": "generalization-knowledge-reuse-multi-fidelity-learning-6",
+              "name": "Multi-fidelity learning"
+            },
+            {
+              "id": "generalization-knowledge-reuse-pretrained-pinns-7",
+              "name": "Pretrained PINNs"
+            },
+            {
+              "id": "generalization-knowledge-reuse-shared-representations-8",
+              "name": "Shared representations"
+            },
+            {
+              "id": "generalization-knowledge-reuse-hypernetworks-9",
+              "name": "Hypernetworks"
+            },
+            {
+              "id": "generalization-knowledge-reuse-cross-geometry-reuse-10",
+              "name": "Cross-geometry reuse"
+            },
+            {
+              "id": "generalization-knowledge-reuse-cross-parameter-reuse-11",
+              "name": "Cross-parameter reuse"
+            },
+            {
+              "id": "generalization-knowledge-reuse-cross-time-reuse-12",
+              "name": "Cross-time reuse"
+            },
+            {
+              "id": "generalization-knowledge-reuse-cross-task-reuse-13",
+              "name": "Cross-task reuse"
+            }
+          ]
+        },
+        {
+          "id": "validation-considerations",
+          "title": "Validation considerations",
+          "items": [
+            {
+              "id": "generalization-knowledge-reuse-interpolation-1",
+              "name": "Interpolation"
+            },
+            {
+              "id": "generalization-knowledge-reuse-extrapolation-2",
+              "name": "Extrapolation"
+            },
+            {
+              "id": "generalization-knowledge-reuse-out-of-distribution-testing-3",
+              "name": "Out-of-distribution testing"
+            },
+            {
+              "id": "generalization-knowledge-reuse-parameter-range-validity-4",
+              "name": "Parameter-range validity"
+            },
+            {
+              "id": "generalization-knowledge-reuse-function-space-validity-5",
+              "name": "Function-space validity"
+            },
+            {
+              "id": "generalization-knowledge-reuse-domain-shift-6",
+              "name": "Domain shift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "parallelization-computational-execution",
+      "title": "Parallelization / Computational Execution",
+      "layerId": "extensions",
+      "description": "Also related to the PINN ecosystem.",
+      "itemCount": 11,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "parallelization-computational-execution-gpu-training-1",
+              "name": "GPU training"
+            },
+            {
+              "id": "parallelization-computational-execution-hpc-2",
+              "name": "HPC"
+            },
+            {
+              "id": "parallelization-computational-execution-multi-gpu-3",
+              "name": "Multi-GPU"
+            },
+            {
+              "id": "parallelization-computational-execution-parallel-collocation-4",
+              "name": "Parallel collocation"
+            },
+            {
+              "id": "parallelization-computational-execution-distributed-training-5",
+              "name": "Distributed training"
+            },
+            {
+              "id": "parallelization-computational-execution-domain-parallel-training-6",
+              "name": "Domain-parallel training"
+            },
+            {
+              "id": "parallelization-computational-execution-master-worker-schemes-7",
+              "name": "Master/worker schemes"
+            },
+            {
+              "id": "parallelization-computational-execution-parallel-subnetworks-8",
+              "name": "Parallel subnetworks"
+            },
+            {
+              "id": "parallelization-computational-execution-mini-batching-9",
+              "name": "Mini-batching"
+            },
+            {
+              "id": "parallelization-computational-execution-large-batch-collocation-10",
+              "name": "Large-batch collocation"
+            },
+            {
+              "id": "parallelization-computational-execution-separable-computation-11",
+              "name": "Separable computation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "evaluation",
+      "title": "Evaluation",
+      "layerId": "reliability",
+      "description": "This should be a major outer layer of the diagram, not an afterthought.",
+      "itemCount": 61,
+      "subgroups": [
+        {
+          "id": "numerical-accuracy",
+          "title": "Numerical accuracy",
+          "items": [
+            {
+              "id": "evaluation-mse-1",
+              "name": "MSE"
+            },
+            {
+              "id": "evaluation-rmse-2",
+              "name": "RMSE"
+            },
+            {
+              "id": "evaluation-mae-3",
+              "name": "MAE"
+            },
+            {
+              "id": "evaluation-mape-4",
+              "name": "MAPE"
+            },
+            {
+              "id": "evaluation-relative-l1-5",
+              "name": "Relative L1"
+            },
+            {
+              "id": "evaluation-relative-l2-6",
+              "name": "Relative L2"
+            },
+            {
+              "id": "evaluation-l-7",
+              "name": "L∞"
+            },
+            {
+              "id": "evaluation-h1-8",
+              "name": "H1"
+            },
+            {
+              "id": "evaluation-energy-norm-9",
+              "name": "Energy norm"
+            },
+            {
+              "id": "evaluation-maximum-error-10",
+              "name": "Maximum error"
+            },
+            {
+              "id": "evaluation-r2-11",
+              "name": "R²"
+            }
+          ]
+        },
+        {
+          "id": "physical-fidelity",
+          "title": "Physical fidelity",
+          "items": [
+            {
+              "id": "evaluation-pde-residual-1",
+              "name": "PDE residual"
+            },
+            {
+              "id": "evaluation-ic-residual-2",
+              "name": "IC residual"
+            },
+            {
+              "id": "evaluation-bc-residual-3",
+              "name": "BC residual"
+            },
+            {
+              "id": "evaluation-interface-residual-4",
+              "name": "Interface residual"
+            },
+            {
+              "id": "evaluation-conservation-error-5",
+              "name": "Conservation error"
+            },
+            {
+              "id": "evaluation-mass-balance-6",
+              "name": "Mass balance"
+            },
+            {
+              "id": "evaluation-energy-balance-7",
+              "name": "Energy balance"
+            },
+            {
+              "id": "evaluation-flux-balance-8",
+              "name": "Flux balance"
+            },
+            {
+              "id": "evaluation-divergence-error-9",
+              "name": "Divergence error"
+            },
+            {
+              "id": "evaluation-constitutive-consistency-10",
+              "name": "Constitutive consistency"
+            },
+            {
+              "id": "evaluation-physical-admissibility-11",
+              "name": "Physical admissibility"
+            }
+          ]
+        },
+        {
+          "id": "structural-local-accuracy",
+          "title": "Structural/local accuracy",
+          "items": [
+            {
+              "id": "evaluation-error-maps-1",
+              "name": "Error maps"
+            },
+            {
+              "id": "evaluation-line-profiles-2",
+              "name": "Line profiles"
+            },
+            {
+              "id": "evaluation-time-histories-3",
+              "name": "Time histories"
+            },
+            {
+              "id": "evaluation-shock-location-4",
+              "name": "Shock location"
+            },
+            {
+              "id": "evaluation-front-location-5",
+              "name": "Front location"
+            },
+            {
+              "id": "evaluation-boundary-error-6",
+              "name": "Boundary error"
+            },
+            {
+              "id": "evaluation-interface-error-7",
+              "name": "Interface error"
+            },
+            {
+              "id": "evaluation-spectral-error-8",
+              "name": "Spectral error"
+            },
+            {
+              "id": "evaluation-ssim-9",
+              "name": "SSIM"
+            }
+          ]
+        },
+        {
+          "id": "inverse-evaluation",
+          "title": "Inverse evaluation",
+          "items": [
+            {
+              "id": "evaluation-parameter-error-1",
+              "name": "Parameter error"
+            },
+            {
+              "id": "evaluation-state-error-2",
+              "name": "State error"
+            },
+            {
+              "id": "evaluation-coefficient-error-3",
+              "name": "Coefficient error"
+            },
+            {
+              "id": "evaluation-identifiability-4",
+              "name": "Identifiability"
+            },
+            {
+              "id": "evaluation-parameter-trajectories-5",
+              "name": "Parameter trajectories"
+            }
+          ]
+        },
+        {
+          "id": "robustness-generalization",
+          "title": "Robustness/generalization",
+          "items": [
+            {
+              "id": "evaluation-multiple-random-seeds-1",
+              "name": "Multiple random seeds"
+            },
+            {
+              "id": "evaluation-repeated-runs-2",
+              "name": "Repeated runs"
+            },
+            {
+              "id": "evaluation-noise-sensitivity-3",
+              "name": "Noise sensitivity"
+            },
+            {
+              "id": "evaluation-data-sparsity-sensitivity-4",
+              "name": "Data-sparsity sensitivity"
+            },
+            {
+              "id": "evaluation-missing-data-5",
+              "name": "Missing data"
+            },
+            {
+              "id": "evaluation-extrapolation-6",
+              "name": "Extrapolation"
+            },
+            {
+              "id": "evaluation-ood-tests-7",
+              "name": "OOD tests"
+            }
+          ]
+        },
+        {
+          "id": "uncertainty",
+          "title": "Uncertainty",
+          "items": [
+            {
+              "id": "evaluation-coverage-1",
+              "name": "Coverage"
+            },
+            {
+              "id": "evaluation-calibration-2",
+              "name": "Calibration"
+            },
+            {
+              "id": "evaluation-variance-3",
+              "name": "Variance"
+            },
+            {
+              "id": "evaluation-credible-intervals-4",
+              "name": "Credible intervals"
+            },
+            {
+              "id": "evaluation-reliability-diagrams-5",
+              "name": "Reliability diagrams"
+            }
+          ]
+        },
+        {
+          "id": "computational",
+          "title": "Computational",
+          "items": [
+            {
+              "id": "evaluation-training-time-1",
+              "name": "Training time"
+            },
+            {
+              "id": "evaluation-inference-time-2",
+              "name": "Inference time"
+            },
+            {
+              "id": "evaluation-wall-clock-time-3",
+              "name": "Wall-clock time"
+            },
+            {
+              "id": "evaluation-memory-4",
+              "name": "Memory"
+            },
+            {
+              "id": "evaluation-flops-5",
+              "name": "FLOPs"
+            },
+            {
+              "id": "evaluation-parameter-count-6",
+              "name": "Parameter count"
+            },
+            {
+              "id": "evaluation-throughput-7",
+              "name": "Throughput"
+            },
+            {
+              "id": "evaluation-solver-calls-8",
+              "name": "Solver calls"
+            },
+            {
+              "id": "evaluation-speedup-9",
+              "name": "Speedup"
+            },
+            {
+              "id": "evaluation-core-hours-10",
+              "name": "Core-hours"
+            },
+            {
+              "id": "evaluation-scaling-11",
+              "name": "Scaling"
+            },
+            {
+              "id": "evaluation-time-to-solution-12",
+              "name": "Time-to-solution"
+            },
+            {
+              "id": "evaluation-success-probability-13",
+              "name": "Success probability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "validation-benchmarking",
+      "title": "Validation / Benchmarking",
+      "layerId": "reliability",
+      "description": "Distinct from metric calculation.",
+      "itemCount": 14,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "validation-benchmarking-analytical-benchmark-1",
+              "name": "Analytical benchmark"
+            },
+            {
+              "id": "validation-benchmarking-numerical-benchmark-2",
+              "name": "Numerical benchmark"
+            },
+            {
+              "id": "validation-benchmarking-fem-comparison-3",
+              "name": "FEM comparison"
+            },
+            {
+              "id": "validation-benchmarking-fvm-comparison-4",
+              "name": "FVM comparison"
+            },
+            {
+              "id": "validation-benchmarking-cfd-comparison-5",
+              "name": "CFD comparison"
+            },
+            {
+              "id": "validation-benchmarking-experimental-comparison-6",
+              "name": "Experimental comparison"
+            },
+            {
+              "id": "validation-benchmarking-cross-validation-7",
+              "name": "Cross-validation"
+            },
+            {
+              "id": "validation-benchmarking-ablation-study-8",
+              "name": "Ablation study"
+            },
+            {
+              "id": "validation-benchmarking-sensitivity-analysis-9",
+              "name": "Sensitivity analysis"
+            },
+            {
+              "id": "validation-benchmarking-repeated-seed-analysis-10",
+              "name": "Repeated-seed analysis"
+            },
+            {
+              "id": "validation-benchmarking-benchmark-pde-11",
+              "name": "Benchmark PDE"
+            },
+            {
+              "id": "validation-benchmarking-accuracy-matched-comparison-12",
+              "name": "Accuracy-matched comparison"
+            },
+            {
+              "id": "validation-benchmarking-physics-based-validation-13",
+              "name": "Physics-based validation"
+            },
+            {
+              "id": "validation-benchmarking-independent-validation-14",
+              "name": "Independent validation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "id": "theory",
+      "title": "Theory",
+      "layerId": "reliability",
+      "description": "This belongs in the ecosystem even though it is not a PINN “setting.”",
+      "itemCount": 19,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "theory-approximation-theory-1",
+              "name": "Approximation theory"
+            },
+            {
+              "id": "theory-universal-approximation-2",
+              "name": "Universal approximation"
+            },
+            {
+              "id": "theory-convergence-theory-3",
+              "name": "Convergence theory"
+            },
+            {
+              "id": "theory-generalization-theory-4",
+              "name": "Generalization theory"
+            },
+            {
+              "id": "theory-error-bounds-5",
+              "name": "Error bounds"
+            },
+            {
+              "id": "theory-a-priori-error-analysis-6",
+              "name": "A priori error analysis"
+            },
+            {
+              "id": "theory-a-posteriori-analysis-7",
+              "name": "A posteriori analysis"
+            },
+            {
+              "id": "theory-stability-8",
+              "name": "Stability"
+            },
+            {
+              "id": "theory-conditional-stability-9",
+              "name": "Conditional stability"
+            },
+            {
+              "id": "theory-identifiability-10",
+              "name": "Identifiability"
+            },
+            {
+              "id": "theory-neural-tangent-kernel-11",
+              "name": "Neural tangent kernel"
+            },
+            {
+              "id": "theory-hessian-analysis-12",
+              "name": "Hessian analysis"
+            },
+            {
+              "id": "theory-loss-landscape-13",
+              "name": "Loss landscape"
+            },
+            {
+              "id": "theory-optimization-geometry-14",
+              "name": "Optimization geometry"
+            },
+            {
+              "id": "theory-pareto-stationarity-15",
+              "name": "Pareto stationarity"
+            },
+            {
+              "id": "theory-spectral-bias-16",
+              "name": "Spectral bias"
+            },
+            {
+              "id": "theory-gradient-dynamics-17",
+              "name": "Gradient dynamics"
+            },
+            {
+              "id": "theory-conditioning-18",
+              "name": "Conditioning"
+            },
+            {
+              "id": "theory-pde-jacobian-conditioning-19",
+              "name": "PDE Jacobian conditioning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "id": "software-framework-infrastructure",
+      "title": "Software / Framework / Infrastructure",
+      "layerId": "ecosystem",
+      "description": "A final ecosystem diagram should definitely include this.",
+      "itemCount": 14,
+      "subgroups": [
+        {
+          "id": "pinn-scientific-ml-software-appearing-in-the-manuscript",
+          "title": "PINN/scientific-ML software appearing in the manuscript",
+          "items": [
+            {
+              "id": "software-framework-infrastructure-deepxde-1",
+              "name": "DeepXDE"
+            },
+            {
+              "id": "software-framework-infrastructure-neurodiffeq-2",
+              "name": "NeuroDiffEq"
+            },
+            {
+              "id": "software-framework-infrastructure-sciann-3",
+              "name": "SciANN"
+            },
+            {
+              "id": "software-framework-infrastructure-elvet-4",
+              "name": "Elvet"
+            },
+            {
+              "id": "software-framework-infrastructure-pinn-5",
+              "name": "PiNN"
+            },
+            {
+              "id": "software-framework-infrastructure-pydens-pydens-6",
+              "name": "PyDEns / PyDens"
+            },
+            {
+              "id": "software-framework-infrastructure-neuralpde-7",
+              "name": "NeuralPDE"
+            },
+            {
+              "id": "software-framework-infrastructure-adcme-8",
+              "name": "ADCME"
+            },
+            {
+              "id": "software-framework-infrastructure-dgm-9",
+              "name": "DGM"
+            },
+            {
+              "id": "software-framework-infrastructure-neural-tangents-10",
+              "name": "Neural Tangents"
+            }
+          ]
+        },
+        {
+          "id": "underlying-infrastructure",
+          "title": "Underlying infrastructure",
+          "items": [
+            {
+              "id": "software-framework-infrastructure-tensorflow-1",
+              "name": "TensorFlow"
+            },
+            {
+              "id": "software-framework-infrastructure-automatic-differentiation-engines-2",
+              "name": "automatic-differentiation engines"
+            },
+            {
+              "id": "software-framework-infrastructure-gpu-frameworks-3",
+              "name": "GPU frameworks"
+            },
+            {
+              "id": "software-framework-infrastructure-hpc-infrastructure-4",
+              "name": "HPC infrastructure"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "id": "reproducibility-reporting",
+      "title": "Reproducibility / Reporting",
+      "layerId": "ecosystem",
+      "description": "This should probably appear in the outermost ring.",
+      "itemCount": 24,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "reproducibility-reporting-equation-specification-1",
+              "name": "Equation specification"
+            },
+            {
+              "id": "reproducibility-reporting-domain-specification-2",
+              "name": "Domain specification"
+            },
+            {
+              "id": "reproducibility-reporting-geometry-3",
+              "name": "Geometry"
+            },
+            {
+              "id": "reproducibility-reporting-bc-ic-specification-4",
+              "name": "BC/IC specification"
+            },
+            {
+              "id": "reproducibility-reporting-residual-definition-5",
+              "name": "Residual definition"
+            },
+            {
+              "id": "reproducibility-reporting-loss-weights-6",
+              "name": "Loss weights"
+            },
+            {
+              "id": "reproducibility-reporting-sampling-method-7",
+              "name": "Sampling method"
+            },
+            {
+              "id": "reproducibility-reporting-number-of-points-8",
+              "name": "Number of points"
+            },
+            {
+              "id": "reproducibility-reporting-network-architecture-9",
+              "name": "Network architecture"
+            },
+            {
+              "id": "reproducibility-reporting-activation-10",
+              "name": "Activation"
+            },
+            {
+              "id": "reproducibility-reporting-initialization-11",
+              "name": "Initialization"
+            },
+            {
+              "id": "reproducibility-reporting-optimizer-12",
+              "name": "Optimizer"
+            },
+            {
+              "id": "reproducibility-reporting-learning-rate-13",
+              "name": "Learning rate"
+            },
+            {
+              "id": "reproducibility-reporting-learning-rate-schedule-14",
+              "name": "Learning-rate schedule"
+            },
+            {
+              "id": "reproducibility-reporting-batch-policy-15",
+              "name": "Batch policy"
+            },
+            {
+              "id": "reproducibility-reporting-stopping-criterion-16",
+              "name": "Stopping criterion"
+            },
+            {
+              "id": "reproducibility-reporting-validation-criterion-17",
+              "name": "Validation criterion"
+            },
+            {
+              "id": "reproducibility-reporting-random-seed-18",
+              "name": "Random seed"
+            },
+            {
+              "id": "reproducibility-reporting-hardware-19",
+              "name": "Hardware"
+            },
+            {
+              "id": "reproducibility-reporting-training-time-20",
+              "name": "Training time"
+            },
+            {
+              "id": "reproducibility-reporting-inference-time-21",
+              "name": "Inference time"
+            },
+            {
+              "id": "reproducibility-reporting-code-22",
+              "name": "Code"
+            },
+            {
+              "id": "reproducibility-reporting-dataset-23",
+              "name": "Dataset"
+            },
+            {
+              "id": "reproducibility-reporting-model-provenance-24",
+              "name": "Model provenance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "failure-modes-challenges",
+      "title": "Failure Modes / Challenges",
+      "layerId": "reliability",
+      "description": "This is very important because each development can later be visually connected to the challenge it tries to solve.",
+      "itemCount": 47,
+      "subgroups": [
+        {
+          "id": "optimization",
+          "title": "Optimization",
+          "items": [
+            {
+              "id": "failure-modes-challenges-non-convexity-1",
+              "name": "Non-convexity"
+            },
+            {
+              "id": "failure-modes-challenges-local-minima-2",
+              "name": "Local minima"
+            },
+            {
+              "id": "failure-modes-challenges-saddle-points-3",
+              "name": "Saddle points"
+            },
+            {
+              "id": "failure-modes-challenges-gradient-imbalance-4",
+              "name": "Gradient imbalance"
+            },
+            {
+              "id": "failure-modes-challenges-vanishing-gradients-5",
+              "name": "Vanishing gradients"
+            },
+            {
+              "id": "failure-modes-challenges-exploding-gradients-6",
+              "name": "Exploding gradients"
+            },
+            {
+              "id": "failure-modes-challenges-loss-imbalance-7",
+              "name": "Loss imbalance"
+            },
+            {
+              "id": "failure-modes-challenges-ill-conditioning-8",
+              "name": "Ill-conditioning"
+            },
+            {
+              "id": "failure-modes-challenges-competing-objectives-9",
+              "name": "Competing objectives"
+            },
+            {
+              "id": "failure-modes-challenges-pareto-conflict-10",
+              "name": "Pareto conflict"
+            },
+            {
+              "id": "failure-modes-challenges-training-stagnation-11",
+              "name": "Training stagnation"
+            }
+          ]
+        },
+        {
+          "id": "approximation",
+          "title": "Approximation",
+          "items": [
+            {
+              "id": "failure-modes-challenges-spectral-bias-1",
+              "name": "Spectral bias"
+            },
+            {
+              "id": "failure-modes-challenges-high-frequency-failure-2",
+              "name": "High-frequency failure"
+            },
+            {
+              "id": "failure-modes-challenges-multiscale-failure-3",
+              "name": "Multiscale failure"
+            },
+            {
+              "id": "failure-modes-challenges-discontinuities-4",
+              "name": "Discontinuities"
+            },
+            {
+              "id": "failure-modes-challenges-shocks-5",
+              "name": "Shocks"
+            },
+            {
+              "id": "failure-modes-challenges-sharp-gradients-6",
+              "name": "Sharp gradients"
+            },
+            {
+              "id": "failure-modes-challenges-boundary-layers-7",
+              "name": "Boundary layers"
+            }
+          ]
+        },
+        {
+          "id": "physics",
+          "title": "Physics",
+          "items": [
+            {
+              "id": "failure-modes-challenges-conservation-error-1",
+              "name": "Conservation error"
+            },
+            {
+              "id": "failure-modes-challenges-incorrect-weak-solution-2",
+              "name": "Incorrect weak solution"
+            },
+            {
+              "id": "failure-modes-challenges-boundary-violation-3",
+              "name": "Boundary violation"
+            },
+            {
+              "id": "failure-modes-challenges-interface-violation-4",
+              "name": "Interface violation"
+            },
+            {
+              "id": "failure-modes-challenges-physically-inadmissible-solution-5",
+              "name": "Physically inadmissible solution"
+            },
+            {
+              "id": "failure-modes-challenges-trivial-residual-solution-6",
+              "name": "Trivial residual solution"
+            }
+          ]
+        },
+        {
+          "id": "sampling",
+          "title": "Sampling",
+          "items": [
+            {
+              "id": "failure-modes-challenges-inadequate-domain-coverage-1",
+              "name": "Inadequate domain coverage"
+            },
+            {
+              "id": "failure-modes-challenges-missing-localized-features-2",
+              "name": "Missing localized features"
+            },
+            {
+              "id": "failure-modes-challenges-sampling-bias-3",
+              "name": "Sampling bias"
+            }
+          ]
+        },
+        {
+          "id": "differentiation",
+          "title": "Differentiation",
+          "items": [
+            {
+              "id": "failure-modes-challenges-high-order-ad-cost-1",
+              "name": "High-order AD cost"
+            },
+            {
+              "id": "failure-modes-challenges-memory-cost-2",
+              "name": "Memory cost"
+            },
+            {
+              "id": "failure-modes-challenges-numerical-differentiation-error-3",
+              "name": "Numerical differentiation error"
+            }
+          ]
+        },
+        {
+          "id": "scalability",
+          "title": "Scalability",
+          "items": [
+            {
+              "id": "failure-modes-challenges-high-dimension-1",
+              "name": "High dimension"
+            },
+            {
+              "id": "failure-modes-challenges-large-domain-2",
+              "name": "Large domain"
+            },
+            {
+              "id": "failure-modes-challenges-long-time-3",
+              "name": "Long time"
+            },
+            {
+              "id": "failure-modes-challenges-multiphysics-4",
+              "name": "Multiphysics"
+            },
+            {
+              "id": "failure-modes-challenges-computational-cost-5",
+              "name": "Computational cost"
+            },
+            {
+              "id": "failure-modes-challenges-memory-6",
+              "name": "Memory"
+            }
+          ]
+        },
+        {
+          "id": "generalization",
+          "title": "Generalization",
+          "items": [
+            {
+              "id": "failure-modes-challenges-domain-shift-1",
+              "name": "Domain shift"
+            },
+            {
+              "id": "failure-modes-challenges-extrapolation-2",
+              "name": "Extrapolation"
+            },
+            {
+              "id": "failure-modes-challenges-parameter-domain-limits-3",
+              "name": "Parameter-domain limits"
+            },
+            {
+              "id": "failure-modes-challenges-retraining-cost-4",
+              "name": "Retraining cost"
+            }
+          ]
+        },
+        {
+          "id": "inverse-problems",
+          "title": "Inverse problems",
+          "items": [
+            {
+              "id": "failure-modes-challenges-non-identifiability-1",
+              "name": "Non-identifiability"
+            },
+            {
+              "id": "failure-modes-challenges-model-discrepancy-2",
+              "name": "Model discrepancy"
+            },
+            {
+              "id": "failure-modes-challenges-sparse-data-3",
+              "name": "Sparse data"
+            },
+            {
+              "id": "failure-modes-challenges-noise-4",
+              "name": "Noise"
+            }
+          ]
+        },
+        {
+          "id": "reliability",
+          "title": "Reliability",
+          "items": [
+            {
+              "id": "failure-modes-challenges-uncalibrated-uncertainty-1",
+              "name": "Uncalibrated uncertainty"
+            },
+            {
+              "id": "failure-modes-challenges-poor-reproducibility-2",
+              "name": "Poor reproducibility"
+            },
+            {
+              "id": "failure-modes-challenges-incomplete-reporting-3",
+              "name": "Incomplete reporting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "application-scientific-domain",
+      "title": "Application / Scientific Domain",
+      "layerId": "ecosystem",
+      "description": "This can form the outermost contextual layer.",
+      "itemCount": 25,
+      "subgroups": [
+        {
+          "id": "elements",
+          "title": "Elements",
+          "items": [
+            {
+              "id": "application-scientific-domain-fluid-mechanics-cfd-1",
+              "name": "Fluid mechanics / CFD"
+            },
+            {
+              "id": "application-scientific-domain-electromagnetics-2",
+              "name": "Electromagnetics"
+            },
+            {
+              "id": "application-scientific-domain-wave-physics-3",
+              "name": "Wave physics"
+            },
+            {
+              "id": "application-scientific-domain-solid-mechanics-4",
+              "name": "Solid mechanics"
+            },
+            {
+              "id": "application-scientific-domain-structural-mechanics-5",
+              "name": "Structural mechanics"
+            },
+            {
+              "id": "application-scientific-domain-materials-6",
+              "name": "Materials"
+            },
+            {
+              "id": "application-scientific-domain-geoscience-7",
+              "name": "Geoscience"
+            },
+            {
+              "id": "application-scientific-domain-porous-media-8",
+              "name": "Porous media"
+            },
+            {
+              "id": "application-scientific-domain-hydrology-9",
+              "name": "Hydrology"
+            },
+            {
+              "id": "application-scientific-domain-energy-10",
+              "name": "Energy"
+            },
+            {
+              "id": "application-scientific-domain-thermal-systems-11",
+              "name": "Thermal systems"
+            },
+            {
+              "id": "application-scientific-domain-batteries-12",
+              "name": "Batteries"
+            },
+            {
+              "id": "application-scientific-domain-biomedical-biomechanics-13",
+              "name": "Biomedical / biomechanics"
+            },
+            {
+              "id": "application-scientific-domain-cardiac-electrophysiology-14",
+              "name": "Cardiac electrophysiology"
+            },
+            {
+              "id": "application-scientific-domain-aerospace-15",
+              "name": "Aerospace"
+            },
+            {
+              "id": "application-scientific-domain-space-16",
+              "name": "Space"
+            },
+            {
+              "id": "application-scientific-domain-chemical-engineering-17",
+              "name": "Chemical engineering"
+            },
+            {
+              "id": "application-scientific-domain-transport-phenomena-18",
+              "name": "Transport phenomena"
+            },
+            {
+              "id": "application-scientific-domain-environmental-systems-19",
+              "name": "Environmental systems"
+            },
+            {
+              "id": "application-scientific-domain-power-systems-20",
+              "name": "Power systems"
+            },
+            {
+              "id": "application-scientific-domain-quantum-systems-21",
+              "name": "Quantum systems"
+            },
+            {
+              "id": "application-scientific-domain-mathematics-22",
+              "name": "Mathematics"
+            },
+            {
+              "id": "application-scientific-domain-industrial-processes-23",
+              "name": "Industrial processes"
+            },
+            {
+              "id": "application-scientific-domain-digital-twins-24",
+              "name": "Digital twins"
+            },
+            {
+              "id": "application-scientific-domain-control-and-robotics-25",
+              "name": "Control and robotics"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation-1",
+      "from": "problem-physical-system-definition",
+      "to": "computational-role-pinn-task",
+      "type": "drives",
+      "lens": "design",
+      "summary": "The physical system constrains the useful computational role."
+    },
+    {
+      "id": "relation-2",
+      "from": "problem-physical-system-definition",
+      "to": "input-representation",
+      "type": "determines",
+      "lens": "design",
+      "summary": "Coordinates, parameters, geometry, and conditions follow from the problem definition."
+    },
+    {
+      "id": "relation-3",
+      "from": "problem-physical-system-definition",
+      "to": "output-state-representation",
+      "type": "determines",
+      "lens": "design",
+      "summary": "State variables and auxiliary outputs must expose the quantities required by the physics."
+    },
+    {
+      "id": "relation-4",
+      "from": "problem-physical-system-definition",
+      "to": "physics-enforcement-mechanism",
+      "type": "constrains",
+      "lens": "design",
+      "summary": "Problem regularity and geometry affect whether physics is imposed softly, weakly, or exactly."
+    },
+    {
+      "id": "relation-5",
+      "from": "problem-physical-system-definition",
+      "to": "differentiation-differential-operator-evaluation",
+      "type": "determines",
+      "lens": "design",
+      "summary": "Operator order and structure select a suitable differentiation pathway."
+    },
+    {
+      "id": "relation-6",
+      "from": "problem-physical-system-definition",
+      "to": "collocation-sampling",
+      "type": "drives",
+      "lens": "training",
+      "summary": "Localized, stiff, multiscale, or irregular behavior changes the sampling strategy."
+    },
+    {
+      "id": "relation-7",
+      "from": "problem-physical-system-definition",
+      "to": "decomposition",
+      "type": "motivates",
+      "lens": "extensions",
+      "summary": "Large, long-time, or multiphysics systems often motivate decomposition."
+    },
+    {
+      "id": "relation-8",
+      "from": "problem-physical-system-definition",
+      "to": "failure-modes-challenges",
+      "type": "exposes",
+      "lens": "reliability",
+      "summary": "Problem characteristics determine the most likely numerical failure modes."
+    },
+    {
+      "id": "relation-9",
+      "from": "data",
+      "to": "input-representation",
+      "type": "supplies",
+      "lens": "design",
+      "summary": "Observed variables and parameter fields enter through the input representation."
+    },
+    {
+      "id": "relation-10",
+      "from": "data",
+      "to": "loss-function-objective-construction",
+      "type": "supplies",
+      "lens": "design",
+      "summary": "Data availability and quality determine which mismatch terms are defensible."
+    },
+    {
+      "id": "relation-11",
+      "from": "data",
+      "to": "inverse-problems-and-discovery",
+      "type": "enables",
+      "lens": "design",
+      "summary": "Inverse recovery and discovery require informative observations."
+    },
+    {
+      "id": "relation-12",
+      "from": "data",
+      "to": "evaluation",
+      "type": "supports",
+      "lens": "reliability",
+      "summary": "Independent data enable validation beyond the training objective."
+    },
+    {
+      "id": "relation-13",
+      "from": "computational-role-pinn-task",
+      "to": "input-representation",
+      "type": "configures",
+      "lens": "design",
+      "summary": "The computational purpose decides whether inputs are coordinates, parameters, functions, or observations."
+    },
+    {
+      "id": "relation-14",
+      "from": "computational-role-pinn-task",
+      "to": "output-state-representation",
+      "type": "configures",
+      "lens": "design",
+      "summary": "Forward, inverse, discovery, and control tasks require different outputs."
+    },
+    {
+      "id": "relation-15",
+      "from": "computational-role-pinn-task",
+      "to": "neural-architecture-approximation-model",
+      "type": "guides",
+      "lens": "design",
+      "summary": "The role helps select a pointwise network, sequence model, graph model, or operator."
+    },
+    {
+      "id": "relation-16",
+      "from": "computational-role-pinn-task",
+      "to": "evaluation",
+      "type": "sets",
+      "lens": "reliability",
+      "summary": "Evaluation criteria must reflect the intended computational role."
+    },
+    {
+      "id": "relation-17",
+      "from": "inverse-problems-and-discovery",
+      "to": "output-state-representation",
+      "type": "requires",
+      "lens": "design",
+      "summary": "Inverse and discovery tasks expose parameters, coefficients, or latent states as outputs."
+    },
+    {
+      "id": "relation-18",
+      "from": "inverse-problems-and-discovery",
+      "to": "loss-function-objective-construction",
+      "type": "requires",
+      "lens": "design",
+      "summary": "Identifiability depends on a suitable combination of physics and data objectives."
+    },
+    {
+      "id": "relation-19",
+      "from": "inverse-problems-and-discovery",
+      "to": "theory",
+      "type": "depends on",
+      "lens": "reliability",
+      "summary": "Inverse conclusions require stability and identifiability analysis."
+    },
+    {
+      "id": "relation-20",
+      "from": "input-representation",
+      "to": "neural-architecture-approximation-model",
+      "type": "feeds",
+      "lens": "design",
+      "summary": "The approximation model consumes the chosen coordinates, parameters, fields, or functions."
+    },
+    {
+      "id": "relation-21",
+      "from": "output-state-representation",
+      "to": "differentiation-differential-operator-evaluation",
+      "type": "changes",
+      "lens": "design",
+      "summary": "Primitive, mixed, and auxiliary-output formulations change derivative order and cost."
+    },
+    {
+      "id": "relation-22",
+      "from": "output-state-representation",
+      "to": "loss-function-objective-construction",
+      "type": "defines",
+      "lens": "design",
+      "summary": "Predicted states and auxiliary variables determine the available residual terms."
+    },
+    {
+      "id": "relation-23",
+      "from": "neural-architecture-approximation-model",
+      "to": "network-hyperparameters",
+      "type": "contains",
+      "lens": "design",
+      "summary": "Depth, width, topology, and parameter sharing configure the architecture."
+    },
+    {
+      "id": "relation-24",
+      "from": "neural-architecture-approximation-model",
+      "to": "activation-function",
+      "type": "uses",
+      "lens": "design",
+      "summary": "Activation choice controls smoothness, frequency representation, and gradient propagation."
+    },
+    {
+      "id": "relation-25",
+      "from": "neural-architecture-approximation-model",
+      "to": "initialization",
+      "type": "is initialized by",
+      "lens": "training",
+      "summary": "Initialization acts on the selected architecture and basis."
+    },
+    {
+      "id": "relation-26",
+      "from": "neural-architecture-approximation-model",
+      "to": "parallelization-computational-execution",
+      "type": "executes through",
+      "lens": "extensions",
+      "summary": "Model topology affects parallel and distributed execution."
+    },
+    {
+      "id": "relation-27",
+      "from": "activation-function",
+      "to": "differentiation-differential-operator-evaluation",
+      "type": "must support",
+      "lens": "design",
+      "summary": "The activation must provide the derivative smoothness required by the operator."
+    },
+    {
+      "id": "relation-28",
+      "from": "physics-enforcement-mechanism",
+      "to": "physical-constraints",
+      "type": "implements",
+      "lens": "design",
+      "summary": "An enforcement mechanism acts on explicit physical constraints."
+    },
+    {
+      "id": "relation-29",
+      "from": "physics-enforcement-mechanism",
+      "to": "loss-function-objective-construction",
+      "type": "constructs",
+      "lens": "design",
+      "summary": "Soft, weak, variational, hard, or discrete enforcement changes the objective."
+    },
+    {
+      "id": "relation-30",
+      "from": "physics-enforcement-mechanism",
+      "to": "differentiation-differential-operator-evaluation",
+      "type": "uses",
+      "lens": "design",
+      "summary": "Strong-form residuals and alternative formulations evaluate physics differently."
+    },
+    {
+      "id": "relation-31",
+      "from": "physical-constraints",
+      "to": "loss-function-objective-construction",
+      "type": "contributes to",
+      "lens": "design",
+      "summary": "Equations, boundary conditions, interfaces, and admissibility become objective terms or exact constructions."
+    },
+    {
+      "id": "relation-32",
+      "from": "physical-constraints",
+      "to": "collocation-sampling",
+      "type": "places",
+      "lens": "training",
+      "summary": "Boundary, initial, interface, and observation constraints require dedicated point sets."
+    },
+    {
+      "id": "relation-33",
+      "from": "loss-function-objective-construction",
+      "to": "loss-weighting-balancing",
+      "type": "is balanced by",
+      "lens": "training",
+      "summary": "Composite objectives require explicit or adaptive weighting."
+    },
+    {
+      "id": "relation-34",
+      "from": "loss-function-objective-construction",
+      "to": "optimizer",
+      "type": "is minimized by",
+      "lens": "training",
+      "summary": "The objective landscape determines optimizer behavior."
+    },
+    {
+      "id": "relation-35",
+      "from": "loss-weighting-balancing",
+      "to": "optimizer",
+      "type": "conditions",
+      "lens": "training",
+      "summary": "Loss balancing changes gradient scales seen by the optimizer."
+    },
+    {
+      "id": "relation-36",
+      "from": "differentiation-differential-operator-evaluation",
+      "to": "loss-function-objective-construction",
+      "type": "evaluates",
+      "lens": "design",
+      "summary": "Differential and numerical operators generate the physics residual."
+    },
+    {
+      "id": "relation-37",
+      "from": "differentiation-differential-operator-evaluation",
+      "to": "parallelization-computational-execution",
+      "type": "sets cost for",
+      "lens": "extensions",
+      "summary": "Derivative evaluation often dominates memory and parallelization requirements."
+    },
+    {
+      "id": "relation-38",
+      "from": "collocation-sampling",
+      "to": "loss-function-objective-construction",
+      "type": "samples",
+      "lens": "training",
+      "summary": "Collocation and data points define where every objective term is evaluated."
+    },
+    {
+      "id": "relation-39",
+      "from": "collocation-sampling",
+      "to": "training-strategy",
+      "type": "participates in",
+      "lens": "training",
+      "summary": "Adaptive resampling and causal point selection are part of the training schedule."
+    },
+    {
+      "id": "relation-40",
+      "from": "optimizer",
+      "to": "learning-rate-strategy",
+      "type": "uses",
+      "lens": "training",
+      "summary": "Each optimizer depends on a compatible learning-rate policy or line search."
+    },
+    {
+      "id": "relation-41",
+      "from": "optimizer",
+      "to": "training-strategy",
+      "type": "is scheduled by",
+      "lens": "training",
+      "summary": "Staged training can switch optimizers and batch policies."
+    },
+    {
+      "id": "relation-42",
+      "from": "initialization",
+      "to": "optimizer",
+      "type": "conditions",
+      "lens": "training",
+      "summary": "Initialization influences the region of the loss landscape reached by optimization."
+    },
+    {
+      "id": "relation-43",
+      "from": "scaling-normalization-preprocessing",
+      "to": "loss-function-objective-construction",
+      "type": "normalizes",
+      "lens": "training",
+      "summary": "Nondimensionalization and residual scaling change objective conditioning."
+    },
+    {
+      "id": "relation-44",
+      "from": "scaling-normalization-preprocessing",
+      "to": "optimizer",
+      "type": "stabilizes",
+      "lens": "training",
+      "summary": "Well-scaled inputs and outputs improve optimizer conditioning."
+    },
+    {
+      "id": "relation-45",
+      "from": "regularization-training-stabilization",
+      "to": "training-strategy",
+      "type": "stabilizes",
+      "lens": "training",
+      "summary": "Regularization, clipping, stopping, and restarts modify the training process."
+    },
+    {
+      "id": "relation-46",
+      "from": "decomposition",
+      "to": "neural-architecture-approximation-model",
+      "type": "restructures",
+      "lens": "extensions",
+      "summary": "Decomposition replaces one global model with coupled local networks."
+    },
+    {
+      "id": "relation-47",
+      "from": "decomposition",
+      "to": "physical-constraints",
+      "type": "adds",
+      "lens": "extensions",
+      "summary": "Subdomains introduce interface and transmission conditions."
+    },
+    {
+      "id": "relation-48",
+      "from": "decomposition",
+      "to": "collocation-sampling",
+      "type": "partitions",
+      "lens": "extensions",
+      "summary": "Each subdomain or time window needs its own collocation design."
+    },
+    {
+      "id": "relation-49",
+      "from": "decomposition",
+      "to": "parallelization-computational-execution",
+      "type": "enables",
+      "lens": "extensions",
+      "summary": "Independent subnetworks create domain-parallel execution opportunities."
+    },
+    {
+      "id": "relation-50",
+      "from": "operator-learning",
+      "to": "input-representation",
+      "type": "requires",
+      "lens": "extensions",
+      "summary": "Operator learning consumes functions, fields, or sensor samples rather than coordinates alone."
+    },
+    {
+      "id": "relation-51",
+      "from": "operator-learning",
+      "to": "neural-architecture-approximation-model",
+      "type": "specializes",
+      "lens": "extensions",
+      "summary": "Branch-trunk, Fourier, graph, or wavelet operators alter the approximation model."
+    },
+    {
+      "id": "relation-52",
+      "from": "operator-learning",
+      "to": "generalization-knowledge-reuse",
+      "type": "supports",
+      "lens": "extensions",
+      "summary": "Learning a function-to-function map enables reuse across conditions and parameters."
+    },
+    {
+      "id": "relation-53",
+      "from": "reduced-order-basis-approaches",
+      "to": "neural-architecture-approximation-model",
+      "type": "compresses",
+      "lens": "extensions",
+      "summary": "Reduced bases and low-rank representations constrain the model space."
+    },
+    {
+      "id": "relation-54",
+      "from": "reduced-order-basis-approaches",
+      "to": "hybrid-numerical-pinn-methods",
+      "type": "integrates with",
+      "lens": "extensions",
+      "summary": "Reduced representations can be embedded in classical solver hybrids."
+    },
+    {
+      "id": "relation-55",
+      "from": "hybrid-numerical-pinn-methods",
+      "to": "physics-enforcement-mechanism",
+      "type": "changes",
+      "lens": "extensions",
+      "summary": "Numerical solvers and discrete operators provide alternative physics-enforcement pathways."
+    },
+    {
+      "id": "relation-56",
+      "from": "hybrid-numerical-pinn-methods",
+      "to": "differentiation-differential-operator-evaluation",
+      "type": "supplies",
+      "lens": "extensions",
+      "summary": "Classical discretizations can replace or complement automatic differentiation."
+    },
+    {
+      "id": "relation-57",
+      "from": "hybrid-numerical-pinn-methods",
+      "to": "software-framework-infrastructure",
+      "type": "depends on",
+      "lens": "ecosystem",
+      "summary": "Hybrid workflows require interoperable neural and numerical software."
+    },
+    {
+      "id": "relation-58",
+      "from": "uncertainty-quantification-probabilistic-pinns",
+      "to": "neural-architecture-approximation-model",
+      "type": "extends",
+      "lens": "extensions",
+      "summary": "Probabilistic PINNs add Bayesian, generative, ensemble, or invertible representations."
+    },
+    {
+      "id": "relation-59",
+      "from": "uncertainty-quantification-probabilistic-pinns",
+      "to": "loss-function-objective-construction",
+      "type": "changes",
+      "lens": "extensions",
+      "summary": "Likelihoods, priors, and adversarial terms modify the objective."
+    },
+    {
+      "id": "relation-60",
+      "from": "uncertainty-quantification-probabilistic-pinns",
+      "to": "evaluation",
+      "type": "requires",
+      "lens": "reliability",
+      "summary": "Uncertainty predictions require coverage, calibration, and reliability evaluation."
+    },
+    {
+      "id": "relation-61",
+      "from": "generalization-knowledge-reuse",
+      "to": "validation-benchmarking",
+      "type": "must be tested by",
+      "lens": "reliability",
+      "summary": "Reuse claims require interpolation, extrapolation, and out-of-distribution benchmarks."
+    },
+    {
+      "id": "relation-62",
+      "from": "parallelization-computational-execution",
+      "to": "software-framework-infrastructure",
+      "type": "runs on",
+      "lens": "ecosystem",
+      "summary": "Distributed execution depends on GPU, HPC, and framework infrastructure."
+    },
+    {
+      "id": "relation-63",
+      "from": "evaluation",
+      "to": "validation-benchmarking",
+      "type": "is established by",
+      "lens": "reliability",
+      "summary": "Metrics become evidence only through appropriate benchmarks and comparisons."
+    },
+    {
+      "id": "relation-64",
+      "from": "validation-benchmarking",
+      "to": "reproducibility-reporting",
+      "type": "must be reported through",
+      "lens": "ecosystem",
+      "summary": "Benchmark conclusions require complete, reproducible configuration reporting."
+    },
+    {
+      "id": "relation-65",
+      "from": "theory",
+      "to": "activation-function",
+      "type": "explains",
+      "lens": "reliability",
+      "summary": "Spectral bias and smoothness theory inform activation selection."
+    },
+    {
+      "id": "relation-66",
+      "from": "theory",
+      "to": "loss-function-objective-construction",
+      "type": "analyzes",
+      "lens": "reliability",
+      "summary": "Error, stability, NTK, Hessian, and conditioning analyses study the objective."
+    },
+    {
+      "id": "relation-67",
+      "from": "theory",
+      "to": "optimizer",
+      "type": "informs",
+      "lens": "reliability",
+      "summary": "Loss-landscape and curvature analyses guide optimizer choice."
+    },
+    {
+      "id": "relation-68",
+      "from": "failure-modes-challenges",
+      "to": "regularization-training-stabilization",
+      "type": "is mitigated by",
+      "lens": "reliability",
+      "summary": "Stabilization methods respond to optimization and approximation failures."
+    },
+    {
+      "id": "relation-69",
+      "from": "failure-modes-challenges",
+      "to": "decomposition",
+      "type": "is mitigated by",
+      "lens": "extensions",
+      "summary": "Decomposition targets scale, locality, and long-time failures."
+    },
+    {
+      "id": "relation-70",
+      "from": "failure-modes-challenges",
+      "to": "evaluation",
+      "type": "must be detected by",
+      "lens": "reliability",
+      "summary": "Reliability metrics should expose known numerical and physical pathologies."
+    },
+    {
+      "id": "relation-71",
+      "from": "software-framework-infrastructure",
+      "to": "reproducibility-reporting",
+      "type": "supports",
+      "lens": "ecosystem",
+      "summary": "Frameworks and infrastructure determine which configurations can be reproduced."
+    },
+    {
+      "id": "relation-72",
+      "from": "reproducibility-reporting",
+      "to": "evaluation",
+      "type": "makes auditable",
+      "lens": "reliability",
+      "summary": "Complete reporting lets readers reproduce numerical and physical evaluation."
+    },
+    {
+      "id": "relation-73",
+      "from": "application-scientific-domain",
+      "to": "problem-physical-system-definition",
+      "type": "provides context for",
+      "lens": "ecosystem",
+      "summary": "The scientific domain supplies the equations, scales, geometry, and admissibility requirements."
+    }
+  ],
+  "relationLenses": [
+    {
+      "id": "all",
+      "title": "All relationships"
+    },
+    {
+      "id": "design",
+      "title": "Design logic"
+    },
+    {
+      "id": "training",
+      "title": "Training dependencies"
+    },
+    {
+      "id": "extensions",
+      "title": "Structural extensions"
+    },
+    {
+      "id": "reliability",
+      "title": "Reliability logic"
+    },
+    {
+      "id": "ecosystem",
+      "title": "Ecosystem support"
+    }
+  ],
+  "builder": {
+    "title": "PINN Design Studio",
+    "description": "Select compatible elements, inspect design warnings, and generate a portable architecture diagram.",
+    "stages": [
+      {
+        "id": "context",
+        "number": 1,
+        "title": "Problem & purpose",
+        "description": "Define the physical system, task, and data regime.",
+        "fields": [
+          {
+            "id": "governing-physics",
+            "label": "Governing physics",
+            "subgroups": [
+              "Governing physics"
+            ],
+            "max": 2,
+            "required": true,
+            "defaults": [
+              "Partial differential equations — PDEs"
+            ],
+            "groupId": "problem-physical-system-definition"
+          },
+          {
+            "id": "problem-characteristics",
+            "label": "Problem characteristics",
+            "subgroups": [
+              "Problem characteristics"
+            ],
+            "max": 5,
+            "defaults": [
+              "Steady / transient"
+            ],
+            "groupId": "problem-physical-system-definition"
+          },
+          {
+            "id": "role",
+            "label": "Computational role",
+            "max": 3,
+            "required": true,
+            "defaults": [
+              "Forward solution"
+            ],
+            "groupId": "computational-role-pinn-task"
+          },
+          {
+            "id": "data-regime",
+            "label": "Data regime",
+            "subgroups": [
+              "Data amount",
+              "Data quality",
+              "Fidelity"
+            ],
+            "max": 4,
+            "defaults": [
+              "Sparse data",
+              "Noise-free"
+            ],
+            "groupId": "data"
+          }
+        ]
+      },
+      {
+        "id": "representation",
+        "number": 2,
+        "title": "Representation",
+        "description": "Choose model inputs, outputs, architecture, and activation.",
+        "fields": [
+          {
+            "id": "inputs",
+            "label": "Inputs",
+            "max": 5,
+            "required": true,
+            "defaults": [
+              "Spatial coordinates x,y",
+              "Time t"
+            ],
+            "groupId": "input-representation"
+          },
+          {
+            "id": "outputs",
+            "label": "Outputs",
+            "max": 5,
+            "required": true,
+            "defaults": [
+              "Scalar fields"
+            ],
+            "groupId": "output-state-representation"
+          },
+          {
+            "id": "architecture",
+            "label": "Architecture",
+            "max": 3,
+            "required": true,
+            "defaults": [
+              "Multilayer perceptron — MLP"
+            ],
+            "groupId": "neural-architecture-approximation-model"
+          },
+          {
+            "id": "activation",
+            "label": "Activation",
+            "max": 3,
+            "required": true,
+            "defaults": [
+              "tanh"
+            ],
+            "groupId": "activation-function"
+          }
+        ]
+      },
+      {
+        "id": "physics",
+        "number": 3,
+        "title": "Physics construction",
+        "description": "Select the imposed physics, enforcement route, and objective.",
+        "fields": [
+          {
+            "id": "enforcement",
+            "label": "Physics enforcement",
+            "max": 4,
+            "required": true,
+            "defaults": [
+              "PDE residual"
+            ],
+            "groupId": "physics-enforcement-mechanism"
+          },
+          {
+            "id": "constraints",
+            "label": "Physical constraints",
+            "max": 6,
+            "defaults": [
+              "Initial conditions",
+              "Boundary conditions"
+            ],
+            "groupId": "physical-constraints"
+          },
+          {
+            "id": "objective",
+            "label": "Loss / objective",
+            "max": 6,
+            "required": true,
+            "defaults": [
+              "Composite loss",
+              "PDE loss",
+              "IC loss",
+              "BC loss"
+            ],
+            "groupId": "loss-function-objective-construction"
+          },
+          {
+            "id": "weighting",
+            "label": "Loss balancing",
+            "max": 3,
+            "defaults": [
+              "Fixed weights"
+            ],
+            "groupId": "loss-weighting-balancing"
+          }
+        ]
+      },
+      {
+        "id": "numerics",
+        "number": 4,
+        "title": "Numerical evaluation",
+        "description": "Decide how the residual is differentiated and where it is evaluated.",
+        "fields": [
+          {
+            "id": "differentiation",
+            "label": "Differentiation",
+            "max": 3,
+            "required": true,
+            "defaults": [
+              "Higher-order AD"
+            ],
+            "groupId": "differentiation-differential-operator-evaluation"
+          },
+          {
+            "id": "sampling",
+            "label": "Collocation / sampling",
+            "max": 5,
+            "required": true,
+            "defaults": [
+              "Interior collocation points",
+              "Boundary points",
+              "Initial-condition points",
+              "Latin hypercube sampling"
+            ],
+            "groupId": "collocation-sampling"
+          }
+        ]
+      },
+      {
+        "id": "training",
+        "number": 5,
+        "title": "Training",
+        "description": "Configure optimization, scaling, initialization, and stabilization.",
+        "fields": [
+          {
+            "id": "optimizer",
+            "label": "Optimizer",
+            "max": 3,
+            "required": true,
+            "defaults": [
+              "Adam → L-BFGS"
+            ],
+            "groupId": "optimizer"
+          },
+          {
+            "id": "learning-rate",
+            "label": "Learning-rate strategy",
+            "max": 2,
+            "defaults": [
+              "Adaptive learning rate"
+            ],
+            "groupId": "learning-rate-strategy"
+          },
+          {
+            "id": "initialization",
+            "label": "Initialization",
+            "max": 2,
+            "defaults": [
+              "Xavier"
+            ],
+            "groupId": "initialization"
+          },
+          {
+            "id": "scaling",
+            "label": "Scaling / normalization",
+            "max": 5,
+            "defaults": [
+              "Input normalization",
+              "Output normalization",
+              "Residual scaling"
+            ],
+            "groupId": "scaling-normalization-preprocessing"
+          },
+          {
+            "id": "stabilization",
+            "label": "Stabilization",
+            "max": 4,
+            "defaults": [
+              "Gradient clipping",
+              "Early stopping"
+            ],
+            "groupId": "regularization-training-stabilization"
+          },
+          {
+            "id": "training-strategy",
+            "label": "Training strategy",
+            "max": 4,
+            "defaults": [
+              "Full-batch",
+              "Staged training"
+            ],
+            "groupId": "training-strategy"
+          }
+        ]
+      },
+      {
+        "id": "extensions",
+        "number": 6,
+        "title": "Structural extensions",
+        "description": "Add only the neighboring methods required by the problem.",
+        "fields": [
+          {
+            "id": "decomposition",
+            "label": "Decomposition",
+            "max": 4,
+            "optional": true,
+            "defaults": [],
+            "groupId": "decomposition"
+          },
+          {
+            "id": "operator-learning",
+            "label": "Operator learning",
+            "max": 3,
+            "optional": true,
+            "defaults": [],
+            "groupId": "operator-learning"
+          },
+          {
+            "id": "reduced-order",
+            "label": "Reduced-order / basis",
+            "max": 3,
+            "optional": true,
+            "defaults": [],
+            "groupId": "reduced-order-basis-approaches"
+          },
+          {
+            "id": "hybrid",
+            "label": "Numerical hybrid",
+            "max": 3,
+            "optional": true,
+            "defaults": [],
+            "groupId": "hybrid-numerical-pinn-methods"
+          },
+          {
+            "id": "uncertainty",
+            "label": "Uncertainty method",
+            "max": 4,
+            "optional": true,
+            "defaults": [],
+            "groupId": "uncertainty-quantification-probabilistic-pinns"
+          },
+          {
+            "id": "reuse",
+            "label": "Generalization / reuse",
+            "max": 4,
+            "optional": true,
+            "defaults": [],
+            "groupId": "generalization-knowledge-reuse"
+          },
+          {
+            "id": "parallelization",
+            "label": "Parallel execution",
+            "max": 3,
+            "optional": true,
+            "defaults": [],
+            "groupId": "parallelization-computational-execution"
+          }
+        ]
+      },
+      {
+        "id": "verification",
+        "number": 7,
+        "title": "Verification & reporting",
+        "description": "Specify how the design will be tested, implemented, and reproduced.",
+        "fields": [
+          {
+            "id": "evaluation",
+            "label": "Evaluation metrics",
+            "max": 7,
+            "required": true,
+            "defaults": [
+              "Relative L2",
+              "PDE residual",
+              "Training time"
+            ],
+            "groupId": "evaluation"
+          },
+          {
+            "id": "benchmarking",
+            "label": "Validation / benchmarking",
+            "max": 4,
+            "required": true,
+            "defaults": [
+              "Analytical benchmark",
+              "Repeated-seed analysis"
+            ],
+            "groupId": "validation-benchmarking"
+          },
+          {
+            "id": "software",
+            "label": "Software / infrastructure",
+            "max": 3,
+            "defaults": [
+              "DeepXDE"
+            ],
+            "groupId": "software-framework-infrastructure"
+          },
+          {
+            "id": "reproducibility",
+            "label": "Reproducibility record",
+            "max": 8,
+            "defaults": [
+              "Equation specification",
+              "Random seed",
+              "Hardware",
+              "Training time",
+              "Code"
+            ],
+            "groupId": "reproducibility-reporting"
+          }
+        ]
+      }
+    ]
+  }
+}

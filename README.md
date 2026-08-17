@@ -5,6 +5,7 @@ PINN Review Atlas is the web companion to a review of physics-informed neural ne
 ## Sections
 
 - `/pinn-types/` — PINN families, variants, aliases, and supporting references
+- `/pinn-ecosystem/` — layered PINN element taxonomy, cross-group dependencies, community proposals, and an interactive PINN design studio
 - `/architectures/` — neural architectures and hybrid methods
 - `/training/` — loss design, optimizers, sampling, and initialization
 - `/applications/` — application domains and benchmark problems
@@ -75,6 +76,8 @@ node scripts/validate-dataset.mjs
 node scripts/validate-citation-format.mjs
 node scripts/build-optimizers.mjs --check
 node scripts/validate-optimizers.mjs
+node scripts/build-pinn-ecosystem.mjs
+node scripts/validate-pinn-ecosystem.mjs
 ```
 
 Legacy note: 112 pre-existing year disagreements between the bibliography extraction and standardized country/year source remain explicit `overrides.realm_year` values. A sourced year update removes that paper's override by default and uses the corrected year throughout the Atlas.

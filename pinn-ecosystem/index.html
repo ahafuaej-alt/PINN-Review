@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore 35 groups of PINN elements across nine dependent layers, propose missing items, and build a physics-informed neural network as a live architecture diagram.">
+  <meta name="theme-color" content="#09111d">
+  <title>PINN Ecosystem &amp; Design Studio · PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=ux-20260722"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=ux-20260812-reach">
+  <link rel="stylesheet" href="../assets/pinn-ecosystem.css?v=ecosystem-20260817">
+  <script src="../assets/app.js?v=ux-20260812-reach" defer></script>
+  <script src="../assets/pinn-ecosystem.js?v=ecosystem-20260817" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#ecosystem-map">Skip to PINN Ecosystem</a>
+  <header class="site-header"><nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+    <div class="nav-links" id="nav-links"><a href="../#atlas">Explore</a><a href="../pinn-types/">PINN types</a><a href="./" aria-current="page">PINN Ecosystem</a><a href="../references/">References</a><a href="../performance-metrics/">Metrics</a><a href="../cite/">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a></div>
+  </nav></header>
+
+  <main id="main">
+    <section class="page-hero ecosystem-hero"><div class="container">
+      <p class="breadcrumb"><a href="../">Atlas</a> / PINN Ecosystem</p>
+      <p class="eyebrow">Layered design system · <span data-ecosystem-stat="groups">35</span> groups · <span data-ecosystem-stat="items">—</span> element occurrences</p>
+      <h1>See the whole PINN.<br><span class="gradient">Then design one.</span></h1>
+      <p class="lede">Trace how problem physics drives representation, enforcement, numerical operators, training, structural extensions, and validation. Explore every element from the review, inspect explicit dependencies, and turn selected choices into a live PINN architecture.</p>
+      <div class="evidence-actions"><a class="button primary" href="#ecosystem-map">Explore the layers <span aria-hidden="true">↓</span></a><a class="button" href="#design-studio">Build a PINN <span aria-hidden="true">→</span></a><button class="button" type="button" data-open-proposal>Propose a missing item</button><a class="button" href="../data/pinn-ecosystem/pinn-ecosystem.json" download>Download taxonomy JSON</a></div>
+      <div class="source-note"><strong>Interpretation</strong><span>This is a coupled design map, not a menu of independent options. Highlighted relationships express methodological dependence or influence documented in the review synthesis; they do not imply that one universal configuration is optimal.</span></div>
+    </div></section>
+
+    <section class="ecosystem-page" id="ecosystem-map"><div class="container ecosystem-container">
+      <div class="stats-grid ecosystem-stats" aria-label="PINN Ecosystem summary">
+        <div class="stat"><strong data-ecosystem-stat="layers">—</strong><span>dependent layers</span></div>
+        <div class="stat"><strong data-ecosystem-stat="groups">—</strong><span>method groups</span></div>
+        <div class="stat"><strong data-ecosystem-stat="items">—</strong><span>element occurrences</span></div>
+        <div class="stat"><strong data-ecosystem-stat="relations">—</strong><span>explicit relationships</span></div>
+      </div>
+
+      <section class="layer-flow-panel" aria-labelledby="layer-flow-title">
+        <div class="panel-head"><div><p class="eyebrow compact">System view</p><h2 id="layer-flow-title">Nine layers, one coupled workflow</h2></div><p>The main design flow runs from problem definition toward reliable implementation. Ecosystem infrastructure supports every layer, while validation feeds evidence back into redesign.</p></div>
+        <div class="layer-flow" data-layer-flow aria-label="Nine-layer PINN workflow"></div>
+      </section>
+
+      <section class="taxonomy-toolbar" aria-label="Taxonomy controls">
+        <div class="ecosystem-search-wrap">
+          <label class="control-label" for="ecosystem-search">Find any PINN element</label>
+          <div class="search-field"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input id="ecosystem-search" type="search" data-ecosystem-search placeholder="For example: causal training, weak form, DeepONet…" autocomplete="off"><button class="clear-search" type="button" data-clear-search aria-label="Clear taxonomy search" title="Clear search">×</button></div>
+        </div>
+        <div class="lens-control">
+          <label class="control-label" for="relation-lens">Relationship lens</label>
+          <select id="relation-lens" data-relation-lens><option value="all">All relationships</option></select>
+        </div>
+        <div class="taxonomy-actions"><button class="button" type="button" data-expand-layers>Expand all</button><button class="button" type="button" data-collapse-layers>Collapse all</button></div>
+      </section>
+
+      <div class="ecosystem-status" data-ecosystem-status role="status" aria-live="polite">Loading the PINN ecosystem…</div>
+
+      <div class="ecosystem-workspace" data-ecosystem-shell hidden>
+        <section class="layer-map" data-layer-map aria-label="Layered PINN taxonomy"></section>
+        <aside class="relation-focus" data-relation-focus aria-live="polite" aria-label="Focused relationships">
+          <div class="relation-placeholder"><span class="relation-orbit" aria-hidden="true"></span><strong>Select a group</strong><p>Choose any group to see what drives it, what it changes, and how the relationship crosses layers.</p></div>
+        </aside>
+      </div>
+
+      <p class="taxonomy-footnote"><strong>Occurrence count:</strong> an element can appear in more than one methodological context—for example, fine-tuning can be both a staged strategy and a reuse strategy. The Atlas preserves those meaningful occurrences instead of forcing false exclusivity.</p>
+    </div></section>
+
+    <section class="design-studio-section" id="design-studio"><div class="container">
+      <div class="studio-head">
+        <div><p class="eyebrow">Interactive synthesis</p><h2>PINN Design Studio</h2><p>Assemble a configuration across seven stages. The diagram, architecture summary, and compatibility review update together.</p></div>
+        <div class="studio-head-actions"><button class="button" type="button" data-load-standard>Load standard PINN</button><button class="button" type="button" data-clear-builder>Clear design</button></div>
+      </div>
+
+      <div class="design-caveat"><strong>Design aid, not an automatic method selector.</strong><span>The studio makes dependencies visible and flags common incompatibilities. Final choices still require equation-specific analysis, controlled comparison, and independent validation.</span></div>
+
+      <div class="studio-status" data-builder-status role="status" aria-live="polite">Loading the design studio…</div>
+      <div class="studio-layout" data-builder-shell hidden>
+        <section class="builder-config" aria-labelledby="builder-config-title">
+          <div class="builder-config-head"><div><p class="eyebrow compact">Configuration</p><h3 id="builder-config-title">Select model elements</h3></div><span data-selection-count>0 selected</span></div>
+          <div class="builder-stage-nav" data-builder-stage-nav role="tablist" aria-label="PINN design stages"></div>
+          <div class="builder-stage-panels" data-builder-stage-panels></div>
+          <div class="stage-controls"><button class="button" type="button" data-stage-previous>← Previous</button><button class="button primary" type="button" data-stage-next>Next stage →</button></div>
+        </section>
+
+        <aside class="builder-output" aria-label="Generated PINN design">
+          <section class="diagram-card" aria-labelledby="diagram-title">
+            <div class="diagram-head"><div><p class="eyebrow compact">Live architecture</p><h3 id="diagram-title">Your PINN</h3></div><span class="diagram-state" data-diagram-state>Standard configuration</span></div>
+            <div class="diagram-wrap"><svg class="pinn-diagram" data-pinn-diagram viewBox="0 0 1000 700" role="img" aria-labelledby="diagram-title diagram-description"></svg><p class="visually-hidden" id="diagram-description" data-diagram-description>A generated diagram of the selected PINN architecture.</p></div>
+            <div class="diagram-legend"><span><i class="legend-context"></i>Context</span><span><i class="legend-model"></i>Model</span><span><i class="legend-physics"></i>Physics</span><span><i class="legend-training"></i>Training</span><span><i class="legend-trust"></i>Validation</span></div>
+            <div class="diagram-actions"><button class="button primary" type="button" data-download-svg>Download SVG</button><button class="button" type="button" data-copy-summary>Copy design summary</button><button class="button" type="button" data-copy-link>Copy shareable link</button></div>
+          </section>
+
+          <section class="compatibility-card" aria-labelledby="compatibility-title">
+            <div class="compatibility-head"><div><p class="eyebrow compact">Dependency review</p><h3 id="compatibility-title">Compatibility signals</h3></div><span data-signal-count>—</span></div>
+            <div class="compatibility-list" data-compatibility-list></div>
+          </section>
+
+          <section class="design-summary-card" aria-labelledby="summary-title"><p class="eyebrow compact">Portable record</p><h3 id="summary-title">Configuration summary</h3><div data-design-summary></div></section>
+        </aside>
+      </div>
+    </div></section>
+
+    <section class="contribution-section"><div class="container contribution-panel">
+      <div><p class="eyebrow compact">Living taxonomy</p><h2>See something missing?</h2><p>Every group has a proposal route. Name the missing item, identify its group and subgroup, describe its dependencies, and attach an authoritative source or supporting Atlas reference IDs. The proposal remains public and reviewable before the curated taxonomy changes.</p></div>
+      <div class="contribution-actions"><button class="button primary" type="button" data-open-proposal>Propose a missing item ↗</button><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/issues">View open proposals ↗</a></div>
+    </div></section>
+  </main>
+
+  <dialog class="ecosystem-dialog group-dialog" data-group-dialog aria-labelledby="group-dialog-title">
+    <form method="dialog"><button class="dialog-close" type="submit" value="close" aria-label="Close group details">×</button></form>
+    <div data-group-dialog-content></div>
+  </dialog>
+
+  <dialog class="ecosystem-dialog proposal-dialog" data-proposal-dialog aria-labelledby="proposal-title">
+    <form data-proposal-form>
+      <button class="dialog-close" type="button" data-close-proposal aria-label="Close proposal form">×</button>
+      <p class="eyebrow compact">Community contribution</p>
+      <h2 id="proposal-title">Propose a missing taxonomy item</h2>
+      <p class="dialog-intro">This form prepares a public GitHub review request. Nothing is sent until you confirm <em>Create new issue</em> on GitHub.</p>
+      <div class="proposal-grid">
+        <label><span>PINN group</span><select name="group" required data-proposal-group><option value="">Choose a group…</option></select></label>
+        <label><span>Subgroup <em>(optional)</em></span><input name="subgroup" placeholder="Existing or proposed subgroup"></label>
+        <label class="span-2"><span>Missing item name</span><input name="item" required maxlength="160" placeholder="Canonical name and abbreviation, if applicable"></label>
+        <label class="span-2"><span>Authoritative evidence URL</span><input name="evidence" type="url" required placeholder="https://doi.org/… or publisher/documentation record"></label>
+        <label><span>Supporting Atlas reference IDs <em>(optional)</em></span><input name="references" placeholder="For example: [149], [401]"></label>
+        <label><span>Related group(s) <em>(optional)</em></span><input name="related" placeholder="For example: Sampling; Loss weighting"></label>
+        <label class="span-2"><span>Why it belongs and how it relates</span><textarea name="rationale" rows="5" required maxlength="1600" placeholder="Define the item, explain why it is missing, and describe any dependency or influence across layers."></textarea></label>
+        <label><span>Your name <em>(optional)</em></span><input name="submitter" autocomplete="name"></label>
+      </div>
+      <div class="proposal-actions"><button class="button primary" type="submit">Open review request on GitHub ↗</button><button class="button" type="button" data-copy-proposal>Copy proposal text</button><button class="button" type="button" data-close-proposal>Cancel</button></div>
+      <p class="proposal-help">A maintainer checks terminology, evidence, duplication, subgroup placement, and cross-layer relations before inclusion.</p>
+    </form>
+  </dialog>
+
+  <div class="ecosystem-toast" data-ecosystem-toast role="status" aria-live="polite" hidden></div>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 PINN Review Atlas</span><span>PINN Ecosystem · Dataset <span data-ecosystem-version>—</span></span><a href="../cite/">How to cite this atlas</a></div></footer>
+</body>
+</html>

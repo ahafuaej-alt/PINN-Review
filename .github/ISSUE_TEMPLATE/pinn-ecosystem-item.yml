@@ -1,0 +1,68 @@
+name: PINN ecosystem item
+description: Propose a missing method, element, dependency, or subgroup for the layered PINN Ecosystem.
+title: "[PINN Ecosystem] Add "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposals are reviewed for evidence, terminology, duplication, subgroup placement, and cross-layer relationships before the curated taxonomy changes.
+  - type: input
+    id: item
+    attributes:
+      label: Missing item
+      description: Give the canonical name and abbreviation, if applicable.
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      options:
+        - 1. Problem & Physics
+        - 2. PINN Purpose
+        - 3. Representation
+        - 4. Physics Enforcement
+        - 5. Numerical Evaluation of Physics
+        - 6. Training
+        - 7. Structural Extensions
+        - 8. Evaluation & Reliability
+        - 9. Ecosystem
+    validations:
+      required: true
+  - type: input
+    id: group
+    attributes:
+      label: Group and subgroup
+      description: Use the number and title shown in the Atlas. Name a proposed subgroup if no existing one fits.
+      placeholder: "13. Collocation / Sampling → Adaptive sampling"
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Authoritative evidence URL
+      placeholder: https://doi.org/…
+    validations:
+      required: true
+  - type: input
+    id: references
+    attributes:
+      label: Supporting Atlas reference IDs
+      placeholder: "[149], [401]"
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale and relationships
+      description: Define the item, explain why it is missing, and identify the groups or layers it depends on or changes.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checks
+      options:
+        - label: I searched the current taxonomy for this item and its aliases.
+          required: true
+        - label: The evidence URL supports the proposed terminology or method.
+          required: true

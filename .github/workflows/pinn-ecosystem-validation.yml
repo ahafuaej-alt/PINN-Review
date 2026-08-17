@@ -1,0 +1,53 @@
+name: PINN ecosystem validation
+
+on:
+  pull_request:
+    paths:
+      - 'pinn-ecosystem/**'
+      - 'assets/pinn-ecosystem.*'
+      - 'data/pinn-ecosystem/**'
+      - 'scripts/build-pinn-ecosystem.mjs'
+      - 'scripts/validate-pinn-ecosystem.mjs'
+      - '.github/ISSUE_TEMPLATE/pinn-ecosystem-item.yml'
+      - '.github/workflows/pinn-ecosystem-validation.yml'
+      - 'index.html'
+      - 'README.md'
+  push:
+    branches:
+      - main
+    paths:
+      - 'pinn-ecosystem/**'
+      - 'assets/pinn-ecosystem.*'
+      - 'data/pinn-ecosystem/**'
+      - 'scripts/build-pinn-ecosystem.mjs'
+      - 'scripts/validate-pinn-ecosystem.mjs'
+      - '.github/ISSUE_TEMPLATE/pinn-ecosystem-item.yml'
+      - '.github/workflows/pinn-ecosystem-validation.yml'
+      - 'index.html'
+      - 'README.md'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/pinn-ecosystem.js
+          node --check scripts/build-pinn-ecosystem.mjs
+          node --check scripts/validate-pinn-ecosystem.mjs
+      - name: Rebuild the source-derived taxonomy
+        run: |
+          cp data/pinn-ecosystem/pinn-ecosystem.json /tmp/pinn-ecosystem-before.json
+          node scripts/build-pinn-ecosystem.mjs
+          cmp /tmp/pinn-ecosystem-before.json data/pinn-ecosystem/pinn-ecosystem.json
+      - name: Validate layers, groups, relationships, and builder fields
+        run: node scripts/validate-pinn-ecosystem.mjs
+      - name: Re-run core Atlas dataset validation
+        run: node scripts/validate-dataset.mjs
