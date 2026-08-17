@@ -50,6 +50,8 @@ try {
       fields: document.querySelectorAll('[data-builder-field]').length,
       selected: document.querySelectorAll('[data-field-id]:checked').length,
       diagramHeight: Number(document.querySelector('[data-pinn-diagram]')?.dataset.diagramHeight || 0),
+      diagramScrollWidth: document.querySelector('[data-diagram-viewport]')?.scrollWidth || 0,
+      diagramClientWidth: document.querySelector('[data-diagram-viewport]')?.clientWidth || 0,
       capText: document.body.textContent.includes('Select up to')
     }));
     assert(layout.theme === mode.theme, `${mode.name}: expected ${mode.theme} theme.`);
@@ -58,6 +60,7 @@ try {
     assert(layout.diagramHeight > 1800, `${mode.name}: flowchart did not expand dynamically.`);
     assert(!layout.capText, `${mode.name}: arbitrary count-cap text remains.`);
     assert(layout.bodyWidth <= layout.viewportWidth + 1 && layout.documentWidth <= layout.clientWidth + 1, `${mode.name}: horizontal overflow detected.`);
+    if (mode.width < 600) assert(layout.diagramScrollWidth > layout.diagramClientWidth, `${mode.name}: readable mobile panning width was not applied.`);
 
     const checkedValues = await page.locator('[data-field-id]:checked').evaluateAll((nodes) => nodes.map((node) => node.value));
     const diagramText = await page.locator('[data-pinn-diagram]').textContent();
@@ -88,8 +91,10 @@ try {
       await page.locator('[data-legend-edge="feedback"]').click();
       assert((await page.locator('[data-diagram-legend-detail]').textContent()).includes('sends the design back'), 'Interactive feedback legend did not explain the arrow.');
       assert(await page.locator('.diagram-edge.feedback').evaluate((node) => node.classList.contains('is-emphasized')), 'Feedback arrow was not highlighted.');
+      await page.locator('[data-legend-edge="feedback"]').click();
       await page.locator('[data-diagram-zoom-in]').click();
       assert((await page.locator('[data-diagram-zoom-value]').textContent()).includes('125%'), 'Diagram zoom control did not update.');
+      await page.locator('[data-diagram-zoom-fit]').click();
     }
 
     await page.locator('.studio-diagram').scrollIntoViewIfNeeded();

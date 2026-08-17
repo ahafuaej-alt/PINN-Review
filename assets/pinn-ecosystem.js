@@ -608,7 +608,8 @@
   const edgeSvg = (path, type, label) => `<g class="diagram-edge ${type}" data-diagram-edge="${type}"><path d="${path}" marker-end="url(#arrow-${type})"/><title>${escapeXml(label)}</title></g>`;
 
   function renderDiagram() {
-    const canvasWidth = 1280;
+    const compactDiagram = window.matchMedia("(max-width: 600px)").matches;
+    const canvasWidth = compactDiagram ? 840 : 1280;
     const topPadding = 34;
     const stageGap = 66;
     let cursorY = topPadding;
@@ -629,7 +630,7 @@
     const feedback = edgeSvg(`M${layouts[6].centerX + 470} ${layouts[6].bottom - 20} C${feedbackX} ${layouts[6].bottom - 20} ${feedbackX} ${layouts[2].top - 12} ${layouts[2].centerX + 470} ${layouts[2].top - 12}`, "feedback", "Validation feedback to physics construction");
     els.diagram.setAttribute("viewBox", `0 0 ${canvasWidth} ${canvasHeight}`);
     els.diagram.dataset.diagramHeight = String(canvasHeight);
-    els.diagram.style.width = `${state.diagramZoom * 100}%`;
+    applyDiagramWidth();
     els.diagram.innerHTML = `<defs>
       <marker id="arrow-primary" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#334e68"/></marker>
       <marker id="arrow-optional" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#a8246f"/></marker>
@@ -757,9 +758,14 @@
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" role="img" aria-label="Generated PINN architecture"><style>.diagram-stage-title{font:700 20px Inter,Segoe UI,sans-serif;fill:#142536}.diagram-stage-number{font:700 12px SFMono-Regular,Consolas,monospace;letter-spacing:1.2px}.diagram-stage-count{font:600 12px Inter,Segoe UI,sans-serif;fill:#526476}.diagram-field rect{fill:#fff;stroke:#b9c8d6;stroke-width:1.4}.diagram-field-title{font:700 14px Inter,Segoe UI,sans-serif;fill:#142536}.diagram-field-values{font:500 13px Inter,Segoe UI,sans-serif;fill:#34495e}.diagram-edge path{fill:none;stroke-width:4}.diagram-edge.primary path{stroke:#334e68}.diagram-edge.optional path{stroke:#a8246f;stroke-dasharray:10 7}.diagram-edge.feedback path{stroke:#b04b22;stroke-dasharray:5 8}</style><rect width="${width}" height="${height}" rx="22" fill="#f7fafc"/>${els.diagram.innerHTML}</svg>`;
   }
 
+  function applyDiagramWidth() {
+    const compactDiagram = window.matchMedia("(max-width: 600px)").matches;
+    els.diagram.style.width = compactDiagram ? `${Math.round(780 * state.diagramZoom)}px` : `${Math.round(state.diagramZoom * 100)}%`;
+  }
+
   function setDiagramZoom(value) {
     state.diagramZoom = Math.max(0.75, Math.min(1.75, value));
-    els.diagram.style.width = `${Math.round(state.diagramZoom * 100)}%`;
+    applyDiagramWidth();
     document.querySelector("[data-diagram-zoom-value]").textContent = `${Math.round(state.diagramZoom * 100)}%`;
   }
 
@@ -944,6 +950,11 @@
       const edge = event.target.closest("[data-legend-edge]");
       if (stage) setLegendFocus("stage", stage.dataset.legendStage);
       if (edge) setLegendFocus("edge", edge.dataset.legendEdge);
+    });
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderDiagram, 120);
     });
   }
 
