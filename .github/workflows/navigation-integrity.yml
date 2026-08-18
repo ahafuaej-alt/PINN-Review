@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: atlas-navigation-integrity-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-navigation:
     runs-on: ubuntu-latest
