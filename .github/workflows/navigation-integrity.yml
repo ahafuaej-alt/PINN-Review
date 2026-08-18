@@ -1,0 +1,52 @@
+name: Atlas navigation integrity
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run static navigation contract checks
+        run: node scripts/validate-navigation.mjs
+      - name: Locate runner browser
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --prefix /tmp/pinn-nav-qa --no-save --package-lock=false playwright-core@1.55.0
+      - name: Start static preview
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/pinn-navigation-preview.log 2>&1 &
+          echo "PREVIEW_PID=$!" >> "$GITHUB_ENV"
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/pinn-navigation-preview.log
+          exit 1
+      - name: Validate navigation rendering and overflow
+        env:
+          BASE_URL: http://127.0.0.1:4173
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-nav-qa/node_modules/playwright-core/index.js
+        run: node scripts/validate-navigation.mjs --browser
+      - name: Stop static preview
+        if: always()
+        run: kill "$PREVIEW_PID" 2>/dev/null || true
