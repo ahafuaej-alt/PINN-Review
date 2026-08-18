@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahafuaej-alt.github.io/PINN-Review/sitemap.xml
