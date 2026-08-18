@@ -47,7 +47,6 @@ const expectedNavigation = {
 const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 const toPosix = (value) => value.split(path.sep).join('/');
-const normalizeRoute = (value) => value.replace(/^\/+/, '').replace(/index\.html$/i, '').replace(/\/+$/, '');
 
 async function walk(dir, files = []) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -61,13 +60,11 @@ async function walk(dir, files = []) {
 }
 
 function isPublicHtml(relativePath) {
-  if (relativePath === '404.html' || relativePath === 'index.html') return true;
-  return relativePath.endsWith('/index.html');
+  return relativePath === 'index.html' || relativePath === '404.html' || relativePath.endsWith('/index.html');
 }
 
 function pageUrl(relativePath) {
-  if (relativePath === 'index.html') return `${baseUrl}/`;
-  return `${baseUrl}/${relativePath}`;
+  return relativePath === 'index.html' ? `${baseUrl}/` : `${baseUrl}/${relativePath}`;
 }
 
 async function assertRouteExists(route) {
@@ -85,10 +82,12 @@ const relativeFiles = allFiles.map((file) => toPosix(path.relative(repoRoot, fil
 const publicPages = relativeFiles.filter(isPublicHtml).sort();
 assert(publicPages.length >= 20, `Expected at least 20 public Atlas HTML entry points, found ${publicPages.length}.`);
 
-const configuredRoutes = [
-  ...expectedNavigation.direct.map(([, route]) => route),
-  ...expectedNavigation.groups.flatMap(([, items]) => items.map(([, route]) => route))
-];
+const routeExpectations = new Map();
+for (const [label, route] of expectedNavigation.direct) routeExpectations.set(route, { label, group: null });
+for (const [group, items] of expectedNavigation.groups) {
+  for (const [label, route] of items) routeExpectations.set(route, { label, group });
+}
+const configuredRoutes = [...routeExpectations.keys()];
 assert(new Set(configuredRoutes).size === configuredRoutes.length, 'Duplicate route exists in the canonical navigation contract.');
 for (const route of configuredRoutes) await assertRouteExists(route);
 
@@ -96,8 +95,12 @@ const themeInitPath = path.join(repoRoot, 'assets', 'theme-init.js');
 const themeInit = await fs.readFile(themeInitPath, 'utf8');
 assert(themeInit.includes("navLinks.classList.add('atlas-global-nav')"), 'Shared theme-init.js does not activate atlas-global-nav.');
 assert(themeInit.includes('navLinks.replaceChildren()'), 'Shared navigation no longer replaces per-page menu content.');
-assert(themeInit.includes("label: 'Methods & Evaluation'"), 'Canonical Methods & Evaluation group is missing from theme-init.js.');
-assert(themeInit.includes("label: 'Data Governance'"), 'Canonical Data Governance group is missing from theme-init.js.');
+for (const [group] of expectedNavigation.groups) {
+  assert(themeInit.includes(`label: '${group}'`), `Canonical group “${group}” is missing from theme-init.js.`);
+}
+for (const route of configuredRoutes) {
+  assert(themeInit.includes(`'${route}'`), `Configured route ${route} is missing from theme-init.js.`);
+}
 
 for (const relativePath of publicPages) {
   const html = await fs.readFile(path.join(repoRoot, relativePath), 'utf8');
@@ -115,38 +118,70 @@ for (const relativePath of publicPages) {
   assert(resolved === '/', `${relativePath}: logo/Home href ${brandHref} resolves to ${resolved}, not Atlas root.`);
 }
 
-// These grouped labels are unique enough to detect a second canonical menu definition.
-// They may appear in this validation contract, but in production HTML/JS they must occur only in theme-init.js.
-const uniqueGroupLabels = expectedNavigation.groups.map(([label]) => label);
-for (const label of uniqueGroupLabels) {
+// Canonical group names must exist in production HTML/JS in one place only.
+// The validator itself is intentionally excluded because it mirrors the approved contract.
+for (const [label] of expectedNavigation.groups) {
   const occurrences = [];
   for (const relativePath of relativeFiles.filter((file) => /\.(?:html|js|mjs)$/.test(file) && file !== 'scripts/validate-navigation.mjs')) {
     const source = await fs.readFile(path.join(repoRoot, relativePath), 'utf8');
     if (source.includes(label)) occurrences.push(relativePath);
   }
-  assert(occurrences.length === 1 && occurrences[0] === 'assets/theme-init.js', `Duplicate canonical navigation definition for “${label}” found in: ${occurrences.join(', ') || 'none'}.`);
+  assert(
+    occurrences.length === 1 && occurrences[0] === 'assets/theme-init.js',
+    `Duplicate canonical navigation definition for “${label}” found in: ${occurrences.join(', ') || 'none'}.`
+  );
 }
 
 console.log(`Static navigation integrity passed for ${publicPages.length} public Atlas pages and ${configuredRoutes.length} internal menu routes.`);
-
 if (!runBrowser) process.exit(0);
-assert(executablePath, 'CHROME_BIN must point to a Chromium-compatible browser when --browser is used.');
 
-const playwrightModule = process.env.PLAYWRIGHT_CORE_PATH || 'playwright-core';
-const { chromium } = await import(playwrightModule.startsWith('/') ? pathToFileURL(playwrightModule).href : playwrightModule);
+assert(executablePath, 'CHROME_BIN must point to a Chromium-compatible browser when --browser is used.');
+const playwrightPath = process.env.PLAYWRIGHT_CORE_PATH;
+const playwrightModule = playwrightPath
+  ? await import(pathToFileURL(playwrightPath).href)
+  : await import('playwright-core');
+const chromium = playwrightModule.chromium || playwrightModule.default?.chromium;
+assert(chromium, 'Unable to load Chromium from the configured Playwright module.');
+
 const browser = await chromium.launch({ executablePath, headless: true, args: ['--no-sandbox'] });
 const viewports = [
-  { name: 'wide-desktop', width: 1600, height: 1000, expectCompact: false },
-  { name: 'compact-desktop', width: 1440, height: 1000, expectCompact: true },
-  { name: 'mobile', width: 390, height: 844, expectCompact: true }
+  { name: 'wide-desktop', width: 1600, height: 1000, compact: false },
+  { name: 'compact-desktop', width: 1440, height: 1000, compact: true },
+  { name: 'mobile', width: 390, height: 844, compact: true }
 ];
 
+async function waitForNavigation(page) {
+  await page.waitForSelector('.nav-links.atlas-global-nav', { state: 'attached' });
+}
+
+async function layoutSnapshot(page) {
+  return page.evaluate(() => {
+    const brand = document.querySelector('.brand');
+    const nav = document.querySelector('.nav-links.atlas-global-nav');
+    const toggle = document.querySelector('.nav-toggle');
+    return {
+      bodyScrollWidth: document.body.scrollWidth,
+      documentScrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+      viewportWidth: innerWidth,
+      navPresent: Boolean(nav),
+      brandPath: brand ? new URL(brand.href, location.href).pathname : null,
+      toggleDisplay: toggle ? getComputedStyle(toggle).display : 'none'
+    };
+  });
+}
+
+function assertNoOverflow(layout, label) {
+  assert(layout.bodyScrollWidth <= layout.viewportWidth + 1, `${label}: body width ${layout.bodyScrollWidth}px exceeds viewport ${layout.viewportWidth}px.`);
+  assert(layout.documentScrollWidth <= layout.clientWidth + 1, `${label}: document width ${layout.documentScrollWidth}px exceeds client ${layout.clientWidth}px.`);
+}
+
 try {
-  // Verify exact hierarchy and group membership once from the generated navigation.
+  // Validate the exact approved hierarchy and all link destinations from the generated navigation.
   const contractContext = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'reduce' });
   const contractPage = await contractContext.newPage();
   await contractPage.goto(`${baseUrl}/`, { waitUntil: 'domcontentloaded' });
-  await contractPage.waitForSelector('.nav-links.atlas-global-nav');
+  await waitForNavigation(contractPage);
   const renderedContract = await contractPage.evaluate(() => {
     const destination = (link) => {
       const url = new URL(link.href, location.href);
@@ -168,22 +203,29 @@ try {
   assert(external?.[1] === expectedNavigation.external[1], 'GitHub external route differs from the approved destination.');
   await contractContext.close();
 
-  // Verify nested governance pages resolve and activate the correct group/item.
-  for (const route of ['dataset-manager/review/', 'references/changelog/']) {
+  // Every configured destination must identify itself and its intended group correctly.
+  for (const [route, expected] of routeExpectations) {
     const context = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(`${baseUrl}/${route}`, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('.nav-links.atlas-global-nav');
-    const nested = await page.evaluate(() => ({
-      activeGroup: document.querySelector('.atlas-nav-group.is-active .atlas-nav-group-toggle')?.textContent.trim().replace(/\s+/g, ' '),
-      activeItem: document.querySelector('.atlas-nav-item[aria-current="page"] .atlas-nav-item-name')?.textContent.trim()
-    }));
-    assert(nested.activeGroup === 'Data Governance', `${route}: nested route did not activate Data Governance.`);
-    const expectedItem = route.startsWith('dataset-manager') ? 'Publisher Metadata Review' : 'Reference Changelog';
-    assert(nested.activeItem === expectedItem, `${route}: expected active item ${expectedItem}, got ${nested.activeItem || 'none'}.`);
+    await waitForNavigation(page);
+    const active = await page.evaluate(() => {
+      const current = document.querySelector('.nav-links.atlas-global-nav [aria-current="page"]');
+      const group = current?.closest('.atlas-nav-group');
+      return {
+        label: current?.querySelector('.atlas-nav-item-name')?.textContent.trim() || current?.textContent.trim() || null,
+        group: group?.querySelector('.atlas-nav-group-toggle')?.textContent.trim().replace(/\s+/g, ' ') || null,
+        groupActive: group ? group.classList.contains('is-active') : true
+      };
+    });
+    assert(active.label === expected.label, `${route}: expected active page “${expected.label}”, got “${active.label || 'none'}”.`);
+    assert(active.group === expected.group, `${route}: expected group “${expected.group || 'direct'}”, got “${active.group || 'direct'}”.`);
+    assert(active.groupActive, `${route}: intended navigation group is not marked active.`);
     await context.close();
   }
 
+  // Exercise every public entry point at supported widths. Main/footer are hidden after load so
+  // any detected horizontal overflow is attributable to the navigation shell itself.
   for (const viewport of viewports) {
     const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, reducedMotion: 'reduce' });
     const page = await context.newPage();
@@ -192,7 +234,6 @@ try {
       const type = request.resourceType();
       const url = request.url();
       if (['image', 'font', 'media'].includes(type)) return route.abort();
-      // Keep shared navigation/theme behavior and CSS; abort feature scripts/data to keep the deployment invariant focused and fast.
       if (type === 'script' && !/(?:theme-init|app)\.js(?:\?|$)/.test(url)) return route.abort();
       if (type === 'fetch' || type === 'xhr') return route.abort();
       return route.continue();
@@ -200,37 +241,37 @@ try {
 
     for (const relativePath of publicPages) {
       await page.goto(pageUrl(relativePath), { waitUntil: 'domcontentloaded' });
-      await page.waitForSelector('.nav-links.atlas-global-nav');
+      await waitForNavigation(page);
+      await page.addStyleTag({ content: 'main,.site-footer{display:none!important}' });
 
-      if (viewport.expectCompact) {
-        await page.evaluate(() => document.querySelector('.nav-links.atlas-global-nav')?.classList.add('open'));
-      }
-
-      const layout = await page.evaluate(() => {
-        const brand = document.querySelector('.brand');
+      await page.evaluate((compact) => {
         const nav = document.querySelector('.nav-links.atlas-global-nav');
-        const toggle = document.querySelector('.nav-toggle');
-        return {
-          bodyScrollWidth: document.body.scrollWidth,
-          docScrollWidth: document.documentElement.scrollWidth,
-          clientWidth: document.documentElement.clientWidth,
-          viewportWidth: innerWidth,
-          navPresent: Boolean(nav),
-          brandPath: brand ? new URL(brand.href, location.href).pathname : null,
-          toggleDisplay: toggle ? getComputedStyle(toggle).display : 'none'
-        };
-      });
+        nav?.classList.toggle('open', compact);
+        document.querySelectorAll('.atlas-nav-group').forEach((group) => group.classList.remove('open'));
+      }, viewport.compact);
+
+      let layout = await layoutSnapshot(page);
       assert(layout.navPresent, `${relativePath} (${viewport.name}): shared navigation did not render.`);
-      assert(layout.bodyScrollWidth <= layout.viewportWidth + 1, `${relativePath} (${viewport.name}): body width ${layout.bodyScrollWidth}px exceeds viewport ${layout.viewportWidth}px.`);
-      assert(layout.docScrollWidth <= layout.clientWidth + 1, `${relativePath} (${viewport.name}): document width ${layout.docScrollWidth}px exceeds client ${layout.clientWidth}px.`);
       assert(layout.brandPath === '/', `${relativePath} (${viewport.name}): logo/Home resolves to ${layout.brandPath}, expected /.`);
-      if (viewport.expectCompact) assert(layout.toggleDisplay !== 'none', `${relativePath} (${viewport.name}): compact navigation toggle is not visible.`);
+      if (viewport.compact) assert(layout.toggleDisplay !== 'none', `${relativePath} (${viewport.name}): compact navigation toggle is not visible.`);
       else assert(layout.toggleDisplay === 'none', `${relativePath} (${viewport.name}): full desktop navigation unexpectedly shows the hamburger toggle.`);
+      assertNoOverflow(layout, `${relativePath} (${viewport.name}, base menu)`);
+
+      // Open every group individually and verify its dropdown/accordion state cannot overflow.
+      for (let groupIndex = 0; groupIndex < expectedNavigation.groups.length; groupIndex += 1) {
+        await page.evaluate(({ compact, groupIndex }) => {
+          const nav = document.querySelector('.nav-links.atlas-global-nav');
+          nav?.classList.toggle('open', compact);
+          document.querySelectorAll('.atlas-nav-group').forEach((group, index) => group.classList.toggle('open', index === groupIndex));
+        }, { compact: viewport.compact, groupIndex });
+        layout = await layoutSnapshot(page);
+        assertNoOverflow(layout, `${relativePath} (${viewport.name}, group ${groupIndex + 1})`);
+      }
     }
     await context.close();
   }
 
-  console.log(`Browser navigation integrity passed across ${publicPages.length} pages × ${viewports.length} supported viewport modes.`);
+  console.log(`Browser navigation integrity passed across ${publicPages.length} pages × ${viewports.length} supported viewport modes, including every group-open state.`);
 } finally {
   await browser.close();
 }

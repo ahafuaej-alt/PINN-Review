@@ -78,7 +78,7 @@ jobs:
       - name: Verify navigation rendering and overflow
         env:
           BASE_URL: http://127.0.0.1:4173
-          PLAYWRIGHT_CORE_PATH: /tmp/pinn-nav-qa/node_modules/playwright-core/index.js
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-nav-qa/node_modules/playwright-core/index.mjs
         run: node scripts/validate-navigation.mjs --browser
       - name: Stop navigation preview
         if: always()
