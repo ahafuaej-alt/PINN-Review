@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "last_source_update": "2026-08-17",
+  "stats": {
+    "papers": 853,
+    "countries": 63,
+    "performance_metrics": 123,
+    "optimizer_forms": 53,
+    "activation_functions": 62,
+    "ecosystem_layers": 9,
+    "ecosystem_groups": 35
+  },
+  "versions": {
+    "references": "2.2.174",
+    "pinn_realm": "2.2.174",
+    "pinn_ecosystem": "2026.08.17.2"
+  },
+  "generated_from": [
+    "data/references-metadata.json",
+    "data/pinn-realm.json",
+    "data/performance/performance-summary.json",
+    "data/optimizers/optimizer-summary.json",
+    "data/activation-functions/activation-summary.json",
+    "data/pinn-ecosystem/pinn-ecosystem.json"
+  ]
+}
