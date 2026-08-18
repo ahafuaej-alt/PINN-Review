@@ -78,13 +78,13 @@ The public views are generated from explicit evidence records rather than mainta
 
 ```mermaid
 flowchart LR
-    A[Primary-paper evidence] --> B[Canonical paper records]
-    B --> C[Validation and normalization]
-    C --> D[References]
-    C --> E[PINN Realm]
-    C --> F[Metrics / optimizers / activations]
-    C --> G[Taxonomies and ecosystem views]
-    D --> H[Search · filters · citation exports]
+    A["Primary paper evidence"] --> B["Canonical paper records"]
+    B --> C["Validation and normalization"]
+    C --> D["References"]
+    C --> E["PINN Realm"]
+    C --> F["Metrics, optimizers, and activations"]
+    C --> G["Taxonomies and ecosystem views"]
+    D --> H["Search, filters, and citation exports"]
     E --> H
     F --> H
     G --> H
