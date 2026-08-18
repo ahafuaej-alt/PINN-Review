@@ -1,6 +1,10 @@
 (() => {
   'use strict';
 
+  const accessibilityStyle = document.createElement('style');
+  accessibilityStyle.textContent = '.home-refresh .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}';
+  document.head.append(accessibilityStyle);
+
   const navMount = document.querySelector('.site-header .nav-links');
   if (navMount && !navMount.classList.contains('atlas-global-nav')) navMount.replaceChildren();
 
@@ -8,7 +12,7 @@
   const number = new Intl.NumberFormat('en');
   const date = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-  const formatValue = (key, value) => {
+  const formatValue = (_key, value) => {
     if (!Number.isFinite(Number(value))) return String(value ?? '—');
     return number.format(Number(value));
   };
@@ -33,8 +37,7 @@
       if (!Number.isNaN(parsed.getTime())) lastUpdated.textContent = `Latest source update ${date.format(parsed)}`;
     }
 
-    const root = document.documentElement;
-    root.dataset.atlasOverview = 'ready';
+    document.documentElement.dataset.atlasOverview = 'ready';
   };
 
   fetch(`${rootHref}data/atlas-overview.json`, { cache: 'no-store' })
