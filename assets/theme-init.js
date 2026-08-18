@@ -212,7 +212,7 @@
       .atlas-nav-primary-link { white-space: nowrap; }
       .atlas-nav-external { color: var(--faint) !important; }
 
-      @media (min-width: 1280px) {
+      @media (min-width: 1501px) {
         .nav { width: min(calc(100% - 2rem), 1540px) !important; gap: .55rem !important; }
         .nav-toggle { display: none !important; }
         .nav-links.atlas-global-nav {
@@ -243,7 +243,7 @@
         .atlas-nav-group.open > .atlas-nav-dropdown { display: grid; }
       }
 
-      @media (max-width: 1279px) {
+      @media (max-width: 1500px) {
         .nav-toggle { display: inline-grid !important; place-items: center !important; }
         .nav-links.atlas-global-nav {
           position: absolute !important;
@@ -346,7 +346,7 @@
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1280) closeGroups();
+      if (window.innerWidth > 1500) closeGroups();
     }, { passive: true });
   });
 })();
