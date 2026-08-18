@@ -5,12 +5,18 @@ on:
     paths:
       - 'data/**'
       - 'scripts/**'
+      - 'index.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
       - '.github/workflows/**'
   push:
     branches: [main]
     paths:
       - 'data/**'
       - 'scripts/**'
+      - 'index.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
 
 permissions:
   contents: read
@@ -31,6 +37,9 @@ jobs:
           node scripts/validate-citation-format.mjs
           node scripts/validate-pinn-realm.mjs
           node scripts/build-optimizers.mjs --check
+          node scripts/build-atlas-overview.mjs --check
+          node scripts/build-site-index.mjs --check
           node --check assets/optimizers.js
           node --check assets/reference-technical-details.js
+          node --check assets/home-refresh.js
           node scripts/validate-optimizers.mjs

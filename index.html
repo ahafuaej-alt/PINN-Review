@@ -3,15 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PINN Review Atlas — an evidence-led visual companion to a review of physics-informed neural networks.">
+  <meta name="description" content="PINN Review Atlas — an evidence-led research companion for exploring 853 physics-informed neural-network publications, methods, metrics, geography, terminology, and data provenance.">
   <meta name="theme-color" content="#09111d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ahafuaej-alt.github.io/PINN-Review/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PINN Review Atlas">
+  <meta property="og:title" content="PINN Review Atlas — Physics, learning, and evidence mapped">
+  <meta property="og:description" content="Explore the evidence architecture, research landscape, evaluation practices, methods, terminology, and governance behind an 853-publication PINN review corpus.">
+  <meta property="og:url" content="https://ahafuaej-alt.github.io/PINN-Review/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PINN Review Atlas">
+  <meta name="twitter:description" content="An evidence-led interactive companion to a large-scale review of physics-informed neural networks.">
   <title>PINN Review Atlas</title>
   <script src="assets/theme-init.js?v=ux-20260722"></script>
   <link rel="icon" href="assets/atlas-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css?v=ux-20260817-ecosystem">
+  <link rel="stylesheet" href="assets/home-refresh.css?v=20260819-home-refresh">
   <script src="assets/app.js?v=ux-20260812-reach" defer></script>
+  <script src="assets/home-refresh.js?v=20260819-home-refresh" defer></script>
 </head>
-<body>
+<body class="home-refresh">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
@@ -20,61 +32,283 @@
         <span>PINN Review Atlas<small>Research companion</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="#atlas">Explore</a>
-        <a href="pinn-types/">PINN types</a>
-        <a href="pinn-ecosystem/">PINN Ecosystem</a>
-        <a href="abbreviations/">Abbreviations</a>
-        <a href="references/">References</a>
-        <a href="performance-metrics/">Performance Metrics</a>
-        <a href="optimizers/">Optimizers</a>
-        <a href="activation-functions/">Activation Functions</a>
-        <a href="cite/">Cite</a>
-        <a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a>
-      </div>
+      <div class="nav-links" id="nav-links"></div>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero home-hero">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">A living research atlas</p>
+          <p class="eyebrow">A living evidence architecture</p>
           <h1>Physics, learning, and evidence—<span class="gradient">mapped.</span></h1>
-          <p class="lede">An interactive companion to the PINN review: classifications, figures, evidence tables, comparisons, software, and datasets—each with a stable, shareable address.</p>
+          <p class="lede">An evidence-led companion to the PINN review, connecting a canonical paper corpus to methods, evaluation, terminology, geography, research resources, and transparent data governance.</p>
           <div class="actions">
-            <a class="button primary" href="#atlas">Explore the atlas <span aria-hidden="true">↓</span></a>
-            <a class="button" href="pinn-types/">Open PINN types <span aria-hidden="true">→</span></a>
+            <a class="button primary" href="pinn-ecosystem/">Explore PINN Ecosystem <span aria-hidden="true">→</span></a>
+            <a class="button" href="references/">Browse <span data-overview-value="papers">853</span> references <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-note" aria-label="Atlas principles">
+            <span>Stable paper IDs</span>
+            <span>Evidence-preserving normalization</span>
+            <span>Versioned public views</span>
           </div>
         </div>
 
-        <div class="signal-card" aria-label="Conceptual plot showing observations and a physics-informed prediction">
-          <div class="signal-top"><span>Physics-informed field</span><span class="live-dot">Atlas online</span></div>
-          <svg class="signal-plot" viewBox="0 0 480 250" role="img" aria-labelledby="plot-title plot-desc">
-            <title id="plot-title">Conceptual physics-informed prediction</title>
-            <desc id="plot-desc">Observed points lie along a prediction curve constrained by a differential equation.</desc>
-            <defs>
-              <linearGradient id="traceGradient" x1="40" y1="200" x2="440" y2="45" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#50e3c2"/><stop offset="1" stop-color="#8c7cf6"/>
-              </linearGradient>
-              <linearGradient id="fillGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop stop-color="#50e3c2" stop-opacity=".18"/><stop offset="1" stop-color="#50e3c2" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path d="M24 212H456M24 164H456M24 116H456M24 68H456" stroke="rgba(168,190,207,.13)" stroke-width="1"/>
-            <path d="M30 199 C84 181 93 105 146 118 S205 193 254 144 S318 48 365 76 S416 154 451 85 L451 225 L30 225Z" fill="url(#fillGradient)"/>
-            <path class="trace" d="M30 199 C84 181 93 105 146 118 S205 193 254 144 S318 48 365 76 S416 154 451 85" fill="none" stroke="url(#traceGradient)" stroke-width="4" stroke-linecap="round"/>
-            <g fill="#09111d" stroke="#50e3c2" stroke-width="3">
-              <circle cx="82" cy="164" r="5"/><circle cx="145" cy="118" r="5"/><circle cx="254" cy="144" r="5"/><circle cx="365" cy="76" r="5"/><circle cx="424" cy="127" r="5"/>
-            </g>
-            <text x="31" y="242" fill="#687785" font-family="monospace" font-size="10">x, t</text>
-            <text x="405" y="35" fill="#9babb8" font-family="monospace" font-size="10">𝒩[u] = 0</text>
-          </svg>
-          <div class="signal-legend">
-            <div><strong>Evidence</strong><span>Paper-level records</span></div>
-            <div><strong>Physics</strong><span>Governing constraints</span></div>
-            <div><strong>Views</strong><span>Stable research URLs</span></div>
+        <figure class="evidence-architecture-card" aria-labelledby="architecture-title architecture-caption">
+          <div class="architecture-head">
+            <div>
+              <strong id="architecture-title">Atlas Evidence Architecture</strong>
+              <span>Source → canonical record → quality gate → research views → governance</span>
+            </div>
+            <span class="architecture-state">Live system</span>
           </div>
+          <div class="architecture-viewport">
+            <svg class="atlas-architecture" viewBox="0 0 1000 562" role="img" aria-labelledby="architecture-svg-title architecture-svg-desc" preserveAspectRatio="xMidYMid meet">
+              <title id="architecture-svg-title">PINN Review Atlas evidence architecture</title>
+              <desc id="architecture-svg-desc">A five-stage flow from primary publication evidence into the canonical paper master, through normalization and validation, into six live Atlas research views, and finally into governance, citation, and version history.</desc>
+              <defs>
+                <linearGradient id="atlas-flow-gradient" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" style="stop-color:var(--mint)"/>
+                  <stop offset="1" style="stop-color:var(--violet)"/>
+                </linearGradient>
+                <marker id="atlas-flow-arrow" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--violet)"/>
+                </marker>
+                <filter id="atlas-center-glow" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="16" result="blur"/>
+                  <feFlood style="flood-color:var(--mint)" flood-opacity=".12"/>
+                  <feComposite in2="blur" operator="in"/>
+                  <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              <rect class="arch-bg" x="1" y="1" width="998" height="560" rx="22"/>
+              <g opacity=".45">
+                <path class="arch-grid" d="M0 112H1000M0 224H1000M0 336H1000M0 448H1000"/>
+                <path class="arch-grid" d="M125 0V562M250 0V562M375 0V562M500 0V562M625 0V562M750 0V562M875 0V562"/>
+              </g>
+
+              <path class="arch-flow" d="M170 281H194"/>
+              <path class="arch-flow" d="M345 281H369"/>
+              <path class="arch-flow" d="M540 281H566"/>
+              <path class="arch-flow" d="M792 281H814"/>
+
+              <g>
+                <rect class="arch-node" x="20" y="169" width="150" height="224" rx="18"/>
+                <circle class="arch-dot" cx="43" cy="194" r="5"/>
+                <text class="arch-kicker" x="55" y="199">01 · EVIDENCE</text>
+                <text class="arch-title" x="38" y="238">Primary paper</text>
+                <text class="arch-title" x="38" y="263">evidence</text>
+                <text class="arch-metric" x="38" y="304"><tspan data-overview-value="papers">853</tspan> records</text>
+                <text class="arch-copy" x="38" y="337">DOI / publisher</text>
+                <text class="arch-copy" x="38" y="357">metadata · extracted</text>
+                <text class="arch-copy" x="38" y="377">method evidence</text>
+              </g>
+
+              <g>
+                <rect class="arch-node" x="195" y="169" width="150" height="224" rx="18"/>
+                <circle class="arch-dot" cx="218" cy="194" r="5"/>
+                <text class="arch-kicker" x="230" y="199">02 · CANONICAL</text>
+                <text class="arch-title" x="213" y="238">Master paper</text>
+                <text class="arch-title" x="213" y="263">record</text>
+                <text class="arch-copy" x="213" y="304">Stable Atlas ID</text>
+                <text class="arch-copy" x="213" y="326">Bibliography · venue</text>
+                <text class="arch-copy" x="213" y="348">year · countries</text>
+                <text class="arch-meta" x="213" y="378">papers-master.json</text>
+              </g>
+
+              <g filter="url(#atlas-center-glow)">
+                <rect class="arch-node-center" x="370" y="145" width="170" height="272" rx="22"/>
+                <circle class="arch-dot-violet" cx="395" cy="173" r="5"/>
+                <text class="arch-kicker" x="407" y="178">03 · QUALITY GATE</text>
+                <text class="arch-title" x="391" y="222">Normalize &amp;</text>
+                <text class="arch-title" x="391" y="247">validate</text>
+                <rect class="arch-mini" x="390" y="275" width="130" height="31" rx="8"/>
+                <text class="arch-mini-title" x="402" y="295">Alias resolution</text>
+                <rect class="arch-mini" x="390" y="315" width="130" height="31" rx="8"/>
+                <text class="arch-mini-title" x="402" y="335">Source provenance</text>
+                <rect class="arch-mini" x="390" y="355" width="130" height="31" rx="8"/>
+                <text class="arch-mini-title" x="402" y="375">CI invariants</text>
+                <text class="arch-meta" x="391" y="404">No silent zero / inference</text>
+              </g>
+
+              <g>
+                <rect class="arch-panel" x="567" y="82" width="225" height="398" rx="20"/>
+                <circle class="arch-dot" cx="592" cy="110" r="5"/>
+                <text class="arch-kicker" x="604" y="115">04 · RESEARCH VIEWS</text>
+
+                <rect class="arch-mini arch-mini-live" x="586" y="140" width="90" height="78" rx="11"/>
+                <text class="arch-mini-title" x="598" y="163">References</text>
+                <text class="arch-metric" x="598" y="189" data-overview-value="papers">853</text>
+                <text class="arch-mini-meta" x="598" y="207">paper records</text>
+
+                <rect class="arch-mini arch-mini-live" x="684" y="140" width="90" height="78" rx="11"/>
+                <text class="arch-mini-title" x="696" y="163">PINN Realm</text>
+                <text class="arch-metric" x="696" y="189" data-overview-value="countries">63</text>
+                <text class="arch-mini-meta" x="696" y="207">countries</text>
+
+                <rect class="arch-mini arch-mini-live" x="586" y="228" width="90" height="78" rx="11"/>
+                <text class="arch-mini-title" x="598" y="251">Metrics</text>
+                <text class="arch-metric" x="598" y="277" data-overview-value="performance_metrics">123</text>
+                <text class="arch-mini-meta" x="598" y="295">taxonomy</text>
+
+                <rect class="arch-mini arch-mini-live" x="684" y="228" width="90" height="78" rx="11"/>
+                <text class="arch-mini-title" x="696" y="251">Optimizers</text>
+                <text class="arch-metric" x="696" y="277" data-overview-value="optimizer_forms">53</text>
+                <text class="arch-mini-meta" x="696" y="295">canonical forms</text>
+
+                <rect class="arch-mini arch-mini-live" x="586" y="316" width="90" height="78" rx="11"/>
+                <text class="arch-mini-title" x="598" y="339">Activations</text>
+                <text class="arch-metric" x="598" y="365" data-overview-value="activation_functions">62</text>
+                <text class="arch-mini-meta" x="598" y="383">canonical entries</text>
+
+                <rect class="arch-mini arch-mini-live" x="684" y="316" width="90" height="78" rx="11"/>
+                <text class="arch-mini-title" x="696" y="339">Ecosystem</text>
+                <text class="arch-metric" x="696" y="365"><tspan data-overview-value="ecosystem_layers">9</tspan> / <tspan data-overview-value="ecosystem_groups">35</tspan></text>
+                <text class="arch-mini-meta" x="696" y="383">layers / groups</text>
+
+                <text class="arch-meta" x="586" y="432">Stable, shareable research URLs</text>
+                <path class="arch-flow-soft" d="M586 447H773"/>
+              </g>
+
+              <g>
+                <rect class="arch-node" x="815" y="136" width="165" height="290" rx="18"/>
+                <circle class="arch-dot-violet" cx="839" cy="163" r="5"/>
+                <text class="arch-kicker" x="851" y="168">05 · GOVERN</text>
+                <text class="arch-title" x="835" y="210">Review,</text>
+                <text class="arch-title" x="835" y="235">version &amp; cite</text>
+
+                <rect class="arch-mini" x="835" y="263" width="125" height="34" rx="8"/>
+                <text class="arch-mini-title" x="846" y="284">Dataset Manager</text>
+                <rect class="arch-mini" x="835" y="306" width="125" height="34" rx="8"/>
+                <text class="arch-mini-title" x="846" y="327">Metadata review</text>
+                <rect class="arch-mini" x="835" y="349" width="125" height="34" rx="8"/>
+                <text class="arch-mini-title" x="846" y="370">Changelog + Cite</text>
+                <text class="arch-meta" x="835" y="405">Auditable evolution</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption class="architecture-foot" id="architecture-caption">
+            <span>One canonical corpus → multiple evidence-preserving views</span>
+            <span class="architecture-scroll-hint">Scroll architecture →</span>
+            <span>Counts loaded from Atlas datasets</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="home-snapshot-section" aria-labelledby="snapshot-title">
+      <div class="container reveal">
+        <h2 id="snapshot-title" class="visually-hidden">Atlas snapshot</h2>
+        <div class="home-snapshot">
+          <div class="home-snapshot-item"><strong data-overview-value="papers">853</strong><span>Paper records</span><small>Canonical corpus</small></div>
+          <div class="home-snapshot-item"><strong data-overview-value="countries">63</strong><span>Countries</span><small>Research landscape</small></div>
+          <div class="home-snapshot-item"><strong data-overview-value="performance_metrics">123</strong><span>Performance metrics</span><small>Evaluation taxonomy</small></div>
+          <div class="home-snapshot-item"><strong data-overview-value="optimizer_forms">53</strong><span>Optimizer forms</span><small>Canonical forms</small></div>
+          <div class="home-snapshot-item"><strong data-overview-value="activation_functions">62</strong><span>Activation functions</span><small>Canonical entries</small></div>
+          <div class="home-snapshot-item"><strong><span data-overview-value="ecosystem_layers">9</span> / <span data-overview-value="ecosystem_groups">35</span></strong><span>Ecosystem layers / groups</span><small>Design system</small></div>
+        </div>
+        <p class="home-snapshot-meta">Generated from canonical Atlas datasets · <span data-overview-updated>Latest source update 17 Aug 2026</span></p>
+      </div>
+    </section>
+
+    <section class="section home-feature-section" aria-labelledby="ecosystem-feature-title">
+      <div class="container">
+        <article class="ecosystem-feature reveal">
+          <div class="ecosystem-feature-copy">
+            <p class="eyebrow">Featured research system</p>
+            <h2 id="ecosystem-feature-title">PINN Ecosystem</h2>
+            <p>Move beyond isolated choices such as architecture or optimizer. The Ecosystem organizes a PINN as a coupled numerical-learning system—from problem physics and purpose to representation, enforcement, numerical operators, training, extensions, evaluation, and implementation context.</p>
+            <div class="ecosystem-feature-metrics">
+              <span><strong data-overview-value="ecosystem_layers">9</strong> layers</span>
+              <span><strong data-overview-value="ecosystem_groups">35</strong> method groups</span>
+              <span><strong>Design Studio</strong> interactive architecture</span>
+            </div>
+            <a class="button primary" href="pinn-ecosystem/">Open PINN Ecosystem <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="ecosystem-layer-stack" aria-label="The nine PINN Ecosystem layers">
+            <div class="ecosystem-layer"><b>01</b><span>Problem &amp; Physics</span><small>define</small></div>
+            <div class="ecosystem-layer"><b>02</b><span>PINN Purpose</span><small>target</small></div>
+            <div class="ecosystem-layer"><b>03</b><span>Representation</span><small>encode</small></div>
+            <div class="ecosystem-layer"><b>04</b><span>Physics Enforcement</span><small>constrain</small></div>
+            <div class="ecosystem-layer"><b>05</b><span>Numerical Evaluation of Physics</span><small>operate</small></div>
+            <div class="ecosystem-layer"><b>06</b><span>Training</span><small>optimize</small></div>
+            <div class="ecosystem-layer"><b>07</b><span>Extensions &amp; Hybrids</span><small>extend</small></div>
+            <div class="ecosystem-layer"><b>08</b><span>Evaluation &amp; Reliability</span><small>verify</small></div>
+            <div class="ecosystem-layer"><b>09</b><span>Implementation &amp; Deployment</span><small>realize</small></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section home-directory" id="atlas" aria-labelledby="atlas-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="eyebrow">Atlas index</p><h2 id="atlas-title">One review.<br>Five research doors.</h2></div>
+          <p>The Home page now follows the same research hierarchy as the global navigation. Mature evidence explorers are marked <strong>Live</strong>; prepared workspaces remain visible without being presented as completed datasets.</p>
+        </div>
+
+        <div class="home-directory-groups">
+          <section class="home-directory-group reveal" aria-labelledby="methods-title">
+            <div class="directory-label"><span class="directory-index">01 / METHODS</span><h3 id="methods-title">Methods &amp; Evaluation</h3><p>How PINNs are represented, trained, optimized, and assessed.</p></div>
+            <div class="directory-cards">
+              <a class="home-module-card" href="architectures/"><span class="home-status" data-state="prepared">Prepared workspace</span><h4>Architectures</h4><p>Network designs, hybrids, decomposition, and operator-learning structures.</p><span class="module-meta">Structure prepared for validated records</span></a>
+              <a class="home-module-card" href="activation-functions/"><span class="home-status" data-state="live">Live</span><h4>Activation Functions</h4><p>Reported functions, adaptive variants, layer roles, custom bases, and source context.</p><span class="module-meta"><span data-overview-value="papers">853</span> records · <span data-overview-value="activation_functions">62</span> canonical entries</span></a>
+              <a class="home-module-card" href="training/"><span class="home-status" data-state="prepared">Prepared workspace</span><h4>Training</h4><p>Loss design, sampling, initialization, learning-rate strategy, and training workflows.</p><span class="module-meta">Structure prepared for validated records</span></a>
+              <a class="home-module-card" href="optimizers/"><span class="home-status" data-state="live">Live</span><h4>Optimizers</h4><p>Optimization algorithms and training strategies traced to paper-level evidence.</p><span class="module-meta"><span data-overview-value="papers">853</span> records · <span data-overview-value="optimizer_forms">53</span> canonical forms</span></a>
+              <a class="home-module-card" href="performance-metrics/"><span class="home-status" data-state="live">Live</span><h4>Performance Metrics</h4><p>Accuracy, physics satisfaction, robustness, efficiency, uncertainty, and reporting completeness.</p><span class="module-meta"><span data-overview-value="papers">853</span> records · <span data-overview-value="performance_metrics">123</span> metrics</span></a>
+            </div>
+          </section>
+
+          <section class="home-directory-group reveal" aria-labelledby="taxonomy-title">
+            <div class="directory-label"><span class="directory-index">02 / TAXONOMY</span><h3 id="taxonomy-title">Taxonomy &amp; Terminology</h3><p>How the literature names, groups, and distinguishes PINN concepts.</p></div>
+            <div class="directory-cards">
+              <a class="home-module-card" href="pinn-types/"><span class="home-status" data-state="prepared">Prepared workspace</span><h4>PINN Types</h4><p>Classification, families, aliases, overlap, prevalence, and citation evidence.</p><span class="module-meta">Taxonomy workspace awaiting validated type records</span></a>
+              <a class="home-module-card" href="abbreviations/"><span class="home-status" data-state="live">Live</span><h4>Abbreviations</h4><p>Search reported forms, inspect meanings, compare frequency, and trace supporting paper IDs.</p><span class="module-meta">Evidence index · source-linked terminology</span></a>
+            </div>
+          </section>
+
+          <section class="home-directory-group reveal" aria-labelledby="landscape-title">
+            <div class="directory-label"><span class="directory-index">03 / LANDSCAPE</span><h3 id="landscape-title">Research Landscape</h3><p>Where PINN research appears, who collaborates, and which papers support the review.</p></div>
+            <div class="directory-cards">
+              <a class="home-module-card" href="pinn-realm/"><span class="home-status" data-state="live">Live</span><h4>PINN Realm</h4><p>Geographic distribution, publication growth, and international collaboration.</p><span class="module-meta"><span data-overview-value="papers">853</span> papers · <span data-overview-value="countries">63</span> countries</span></a>
+              <a class="home-module-card" href="applications/"><span class="home-status" data-state="prepared">Prepared workspace</span><h4>Applications</h4><p>Scientific and engineering application domains across the reviewed literature.</p><span class="module-meta">Domain structure prepared</span></a>
+              <a class="home-module-card" href="references/"><span class="home-status" data-state="live">Live</span><h4>References</h4><p>Search the complete review bibliography, metadata, source links, abstracts, and exports.</p><span class="module-meta"><span data-overview-value="papers">853</span> canonical reference records</span></a>
+            </div>
+          </section>
+
+          <section class="home-directory-group reveal" aria-labelledby="resources-title">
+            <div class="directory-label"><span class="directory-index">04 / RESOURCES</span><h3 id="resources-title">Tools &amp; Resources</h3><p>Implementation resources that support reproducible PINN research.</p></div>
+            <div class="directory-cards">
+              <a class="home-module-card" href="software/"><span class="home-status" data-state="prepared">Prepared workspace</span><h4>Software</h4><p>PINN-native libraries, frameworks, numerical solvers, and supporting packages.</p><span class="module-meta">Resource structure prepared</span></a>
+              <a class="home-module-card" href="datasets/"><span class="home-status" data-state="prepared">Prepared workspace</span><h4>Datasets &amp; Benchmarks</h4><p>Datasets, benchmark equations, geometries, conditions, and reproducibility resources.</p><span class="module-meta">Benchmark structure prepared</span></a>
+            </div>
+          </section>
+
+          <section class="home-directory-group reveal" aria-labelledby="governance-title">
+            <div class="directory-label"><span class="directory-index">05 / GOVERNANCE</span><h3 id="governance-title">Data Governance</h3><p>How the canonical corpus is corrected, reviewed, versioned, and kept auditable.</p></div>
+            <div class="directory-cards">
+              <a class="home-module-card" href="dataset-manager/"><span class="home-status" data-state="governance">Governance</span><h4>Dataset Manager</h4><p>Inspect and propose sourced corrections to one canonical paper record.</p><span class="module-meta">Single-source editing workflow</span></a>
+              <a class="home-module-card" href="dataset-manager/review/"><span class="home-status" data-state="governance">Governance</span><h4>Publisher Metadata Review</h4><p>Review DOI, publisher, arXiv, and enrichment proposals before canonical acceptance.</p><span class="module-meta">Evidence-backed metadata review</span></a>
+              <a class="home-module-card" href="references/changelog/"><span class="home-status" data-state="governance">Governance</span><h4>Reference Changelog</h4><p>Follow version history, provenance, corrections, and data-quality policy.</p><span class="module-meta">Versioned public audit trail</span></a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-evidence-section" aria-labelledby="evidence-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="eyebrow">Evidence protocol</p><h2 id="evidence-title">From publication<br>to research view.</h2></div>
+          <p>The Atlas separates source evidence, canonical data, normalization, generated research views, and governance. This prevents a visual layer from silently becoming the source of truth.</p>
+        </div>
+        <div class="evidence-pipeline reveal">
+          <article class="evidence-stage"><span class="stage-number">01</span><h3>Primary evidence</h3><p>Publisher records, DOI metadata, paper-level extraction, and explicit research evidence.</p><code>source evidence</code></article>
+          <article class="evidence-stage"><span class="stage-number">02</span><h3>Canonical master</h3><p>Stable Atlas IDs connect bibliographic, venue, year, geography, and review metadata.</p><code>papers-master.json</code></article>
+          <article class="evidence-stage"><span class="stage-number">03</span><h3>Normalize &amp; validate</h3><p>Resolve aliases and classifications while preserving ambiguity, provenance, and explicit N/A states.</p><code>CI + validators</code></article>
+          <article class="evidence-stage"><span class="stage-number">04</span><h3>Generate Atlas views</h3><p>Build searchable references, geography, metrics, optimizer, activation, and ecosystem datasets.</p><code>derived views</code></article>
+          <article class="evidence-stage"><span class="stage-number">05</span><h3>Govern, version &amp; cite</h3><p>Review corrections, publish changelogs, preserve stable URLs, and provide citation guidance.</p><code>auditable release</code></article>
         </div>
       </div>
     </section>
@@ -82,161 +316,37 @@
     <section class="reach-section" aria-labelledby="atlas-reach-title" data-atlas-reach data-reach-status="loading">
       <div class="container reach-panel reveal">
         <div class="reach-intro">
-          <p class="eyebrow">Atlas reach</p>
-          <h2 id="atlas-reach-title">A growing research audience.</h2>
+          <p class="eyebrow">Atlas usage</p>
+          <h2 id="atlas-reach-title">Atlas usage snapshot.</h2>
           <p data-reach-summary>Loading privacy-preserving, aggregated visit statistics…</p>
           <a class="reach-method" href="privacy/#analytics">Method &amp; privacy <span aria-hidden="true">→</span></a>
         </div>
-        <dl class="reach-metrics" aria-label="Atlas reach summary">
-          <div>
-            <dt>Total visits</dt>
-            <dd data-reach-total aria-live="polite">—</dd>
-            <span>Since tracking began</span>
-          </div>
-          <div>
-            <dt>Recent visits</dt>
-            <dd data-reach-recent aria-live="polite">—</dd>
-            <span>Last 30 days</span>
-          </div>
-          <div>
-            <dt>Countries reached</dt>
-            <dd data-reach-countries aria-live="polite">—</dd>
-            <span>Aggregated location</span>
-          </div>
+        <dl class="reach-metrics" aria-label="Atlas usage summary">
+          <div><dt>Total visits</dt><dd data-reach-total aria-live="polite">—</dd><span>Since tracking began</span></div>
+          <div><dt>Recent visits</dt><dd data-reach-recent aria-live="polite">—</dd><span>Last 30 days</span></div>
+          <div><dt>Countries reached</dt><dd data-reach-countries aria-live="polite">—</dd><span>Aggregated location</span></div>
         </dl>
         <div class="reach-countries" aria-labelledby="reach-countries-title">
-          <div class="reach-countries-head">
-            <h3 id="reach-countries-title">Leading countries</h3>
-            <span>Visits</span>
-          </div>
-          <ol data-reach-country-list>
-            <li class="reach-empty">Statistics appear after analytics activation.</li>
-          </ol>
+          <div class="reach-countries-head"><h3 id="reach-countries-title">Leading countries</h3><span>Visits</span></div>
+          <ol data-reach-country-list><li class="reach-empty">Statistics appear after analytics activation.</li></ol>
         </div>
         <p class="reach-meta" data-reach-meta>Aggregated by GoatCounter · Updated daily</p>
       </div>
     </section>
 
-    <section class="section" id="atlas">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><p class="eyebrow">Atlas index</p><h2>One review.<br>Many ways in.</h2></div>
-          <p>The atlas is organized by the questions a reader asks. Each section can host interactive views, print-ready figures, downloadable data, and dedicated evidence pages without changing its public address.</p>
-        </div>
-        <div class="atlas-grid">
-          <a class="atlas-card reveal" href="pinn-types/">
-            <span class="card-number">01 / Classification</span>
-            <h3>PINN types</h3>
-            <p>Taxonomy, terminology, family relationships, frequency, aliases, and paper-level citation evidence.</p>
-            <span class="card-status">Workspace ready</span>
-          </a>
-          <a class="atlas-card reveal" href="architectures/">
-            <span class="card-number">02 / Methods</span>
-            <h3>Architectures</h3>
-            <p>Network designs, hybrids, operator learning, decomposition, and theoretical variants.</p>
-            <span class="card-status">Structure ready</span>
-          </a>
-          <a class="atlas-card reveal" href="training/">
-            <span class="card-number">03 / Optimization</span>
-            <h3>Training</h3>
-            <p>Loss balancing, optimizers, sampling, initialization, activations, and convergence.</p>
-            <span class="card-status">Structure ready</span>
-          </a>
-          <a class="atlas-card reveal" href="applications/">
-            <span class="card-number">04 / Domains</span>
-            <h3>Applications</h3>
-            <p>Fluid flow, electromagnetism, solid mechanics, energy, geoscience, biology, and more.</p>
-            <span class="card-status">Structure ready</span>
-          </a>
-          <a class="atlas-card reveal" href="software/">
-            <span class="card-number">05 / Ecosystem</span>
-            <h3>Software</h3>
-            <p>PINN-native libraries and the frameworks, solvers, and packages used alongside them.</p>
-            <span class="card-status">Structure ready</span>
-          </a>
-          <a class="atlas-card reveal" href="datasets/">
-            <span class="card-number">06 / Reproducibility</span>
-            <h3>Datasets &amp; benchmarks</h3>
-            <p>Ready-made and generated datasets, benchmark equations, geometries, conditions, metrics, and availability.</p>
-            <span class="card-status">Structure ready</span>
-          </a>
-          <a class="atlas-card reveal" href="abbreviations/">
-            <span class="card-number">07 / Terminology</span>
-            <h3>Abbreviations</h3>
-            <p>Search reported abbreviations, compare their frequency, and trace every form to its supporting reference IDs.</p>
-            <span class="card-status">618 records · Live</span>
-          </a>
-          <a class="atlas-card reveal" href="pinn-realm/">
-            <span class="card-number">08 / Geography</span>
-            <h3>PINN Realm</h3>
-            <p>Map 853 papers by affiliation country, publication year, international partners, joint-paper volume, and Jaccard collaboration intensity.</p>
-            <span class="card-status">63 countries · Live</span>
-          </a>
-          <a class="atlas-card reveal" href="references/">
-            <span class="card-number">09 / Evidence</span>
-            <h3>Review references</h3>
-            <p>Search the complete review bibliography and open each numbered paper through its DOI or authoritative publisher record.</p>
-            <span class="card-status">853 references · Live</span>
-          </a>
-          <a class="atlas-card reveal" href="dataset-manager/">
-            <span class="card-number">10 / Governance</span>
-            <h3>Dataset Manager</h3>
-            <p>Correct one canonical paper record, preview its downstream impact, and publish a validated rebuild of every related Atlas view.</p>
-            <span class="card-status">Single source · Live</span>
-          </a>
-          <a class="atlas-card reveal" href="performance-metrics/">
-            <span class="card-number">11 / Evaluation</span>
-            <h3>Performance Metrics</h3>
-            <p>Explore the accuracy, physics, robustness, efficiency, and uncertainty metrics reported by every paper, always represented as [ID].</p>
-            <span class="card-status">853 records · 123 metrics</span>
-          </a>
-          <a class="atlas-card reveal" href="optimizers/">
-            <span class="card-number">12 / Training</span>
-            <h3>Optimizers</h3>
-            <p>Trace every reported optimizer or training/inference algorithm to its exact raw source wording and bracketed reference ID.</p>
-            <span class="card-status">853 records · 53 canonical forms</span>
-          </a>
-          <a class="atlas-card reveal" href="activation-functions/">
-            <span class="card-number">13 / Architecture</span>
-            <h3>Activation Functions</h3>
-            <p>Explore reported activations, adaptive variants, layer roles, custom bases, and complete source context by bracketed reference ID.</p>
-            <span class="card-status">853 records · 62 canonical entries</span>
-          </a>
-          <a class="atlas-card reveal" href="pinn-ecosystem/">
-            <span class="card-number">14 / Design system</span>
-            <h3>PINN Ecosystem</h3>
-            <p>Navigate 35 coupled method groups across nine layers, inspect dependencies, propose missing elements, and build a PINN as a live architecture diagram.</p>
-            <span class="card-status">9 layers · 35 groups · Live</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><p class="eyebrow">Evidence protocol</p><h2>From source to view.</h2></div>
-          <p>Every visual is backed by a transparent evidence trail. The display layer can evolve while the underlying citation attribution remains auditable.</p>
-        </div>
-        <div class="protocol reveal">
-          <div class="protocol-step"><span>01</span><h3>Extract</h3><p>Capture paper-level facts using the primary reference ID.</p></div>
-          <div class="protocol-step"><span>02</span><h3>Normalize</h3><p>Resolve aliases, duplicates, units, and classification labels.</p></div>
-          <div class="protocol-step"><span>03</span><h3>Validate</h3><p>Check every count and relationship against the evidence table.</p></div>
-          <div class="protocol-step"><span>04</span><h3>Publish</h3><p>Release a focused view with its data and permanent URL.</p></div>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container citation-banner reveal">
-        <div><h2>Built for the manuscript margin.</h2><p>Link readers to the exact figure, table, comparison, or evidence view—then provide version and access-date guidance from one citation page.</p></div>
+        <div><h2>Built to remain citable as the Atlas evolves.</h2><p>Link readers to a stable research view, reference record, figure, comparison, or evidence page, then use the citation guide for version and access-date guidance.</p></div>
         <a class="button" href="cite/">Citation guide <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Evidence-led · Versioned · Open for review</span></div>
+    <div class="container footer-inner">
+      <span>© <span data-year></span> PINN Review Atlas · Evidence-led · Versioned · Open for review</span>
+      <span class="home-footer-links"><a href="cite/">Cite</a><a href="privacy/">Privacy</a><a href="https://github.com/ahafuaej-alt/PINN-Review" rel="noopener">GitHub</a></span>
+    </div>
   </footer>
 </body>
 </html>
