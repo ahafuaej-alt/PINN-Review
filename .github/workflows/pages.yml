@@ -57,12 +57,14 @@ jobs:
           node --check assets/reference-technical-details.js
           node --check assets/home-refresh.js
           node --check assets/mathematical-formulations.js
+          node --check assets/theme-init.js
           node scripts/validate-optimizers.mjs
           node scripts/validate-mathematical-formulations.mjs
       - name: Verify static site contracts
         run: |
           node scripts/validate-navigation.mjs
           node scripts/validate-home.mjs
+          node scripts/validate-ui-refinements.mjs
       - name: Locate runner browser
         run: |
           browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
@@ -82,7 +84,7 @@ jobs:
           done
           cat /tmp/pinn-navigation-preview.log
           exit 1
-      - name: Verify navigation, homepage, and formulations rendering
+      - name: Verify navigation, homepage, formulations, and shared UI rendering
         env:
           BASE_URL: http://127.0.0.1:4173
           PLAYWRIGHT_CORE_PATH: /tmp/pinn-nav-qa/node_modules/playwright-core/index.mjs
@@ -90,6 +92,7 @@ jobs:
           node scripts/validate-navigation.mjs --browser
           node scripts/validate-home.mjs --browser
           node scripts/validate-mathematical-formulations.mjs --browser
+          node scripts/validate-ui-refinements.mjs --browser
       - name: Stop static preview
         if: always()
         run: kill "$PREVIEW_PID" 2>/dev/null || true
