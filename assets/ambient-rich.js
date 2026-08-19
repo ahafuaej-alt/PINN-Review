@@ -1,5 +1,6 @@
 (() => {
   // Optimized deployment profile: 2 trajectories, 2 signals, 10 collocation points.
+  window.__ATLAS_BUILD__ = 'optimized-lite-v2';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const compactViewport = window.matchMedia('(max-width: 760px)');
 
