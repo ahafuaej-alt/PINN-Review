@@ -44,6 +44,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Prepare cache-busted shared UI assets
+        run: |
+          source_version="${{ inputs.source_sha || github.sha }}"
+          ambient_version="${source_version:0:12}"
+          node scripts/prepare-shared-ui.mjs "$ambient_version"
+          echo "AMBIENT_VERSION=$ambient_version" >> "$GITHUB_ENV"
       - name: Verify canonical and generated datasets
         run: |
           node scripts/build-datasets.mjs --check
@@ -66,6 +72,7 @@ jobs:
           node scripts/validate-home.mjs
           node scripts/validate-ui-refinements.mjs
           node scripts/validate-readme.mjs
+          node scripts/validate-ambient-motion.mjs
       - name: Locate runner browser
         run: |
           browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
@@ -94,6 +101,7 @@ jobs:
           node scripts/validate-home.mjs --browser
           node scripts/validate-mathematical-formulations.mjs --browser
           node scripts/validate-ui-refinements.mjs --browser
+          node scripts/validate-ambient-motion.mjs --browser
       - name: Stop static preview
         if: always()
         run: kill "$PREVIEW_PID" 2>/dev/null || true

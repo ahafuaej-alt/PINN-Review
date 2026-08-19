@@ -1,0 +1,71 @@
+name: Atlas ambient motion validation
+
+on:
+  pull_request:
+    paths:
+      - 'assets/theme-init.js'
+      - 'assets/ambient-motion.css'
+      - '**/index.html'
+      - '404.html'
+      - 'scripts/prepare-shared-ui.mjs'
+      - 'scripts/validate-ambient-motion.mjs'
+      - '.github/workflows/ambient-motion-validation.yml'
+      - '.github/workflows/pages.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/theme-init.js'
+      - 'assets/ambient-motion.css'
+      - '**/index.html'
+      - '404.html'
+      - 'scripts/prepare-shared-ui.mjs'
+      - 'scripts/validate-ambient-motion.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ambient-motion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Prepare shared UI cache keys
+        run: node scripts/prepare-shared-ui.mjs ambient-qa
+      - name: Validate prepared ambient contract
+        env:
+          AMBIENT_VERSION: ambient-qa
+        run: node scripts/validate-ambient-motion.mjs
+      - name: Locate runner browser
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --prefix /tmp/pinn-ambient-qa --no-save --package-lock=false playwright-core@1.55.0
+      - name: Start static preview
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/pinn-ambient-preview.log 2>&1 &
+          echo "PREVIEW_PID=$!" >> "$GITHUB_ENV"
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/pinn-ambient-preview.log
+          exit 1
+      - name: Verify real movement and reduced-motion behavior
+        env:
+          BASE_URL: http://127.0.0.1:4173
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-ambient-qa/node_modules/playwright-core/index.mjs
+          AMBIENT_VERSION: ambient-qa
+        run: node scripts/validate-ambient-motion.mjs --browser
+      - name: Stop static preview
+        if: always()
+        run: kill "$PREVIEW_PID" 2>/dev/null || true
