@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const rootHref = document.querySelector('.brand')?.getAttribute('href') || '../';
-  const dataUrl = `${rootHref}data/mathematical-formulations.json`;
+  const dataUrl = `${rootHref}data/mathematical-formulations/manifest.json`;
   const issueBase = 'https://github.com/ahafuaej-alt/PINN-Review/issues/new';
   const catalogue = document.querySelector('[data-formulation-catalogue]');
   const notationHost = document.querySelector('[data-notation-table]');
@@ -89,7 +89,16 @@
   };
   document.querySelectorAll('[data-page-edit]').forEach((button)=>button.addEventListener('click',openPageEdit));
 
-  fetch(dataUrl,{cache:'no-store'}).then((response)=>{if(!response.ok)throw new Error(`Formulation data returned ${response.status}`);return response.json();}).then((payload)=>{
+  fetch(dataUrl,{cache:'no-store'})
+    .then((response)=>{if(!response.ok)throw new Error(`Formulation manifest returned ${response.status}`);return response.json();})
+    .then(async (manifest)=>{
+      const parts=await Promise.all((manifest.parts||[]).map(async (part)=>{
+        const response=await fetch(`${rootHref}data/mathematical-formulations/${part.file}`,{cache:'no-store'});
+        if(!response.ok)throw new Error(`${part.file} returned ${response.status}`);
+        return response.json();
+      }));
+      return {...manifest,formulations:parts.flatMap((part)=>part.formulations||[])};
+    }).then((payload)=>{
     data=payload;
     const integrity=data.integrity||{};
     const statMap={accepted:integrity.accepted_formulations,direct:integrity.direct,equivalent:integrity.equivalent,synthesized:integrity.synthesized,references:integrity.unique_atlas_references_used};
