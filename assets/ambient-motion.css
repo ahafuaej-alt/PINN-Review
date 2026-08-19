@@ -1,0 +1,60 @@
+/* Shared PINN ambient-motion boost.
+   The ambient SVG itself is created by assets/theme-init.js. This stylesheet
+   deliberately animates the whole viewport layer as well as the two scientific
+   trace motifs so motion remains perceptible across Chromium and Firefox. */
+
+.atlas-ambient-background svg {
+  transform-origin: 50% 50%;
+  animation: atlasAmbientViewportDrift 12s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.atlas-ambient-wave {
+  stroke-dasharray: 13 10;
+  animation: atlasAmbientWaveTravel 6s linear infinite;
+}
+
+.atlas-ambient-residual {
+  stroke-dasharray: 6 10;
+  animation: atlasAmbientResidualTravel 5s linear infinite;
+}
+
+.atlas-ambient-point:nth-of-type(2n),
+.atlas-ambient-node:nth-of-type(2n) {
+  animation-delay: -2.2s;
+}
+
+@keyframes atlasAmbientViewportDrift {
+  0%   { transform: scale(1.055) translate3d(-14px, -8px, 0) rotate(-0.18deg); }
+  45%  { transform: scale(1.06) translate3d(9px, 12px, 0) rotate(0.10deg); }
+  100% { transform: scale(1.055) translate3d(18px, -5px, 0) rotate(0.22deg); }
+}
+
+@keyframes atlasAmbientWaveTravel {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -92; }
+}
+
+@keyframes atlasAmbientResidualTravel {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 80; }
+}
+
+@media (max-width: 760px) {
+  .atlas-ambient-background svg {
+    animation-duration: 15s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-ambient-background svg,
+  .atlas-ambient-wave,
+  .atlas-ambient-residual {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  .atlas-ambient-background { display: none !important; }
+}
