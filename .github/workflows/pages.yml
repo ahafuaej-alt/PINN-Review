@@ -65,6 +65,7 @@ jobs:
           node scripts/validate-navigation.mjs
           node scripts/validate-home.mjs
           node scripts/validate-ui-refinements.mjs
+          node scripts/validate-readme.mjs
       - name: Locate runner browser
         run: |
           browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"

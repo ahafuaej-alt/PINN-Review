@@ -1,0 +1,49 @@
+name: README integrity
+
+on:
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'index.html'
+      - '404.html'
+      - '**/index.html'
+      - 'assets/theme-init.js'
+      - 'data/atlas-overview.json'
+      - 'data/mathematical-formulations/**'
+      - 'scripts/validate-readme.mjs'
+      - '.github/workflows/readme-integrity.yml'
+      - '.github/workflows/pages.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'index.html'
+      - '404.html'
+      - '**/index.html'
+      - 'assets/theme-init.js'
+      - 'data/atlas-overview.json'
+      - 'data/mathematical-formulations/**'
+      - 'scripts/validate-readme.mjs'
+      - '.github/workflows/readme-integrity.yml'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate README against the live Atlas surface
+        run: |
+          node --check scripts/validate-readme.mjs
+          node scripts/validate-readme.mjs
