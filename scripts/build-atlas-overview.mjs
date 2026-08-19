@@ -28,9 +28,10 @@ const ecosystemVersionDate = (() => {
 const dates = [references.last_updated, realm.metadata?.last_updated, performance.generated_at, ecosystemVersionDate, formulations.generated]
   .filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(String(value))).sort();
 const snapshotDate = dates.at(-1) || null;
+const source = (label, dataset, page, date, dateLabel = 'Dataset date') => ({ label, dataset, page, date, date_label: dateLabel });
 
 const overview = {
-  schema_version: '1.1.0',
+  schema_version: '1.2.0',
   last_source_update: snapshotDate,
   stats: {
     papers: requirePositiveInteger(references.record_count, 'Reference record count'),
@@ -43,14 +44,14 @@ const overview = {
     mathematical_formulations: requirePositiveInteger(formulations.integrity?.accepted_formulations, 'Mathematical formulation count')
   },
   sources: {
-    papers: { label: 'Reference master', dataset: 'data/references-metadata.json', page: 'references/' },
-    countries: { label: 'PINN Realm', dataset: 'data/pinn-realm.json', page: 'pinn-realm/' },
-    performance_metrics: { label: 'Performance summary', dataset: 'data/performance/performance-summary.json', page: 'performance-metrics/' },
-    optimizer_forms: { label: 'Optimizer summary', dataset: 'data/optimizers/optimizer-summary.json', page: 'optimizers/' },
-    activation_functions: { label: 'Activation summary', dataset: 'data/activation-functions/activation-summary.json', page: 'activation-functions/' },
-    ecosystem_layers: { label: 'PINN Ecosystem taxonomy', dataset: 'data/pinn-ecosystem/pinn-ecosystem.json', page: 'pinn-ecosystem/' },
-    ecosystem_groups: { label: 'PINN Ecosystem taxonomy', dataset: 'data/pinn-ecosystem/pinn-ecosystem.json', page: 'pinn-ecosystem/' },
-    mathematical_formulations: { label: 'Mathematical formulations catalogue', dataset: 'data/mathematical-formulations/manifest.json', page: 'mathematical-formulations/' }
+    papers: source('Reference master', 'data/references-metadata.json', 'references/', references.last_updated),
+    countries: source('PINN Realm', 'data/pinn-realm.json', 'pinn-realm/', realm.metadata?.last_updated),
+    performance_metrics: source('Performance summary', 'data/performance/performance-summary.json', 'performance-metrics/', performance.generated_at),
+    optimizer_forms: source('Optimizer summary', 'data/optimizers/optimizer-summary.json', 'optimizers/', snapshotDate, 'Atlas snapshot'),
+    activation_functions: source('Activation summary', 'data/activation-functions/activation-summary.json', 'activation-functions/', snapshotDate, 'Atlas snapshot'),
+    ecosystem_layers: source('PINN Ecosystem taxonomy', 'data/pinn-ecosystem/pinn-ecosystem.json', 'pinn-ecosystem/', ecosystemVersionDate),
+    ecosystem_groups: source('PINN Ecosystem taxonomy', 'data/pinn-ecosystem/pinn-ecosystem.json', 'pinn-ecosystem/', ecosystemVersionDate),
+    mathematical_formulations: source('Mathematical formulations catalogue', 'data/mathematical-formulations/manifest.json', 'mathematical-formulations/', formulations.generated)
   },
   versions: {
     references: references.version || null,
@@ -75,6 +76,9 @@ if (overview.stats.papers !== activations.source_records) fail(`Reference count 
 const formulationPartTotal = (formulations.parts || []).reduce((sum, part) => sum + (Number(part.count) || 0), 0);
 if (formulationPartTotal !== overview.stats.mathematical_formulations) fail(`Mathematical formulation manifest total ${formulationPartTotal} differs from integrity count ${overview.stats.mathematical_formulations}.`);
 if ((formulations.integrity?.direct || 0) + (formulations.integrity?.equivalent || 0) + (formulations.integrity?.synthesized || 0) !== overview.stats.mathematical_formulations) fail('Mathematical formulation evidence classes do not reconcile with the formulation total.');
+for (const [key, item] of Object.entries(overview.sources)) {
+  if (!item.dataset || !item.page || !/^\d{4}-\d{2}-\d{2}$/.test(String(item.date))) fail(`Overview source ${key} has incomplete provenance metadata.`);
+}
 
 const outputPath = path.join(root, 'data', 'atlas-overview.json');
 const serialized = `${JSON.stringify(overview, null, 2)}\n`;
