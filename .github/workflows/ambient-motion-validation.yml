@@ -5,6 +5,7 @@ on:
     paths:
       - 'assets/theme-init.js'
       - 'assets/ambient-motion.css'
+      - 'assets/ambient-rich.js'
       - '**/index.html'
       - '404.html'
       - 'scripts/prepare-shared-ui.mjs'
@@ -17,6 +18,7 @@ on:
     paths:
       - 'assets/theme-init.js'
       - 'assets/ambient-motion.css'
+      - 'assets/ambient-rich.js'
       - '**/index.html'
       - '404.html'
       - 'scripts/prepare-shared-ui.mjs'
@@ -39,6 +41,8 @@ jobs:
           node-version: 22
       - name: Prepare shared UI cache keys
         run: node scripts/prepare-shared-ui.mjs ambient-qa
+      - name: Check rich ambient JavaScript syntax
+        run: node --check assets/ambient-rich.js
       - name: Validate prepared ambient contract
         env:
           AMBIENT_VERSION: ambient-qa
@@ -60,7 +64,7 @@ jobs:
           done
           cat /tmp/pinn-ambient-preview.log
           exit 1
-      - name: Verify real movement and reduced-motion behavior
+      - name: Verify rich movement and reduced-motion behavior
         env:
           BASE_URL: http://127.0.0.1:4173
           PLAYWRIGHT_CORE_PATH: /tmp/pinn-ambient-qa/node_modules/playwright-core/index.mjs
