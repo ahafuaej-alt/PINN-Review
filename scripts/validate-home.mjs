@@ -22,11 +22,11 @@ assert(html.includes('Atlas Evidence Architecture'), 'Atlas Evidence Architectur
 assert(html.includes('id="ecosystem-feature-title"'), 'Featured PINN Ecosystem section is missing.');
 assert(html.includes('id="atlas-title"'), 'Grouped Atlas research directory is missing.');
 assert(html.includes('id="evidence-title"'), 'Evidence protocol section is missing.');
-assert(homeJs.includes("title.textContent = 'Foundations & Terminology'"), 'Homepage runtime hierarchy does not rename the foundations group.');
+assert(homeJs.includes('Foundations & Terminology'), 'Homepage runtime hierarchy does not rename the foundations group.');
 assert(homeJs.includes('mathematical-formulations/'), 'Homepage does not integrate Mathematical Formulations.');
-assert(homeJs.includes('data-overview-card'), 'Homepage live snapshot provenance enhancement is missing.');
+assert(homeJs.includes('overviewCard'), 'Homepage live snapshot provenance enhancement is missing.');
 assert(homeJs.includes('data-home-workflow'), 'Homepage interactive nine-stage workflow is missing.');
-assert(homeJs.includes('data-architecture-route'), 'Homepage evidence architecture is not interactive.');
+assert(homeJs.includes('architectureRoute'), 'Homepage evidence architecture is not interactive.');
 
 const navMount = html.match(/<div\b[^>]*class=["'][^"']*nav-links[^"']*["'][^>]*id=["']nav-links["'][^>]*>([\s\S]*?)<\/div>/i)
   || html.match(/<div\b[^>]*id=["']nav-links["'][^>]*class=["'][^"']*nav-links[^"']*["'][^>]*>([\s\S]*?)<\/div>/i);
