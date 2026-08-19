@@ -37,9 +37,10 @@ for (const page of pages) {
 }
 
 const ambientCss = await fs.readFile(path.join(root, 'assets/ambient-motion.css'), 'utf8');
-for (const token of ['atlasAmbientViewportDrift', 'atlasAmbientWaveTravel', 'atlasAmbientResidualTravel', 'atlas-rich-signal', 'atlas-rich-contour', '@media (prefers-reduced-motion: reduce)']) {
+for (const token of ['atlasAmbientViewportDrift', 'atlasAmbientWaveTravel', 'atlasAmbientResidualTravel', 'atlasRichSpeckDrift', 'atlas-rich-signal', '@media (prefers-reduced-motion: reduce)']) {
   assert(ambientCss.includes(token), `ambient-motion.css is missing ${token}.`);
 }
+assert(!ambientCss.includes('drop-shadow('), 'ambient-motion.css must not reintroduce expensive SVG drop-shadow filters.');
 
 const themeInit = await fs.readFile(path.join(root, 'assets/theme-init.js'), 'utf8');
 for (const token of ['dataset.motionEngine', 'requestAnimationFrame', 'startFallback', 'probeMotion']) {
@@ -47,11 +48,13 @@ for (const token of ['dataset.motionEngine', 'requestAnimationFrame', 'startFall
 }
 
 const richAmbient = await fs.readFile(path.join(root, 'assets/ambient-rich.js'), 'utf8');
-for (const token of ['data-rich-track', 'data-rich-signal', 'dataset.motionLevel', 'dataset.richEngine', 'getPointAtLength', 'pointermove', 'prefers-reduced-motion']) {
-  assert(richAmbient.includes(token), `ambient-rich.js is missing rich-motion token ${token}.`);
+for (const token of ['data-rich-track', 'data-rich-signal', 'dataset.motionLevel', 'dataset.richEngine', 'getPointAtLength', 'frameInterval', 'prefers-reduced-motion']) {
+  assert(richAmbient.includes(token), `ambient-rich.js is missing optimized-motion token ${token}.`);
 }
+assert(!richAmbient.includes('pointermove'), 'ambient-rich.js must not reintroduce pointermove-driven per-frame parallax.');
+assert(!richAmbient.includes('scrollPhase'), 'ambient-rich.js must not reintroduce scroll-driven per-frame parallax.');
 
-console.log(`Static rich ambient-motion contract passed for ${pages.length} public Atlas pages.`);
+console.log(`Static optimized ambient-motion contract passed for ${pages.length} public Atlas pages.`);
 if (!runBrowser) process.exit(0);
 
 assert(executablePath, 'CHROME_BIN is required for --browser validation.');
@@ -96,14 +99,13 @@ try {
           svgTransform: getComputedStyle(svg).transform,
           svgAnimation: getComputedStyle(svg).animationName,
           waveDashOffset: getComputedStyle(wave).strokeDashoffset,
-          signalX: signal?.getAttribute('cx') || '',
-          signalY: signal?.getAttribute('cy') || '',
-          richEngine: ambient?.dataset.richEngine || '',
-          motionLevel: ambient?.dataset.motionLevel || '',
+          signalTransform: signal?.getAttribute('transform') || '',
           ambientZ: getComputedStyle(ambient).zIndex,
           ambientOpacity: parseFloat(getComputedStyle(ambient).opacity),
           bodyWidth: document.body.scrollWidth,
           viewportWidth: innerWidth,
+          motionLevel: ambient?.dataset.motionLevel || '',
+          richTrackCount: document.querySelectorAll('[data-rich-track]').length,
           richSignalCount: document.querySelectorAll('[data-rich-signal]').length,
           richSpeckCount: document.querySelectorAll('[data-rich-speck]').length
         };
@@ -120,8 +122,7 @@ try {
           svgTransform: getComputedStyle(svg).transform,
           svgAnimation: getComputedStyle(svg).animationName,
           waveDashOffset: getComputedStyle(wave).strokeDashoffset,
-          signalX: signal?.getAttribute('cx') || '',
-          signalY: signal?.getAttribute('cy') || '',
+          signalTransform: signal?.getAttribute('transform') || '',
           motionEngine: ambient?.dataset.motionEngine || '',
           richEngine: ambient?.dataset.richEngine || '',
           motionLevel: ambient?.dataset.motionLevel || ''
@@ -131,31 +132,28 @@ try {
       assert(before.ambientZ === '0', `${target} ${mode.name}: ambient layer is not above body paint.`);
       assert(before.ambientOpacity > 0.45, `${target} ${mode.name}: ambient layer is too faint to perceive.`);
       assert(before.bodyWidth <= before.viewportWidth + 1, `${target} ${mode.name}: ambient layer causes horizontal overflow.`);
-      assert(before.motionLevel === 'rich' && after.motionLevel === 'rich', `${target} ${mode.name}: rich ambient layer did not initialize.`);
-      assert(before.richSignalCount >= 8, `${target} ${mode.name}: rich signal field is incomplete.`);
-      assert(before.richSpeckCount >= 24, `${target} ${mode.name}: rich particle field is incomplete.`);
+      assert(before.motionLevel === 'optimized' && after.motionLevel === 'optimized', `${target} ${mode.name}: optimized ambient layer did not initialize.`);
+      assert(before.richTrackCount === 2, `${target} ${mode.name}: expected exactly 2 scientific trajectories.`);
+      assert(before.richSignalCount === 2, `${target} ${mode.name}: expected exactly 2 travelling signals.`);
+      assert(before.richSpeckCount === 10, `${target} ${mode.name}: expected exactly 10 collocation points.`);
 
       if (mode.reducedMotion === 'reduce') {
         assert(after.svgAnimation === 'none', `${target} ${mode.name}: viewport animation should be disabled.`);
         assert(after.motionEngine === 'reduced', `${target} ${mode.name}: reduced-motion runtime state was not preserved.`);
-        assert(after.richEngine === 'reduced', `${target} ${mode.name}: rich reduced-motion state was not preserved.`);
+        assert(after.richEngine === 'reduced', `${target} ${mode.name}: optimized reduced-motion state was not preserved.`);
       } else {
-        assert(after.svgAnimation.includes('atlasAmbientViewportDrift'), `${target} ${mode.name}: viewport drift animation is not active.`);
         const baseMoved = before.svgTransform !== after.svgTransform || before.waveDashOffset !== after.waveDashOffset;
-        const richMoved = before.signalX !== after.signalX || before.signalY !== after.signalY;
+        const richMoved = before.signalTransform !== after.signalTransform;
         assert(baseMoved, `${target} ${mode.name}: base ambient rendering did not move over 900 ms.`);
-        assert(richMoved, `${target} ${mode.name}: rich signal particle did not travel over 900 ms.`);
+        assert(richMoved, `${target} ${mode.name}: optimized signal particle did not travel over 900 ms.`);
         assert(after.motionEngine === 'css', `${target} ${mode.name}: CSS motion should remain the primary base engine when healthy.`);
-        assert(after.richEngine === 'raf', `${target} ${mode.name}: rich requestAnimationFrame engine is not active.`);
+        assert(after.richEngine === 'raf-lite', `${target} ${mode.name}: lightweight signal engine is not active.`);
       }
       await page.close();
     }
     await context.close();
   }
 
-  // Regression test for the original failure mode: source-level CSS can exist while
-  // the browser compositor renders it frozen. Force that condition and require the
-  // base runtime watchdog to switch to its requestAnimationFrame fallback.
   const fallbackContext = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'no-preference' });
   const fallbackPage = await fallbackContext.newPage();
   await blockHeavyResources(fallbackPage);
@@ -170,33 +168,29 @@ try {
   const fallbackBefore = await fallbackPage.evaluate(() => {
     const ambient = document.querySelector('.atlas-ambient-background');
     const svg = ambient?.querySelector('svg');
-    const wave = ambient?.querySelector('.atlas-ambient-wave');
     return {
       engine: ambient?.dataset.motionEngine || '',
       richEngine: ambient?.dataset.richEngine || '',
-      transform: svg?.style.transform || '',
-      dash: wave?.style.strokeDashoffset || ''
+      transform: svg?.style.transform || ''
     };
   });
   await fallbackPage.waitForTimeout(300);
   const fallbackAfter = await fallbackPage.evaluate(() => {
     const ambient = document.querySelector('.atlas-ambient-background');
     const svg = ambient?.querySelector('svg');
-    const wave = ambient?.querySelector('.atlas-ambient-wave');
     return {
       engine: ambient?.dataset.motionEngine || '',
       richEngine: ambient?.dataset.richEngine || '',
-      transform: svg?.style.transform || '',
-      dash: wave?.style.strokeDashoffset || ''
+      transform: svg?.style.transform || ''
     };
   });
   assert(fallbackBefore.engine === 'raf' && fallbackAfter.engine === 'raf', 'Forced CSS freeze: runtime fallback did not stay active.');
-  assert(fallbackBefore.richEngine === 'raf' && fallbackAfter.richEngine === 'raf', 'Forced CSS freeze: rich scientific motion stopped unexpectedly.');
-  assert(fallbackBefore.transform !== fallbackAfter.transform || fallbackBefore.dash !== fallbackAfter.dash, 'Forced CSS freeze: requestAnimationFrame fallback did not produce real movement.');
+  assert(fallbackBefore.richEngine === 'raf-lite' && fallbackAfter.richEngine === 'raf-lite', 'Forced CSS freeze: lightweight scientific motion stopped unexpectedly.');
+  assert(fallbackBefore.transform !== fallbackAfter.transform, 'Forced CSS freeze: requestAnimationFrame fallback did not produce real movement.');
   await fallbackPage.close();
   await fallbackContext.close();
 
-  console.log(`Rich ambient browser QA passed across ${targets.length} pages, ${modes.length} motion/viewport modes, and the forced-freeze fallback scenario.`);
+  console.log(`Optimized ambient browser QA passed across ${targets.length} pages and ${modes.length} motion/viewport modes.`);
 } finally {
   await browser.close();
 }
