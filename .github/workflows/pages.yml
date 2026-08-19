@@ -64,6 +64,7 @@ jobs:
           node --check assets/home-refresh.js
           node --check assets/mathematical-formulations.js
           node --check assets/theme-init.js
+          node --check assets/ambient-rich.js
           node scripts/validate-optimizers.mjs
           node scripts/validate-mathematical-formulations.mjs
       - name: Verify static site contracts
