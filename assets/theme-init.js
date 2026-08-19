@@ -180,6 +180,74 @@
         @media print { .atlas-ambient-background { display: none !important; } }
       `;
       document.head.append(ambientStyle);
+
+      // CSS animation is the primary engine. Some browser/compositor combinations can
+      // expose the animation names yet keep the decorative SVG visually frozen. Probe
+      // actual rendered values and fall back to requestAnimationFrame only when needed.
+      const ambientSvg = ambient.querySelector('svg');
+      const ambientWave = ambient.querySelector('.atlas-ambient-wave');
+      const ambientResidual = ambient.querySelector('.atlas-ambient-residual');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let fallbackFrame = 0;
+
+      const stopFallback = () => {
+        if (fallbackFrame) cancelAnimationFrame(fallbackFrame);
+        fallbackFrame = 0;
+        ambientSvg?.style.removeProperty('animation');
+        ambientSvg?.style.removeProperty('transform');
+        ambientWave?.style.removeProperty('animation');
+        ambientWave?.style.removeProperty('stroke-dashoffset');
+        ambientResidual?.style.removeProperty('animation');
+        ambientResidual?.style.removeProperty('stroke-dashoffset');
+        ambient.dataset.motionEngine = reducedMotion.matches ? 'reduced' : 'css';
+      };
+
+      const startFallback = () => {
+        if (fallbackFrame || reducedMotion.matches || !ambientSvg) return;
+        ambient.dataset.motionEngine = 'raf';
+        ambientSvg.style.animation = 'none';
+        if (ambientWave) ambientWave.style.animation = 'none';
+        if (ambientResidual) ambientResidual.style.animation = 'none';
+
+        const tick = (time) => {
+          if (reducedMotion.matches) {
+            stopFallback();
+            return;
+          }
+          const seconds = time / 1000;
+          const dx = Math.sin(seconds * .55) * 14;
+          const dy = Math.cos(seconds * .43) * 9;
+          const rotation = Math.sin(seconds * .31) * .18;
+          ambientSvg.style.transform = `scale(1.055) translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0) rotate(${rotation.toFixed(3)}deg)`;
+          if (ambientWave) ambientWave.style.strokeDashoffset = String(-((time / 65) % 92));
+          if (ambientResidual) ambientResidual.style.strokeDashoffset = String((time / 55) % 80);
+          fallbackFrame = requestAnimationFrame(tick);
+        };
+        fallbackFrame = requestAnimationFrame(tick);
+      };
+
+      const probeMotion = () => {
+        if (reducedMotion.matches || !ambientSvg) {
+          ambient.dataset.motionEngine = 'reduced';
+          return;
+        }
+        ambient.dataset.motionEngine = 'css';
+        const beforeTransform = getComputedStyle(ambientSvg).transform;
+        const beforeDash = ambientWave ? getComputedStyle(ambientWave).strokeDashoffset : '';
+        window.setTimeout(() => {
+          if (reducedMotion.matches || !ambientSvg.isConnected) return;
+          const afterTransform = getComputedStyle(ambientSvg).transform;
+          const afterDash = ambientWave ? getComputedStyle(ambientWave).strokeDashoffset : '';
+          const animationName = getComputedStyle(ambientSvg).animationName;
+          if (animationName === 'none' || (beforeTransform === afterTransform && beforeDash === afterDash)) startFallback();
+        }, 1100);
+      };
+
+      reducedMotion.addEventListener?.('change', () => {
+        stopFallback();
+        if (!reducedMotion.matches) requestAnimationFrame(probeMotion);
+      });
+      requestAnimationFrame(probeMotion);
     }
 
     const nav = document.querySelector('.site-header .nav');
