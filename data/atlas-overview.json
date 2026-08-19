@@ -12,14 +12,62 @@
     "mathematical_formulations": 114
   },
   "sources": {
-    "papers": { "label": "Reference master", "dataset": "data/references-metadata.json", "page": "references/", "date": "2026-08-09", "date_label": "Dataset date" },
-    "countries": { "label": "PINN Realm", "dataset": "data/pinn-realm.json", "page": "pinn-realm/", "date": "2026-08-09", "date_label": "Dataset date" },
-    "performance_metrics": { "label": "Performance summary", "dataset": "data/performance/performance-summary.json", "page": "performance-metrics/", "date": "2026-08-02", "date_label": "Dataset date" },
-    "optimizer_forms": { "label": "Optimizer summary", "dataset": "data/optimizers/optimizer-summary.json", "page": "optimizers/", "date": "2026-08-19", "date_label": "Atlas snapshot" },
-    "activation_functions": { "label": "Activation summary", "dataset": "data/activation-functions/activation-summary.json", "page": "activation-functions/", "date": "2026-08-19", "date_label": "Atlas snapshot" },
-    "ecosystem_layers": { "label": "PINN Ecosystem taxonomy", "dataset": "data/pinn-ecosystem/pinn-ecosystem.json", "page": "pinn-ecosystem/", "date": "2026-08-17", "date_label": "Dataset date" },
-    "ecosystem_groups": { "label": "PINN Ecosystem taxonomy", "dataset": "data/pinn-ecosystem/pinn-ecosystem.json", "page": "pinn-ecosystem/", "date": "2026-08-17", "date_label": "Dataset date" },
-    "mathematical_formulations": { "label": "Mathematical formulations catalogue", "dataset": "data/mathematical-formulations/manifest.json", "page": "mathematical-formulations/", "date": "2026-08-19", "date_label": "Dataset date" }
+    "papers": {
+      "label": "Reference master",
+      "dataset": "data/references-metadata.json",
+      "page": "references/",
+      "date": "2026-08-09",
+      "date_label": "Dataset date"
+    },
+    "countries": {
+      "label": "PINN Realm",
+      "dataset": "data/pinn-realm.json",
+      "page": "pinn-realm/",
+      "date": "2026-08-09",
+      "date_label": "Dataset date"
+    },
+    "performance_metrics": {
+      "label": "Performance summary",
+      "dataset": "data/performance/performance-summary.json",
+      "page": "performance-metrics/",
+      "date": "2026-08-02",
+      "date_label": "Dataset date"
+    },
+    "optimizer_forms": {
+      "label": "Optimizer summary",
+      "dataset": "data/optimizers/optimizer-summary.json",
+      "page": "optimizers/",
+      "date": "2026-08-19",
+      "date_label": "Atlas snapshot"
+    },
+    "activation_functions": {
+      "label": "Activation summary",
+      "dataset": "data/activation-functions/activation-summary.json",
+      "page": "activation-functions/",
+      "date": "2026-08-19",
+      "date_label": "Atlas snapshot"
+    },
+    "ecosystem_layers": {
+      "label": "PINN Ecosystem taxonomy",
+      "dataset": "data/pinn-ecosystem/pinn-ecosystem.json",
+      "page": "pinn-ecosystem/",
+      "date": "2026-08-17",
+      "date_label": "Dataset date"
+    },
+    "ecosystem_groups": {
+      "label": "PINN Ecosystem taxonomy",
+      "dataset": "data/pinn-ecosystem/pinn-ecosystem.json",
+      "page": "pinn-ecosystem/",
+      "date": "2026-08-17",
+      "date_label": "Dataset date"
+    },
+    "mathematical_formulations": {
+      "label": "Mathematical formulations catalogue",
+      "dataset": "data/mathematical-formulations/manifest.json",
+      "page": "mathematical-formulations/",
+      "date": "2026-08-19",
+      "date_label": "Dataset date"
+    }
   },
   "versions": {
     "references": "2.2.174",
