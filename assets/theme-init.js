@@ -23,6 +23,130 @@
       }
     });
 
+    if (!document.querySelector('.atlas-ambient-background')) {
+      const ambient = document.createElement('div');
+      ambient.className = 'atlas-ambient-background';
+      ambient.dataset.atlasAmbient = '';
+      ambient.setAttribute('aria-hidden', 'true');
+      ambient.innerHTML = `
+        <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g class="atlas-ambient-drift atlas-ambient-drift-a atlas-ambient-network" transform="translate(85 145)">
+            <path class="atlas-ambient-edge" d="M38 80 118 28 196 86 154 170 60 178 38 80M118 28 154 170M38 80 196 86M60 178 196 86"/>
+            <circle class="atlas-ambient-node atlas-ambient-pulse" cx="38" cy="80" r="7"/>
+            <circle class="atlas-ambient-node" cx="118" cy="28" r="6"/>
+            <circle class="atlas-ambient-node atlas-ambient-pulse" cx="196" cy="86" r="7"/>
+            <circle class="atlas-ambient-node" cx="154" cy="170" r="6"/>
+            <circle class="atlas-ambient-node" cx="60" cy="178" r="5"/>
+          </g>
+          <path class="atlas-ambient-wave atlas-ambient-drift atlas-ambient-drift-b" d="M930 174 C985 116 1040 232 1095 174 S1205 116 1260 174 1370 232 1425 174"/>
+          <g class="atlas-ambient-drift atlas-ambient-drift-c atlas-ambient-collocation">
+            <circle class="atlas-ambient-point atlas-ambient-pulse" cx="500" cy="185" r="3.5"/>
+            <circle class="atlas-ambient-point" cx="550" cy="245" r="2.8"/>
+            <circle class="atlas-ambient-point" cx="465" cy="285" r="3"/>
+            <circle class="atlas-ambient-point atlas-ambient-pulse" cx="595" cy="320" r="3.4"/>
+            <circle class="atlas-ambient-point" cx="525" cy="360" r="2.6"/>
+            <circle class="atlas-ambient-point" cx="635" cy="220" r="2.6"/>
+            <circle class="atlas-ambient-point atlas-ambient-pulse" cx="675" cy="300" r="3.2"/>
+          </g>
+          <g class="atlas-ambient-drift atlas-ambient-drift-b atlas-ambient-network atlas-ambient-network-secondary" transform="translate(1260 690)">
+            <path class="atlas-ambient-edge atlas-ambient-edge-violet" d="M20 95 92 42 168 72 190 150 112 188 42 160 20 95M92 42 112 188M20 95 168 72M42 160 168 72"/>
+            <circle class="atlas-ambient-node atlas-ambient-node-violet" cx="20" cy="95" r="5"/>
+            <circle class="atlas-ambient-node atlas-ambient-node-violet atlas-ambient-pulse" cx="92" cy="42" r="7"/>
+            <circle class="atlas-ambient-node atlas-ambient-node-violet" cx="168" cy="72" r="6"/>
+            <circle class="atlas-ambient-node atlas-ambient-node-violet" cx="190" cy="150" r="5"/>
+            <circle class="atlas-ambient-node atlas-ambient-node-violet atlas-ambient-pulse" cx="112" cy="188" r="7"/>
+            <circle class="atlas-ambient-node atlas-ambient-node-violet" cx="42" cy="160" r="5"/>
+          </g>
+          <path class="atlas-ambient-residual atlas-ambient-drift atlas-ambient-drift-c" d="M120 735 C210 675 250 825 340 765 S480 705 555 785"/>
+        </svg>`;
+      document.body.prepend(ambient);
+
+      const ambientStyle = document.createElement('style');
+      ambientStyle.dataset.atlasAmbientStyle = '';
+      ambientStyle.textContent = `
+        body { isolation: isolate; }
+        .atlas-ambient-background {
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          inline-size: 100%;
+          block-size: 100%;
+          max-inline-size: 100vw;
+          max-block-size: 100vh;
+          overflow: hidden;
+          clip-path: inset(0);
+          contain: strict;
+          pointer-events: none;
+          user-select: none;
+          opacity: .72;
+        }
+        .atlas-ambient-background svg {
+          position: absolute;
+          inset: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          overflow: hidden;
+        }
+        .atlas-ambient-background * { vector-effect: non-scaling-stroke; }
+        .atlas-ambient-edge,
+        .atlas-ambient-wave,
+        .atlas-ambient-residual {
+          fill: none;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        .atlas-ambient-edge { stroke: var(--mint); stroke-width: 1.15; stroke-opacity: .105; }
+        .atlas-ambient-edge-violet { stroke: var(--violet); stroke-opacity: .095; }
+        .atlas-ambient-node { fill: var(--bg); stroke: var(--mint); stroke-width: 1.2; stroke-opacity: .22; }
+        .atlas-ambient-node-violet { stroke: var(--violet); stroke-opacity: .2; }
+        .atlas-ambient-wave { stroke: var(--violet); stroke-width: 1.35; stroke-opacity: .105; }
+        .atlas-ambient-residual { stroke: var(--mint); stroke-width: 1.2; stroke-dasharray: 5 11; stroke-opacity: .09; }
+        .atlas-ambient-point { fill: var(--mint); fill-opacity: .115; }
+        .atlas-ambient-drift { transform-box: fill-box; transform-origin: center; will-change: transform; }
+        .atlas-ambient-drift-a { animation: atlasAmbientDriftA 31s ease-in-out infinite alternate; }
+        .atlas-ambient-drift-b { animation: atlasAmbientDriftB 38s ease-in-out infinite alternate; }
+        .atlas-ambient-drift-c { animation: atlasAmbientDriftC 27s ease-in-out infinite alternate; }
+        .atlas-ambient-pulse { animation: atlasAmbientPulse 9s ease-in-out infinite alternate; }
+        html[data-theme="dark"] .atlas-ambient-background { opacity: .88; }
+        html[data-theme="dark"] .atlas-ambient-edge { stroke-opacity: .14; }
+        html[data-theme="dark"] .atlas-ambient-edge-violet,
+        html[data-theme="dark"] .atlas-ambient-wave { stroke-opacity: .13; }
+        html[data-theme="dark"] .atlas-ambient-point { fill-opacity: .15; }
+        @keyframes atlasAmbientDriftA {
+          from { transform: translate3d(-7px,-5px,0) rotate(-.35deg); }
+          to { transform: translate3d(14px,10px,0) rotate(.55deg); }
+        }
+        @keyframes atlasAmbientDriftB {
+          from { transform: translate3d(10px,-8px,0) rotate(.3deg); }
+          to { transform: translate3d(-13px,13px,0) rotate(-.45deg); }
+        }
+        @keyframes atlasAmbientDriftC {
+          from { transform: translate3d(-5px,8px,0); }
+          to { transform: translate3d(11px,-10px,0); }
+        }
+        @keyframes atlasAmbientPulse {
+          from { opacity: .48; }
+          to { opacity: 1; }
+        }
+        @media (max-width: 760px) {
+          .atlas-ambient-background { opacity: .48; }
+          .atlas-ambient-network-secondary { display: none; }
+          .atlas-ambient-wave { stroke-opacity: .075; }
+          .atlas-ambient-point { fill-opacity: .085; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .atlas-ambient-drift,
+          .atlas-ambient-pulse { animation: none !important; transform: none !important; }
+          .atlas-ambient-background { opacity: .5; }
+        }
+        @media print { .atlas-ambient-background { display: none !important; } }
+      `;
+      document.head.append(ambientStyle);
+    }
+
     const nav = document.querySelector('.site-header .nav');
     const navLinks = nav?.querySelector('.nav-links');
     const brand = nav?.querySelector('.brand');
