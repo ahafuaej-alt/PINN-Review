@@ -69,12 +69,27 @@
           position: fixed;
           inset: 0;
           z-index: -1;
+          inline-size: 100%;
+          block-size: 100%;
+          max-inline-size: 100vw;
+          max-block-size: 100vh;
           overflow: hidden;
+          clip-path: inset(0);
+          contain: strict;
           pointer-events: none;
           user-select: none;
           opacity: .72;
         }
-        .atlas-ambient-background svg { display: block; width: 100%; height: 100%; }
+        .atlas-ambient-background svg {
+          position: absolute;
+          inset: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          overflow: hidden;
+        }
         .atlas-ambient-background * { vector-effect: non-scaling-stroke; }
         .atlas-ambient-edge,
         .atlas-ambient-wave,
