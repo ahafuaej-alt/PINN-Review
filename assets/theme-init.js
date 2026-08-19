@@ -95,6 +95,9 @@
           max-width: 100%;
           max-height: 100%;
           overflow: hidden;
+          transform-origin: 50% 50%;
+          animation: atlasAmbientViewportDrift 12s ease-in-out infinite alternate;
+          will-change: transform;
         }
         .atlas-ambient-background * { vector-effect: non-scaling-stroke; }
         .atlas-ambient-edge,
@@ -108,19 +111,30 @@
         .atlas-ambient-edge-violet { stroke: var(--violet); stroke-opacity: .145; }
         .atlas-ambient-node { fill: var(--paper); stroke: var(--mint); stroke-width: 1.25; stroke-opacity: .30; }
         .atlas-ambient-node-violet { stroke: var(--violet); stroke-opacity: .27; }
-        .atlas-ambient-wave { stroke: var(--violet); stroke-width: 1.4; stroke-opacity: .15; }
-        .atlas-ambient-residual { stroke: var(--mint); stroke-width: 1.25; stroke-dasharray: 5 11; stroke-opacity: .135; }
+        .atlas-ambient-wave { stroke: var(--violet); stroke-width: 1.4; stroke-opacity: .15; stroke-dasharray: 13 10; }
+        .atlas-ambient-residual { stroke: var(--mint); stroke-width: 1.25; stroke-dasharray: 6 10; stroke-opacity: .135; }
         .atlas-ambient-point { fill: var(--mint); fill-opacity: .18; }
         .atlas-ambient-drift { transform-box: fill-box; transform-origin: center; will-change: transform; }
-        .atlas-ambient-drift-a { animation: atlasAmbientDriftA 31s ease-in-out infinite alternate; }
-        .atlas-ambient-drift-b { animation: atlasAmbientDriftB 38s ease-in-out infinite alternate; }
-        .atlas-ambient-drift-c { animation: atlasAmbientDriftC 27s ease-in-out infinite alternate; }
-        .atlas-ambient-pulse { animation: atlasAmbientPulse 9s ease-in-out infinite alternate; }
+        .atlas-ambient-drift-a { animation: atlasAmbientDriftA 19s ease-in-out infinite alternate; }
+        .atlas-ambient-drift-b { animation: atlasAmbientDriftB 23s ease-in-out infinite alternate; }
+        .atlas-ambient-drift-c { animation: atlasAmbientDriftC 17s ease-in-out infinite alternate; }
+        .atlas-ambient-wave.atlas-ambient-drift-b {
+          animation: atlasAmbientDriftB 23s ease-in-out infinite alternate, atlasAmbientWaveTravel 6s linear infinite;
+        }
+        .atlas-ambient-residual.atlas-ambient-drift-c {
+          animation: atlasAmbientDriftC 17s ease-in-out infinite alternate, atlasAmbientResidualTravel 5s linear infinite;
+        }
+        .atlas-ambient-pulse { animation: atlasAmbientPulse 5.6s ease-in-out infinite alternate; }
         html[data-theme="dark"] .atlas-ambient-background { opacity: .95; }
         html[data-theme="dark"] .atlas-ambient-edge { stroke-opacity: .20; }
         html[data-theme="dark"] .atlas-ambient-edge-violet,
         html[data-theme="dark"] .atlas-ambient-wave { stroke-opacity: .18; }
         html[data-theme="dark"] .atlas-ambient-point { fill-opacity: .22; }
+        @keyframes atlasAmbientViewportDrift {
+          0% { transform: scale(1.055) translate3d(-14px, -8px, 0) rotate(-.18deg); }
+          45% { transform: scale(1.06) translate3d(9px, 12px, 0) rotate(.10deg); }
+          100% { transform: scale(1.055) translate3d(18px, -5px, 0) rotate(.22deg); }
+        }
         @keyframes atlasAmbientDriftA {
           from { transform: translate3d(-7px,-5px,0) rotate(-.35deg); }
           to { transform: translate3d(14px,10px,0) rotate(.55deg); }
@@ -133,19 +147,34 @@
           from { transform: translate3d(-5px,8px,0); }
           to { transform: translate3d(11px,-10px,0); }
         }
+        @keyframes atlasAmbientWaveTravel {
+          from { stroke-dashoffset: 0; }
+          to { stroke-dashoffset: -92; }
+        }
+        @keyframes atlasAmbientResidualTravel {
+          from { stroke-dashoffset: 0; }
+          to { stroke-dashoffset: 80; }
+        }
         @keyframes atlasAmbientPulse {
           from { opacity: .48; }
           to { opacity: 1; }
         }
         @media (max-width: 760px) {
           .atlas-ambient-background { opacity: .62; }
+          .atlas-ambient-background svg { animation-duration: 15s; }
           .atlas-ambient-network-secondary { display: none; }
           .atlas-ambient-wave { stroke-opacity: .10; }
           .atlas-ambient-point { fill-opacity: .12; }
         }
         @media (prefers-reduced-motion: reduce) {
+          .atlas-ambient-background svg,
           .atlas-ambient-drift,
-          .atlas-ambient-pulse { animation: none !important; transform: none !important; }
+          .atlas-ambient-pulse,
+          .atlas-ambient-wave.atlas-ambient-drift-b,
+          .atlas-ambient-residual.atlas-ambient-drift-c {
+            animation: none !important;
+            transform: none !important;
+          }
           .atlas-ambient-background { opacity: .64; }
         }
         @media print { .atlas-ambient-background { display: none !important; } }
