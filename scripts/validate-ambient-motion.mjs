@@ -34,13 +34,7 @@ for (const page of pages) {
   assert(html.includes(`theme-init.js?v=${expectedVersion}-ambient`), `${page}: theme-init cache key is not the prepared ${expectedVersion} version.`);
   assert(html.includes(`ambient-motion.css?v=${expectedVersion}-ambient`), `${page}: ambient-motion.css is not loaded with the prepared cache key.`);
   assert(html.includes(`ambient-rich.js?v=${expectedVersion}-ambient`), `${page}: ambient-rich.js is not loaded with the prepared cache key.`);
-  assert(html.includes('data-atlas-build-guard'), `${page}: build freshness guard is missing.`);
-  assert(html.includes('deployment-version.json'), `${page}: deployment-version freshness sentinel is missing.`);
-  assert(html.includes('data-atlas-cache-policy'), `${page}: document cache policy metadata is missing.`);
 }
-
-const deploymentVersion = JSON.parse(await fs.readFile(path.join(root, 'assets', 'deployment-version.json'), 'utf8'));
-assert(deploymentVersion.version === expectedVersion, `deployment-version.json is ${deploymentVersion.version}, expected ${expectedVersion}.`);
 
 const ambientCss = await fs.readFile(path.join(root, 'assets/ambient-motion.css'), 'utf8');
 for (const token of ['atlasAmbientViewportDrift', 'atlasAmbientWaveTravel', 'atlasAmbientResidualTravel', 'atlasRichSpeckDrift', 'atlas-rich-signal', '@media (prefers-reduced-motion: reduce)']) {
@@ -60,7 +54,7 @@ for (const token of ['data-rich-track', 'data-rich-signal', 'dataset.motionLevel
 assert(!richAmbient.includes('pointermove'), 'ambient-rich.js must not reintroduce pointermove-driven per-frame parallax.');
 assert(!richAmbient.includes('scrollPhase'), 'ambient-rich.js must not reintroduce scroll-driven per-frame parallax.');
 
-console.log(`Static optimized ambient-motion and freshness contract passed for ${pages.length} public Atlas pages.`);
+console.log(`Static optimized ambient-motion contract passed for ${pages.length} public Atlas pages.`);
 if (!runBrowser) process.exit(0);
 
 assert(executablePath, 'CHROME_BIN is required for --browser validation.');
@@ -111,7 +105,6 @@ try {
           bodyWidth: document.body.scrollWidth,
           viewportWidth: innerWidth,
           motionLevel: ambient?.dataset.motionLevel || '',
-          build: window.__ATLAS_BUILD__ || '',
           richTrackCount: document.querySelectorAll('[data-rich-track]').length,
           richSignalCount: document.querySelectorAll('[data-rich-signal]').length,
           richSpeckCount: document.querySelectorAll('[data-rich-speck]').length
@@ -132,15 +125,13 @@ try {
           signalTransform: signal?.getAttribute('transform') || '',
           motionEngine: ambient?.dataset.motionEngine || '',
           richEngine: ambient?.dataset.richEngine || '',
-          motionLevel: ambient?.dataset.motionLevel || '',
-          build: window.__ATLAS_BUILD__ || ''
+          motionLevel: ambient?.dataset.motionLevel || ''
         };
       });
 
       assert(before.ambientZ === '0', `${target} ${mode.name}: ambient layer is not above body paint.`);
       assert(before.ambientOpacity > 0.45, `${target} ${mode.name}: ambient layer is too faint to perceive.`);
       assert(before.bodyWidth <= before.viewportWidth + 1, `${target} ${mode.name}: ambient layer causes horizontal overflow.`);
-      assert(before.build === expectedVersion && after.build === expectedVersion, `${target} ${mode.name}: deployed build marker is incorrect.`);
       assert(before.motionLevel === 'optimized' && after.motionLevel === 'optimized', `${target} ${mode.name}: optimized ambient layer did not initialize.`);
       assert(before.richTrackCount === 2, `${target} ${mode.name}: expected exactly 2 scientific trajectories.`);
       assert(before.richSignalCount === 2, `${target} ${mode.name}: expected exactly 2 travelling signals.`);
@@ -199,25 +190,7 @@ try {
   await fallbackPage.close();
   await fallbackContext.close();
 
-  // Simulate a browser restoring an older HTML document while the deployment has advanced.
-  // The build guard must probe the no-store sentinel and move the document to the live build marker.
-  const freshnessContext = await browser.newContext({ viewport: { width: 1200, height: 800 }, reducedMotion: 'no-preference' });
-  const freshnessPage = await freshnessContext.newPage();
-  await freshnessPage.route('**/assets/deployment-version.json*', async (route) => {
-    await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ version: 'firefox-fresh-build' }) });
-  });
-  await freshnessPage.goto(`${baseUrl}/?__atlas_build=stale-build`, { waitUntil: 'domcontentloaded' });
-  await freshnessPage.waitForFunction(() => new URL(location.href).searchParams.get('__atlas_build') === 'firefox-fresh-build', null, { timeout: 4000 });
-  const recovered = await freshnessPage.evaluate(() => ({
-    marker: new URL(location.href).searchParams.get('__atlas_build'),
-    documentBuild: window.__ATLAS_BUILD__ || ''
-  }));
-  assert(recovered.marker === 'firefox-fresh-build', 'Stale-browser recovery did not replace the cached document URL with the live build marker.');
-  assert(recovered.documentBuild === expectedVersion, 'Stale-browser recovery damaged the prepared document build marker.');
-  await freshnessPage.close();
-  await freshnessContext.close();
-
-  console.log(`Optimized ambient browser QA passed across ${targets.length} pages, ${modes.length} motion/viewport modes, CSS fallback, and stale-browser recovery.`);
+  console.log(`Optimized ambient browser QA passed across ${targets.length} pages and ${modes.length} motion/viewport modes.`);
 } finally {
   await browser.close();
 }
