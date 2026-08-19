@@ -10,13 +10,18 @@ const isCount = (value) => Number.isSafeInteger(value) && value >= 0;
 async function htmlFiles(directory) {
   const files = [];
   for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
-    if (entry.name === '.git' || entry.name === 'node_modules' || entry.name === 'artifacts') continue;
+    if (entry.name === '.git' || entry.name === '.github' || entry.name === 'node_modules' || entry.name === 'artifacts') continue;
     const fullPath = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...await htmlFiles(fullPath));
     else if (entry.isFile() && entry.name.endsWith('.html')) files.push(fullPath);
   }
   return files;
 }
+
+const isPublicEntry = (file) => {
+  const normalized = file.split(path.sep).join('/').replace(/^\.\//, '');
+  return normalized === 'index.html' || normalized === '404.html' || normalized.endsWith('/index.html');
+};
 
 const [snapshotText, index, app, styles, privacy, updateWorkflow] = await Promise.all([
   read('data/site-reach.json'),
@@ -64,7 +69,7 @@ assert(privacy.includes('id="analytics"') && privacy.includes('GoatCounter') && 
 assert(updateWorkflow.includes('secrets.GOATCOUNTER_API_TOKEN') && updateWorkflow.includes('vars.GOATCOUNTER_SITE_CODE'), 'Daily workflow must obtain configuration from GitHub Secrets and Variables.');
 assert(updateWorkflow.includes('published_sha') && updateWorkflow.includes('uses: ./.github/workflows/pages.yml'), 'Daily workflow must deploy the exact refreshed snapshot commit.');
 
-const pages = await htmlFiles('.');
+const pages = (await htmlFiles('.')).filter(isPublicEntry);
 const appPages = [];
 for (const file of pages) {
   const html = await read(file);
@@ -72,6 +77,6 @@ for (const file of pages) {
   appPages.push(file);
   assert(html.includes('assets/app.js?v=ux-20260812-reach'), `${file} has a stale shared-app cache key.`);
 }
-assert(appPages.length === 20, `Expected 20 pages using the shared application script; found ${appPages.length}.`);
+assert(appPages.length === pages.length, `Every public Atlas entry point must load the shared application script; found ${appPages.length} of ${pages.length}.`);
 
-console.log(`Atlas reach validation passed: ${snapshot.status}; ${appPages.length} shared-script pages; no protected token in public data.`);
+console.log(`Atlas reach validation passed: ${snapshot.status}; ${appPages.length} public shared-script pages; no protected token in public data.`);
