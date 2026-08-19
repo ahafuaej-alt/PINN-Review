@@ -12,6 +12,17 @@
   };
 
   whenReady(() => {
+    // Public Atlas hero titles use website-style wording: no em dash and no sentence-ending/interstitial full stops.
+    document.querySelectorAll('.hero h1, .page-hero h1, .ecosystem-hero h1').forEach((heading) => {
+      const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        walker.currentNode.nodeValue = walker.currentNode.nodeValue
+          .replace(/—/g, ' ')
+          .replace(/\./g, '')
+          .replace(/\s{2,}/g, ' ');
+      }
+    });
+
     const nav = document.querySelector('.site-header .nav');
     const navLinks = nav?.querySelector('.nav-links');
     const brand = nav?.querySelector('.brand');
@@ -48,8 +59,9 @@
         ]
       },
       {
-        label: 'Taxonomy & Terminology',
+        label: 'Foundations & Terminology',
         items: [
+          ['Mathematical Formulations', 'mathematical-formulations/', 'Unified equations, notation, evidence levels, and formulation families'],
           ['PINN Types', 'pinn-types/', 'Classification, families, aliases, and evidence'],
           ['Abbreviations', 'abbreviations/', 'Terminology evidence index traced to reference IDs']
         ]
@@ -59,7 +71,7 @@
         items: [
           ['PINN Realm', 'pinn-realm/', 'Geographic distribution and international collaboration'],
           ['Applications', 'applications/', 'Scientific and engineering application domains'],
-          ['References', 'references/', 'Complete 853-paper review bibliography']
+          ['References', 'references/', 'Complete 853-paper Atlas bibliography']
         ]
       },
       {

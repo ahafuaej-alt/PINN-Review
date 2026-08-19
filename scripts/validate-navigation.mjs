@@ -22,7 +22,8 @@ const expectedNavigation = {
       ['Optimizers', 'optimizers/'],
       ['Performance Metrics', 'performance-metrics/']
     ]],
-    ['Taxonomy & Terminology', [
+    ['Foundations & Terminology', [
+      ['Mathematical Formulations', 'mathematical-formulations/'],
       ['PINN Types', 'pinn-types/'],
       ['Abbreviations', 'abbreviations/']
     ]],
@@ -80,7 +81,7 @@ async function assertRouteExists(route) {
 const allFiles = await walk(repoRoot);
 const relativeFiles = allFiles.map((file) => toPosix(path.relative(repoRoot, file)));
 const publicPages = relativeFiles.filter(isPublicHtml).sort();
-assert(publicPages.length >= 20, `Expected at least 20 public Atlas HTML entry points, found ${publicPages.length}.`);
+assert(publicPages.length >= 21, `Expected at least 21 public Atlas HTML entry points, found ${publicPages.length}.`);
 
 const routeExpectations = new Map();
 for (const [label, route] of expectedNavigation.direct) routeExpectations.set(route, { label, group: null });
@@ -88,6 +89,7 @@ for (const [group, items] of expectedNavigation.groups) {
   for (const [label, route] of items) routeExpectations.set(route, { label, group });
 }
 const configuredRoutes = [...routeExpectations.keys()];
+assert(configuredRoutes.length === 18, `Expected 18 internal Atlas menu routes, found ${configuredRoutes.length}.`);
 assert(new Set(configuredRoutes).size === configuredRoutes.length, 'Duplicate route exists in the canonical navigation contract.');
 for (const route of configuredRoutes) await assertRouteExists(route);
 
@@ -95,6 +97,8 @@ const themeInitPath = path.join(repoRoot, 'assets', 'theme-init.js');
 const themeInit = await fs.readFile(themeInitPath, 'utf8');
 assert(themeInit.includes("navLinks.classList.add('atlas-global-nav')"), 'Shared theme-init.js does not activate atlas-global-nav.');
 assert(themeInit.includes('navLinks.replaceChildren()'), 'Shared navigation no longer replaces per-page menu content.');
+assert(themeInit.includes(".replace(/—/g, ' ')"), 'Shared public-title cleanup no longer removes em dashes.');
+assert(themeInit.includes(".replace(/\\./g, '')"), 'Shared public-title cleanup no longer removes full stops from hero headings.');
 for (const [group] of expectedNavigation.groups) {
   assert(themeInit.includes(`label: '${group}'`), `Canonical group “${group}” is missing from theme-init.js.`);
 }
@@ -118,20 +122,19 @@ for (const relativePath of publicPages) {
   assert(resolved === '/', `${relativePath}: logo/Home href ${brandHref} resolves to ${resolved}, not Atlas root.`);
 }
 
-// The approved hierarchy may be mentioned as page content, documentation, or tests.
-// What must remain singular is the production JavaScript definition that actually builds
-// the navigation. Restrict this invariant to browser assets so research-facing labels on
-// the homepage cannot be mistaken for a second navigation implementation.
+// Page content may repeat group names. What must remain singular is the canonical
+// JavaScript group definition with a `label:` signature that actually builds the menu.
 const productionScripts = relativeFiles.filter((file) => file.startsWith('assets/') && /\.js$/.test(file));
 for (const [label] of expectedNavigation.groups) {
   const occurrences = [];
+  const signature = `label: '${label}'`;
   for (const relativePath of productionScripts) {
     const source = await fs.readFile(path.join(repoRoot, relativePath), 'utf8');
-    if (source.includes(label)) occurrences.push(relativePath);
+    if (source.includes(signature)) occurrences.push(relativePath);
   }
   assert(
     occurrences.length === 1 && occurrences[0] === 'assets/theme-init.js',
-    `Duplicate production navigation definition for “${label}” found in: ${occurrences.join(', ') || 'none'}.`
+    `Duplicate canonical navigation definition for “${label}” found in: ${occurrences.join(', ') || 'none'}.`
   );
 }
 
@@ -162,6 +165,7 @@ async function layoutSnapshot(page) {
     const brand = document.querySelector('.brand');
     const nav = document.querySelector('.nav-links.atlas-global-nav');
     const toggle = document.querySelector('.nav-toggle');
+    const headings = [...document.querySelectorAll('.hero h1, .page-hero h1, .ecosystem-hero h1')].map((node) => node.textContent.replace(/\s+/g, ' ').trim());
     return {
       bodyScrollWidth: document.body.scrollWidth,
       documentScrollWidth: document.documentElement.scrollWidth,
@@ -169,7 +173,8 @@ async function layoutSnapshot(page) {
       viewportWidth: innerWidth,
       navPresent: Boolean(nav),
       brandPath: brand ? new URL(brand.href, location.href).pathname : null,
-      toggleDisplay: toggle ? getComputedStyle(toggle).display : 'none'
+      toggleDisplay: toggle ? getComputedStyle(toggle).display : 'none',
+      headings
     };
   });
 }
@@ -179,8 +184,14 @@ function assertNoOverflow(layout, label) {
   assert(layout.documentScrollWidth <= layout.clientWidth + 1, `${label}: document width ${layout.documentScrollWidth}px exceeds client ${layout.clientWidth}px.`);
 }
 
+function assertTitleStyle(headings, label) {
+  for (const heading of headings) {
+    assert(!heading.includes('—'), `${label}: public hero title still contains an em dash: “${heading}”.`);
+    assert(!heading.includes('.'), `${label}: public hero title still contains a full stop: “${heading}”.`);
+  }
+}
+
 try {
-  // Validate the exact approved hierarchy and all link destinations from the generated navigation.
   const contractContext = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'reduce' });
   const contractPage = await contractContext.newPage();
   await contractPage.goto(`${baseUrl}/`, { waitUntil: 'domcontentloaded' });
@@ -206,7 +217,6 @@ try {
   assert(external?.[1] === expectedNavigation.external[1], 'GitHub external route differs from the approved destination.');
   await contractContext.close();
 
-  // Every configured destination must identify itself and its intended group correctly.
   for (const [route, expected] of routeExpectations) {
     const context = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
@@ -227,8 +237,6 @@ try {
     await context.close();
   }
 
-  // Exercise every public entry point at supported widths. Main/footer are hidden after load so
-  // any detected horizontal overflow is attributable to the navigation shell itself.
   for (const viewport of viewports) {
     const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, reducedMotion: 'reduce' });
     const page = await context.newPage();
@@ -245,6 +253,8 @@ try {
     for (const relativePath of publicPages) {
       await page.goto(pageUrl(relativePath), { waitUntil: 'domcontentloaded' });
       await waitForNavigation(page);
+      let layout = await layoutSnapshot(page);
+      assertTitleStyle(layout.headings, `${relativePath} (${viewport.name})`);
       await page.addStyleTag({ content: 'main,.site-footer{display:none!important}' });
 
       await page.evaluate((compact) => {
@@ -253,14 +263,13 @@ try {
         document.querySelectorAll('.atlas-nav-group').forEach((group) => group.classList.remove('open'));
       }, viewport.compact);
 
-      let layout = await layoutSnapshot(page);
+      layout = await layoutSnapshot(page);
       assert(layout.navPresent, `${relativePath} (${viewport.name}): shared navigation did not render.`);
       assert(layout.brandPath === '/', `${relativePath} (${viewport.name}): logo/Home resolves to ${layout.brandPath}, expected /.`);
       if (viewport.compact) assert(layout.toggleDisplay !== 'none', `${relativePath} (${viewport.name}): compact navigation toggle is not visible.`);
       else assert(layout.toggleDisplay === 'none', `${relativePath} (${viewport.name}): full desktop navigation unexpectedly shows the hamburger toggle.`);
       assertNoOverflow(layout, `${relativePath} (${viewport.name}, base menu)`);
 
-      // Open every group individually and verify its dropdown/accordion state cannot overflow.
       for (let groupIndex = 0; groupIndex < expectedNavigation.groups.length; groupIndex += 1) {
         await page.evaluate(({ compact, groupIndex }) => {
           const nav = document.querySelector('.nav-links.atlas-global-nav');
@@ -274,7 +283,7 @@ try {
     await context.close();
   }
 
-  console.log(`Browser navigation integrity passed across ${publicPages.length} pages × ${viewports.length} supported viewport modes, including every group-open state.`);
+  console.log(`Browser navigation integrity passed across ${publicPages.length} pages × ${viewports.length} supported viewport modes, including every group-open state and public-title convention.`);
 } finally {
   await browser.close();
 }

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore 114 evidence-based PINN mathematical formulations with unified notation, Atlas reference IDs, evidence levels, filtering, workflow context, and public edit proposals.">
+  <meta name="theme-color" content="#09111d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://ahafuaej-alt.github.io/PINN-Review/mathematical-formulations/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PINN Review Atlas">
+  <meta property="og:title" content="PINN Mathematical Formulations | PINN Review Atlas">
+  <meta property="og:description" content="A unified, evidence-based catalogue of PINN mathematical formulations, notation, constraints, numerical operators, training mathematics, and evaluation criteria.">
+  <meta property="og:url" content="https://ahafuaej-alt.github.io/PINN-Review/mathematical-formulations/">
+  <title>PINN Mathematical Formulations | PINN Review Atlas</title>
+  <script src="../assets/theme-init.js?v=ux-20260722"></script>
+  <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css?v=ux-20260817-ecosystem">
+  <link rel="stylesheet" href="../assets/mathematical-formulations.css?v=20260819-r1">
+  <style>
+    body.math-formulations-page{overflow-x:clip}
+    .math-formulations-page main,.math-formulations-page .container,.math-formulations-page .math-hero-grid>*,.math-formulations-page .math-catalogue,.math-formulations-page .math-family,.math-formulations-page .math-family-grid,.math-formulations-page .formula-card,.math-formulations-page .formula-card-head>*,.math-formulations-page .formula-explain-grid>*,.math-formulations-page .formula-evidence>*{min-width:0;max-width:100%}
+    .math-formulations-page .equation-box,.math-formulations-page .math-notation-table,.math-formulations-page .math-coverage,.math-formulations-page .math-workflow{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+    .math-formulations-page .equation-box mjx-container{max-width:none}
+  </style>
+  <script>
+    window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../assets/app.js?v=ux-20260812-reach" defer></script>
+  <script src="../assets/mathematical-formulations.js?v=20260819-r1" defer></script>
+</head>
+<body class="math-formulations-page">
+  <a class="skip-link" href="#catalogue">Skip to formulation catalogue</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="nav-links"></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero math-hero"><div class="container math-hero-grid">
+      <div>
+        <p class="breadcrumb"><a href="../">Atlas</a> / Foundations &amp; Terminology / Mathematical Formulations</p>
+        <p class="eyebrow">Evidence catalogue · unified notation · Atlas IDs 1–853</p>
+        <h1>PINN Mathematical <span class="gradient">Formulations</span></h1>
+        <p class="lede">A unified, evidence-based catalogue of mathematical structures represented in the Atlas corpus. Equations use one notation system, preserve the distinction between direct, equivalent, and synthesized evidence, and link every cited Atlas ID to its public reference record.</p>
+        <div class="actions math-actions">
+          <a class="button primary" href="#catalogue">Explore formulations <span aria-hidden="true">↓</span></a>
+          <a class="button" href="#notation">Symbol dictionary <span aria-hidden="true">↓</span></a>
+          <button class="button" type="button" data-page-edit>Suggest an edit ↗</button>
+          <a class="button" href="../data/mathematical-formulations/manifest.json" download>Download formulation manifest</a>
+        </div>
+      </div>
+      <aside class="math-evidence-rule">
+        <p class="eyebrow compact">Evidence rule</p>
+        <h2>What the evidence labels mean</h2>
+        <dl>
+          <div><dt>Direct</dt><dd>The source explicitly provides essentially the displayed mathematical structure.</dd></div>
+          <div><dt>Equivalent</dt><dd>An evidence source uses an equivalent or application-specific form normalized to Atlas notation.</dd></div>
+          <div><dt>Synthesized</dt><dd>A mathematically conservative cross-source generalization, never presented as a verbatim equation from one paper.</dd></div>
+        </dl>
+      </aside>
+    </div></section>
+
+    <section class="math-summary-section"><div class="container">
+      <div class="math-summary" aria-label="Mathematical formulation catalogue summary">
+        <div><strong data-math-stat="accepted">114</strong><span>formulation records</span></div>
+        <div><strong data-math-stat="direct">18</strong><span>Direct evidence</span></div>
+        <div><strong data-math-stat="equivalent">57</strong><span>Equivalent formulations</span></div>
+        <div><strong data-math-stat="synthesized">39</strong><span>Synthesized formulations</span></div>
+        <div><strong data-math-stat="references">154</strong><span>unique Atlas references</span></div>
+      </div>
+      <p class="math-summary-meta">Public reference system · Atlas/basic IDs 1–853 · Catalogue snapshot <span data-math-generated>19 Aug 2026</span></p>
+    </div></section>
+
+    <section class="section math-workflow-section" aria-labelledby="math-workflow-title"><div class="container">
+      <div class="section-head">
+        <div><p class="eyebrow">Interactive system view</p><h2 id="math-workflow-title">From physical problem to reliable deployment</h2></div>
+        <p>The nine stages form a connected workflow rather than an isolated checklist. Select a stage to see its role, typical elements, and direct routes into the Atlas.</p>
+      </div>
+      <div class="math-workflow" data-math-workflow aria-label="Nine-stage PINN workflow">
+        <button type="button" class="math-workflow-step" data-workflow-step="problem"><b>01</b><span>Problem &amp; Physics</span><small>define</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="purpose"><b>02</b><span>PINN Purpose</span><small>target</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="representation"><b>03</b><span>Representation</span><small>encode</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="enforcement"><b>04</b><span>Physics Enforcement</span><small>constrain</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="numerics"><b>05</b><span>Numerical Evaluation of Physics</span><small>operate</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="training"><b>06</b><span>Training</span><small>optimize</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="extensions"><b>07</b><span>Extensions &amp; Hybrids</span><small>extend</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="evaluation"><b>08</b><span>Evaluation &amp; Reliability</span><small>verify</small></button>
+        <button type="button" class="math-workflow-step" data-workflow-step="deployment"><b>09</b><span>Implementation &amp; Deployment</span><small>realize</small></button>
+      </div>
+      <div class="workflow-legend"><span><i></i>Main design flow</span><span><i class="feedback"></i>Evaluation feeds redesign</span><span>Select any stage for details</span></div>
+    </div></section>
+
+    <section class="section math-method-section" aria-labelledby="method-title"><div class="container math-method-grid">
+      <article class="math-method-panel">
+        <p class="eyebrow compact">How to read the catalogue</p>
+        <h2 id="method-title">One mathematical narrative, not an equation list</h2>
+        <p>The logical stream begins with the governing problem, replaces the unknown field by a trainable representation, applies physics to that representation, and turns the resulting requirement into a trainable objective. It then branches according to what changes: enforcement mechanism, state variables, numerical operator, domain organization, approximation target, uncertainty model, training dynamics, or validation criterion.</p>
+      </article>
+      <article class="math-method-panel math-integrity-panel">
+        <p class="eyebrow compact">Reference integrity</p>
+        <h2>Stable public evidence IDs</h2>
+        <p>Every citation on this page uses the stable Atlas/basic reference ID. Selecting an evidence chip opens the matching record in the public References explorer.</p>
+        <a class="text-link" href="../references/">Open References <span aria-hidden="true">→</span></a>
+      </article>
+    </div></section>
+
+    <section class="section" id="notation" aria-labelledby="notation-title"><div class="container">
+      <div class="section-head"><div><p class="eyebrow">Master notation</p><h2 id="notation-title">Global symbol dictionary</h2></div><p>The same physical concept uses the same symbol throughout unless a genuinely distinct mathematical object requires a new symbol.</p></div>
+      <div class="math-notation-table" data-notation-table><div class="math-loading">Loading notation dictionary…</div></div>
+    </div></section>
+
+    <section class="section math-catalogue-section" id="catalogue" aria-labelledby="catalogue-title"><div class="container">
+      <div class="section-head"><div><p class="eyebrow">Formulation catalogue</p><h2 id="catalogue-title">Search 114 mathematical formulations</h2></div><p>Filter by formulation family or evidence level, or search formula names, concepts, tags, and Atlas reference IDs.</p></div>
+      <div class="math-filter-bar">
+        <label class="math-search"><span>Search</span><input id="math-search" type="search" placeholder="Formula, concept, tag, or Atlas ID…" autocomplete="off"></label>
+        <label><span>Formulation family</span><select id="math-category"><option value="all">All formulation families</option></select></label>
+        <label><span>Evidence</span><select id="math-evidence"><option value="all">All evidence levels</option><option value="Direct">Direct</option><option value="Equivalent">Equivalent</option><option value="Synthesized">Synthesized</option></select></label>
+        <div class="math-visible-count"><strong id="math-visible">114</strong><span>of 114 visible</span></div>
+      </div>
+      <div class="math-catalogue" data-formulation-catalogue><div class="math-loading">Loading mathematical formulation records…</div></div>
+      <div class="math-empty" data-math-empty hidden>No formulation matches the current filters.</div>
+    </div></section>
+
+    <section class="section" id="coverage" aria-labelledby="coverage-title"><div class="container">
+      <div class="section-head"><div><p class="eyebrow">Catalogue completeness</p><h2 id="coverage-title">Coverage audit</h2></div><p>Distinguishes formalized concepts from material intentionally kept conceptual, consolidated into a broader formulation, or retained as an evidence gap.</p></div>
+      <div class="math-coverage" data-coverage-audit><div class="math-loading">Loading coverage audit…</div></div>
+    </div></section>
+
+    <section class="section" id="evidence-register" aria-labelledby="evidence-register-title"><div class="container">
+      <div class="section-head"><div><p class="eyebrow">Evidence register</p><h2 id="evidence-register-title">Atlas references used by the catalogue</h2></div><p>Each chip is a stable public Atlas/basic identifier and opens the corresponding reference record.</p></div>
+      <div class="math-reference-register" data-reference-register><div class="math-loading">Loading evidence register…</div></div>
+    </div></section>
+
+    <section class="section math-contribution-section"><div class="container math-contribution-panel">
+      <div><p class="eyebrow compact">Living evidence catalogue</p><h2>See a formulation, symbol, source, or explanation that should change?</h2><p>Submit a public, reviewable proposal with the formulation ID, the exact correction, and an authoritative source or supporting Atlas reference IDs. No catalogue record changes until the evidence is reviewed.</p></div>
+      <div class="math-contribution-actions"><button class="button primary" type="button" data-page-edit>Suggest an edit ↗</button><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review/issues">View open proposals ↗</a></div>
+    </div></section>
+  </main>
+
+  <dialog class="math-dialog" data-workflow-dialog aria-labelledby="workflow-dialog-title">
+    <button class="math-dialog-close" type="button" data-dialog-close aria-label="Close workflow details">×</button>
+    <div data-workflow-dialog-content></div>
+  </dialog>
+  <div class="math-toast" data-math-toast role="status" aria-live="polite" hidden></div>
+
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Mathematical Formulations · evidence catalogue</span><a href="../cite/">How to cite this atlas</a></div></footer>
+</body>
+</html>
