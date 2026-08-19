@@ -41,7 +41,7 @@ for (const token of ['atlasAmbientViewportDrift', 'atlasAmbientWaveTravel', 'atl
 }
 
 const themeInit = await fs.readFile(path.join(root, 'assets/theme-init.js'), 'utf8');
-for (const token of ['data.motionEngine', 'requestAnimationFrame', 'startFallback', 'probeMotion']) {
+for (const token of ['dataset.motionEngine', 'requestAnimationFrame', 'startFallback', 'probeMotion']) {
   assert(themeInit.includes(token), `theme-init.js is missing runtime ambient fallback token ${token}.`);
 }
 
