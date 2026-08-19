@@ -30,6 +30,7 @@ for (const page of pages) {
   const prefix = pageDir === '.' ? '' : '../'.repeat(pageDir.split('/').length);
   const themeSrc = `${prefix}assets/theme-init.js?v=${version}-ambient`;
   const ambientHref = `${prefix}assets/ambient-motion.css?v=${version}-ambient`;
+  const richSrc = `${prefix}assets/ambient-rich.js?v=${version}-ambient`;
 
   const themePattern = /(<script\b[^>]*src=["'])([^"']*assets\/theme-init\.js)(?:\?[^"']*)?(["'][^>]*><\/script>)/i;
   if (!themePattern.test(html)) throw new Error(`${page}: shared theme-init.js script was not found.`);
@@ -37,11 +38,17 @@ for (const page of pages) {
 
   const ambientPattern = /\s*<link\b[^>]*href=["'][^"']*assets\/ambient-motion\.css(?:\?[^"']*)?["'][^>]*>/i;
   html = html.replace(ambientPattern, '');
+  const richPattern = /\s*<script\b[^>]*src=["'][^"']*assets\/ambient-rich\.js(?:\?[^"']*)?["'][^>]*><\/script>/i;
+  html = html.replace(richPattern, '');
+
   const themeTag = html.match(new RegExp(`<script\\b[^>]*src=["']${themeSrc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["'][^>]*><\\/script>`, 'i'))?.[0];
   if (!themeTag) throw new Error(`${page}: rewritten theme-init.js tag could not be resolved.`);
-  html = html.replace(themeTag, `${themeTag}\n  <link rel="stylesheet" href="${ambientHref}">`);
+  html = html.replace(
+    themeTag,
+    `${themeTag}\n  <link rel="stylesheet" href="${ambientHref}">\n  <script src="${richSrc}" defer></script>`
+  );
 
   await fs.writeFile(absolute, html, 'utf8');
 }
 
-console.log(`Prepared shared UI cache keys and ambient motion stylesheet for ${pages.length} public Atlas pages using version ${version}.`);
+console.log(`Prepared cache-busted shared UI and rich ambient motion for ${pages.length} public Atlas pages using version ${version}.`);
