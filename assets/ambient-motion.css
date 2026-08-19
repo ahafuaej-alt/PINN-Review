@@ -1,55 +1,176 @@
-/* Shared PINN ambient-motion boost.
-   The ambient SVG itself is created by assets/theme-init.js. This stylesheet
-   deliberately animates the whole viewport layer as well as the two scientific
-   trace motifs so motion remains perceptible across Chromium and Firefox. */
+/* Shared PINN Atlas ambient-motion system.
+   theme-init.js creates the base SVG; ambient-rich.js adds the scientific field,
+   trajectories, particles, and pointer-responsive depth layers. */
 
-.atlas-ambient-background svg {
+html .atlas-ambient-background svg {
   transform-origin: 50% 50%;
-  animation: atlasAmbientViewportDrift 12s ease-in-out infinite alternate;
+  animation: atlasAmbientViewportDrift 10s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-.atlas-ambient-wave {
-  stroke-dasharray: 13 10;
-  animation: atlasAmbientWaveTravel 6s linear infinite;
+/* Strengthen the original PINN motifs without making them foreground content. */
+.atlas-ambient-background .atlas-ambient-edge {
+  stroke-width: 1.45;
+  stroke-opacity: .24;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--mint) 42%, transparent));
+}
+.atlas-ambient-background .atlas-ambient-edge-violet { stroke-opacity: .22; }
+.atlas-ambient-background .atlas-ambient-node {
+  stroke-width: 1.45;
+  stroke-opacity: .42;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--mint) 46%, transparent));
+}
+.atlas-ambient-background .atlas-ambient-node-violet {
+  stroke-opacity: .40;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--violet) 46%, transparent));
+}
+.atlas-ambient-background .atlas-ambient-point { fill-opacity: .30; }
+
+.atlas-ambient-background .atlas-ambient-wave {
+  stroke-width: 1.75;
+  stroke-opacity: .24;
+  stroke-dasharray: 14 9;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--violet) 40%, transparent));
+  animation: atlasAmbientWaveTravel 5.2s linear infinite;
 }
 
-.atlas-ambient-residual {
-  stroke-dasharray: 6 10;
-  animation: atlasAmbientResidualTravel 5s linear infinite;
+.atlas-ambient-background .atlas-ambient-residual {
+  stroke-width: 1.55;
+  stroke-opacity: .22;
+  stroke-dasharray: 7 9;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--mint) 40%, transparent));
+  animation: atlasAmbientResidualTravel 4.6s linear infinite;
 }
 
 .atlas-ambient-point:nth-of-type(2n),
-.atlas-ambient-node:nth-of-type(2n) {
-  animation-delay: -2.2s;
+.atlas-ambient-node:nth-of-type(2n) { animation-delay: -2.2s; }
+
+/* Rich scientific field ---------------------------------------------------- */
+.atlas-rich-layer {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.atlas-rich-contour,
+.atlas-rich-orbit,
+.atlas-rich-flow {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.atlas-rich-contour {
+  stroke: var(--violet);
+  stroke-width: 1.05;
+  stroke-opacity: .115;
+}
+.atlas-rich-contour.contour-b { stroke: var(--mint); stroke-opacity: .105; }
+.atlas-rich-contour.contour-c { stroke: var(--blue); stroke-opacity: .09; }
+
+.atlas-rich-orbit {
+  stroke: var(--mint);
+  stroke-width: 1;
+  stroke-opacity: .12;
+  stroke-dasharray: 3 9;
+  animation: atlasAmbientOrbitTravel 14s linear infinite;
+}
+.atlas-rich-orbit.orbit-b,
+.atlas-rich-orbit.orbit-d {
+  stroke: var(--violet);
+  stroke-opacity: .11;
+  animation-direction: reverse;
+  animation-duration: 18s;
+}
+
+.atlas-rich-flow {
+  stroke-width: 1.15;
+  stroke-opacity: .16;
+  stroke-dasharray: 2 8;
+}
+.atlas-rich-flow.track-mint { stroke: var(--mint); }
+.atlas-rich-flow.track-violet { stroke: var(--violet); }
+.atlas-rich-flow.track-blue { stroke: var(--blue); }
+.atlas-rich-flow.track-faint { stroke: var(--muted); stroke-opacity: .09; }
+
+.atlas-rich-speck {
+  vector-effect: non-scaling-stroke;
+  opacity: .34;
+}
+.atlas-rich-speck.tone-mint { fill: var(--mint); }
+.atlas-rich-speck.tone-violet { fill: var(--violet); }
+.atlas-rich-speck.tone-blue { fill: var(--blue); }
+.atlas-rich-speck:nth-child(3n) { opacity: .48; }
+.atlas-rich-speck:nth-child(5n) { filter: drop-shadow(0 0 4px currentColor); }
+
+.atlas-rich-signal {
+  vector-effect: non-scaling-stroke;
+  stroke: var(--paper);
+  stroke-width: 1.4;
+  opacity: .90;
+}
+.atlas-rich-signal.signal-mint {
+  fill: var(--mint);
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--mint) 75%, transparent));
+}
+.atlas-rich-signal.signal-violet {
+  fill: var(--violet);
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--violet) 75%, transparent));
+}
+.atlas-rich-signal.signal-blue {
+  fill: var(--blue);
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--blue) 75%, transparent));
+}
+
+/* Theme tuning: the field should remain legible in light mode and luminous in dark mode. */
+:root[data-theme="dark"] .atlas-rich-contour { stroke-opacity: .17; }
+:root[data-theme="dark"] .atlas-rich-orbit { stroke-opacity: .17; }
+:root[data-theme="dark"] .atlas-rich-flow { stroke-opacity: .23; }
+:root[data-theme="dark"] .atlas-rich-speck { opacity: .46; }
+:root[data-theme="dark"] .atlas-rich-signal { opacity: 1; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .atlas-rich-contour { stroke-opacity: .17; }
+  :root:not([data-theme]) .atlas-rich-orbit { stroke-opacity: .17; }
+  :root:not([data-theme]) .atlas-rich-flow { stroke-opacity: .23; }
+  :root:not([data-theme]) .atlas-rich-speck { opacity: .46; }
 }
 
 @keyframes atlasAmbientViewportDrift {
-  0%   { transform: scale(1.055) translate3d(-14px, -8px, 0) rotate(-0.18deg); }
-  45%  { transform: scale(1.06) translate3d(9px, 12px, 0) rotate(0.10deg); }
-  100% { transform: scale(1.055) translate3d(18px, -5px, 0) rotate(0.22deg); }
+  0%   { transform: scale(1.065) translate3d(-22px, -12px, 0) rotate(-.22deg); }
+  42%  { transform: scale(1.072) translate3d(12px, 16px, 0) rotate(.12deg); }
+  100% { transform: scale(1.066) translate3d(26px, -8px, 0) rotate(.28deg); }
 }
 
 @keyframes atlasAmbientWaveTravel {
   from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: -92; }
+  to   { stroke-dashoffset: -118; }
 }
 
 @keyframes atlasAmbientResidualTravel {
   from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: 80; }
+  to   { stroke-dashoffset: 102; }
+}
+
+@keyframes atlasAmbientOrbitTravel {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 96; }
 }
 
 @media (max-width: 760px) {
-  .atlas-ambient-background svg {
-    animation-duration: 15s;
-  }
+  html .atlas-ambient-background svg { animation-duration: 13s; }
+  .atlas-rich-contour { stroke-opacity: .08; }
+  .atlas-rich-orbit { stroke-opacity: .09; }
+  .atlas-rich-speck { opacity: .24; }
+  .atlas-rich-signal:nth-child(even) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .atlas-ambient-background svg,
+  html .atlas-ambient-background svg,
   .atlas-ambient-wave,
-  .atlas-ambient-residual {
+  .atlas-ambient-residual,
+  .atlas-rich-orbit {
     animation: none !important;
     transform: none !important;
   }
