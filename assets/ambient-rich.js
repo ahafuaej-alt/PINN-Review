@@ -1,4 +1,5 @@
 (() => {
+  // Optimized deployment profile: 2 trajectories, 2 signals, 10 collocation points.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const compactViewport = window.matchMedia('(max-width: 760px)');
 
