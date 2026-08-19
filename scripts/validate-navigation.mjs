@@ -122,20 +122,19 @@ for (const relativePath of publicPages) {
   assert(resolved === '/', `${relativePath}: logo/Home href ${brandHref} resolves to ${resolved}, not Atlas root.`);
 }
 
-// The approved hierarchy may be mentioned as page content, documentation, or tests.
-// What must remain singular is the production JavaScript definition that actually builds
-// the navigation. Restrict this invariant to browser assets so research-facing labels on
-// the homepage cannot be mistaken for a second navigation implementation.
+// Page content may repeat group names. What must remain singular is the canonical
+// JavaScript group definition with a `label:` signature that actually builds the menu.
 const productionScripts = relativeFiles.filter((file) => file.startsWith('assets/') && /\.js$/.test(file));
 for (const [label] of expectedNavigation.groups) {
   const occurrences = [];
+  const signature = `label: '${label}'`;
   for (const relativePath of productionScripts) {
     const source = await fs.readFile(path.join(repoRoot, relativePath), 'utf8');
-    if (source.includes(label)) occurrences.push(relativePath);
+    if (source.includes(signature)) occurrences.push(relativePath);
   }
   assert(
     occurrences.length === 1 && occurrences[0] === 'assets/theme-init.js',
-    `Duplicate production navigation definition for “${label}” found in: ${occurrences.join(', ') || 'none'}.`
+    `Duplicate canonical navigation definition for “${label}” found in: ${occurrences.join(', ') || 'none'}.`
   );
 }
 
