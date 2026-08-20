@@ -121,7 +121,7 @@ try {
       assert(Math.abs(snapshot.width - snapshot.viewportWidth) <= 1, `${label}: ambient width does not match the viewport.`);
       assert(Math.abs(snapshot.height - snapshot.viewportHeight) <= 1, `${label}: ambient height does not match the viewport.`);
       if (mode.reducedMotion === 'reduce') assert(snapshot.animation === 'none', `${label}: ambient motion did not stop for prefers-reduced-motion.`);
-      else assert(snapshot.animation && snapshot.animation !== 'none', `${label}: ambient background is not animated when motion is allowed.`);
+      else assert(snapshot.animation === 'none', `${label}: ambient background must remain static when motion is allowed.`);
       assert(snapshot.bodyWidth <= snapshot.viewportWidth + 1, `${label}: body width ${snapshot.bodyWidth}px exceeds viewport ${snapshot.viewportWidth}px.`);
       assert(snapshot.documentWidth <= snapshot.clientWidth + 1, `${label}: document width ${snapshot.documentWidth}px exceeds client ${snapshot.clientWidth}px.`);
     }
@@ -146,7 +146,7 @@ try {
 
     await context.close();
   }
-  console.log(`UI refinement browser QA passed across ${ambientRoutes.length} Atlas pages in ${modes.length} responsive motion/theme modes.`);
+  console.log(`UI refinement browser QA passed across ${ambientRoutes.length} Atlas pages in ${modes.length} responsive static/theme modes.`);
 } finally {
   await browser.close();
 }
