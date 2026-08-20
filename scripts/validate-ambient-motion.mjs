@@ -32,12 +32,18 @@ assert(pages.length >= 21, `Expected at least 21 public pages, found ${pages.len
 for (const page of pages) {
   const html = await fs.readFile(path.join(root, page), 'utf8');
   assert(html.includes(`theme-init.js?v=${expectedVersion}-ambient`), `${page}: theme-init cache key is not the prepared ${expectedVersion} version.`);
+  assert(html.includes(`<meta name="atlas-build" content="${expectedVersion}">`), `${page}: deployment build metadata is missing.`);
+  assert(html.includes('http-equiv="Cache-Control"'), `${page}: document cache revalidation metadata is missing.`);
   assert(!html.includes('ambient-motion.css'), `${page}: animated ambient CSS must not be deployed.`);
   assert(!html.includes('ambient-rich.js'), `${page}: animated ambient JavaScript must not be deployed.`);
 }
 
+const deploymentVersion = JSON.parse(await fs.readFile(path.join(root, 'assets/deployment-version.json'), 'utf8'));
+assert(deploymentVersion.version === expectedVersion, 'Deployment sentinel does not match the prepared build.');
+assert(deploymentVersion.profile === 'static-ambient', 'Deployment sentinel has the wrong performance profile.');
+
 const themeInit = await fs.readFile(path.join(root, 'assets/theme-init.js'), 'utf8');
-for (const token of ['atlas-ambient-background', "dataset.motionEngine = 'static'", 'animation: none;', 'will-change: auto;']) {
+for (const token of ['atlas-ambient-background', "dataset.motionEngine = 'static'", 'animation: none;', 'will-change: auto;', 'deployment-version.json?check=', "cache: 'no-store'", "searchParams.set('atlas-build'"]) {
   assert(themeInit.includes(token), `theme-init.js is missing static ambient token ${token}.`);
 }
 for (const token of ['startFallback', 'probeMotion', "dataset.motionEngine = 'raf'"]) {
