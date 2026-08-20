@@ -1,4 +1,29 @@
 (() => {
+  // Self-healing deployment freshness guard. Firefox can retain a complete older
+  // HTML/asset set after a Pages release; compare the running cache key with the
+  // deployed sentinel and move once to a versioned document URL when they differ.
+  const runningScript = document.currentScript?.src;
+  if (runningScript) {
+    const scriptUrl = new URL(runningScript, window.location.href);
+    const runningBuild = (scriptUrl.searchParams.get('v') || '').replace(/-ambient$/, '');
+    const sentinelUrl = new URL(`deployment-version.json?check=${Date.now()}`, scriptUrl);
+    fetch(sentinelUrl, { cache: 'no-store', credentials: 'same-origin' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((sentinel) => {
+        const deployedBuild = String(sentinel?.version || '');
+        if (!deployedBuild || !runningBuild || deployedBuild === runningBuild) return;
+        const reloadKey = `pinn-atlas-reloaded-${deployedBuild}`;
+        try {
+          if (sessionStorage.getItem(reloadKey)) return;
+          sessionStorage.setItem(reloadKey, '1');
+        } catch (_) { /* The versioned URL still provides a fresh document request. */ }
+        const pageUrl = new URL(window.location.href);
+        pageUrl.searchParams.set('atlas-build', deployedBuild);
+        window.location.replace(pageUrl.href);
+      })
+      .catch(() => { /* Freshness checks must never block Atlas rendering. */ });
+  }
+
   const key = 'pinn-atlas-theme';
   let saved = 'system';
   try { saved = localStorage.getItem(key) || 'system'; } catch (_) { /* Use the system preference. */ }
