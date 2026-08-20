@@ -96,8 +96,8 @@
           max-height: 100%;
           overflow: hidden;
           transform-origin: 50% 50%;
-          animation: atlasAmbientViewportDrift 12s ease-in-out infinite alternate;
-          will-change: transform;
+          animation: none;
+          will-change: auto;
         }
         .atlas-ambient-background * { vector-effect: non-scaling-stroke; }
         .atlas-ambient-edge,
@@ -114,17 +114,17 @@
         .atlas-ambient-wave { stroke: var(--violet); stroke-width: 1.4; stroke-opacity: .15; stroke-dasharray: 13 10; }
         .atlas-ambient-residual { stroke: var(--mint); stroke-width: 1.25; stroke-dasharray: 6 10; stroke-opacity: .135; }
         .atlas-ambient-point { fill: var(--mint); fill-opacity: .18; }
-        .atlas-ambient-drift { transform-box: fill-box; transform-origin: center; will-change: transform; }
-        .atlas-ambient-drift-a { animation: atlasAmbientDriftA 19s ease-in-out infinite alternate; }
-        .atlas-ambient-drift-b { animation: atlasAmbientDriftB 23s ease-in-out infinite alternate; }
-        .atlas-ambient-drift-c { animation: atlasAmbientDriftC 17s ease-in-out infinite alternate; }
+        .atlas-ambient-drift { transform-box: fill-box; transform-origin: center; will-change: auto; }
+        .atlas-ambient-drift-a { animation: none; }
+        .atlas-ambient-drift-b { animation: none; }
+        .atlas-ambient-drift-c { animation: none; }
         .atlas-ambient-wave.atlas-ambient-drift-b {
-          animation: atlasAmbientDriftB 23s ease-in-out infinite alternate, atlasAmbientWaveTravel 6s linear infinite;
+          animation: none;
         }
         .atlas-ambient-residual.atlas-ambient-drift-c {
-          animation: atlasAmbientDriftC 17s ease-in-out infinite alternate, atlasAmbientResidualTravel 5s linear infinite;
+          animation: none;
         }
-        .atlas-ambient-pulse { animation: atlasAmbientPulse 5.6s ease-in-out infinite alternate; }
+        .atlas-ambient-pulse { animation: none; }
         html[data-theme="dark"] .atlas-ambient-background { opacity: .95; }
         html[data-theme="dark"] .atlas-ambient-edge { stroke-opacity: .20; }
         html[data-theme="dark"] .atlas-ambient-edge-violet,
@@ -181,73 +181,11 @@
       `;
       document.head.append(ambientStyle);
 
-      // CSS animation is the primary engine. Some browser/compositor combinations can
-      // expose the animation names yet keep the decorative SVG visually frozen. Probe
-      // actual rendered values and fall back to requestAnimationFrame only when needed.
-      const ambientSvg = ambient.querySelector('svg');
-      const ambientWave = ambient.querySelector('.atlas-ambient-wave');
-      const ambientResidual = ambient.querySelector('.atlas-ambient-residual');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      let fallbackFrame = 0;
-
-      const stopFallback = () => {
-        if (fallbackFrame) cancelAnimationFrame(fallbackFrame);
-        fallbackFrame = 0;
-        ambientSvg?.style.removeProperty('animation');
-        ambientSvg?.style.removeProperty('transform');
-        ambientWave?.style.removeProperty('animation');
-        ambientWave?.style.removeProperty('stroke-dashoffset');
-        ambientResidual?.style.removeProperty('animation');
-        ambientResidual?.style.removeProperty('stroke-dashoffset');
-        ambient.dataset.motionEngine = reducedMotion.matches ? 'reduced' : 'css';
-      };
-
-      const startFallback = () => {
-        if (fallbackFrame || reducedMotion.matches || !ambientSvg) return;
-        ambient.dataset.motionEngine = 'raf';
-        ambientSvg.style.animation = 'none';
-        if (ambientWave) ambientWave.style.animation = 'none';
-        if (ambientResidual) ambientResidual.style.animation = 'none';
-
-        const tick = (time) => {
-          if (reducedMotion.matches) {
-            stopFallback();
-            return;
-          }
-          const seconds = time / 1000;
-          const dx = Math.sin(seconds * .55) * 14;
-          const dy = Math.cos(seconds * .43) * 9;
-          const rotation = Math.sin(seconds * .31) * .18;
-          ambientSvg.style.transform = `scale(1.055) translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0) rotate(${rotation.toFixed(3)}deg)`;
-          if (ambientWave) ambientWave.style.strokeDashoffset = String(-((time / 65) % 92));
-          if (ambientResidual) ambientResidual.style.strokeDashoffset = String((time / 55) % 80);
-          fallbackFrame = requestAnimationFrame(tick);
-        };
-        fallbackFrame = requestAnimationFrame(tick);
-      };
-
-      const probeMotion = () => {
-        if (reducedMotion.matches || !ambientSvg) {
-          ambient.dataset.motionEngine = 'reduced';
-          return;
-        }
-        ambient.dataset.motionEngine = 'css';
-        const beforeTransform = getComputedStyle(ambientSvg).transform;
-        const beforeDash = ambientWave ? getComputedStyle(ambientWave).strokeDashoffset : '';
-        window.setTimeout(() => {
-          if (reducedMotion.matches || !ambientSvg.isConnected) return;
-          const afterTransform = getComputedStyle(ambientSvg).transform;
-          const afterDash = ambientWave ? getComputedStyle(ambientWave).strokeDashoffset : '';
-          const animationName = getComputedStyle(ambientSvg).animationName;
-          if (animationName === 'none' || (beforeTransform === afterTransform && beforeDash === afterDash)) startFallback();
-        }, 1100);
-      };
-
-      reducedMotion.addEventListener?.('change', () => {
-        stopFallback();
-        if (!reducedMotion.matches) requestAnimationFrame(probeMotion);
-      });
-      requestAnimationFrame(probeMotion);
+      // Performance contract: the shared scientific background is deliberately static.
+      // Continuous full-viewport SVG motion caused persistent compositing and paint work
+      // on data-heavy Atlas pages. Keep the visual layer; spend the frame budget on the
+      // research explorers, charts, filters, and Design Studio instead.
+      ambient.dataset.motionEngine = 'static';
     }
 
     const nav = document.querySelector('.site-header .nav');

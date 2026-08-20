@@ -32,29 +32,19 @@ assert(pages.length >= 21, `Expected at least 21 public pages, found ${pages.len
 for (const page of pages) {
   const html = await fs.readFile(path.join(root, page), 'utf8');
   assert(html.includes(`theme-init.js?v=${expectedVersion}-ambient`), `${page}: theme-init cache key is not the prepared ${expectedVersion} version.`);
-  assert(html.includes(`ambient-motion.css?v=${expectedVersion}-ambient`), `${page}: ambient-motion.css is not loaded with the prepared cache key.`);
-  assert(html.includes(`ambient-rich.js?v=${expectedVersion}-ambient`), `${page}: ambient-rich.js is not loaded with the prepared cache key.`);
+  assert(!html.includes('ambient-motion.css'), `${page}: animated ambient CSS must not be deployed.`);
+  assert(!html.includes('ambient-rich.js'), `${page}: animated ambient JavaScript must not be deployed.`);
 }
-
-const ambientCss = await fs.readFile(path.join(root, 'assets/ambient-motion.css'), 'utf8');
-for (const token of ['atlasAmbientViewportDrift', 'atlasAmbientWaveTravel', 'atlasAmbientResidualTravel', 'atlasRichSpeckDrift', 'atlas-rich-signal', '@media (prefers-reduced-motion: reduce)']) {
-  assert(ambientCss.includes(token), `ambient-motion.css is missing ${token}.`);
-}
-assert(!ambientCss.includes('drop-shadow('), 'ambient-motion.css must not reintroduce expensive SVG drop-shadow filters.');
 
 const themeInit = await fs.readFile(path.join(root, 'assets/theme-init.js'), 'utf8');
-for (const token of ['dataset.motionEngine', 'requestAnimationFrame', 'startFallback', 'probeMotion']) {
-  assert(themeInit.includes(token), `theme-init.js is missing runtime ambient fallback token ${token}.`);
+for (const token of ['atlas-ambient-background', "dataset.motionEngine = 'static'", 'animation: none;', 'will-change: auto;']) {
+  assert(themeInit.includes(token), `theme-init.js is missing static ambient token ${token}.`);
+}
+for (const token of ['startFallback', 'probeMotion', "dataset.motionEngine = 'raf'"]) {
+  assert(!themeInit.includes(token), `theme-init.js still contains continuous fallback token ${token}.`);
 }
 
-const richAmbient = await fs.readFile(path.join(root, 'assets/ambient-rich.js'), 'utf8');
-for (const token of ['data-rich-track', 'data-rich-signal', 'dataset.motionLevel', 'dataset.richEngine', 'getPointAtLength', 'frameInterval', 'prefers-reduced-motion']) {
-  assert(richAmbient.includes(token), `ambient-rich.js is missing optimized-motion token ${token}.`);
-}
-assert(!richAmbient.includes('pointermove'), 'ambient-rich.js must not reintroduce pointermove-driven per-frame parallax.');
-assert(!richAmbient.includes('scrollPhase'), 'ambient-rich.js must not reintroduce scroll-driven per-frame parallax.');
-
-console.log(`Static optimized ambient-motion contract passed for ${pages.length} public Atlas pages.`);
+console.log(`Static ambient performance contract passed for ${pages.length} public Atlas pages.`);
 if (!runBrowser) process.exit(0);
 
 assert(executablePath, 'CHROME_BIN is required for --browser validation.');
@@ -63,134 +53,53 @@ const playwrightModule = playwrightPath ? await import(pathToFileURL(playwrightP
 const chromium = playwrightModule.chromium || playwrightModule.default?.chromium;
 assert(chromium, 'Unable to load Chromium.');
 const browser = await chromium.launch({ executablePath, headless: true, args: ['--no-sandbox'] });
-
-const targets = ['/', '/pinn-realm/', '/mathematical-formulations/'];
-const modes = [
-  { name: 'desktop-motion', width: 1600, height: 1000, reducedMotion: 'no-preference' },
-  { name: 'mobile-motion', width: 390, height: 844, reducedMotion: 'no-preference' },
-  { name: 'desktop-reduced', width: 1600, height: 1000, reducedMotion: 'reduce' }
-];
-
-const blockHeavyResources = async (page) => {
-  await page.route('**/*', async (route) => {
-    const type = route.request().resourceType();
-    if (['image', 'font', 'media'].includes(type)) return route.abort();
-    if (route.request().url().startsWith('https://cdn.jsdelivr.net/')) return route.abort();
-    return route.continue();
-  });
-};
+const targets = ['/', '/pinn-realm/', '/mathematical-formulations/', '/pinn-ecosystem/'];
 
 try {
-  for (const mode of modes) {
-    const context = await browser.newContext({ viewport: { width: mode.width, height: mode.height }, reducedMotion: mode.reducedMotion });
-    for (const target of targets) {
-      const page = await context.newPage();
-      await blockHeavyResources(page);
-      await page.goto(`${baseUrl}${target}`, { waitUntil: 'domcontentloaded' });
-      await page.waitForSelector('.atlas-ambient-background svg[data-rich-ambient="true"]', { state: 'attached' });
-      await page.waitForSelector('[data-rich-signal="0"]', { state: 'attached' });
-
-      const before = await page.evaluate(() => {
-        const svg = document.querySelector('.atlas-ambient-background svg');
-        const wave = document.querySelector('.atlas-ambient-wave');
-        const ambient = document.querySelector('.atlas-ambient-background');
-        const signal = document.querySelector('[data-rich-signal="0"]');
-        return {
-          svgTransform: getComputedStyle(svg).transform,
-          svgAnimation: getComputedStyle(svg).animationName,
-          waveDashOffset: getComputedStyle(wave).strokeDashoffset,
-          signalTransform: signal?.getAttribute('transform') || '',
-          ambientZ: getComputedStyle(ambient).zIndex,
-          ambientOpacity: parseFloat(getComputedStyle(ambient).opacity),
-          bodyWidth: document.body.scrollWidth,
-          viewportWidth: innerWidth,
-          motionLevel: ambient?.dataset.motionLevel || '',
-          richTrackCount: document.querySelectorAll('[data-rich-track]').length,
-          richSignalCount: document.querySelectorAll('[data-rich-signal]').length,
-          richSpeckCount: document.querySelectorAll('[data-rich-speck]').length
-        };
-      });
-
-      await page.waitForTimeout(900);
-
-      const after = await page.evaluate(() => {
-        const svg = document.querySelector('.atlas-ambient-background svg');
-        const wave = document.querySelector('.atlas-ambient-wave');
-        const ambient = document.querySelector('.atlas-ambient-background');
-        const signal = document.querySelector('[data-rich-signal="0"]');
-        return {
-          svgTransform: getComputedStyle(svg).transform,
-          svgAnimation: getComputedStyle(svg).animationName,
-          waveDashOffset: getComputedStyle(wave).strokeDashoffset,
-          signalTransform: signal?.getAttribute('transform') || '',
-          motionEngine: ambient?.dataset.motionEngine || '',
-          richEngine: ambient?.dataset.richEngine || '',
-          motionLevel: ambient?.dataset.motionLevel || ''
-        };
-      });
-
-      assert(before.ambientZ === '0', `${target} ${mode.name}: ambient layer is not above body paint.`);
-      assert(before.ambientOpacity > 0.45, `${target} ${mode.name}: ambient layer is too faint to perceive.`);
-      assert(before.bodyWidth <= before.viewportWidth + 1, `${target} ${mode.name}: ambient layer causes horizontal overflow.`);
-      assert(before.motionLevel === 'optimized' && after.motionLevel === 'optimized', `${target} ${mode.name}: optimized ambient layer did not initialize.`);
-      assert(before.richTrackCount === 2, `${target} ${mode.name}: expected exactly 2 scientific trajectories.`);
-      assert(before.richSignalCount === 2, `${target} ${mode.name}: expected exactly 2 travelling signals.`);
-      assert(before.richSpeckCount === 10, `${target} ${mode.name}: expected exactly 10 collocation points.`);
-
-      if (mode.reducedMotion === 'reduce') {
-        assert(after.svgAnimation === 'none', `${target} ${mode.name}: viewport animation should be disabled.`);
-        assert(after.motionEngine === 'reduced', `${target} ${mode.name}: reduced-motion runtime state was not preserved.`);
-        assert(after.richEngine === 'reduced', `${target} ${mode.name}: optimized reduced-motion state was not preserved.`);
-      } else {
-        const baseMoved = before.svgTransform !== after.svgTransform || before.waveDashOffset !== after.waveDashOffset;
-        const richMoved = before.signalTransform !== after.signalTransform;
-        assert(baseMoved, `${target} ${mode.name}: base ambient rendering did not move over 900 ms.`);
-        assert(richMoved, `${target} ${mode.name}: optimized signal particle did not travel over 900 ms.`);
-        assert(after.motionEngine === 'css', `${target} ${mode.name}: CSS motion should remain the primary base engine when healthy.`);
-        assert(after.richEngine === 'raf-lite', `${target} ${mode.name}: lightweight signal engine is not active.`);
-      }
-      await page.close();
-    }
-    await context.close();
+  const context = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'no-preference' });
+  for (const target of targets) {
+    const page = await context.newPage();
+    await page.route('**/*', async (route) => {
+      const type = route.request().resourceType();
+      if (['image', 'font', 'media'].includes(type)) return route.abort();
+      if (route.request().url().startsWith('https://cdn.jsdelivr.net/')) return route.abort();
+      return route.continue();
+    });
+    await page.goto(`${baseUrl}${target}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('.atlas-ambient-background svg', { state: 'attached' });
+    const before = await page.evaluate(() => {
+      const ambient = document.querySelector('.atlas-ambient-background');
+      const svg = ambient?.querySelector('svg');
+      return {
+        transform: getComputedStyle(svg).transform,
+        animation: getComputedStyle(svg).animationName,
+        engine: ambient?.dataset.motionEngine || '',
+        richNodes: document.querySelectorAll('[data-rich-track], [data-rich-signal], [data-rich-speck]').length,
+        opacity: parseFloat(getComputedStyle(ambient).opacity),
+        bodyWidth: document.body.scrollWidth,
+        viewportWidth: innerWidth
+      };
+    });
+    await page.waitForTimeout(700);
+    const after = await page.evaluate(() => {
+      const ambient = document.querySelector('.atlas-ambient-background');
+      const svg = ambient?.querySelector('svg');
+      return {
+        transform: getComputedStyle(svg).transform,
+        animation: getComputedStyle(svg).animationName,
+        engine: ambient?.dataset.motionEngine || ''
+      };
+    });
+    assert(before.animation === 'none' && after.animation === 'none', `${target}: ambient SVG must remain static.`);
+    assert(before.engine === 'static' && after.engine === 'static', `${target}: static engine marker is missing.`);
+    assert(before.transform === after.transform, `${target}: ambient transform changed during the stability window.`);
+    assert(before.richNodes === 0, `${target}: animated rich ambient nodes were deployed.`);
+    assert(before.opacity > 0.45, `${target}: static ambient artwork is too faint.`);
+    assert(before.bodyWidth <= before.viewportWidth + 1, `${target}: ambient layer causes horizontal overflow.`);
+    await page.close();
   }
-
-  const fallbackContext = await browser.newContext({ viewport: { width: 1600, height: 1000 }, reducedMotion: 'no-preference' });
-  const fallbackPage = await fallbackContext.newPage();
-  await blockHeavyResources(fallbackPage);
-  await fallbackPage.goto(`${baseUrl}/`, { waitUntil: 'domcontentloaded' });
-  await fallbackPage.waitForSelector('.atlas-ambient-background svg[data-rich-ambient="true"]', { state: 'attached' });
-  await fallbackPage.addStyleTag({ content: `
-    .atlas-ambient-background svg,
-    .atlas-ambient-wave,
-    .atlas-ambient-residual { animation: none !important; }
-  ` });
-  await fallbackPage.waitForFunction(() => document.querySelector('.atlas-ambient-background')?.dataset.motionEngine === 'raf', null, { timeout: 4000 });
-  const fallbackBefore = await fallbackPage.evaluate(() => {
-    const ambient = document.querySelector('.atlas-ambient-background');
-    const svg = ambient?.querySelector('svg');
-    return {
-      engine: ambient?.dataset.motionEngine || '',
-      richEngine: ambient?.dataset.richEngine || '',
-      transform: svg?.style.transform || ''
-    };
-  });
-  await fallbackPage.waitForTimeout(300);
-  const fallbackAfter = await fallbackPage.evaluate(() => {
-    const ambient = document.querySelector('.atlas-ambient-background');
-    const svg = ambient?.querySelector('svg');
-    return {
-      engine: ambient?.dataset.motionEngine || '',
-      richEngine: ambient?.dataset.richEngine || '',
-      transform: svg?.style.transform || ''
-    };
-  });
-  assert(fallbackBefore.engine === 'raf' && fallbackAfter.engine === 'raf', 'Forced CSS freeze: runtime fallback did not stay active.');
-  assert(fallbackBefore.richEngine === 'raf-lite' && fallbackAfter.richEngine === 'raf-lite', 'Forced CSS freeze: lightweight scientific motion stopped unexpectedly.');
-  assert(fallbackBefore.transform !== fallbackAfter.transform, 'Forced CSS freeze: requestAnimationFrame fallback did not produce real movement.');
-  await fallbackPage.close();
-  await fallbackContext.close();
-
-  console.log(`Optimized ambient browser QA passed across ${targets.length} pages and ${modes.length} motion/viewport modes.`);
+  await context.close();
+  console.log(`Static ambient browser QA passed across ${targets.length} representative Atlas pages.`);
 } finally {
   await browser.close();
 }

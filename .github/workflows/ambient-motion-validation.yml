@@ -1,4 +1,4 @@
-name: Atlas ambient motion validation
+name: Atlas ambient performance validation
 
 on:
   pull_request:
@@ -29,7 +29,7 @@ permissions:
   contents: read
 
 jobs:
-  validate-ambient-motion:
+  validate-ambient-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -41,9 +41,9 @@ jobs:
           node-version: 22
       - name: Prepare shared UI cache keys
         run: node scripts/prepare-shared-ui.mjs ambient-qa
-      - name: Check rich ambient JavaScript syntax
-        run: node --check assets/ambient-rich.js
-      - name: Validate prepared ambient contract
+      - name: Check shared theme JavaScript syntax
+        run: node --check assets/theme-init.js
+      - name: Validate prepared static ambient contract
         env:
           AMBIENT_VERSION: ambient-qa
         run: node scripts/validate-ambient-motion.mjs
@@ -64,7 +64,7 @@ jobs:
           done
           cat /tmp/pinn-ambient-preview.log
           exit 1
-      - name: Verify rich movement and reduced-motion behavior
+      - name: Verify static ambient stability and visibility
         env:
           BASE_URL: http://127.0.0.1:4173
           PLAYWRIGHT_CORE_PATH: /tmp/pinn-ambient-qa/node_modules/playwright-core/index.mjs
