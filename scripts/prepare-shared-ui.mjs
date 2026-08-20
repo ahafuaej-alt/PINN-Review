@@ -35,9 +35,9 @@ for (const page of pages) {
   const pageDir = page === 'index.html' || page === '404.html' ? '.' : path.posix.dirname(page);
   const prefix = pageDir === '.' ? '' : '../'.repeat(pageDir.split('/').length);
   const themeSrc = `${prefix}assets/theme-init.js?v=${version}-ambient`;
-  if (!/<meta\\s+name=["']atlas-build["']/i.test(html)) {
+  if (!/<meta\s+name=["']atlas-build["']/i.test(html)) {
     html = html.replace(
-      /(<meta\\s+name=["']viewport["'][^>]*>)/i,
+      /(<meta\s+name=["']viewport["'][^>]*>)/i,
       `$1\n  <meta name="atlas-build" content="${version}">\n  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">`
     );
   }
