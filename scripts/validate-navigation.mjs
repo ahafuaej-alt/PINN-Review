@@ -93,6 +93,11 @@ assert(configuredRoutes.length === 18, `Expected 18 internal Atlas menu routes, 
 assert(new Set(configuredRoutes).size === configuredRoutes.length, 'Duplicate route exists in the canonical navigation contract.');
 for (const route of configuredRoutes) await assertRouteExists(route);
 
+const notFoundHtml = await fs.readFile(path.join(repoRoot, '404.html'), 'utf8');
+assert(notFoundHtml.includes("const marker='/PINN-Review/'"), '404.html lacks the project-root resolver required for nested missing URLs.');
+assert(notFoundHtml.includes("document.write('<base href=\\\"'+root+'\\\">')"), '404.html does not establish its dynamic Atlas base before loading assets.');
+assert(notFoundHtml.indexOf("document.write('<base href=") < notFoundHtml.indexOf('assets/theme-init.js'), '404.html must establish its base before shared assets load.');
+
 const themeInitPath = path.join(repoRoot, 'assets', 'theme-init.js');
 const themeInit = await fs.readFile(themeInitPath, 'utf8');
 assert(themeInit.includes("navLinks.classList.add('atlas-global-nav')"), 'Shared theme-init.js does not activate atlas-global-nav.');
