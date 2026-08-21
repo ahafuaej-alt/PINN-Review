@@ -1,3 +1,4 @@
+.math-formulations-page main{overflow-x:clip}
 .equation-box{width:100%;max-width:100%;box-sizing:border-box;justify-content:flex-start;overflow-x:auto}
 .equation-box mjx-container{flex:0 0 auto;margin:0 auto!important}
 .math-workflow{min-width:0;width:100%;max-width:100%;box-sizing:border-box;contain:inline-size;grid-template-rows:auto 34px;padding-bottom:.85rem}
