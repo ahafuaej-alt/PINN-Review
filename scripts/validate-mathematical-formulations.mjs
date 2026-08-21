@@ -108,7 +108,8 @@ try {
     await page.waitForFunction(() => document.querySelectorAll('[data-formula-card]').length === 114);
 
     const state = await page.evaluate(() => {
-      const overflowers = Array.from(document.querySelectorAll('body *')).map((node) => {
+      const bodyWidth = document.body.scrollWidth;
+      const describe = (node) => {
         const rect = node.getBoundingClientRect();
         const style = getComputedStyle(node);
         return {
@@ -124,9 +125,12 @@ try {
           position: style.position,
           display: style.display
         };
-      }).filter((item) => item.right > innerWidth + 1 || item.left < -1)
-        .sort((a,b) => (b.right - innerWidth) - (a.right - innerWidth))
-        .slice(0,20);
+      };
+      const overflowers = Array.from(document.querySelectorAll('body *')).map(describe)
+        .filter((item) => item.right > innerWidth + 1 && item.right <= bodyWidth + 2)
+        .sort((a,b) => b.right - a.right)
+        .slice(0,30);
+      const bodyChildren = Array.from(document.body.children).map(describe);
       return {
         cards: document.querySelectorAll('[data-formula-card]').length,
         workflow: document.querySelectorAll('[data-workflow-step]').length,
@@ -135,14 +139,15 @@ try {
         activePage: document.querySelector('[aria-current="page"] .atlas-nav-item-name')?.textContent.trim(),
         activeGroup: document.querySelector('.atlas-nav-group.is-active .atlas-nav-group-toggle')?.textContent.replace(/\s+/g,' ').trim(),
         title: document.querySelector('.math-hero h1')?.textContent.replace(/\s+/g,' ').trim(),
-        bodyWidth: document.body.scrollWidth,
+        bodyWidth,
         docWidth: document.documentElement.scrollWidth,
         clientWidth: document.documentElement.clientWidth,
         viewportWidth: innerWidth,
-        overflowers
+        overflowers,
+        bodyChildren
       };
     });
-    const overflowDiagnostic = state.overflowers.length ? ` Offenders: ${JSON.stringify(state.overflowers)}` : '';
+    const overflowDiagnostic = ` Near-edge offenders: ${JSON.stringify(state.overflowers)} Body children: ${JSON.stringify(state.bodyChildren)}`;
     assert(state.cards === 114, `${mode.name}: expected 114 rendered formulation cards.`);
     assert(state.workflow === 9, `${mode.name}: expected nine workflow controls.`);
     assert(state.referenceLinks === 154, `${mode.name}: expected 154 unique evidence-register links.`);
