@@ -1,4 +1,7 @@
-.math-workflow{grid-template-rows:auto 34px;padding-bottom:.85rem}
+.math-formulations-page main{overflow-x:clip}
+.equation-box{width:100%;max-width:100%;box-sizing:border-box;justify-content:flex-start;overflow-x:auto}
+.equation-box mjx-container{flex:0 0 auto;margin:0 auto!important}
+.math-workflow{min-width:0;width:100%;max-width:100%;box-sizing:border-box;contain:inline-size;grid-template-rows:auto 34px;padding-bottom:.85rem}
 .math-workflow::before{display:none}
 .math-workflow-step{overflow:visible}
 .math-workflow-step:not(:nth-of-type(9))::after{content:"";position:absolute;z-index:3;top:50%;left:calc(100% + 1px);width:calc(.55rem - 3px);height:2px;background:linear-gradient(90deg,var(--mint),var(--violet));opacity:.68;pointer-events:none}

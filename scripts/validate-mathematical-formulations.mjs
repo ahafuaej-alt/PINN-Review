@@ -107,19 +107,47 @@ try {
     await page.waitForSelector('.nav-links.atlas-global-nav', { state:'attached' });
     await page.waitForFunction(() => document.querySelectorAll('[data-formula-card]').length === 114);
 
-    const state = await page.evaluate(() => ({
-      cards: document.querySelectorAll('[data-formula-card]').length,
-      workflow: document.querySelectorAll('[data-workflow-step]').length,
-      referenceLinks: document.querySelectorAll('.math-reference-register a').length,
-      sourceEditButtons: document.querySelectorAll('[data-edit-formula]').length,
-      activePage: document.querySelector('[aria-current="page"] .atlas-nav-item-name')?.textContent.trim(),
-      activeGroup: document.querySelector('.atlas-nav-group.is-active .atlas-nav-group-toggle')?.textContent.replace(/\s+/g,' ').trim(),
-      title: document.querySelector('.math-hero h1')?.textContent.replace(/\s+/g,' ').trim(),
-      bodyWidth: document.body.scrollWidth,
-      docWidth: document.documentElement.scrollWidth,
-      clientWidth: document.documentElement.clientWidth,
-      viewportWidth: innerWidth
-    }));
+    const state = await page.evaluate(() => {
+      const bodyWidth = document.body.scrollWidth;
+      const describe = (node) => {
+        const rect = node.getBoundingClientRect();
+        const style = getComputedStyle(node);
+        return {
+          tag: node.tagName.toLowerCase(),
+          id: node.id || '',
+          cls: typeof node.className === 'string' ? node.className.trim().replace(/\s+/g,'.') : '',
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          width: Math.round(rect.width),
+          scrollWidth: node.scrollWidth,
+          clientWidth: node.clientWidth,
+          overflowX: style.overflowX,
+          position: style.position,
+          display: style.display
+        };
+      };
+      const overflowers = Array.from(document.querySelectorAll('body *')).map(describe)
+        .filter((item) => item.right > innerWidth + 1 && item.right <= bodyWidth + 2)
+        .sort((a,b) => b.right - a.right)
+        .slice(0,30);
+      const bodyChildren = Array.from(document.body.children).map(describe);
+      return {
+        cards: document.querySelectorAll('[data-formula-card]').length,
+        workflow: document.querySelectorAll('[data-workflow-step]').length,
+        referenceLinks: document.querySelectorAll('.math-reference-register a').length,
+        sourceEditButtons: document.querySelectorAll('[data-edit-formula]').length,
+        activePage: document.querySelector('[aria-current="page"] .atlas-nav-item-name')?.textContent.trim(),
+        activeGroup: document.querySelector('.atlas-nav-group.is-active .atlas-nav-group-toggle')?.textContent.replace(/\s+/g,' ').trim(),
+        title: document.querySelector('.math-hero h1')?.textContent.replace(/\s+/g,' ').trim(),
+        bodyWidth,
+        docWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+        viewportWidth: innerWidth,
+        overflowers,
+        bodyChildren
+      };
+    });
+    const overflowDiagnostic = ` Near-edge offenders: ${JSON.stringify(state.overflowers)} Body children: ${JSON.stringify(state.bodyChildren)}`;
     assert(state.cards === 114, `${mode.name}: expected 114 rendered formulation cards.`);
     assert(state.workflow === 9, `${mode.name}: expected nine workflow controls.`);
     assert(state.referenceLinks === 154, `${mode.name}: expected 154 unique evidence-register links.`);
@@ -127,8 +155,8 @@ try {
     assert(state.activePage === 'Mathematical Formulations', `${mode.name}: Mathematical Formulations is not the active navigation destination.`);
     assert(state.activeGroup === 'Foundations & Terminology', `${mode.name}: Foundations & Terminology is not active.`);
     assert(state.title === 'PINN Mathematical Formulations', `${mode.name}: public page title is incorrect: “${state.title}”.`);
-    assert(state.bodyWidth <= state.viewportWidth + 1, `${mode.name}: body width ${state.bodyWidth}px exceeds viewport ${state.viewportWidth}px.`);
-    assert(state.docWidth <= state.clientWidth + 1, `${mode.name}: document width ${state.docWidth}px exceeds client ${state.clientWidth}px.`);
+    assert(state.bodyWidth <= state.viewportWidth + 1, `${mode.name}: body width ${state.bodyWidth}px exceeds viewport ${state.viewportWidth}px.${overflowDiagnostic}`);
+    assert(state.docWidth <= state.clientWidth + 1, `${mode.name}: document width ${state.docWidth}px exceeds client ${state.clientWidth}px.${overflowDiagnostic}`);
 
     await page.locator('[data-workflow-step="problem"]').click();
     assert(await page.locator('[data-workflow-dialog]').evaluate((node) => node.open), `${mode.name}: workflow dialog did not open.`);

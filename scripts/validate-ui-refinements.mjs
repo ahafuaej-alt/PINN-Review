@@ -27,7 +27,9 @@ assert(refinementCss.includes('@media(prefers-reduced-motion:reduce)'), 'Workflo
 const f019 = partB.formulations.find((item) => item.id === 'F019');
 assert(f019, 'F019 Interface flux-continuity loss is missing.');
 assert(f019.name === 'Interface flux-continuity loss', 'Unexpected F019 formulation record.');
-assert(f019.equation.includes('\\right\\|_{2,\\Gamma_i}^{2}'), 'F019 norm must use one braced subscript group: ||·||_{2,Γ_i}^{2}.');
+assert(f019.equation.includes('\\boldsymbol{\\xi}_\\Gamma^{(i)}'), 'F019 must evaluate both normal-flux traces at explicit interface sample points.');
+assert(f019.equation.includes('\\left|') && f019.equation.includes('\\right|^2'), 'F019 must use a pointwise squared scalar normal-flux mismatch.');
+assert(f019.relation.includes('outward normal'), 'F019 must document the equivalent two-outward-normal conservative orientation.');
 assert(!f019.equation.includes('\\right\\|_2^2_{\\Gamma_i}'), 'F019 still contains the ambiguous double-subscript form.');
 
 for (const token of [

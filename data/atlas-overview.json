@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2.0",
-  "last_source_update": "2026-08-19",
+  "last_source_update": "2026-08-21",
   "stats": {
     "papers": 853,
     "countries": 63,
@@ -37,14 +37,14 @@
       "label": "Optimizer summary",
       "dataset": "data/optimizers/optimizer-summary.json",
       "page": "optimizers/",
-      "date": "2026-08-19",
+      "date": "2026-08-21",
       "date_label": "Atlas snapshot"
     },
     "activation_functions": {
       "label": "Activation summary",
       "dataset": "data/activation-functions/activation-summary.json",
       "page": "activation-functions/",
-      "date": "2026-08-19",
+      "date": "2026-08-21",
       "date_label": "Atlas snapshot"
     },
     "ecosystem_layers": {
@@ -65,7 +65,7 @@
       "label": "Mathematical formulations catalogue",
       "dataset": "data/mathematical-formulations/manifest.json",
       "page": "mathematical-formulations/",
-      "date": "2026-08-19",
+      "date": "2026-08-21",
       "date_label": "Dataset date"
     }
   },
