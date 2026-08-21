@@ -1,3 +1,5 @@
+.equation-box{width:100%;max-width:100%;box-sizing:border-box;justify-content:flex-start;overflow-x:auto}
+.equation-box mjx-container{flex:0 0 auto;margin:0 auto!important}
 .math-workflow{grid-template-rows:auto 34px;padding-bottom:.85rem}
 .math-workflow::before{display:none}
 .math-workflow-step{overflow:visible}
