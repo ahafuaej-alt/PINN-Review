@@ -116,7 +116,7 @@ try {
       };
     });
 
-    const expectedLabels = ['Methods & Evaluation', 'Foundations & Terminology', 'Research Landscape', 'Tools & Resources', 'Data Governance'];
+    const expectedLabels = ['Methods & Evaluation', 'Foundations & Terminology', 'Research Landscape', 'Tools & Resources', 'Frameworks', 'Data Governance'];
     assert(JSON.stringify(state.groupLabels) === JSON.stringify(expectedLabels), `${mode.name}: grouped research directory order differs from the approved hierarchy.`);
     assert(state.metrics.papers === '853', `${mode.name}: homepage paper count did not load from Atlas overview.`);
     assert(state.metrics.countries === '63', `${mode.name}: homepage country count did not load from Atlas overview.`);
@@ -129,7 +129,7 @@ try {
     assert(state.workflowButtons === 9, `${mode.name}: expected nine interactive workflow stages.`);
     assert(state.mathCard, `${mode.name}: Mathematical Formulations is missing from the Home directory.`);
     assert(state.homeTitle === 'Physics, learning, and evidence mapped', `${mode.name}: Home hero title style is incorrect: “${state.homeTitle}”.`);
-    assert(state.atlasTitle === 'One AtlasFive research doors' || state.atlasTitle === 'One Atlas Five research doors', `${mode.name}: Atlas directory title was not converted from review-oriented wording.`);
+    assert(state.atlasTitle === 'One AtlasSix research doors' || state.atlasTitle === 'One Atlas Six research doors', `${mode.name}: Atlas directory title does not describe six research doors.`);
     assert(state.reachTitle === 'Atlas usage snapshot', `${mode.name}: usage title still has paper-style punctuation.`);
     assert(state.bodyWidth <= state.viewportWidth + 1, `${mode.name}: body width ${state.bodyWidth}px exceeds viewport ${state.viewportWidth}px.`);
     assert(state.docWidth <= state.clientWidth + 1, `${mode.name}: document width ${state.docWidth}px exceeds client ${state.clientWidth}px.`);

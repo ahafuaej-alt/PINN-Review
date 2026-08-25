@@ -273,6 +273,12 @@
         ]
       },
       {
+        type: 'direct',
+        label: 'Frameworks',
+        route: 'frameworks/',
+        description: 'Integrated design, interaction, performance, and diagnostic views'
+      },
+      {
         label: 'Data Governance',
         align: 'end',
         items: [

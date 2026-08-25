@@ -42,7 +42,7 @@ The governing principle is simple: **the interface may evolve, but the evidence 
 
 ## Atlas navigation
 
-The public navigation is organized around one featured system and five research families.
+The public navigation is organized around one featured system and six research families.
 
 ### PINN Ecosystem
 
@@ -82,6 +82,12 @@ The public navigation is organized around one featured system and five research 
 |---|---|---|
 | **[Software](https://ahafuaej-alt.github.io/PINN-Review/software/)** | **Prepared workspace** | Stable structure for PINN libraries, frameworks, solvers, and supporting software. |
 | **[Datasets & Benchmarks](https://ahafuaej-alt.github.io/PINN-Review/datasets/)** | **Prepared workspace** | Stable structure for benchmark equations, datasets, and reproducibility resources. |
+
+### Frameworks
+
+| Module | Status | What it provides |
+|---|---|---|
+| **[Frameworks](https://ahafuaej-alt.github.io/PINN-Review/frameworks/)** | **Live** | Four structured interactive views: PINN Design Stack & Feedback Loops, PINN Co-Design Framework, Design–Performance Dependency Matrix, and Failure-Mode Diagnostics, with canonical Atlas cross-links and public contribution routes. |
 
 ### Data Governance
 
@@ -200,9 +206,9 @@ See the **[Privacy page](https://ahafuaej-alt.github.io/PINN-Review/privacy/)** 
 The following block is intentionally synchronized by CI. Adding or removing a public HTML entry point, changing the primary navigation, or changing Atlas summary counts requires the README to remain consistent before deployment.
 
 <!-- ATLAS_PUBLIC_SURFACE_START -->
-**21** public HTML entry points · **18** internal menu routes
+**26** public HTML entry points · **19** internal menu routes
 
-`/` · `/pinn-ecosystem/` · `/architectures/` · `/activation-functions/` · `/training/` · `/optimizers/` · `/performance-metrics/` · `/mathematical-formulations/` · `/pinn-types/` · `/abbreviations/` · `/pinn-realm/` · `/applications/` · `/references/` · `/software/` · `/datasets/` · `/dataset-manager/` · `/dataset-manager/review/` · `/references/changelog/` · `/cite/` · `/privacy/` · `/404.html`
+`/` · `/pinn-ecosystem/` · `/architectures/` · `/activation-functions/` · `/training/` · `/optimizers/` · `/performance-metrics/` · `/mathematical-formulations/` · `/pinn-types/` · `/abbreviations/` · `/pinn-realm/` · `/applications/` · `/references/` · `/software/` · `/datasets/` · `/frameworks/` · `/frameworks/design-stack/` · `/frameworks/co-design/` · `/frameworks/design-performance/` · `/frameworks/failure-diagnostics/` · `/dataset-manager/` · `/dataset-manager/review/` · `/references/changelog/` · `/cite/` · `/privacy/` · `/404.html`
 <!-- ATLAS_PUBLIC_SURFACE_END -->
 
 ## Local preview
