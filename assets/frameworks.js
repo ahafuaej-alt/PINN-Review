@@ -376,8 +376,8 @@
   function objectTitle(id) { const item = state.objects.get(id); return item?.title || id; }
 
   function renderEvidence(evidence) {
-    if (!evidence.length) return `<section class="detail-evidence"><h3>Supporting Atlas evidence</h3><p class="evidence-pending">No claim-level paper is displayed until its manuscript reference and canonical Atlas ID have been verified.</p></section>`;
-    return `<section class="detail-evidence"><h3>Supporting Atlas evidence</h3>${evidence.map((entry) => `<article><a href="${prefix}references/#ref=${entry.atlas_id}">Atlas [${entry.atlas_id}]</a><span>Manuscript [${entry.manuscript_id}] · ${esc(entry.support || 'Supporting')}</span><p>${esc(entry.rationale || '')}</p></article>`).join('')}</section>`;
+    if (!evidence.length) return `<section class="detail-evidence"><h3>Supporting Atlas evidence</h3><p class="evidence-pending">No claim-level paper is displayed until its canonical Atlas record and relevance to this claim have been verified.</p></section>`;
+    return `<section class="detail-evidence"><h3>Supporting Atlas evidence</h3>${evidence.map((entry) => `<article><a href="${prefix}references/#ref=${entry.atlas_id}">Atlas [${entry.atlas_id}]</a><span>${esc(entry.support || 'Supporting')}</span><p>${esc(entry.rationale || '')}</p></article>`).join('')}</section>`;
   }
 
   function renderConceptLinks(concepts) {
@@ -408,9 +408,9 @@
   function renderEvidenceSection(page) {
     const evidence = [...collectEvidence(page).values()];
     return `<section class="section framework-evidence-section"><div class="container">
-      <div class="section-head"><div><p class="eyebrow">Evidence & supporting papers</p><h2>Claim-level<br>support</h2></div><p>Manuscript reference numbers are mapped to canonical Atlas IDs by normalized title and then rechecked against the exact framework claim.</p></div>
+      <div class="section-head"><div><p class="eyebrow">Evidence & supporting papers</p><h2>Claim-level<br>support</h2></div><p>Supporting papers use canonical Atlas IDs and are separately rechecked against the exact framework claim.</p></div>
       <div class="evidence-summary"><div><strong>${evidence.length}</strong><span>verified Atlas papers currently linked</span></div><p>${esc(state.manifest.evidence_status)}</p></div>
-      ${evidence.length ? `<div class="evidence-paper-grid">${evidence.map((entry) => `<a href="${prefix}references/#ref=${entry.atlas_id}"><b>Atlas [${entry.atlas_id}]</b><span>Manuscript [${entry.manuscript_id}]</span><small>${esc(entry.rationale || '')}</small></a>`).join('')}</div>` : '<p class="framework-caveat"><strong>Evidence gate:</strong> unverified placeholder IDs are never displayed.</p>'}
+      ${evidence.length ? `<div class="evidence-paper-grid">${evidence.map((entry) => `<a href="${prefix}references/#ref=${entry.atlas_id}"><b>Atlas [${entry.atlas_id}]</b><span>${esc(entry.support || 'Supporting')} support</span><small>${esc(entry.rationale || '')}</small></a>`).join('')}</div>` : '<p class="framework-caveat"><strong>Evidence gate:</strong> unverified placeholder IDs are never displayed.</p>'}
     </div></section>`;
   }
 

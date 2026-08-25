@@ -1,8 +1,7 @@
 {
   "version": "2.0.0",
   "updated": "2026-08-25",
-  "evidence_map": "evidence-map.json",
-  "evidence_status": "Displayed paper IDs have passed manuscript-to-Atlas title/DOI resolution and a separate claim-level relevance check.",
+  "evidence_status": "Displayed Atlas paper IDs have been checked against canonical reference records and rechecked for claim-level relevance.",
   "frameworks": [
     {
       "id": "design-stack",

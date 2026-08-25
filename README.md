@@ -165,7 +165,6 @@ Available client-side citation/data exports include BibTeX, RIS, EndNote-compati
 - [`data/activation-functions/activation-records.json`](data/activation-functions/activation-records.json) — normalized activation-function evidence
 - [`data/mathematical-formulations/manifest.json`](data/mathematical-formulations/manifest.json) — formulation catalogue manifest, notation dictionary, coverage audit, and A–I data parts
 - [`data/frameworks/frameworks.json`](data/frameworks/frameworks.json) — four-view Frameworks manifest and structured data routes
-- [`data/frameworks/evidence-map.json`](data/frameworks/evidence-map.json) — verified source-reference to canonical-Atlas title/DOI mapping for Frameworks claims
 
 ## Scientific interpretation
 
