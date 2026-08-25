@@ -1,0 +1,29 @@
+name: Frameworks validation
+
+on:
+  pull_request:
+    paths:
+      - 'frameworks/**'
+      - 'assets/frameworks.*'
+      - 'data/frameworks/**'
+      - 'assets/theme-init.js'
+      - 'index.html'
+      - 'README.md'
+      - 'sitemap.xml'
+      - 'scripts/validate-frameworks.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/validate-frameworks.mjs
+      - run: node scripts/validate-navigation.mjs
+      - run: node scripts/validate-readme.mjs

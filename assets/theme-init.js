@@ -273,6 +273,12 @@
         ]
       },
       {
+        type: 'direct',
+        label: 'Frameworks',
+        route: 'frameworks/',
+        description: 'Integrated design, interaction, performance, and diagnostic views'
+      },
+      {
         label: 'Data Governance',
         align: 'end',
         items: [
@@ -385,7 +391,7 @@
       .atlas-nav-primary-link { white-space: nowrap; }
       .atlas-nav-external { color: var(--faint) !important; }
 
-      @media (min-width: 1501px) {
+      @media (min-width: 1701px) {
         .nav { width: min(calc(100% - 2rem), 1540px) !important; gap: .55rem !important; }
         .nav-toggle { display: none !important; }
         .nav-links.atlas-global-nav {
@@ -400,7 +406,7 @@
         .atlas-nav-group.open > .atlas-nav-dropdown { display: grid; }
       }
 
-      @media (max-width: 1500px) {
+      @media (max-width: 1700px) {
         .nav-toggle { display: inline-grid !important; place-items: center !important; }
         .nav-links.atlas-global-nav {
           position: absolute !important; top: 64px !important; left: 1rem !important; right: 1rem !important;

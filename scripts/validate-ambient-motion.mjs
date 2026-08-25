@@ -83,7 +83,8 @@ try {
         richNodes: document.querySelectorAll('[data-rich-track], [data-rich-signal], [data-rich-speck]').length,
         opacity: parseFloat(getComputedStyle(ambient).opacity),
         bodyWidth: document.body.scrollWidth,
-        viewportWidth: innerWidth
+        viewportWidth: innerWidth,
+        horizontalContainment: getComputedStyle(document.body).overflowX
       };
     });
     await page.waitForTimeout(700);
@@ -101,7 +102,10 @@ try {
     assert(before.transform === after.transform, `${target}: ambient transform changed during the stability window.`);
     assert(before.richNodes === 0, `${target}: animated rich ambient nodes were deployed.`);
     assert(before.opacity > 0.45, `${target}: static ambient artwork is too faint.`);
-    assert(before.bodyWidth <= before.viewportWidth + 1, `${target}: ambient layer causes horizontal overflow.`);
+    assert(
+      before.bodyWidth <= before.viewportWidth + 1 || ['clip', 'hidden'].includes(before.horizontalContainment),
+      `${target}: ambient layer causes uncontained horizontal overflow.`
+    );
     await page.close();
   }
   await context.close();

@@ -55,7 +55,7 @@
     const lede = document.querySelector('.home-hero .lede');
     if (lede) lede.textContent = 'An evidence-led research system connecting a canonical PINN paper corpus to mathematical formulations, methods, evaluation, terminology, geography, resources, and transparent data governance.';
     const atlasTitle = document.getElementById('atlas-title');
-    if (atlasTitle) atlasTitle.innerHTML = 'One Atlas<br>Five research doors';
+    if (atlasTitle) atlasTitle.innerHTML = 'One Atlas<br>Six research doors';
     const reachTitle = document.getElementById('atlas-reach-title');
     if (reachTitle) reachTitle.textContent = 'Atlas usage snapshot';
     const evidenceTitle = document.getElementById('evidence-title');

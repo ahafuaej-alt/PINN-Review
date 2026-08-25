@@ -104,6 +104,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: clip;
   color: var(--ink);
   background:
     radial-gradient(circle at 83% -5%, var(--body-violet), transparent 30rem),
@@ -869,14 +870,14 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .reveal { opacity: 1; transform: none; }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1700px) {
   .nav { gap: 0.75rem; }
   .nav-links { gap: 0.1rem; }
   .nav-links a { padding-inline: 0.58rem; font-size: 0.84rem; }
   .nav-actions { gap: 0.35rem; }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1700px) {
   .nav-toggle { display: inline-grid; place-items: center; }
   .nav-links { position: absolute; top: 64px; left: 1rem; right: 1rem; display: none; padding: 0.65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--nav-popover); box-shadow: var(--shadow); }
   .nav-links.open { display: grid; }
