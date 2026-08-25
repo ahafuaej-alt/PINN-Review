@@ -39,7 +39,7 @@ try {
       await page.waitForSelector(route.selector);
       const snapshot = await page.evaluate(({ route, viewport }) => {
         const canvas = document.querySelector('[data-canvas]');
-        const markerSizes = [...document.querySelectorAll('.influence-marker')].map((node) => {
+        const markerSizes = [...document.querySelectorAll('.dependency-matrix .influence-marker')].map((node) => {
           const box = node.getBoundingClientRect(); return [Math.round(box.width * 10) / 10, Math.round(box.height * 10) / 10];
         });
         return {
