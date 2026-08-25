@@ -60,10 +60,12 @@ jobs:
           node --check assets/reference-technical-details.js
           node --check assets/home-refresh.js
           node --check assets/mathematical-formulations.js
+          node --check assets/frameworks.js
           node --check assets/theme-init.js
           node --check assets/ambient-rich.js
           node scripts/validate-optimizers.mjs
           node scripts/validate-mathematical-formulations.mjs
+          node scripts/validate-frameworks.mjs
       - name: Verify static site contracts
         run: |
           node scripts/validate-navigation.mjs
@@ -94,12 +96,14 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173
           PLAYWRIGHT_CORE_PATH: /tmp/pinn-nav-qa/node_modules/playwright-core/index.mjs
+          FRAMEWORK_QA_ARTIFACTS: /tmp/frameworks-visual-qa
         run: |
           node scripts/validate-navigation.mjs --browser
           node scripts/validate-home.mjs --browser
           node scripts/validate-mathematical-formulations.mjs --browser
           node scripts/validate-ui-refinements.mjs --browser
           node scripts/validate-ambient-motion.mjs --browser
+          node scripts/visual-qa-frameworks.mjs
       - name: Stop static preview
         if: always()
         run: kill "$PREVIEW_PID" 2>/dev/null || true

@@ -12,7 +12,6 @@ const skipDirs = new Set(['.git', '.github', 'node_modules', 'artifacts']);
 const expectedNavigation = {
   direct: [
     ['PINN Ecosystem', 'pinn-ecosystem/'],
-    ['Frameworks', 'frameworks/'],
     ['Cite', 'cite/']
   ],
   groups: [
@@ -36,6 +35,13 @@ const expectedNavigation = {
     ['Tools & Resources', [
       ['Software', 'software/'],
       ['Datasets & Benchmarks', 'datasets/']
+    ]],
+    ['Frameworks', [
+      ['Frameworks Overview', 'frameworks/'],
+      ['Design Stack & Feedback Loops', 'frameworks/design-stack/'],
+      ['PINN Co-Design Framework', 'frameworks/co-design/'],
+      ['Design–Performance Matrix', 'frameworks/design-performance/'],
+      ['Failure-Mode Diagnostics', 'frameworks/failure-diagnostics/']
     ]],
     ['Data Governance', [
       ['Dataset Manager', 'dataset-manager/'],
@@ -90,7 +96,7 @@ for (const [group, items] of expectedNavigation.groups) {
   for (const [label, route] of items) routeExpectations.set(route, { label, group });
 }
 const configuredRoutes = [...routeExpectations.keys()];
-assert(configuredRoutes.length === 19, `Expected 19 internal Atlas menu routes, found ${configuredRoutes.length}.`);
+assert(configuredRoutes.length === 23, `Expected 23 internal Atlas menu routes, found ${configuredRoutes.length}.`);
 assert(new Set(configuredRoutes).size === configuredRoutes.length, 'Duplicate route exists in the canonical navigation contract.');
 for (const route of configuredRoutes) await assertRouteExists(route);
 

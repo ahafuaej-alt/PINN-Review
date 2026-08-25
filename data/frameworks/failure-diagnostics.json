@@ -1,0 +1,169 @@
+{
+  "id": "failure-diagnostics",
+  "title": "PINN Failure-Mode Diagnostics",
+  "eyebrow": "Framework 04 · Diagnose & Redesign",
+  "description": "A challenge-oriented map connecting thirteen pathologies to symptoms, methodological responses, targeted improvements, and verification.",
+  "represents": "The map starts with what fails and why, translates the failure into observable signatures, proposes targeted methodological responses, and states what should improve. It supports diagnostic reasoning from evidence rather than indiscriminate method substitution.",
+  "interpretation": "A symptom can have several interacting causes, and a response may introduce new trade-offs. The map supports hypothesis generation, not automatic prescription. Every intervention must be checked with numerical, physical, robustness, uncertainty, and computational-cost criteria; if the evidence does not improve, re-diagnose the dominant failure mode.",
+  "filters": [
+    {"id": "all", "label": "All diagnostic categories"},
+    {"id": "approximation", "label": "A · Approximation / Representation"},
+    {"id": "physics", "label": "B · Physics / Numerical Enforcement"},
+    {"id": "training", "label": "C · Training / Scalability"},
+    {"id": "reliability", "label": "D · Inference / Reuse / Reliability"}
+  ],
+  "categories": [
+    {"id": "approximation", "code": "A", "title": "Approximation / Representation", "summary": "Captures the solution structure", "mode_ids": ["spectral-bias", "discontinuities"]},
+    {"id": "physics", "code": "B", "title": "Physics / Numerical Enforcement", "summary": "Enforces governing laws and constraints", "mode_ids": ["weak-boundaries", "poor-conservation", "high-order-derivatives"]},
+    {"id": "training", "code": "C", "title": "Training / Scalability", "summary": "Enables optimization and scalability", "mode_ids": ["imbalanced-loss", "poor-sampling", "large-domain", "long-time", "stagnation"]},
+    {"id": "reliability", "code": "D", "title": "Inference / Reuse / Reliability", "summary": "Supports inference, reuse, and trustworthy predictions", "mode_ids": ["sparse-noisy-inverse", "repeated-query", "uncertainty"]}
+  ],
+  "modes": [
+    {
+      "id": "spectral-bias", "number": 1, "category": "approximation", "title": "Spectral bias / multiscale or high-frequency solution",
+      "symptoms": ["Low-frequency modes learned first", "High-frequency content unresolved", "Oscillatory fields poorly captured", "Slow convergence of fine scales"],
+      "responses": ["Fourier features, SIREN, multiscale bases", "Gabor / spectral features, adaptive activations", "Frequency-progressive / curriculum training"],
+      "improvement": "Better resolution of oscillatory and multiscale structures",
+      "concepts": [{"label": "Activation Functions", "route": "activation-functions/"}], "related_frameworks": ["design-stack:representation", "design-performance:activation-features"], "evidence": [
+        {"atlas_id": 606, "manuscript_id": 52, "support": "Direct", "rationale": "The paper identifies eigenvector bias and shows Fourier features improving multi-scale PDE learning, directly supporting the spectral-bias diagnosis and response."},
+        {"atlas_id": 231, "manuscript_id": 243, "support": "Direct", "rationale": "SAS-PINN uses SIREN high-frequency representation with adaptive collocation for stiff electromagnetic fields."},
+        {"atlas_id": 517, "manuscript_id": 258, "support": "Direct", "rationale": "Locally adaptive activations with slope recovery provide an alternative basis and improve difficult PINN training."}
+      ]
+    },
+    {
+      "id": "discontinuities", "number": 2, "category": "approximation", "title": "Discontinuities, shocks, or sharp fronts",
+      "symptoms": ["Smearing of discontinuities", "Spurious oscillations / Gibbs-like effects", "Wrong weak solution / non-physical states", "Large local error despite low global loss"],
+      "responses": ["Weak / variational formulations", "Entropy / admissibility constraints", "Conservative / discrete residuals", "Adaptive local sampling, interface-aware networks"],
+      "improvement": "Improved admissibility and localized accuracy near discontinuities",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["design-stack:physics-enforcement", "co-design:physics"], "evidence": [
+        {"atlas_id": 631, "manuscript_id": 54, "support": "Direct", "rationale": "wPINNs use a weak formulation to approximate entropy solutions of hyperbolic conservation laws, directly addressing shocks and discontinuities."},
+        {"atlas_id": 628, "manuscript_id": 191, "support": "Direct", "rationale": "Conservative PINNs use subdomains and interface flux continuity for discontinuous conservation-law problems."}
+      ]
+    },
+    {
+      "id": "weak-boundaries", "number": 3, "category": "physics", "title": "Weak satisfaction of BCs / ICs / interfaces",
+      "symptoms": ["Persistent boundary or interface error", "Strong dependence on penalty weights", "Overfitting near boundaries"],
+      "responses": ["Hard constraints (trial / test functions)", "Output transformations, distance functions", "Exact boundary fitting, Augmented Lagrangian"],
+      "improvement": "More reliable constraint satisfaction and physical consistency",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["design-stack:physics-enforcement", "design-performance:physics-constraints"], "evidence": [
+        {"atlas_id": 461, "manuscript_id": 60, "support": "Direct", "rationale": "The original neural trial-solution method embeds boundary conditions in the ansatz, directly supporting exact boundary fitting as a response."},
+        {"atlas_id": 637, "manuscript_id": 42, "support": "Direct", "rationale": "The study directly evaluates exact Dirichlet enforcement in PINNs and VPINNs, supporting a hard-constraint response to persistent boundary error."},
+        {"atlas_id": 609, "manuscript_id": 99, "support": "Direct", "rationale": "A hard-constraint PINN is constructed to satisfy governing conditions across multiple forward PDE cases."},
+        {"atlas_id": 750, "manuscript_id": 301, "support": "Direct", "rationale": "Equality-constrained neural training supplies a constraint-based alternative to fixed penalty competition."}
+      ]
+    },
+    {
+      "id": "poor-conservation", "number": 4, "category": "physics", "title": "Poor conservation (flux / mass / energy)",
+      "symptoms": ["Low pointwise error but large balance error", "Flux mismatch across interfaces", "Violation of integral conservation"],
+      "responses": ["Finite-volume / control-volume residuals", "Conservative PINNs, flux continuity constraints", "Discrete local balance enforcement"],
+      "improvement": "Improved local and global physical fidelity through conservation",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:physics", "design-performance:physics-enforcement"], "evidence": [
+        {"atlas_id": 628, "manuscript_id": 191, "support": "Direct", "rationale": "The conservative PINN formulation enforces local conservation and interface flux continuity, matching the diagnosed balance error and targeted response."}
+      ]
+    },
+    {
+      "id": "high-order-derivatives", "number": 5, "category": "physics", "title": "High-order derivative cost or instability",
+      "symptoms": ["High memory usage / computation time", "Large computational graph", "Instability of high-order AD"],
+      "responses": ["First-order reformulation / mixed variables", "Mixed AD-numerical / discrete differentiation", "Closed-form or structure-exploiting derivatives"],
+      "improvement": "Reduced derivative order, memory, and runtime cost",
+      "concepts": [{"label": "PINN Ecosystem · Differentiation", "route": "pinn-ecosystem/#layer-5"}], "related_frameworks": ["design-stack:differentiation", "design-performance:differentiation"], "evidence": [
+        {"atlas_id": 552, "manuscript_id": 363, "support": "Direct", "rationale": "High-order and high-dimensional automatic differentiation is identified as a memory and computation bottleneck and reduced through trace estimation."},
+        {"atlas_id": 554, "manuscript_id": 29, "support": "Direct", "rationale": "Coupled automatic–numerical differentiation improves efficiency and robustness when conventional AD residuals are costly or sparse."}
+      ]
+    },
+    {
+      "id": "imbalanced-loss", "number": 6, "category": "training", "title": "Imbalanced multi-objective loss (gradient conflict)",
+      "symptoms": ["One loss term dominates training", "PDE loss decreases while BC / IC error remains high", "Oscillatory or stalled convergence", "Sensitivity to manual weights"],
+      "responses": ["Adaptive / self-adaptive weighting", "Gradient-norm balancing, NTK-informed weights", "Multi-objective optimization, Augmented Lagrangian", "Continuation / curriculum on weights"],
+      "improvement": "Better balance among objectives and improved trainability",
+      "concepts": [{"label": "Training", "route": "training/"}], "related_frameworks": ["design-stack:loss", "design-performance:loss-balancing"], "evidence": [
+        {"atlas_id": 502, "manuscript_id": 33, "support": "Direct", "rationale": "The paper identifies competitive multi-term losses and automatically updates weights to restore balance."},
+        {"atlas_id": 525, "manuscript_id": 53, "support": "Direct", "rationale": "Numerical stiffness is linked to unbalanced back-propagated gradients, with gradient-statistic annealing as the response."},
+        {"atlas_id": 527, "manuscript_id": 86, "support": "Direct", "rationale": "Negative gradient interaction between PDE and boundary objectives is treated as a multi-objective conflict through dual-cone descent."}
+      ]
+    },
+    {
+      "id": "poor-sampling", "number": 7, "category": "training", "title": "Poor collocation / sampling coverage",
+      "symptoms": ["Low training loss but large unsampled error", "Missed boundary layers / interfaces", "Localized large errors"],
+      "responses": ["Residual-adaptive sampling", "Importance / gradient-aware sampling", "Geometry / interface-aware, sparse-grid guidance", "Dynamic resampling during training"],
+      "improvement": "Better allocation of points and improved accuracy where needed",
+      "concepts": [{"label": "Training · Sampling", "route": "training/"}], "related_frameworks": ["design-stack:sampling", "design-performance:sampling"], "evidence": [
+        {"atlas_id": 479, "manuscript_id": 442, "support": "Direct", "rationale": "Residual-point placement is shown to control accuracy, and RAD/RAR-D dynamically move points toward under-resolved regions."},
+        {"atlas_id": 534, "manuscript_id": 18, "support": "Direct", "rationale": "Loss-proportional importance sampling improves convergence by concentrating collocation effort where it is informative."}
+      ]
+    },
+    {
+      "id": "large-domain", "number": 8, "category": "training", "title": "Large / heterogeneous domain (scalability)",
+      "symptoms": ["One global network fails", "Local errors concentrated in subregions", "Different scales / materials compete"],
+      "responses": ["Domain decomposition (XPINN, APINN, cPINN, etc.)", "Local subnetworks, progressive decomposition", "Parallel / distributed training"],
+      "improvement": "Scalability and localization of approximation",
+      "concepts": [{"label": "Architectures", "route": "architectures/"}], "related_frameworks": ["co-design:numerical", "design-performance:decomposition"], "evidence": [
+        {"atlas_id": 612, "manuscript_id": 46, "support": "Direct", "rationale": "APINN uses a trainable gating network and shared subnetworks for soft domain and function decomposition."},
+        {"atlas_id": 647, "manuscript_id": 116, "support": "Direct", "rationale": "XPINN provides spatial and temporal decomposition, local network specialization, interface coupling, and parallelization."},
+        {"atlas_id": 498, "manuscript_id": 76, "support": "Direct", "rationale": "Distributed domain decomposition demonstrates strong scaling and reusable inference on domains much larger than the training domain."}
+      ]
+    },
+    {
+      "id": "long-time", "number": 9, "category": "training", "title": "Long-time integration / temporal propagation",
+      "symptoms": ["Error accumulation over time", "Phase drift, late-time degradation", "Cannot learn the entire interval simultaneously"],
+      "responses": ["Causal training, time marching", "Time decomposition / windows", "Progressive horizon expansion"],
+      "improvement": "Improved temporal stability and long-time prediction",
+      "concepts": [{"label": "Training", "route": "training/"}], "related_frameworks": ["design-stack:optimization", "design-performance:training-strategy"], "evidence": [
+        {"atlas_id": 660, "manuscript_id": 79, "support": "Direct", "rationale": "Time-piecewise PINNs improve long-time-domain training by assigning independently adjustable subnetworks to temporal pieces."},
+        {"atlas_id": 647, "manuscript_id": 116, "support": "Direct", "rationale": "XPINN explicitly supports time-domain decomposition and local temporal specialization."}
+      ]
+    },
+    {
+      "id": "stagnation", "number": 10, "category": "training", "title": "Optimization stagnation / ill-conditioning",
+      "symptoms": ["Slow convergence / plateaus", "Sensitivity to initialization", "Quasi-Newton failure or divergence", "Gradient explosion / vanishing"],
+      "responses": ["Adam → L-BFGS (staged)", "Quasi-Newton / curvature-aware methods", "Better initialization, scaling / non-dimensionalization", "Continuation / curriculum on domain / parameters"],
+      "improvement": "Better conditioning and faster, more stable convergence",
+      "concepts": [{"label": "Optimizers", "route": "optimizers/"}, {"label": "Training", "route": "training/"}], "related_frameworks": ["design-stack:optimization", "design-performance:optimizer"], "evidence": [
+        {"atlas_id": 823, "manuscript_id": 82, "support": "Direct", "rationale": "The paper links differential operators to an ill-conditioned PINN loss landscape and compares first-order, hybrid, and second-order remedies."},
+        {"atlas_id": 819, "manuscript_id": 80, "support": "Direct", "rationale": "Optimization-process analysis examines attainable accuracy and optimizer competitiveness rather than treating stagnation as an architecture-only issue."},
+        {"atlas_id": 543, "manuscript_id": 175, "support": "Direct", "rationale": "Genetic initialization followed by L-BFGS supplies a staged response intended to improve stability and final accuracy."}
+      ]
+    },
+    {
+      "id": "sparse-noisy-inverse", "number": 11, "category": "reliability", "title": "Sparse / noisy data, non-identifiable inverse problem",
+      "symptoms": ["Multiple parameter sets fit the data", "High sensitivity to noise", "Good state fit but wrong parameters"],
+      "responses": ["Physics-constrained inversion", "Additional / optimal observations", "Structural / constitutive priors, identifiability analysis", "Bayesian inference and UQ methods"],
+      "improvement": "Better-constrained parameter and state recovery",
+      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["co-design:reliability", "design-performance:identifiability"], "evidence": [
+        {"atlas_id": 410, "manuscript_id": 112, "support": "Direct", "rationale": "B-PINNs combine physical laws and scattered noisy measurements for forward and inverse inference while quantifying aleatoric uncertainty."},
+        {"atlas_id": 507, "manuscript_id": 293, "support": "Direct", "rationale": "The method separates parametric and approximation uncertainty and uses uncertainty to guide new sensor placement."}
+      ]
+    },
+    {
+      "id": "repeated-query", "number": 12, "category": "reliability", "title": "Repeated-query cost / retraining for new instances",
+      "symptoms": ["High cost per new parameter set", "Retraining for every query"],
+      "responses": ["Operator learning", "Parameterized PINNs", "Transfer / meta-learning", "Reduced-order reuse"],
+      "improvement": "Amortized cost and reusability",
+      "concepts": [{"label": "Architectures", "route": "architectures/"}], "related_frameworks": ["design-performance:reuse-generalize", "co-design:representation"], "evidence": [
+        {"atlas_id": 603, "manuscript_id": 48, "support": "Direct", "rationale": "Physics-informed DeepONets learn a reusable solution operator and report rapid prediction across parametric PDE instances."},
+        {"atlas_id": 578, "manuscript_id": 135, "support": "Direct", "rationale": "GPT-PINN reuses selected pretrained PINNs in a compact meta-network for parametric systems."},
+        {"atlas_id": 726, "manuscript_id": 136, "support": "Direct", "rationale": "P2INNs avoid repetitive training by learning a latent representation across parameterized PDEs."},
+        {"atlas_id": 599, "manuscript_id": 115, "support": "Direct", "rationale": "Separable PI-DeepONet reduces high-dimensional operator-learning cost while retaining comparable accuracy."}
+      ]
+    },
+    {
+      "id": "uncertainty", "number": 13, "category": "reliability", "title": "Unquantified or uncalibrated uncertainty",
+      "symptoms": ["Point prediction only", "Unreliable uncertainty", "Unknown confidence under noise / OOD"],
+      "responses": ["Bayesian PINNs", "Ensembles", "Variational inference", "Probabilistic formulations", "Calibration / coverage analysis"],
+      "improvement": "Calibrated uncertainty and decision-relevant reliability",
+      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["co-design:reliability", "design-performance:identifiability"], "evidence": [
+        {"atlas_id": 410, "manuscript_id": 112, "support": "Direct", "rationale": "Bayesian PINNs compare posterior estimators and show that predictive fit alone does not establish reasonable uncertainty under noisy data."},
+        {"atlas_id": 507, "manuscript_id": 293, "support": "Direct", "rationale": "Total-uncertainty PINNs quantify both parametric and approximation uncertainty for forward and inverse stochastic problems."},
+        {"atlas_id": 508, "manuscript_id": 294, "support": "Direct", "rationale": "Physics-informed variational inference supplies a probabilistic latent representation for stochastic forward and inverse equations."}
+      ]
+    }
+  ],
+  "verification": {
+    "id": "verify", "title": "Verify improvement",
+    "instruction": "Check the intervention with numerical, physical, robustness, uncertainty, and computational-cost criteria. If performance does not improve, re-diagnose the dominant failure mode and revisit the design choices.",
+    "criteria": ["Numerical accuracy", "Physical fidelity", "Robustness", "Uncertainty calibration", "Computational cost"],
+    "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "evidence": [
+      {"atlas_id": 401, "manuscript_id": 1, "support": "Synthesis", "rationale": "The review supports evaluating physics-informed models through numerical, physical, robustness, uncertainty, and computational criteria rather than one loss value."}
+    ]
+  }
+}
