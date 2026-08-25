@@ -56,6 +56,7 @@ try {
           verifyPresent: Boolean(document.querySelector('.diagnostic-verify')),
           corePresent: Boolean(document.querySelector('.co-core')),
           markerSizes,
+          evidenceCards: document.querySelectorAll('.evidence-paper-grid a').length,
           navFrameworkChildren: [...document.querySelectorAll('.atlas-nav-group')].find((group) => group.querySelector('.atlas-nav-group-toggle')?.textContent.trim() === 'Frameworks')?.querySelectorAll('.atlas-nav-item').length || 0,
           zoomText: document.querySelector('[data-zoom-readout]')?.textContent,
           filterOptions: document.querySelector('[data-filter]')?.options.length || 0,
@@ -65,6 +66,7 @@ try {
       assert(snapshot.bodyWidth <= snapshot.viewportWidth + 1, `${route.id}/${viewport.name}: body overflows (${snapshot.bodyWidth} > ${snapshot.viewportWidth}).`);
       assert(snapshot.objectCount === route.objects[1], `${route.id}/${viewport.name}: expected ${route.objects[1]} objects, found ${snapshot.objectCount}.`);
       assert(snapshot.navFrameworkChildren === 5, `${route.id}/${viewport.name}: Frameworks navigator does not contain five children.`);
+      assert(snapshot.evidenceCards >= 20, `${route.id}/${viewport.name}: claim-level evidence summary is incomplete (${snapshot.evidenceCards} verified papers).`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete (zoom ${snapshot.zoomText || 'missing'}, ${snapshot.filterOptions} filter options).`);
       if (viewport.width >= 1050) assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
       if (route.relations) assert(snapshot.relationCount === route.relations, `${route.id}/${viewport.name}: expected ${route.relations} relationships, found ${snapshot.relationCount}.`);
@@ -95,6 +97,7 @@ try {
   assert(highlighted === 1, `Matrix search should isolate one row, found ${highlighted}.`);
   await matrix.click('[data-inspect-id="activation-features:trainability"]');
   assert((await matrix.locator('[data-detail]').textContent()).includes('gradient flow'), 'Matrix cell inspector does not expose the scientific relation label.');
+  assert((await matrix.locator('[data-detail]').textContent()).includes('Atlas [517]'), 'Matrix cell inspector does not inherit the row-level verified paper mapping.');
   await matrix.click('[data-zoom-in]');
   assert((await matrix.locator('[data-zoom-readout]').textContent()) === '115%', 'Zoom-in control did not update the live state.');
   await matrix.click('[data-fit]');

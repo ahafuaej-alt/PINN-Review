@@ -8,6 +8,8 @@ const json = async (file) => JSON.parse(await read(file));
 const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 const unique = (values, label) => assert(new Set(values).size === values.length, `${label} IDs must be unique.`);
+const normalizeTitle = (value = '') => String(value).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, ' ').trim();
+const normalizeDoi = (value = '') => String(value).toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//, '').trim();
 const evidenceFrom = (value, items = []) => {
   if (Array.isArray(value)) value.forEach((item) => evidenceFrom(item, items));
   else if (value && typeof value === 'object') {
@@ -43,8 +45,9 @@ assert(stack.relationships.filter((item) => item.type === 'feedback').length ===
 stack.stages.forEach((stage) => {
   assert(stage.columns.length === 3, `${stage.id} must preserve its three compact content columns.`);
   assert(stage.columns.every((column) => column.items.length >= 2), `${stage.id} contains an empty or underspecified content column.`);
-  assert(Array.isArray(stage.evidence), `${stage.id} lacks an evidence array.`);
+  assert(Array.isArray(stage.evidence) && stage.evidence.length > 0, `${stage.id} lacks verified claim-level evidence.`);
 });
+assert(stack.relationships.filter((item) => item.type === 'feedback').every((item) => item.evidence.length > 0), 'Every Design Stack feedback loop must carry verified evidence.');
 
 const coDesign = pages['co-design'];
 assert(coDesign.core?.outcomes?.length === 5, 'Co-Design requires a central core with five outcomes.');
@@ -54,7 +57,11 @@ unique(coDesign.domains.map((item) => item.id), 'Co-Design domain');
 unique(coDesign.relationships.map((item) => item.id), 'Co-Design relationship');
 const coNodeIds = new Set(['core', ...coDesign.domains.map((item) => item.id)]);
 coDesign.relationships.forEach((relation) => assert(coNodeIds.has(relation.from) && coNodeIds.has(relation.to), `Co-Design relationship ${relation.id} has an invalid endpoint.`));
-coDesign.domains.forEach((domain) => assert(domain.panels.length >= 3 && domain.panels.every((panel) => panel.items.length >= 3), `${domain.id} lacks the compact detail of the scientific source map.`));
+coDesign.domains.forEach((domain) => {
+  assert(domain.panels.length >= 3 && domain.panels.every((panel) => panel.items.length >= 3), `${domain.id} lacks the compact detail of the scientific source map.`);
+  assert(domain.evidence.length > 0, `${domain.id} lacks verified claim-level evidence.`);
+});
+assert(coDesign.relationships.every((item) => item.evidence.length > 0), 'Every Co-Design coupling and feedback relationship must carry verified evidence.');
 
 const matrix = pages['design-performance'];
 assert(matrix.rows.length === 14, `Dependency matrix requires fourteen design rows, found ${matrix.rows.length}.`);
@@ -64,6 +71,7 @@ unique(matrix.rows.map((item) => item.id), 'Dependency matrix row');
 unique(matrix.rows.flatMap((row) => row.cells.map((cell) => cell.id)), 'Dependency matrix cell');
 matrix.rows.forEach((row) => {
   assert(row.cells.length === 7, `${row.id} does not contain seven performance dependencies.`);
+  assert(row.evidence.length > 0, `${row.id} lacks verified claim-level evidence.`);
   row.cells.forEach((cell, index) => {
     assert(cell.id === `${row.id}:${matrix.columns[index].id}`, `${cell.id} is not stably aligned to ${row.id} and ${matrix.columns[index].id}.`);
     assert(['major', 'context', 'indirect'].includes(cell.level), `${cell.id} has invalid influence level ${cell.level}.`);
@@ -82,19 +90,43 @@ diagnostics.modes.forEach((mode) => {
   assert(mode.symptoms.length >= 2, `${mode.id} lacks observable symptoms.`);
   assert(mode.responses.length >= 2, `${mode.id} lacks methodological responses.`);
   assert(mode.improvement, `${mode.id} lacks a targeted improvement.`);
-  assert(Array.isArray(mode.evidence), `${mode.id} lacks an evidence array.`);
+  assert(Array.isArray(mode.evidence) && mode.evidence.length > 0, `${mode.id} lacks verified claim-level evidence.`);
 });
 assert(diagnostics.verification.criteria.length === 5, 'Failure diagnostics requires all five verification criteria.');
+assert(diagnostics.verification.evidence.length > 0, 'The verification loop lacks supporting evidence.');
 
 const allSource = JSON.stringify({ manifest, pages });
 assert(!allSource.includes('"papers"'), 'Legacy unverified paper-ID arrays remain in Frameworks data.');
 const references = await json('data/references.json');
 const referenceIds = new Set(references.map((item) => item.id));
-for (const entry of evidenceFrom(pages)) {
+const referencesById = new Map(references.map((item) => [item.id, item]));
+const evidenceMap = await json(`data/frameworks/${manifest.evidence_map}`);
+assert(evidenceMap.schema_version === '1.0.0' && evidenceMap.mappings.length > 0, 'Framework evidence map is absent or empty.');
+assert(/^[a-f0-9]{64}$/.test(evidenceMap.source_document_sha256), 'Framework evidence map lacks a source-document checksum.');
+assert(evidenceMap.source_reference_range === '1–509', 'Framework evidence map has the wrong source reference range.');
+unique(evidenceMap.mappings.map((item) => item.manuscript_id), 'Mapped manuscript reference');
+unique(evidenceMap.mappings.map((item) => item.atlas_id), 'Mapped Atlas reference');
+const mappedPairs = new Map();
+for (const mapping of evidenceMap.mappings) {
+  const reference = referencesById.get(mapping.atlas_id);
+  assert(reference, `Evidence map points to unknown Atlas ID ${mapping.atlas_id}.`);
+  assert(normalizeTitle(mapping.title) === normalizeTitle(reference.title), `Manuscript [${mapping.manuscript_id}] title does not resolve to Atlas [${mapping.atlas_id}].`);
+  assert(normalizeDoi(mapping.doi) === normalizeDoi(reference.doi), `Manuscript [${mapping.manuscript_id}] DOI does not resolve to Atlas [${mapping.atlas_id}].`);
+  assert(mapping.match_basis === 'normalized-title-and-doi', `Manuscript [${mapping.manuscript_id}] lacks the required title-and-DOI match basis.`);
+  mappedPairs.set(`${mapping.manuscript_id}:${mapping.atlas_id}`, mapping);
+}
+const evidenceEntries = evidenceFrom(pages);
+const usedPairs = new Set();
+for (const entry of evidenceEntries) {
   assert(referenceIds.has(entry.atlas_id), `Evidence points to unknown Atlas ID ${entry.atlas_id}.`);
   assert(Number.isInteger(entry.manuscript_id) && entry.manuscript_id >= 1 && entry.manuscript_id <= 509, `Atlas [${entry.atlas_id}] has invalid manuscript ID ${entry.manuscript_id}.`);
-  assert(entry.support && entry.rationale, `Atlas [${entry.atlas_id}] lacks support type or claim-level rationale.`);
+  assert(['Direct', 'Contextual', 'Synthesis'].includes(entry.support), `Atlas [${entry.atlas_id}] has invalid support type ${entry.support}.`);
+  assert(entry.rationale?.length >= 40, `Atlas [${entry.atlas_id}] lacks a substantive claim-level rationale.`);
+  const pair = `${entry.manuscript_id}:${entry.atlas_id}`;
+  assert(mappedPairs.has(pair), `Manuscript [${entry.manuscript_id}] / Atlas [${entry.atlas_id}] is not in the verified title-and-DOI map.`);
+  usedPairs.add(pair);
 }
+assert(usedPairs.size === mappedPairs.size, `Evidence map contains ${mappedPairs.size - usedPairs.size} unused paper mapping(s).`);
 
 const backlinks = await json('data/frameworks/backlinks.json');
 for (const [route, links] of Object.entries(backlinks.routes)) {
@@ -122,4 +154,4 @@ assert(readme.includes('### Frameworks') && readme.includes('**26** public HTML 
 for (const item of manifest.frameworks) assert(sitemap.includes(`/frameworks/${item.route}`), `Sitemap lacks ${item.route}.`);
 
 const inspectableCount = stack.phases.length + stack.stages.length + stack.relationships.length + 1 + coDesign.domains.length + coDesign.relationships.length + matrix.rows.length + 98 + diagnostics.categories.length + diagnostics.modes.length + 1;
-console.log(`Frameworks validation passed: 4 frameworks · ${inspectableCount} stable inspectable objects · 10 stages · 20 co-design relations · 98 matrix cells · 13 diagnostic pathways · ${evidenceFrom(pages).length} evidence links.`);
+console.log(`Frameworks validation passed: 4 frameworks · ${inspectableCount} stable inspectable objects · 10 stages · 20 co-design relations · 98 matrix cells · 13 diagnostic pathways · ${evidenceEntries.length} claim-level links · ${mappedPairs.size} verified manuscript-to-Atlas mappings.`);

@@ -1,7 +1,8 @@
 {
   "version": "2.0.0",
   "updated": "2026-08-25",
-  "evidence_status": "Framework content is complete; claim-level evidence is verified separately against the manuscript and canonical Atlas reference IDs.",
+  "evidence_map": "evidence-map.json",
+  "evidence_status": "Displayed paper IDs have passed manuscript-to-Atlas title/DOI resolution and a separate claim-level relevance check.",
   "frameworks": [
     {
       "id": "design-stack",
