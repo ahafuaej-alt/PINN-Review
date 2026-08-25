@@ -1,59 +1,47 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "updated": "2026-08-25",
+  "evidence_status": "Framework content is complete; claim-level evidence is verified separately against the manuscript and canonical Atlas reference IDs.",
   "frameworks": [
-    {"id":"design-stack","number":"01","title":"PINN Design Stack & Feedback Loops","short":"Design sequence and iterative redesign","kind":"Live architecture · complete flowchart","route":"design-stack/","description":"Trace the full PINN workflow from problem definition through representation, physics enforcement, numerical realization, training, and reliability—with evaluation feeding redesign."},
-    {"id":"co-design","number":"02","title":"PINN Co-Design Framework","short":"Coupled methodological interactions","kind":"Live framework · systems map","route":"co-design/","description":"Inspect why representation, physics, differentiation, sampling, loss construction, optimization, and evaluation must be designed as a coupled system."},
-    {"id":"design-performance","number":"03","title":"PINN Design–Performance Dependency Matrix","short":"Design decisions versus performance dimensions","kind":"Live framework · dependency matrix","route":"design-performance/","description":"Explore qualitative relationships between PINN design choices and accuracy, physics satisfaction, trainability, robustness, efficiency, and reliability."},
-    {"id":"failure-diagnostics","number":"04","title":"PINN Failure-Mode Diagnostics","short":"Challenge-oriented diagnosis and redesign","kind":"Live framework · diagnostic map","route":"failure-diagnostics/","description":"Start from an observed symptom and move through likely causes, methodological responses, targeted improvement, and related Atlas evidence."}
-  ],
-  "pages": {
-    "design-stack": {
-      "title":"PINN Design Stack & Feedback Loops","eyebrow":"Framework 01 · Design","description":"A staged design architecture showing how each upstream decision constrains downstream training and how validation evidence drives targeted redesign.","interpretation":"The stack is iterative rather than a one-pass recipe. Failed accuracy, physics, robustness, or cost checks should return the workflow to the earliest plausible design cause.",
-      "groups":[
-        {"id":"problem","title":"Problem & physical system","summary":"Define governing equations, domain, conditions, data, scales, and computational purpose.","concept":"pinn-ecosystem/","papers":[10,22,30]},
-        {"id":"representation","title":"Representation & architecture","summary":"Choose inputs, outputs, network family, features, decomposition, and inductive bias.","concept":"architectures/","papers":[10,83,115]},
-        {"id":"physics","title":"Physics enforcement","summary":"Select strong/weak form, constraints, residual construction, and boundary treatment.","concept":"mathematical-formulations/","papers":[10,22,49]},
-        {"id":"numerics","title":"Differentiation & sampling","summary":"Coordinate derivatives, collocation design, scaling, discretization, and adaptive refinement.","concept":"pinn-ecosystem/#layer-5","papers":[49,139,230]},
-        {"id":"training","title":"Loss & optimization","summary":"Balance objectives, initialize, schedule learning rates, and coordinate first- and second-order phases.","concept":"optimizers/","papers":[53,80,82]},
-        {"id":"evaluation","title":"Evaluation & reliability","summary":"Test solution error, physics satisfaction, robustness, efficiency, uncertainty, and reporting completeness.","concept":"performance-metrics/","papers":[22,30,83]}
-      ],"links":[["problem","representation"],["representation","physics"],["physics","numerics"],["numerics","training"],["training","evaluation"],["evaluation","problem"],["evaluation","representation"],["evaluation","physics"],["evaluation","numerics"],["evaluation","training"]]
+    {
+      "id": "design-stack",
+      "number": "01",
+      "title": "PINN Design Stack & Feedback Loops",
+      "short": "Design sequence and iterative redesign",
+      "kind": "Live architecture · complete flowchart",
+      "route": "design-stack/",
+      "data": "design-stack.json",
+      "description": "Trace ten design stages across problem framing, PINN formulation, training, and reliability, with evaluation feeding targeted redesign."
     },
-    "co-design": {
-      "title":"PINN Co-Design Framework","eyebrow":"Framework 02 · Interactions","description":"A systems map of the coupled decisions that jointly determine whether a PINN is mathematically appropriate, trainable, and scientifically reliable.","interpretation":"No component has an independent optimum: changing representation can alter derivative spectra, loss conditioning, sampling needs, optimizer behavior, and the meaning of validation results.",
-      "groups":[
-        {"id":"purpose","title":"Problem purpose","summary":"Forward, inverse, discovery, surrogate, control, or operator-learning objective.","concept":"pinn-ecosystem/#layer-2","papers":[10,22]},
-        {"id":"representation","title":"Neural representation","summary":"Architecture, coordinates, outputs, features, domain decomposition, and parameterization.","concept":"architectures/","papers":[83,115,230]},
-        {"id":"constraints","title":"Physics & constraints","summary":"Governing operator, residual form, boundary/initial conditions, and conservation structure.","concept":"mathematical-formulations/","papers":[10,22,49]},
-        {"id":"numerical","title":"Numerical realization","summary":"Differentiation, sampling, geometry, nondimensionalization, and precision.","concept":"pinn-ecosystem/#layer-5","papers":[139,230]},
-        {"id":"optimization","title":"Training & optimization","summary":"Loss scaling, multi-objective balance, optimizer sequence, curricula, and stopping.","concept":"optimizers/","papers":[53,80,82]},
-        {"id":"reliability","title":"Evaluation & reliability","summary":"Reference error, physics diagnostics, robustness, uncertainty, cost, and reproducibility.","concept":"performance-metrics/","papers":[22,30,83]}
-      ],"links":[["purpose","representation"],["purpose","constraints"],["representation","constraints"],["representation","numerical"],["constraints","numerical"],["numerical","optimization"],["constraints","optimization"],["representation","optimization"],["optimization","reliability"],["numerical","reliability"],["reliability","purpose"]]
+    {
+      "id": "co-design",
+      "number": "02",
+      "title": "PINN Co-Design Framework",
+      "short": "Coupled methodological interactions",
+      "kind": "Live framework · systems map",
+      "route": "co-design/",
+      "data": "co-design.json",
+      "description": "Inspect the coupled interactions among the physical problem, representation, constraints, numerical realization, training, and verification."
     },
-    "design-performance": {
-      "title":"PINN Design–Performance Dependency Matrix","eyebrow":"Framework 03 · Consequences","description":"A qualitative synthesis of how major design decisions influence complementary performance dimensions.","interpretation":"Relationship strength represents recurring methodological dependency across the reviewed literature; it is not an effect-size estimate and does not imply a universal monotonic effect.",
-      "columns":["Solution accuracy","Physics satisfaction","Trainability","Robustness","Computational cost","Uncertainty & reliability"],
-      "rows":[
-        {"title":"Representation & features","concept":"architectures/","papers":[83,115,230],"values":[3,2,3,2,2,2]},
-        {"title":"Physics-enforcement mechanism","concept":"mathematical-formulations/","papers":[10,22,49],"values":[3,3,3,2,2,2]},
-        {"title":"Differentiation & residual evaluation","concept":"pinn-ecosystem/#layer-5","papers":[22,230],"values":[3,3,2,2,3,2]},
-        {"title":"Sampling & collocation","concept":"pinn-ecosystem/#sampling","papers":[49,139],"values":[3,3,3,3,3,2]},
-        {"title":"Loss scaling & weighting","concept":"training/","papers":[53,80,82],"values":[3,3,3,3,2,2]},
-        {"title":"Optimizer & learning-rate strategy","concept":"optimizers/","papers":[80,82,234],"values":[2,2,3,2,3,1]},
-        {"title":"Validation design","concept":"performance-metrics/","papers":[22,30,83],"values":[2,3,1,3,2,3]}
-      ]
+    {
+      "id": "design-performance",
+      "number": "03",
+      "title": "PINN Design–Performance Dependency Matrix",
+      "short": "Design decisions versus performance dimensions",
+      "kind": "Live framework · dependency matrix",
+      "route": "design-performance/",
+      "data": "design-performance.json",
+      "description": "Explore 98 qualitative dependencies connecting fourteen PINN design decisions to seven complementary performance dimensions."
     },
-    "failure-diagnostics": {
-      "title":"PINN Failure-Mode Diagnostics","eyebrow":"Framework 04 · Diagnose & redesign","description":"A challenge-oriented diagnostic map connecting observable failure symptoms to plausible design causes and targeted methodological responses.","interpretation":"A symptom can have several interacting causes. The map supports hypothesis generation and targeted testing; it does not replace problem-specific numerical diagnosis.",
-      "groups":[
-        {"id":"spectral","title":"Spectral bias / unresolved scales","summary":"Symptoms: smoothed peaks, missed high-frequency structure, phase error. Responses: feature mappings, periodic activations, decomposition, adaptive sampling.","concept":"activation-functions/","papers":[83,258]},
-        {"id":"conditioning","title":"Optimization stagnation / ill-conditioning","summary":"Symptoms: plateaus, unstable gradients, initialization sensitivity. Responses: normalization, loss balancing, curricula, Adam → L-BFGS, improved initialization.","concept":"optimizers/","papers":[53,80,82]},
-        {"id":"constraints","title":"Boundary or conservation failure","summary":"Symptoms: small interior residual but boundary drift or conservation defect. Responses: hard constraints, weak/integral forms, boundary refinement, dedicated physics diagnostics.","concept":"mathematical-formulations/","papers":[10,22,49]},
-        {"id":"sampling","title":"Collocation blind spots","summary":"Symptoms: localized error hidden by global averages. Responses: residual-adaptive sampling, mesh-assisted refinement, stratification, maximum-error diagnostics.","concept":"performance-metrics/#relative-linf-error","papers":[49,139]},
-        {"id":"time","title":"Long-time error accumulation","summary":"Symptoms: late-time drift, causality loss, unstable propagation. Responses: temporal decomposition, causal weighting, marching curricula, windowed validation.","concept":"training/","papers":[30,83]},
-        {"id":"cost","title":"Repeated-query cost","summary":"Symptoms: excessive retraining or inference latency. Responses: operator learning, transfer/meta-learning, multifidelity design, reduced-order surrogates.","concept":"architectures/","papers":[115,288,289]},
-        {"id":"uncertainty","title":"Uncertainty deficit","summary":"Symptoms: accurate mean prediction without calibrated confidence or out-of-distribution warning. Responses: ensembles, Bayesian/UQ variants, calibration and coverage metrics.","concept":"performance-metrics/","papers":[22,30]}
-      ]
+    {
+      "id": "failure-diagnostics",
+      "number": "04",
+      "title": "PINN Failure-Mode Diagnostics",
+      "short": "Challenge-oriented diagnosis and redesign",
+      "kind": "Live framework · diagnostic map",
+      "route": "failure-diagnostics/",
+      "data": "failure-diagnostics.json",
+      "description": "Move from thirteen challenge pathologies through observable symptoms and methodological responses to targeted improvement and verification."
     }
-  }
+  ]
 }

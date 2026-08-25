@@ -1,0 +1,120 @@
+{
+  "id": "failure-diagnostics",
+  "title": "PINN Failure-Mode Diagnostics",
+  "eyebrow": "Framework 04 · Diagnose & Redesign",
+  "description": "A challenge-oriented map connecting thirteen pathologies to symptoms, methodological responses, targeted improvements, and verification.",
+  "represents": "The map starts with what fails and why, translates the failure into observable signatures, proposes targeted methodological responses, and states what should improve. It supports diagnostic reasoning from evidence rather than indiscriminate method substitution.",
+  "interpretation": "A symptom can have several interacting causes, and a response may introduce new trade-offs. The map supports hypothesis generation, not automatic prescription. Every intervention must be checked with numerical, physical, robustness, uncertainty, and computational-cost criteria; if the evidence does not improve, re-diagnose the dominant failure mode.",
+  "filters": [
+    {"id": "all", "label": "All diagnostic categories"},
+    {"id": "approximation", "label": "A · Approximation / Representation"},
+    {"id": "physics", "label": "B · Physics / Numerical Enforcement"},
+    {"id": "training", "label": "C · Training / Scalability"},
+    {"id": "reliability", "label": "D · Inference / Reuse / Reliability"}
+  ],
+  "categories": [
+    {"id": "approximation", "code": "A", "title": "Approximation / Representation", "summary": "Captures the solution structure", "mode_ids": ["spectral-bias", "discontinuities"]},
+    {"id": "physics", "code": "B", "title": "Physics / Numerical Enforcement", "summary": "Enforces governing laws and constraints", "mode_ids": ["weak-boundaries", "poor-conservation", "high-order-derivatives"]},
+    {"id": "training", "code": "C", "title": "Training / Scalability", "summary": "Enables optimization and scalability", "mode_ids": ["imbalanced-loss", "poor-sampling", "large-domain", "long-time", "stagnation"]},
+    {"id": "reliability", "code": "D", "title": "Inference / Reuse / Reliability", "summary": "Supports inference, reuse, and trustworthy predictions", "mode_ids": ["sparse-noisy-inverse", "repeated-query", "uncertainty"]}
+  ],
+  "modes": [
+    {
+      "id": "spectral-bias", "number": 1, "category": "approximation", "title": "Spectral bias / multiscale or high-frequency solution",
+      "symptoms": ["Low-frequency modes learned first", "High-frequency content unresolved", "Oscillatory fields poorly captured", "Slow convergence of fine scales"],
+      "responses": ["Fourier features, SIREN, multiscale bases", "Gabor / spectral features, adaptive activations", "Frequency-progressive / curriculum training"],
+      "improvement": "Better resolution of oscillatory and multiscale structures",
+      "concepts": [{"label": "Activation Functions", "route": "activation-functions/"}], "related_frameworks": ["design-stack:representation", "design-performance:activation-features"], "evidence": []
+    },
+    {
+      "id": "discontinuities", "number": 2, "category": "approximation", "title": "Discontinuities, shocks, or sharp fronts",
+      "symptoms": ["Smearing of discontinuities", "Spurious oscillations / Gibbs-like effects", "Wrong weak solution / non-physical states", "Large local error despite low global loss"],
+      "responses": ["Weak / variational formulations", "Entropy / admissibility constraints", "Conservative / discrete residuals", "Adaptive local sampling, interface-aware networks"],
+      "improvement": "Improved admissibility and localized accuracy near discontinuities",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["design-stack:physics-enforcement", "co-design:physics"], "evidence": []
+    },
+    {
+      "id": "weak-boundaries", "number": 3, "category": "physics", "title": "Weak satisfaction of BCs / ICs / interfaces",
+      "symptoms": ["Persistent boundary or interface error", "Strong dependence on penalty weights", "Overfitting near boundaries"],
+      "responses": ["Hard constraints (trial / test functions)", "Output transformations, distance functions", "Exact boundary fitting, Augmented Lagrangian"],
+      "improvement": "More reliable constraint satisfaction and physical consistency",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["design-stack:physics-enforcement", "design-performance:physics-constraints"], "evidence": []
+    },
+    {
+      "id": "poor-conservation", "number": 4, "category": "physics", "title": "Poor conservation (flux / mass / energy)",
+      "symptoms": ["Low pointwise error but large balance error", "Flux mismatch across interfaces", "Violation of integral conservation"],
+      "responses": ["Finite-volume / control-volume residuals", "Conservative PINNs, flux continuity constraints", "Discrete local balance enforcement"],
+      "improvement": "Improved local and global physical fidelity through conservation",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:physics", "design-performance:physics-enforcement"], "evidence": []
+    },
+    {
+      "id": "high-order-derivatives", "number": 5, "category": "physics", "title": "High-order derivative cost or instability",
+      "symptoms": ["High memory usage / computation time", "Large computational graph", "Instability of high-order AD"],
+      "responses": ["First-order reformulation / mixed variables", "Mixed AD-numerical / discrete differentiation", "Closed-form or structure-exploiting derivatives"],
+      "improvement": "Reduced derivative order, memory, and runtime cost",
+      "concepts": [{"label": "PINN Ecosystem · Differentiation", "route": "pinn-ecosystem/#layer-5"}], "related_frameworks": ["design-stack:differentiation", "design-performance:differentiation"], "evidence": []
+    },
+    {
+      "id": "imbalanced-loss", "number": 6, "category": "training", "title": "Imbalanced multi-objective loss (gradient conflict)",
+      "symptoms": ["One loss term dominates training", "PDE loss decreases while BC / IC error remains high", "Oscillatory or stalled convergence", "Sensitivity to manual weights"],
+      "responses": ["Adaptive / self-adaptive weighting", "Gradient-norm balancing, NTK-informed weights", "Multi-objective optimization, Augmented Lagrangian", "Continuation / curriculum on weights"],
+      "improvement": "Better balance among objectives and improved trainability",
+      "concepts": [{"label": "Training", "route": "training/"}], "related_frameworks": ["design-stack:loss", "design-performance:loss-balancing"], "evidence": []
+    },
+    {
+      "id": "poor-sampling", "number": 7, "category": "training", "title": "Poor collocation / sampling coverage",
+      "symptoms": ["Low training loss but large unsampled error", "Missed boundary layers / interfaces", "Localized large errors"],
+      "responses": ["Residual-adaptive sampling", "Importance / gradient-aware sampling", "Geometry / interface-aware, sparse-grid guidance", "Dynamic resampling during training"],
+      "improvement": "Better allocation of points and improved accuracy where needed",
+      "concepts": [{"label": "Training · Sampling", "route": "training/"}], "related_frameworks": ["design-stack:sampling", "design-performance:sampling"], "evidence": []
+    },
+    {
+      "id": "large-domain", "number": 8, "category": "training", "title": "Large / heterogeneous domain (scalability)",
+      "symptoms": ["One global network fails", "Local errors concentrated in subregions", "Different scales / materials compete"],
+      "responses": ["Domain decomposition (XPINN, APINN, cPINN, etc.)", "Local subnetworks, progressive decomposition", "Parallel / distributed training"],
+      "improvement": "Scalability and localization of approximation",
+      "concepts": [{"label": "Architectures", "route": "architectures/"}], "related_frameworks": ["co-design:numerical", "design-performance:decomposition"], "evidence": []
+    },
+    {
+      "id": "long-time", "number": 9, "category": "training", "title": "Long-time integration / temporal propagation",
+      "symptoms": ["Error accumulation over time", "Phase drift, late-time degradation", "Cannot learn the entire interval simultaneously"],
+      "responses": ["Causal training, time marching", "Time decomposition / windows", "Progressive horizon expansion"],
+      "improvement": "Improved temporal stability and long-time prediction",
+      "concepts": [{"label": "Training", "route": "training/"}], "related_frameworks": ["design-stack:optimization", "design-performance:training-strategy"], "evidence": []
+    },
+    {
+      "id": "stagnation", "number": 10, "category": "training", "title": "Optimization stagnation / ill-conditioning",
+      "symptoms": ["Slow convergence / plateaus", "Sensitivity to initialization", "Quasi-Newton failure or divergence", "Gradient explosion / vanishing"],
+      "responses": ["Adam → L-BFGS (staged)", "Quasi-Newton / curvature-aware methods", "Better initialization, scaling / non-dimensionalization", "Continuation / curriculum on domain / parameters"],
+      "improvement": "Better conditioning and faster, more stable convergence",
+      "concepts": [{"label": "Optimizers", "route": "optimizers/"}, {"label": "Training", "route": "training/"}], "related_frameworks": ["design-stack:optimization", "design-performance:optimizer"], "evidence": []
+    },
+    {
+      "id": "sparse-noisy-inverse", "number": 11, "category": "reliability", "title": "Sparse / noisy data, non-identifiable inverse problem",
+      "symptoms": ["Multiple parameter sets fit the data", "High sensitivity to noise", "Good state fit but wrong parameters"],
+      "responses": ["Physics-constrained inversion", "Additional / optimal observations", "Structural / constitutive priors, identifiability analysis", "Bayesian inference and UQ methods"],
+      "improvement": "Better-constrained parameter and state recovery",
+      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["co-design:reliability", "design-performance:identifiability"], "evidence": []
+    },
+    {
+      "id": "repeated-query", "number": 12, "category": "reliability", "title": "Repeated-query cost / retraining for new instances",
+      "symptoms": ["High cost per new parameter set", "Retraining for every query"],
+      "responses": ["Operator learning", "Parameterized PINNs", "Transfer / meta-learning", "Reduced-order reuse"],
+      "improvement": "Amortized cost and reusability",
+      "concepts": [{"label": "Architectures", "route": "architectures/"}], "related_frameworks": ["design-performance:reuse-generalize", "co-design:representation"], "evidence": []
+    },
+    {
+      "id": "uncertainty", "number": 13, "category": "reliability", "title": "Unquantified or uncalibrated uncertainty",
+      "symptoms": ["Point prediction only", "Unreliable uncertainty", "Unknown confidence under noise / OOD"],
+      "responses": ["Bayesian PINNs", "Ensembles", "Variational inference", "Probabilistic formulations", "Calibration / coverage analysis"],
+      "improvement": "Calibrated uncertainty and decision-relevant reliability",
+      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["co-design:reliability", "design-performance:identifiability"], "evidence": []
+    }
+  ],
+  "verification": {
+    "id": "verify", "title": "Verify improvement",
+    "instruction": "Check the intervention with numerical, physical, robustness, uncertainty, and computational-cost criteria. If performance does not improve, re-diagnose the dominant failure mode and revisit the design choices.",
+    "criteria": ["Numerical accuracy", "Physical fidelity", "Robustness", "Uncertainty calibration", "Computational cost"],
+    "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "evidence": []
+  }
+}

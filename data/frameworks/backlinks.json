@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "routes": {
+    "pinn-ecosystem/": [
+      {"framework": "design-stack", "item": "physical-problem", "label": "Physical Problem Definition"},
+      {"framework": "design-stack", "item": "computational-role", "label": "Computational Role"},
+      {"framework": "design-stack", "item": "inputs-outputs", "label": "Inputs and Outputs"},
+      {"framework": "design-stack", "item": "differentiation", "label": "Differentiation and Residual Evaluation"},
+      {"framework": "co-design", "item": "problem", "label": "Physical Problem & Computational Role"},
+      {"framework": "co-design", "item": "numerical", "label": "Numerical Realization"},
+      {"framework": "design-performance", "item": "inputs-outputs", "label": "Inputs & outputs"},
+      {"framework": "design-performance", "item": "differentiation", "label": "Differentiation / operator evaluation"}
+    ],
+    "architectures/": [
+      {"framework": "design-stack", "item": "representation", "label": "Representation / Architecture"},
+      {"framework": "co-design", "item": "representation", "label": "Representation"},
+      {"framework": "design-performance", "item": "architecture-basis", "label": "Architecture / basis"},
+      {"framework": "design-performance", "item": "decomposition", "label": "Decomposition / parallelization"},
+      {"framework": "design-performance", "item": "reuse-generalize", "label": "Reuse / generalize"},
+      {"framework": "failure-diagnostics", "item": "large-domain", "label": "Large / heterogeneous domain"},
+      {"framework": "failure-diagnostics", "item": "repeated-query", "label": "Repeated-query cost"}
+    ],
+    "activation-functions/": [
+      {"framework": "design-stack", "item": "representation", "label": "Representation / Architecture"},
+      {"framework": "co-design", "item": "representation", "label": "Representation"},
+      {"framework": "design-performance", "item": "activation-features", "label": "Activation / features"},
+      {"framework": "failure-diagnostics", "item": "spectral-bias", "label": "Spectral bias / unresolved scales"}
+    ],
+    "mathematical-formulations/": [
+      {"framework": "design-stack", "item": "physics-enforcement", "label": "Physics Enforcement"},
+      {"framework": "co-design", "item": "physics", "label": "Physics & Constraints"},
+      {"framework": "design-performance", "item": "physics-enforcement", "label": "Physics-enforcement mechanism"},
+      {"framework": "design-performance", "item": "physics-constraints", "label": "Physics / constraints"},
+      {"framework": "failure-diagnostics", "item": "discontinuities", "label": "Discontinuities, shocks, or sharp fronts"},
+      {"framework": "failure-diagnostics", "item": "weak-boundaries", "label": "Weak satisfaction of BCs / ICs / interfaces"},
+      {"framework": "failure-diagnostics", "item": "poor-conservation", "label": "Poor conservation"}
+    ],
+    "training/": [
+      {"framework": "design-stack", "item": "sampling", "label": "Sampling / Collocation"},
+      {"framework": "design-stack", "item": "loss", "label": "Loss Construction and Balancing"},
+      {"framework": "design-stack", "item": "optimization", "label": "Optimization and Training Strategy"},
+      {"framework": "co-design", "item": "training", "label": "Training & Optimization"},
+      {"framework": "design-performance", "item": "sampling", "label": "Sampling / collocation"},
+      {"framework": "design-performance", "item": "loss-formulation", "label": "Loss formulation"},
+      {"framework": "design-performance", "item": "loss-balancing", "label": "Loss weighting / balancing"},
+      {"framework": "design-performance", "item": "training-strategy", "label": "Initialization / training strategy"},
+      {"framework": "failure-diagnostics", "item": "imbalanced-loss", "label": "Imbalanced multi-objective loss"},
+      {"framework": "failure-diagnostics", "item": "poor-sampling", "label": "Poor collocation / sampling coverage"},
+      {"framework": "failure-diagnostics", "item": "long-time", "label": "Long-time integration"}
+    ],
+    "optimizers/": [
+      {"framework": "design-stack", "item": "optimization", "label": "Optimization and Training Strategy"},
+      {"framework": "co-design", "item": "training", "label": "Training & Optimization"},
+      {"framework": "design-performance", "item": "optimizer", "label": "Optimizer & LR strategy"},
+      {"framework": "failure-diagnostics", "item": "stagnation", "label": "Optimization stagnation / ill-conditioning"}
+    ],
+    "performance-metrics/": [
+      {"framework": "design-stack", "item": "evaluation", "label": "Evaluation and Validation"},
+      {"framework": "co-design", "item": "reliability", "label": "Verification & Reliability"},
+      {"framework": "failure-diagnostics", "item": "sparse-noisy-inverse", "label": "Sparse / noisy inverse problem"},
+      {"framework": "failure-diagnostics", "item": "uncertainty", "label": "Unquantified or uncalibrated uncertainty"},
+      {"framework": "failure-diagnostics", "item": "verify", "label": "Verify improvement"}
+    ]
+  }
+}

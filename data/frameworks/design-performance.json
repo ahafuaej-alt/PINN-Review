@@ -1,0 +1,115 @@
+{
+  "id": "design-performance",
+  "title": "PINN Design–Performance Dependency Matrix",
+  "eyebrow": "Framework 03 · Consequences",
+  "description": "A complete qualitative matrix showing how fourteen design dimensions influence seven complementary performance outcomes.",
+  "represents": "No design element controls a single outcome. The matrix exposes recurring methodological dependencies between representation, physics and numerics, training, structural extension, and the numerical, physical, optimization, cost, robustness, inverse, and reuse properties of a PINN.",
+  "interpretation": "Influence levels summarize recurring dependencies in the reviewed evidence. They are not effect sizes and do not imply universal monotonic effects. Strength varies with the problem, formulation, and implementation. Trade-off markers identify choices for which improvement in one dimension may increase cost or reduce another.",
+  "filters": [
+    {"id": "all", "label": "All design dimensions"},
+    {"id": "representation", "label": "I · Representation"},
+    {"id": "physics-numerics", "label": "II · Physics & Numerics"},
+    {"id": "training", "label": "III · Training"},
+    {"id": "extension", "label": "IV · Structural Extension & Reuse"}
+  ],
+  "legend": [
+    {"id": "major", "label": "Direct / major dependency", "description": "A primary design-to-outcome dependency recurring across the synthesis."},
+    {"id": "context", "label": "Context-dependent dependency", "description": "Influence is substantial but depends strongly on the problem or formulation."},
+    {"id": "indirect", "label": "Indirect / secondary dependency", "description": "Influence is mediated through another design element or outcome."}
+  ],
+  "columns": [
+    {"id": "accuracy", "code": "A", "title": "Numerical Accuracy", "subtitle": "Fields / states"},
+    {"id": "fidelity", "code": "B", "title": "Physical Fidelity", "subtitle": "Conservation & constraints"},
+    {"id": "trainability", "code": "C", "title": "Trainability & Convergence", "subtitle": "Optimization behavior"},
+    {"id": "cost", "code": "D", "title": "Computational Cost", "subtitle": "Time / memory / solver calls"},
+    {"id": "robustness", "code": "E", "title": "Robustness & Generalization", "subtitle": "Noise / OOD / seed variability"},
+    {"id": "identifiability", "code": "F", "title": "Identifiability & Uncertainty", "subtitle": "Parameter recovery & UQ"},
+    {"id": "scalability", "code": "G", "title": "Scalability & Reuse", "subtitle": "Large scale / repeated queries"}
+  ],
+  "rows": [
+    {
+      "id": "inputs-outputs", "number": 1, "group": "representation", "title": "Inputs & outputs", "detail": "Variables, parameters, and the representation interface", "concepts": [{"label": "PINN Ecosystem · Inputs and outputs", "route": "pinn-ecosystem/#layer-3"}], "tradeoff": false,
+      "cells": [
+        {"id": "inputs-outputs:accuracy", "level": "major", "label": "state coverage"}, {"id": "inputs-outputs:fidelity", "level": "major", "label": "constraint mapping"}, {"id": "inputs-outputs:trainability", "level": "context", "label": "dimensionality"}, {"id": "inputs-outputs:cost", "level": "indirect", "label": "I/O size"}, {"id": "inputs-outputs:robustness", "level": "major", "label": "extrapolation"}, {"id": "inputs-outputs:identifiability", "level": "major", "label": "parameter link"}, {"id": "inputs-outputs:scalability", "level": "context", "label": "parameter dimension"}
+      ], "evidence": []
+    },
+    {
+      "id": "architecture-basis", "number": 2, "group": "representation", "title": "Architecture / basis", "detail": "MLP, CNN, GNN, Transformer, KAN, Fourier, RBF, and related bases", "concepts": [{"label": "Architectures", "route": "architectures/"}], "tradeoff": false,
+      "cells": [
+        {"id": "architecture-basis:accuracy", "level": "major", "label": "capacity / bias"}, {"id": "architecture-basis:fidelity", "level": "context", "label": "inductive bias"}, {"id": "architecture-basis:trainability", "level": "major", "label": "optimization geometry"}, {"id": "architecture-basis:cost", "level": "major", "label": "parameters / depth"}, {"id": "architecture-basis:robustness", "level": "major", "label": "expressive generalization"}, {"id": "architecture-basis:identifiability", "level": "context", "label": "identifiability"}, {"id": "architecture-basis:scalability", "level": "major", "label": "transferability"}
+      ], "evidence": []
+    },
+    {
+      "id": "activation-features", "number": 3, "group": "representation", "title": "Activation / features", "detail": "Tanh, sine, adaptive, Fourier features, and related basis choices", "concepts": [{"label": "Activation Functions", "route": "activation-functions/"}], "tradeoff": false,
+      "cells": [
+        {"id": "activation-features:accuracy", "level": "major", "label": "frequency content"}, {"id": "activation-features:fidelity", "level": "indirect", "label": "indirect"}, {"id": "activation-features:trainability", "level": "major", "label": "gradient flow"}, {"id": "activation-features:cost", "level": "context", "label": "evaluation complexity"}, {"id": "activation-features:robustness", "level": "major", "label": "feature extrapolation"}, {"id": "activation-features:identifiability", "level": "indirect", "label": "indirect"}, {"id": "activation-features:scalability", "level": "major", "label": "reusability"}
+      ], "evidence": []
+    },
+    {
+      "id": "scaling", "number": 4, "group": "representation", "title": "Scaling / non-dimensionalization", "detail": "Normalization of variables, domains, residuals, and objective components", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": false,
+      "cells": [
+        {"id": "scaling:accuracy", "level": "context", "label": "error normalization"}, {"id": "scaling:fidelity", "level": "context", "label": "residual balance"}, {"id": "scaling:trainability", "level": "major", "label": "conditioning"}, {"id": "scaling:cost", "level": "indirect", "label": "numerical range"}, {"id": "scaling:robustness", "level": "context", "label": "sensitivity"}, {"id": "scaling:identifiability", "level": "indirect", "label": "indirect"}, {"id": "scaling:scalability", "level": "context", "label": "transfer across ranges"}
+      ], "evidence": []
+    },
+    {
+      "id": "physics-enforcement", "number": 5, "group": "physics-numerics", "title": "Physics-enforcement mechanism", "detail": "Soft, hard, strong, weak, variational, conservative, and related enforcement forms", "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "tradeoff": true,
+      "cells": [
+        {"id": "physics-enforcement:accuracy", "level": "major", "label": "solution consistency"}, {"id": "physics-enforcement:fidelity", "level": "major", "label": "constraint satisfaction"}, {"id": "physics-enforcement:trainability", "level": "major", "label": "loss landscape"}, {"id": "physics-enforcement:cost", "level": "major", "label": "formulation cost"}, {"id": "physics-enforcement:robustness", "level": "context", "label": "less overfit to data"}, {"id": "physics-enforcement:identifiability", "level": "indirect", "label": "UQ reliability"}, {"id": "physics-enforcement:scalability", "level": "major", "label": "general applicability"}
+      ], "evidence": []
+    },
+    {
+      "id": "physics-constraints", "number": 6, "group": "physics-numerics", "title": "Physics / constraints", "detail": "PDE, IC, BC, interface, conservation, constitutive, and admissibility constraints", "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "tradeoff": false,
+      "cells": [
+        {"id": "physics-constraints:accuracy", "level": "major", "label": "error reduction"}, {"id": "physics-constraints:fidelity", "level": "major", "label": "physical consistency"}, {"id": "physics-constraints:trainability", "level": "context", "label": "competition"}, {"id": "physics-constraints:cost", "level": "context", "label": "extra terms"}, {"id": "physics-constraints:robustness", "level": "major", "label": "robustness"}, {"id": "physics-constraints:identifiability", "level": "major", "label": "identifiability"}, {"id": "physics-constraints:scalability", "level": "indirect", "label": "indirect"}
+      ], "evidence": []
+    },
+    {
+      "id": "differentiation", "number": 7, "group": "physics-numerics", "title": "Differentiation / operator evaluation", "detail": "AD, finite differences, mixed differentiation, spectral methods, and first-order reformulation", "concepts": [{"label": "PINN Ecosystem · Differentiation", "route": "pinn-ecosystem/#layer-5"}], "tradeoff": true,
+      "cells": [
+        {"id": "differentiation:accuracy", "level": "major", "label": "derivative accuracy"}, {"id": "differentiation:fidelity", "level": "major", "label": "PDE residual quality"}, {"id": "differentiation:trainability", "level": "major", "label": "gradient quality"}, {"id": "differentiation:cost", "level": "major", "label": "AD complexity"}, {"id": "differentiation:robustness", "level": "indirect", "label": "indirect"}, {"id": "differentiation:identifiability", "level": "indirect", "label": "indirect"}, {"id": "differentiation:scalability", "level": "major", "label": "efficient reuse"}
+      ], "evidence": []
+    },
+    {
+      "id": "sampling", "number": 8, "group": "physics-numerics", "title": "Sampling / collocation", "detail": "Uniform, LHS, Sobol, adaptive, interface-aware, causal, and geometry-aware sampling", "concepts": [{"label": "Training · Sampling", "route": "training/"}], "tradeoff": true,
+      "cells": [
+        {"id": "sampling:accuracy", "level": "context", "label": "domain coverage"}, {"id": "sampling:fidelity", "level": "major", "label": "constraint coverage"}, {"id": "sampling:trainability", "level": "major", "label": "gradient information"}, {"id": "sampling:cost", "level": "context", "label": "point / AD cost"}, {"id": "sampling:robustness", "level": "major", "label": "noise / OOD robustness"}, {"id": "sampling:identifiability", "level": "major", "label": "identifiability"}, {"id": "sampling:scalability", "level": "major", "label": "scalability"}
+      ], "evidence": []
+    },
+    {
+      "id": "loss-formulation", "number": 9, "group": "training", "title": "Loss formulation", "detail": "Residual, data, BC / IC, conservative, probabilistic, and multi-objective components", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": false,
+      "cells": [
+        {"id": "loss-formulation:accuracy", "level": "major", "label": "objective alignment"}, {"id": "loss-formulation:fidelity", "level": "major", "label": "physics alignment"}, {"id": "loss-formulation:trainability", "level": "major", "label": "signal quality"}, {"id": "loss-formulation:cost", "level": "context", "label": "loss evaluation cost"}, {"id": "loss-formulation:robustness", "level": "major", "label": "generalization"}, {"id": "loss-formulation:identifiability", "level": "major", "label": "statistical consistency"}, {"id": "loss-formulation:scalability", "level": "context", "label": "reusability"}
+      ], "evidence": []
+    },
+    {
+      "id": "loss-balancing", "number": 10, "group": "training", "title": "Loss weighting / balancing", "detail": "Fixed, adaptive, gradient, NTK, augmented-Lagrangian, and related balancing", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": false,
+      "cells": [
+        {"id": "loss-balancing:accuracy", "level": "major", "label": "error balance"}, {"id": "loss-balancing:fidelity", "level": "major", "label": "constraint balance"}, {"id": "loss-balancing:trainability", "level": "major", "label": "convergence rate"}, {"id": "loss-balancing:cost", "level": "context", "label": "extra computation"}, {"id": "loss-balancing:robustness", "level": "context", "label": "stability"}, {"id": "loss-balancing:identifiability", "level": "indirect", "label": "UQ calibration"}, {"id": "loss-balancing:scalability", "level": "indirect", "label": "indirect"}
+      ], "evidence": []
+    },
+    {
+      "id": "optimizer", "number": 11, "group": "training", "title": "Optimizer & LR strategy", "detail": "Adam, L-BFGS, hybrid, Newton, schedules, and related optimization choices", "concepts": [{"label": "Optimizers", "route": "optimizers/"}], "tradeoff": true,
+      "cells": [
+        {"id": "optimizer:accuracy", "level": "major", "label": "final accuracy"}, {"id": "optimizer:fidelity", "level": "indirect", "label": "indirect"}, {"id": "optimizer:trainability", "level": "major", "label": "convergence speed"}, {"id": "optimizer:cost", "level": "major", "label": "iterations / time"}, {"id": "optimizer:robustness", "level": "context", "label": "seed stability"}, {"id": "optimizer:identifiability", "level": "context", "label": "posterior quality"}, {"id": "optimizer:scalability", "level": "context", "label": "workflow cost"}
+      ], "evidence": []
+    },
+    {
+      "id": "training-strategy", "number": 12, "group": "training", "title": "Initialization / training strategy", "detail": "Pretraining, curriculum, continuation, causal training, and stabilization", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": true,
+      "cells": [
+        {"id": "training-strategy:accuracy", "level": "major", "label": "quality of solution"}, {"id": "training-strategy:fidelity", "level": "indirect", "label": "indirect"}, {"id": "training-strategy:trainability", "level": "major", "label": "stability / basin"}, {"id": "training-strategy:cost", "level": "major", "label": "training time"}, {"id": "training-strategy:robustness", "level": "major", "label": "seed invariance"}, {"id": "training-strategy:identifiability", "level": "context", "label": "uncertainty stability"}, {"id": "training-strategy:scalability", "level": "major", "label": "transfer potential"}
+      ], "evidence": []
+    },
+    {
+      "id": "decomposition", "number": 13, "group": "extension", "title": "Decomposition / parallelization", "detail": "Spatial, temporal, space-time, variable-wise, and other decompositions", "concepts": [{"label": "Architectures", "route": "architectures/"}], "tradeoff": true,
+      "cells": [
+        {"id": "decomposition:accuracy", "level": "major", "label": "local accuracy"}, {"id": "decomposition:fidelity", "level": "major", "label": "interface consistency"}, {"id": "decomposition:trainability", "level": "major", "label": "local convergence"}, {"id": "decomposition:cost", "level": "major", "label": "parallel efficiency"}, {"id": "decomposition:robustness", "level": "context", "label": "less overfitting"}, {"id": "decomposition:identifiability", "level": "indirect", "label": "indirect"}, {"id": "decomposition:scalability", "level": "major", "label": "scalability"}
+      ], "evidence": []
+    },
+    {
+      "id": "reuse-generalize", "number": 14, "group": "extension", "title": "Reuse / generalize", "detail": "Pretrained, enriched, amortized PINN, transfer / meta-learning, operator learning, and reduced order", "concepts": [{"label": "Architectures", "route": "architectures/"}], "tradeoff": true,
+      "cells": [
+        {"id": "reuse-generalize:accuracy", "level": "major", "label": "within training domain"}, {"id": "reuse-generalize:fidelity", "level": "context", "label": "physics retention"}, {"id": "reuse-generalize:trainability", "level": "major", "label": "amortized training"}, {"id": "reuse-generalize:cost", "level": "major", "label": "low online cost"}, {"id": "reuse-generalize:robustness", "level": "context", "label": "parameter / OOD generalization"}, {"id": "reuse-generalize:identifiability", "level": "indirect", "label": "UQ across queries"}, {"id": "reuse-generalize:scalability", "level": "major", "label": "reuse / amortization"}
+      ], "evidence": []
+    }
+  ]
+}

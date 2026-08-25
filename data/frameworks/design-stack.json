@@ -1,0 +1,143 @@
+{
+  "id": "design-stack",
+  "title": "PINN Design Stack & Feedback Loops",
+  "eyebrow": "Framework 01 · Design",
+  "description": "A ten-stage design architecture showing how upstream scientific choices constrain downstream realization and how validation evidence drives targeted redesign.",
+  "represents": "The stack organizes a PINN study as four coupled phases rather than as neural-network training alone. It begins with the physical problem and computational role, translates these into representation and physics-enforcement choices, realizes them numerically, and closes the loop through reliability-oriented evaluation.",
+  "interpretation": "The vertical path is a typical design sequence, not a universal recipe. Bidirectional phase links indicate strong interdependence, while evaluation feedback should return the workflow to the earliest plausible design cause. A redesign is accepted only after numerical, physical, robustness, uncertainty, and computational-cost checks improve.",
+  "filters": [
+    {"id": "all", "label": "All four phases"},
+    {"id": "problem-framing", "label": "I · Problem Framing"},
+    {"id": "formulation", "label": "II · PINN Formulation"},
+    {"id": "training", "label": "III · PINN Training"},
+    {"id": "reliability", "label": "IV · PINN Reliability"}
+  ],
+  "phases": [
+    {"id": "problem-framing", "roman": "I", "title": "Problem Framing", "summary": "Defines the scientific system, numerical demands, intended PINN role, and representation interface.", "stage_ids": ["physical-problem", "computational-role", "inputs-outputs"]},
+    {"id": "formulation", "roman": "II", "title": "PINN Formulation", "summary": "Defines the trainable approximation and how governing knowledge and differential operators are realized.", "stage_ids": ["representation", "physics-enforcement", "differentiation"]},
+    {"id": "training", "roman": "III", "title": "PINN Training", "summary": "Defines where objectives are enforced, how losses are balanced, and how optimization is performed.", "stage_ids": ["sampling", "loss", "optimization"]},
+    {"id": "reliability", "roman": "IV", "title": "PINN Reliability", "summary": "Determines whether the resulting model is numerically accurate, physically faithful, robust, efficient, and reusable.", "stage_ids": ["evaluation"]}
+  ],
+  "stages": [
+    {
+      "id": "physical-problem", "number": 1, "phase": "problem-framing", "title": "Physical Problem Definition", "subtitle": "Defines the physical system and its numerical demands",
+      "columns": [
+        {"title": "Physical system", "items": ["Governing equations (PDE / ODE / DAE / integral)", "Domain and geometry", "Boundary / initial conditions"]},
+        {"title": "Problem data", "items": ["Material / physical parameters", "Forcing / source terms", "Data availability", "Time dependence"]},
+        {"title": "Problem characteristics", "items": ["Steady / transient", "Linear / nonlinear", "Smooth / discontinuous", "Multiscale / stiff / high-dimensional"]}
+      ],
+      "summary": "The governing structure, geometry, conditions, scales, regularity, and available data determine every downstream design choice.",
+      "concepts": [{"label": "PINN Ecosystem · Problem definition", "route": "pinn-ecosystem/#layer-1"}], "related_frameworks": ["co-design:problem"], "evidence": []
+    },
+    {
+      "id": "computational-role", "number": 2, "phase": "problem-framing", "title": "Computational Role", "subtitle": "Defines the intended use of the PINN",
+      "columns": [
+        {"title": "Solution role", "items": ["Forward solution", "Inverse problem", "Parameter identification"]},
+        {"title": "Inference role", "items": ["State reconstruction", "PDE / system discovery", "Source / BC inference"]},
+        {"title": "Reusable role", "items": ["Surrogate modeling", "Operator learning", "Control / optimization", "Uncertainty quantification"]}
+      ],
+      "summary": "A PINN intended for forward solution, inverse recovery, discovery, control, or repeated queries requires different outputs, training data, and validation criteria.",
+      "concepts": [{"label": "PINN Ecosystem · Computational role", "route": "pinn-ecosystem/#layer-2"}], "related_frameworks": ["co-design:problem"], "evidence": []
+    },
+    {
+      "id": "inputs-outputs", "number": 3, "phase": "problem-framing", "title": "Inputs and Outputs", "subtitle": "Defines the representation interface",
+      "columns": [
+        {"title": "Inputs", "items": ["Coordinates (x, y, z, t)", "Physical parameters", "Geometry descriptors", "BC / IC descriptors"]},
+        {"title": "Additional inputs", "items": ["Observations / measurements", "Forcing / control variables", "Functional / field inputs", "Stochastic variables"]},
+        {"title": "Outputs", "items": ["Scalar / vector fields", "State variables", "Auxiliary variables", "Fluxes / stresses / derivatives", "Unknown coefficients", "Latent physical quantities", "Lagrange multipliers", "Constitutive variables"]}
+      ],
+      "summary": "Input and output choices define the model interface, dimensionality, state coverage, latent variables, and quantities available for physics enforcement.",
+      "concepts": [{"label": "PINN Ecosystem · Inputs and outputs", "route": "pinn-ecosystem/#layer-3"}], "related_frameworks": ["co-design:representation", "design-performance:inputs-outputs"], "evidence": []
+    },
+    {
+      "id": "representation", "number": 4, "phase": "formulation", "title": "Representation / Architecture", "subtitle": "Defines the trainable approximation model",
+      "columns": [
+        {"title": "Classical neural forms", "items": ["MLP / fully connected", "CNN / U-Net", "RNN / LSTM / GRU"]},
+        {"title": "Structured architectures", "items": ["GNN / graph networks", "Transformer / attention", "KAN / Kolmogorov-Arnold"]},
+        {"title": "Basis-rich forms", "items": ["Fourier features / FNO", "SIREN / sinusoidal / RBF", "Single- or multi-network structure"]}
+      ],
+      "summary": "The ansatz and basis determine approximation capacity, inductive bias, spectral behavior, derivative regularity, and optimization geometry.",
+      "concepts": [{"label": "Architectures", "route": "architectures/"}, {"label": "Activation Functions", "route": "activation-functions/"}], "related_frameworks": ["co-design:representation", "design-performance:architecture-basis", "design-performance:activation-features"], "evidence": []
+    },
+    {
+      "id": "physics-enforcement", "number": 5, "phase": "formulation", "title": "Physics Enforcement", "subtitle": "Defines how governing knowledge constrains the model",
+      "columns": [
+        {"title": "Formulation", "items": ["Strong-form residual (penalty)", "Weak / variational form", "Energy / integral formulation"]},
+        {"title": "Constraint mechanism", "items": ["Soft equality constraints", "Hard constraints (exact)", "Distance / function / trial solutions"]},
+        {"title": "Structure-aware enforcement", "items": ["Conservative / discrete enforcement", "Interface coupling conditions", "Constitutive / conservation laws"]}
+      ],
+      "summary": "Physics may enter through strong, weak, integral, hard, conservative, interface, or constitutive mechanisms with different admissibility and cost consequences.",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:physics", "design-performance:physics-enforcement"], "evidence": []
+    },
+    {
+      "id": "differentiation", "number": 6, "phase": "formulation", "title": "Differentiation and Residual Evaluation", "subtitle": "Defines how operators and derivatives are computed",
+      "columns": [
+        {"title": "Automatic differentiation", "items": ["Automatic differentiation (AD)", "Higher-order AD", "Finite-order reformulation"]},
+        {"title": "Hybrid numerical forms", "items": ["Numerical differentiation", "Mixed AD-numerical methods"]},
+        {"title": "Residual realization", "items": ["Auxiliary derivative outputs", "Time- / space-discrete residuals", "Discretization-aware / solver-in-loop"]}
+      ],
+      "summary": "Derivative order and operator realization control residual fidelity, gradient quality, memory, solver calls, and numerical stability.",
+      "concepts": [{"label": "PINN Ecosystem · Differentiation", "route": "pinn-ecosystem/#layer-5"}, {"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:numerical", "design-performance:differentiation"], "evidence": []
+    },
+    {
+      "id": "sampling", "number": 7, "phase": "training", "title": "Sampling / Collocation", "subtitle": "Defines where the loss is enforced",
+      "columns": [
+        {"title": "Constraint points", "items": ["Interior collocation points", "Boundary points", "Initial-condition points"]},
+        {"title": "Additional support", "items": ["Interface points", "Observation / data points", "Quadrature points"]},
+        {"title": "Sampling design", "items": ["Uniform / random / LHS / Sobol", "Adaptive / residual-based", "Geometry-aware / interface-aware", "Causal / dynamic resampling"]}
+      ],
+      "summary": "Collocation determines domain and constraint coverage and therefore which residual information enters the gradient.",
+      "concepts": [{"label": "Training · Sampling", "route": "training/"}, {"label": "PINN Ecosystem · Sampling", "route": "pinn-ecosystem/#sampling"}], "related_frameworks": ["co-design:numerical", "design-performance:sampling"], "evidence": []
+    },
+    {
+      "id": "loss", "number": 8, "phase": "training", "title": "Loss Construction and Balancing", "subtitle": "Defines the optimization objective",
+      "columns": [
+        {"title": "Physics losses", "items": ["PDE / ODE residual loss", "BC loss", "IC loss"]},
+        {"title": "Additional objectives", "items": ["Data / observation loss", "Interface loss", "Conservation / constitutive loss"]},
+        {"title": "Balancing", "items": ["Regularization terms", "Fixed weights", "Adaptive / dynamic weighting", "Gradient balancing / NTK / Augmented Lagrangian"]}
+      ],
+      "summary": "The composite objective couples data and physics; its scaling and competition determine signal quality, constraint balance, and convergence.",
+      "concepts": [{"label": "Training", "route": "training/"}, {"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:training", "design-performance:loss-formulation", "design-performance:loss-balancing"], "evidence": []
+    },
+    {
+      "id": "optimization", "number": 9, "phase": "training", "title": "Optimization and Training Strategy", "subtitle": "Defines how the objective is minimized",
+      "columns": [
+        {"title": "Optimizers", "items": ["Adam", "L-BFGS", "Hybrid Adam → L-BFGS", "Windowed / staged methods"]},
+        {"title": "Training controls", "items": ["Learning-rate schedules", "Initialization (Xavier, He, etc.)", "Full-batch / mini-batch"]},
+        {"title": "Extended strategies", "items": ["Pretraining / fine-tuning", "Curriculum / annealing", "Transfer / meta-learning", "Decomposition-based training", "Early stopping / regularization"]}
+      ],
+      "summary": "Optimizer sequence, learning rate, initialization, curricula, transfer, and stopping determine convergence speed and stability.",
+      "concepts": [{"label": "Optimizers", "route": "optimizers/"}, {"label": "Training", "route": "training/"}], "related_frameworks": ["co-design:training", "design-performance:optimizer", "design-performance:training-strategy"], "evidence": []
+    },
+    {
+      "id": "evaluation", "number": 10, "phase": "reliability", "title": "Evaluation and Validation", "subtitle": "Determines reliability and guides redesign",
+      "columns": [
+        {"title": "Numerical accuracy", "items": ["MSE, RMSE, MAE", "L₂, L∞, R²", "Residual error (PDE / BC / IC / interface)"]},
+        {"title": "Scientific reliability", "items": ["Physical fidelity (conservation, admissibility, stability)", "Robustness (noise, seeds, sparsity)"]},
+        {"title": "Decision relevance", "items": ["Inverse recovery quality", "Uncertainty calibration", "Computational cost (time, memory)", "Benchmark comparison"]}
+      ],
+      "summary": "Validation must combine solution error, residual diagnostics, physical fidelity, robustness, uncertainty, inverse recovery, computational cost, and benchmarks.",
+      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["co-design:reliability", "failure-diagnostics:verify"], "evidence": []
+    }
+  ],
+  "relationships": [
+    {"id": "flow-1-2", "type": "flow", "from": "physical-problem", "to": "computational-role", "label": "Problem definition constrains the intended role", "evidence": []},
+    {"id": "flow-2-3", "type": "flow", "from": "computational-role", "to": "inputs-outputs", "label": "Role determines the representation interface", "evidence": []},
+    {"id": "flow-3-4", "type": "flow", "from": "inputs-outputs", "to": "representation", "label": "Interface constrains architecture", "evidence": []},
+    {"id": "flow-4-5", "type": "flow", "from": "representation", "to": "physics-enforcement", "label": "Ansatz and physics must be compatible", "evidence": []},
+    {"id": "flow-5-6", "type": "flow", "from": "physics-enforcement", "to": "differentiation", "label": "Constraint form determines residual evaluation", "evidence": []},
+    {"id": "flow-6-7", "type": "flow", "from": "differentiation", "to": "sampling", "label": "Residual evaluation determines sampling cost and information", "evidence": []},
+    {"id": "flow-7-8", "type": "flow", "from": "sampling", "to": "loss", "label": "Point coverage determines the enforced objective", "evidence": []},
+    {"id": "flow-8-9", "type": "flow", "from": "loss", "to": "optimization", "label": "Loss geometry determines optimizer behavior", "evidence": []},
+    {"id": "flow-9-10", "type": "flow", "from": "optimization", "to": "evaluation", "label": "Training produces the candidate model to validate", "evidence": []},
+    {"id": "feedback-10-1", "type": "feedback", "from": "evaluation", "to": "physical-problem", "label": "Results may require redefining the problem", "evidence": []},
+    {"id": "feedback-10-2", "type": "feedback", "from": "evaluation", "to": "computational-role", "label": "Results may require redefining the PINN role", "evidence": []},
+    {"id": "feedback-10-3", "type": "feedback", "from": "evaluation", "to": "inputs-outputs", "label": "Poor performance may require changing outputs", "evidence": []},
+    {"id": "feedback-10-4", "type": "feedback", "from": "evaluation", "to": "representation", "label": "Poor performance may require changing architecture", "evidence": []},
+    {"id": "feedback-10-5", "type": "feedback", "from": "evaluation", "to": "physics-enforcement", "label": "Reformulate physics if constraints are not satisfied", "evidence": []},
+    {"id": "feedback-10-6", "type": "feedback", "from": "evaluation", "to": "differentiation", "label": "Reformulate differentiation if residual cost is high", "evidence": []},
+    {"id": "feedback-10-7", "type": "feedback", "from": "evaluation", "to": "sampling", "label": "Evaluation may motivate resampling", "evidence": []},
+    {"id": "feedback-10-8", "type": "feedback", "from": "evaluation", "to": "loss", "label": "Evaluation may motivate reweighting", "evidence": []},
+    {"id": "feedback-10-9", "type": "feedback", "from": "evaluation", "to": "optimization", "label": "Adjust optimizer, learning rate, initialization, or strategy", "evidence": []}
+  ]
+}

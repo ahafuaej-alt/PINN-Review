@@ -1,0 +1,112 @@
+{
+  "id": "co-design",
+  "title": "PINN Co-Design Framework",
+  "eyebrow": "Framework 02 · Interactions",
+  "description": "A coupled systems map showing why no representation, constraint, numerical, training, or reliability choice has an independent optimum.",
+  "represents": "PINN development is a coupled scientific-computing formulation. The physical problem and intended role define the demands; representation, physics, numerical realization, and training determine the achievable model; verification closes the system by testing accuracy, trainability, fidelity, cost, and reliability.",
+  "interpretation": "Changing one domain can alter several others. For example, an architectural change can modify derivative spectra, constraint form, sampling needs, loss conditioning, and optimizer behavior. Evaluation therefore diagnoses coupled design causes rather than ranking components in isolation.",
+  "filters": [
+    {"id": "all", "label": "All co-design domains"},
+    {"id": "problem", "label": "1 · Physical Problem & Role"},
+    {"id": "representation", "label": "2 · Representation"},
+    {"id": "physics", "label": "3 · Physics & Constraints"},
+    {"id": "numerical", "label": "4 · Numerical Realization"},
+    {"id": "training", "label": "5 · Training & Optimization"},
+    {"id": "reliability", "label": "6 · Verification & Reliability"}
+  ],
+  "core": {
+    "id": "core", "title": "PINN Co-Design", "subtitle": "Coupled scientific-computing formulation",
+    "outcomes": ["Accuracy", "Trainability", "Physical fidelity", "Computational cost", "Reliability"],
+    "summary": "The central formulation coordinates the scientific problem, neural approximation, constraint mechanism, numerical realization, optimization objective, and reliability criteria.",
+    "related_frameworks": ["design-stack", "design-performance", "failure-diagnostics"], "evidence": []
+  },
+  "domains": [
+    {
+      "id": "problem", "number": 1, "title": "Physical Problem & Computational Role", "position": "top",
+      "panels": [
+        {"title": "Physical system", "items": ["Governing operator (PDE / ODE / integral)", "Geometry / domain", "BCs / ICs / IFCs", "Material parameters", "Forcing / source terms", "Data availability"]},
+        {"title": "Problem characteristics", "items": ["Steady / transient", "Linear / nonlinear", "Smooth / discontinuous", "Stiff / multiscale", "High-dimensional", "Long-time behavior"]},
+        {"title": "Computational role", "items": ["Forward solution", "Inverse inference", "Parameter identification", "PDE / system discovery", "Surrogate modeling", "Operator learning", "Control / optimization", "Uncertainty quantification"]}
+      ],
+      "summary": "The governing structure, scales, regularity, geometry, data, and scientific objective set the co-design requirements.",
+      "concepts": [{"label": "PINN Ecosystem · Problem and role", "route": "pinn-ecosystem/#layer-1"}], "related_frameworks": ["design-stack:physical-problem", "design-stack:computational-role"], "evidence": []
+    },
+    {
+      "id": "representation", "number": 2, "title": "Representation", "position": "left",
+      "panels": [
+        {"title": "Inputs", "items": ["Coordinates (x, y, z, t)", "Physical parameters", "Geometry descriptors", "Time / frequency", "Observations"]},
+        {"title": "Outputs / state variables", "items": ["Scalar / vector fields", "Auxiliary variables", "Fluxes / stresses", "Unknown coefficients", "Latent quantities"]},
+        {"title": "Architectures", "items": ["MLP / fully connected", "CNN / U-Net", "GNN", "RNN / LSTM", "Transformer", "KAN"]},
+        {"title": "Activations / bases", "items": ["ReLU / Tanh / GELU", "Fourier features", "SIREN (sinusoidal)", "RBF / Gaussian", "Polynomial / wavelets"]},
+        {"title": "Structures", "items": ["Single-network", "Multi-network", "Parameterized / latent"]}
+      ],
+      "summary": "The ansatz controls state coverage, approximation capacity, inductive bias, regularity, conditioning, and transferability.",
+      "concepts": [{"label": "Architectures", "route": "architectures/"}, {"label": "Activation Functions", "route": "activation-functions/"}], "related_frameworks": ["design-stack:representation", "design-performance:architecture-basis"], "evidence": []
+    },
+    {
+      "id": "physics", "number": 3, "title": "Physics & Constraints", "position": "right",
+      "panels": [
+        {"title": "Physical content", "items": ["Governing equations", "BCs / ICs / IFCs", "Conservation laws", "Constitutive relations", "Symmetry / reciprocity", "Positivity / boundedness", "Entropy / admissibility"]},
+        {"title": "Enforcement mechanisms", "items": ["Strong-form (pointwise)", "Weak / variational form", "Integral / energy form", "Soft penalty (residual)", "Hard constraints", "Distance-function / trial-solution", "Conservative / discrete"]},
+        {"title": "Constraint types", "items": ["Equality", "Inequality", "Conservation", "Interface", "Constitutive"]}
+      ],
+      "summary": "Physical content and enforcement mechanisms determine admissibility, constraint coverage, conservation behavior, and residual structure.",
+      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["design-stack:physics-enforcement", "design-performance:physics-constraints"], "evidence": []
+    },
+    {
+      "id": "numerical", "number": 4, "title": "Numerical Realization", "position": "bottom-right",
+      "panels": [
+        {"title": "Differentiation", "items": ["Automatic differentiation", "Higher-order AD", "Numerical differentiation", "Mixed AD-numerical", "Spectral derivatives", "Closed-form gradients", "First-order reformulation", "Auxiliary derivative outputs"]},
+        {"title": "Residual evaluation", "items": ["Pointwise evaluation", "Quadrature / weak form", "Finite-difference", "Finite-volume", "Spectral / pseudo-spectral", "Time-discrete residuals", "Solver-in-the-loop / discretization-aware"]},
+        {"title": "Sampling / collocation", "items": ["Interior points", "Boundary points", "Initial-condition points", "Interface points", "Observation points", "Uniform / random", "LHS / Sobol", "Adaptive / residual-based", "Geometry-aware"]},
+        {"title": "Decomposition", "items": ["Spatial (domain)", "Temporal", "Space-time", "Physics-based (variable)"]}
+      ],
+      "summary": "Differentiation, residual evaluation, sampling, and decomposition determine gradient information, physical coverage, memory, and stability.",
+      "concepts": [{"label": "PINN Ecosystem · Numerical realization", "route": "pinn-ecosystem/#layer-5"}, {"label": "Training · Sampling", "route": "training/"}], "related_frameworks": ["design-stack:differentiation", "design-stack:sampling", "design-performance:differentiation", "design-performance:sampling"], "evidence": []
+    },
+    {
+      "id": "training", "number": 5, "title": "Training & Optimization", "position": "bottom-left",
+      "panels": [
+        {"title": "Objective components", "items": ["PDE / equation loss", "Data / observation loss", "BC / IC / IFC losses", "Interface loss", "Conservation / constitutive loss", "Regularization terms"]},
+        {"title": "Loss balancing", "items": ["Fixed weights", "Adaptive weights", "Gradient balancing", "NTK-based weighting", "Augmented Lagrangian", "Multi-objective treatment"]},
+        {"title": "Optimizers", "items": ["Adam (first-order)", "L-BFGS (quasi-Newton)", "Adam → L-BFGS (hybrid)", "K-FAC / Shampoo / others", "Second-order / curvature-aware"]},
+        {"title": "Training strategies", "items": ["Learning-rate schedules", "Initialization (Xavier, He, etc.)", "Curriculum / continuation", "Pretraining / fine-tuning", "Transfer / meta-learning", "Early stopping / stabilization"]}
+      ],
+      "summary": "The objective and its optimization depend jointly on physics, data, sampling, architecture, scaling, and conditioning.",
+      "concepts": [{"label": "Training", "route": "training/"}, {"label": "Optimizers", "route": "optimizers/"}], "related_frameworks": ["design-stack:loss", "design-stack:optimization", "design-performance:loss-balancing"], "evidence": []
+    },
+    {
+      "id": "reliability", "number": 6, "title": "Verification & Reliability", "position": "bottom",
+      "panels": [
+        {"title": "Numerical accuracy", "items": ["Relative error (L₂, L∞)", "RMSE / MAE", "Local / pointwise error", "Parameter error"]},
+        {"title": "Physical fidelity", "items": ["PDE residual error", "BC / IC satisfaction", "Conservation / flux balance", "Constitutive consistency", "Physical admissibility"]},
+        {"title": "Robustness", "items": ["Multiple random seeds", "Noise sensitivity", "Sparse / missing data", "OOD / extrapolation", "Long-time stability"]},
+        {"title": "Uncertainty & efficiency", "items": ["Uncertainty calibration", "Coverage / reliability", "Identifiability / correlation", "Training time (wall-clock)", "Inference time", "Memory / FLOPs / scaling"]}
+      ],
+      "summary": "Reliability requires complementary numerical, physical, robustness, uncertainty, identifiability, and efficiency checks.",
+      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["design-stack:evaluation", "failure-diagnostics:verify"], "evidence": []
+    }
+  ],
+  "relationships": [
+    {"id": "problem-representation", "type": "coupling", "from": "problem", "to": "representation", "label": "regularity · scale · geometry · data", "evidence": []},
+    {"id": "representation-problem", "type": "coupling", "from": "representation", "to": "problem", "label": "state variables & solution regularity", "evidence": []},
+    {"id": "problem-physics", "type": "coupling", "from": "problem", "to": "physics", "label": "governing structure & objectives", "evidence": []},
+    {"id": "problem-core", "type": "coupling", "from": "problem", "to": "core", "label": "operator order · scales · boundary information", "evidence": []},
+    {"id": "representation-core", "type": "coupling", "from": "representation", "to": "core", "label": "ansatz affects constraint form", "evidence": []},
+    {"id": "core-representation", "type": "coupling", "from": "core", "to": "representation", "label": "conditioning · spectral bias · approximation capacity", "evidence": []},
+    {"id": "physics-core", "type": "coupling", "from": "physics", "to": "core", "label": "physics determines residual form", "evidence": []},
+    {"id": "core-physics", "type": "coupling", "from": "core", "to": "physics", "label": "constraints shape objective", "evidence": []},
+    {"id": "physics-numerical", "type": "coupling", "from": "physics", "to": "numerical", "label": "derivative order · continuity · conservation", "evidence": []},
+    {"id": "numerical-core", "type": "coupling", "from": "numerical", "to": "core", "label": "sampling influences gradient information", "evidence": []},
+    {"id": "core-numerical", "type": "coupling", "from": "core", "to": "numerical", "label": "computational cost · memory · stability", "evidence": []},
+    {"id": "training-core", "type": "coupling", "from": "training", "to": "core", "label": "objective depends on physics & data", "evidence": []},
+    {"id": "core-training", "type": "coupling", "from": "core", "to": "training", "label": "optimizer performance depends on sampling & loss conditioning", "evidence": []},
+    {"id": "representation-training", "type": "coupling", "from": "representation", "to": "training", "label": "architecture affects conditioning", "evidence": []},
+    {"id": "core-reliability", "type": "coupling", "from": "core", "to": "reliability", "label": "verify every co-design outcome", "evidence": []},
+    {"id": "reliability-problem", "type": "feedback", "from": "reliability", "to": "problem", "label": "poor reliability prompts problem or role redesign", "evidence": []},
+    {"id": "reliability-representation", "type": "feedback", "from": "reliability", "to": "representation", "label": "stagnation · imbalance · overfitting · instability", "evidence": []},
+    {"id": "reliability-physics", "type": "feedback", "from": "reliability", "to": "physics", "label": "constraint or admissibility failure", "evidence": []},
+    {"id": "reliability-numerical", "type": "feedback", "from": "reliability", "to": "numerical", "label": "poor accuracy or conservation prompts resampling / reformulation", "evidence": []},
+    {"id": "reliability-training", "type": "feedback", "from": "reliability", "to": "training", "label": "training diagnostics prompt loss or optimizer redesign", "evidence": []}
+  ]
+}
