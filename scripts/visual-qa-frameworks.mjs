@@ -66,6 +66,7 @@ try {
       assert(snapshot.objectCount === route.objects[1], `${route.id}/${viewport.name}: expected ${route.objects[1]} objects, found ${snapshot.objectCount}.`);
       assert(snapshot.navFrameworkChildren === 5, `${route.id}/${viewport.name}: Frameworks navigator does not contain five children.`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete (zoom ${snapshot.zoomText || 'missing'}, ${snapshot.filterOptions} filter options).`);
+      if (viewport.width >= 1050) assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
       if (route.relations) assert(snapshot.relationCount === route.relations, `${route.id}/${viewport.name}: expected ${route.relations} relationships, found ${snapshot.relationCount}.`);
       if (route.id === 'design-stack') assert(snapshot.feedbackCount === 9, `${route.id}/${viewport.name}: nine redesign loops are not rendered.`);
       if (route.id === 'co-design') assert(snapshot.corePresent, `${route.id}/${viewport.name}: central co-design core is missing.`);
@@ -73,7 +74,6 @@ try {
         assert(snapshot.cellCount === route.cells && snapshot.columnCount === 7, `${route.id}/${viewport.name}: matrix is not 14 × 7.`);
         const sizes = new Set(snapshot.markerSizes.map((size) => size.join('×')));
         assert(sizes.size === 1 && sizes.has('13×13'), `${route.id}/${viewport.name}: influence markers are not uniformly 13 × 13 (${[...sizes].join(', ')}).`);
-        if (viewport.width >= 1050) assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: complete matrix does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
       }
       if (route.categories) assert(snapshot.categoryCount === route.categories && snapshot.verifyPresent, `${route.id}/${viewport.name}: diagnostic categories or verification loop are incomplete.`);
       assert(errors.length === 0, `${route.id}/${viewport.name}: browser errors: ${errors.join(' | ')}`);
