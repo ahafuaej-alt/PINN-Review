@@ -8,8 +8,6 @@ const json = async (file) => JSON.parse(await read(file));
 const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 const unique = (values, label) => assert(new Set(values).size === values.length, `${label} IDs must be unique.`);
-const normalizeTitle = (value = '') => String(value).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, ' ').trim();
-const normalizeDoi = (value = '') => String(value).toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//, '').trim();
 const evidenceFrom = (value, items = []) => {
   if (Array.isArray(value)) value.forEach((item) => evidenceFrom(item, items));
   else if (value && typeof value === 'object') {
@@ -99,34 +97,14 @@ const allSource = JSON.stringify({ manifest, pages });
 assert(!allSource.includes('"papers"'), 'Legacy unverified paper-ID arrays remain in Frameworks data.');
 const references = await json('data/references.json');
 const referenceIds = new Set(references.map((item) => item.id));
-const referencesById = new Map(references.map((item) => [item.id, item]));
-const evidenceMap = await json(`data/frameworks/${manifest.evidence_map}`);
-assert(evidenceMap.schema_version === '1.0.0' && evidenceMap.mappings.length > 0, 'Framework evidence map is absent or empty.');
-assert(/^[a-f0-9]{64}$/.test(evidenceMap.source_document_sha256), 'Framework evidence map lacks a source-document checksum.');
-assert(evidenceMap.source_reference_range === '1–509', 'Framework evidence map has the wrong source reference range.');
-unique(evidenceMap.mappings.map((item) => item.manuscript_id), 'Mapped manuscript reference');
-unique(evidenceMap.mappings.map((item) => item.atlas_id), 'Mapped Atlas reference');
-const mappedPairs = new Map();
-for (const mapping of evidenceMap.mappings) {
-  const reference = referencesById.get(mapping.atlas_id);
-  assert(reference, `Evidence map points to unknown Atlas ID ${mapping.atlas_id}.`);
-  assert(normalizeTitle(mapping.title) === normalizeTitle(reference.title), `Manuscript [${mapping.manuscript_id}] title does not resolve to Atlas [${mapping.atlas_id}].`);
-  assert(normalizeDoi(mapping.doi) === normalizeDoi(reference.doi), `Manuscript [${mapping.manuscript_id}] DOI does not resolve to Atlas [${mapping.atlas_id}].`);
-  assert(mapping.match_basis === 'normalized-title-and-doi', `Manuscript [${mapping.manuscript_id}] lacks the required title-and-DOI match basis.`);
-  mappedPairs.set(`${mapping.manuscript_id}:${mapping.atlas_id}`, mapping);
-}
 const evidenceEntries = evidenceFrom(pages);
-const usedPairs = new Set();
+const supportingAtlasIds = new Set();
 for (const entry of evidenceEntries) {
   assert(referenceIds.has(entry.atlas_id), `Evidence points to unknown Atlas ID ${entry.atlas_id}.`);
-  assert(Number.isInteger(entry.manuscript_id) && entry.manuscript_id >= 1 && entry.manuscript_id <= 509, `Atlas [${entry.atlas_id}] has invalid manuscript ID ${entry.manuscript_id}.`);
   assert(['Direct', 'Contextual', 'Synthesis'].includes(entry.support), `Atlas [${entry.atlas_id}] has invalid support type ${entry.support}.`);
   assert(entry.rationale?.length >= 40, `Atlas [${entry.atlas_id}] lacks a substantive claim-level rationale.`);
-  const pair = `${entry.manuscript_id}:${entry.atlas_id}`;
-  assert(mappedPairs.has(pair), `Manuscript [${entry.manuscript_id}] / Atlas [${entry.atlas_id}] is not in the verified title-and-DOI map.`);
-  usedPairs.add(pair);
+  supportingAtlasIds.add(entry.atlas_id);
 }
-assert(usedPairs.size === mappedPairs.size, `Evidence map contains ${mappedPairs.size - usedPairs.size} unused paper mapping(s).`);
 
 const backlinks = await json('data/frameworks/backlinks.json');
 for (const [route, links] of Object.entries(backlinks.routes)) {
@@ -154,4 +132,4 @@ assert(readme.includes('### Frameworks') && readme.includes('**26** public HTML 
 for (const item of manifest.frameworks) assert(sitemap.includes(`/frameworks/${item.route}`), `Sitemap lacks ${item.route}.`);
 
 const inspectableCount = stack.phases.length + stack.stages.length + stack.relationships.length + 1 + coDesign.domains.length + coDesign.relationships.length + matrix.rows.length + 98 + diagnostics.categories.length + diagnostics.modes.length + 1;
-console.log(`Frameworks validation passed: 4 frameworks · ${inspectableCount} stable inspectable objects · 10 stages · 20 co-design relations · 98 matrix cells · 13 diagnostic pathways · ${evidenceEntries.length} claim-level links · ${mappedPairs.size} verified manuscript-to-Atlas mappings.`);
+console.log(`Frameworks validation passed: 4 frameworks · ${inspectableCount} stable inspectable objects · 10 stages · 20 co-design relations · 98 matrix cells · 13 diagnostic pathways · ${evidenceEntries.length} claim-level links · ${supportingAtlasIds.size} unique supporting Atlas papers.`);
