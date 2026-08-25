@@ -65,7 +65,7 @@ try {
       assert(snapshot.bodyWidth <= snapshot.viewportWidth + 1, `${route.id}/${viewport.name}: body overflows (${snapshot.bodyWidth} > ${snapshot.viewportWidth}).`);
       assert(snapshot.objectCount === route.objects[1], `${route.id}/${viewport.name}: expected ${route.objects[1]} objects, found ${snapshot.objectCount}.`);
       assert(snapshot.navFrameworkChildren === 5, `${route.id}/${viewport.name}: Frameworks navigator does not contain five children.`);
-      assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete.`);
+      assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete (zoom ${snapshot.zoomText || 'missing'}, ${snapshot.filterOptions} filter options).`);
       if (route.relations) assert(snapshot.relationCount === route.relations, `${route.id}/${viewport.name}: expected ${route.relations} relationships, found ${snapshot.relationCount}.`);
       if (route.id === 'design-stack') assert(snapshot.feedbackCount === 9, `${route.id}/${viewport.name}: nine redesign loops are not rendered.`);
       if (route.id === 'co-design') assert(snapshot.corePresent, `${route.id}/${viewport.name}: central co-design core is missing.`);

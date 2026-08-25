@@ -284,7 +284,8 @@
     const filter = params.get('filter');
     state.filter = page.filters.some((item) => item.id === filter) ? filter : 'all';
     state.query = params.get('q') || '';
-    const zoom = Number(params.get('zoom'));
+    const zoomParam = params.get('zoom');
+    const zoom = zoomParam === null || zoomParam.trim() === '' ? Number.NaN : Number(zoomParam);
     state.zoom = Number.isFinite(zoom) ? Math.min(2.2, Math.max(0.75, zoom)) : 1;
   }
 
