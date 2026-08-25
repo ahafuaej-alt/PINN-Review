@@ -163,7 +163,8 @@ assert(chromium, 'Unable to load Chromium from the configured Playwright module.
 
 const browser = await chromium.launch({ executablePath, headless: true, args: ['--no-sandbox'] });
 const viewports = [
-  { name: 'wide-desktop', width: 1800, height: 1000, compact: false },
+  { name: 'ultra-wide-desktop', width: 2200, height: 1100, compact: false },
+  { name: 'wide-desktop', width: 1800, height: 1000, compact: true },
   { name: 'compact-desktop', width: 1440, height: 1000, compact: true },
   { name: 'mobile', width: 390, height: 844, compact: true }
 ];

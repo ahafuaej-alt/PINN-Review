@@ -395,8 +395,8 @@
       .atlas-nav-primary-link { white-space: nowrap; }
       .atlas-nav-external { color: var(--faint) !important; }
 
-      @media (min-width: 1701px) {
-        .nav { width: min(calc(100% - 2rem), 1540px) !important; gap: .55rem !important; }
+      @media (min-width: 2001px) {
+        .nav { width: min(calc(100% - 2rem), 2040px) !important; gap: .55rem !important; }
         .nav-toggle { display: none !important; }
         .nav-links.atlas-global-nav {
           position: static !important; inset: auto !important; display: flex !important;
@@ -410,7 +410,7 @@
         .atlas-nav-group.open > .atlas-nav-dropdown { display: grid; }
       }
 
-      @media (max-width: 1700px) {
+      @media (max-width: 2000px) {
         .nav-toggle { display: inline-grid !important; place-items: center !important; }
         .nav-links.atlas-global-nav {
           position: absolute !important; top: 64px !important; left: 1rem !important; right: 1rem !important;
