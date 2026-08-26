@@ -54,16 +54,6 @@
         {
           "label": "Architectures",
           "href": "architectures/"
-        },
-        {
-          "label": "Activation Explorer · Fourier feature mapping",
-          "href": "activation-functions/?activation=fourier_feature_mapping#activation-fourier_feature_mapping",
-          "primary": false
-        },
-        {
-          "label": "Mathematical Formulations · F052",
-          "href": "mathematical-formulations/#F052",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -91,71 +81,9 @@
           "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
           "href": "frameworks/failure-diagnostics/#item=spectral-bias",
           "context": "Framework"
-        },
-        {
-          "label": "Activation Explorer · Fourier feature mapping",
-          "href": "activation-functions/?activation=fourier_feature_mapping#activation-fourier_feature_mapping",
-          "context": "Activation function"
-        },
-        {
-          "label": "PINN Ecosystem · Architecture",
-          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
-          "context": "Activation function"
-        },
-        {
-          "label": "Architectures",
-          "href": "architectures/",
-          "context": "Activation function"
-        },
-        {
-          "label": "Paper-level activation records",
-          "href": "activation-functions/?activation=fourier_feature_mapping"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
-        },
-        {
-          "label": "Mathematical Formulations · F052",
-          "href": "mathematical-formulations/#F052",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Architecture",
-          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
-          "context": "Formulation"
-        },
-        {
-          "label": "Architectures",
-          "href": "architectures/",
-          "context": "Formulation"
-        },
-        {
-          "label": "Activation Explorer · Fourier feature mapping",
-          "href": "activation-functions/?activation=fourier_feature_mapping#activation-fourier_feature_mapping",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Activation Function",
-          "href": "pinn-ecosystem/?group=activation-function&item=activation-function-fourier-based-activation-features-4",
-          "context": "Ecosystem element"
-        },
-        {
-          "label": "PINN Ecosystem · Neural Architecture / Approximation Model",
-          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model&item=neural-architecture-approximation-model-fourier-feature-networks-4",
-          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 2,
-      "sameConceptRecords": [
-        "activation:fourier-feature-mapping",
-        "formulation:f052"
-      ],
-      "contextRecords": [
-        "ecosystem:activation-function-fourier-based-activation-features-4",
-        "ecosystem:neural-architecture-approximation-model-fourier-feature-networks-4"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "architecture:siren",
@@ -175,11 +103,6 @@
         {
           "label": "Activation Functions · sine",
           "href": "activation-functions/?activation=sine"
-        },
-        {
-          "label": "Mathematical Formulations · F053",
-          "href": "mathematical-formulations/#F053",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -202,35 +125,9 @@
           "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
           "href": "frameworks/failure-diagnostics/#item=spectral-bias",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F053",
-          "href": "mathematical-formulations/#F053",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Architecture",
-          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
-          "context": "Formulation"
-        },
-        {
-          "label": "Activation Functions · sine",
-          "href": "activation-functions/?activation=sine",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Neural Architecture / Approximation Model",
-          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model&item=neural-architecture-approximation-model-siren-3",
-          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 2,
-      "sameConceptRecords": [
-        "formulation:f053"
-      ],
-      "contextRecords": [
-        "ecosystem:neural-architecture-approximation-model-siren-3"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "ecosystem:collocation-sampling",
@@ -626,11 +523,6 @@
           "label": "Mathematical Formulations · variational physics",
           "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
           "primary": true
-        },
-        {
-          "label": "Mathematical Formulations · F031",
-          "href": "mathematical-formulations/#F031",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -653,30 +545,9 @@
           "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
           "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F031",
-          "href": "mathematical-formulations/#F031",
-          "context": "Formulation"
-        },
-        {
-          "label": "Mathematical Formulations · variational physics",
-          "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Physics-Enforcement Mechanism",
-          "href": "pinn-ecosystem/?group=physics-enforcement-mechanism&item=physics-enforcement-mechanism-variational-formulation-3",
-          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 3,
-      "sameConceptRecords": [
-        "formulation:f031"
-      ],
-      "contextRecords": [
-        "ecosystem:physics-enforcement-mechanism-variational-formulation-3"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "formulation:weak-form",
@@ -693,11 +564,6 @@
           "label": "Mathematical Formulations · weak and variational physics",
           "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
           "primary": true
-        },
-        {
-          "label": "Mathematical Formulations · F028",
-          "href": "mathematical-formulations/#F028",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -720,42 +586,9 @@
           "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
           "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F028",
-          "href": "mathematical-formulations/#F028",
-          "context": "Formulation"
-        },
-        {
-          "label": "Mathematical Formulations · weak and variational physics",
-          "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Physics-Enforcement Mechanism",
-          "href": "pinn-ecosystem/?group=physics-enforcement-mechanism&item=physics-enforcement-mechanism-weak-form-2",
-          "context": "Ecosystem element"
-        },
-        {
-          "label": "Mathematical Formulations · F029",
-          "href": "mathematical-formulations/#F029",
-          "context": "Formulation"
-        },
-        {
-          "label": "Mathematical Formulations · F030",
-          "href": "mathematical-formulations/#F030",
-          "context": "Formulation"
         }
       ],
-      "evidenceCount": 3,
-      "sameConceptRecords": [
-        "formulation:f028"
-      ],
-      "contextRecords": [
-        "ecosystem:physics-enforcement-mechanism-weak-form-2",
-        "formulation:f029",
-        "formulation:f030"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "method:automatic-differentiation",
@@ -775,11 +608,6 @@
         {
           "label": "Mathematical Formulations · differentiation",
           "href": "mathematical-formulations/#d-reformulated-states-differentiation-and-approximation-bases"
-        },
-        {
-          "label": "Mathematical Formulations · F011",
-          "href": "mathematical-formulations/#F011",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -802,32 +630,9 @@
           "label": "PINN Design–Performance Dependency Matrix · Differentiation / operator evaluation",
           "href": "frameworks/design-performance/#item=differentiation",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F011",
-          "href": "mathematical-formulations/#F011",
-          "context": "Formulation"
-        },
-        {
-          "label": "PINN Ecosystem · Differential-Operator Evaluation",
-          "href": "pinn-ecosystem/?group=differentiation-differential-operator-evaluation",
-          "context": "Formulation"
-        },
-        {
-          "label": "Mathematical Formulations · differentiation",
-          "href": "mathematical-formulations/#d-reformulated-states-differentiation-and-approximation-bases",
-          "context": "Formulation"
-        },
-        {
-          "label": "Canonical concept · AD",
-          "href": "pinn-ecosystem/?group=differentiation-differential-operator-evaluation&item=differentiation-differential-operator-evaluation-ad-1",
-          "context": "Canonical concept"
         }
       ],
-      "evidenceCount": 3,
-      "sameConceptRecords": [
-        "formulation:f011"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "metric:mae",
@@ -843,11 +648,6 @@
           "label": "Metric Explorer · Mean absolute error (MAE)",
           "href": "performance-metrics/?metric=mean_absolute_error#metric-mean_absolute_error",
           "primary": true
-        },
-        {
-          "label": "Mathematical Formulations · F108",
-          "href": "mathematical-formulations/#F108",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -859,27 +659,9 @@
           "label": "PINN Design Stack & Feedback Loops · Mean absolute error (MAE)",
           "href": "frameworks/design-stack/#item=item-evaluation-mean-absolute-error-mae",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F108",
-          "href": "mathematical-formulations/#F108",
-          "context": "Formulation"
-        },
-        {
-          "label": "Metric Explorer · Mean absolute error (MAE)",
-          "href": "performance-metrics/?metric=mean_absolute_error#metric-mean_absolute_error",
-          "context": "Formulation"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 5,
-      "sameConceptRecords": [
-        "formulation:f108"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "metric:mse",
@@ -906,11 +688,6 @@
           "label": "PINN Design Stack & Feedback Loops · Mean squared error (MSE)",
           "href": "frameworks/design-stack/#item=item-evaluation-mean-squared-error-mse",
           "context": "Framework"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
       "evidenceCount": 0
@@ -940,11 +717,6 @@
           "label": "PINN Design Stack & Feedback Loops · Coefficient of determination (R²)",
           "href": "frameworks/design-stack/#item=item-evaluation-coefficient-of-determination-r",
           "context": "Framework"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
       "evidenceCount": 0
@@ -962,11 +734,6 @@
           "label": "Metric Explorer · Relative L2 error",
           "href": "performance-metrics/?metric=relative_l2_error#metric-relative_l2_error",
           "primary": true
-        },
-        {
-          "label": "Mathematical Formulations · F106",
-          "href": "mathematical-formulations/#F106",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -993,27 +760,9 @@
           "label": "PINN Failure-Mode Diagnostics · Verify improvement",
           "href": "frameworks/failure-diagnostics/#item=verify",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F106",
-          "href": "mathematical-formulations/#F106",
-          "context": "Formulation"
-        },
-        {
-          "label": "Metric Explorer · Relative L2 error",
-          "href": "performance-metrics/?metric=relative_l2_error#metric-relative_l2_error",
-          "context": "Formulation"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 9,
-      "sameConceptRecords": [
-        "formulation:f106"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "metric:rmse",
@@ -1029,11 +778,6 @@
           "label": "Metric Explorer · Root mean squared error (RMSE)",
           "href": "performance-metrics/?metric=root_mean_squared_error#metric-root_mean_squared_error",
           "primary": true
-        },
-        {
-          "label": "Mathematical Formulations · F107",
-          "href": "mathematical-formulations/#F107",
-          "primary": false
         }
       ],
       "appearsIn": [
@@ -1060,27 +804,9 @@
           "label": "PINN Failure-Mode Diagnostics · Verify improvement",
           "href": "frameworks/failure-diagnostics/#item=verify",
           "context": "Framework"
-        },
-        {
-          "label": "Mathematical Formulations · F107",
-          "href": "mathematical-formulations/#F107",
-          "context": "Formulation"
-        },
-        {
-          "label": "Metric Explorer · Root mean squared error (RMSE)",
-          "href": "performance-metrics/?metric=root_mean_squared_error#metric-root_mean_squared_error",
-          "context": "Formulation"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 6,
-      "sameConceptRecords": [
-        "formulation:f107"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "optimizer:adam",
@@ -1132,22 +858,9 @@
           "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
           "href": "frameworks/failure-diagnostics/#item=stagnation",
           "context": "Framework"
-        },
-        {
-          "label": "PINN Ecosystem · Optimizer",
-          "href": "pinn-ecosystem/?group=optimizer&item=optimizer-adam-4",
-          "context": "Ecosystem element"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 0,
-      "contextRecords": [
-        "ecosystem:optimizer-adam-4"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "optimizer:lbfgs",
@@ -1200,22 +913,9 @@
           "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
           "href": "frameworks/failure-diagnostics/#item=stagnation",
           "context": "Framework"
-        },
-        {
-          "label": "PINN Ecosystem · Optimizer",
-          "href": "pinn-ecosystem/?group=optimizer&item=optimizer-l-bfgs-1",
-          "context": "Ecosystem element"
-        },
-        {
-          "label": "References · Paper Technical Details",
-          "href": "references/",
-          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 0,
-      "contextRecords": [
-        "ecosystem:optimizer-l-bfgs-1"
-      ]
+      "evidenceCount": 0
     },
     {
       "id": "page:activation-functions",
@@ -1882,17 +1582,9 @@
           "label": "PINN Failure-Mode Diagnostics · Poor collocation / sampling coverage",
           "href": "frameworks/failure-diagnostics/#item=poor-sampling",
           "context": "Framework"
-        },
-        {
-          "label": "PINN Ecosystem · Collocation / Sampling",
-          "href": "pinn-ecosystem/?group=collocation-sampling&item=collocation-sampling-sobol-sampling-5",
-          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 0,
-      "contextRecords": [
-        "ecosystem:collocation-sampling-sobol-sampling-5"
-      ]
+      "evidenceCount": 0
     }
   ],
   "autoLink": [
@@ -1969,119 +1661,5 @@
       ]
     }
   ],
-  "totalConcepts": 2509,
-  "semanticMapping": {
-    "schemaVersion": "1.0.0",
-    "updated": "2026-08-26",
-    "sameConceptCount": 28,
-    "contextOnlyCount": 86,
-    "keepSeparateCount": 21
-  },
-  "keepSeparate": [
-    {
-      "left": "metric:rmse",
-      "right": "metric:mse",
-      "reason": "RMSE and MSE are different metrics with different scale and mathematical definitions."
-    },
-    {
-      "left": "formulation:weak-form",
-      "right": "formulation:variational-form",
-      "reason": "Weak and variational formulations can overlap in some methods but are not universally identical concepts."
-    },
-    {
-      "left": "architecture:siren",
-      "right": "activation:sine",
-      "reason": "SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."
-    },
-    {
-      "left": "architecture:siren",
-      "right": "activation:siren",
-      "reason": "The activation taxonomy's SIREN-style sinusoidal activation is a component record, while SIREN itself is an architecture/representation."
-    },
-    {
-      "left": "method:automatic-differentiation",
-      "right": "formulation:f042",
-      "reason": "F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."
-    },
-    {
-      "left": "activation:adaptive-swish",
-      "right": "activation:swish",
-      "reason": "Adaptive Swish has trainable/adaptive behavior and is not identical to fixed Swish."
-    },
-    {
-      "left": "activation:leaky-relu",
-      "right": "activation:leaky-relu-alpha-0-1",
-      "reason": "Generic Leaky ReLU must remain distinct from the slope-0.1 parameterized variant."
-    },
-    {
-      "left": "activation:leaky-relu",
-      "right": "activation:leaky-relu-alpha-0-2",
-      "reason": "Generic Leaky ReLU must remain distinct from the alpha-0.2 parameterized variant."
-    },
-    {
-      "left": "activation:leaky-relu-alpha-0-1",
-      "right": "activation:leaky-relu-alpha-0-2",
-      "reason": "Different negative-slope parameterizations are distinct activation records."
-    },
-    {
-      "left": "ecosystem:activation-function-leaky-relu-4",
-      "right": "activation:leaky-relu-alpha-0-1",
-      "reason": "The generic Ecosystem item does not specify the slope-0.1 variant."
-    },
-    {
-      "left": "ecosystem:activation-function-leaky-relu-4",
-      "right": "activation:leaky-relu-alpha-0-2",
-      "reason": "The generic Ecosystem item does not specify the alpha-0.2 variant."
-    },
-    {
-      "left": "ecosystem:activation-function-swish-2",
-      "right": "activation:adaptive-swish",
-      "reason": "The generic Ecosystem Swish item does not imply adaptive Swish."
-    },
-    {
-      "left": "ecosystem:activation-function-siren-3",
-      "right": "architecture:siren",
-      "reason": "This Ecosystem object is explicitly in the activation-function group, not the architecture group."
-    },
-    {
-      "left": "ecosystem:neural-architecture-approximation-model-siren-3",
-      "right": "activation:siren",
-      "reason": "This Ecosystem object is explicitly in the neural-architecture group, not the activation taxonomy identity."
-    },
-    {
-      "left": "formulation:f053",
-      "right": "activation:siren",
-      "reason": "F053 formulates the SIREN representation network, not merely its sinusoidal activation component."
-    },
-    {
-      "left": "formulation:f109",
-      "right": "metric:maximum-absolute-error",
-      "reason": "Vector L-infinity error and scalar maximum absolute error can coincide in scalar cases but are not universally identical definitions."
-    },
-    {
-      "left": "formulation:f111",
-      "right": "metric:pde-residual-mse",
-      "reason": "Physics-residual RMS and PDE-residual MSE differ by the square-root operation and must remain separate."
-    },
-    {
-      "left": "formulation:f112",
-      "right": "metric:mass-conservation-error",
-      "reason": "A generic conservation imbalance is not identical to a mass-specific conservation error."
-    },
-    {
-      "left": "formulation:f112",
-      "right": "metric:energy-conservation-error",
-      "reason": "A generic conservation imbalance is not identical to an energy-specific conservation error."
-    },
-    {
-      "left": "formulation:f112",
-      "right": "metric:momentum-conservation-error",
-      "reason": "A generic conservation imbalance is not identical to a momentum-specific conservation error."
-    },
-    {
-      "left": "formulation:f114",
-      "right": "ecosystem:evaluation-speedup-9",
-      "reason": "Accuracy-matched speedup is a specialized measure with an accuracy threshold, whereas generic speedup is broader."
-    }
-  ]
+  "totalConcepts": 2509
 }

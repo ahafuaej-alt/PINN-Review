@@ -1430,8 +1430,7 @@
       "objectId": "formulation:f004",
       "claim": "Interface conditions",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:physical-constraints-interface-conditions-4"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:179",
@@ -1439,8 +1438,7 @@
       "objectId": "formulation:f004",
       "claim": "Interface conditions",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:physical-constraints-interface-conditions-4"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:180",
@@ -1448,8 +1446,7 @@
       "objectId": "formulation:f004",
       "claim": "Interface conditions",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:physical-constraints-interface-conditions-4"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:181",
@@ -1577,8 +1574,7 @@
       "objectId": "formulation:f009",
       "claim": "Multilayer-perceptron realization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-multilayer-perceptron-mlp-2"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:197",
@@ -1586,8 +1582,7 @@
       "objectId": "formulation:f009",
       "claim": "Multilayer-perceptron realization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-multilayer-perceptron-mlp-2"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:198",
@@ -1595,8 +1590,7 @@
       "objectId": "formulation:f009",
       "claim": "Multilayer-perceptron realization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-multilayer-perceptron-mlp-2"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:199",
@@ -1604,8 +1598,7 @@
       "objectId": "formulation:f009",
       "claim": "Multilayer-perceptron realization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-multilayer-perceptron-mlp-2"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:200",
@@ -1645,8 +1638,7 @@
       "objectId": "formulation:f011",
       "claim": "Automatic-differentiation derivative",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "method:automatic-differentiation"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:205",
@@ -1654,8 +1646,7 @@
       "objectId": "formulation:f011",
       "claim": "Automatic-differentiation derivative",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "method:automatic-differentiation"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:206",
@@ -1663,8 +1654,7 @@
       "objectId": "formulation:f011",
       "claim": "Automatic-differentiation derivative",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "method:automatic-differentiation"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:207",
@@ -1744,8 +1734,7 @@
       "objectId": "formulation:f015",
       "claim": "Boundary-condition loss",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-boundary-condition-loss-5"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:217",
@@ -1753,8 +1742,7 @@
       "objectId": "formulation:f015",
       "claim": "Boundary-condition loss",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-boundary-condition-loss-5"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:218",
@@ -1762,8 +1750,7 @@
       "objectId": "formulation:f015",
       "claim": "Boundary-condition loss",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-boundary-condition-loss-5"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:219",
@@ -1771,8 +1758,7 @@
       "objectId": "formulation:f016",
       "claim": "Initial-condition loss",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-initial-condition-loss-6"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:220",
@@ -1780,8 +1766,7 @@
       "objectId": "formulation:f016",
       "claim": "Initial-condition loss",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-initial-condition-loss-6"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:221",
@@ -1789,8 +1774,7 @@
       "objectId": "formulation:f016",
       "claim": "Initial-condition loss",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-initial-condition-loss-6"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:222",
@@ -1982,8 +1966,7 @@
       "objectId": "formulation:f025",
       "claim": "Distance-function Dirichlet construction",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-distance-function-construction-5"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:246",
@@ -1991,8 +1974,7 @@
       "objectId": "formulation:f025",
       "claim": "Distance-function Dirichlet construction",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-distance-function-construction-5"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:247",
@@ -2000,8 +1982,7 @@
       "objectId": "formulation:f025",
       "claim": "Distance-function Dirichlet construction",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-distance-function-construction-5"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:248",
@@ -2009,8 +1990,7 @@
       "objectId": "formulation:f026",
       "claim": "Augmented-Lagrangian equality constraint",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-augmented-lagrangian-17"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:249",
@@ -2018,8 +1998,7 @@
       "objectId": "formulation:f026",
       "claim": "Augmented-Lagrangian equality constraint",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-augmented-lagrangian-17"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:250",
@@ -2043,8 +2022,7 @@
       "objectId": "formulation:f028",
       "claim": "Weak residual statement",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "formulation:weak-form"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:253",
@@ -2052,8 +2030,7 @@
       "objectId": "formulation:f028",
       "claim": "Weak residual statement",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "formulation:weak-form"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:254",
@@ -2061,8 +2038,7 @@
       "objectId": "formulation:f028",
       "claim": "Weak residual statement",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "formulation:weak-form"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:255",
@@ -2118,8 +2094,7 @@
       "objectId": "formulation:f031",
       "claim": "Variational stationarity and energy minimum",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "formulation:variational-form"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:262",
@@ -2127,8 +2102,7 @@
       "objectId": "formulation:f031",
       "claim": "Variational stationarity and energy minimum",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "formulation:variational-form"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:263",
@@ -2136,8 +2110,7 @@
       "objectId": "formulation:f031",
       "claim": "Variational stationarity and energy minimum",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "formulation:variational-form"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:264",
@@ -2273,8 +2246,7 @@
       "objectId": "formulation:f039",
       "claim": "Boundary-integral representation (Laplace-type)",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-boundary-integral-formulation-7"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:281",
@@ -2282,8 +2254,7 @@
       "objectId": "formulation:f039",
       "claim": "Boundary-integral representation (Laplace-type)",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:physics-enforcement-mechanism-boundary-integral-formulation-7"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:282",
@@ -2331,8 +2302,7 @@
       "objectId": "formulation:f042",
       "claim": "Coupled automatic–numerical differentiation",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:differentiation-differential-operator-evaluation-mixed-automatic-numerical-differentiation-2"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:288",
@@ -2372,8 +2342,7 @@
       "objectId": "formulation:f045",
       "claim": "Streamfunction incompressibility representation",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-streamfunction-formulation-3"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:293",
@@ -2381,8 +2350,7 @@
       "objectId": "formulation:f045",
       "claim": "Streamfunction incompressibility representation",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-streamfunction-formulation-3"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:294",
@@ -2390,8 +2358,7 @@
       "objectId": "formulation:f046",
       "claim": "Mixed displacement–stress representation (linear elasticity)",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-stress-displacement-formulation-4"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:295",
@@ -2399,8 +2366,7 @@
       "objectId": "formulation:f046",
       "claim": "Mixed displacement–stress representation (linear elasticity)",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-stress-displacement-formulation-4"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:296",
@@ -2496,8 +2462,7 @@
       "objectId": "formulation:f052",
       "claim": "Fourier feature map",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "architecture:fourier-features"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:308",
@@ -2505,8 +2470,7 @@
       "objectId": "formulation:f052",
       "claim": "Fourier feature map",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "architecture:fourier-features"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:309",
@@ -2514,8 +2478,7 @@
       "objectId": "formulation:f053",
       "claim": "Sinusoidal representation network",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "architecture:siren"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:310",
@@ -2523,8 +2486,7 @@
       "objectId": "formulation:f053",
       "claim": "Sinusoidal representation network",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "architecture:siren"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:311",
@@ -2844,8 +2806,7 @@
       "objectId": "formulation:f070",
       "claim": "Parameterized PINN",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-parameterized-pinns-8"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:351",
@@ -2853,8 +2814,7 @@
       "objectId": "formulation:f070",
       "claim": "Parameterized PINN",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-parameterized-pinns-8"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:352",
@@ -2862,8 +2822,7 @@
       "objectId": "formulation:f070",
       "claim": "Parameterized PINN",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-parameterized-pinns-8"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:353",
@@ -2871,8 +2830,7 @@
       "objectId": "formulation:f070",
       "claim": "Parameterized PINN",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:neural-architecture-approximation-model-parameterized-pinns-8"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:354",
@@ -3112,8 +3070,7 @@
       "objectId": "formulation:f084",
       "claim": "Joint state–parameter inverse model",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-state-parameter-joint-formulation-5"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:384",
@@ -3121,8 +3078,7 @@
       "objectId": "formulation:f084",
       "claim": "Joint state–parameter inverse model",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-state-parameter-joint-formulation-5"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:385",
@@ -3130,8 +3086,7 @@
       "objectId": "formulation:f084",
       "claim": "Joint state–parameter inverse model",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "ecosystem:output-state-representation-state-parameter-joint-formulation-5"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:386",
@@ -3243,8 +3198,7 @@
       "objectId": "formulation:f092",
       "claim": "Physics-informed adversarial objective",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:loss-function-objective-construction-adversarial-objective-12"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:400",
@@ -3252,8 +3206,7 @@
       "objectId": "formulation:f092",
       "claim": "Physics-informed adversarial objective",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:loss-function-objective-construction-adversarial-objective-12"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:401",
@@ -3309,8 +3262,7 @@
       "objectId": "formulation:f096",
       "claim": "Nondimensionalization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:scaling-normalization-preprocessing-nondimensionalization-1"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:408",
@@ -3318,8 +3270,7 @@
       "objectId": "formulation:f096",
       "claim": "Nondimensionalization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:scaling-normalization-preprocessing-nondimensionalization-1"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:409",
@@ -3327,8 +3278,7 @@
       "objectId": "formulation:f096",
       "claim": "Nondimensionalization",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:scaling-normalization-preprocessing-nondimensionalization-1"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:410",
@@ -3352,8 +3302,7 @@
       "objectId": "formulation:f098",
       "claim": "Adaptive loss weighting",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-adaptive-weighting-3"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:413",
@@ -3361,8 +3310,7 @@
       "objectId": "formulation:f098",
       "claim": "Adaptive loss weighting",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-adaptive-weighting-3"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:414",
@@ -3370,8 +3318,7 @@
       "objectId": "formulation:f098",
       "claim": "Adaptive loss weighting",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-adaptive-weighting-3"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:415",
@@ -3379,8 +3326,7 @@
       "objectId": "formulation:f098",
       "claim": "Adaptive loss weighting",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-adaptive-weighting-3"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:416",
@@ -3388,8 +3334,7 @@
       "objectId": "formulation:f099",
       "claim": "Gradient-norm balancing target",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-gradient-norm-balancing-7"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:417",
@@ -3397,8 +3342,7 @@
       "objectId": "formulation:f099",
       "claim": "Gradient-norm balancing target",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:loss-weighting-balancing-gradient-norm-balancing-7"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:418",
@@ -3446,8 +3390,7 @@
       "objectId": "formulation:f103",
       "claim": "Residual-based adaptive sampling",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:collocation-sampling-residual-based-sampling-1"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:424",
@@ -3455,8 +3398,7 @@
       "objectId": "formulation:f103",
       "claim": "Residual-based adaptive sampling",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:collocation-sampling-residual-based-sampling-1"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:425",
@@ -3464,8 +3406,7 @@
       "objectId": "formulation:f103",
       "claim": "Residual-based adaptive sampling",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "ecosystem:collocation-sampling-residual-based-sampling-1"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:426",
@@ -3489,8 +3430,7 @@
       "objectId": "formulation:f105",
       "claim": "Pareto stationarity for multi-objective PINNs",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "ecosystem:theory-pareto-stationarity-15"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:429",
@@ -3498,8 +3438,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:430",
@@ -3507,8 +3446,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:431",
@@ -3516,8 +3454,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:432",
@@ -3525,8 +3462,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:433",
@@ -3534,8 +3470,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:434",
@@ -3543,8 +3478,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:435",
@@ -3552,8 +3486,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:436",
@@ -3561,8 +3494,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:437",
@@ -3570,8 +3502,7 @@
       "objectId": "formulation:f106",
       "claim": "Relative \\(L_2\\) field error",
       "supportType": "Equivalent",
-      "rationale": "Provides an equivalent source formulation normalized to the maintained notation.",
-      "canonicalObjectId": "metric:relative-l2"
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
     },
     {
       "id": "evidence:438",
@@ -3579,8 +3510,7 @@
       "objectId": "formulation:f107",
       "claim": "Root-mean-square error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:rmse"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:439",
@@ -3588,8 +3518,7 @@
       "objectId": "formulation:f107",
       "claim": "Root-mean-square error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:rmse"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:440",
@@ -3597,8 +3526,7 @@
       "objectId": "formulation:f107",
       "claim": "Root-mean-square error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:rmse"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:441",
@@ -3606,8 +3534,7 @@
       "objectId": "formulation:f107",
       "claim": "Root-mean-square error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:rmse"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:442",
@@ -3615,8 +3542,7 @@
       "objectId": "formulation:f107",
       "claim": "Root-mean-square error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:rmse"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:443",
@@ -3624,8 +3550,7 @@
       "objectId": "formulation:f107",
       "claim": "Root-mean-square error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:rmse"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:444",
@@ -3633,8 +3558,7 @@
       "objectId": "formulation:f108",
       "claim": "Mean absolute error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:mae"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:445",
@@ -3642,8 +3566,7 @@
       "objectId": "formulation:f108",
       "claim": "Mean absolute error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:mae"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:446",
@@ -3651,8 +3574,7 @@
       "objectId": "formulation:f108",
       "claim": "Mean absolute error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:mae"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:447",
@@ -3660,8 +3582,7 @@
       "objectId": "formulation:f108",
       "claim": "Mean absolute error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:mae"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:448",
@@ -3669,8 +3590,7 @@
       "objectId": "formulation:f108",
       "claim": "Mean absolute error",
       "supportType": "Direct",
-      "rationale": "Provides direct methodological support for this formulation.",
-      "canonicalObjectId": "metric:mae"
+      "rationale": "Provides direct methodological support for this formulation."
     },
     {
       "id": "evidence:449",
@@ -3774,8 +3694,7 @@
       "objectId": "formulation:f113",
       "claim": "Relative inverse-parameter error",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "metric:parameter-relative-error"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:462",
@@ -3783,8 +3702,7 @@
       "objectId": "formulation:f113",
       "claim": "Relative inverse-parameter error",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "metric:parameter-relative-error"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:463",
@@ -3792,8 +3710,7 @@
       "objectId": "formulation:f113",
       "claim": "Relative inverse-parameter error",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "metric:parameter-relative-error"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:464",
@@ -3801,8 +3718,7 @@
       "objectId": "formulation:f113",
       "claim": "Relative inverse-parameter error",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "metric:parameter-relative-error"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:465",
@@ -3810,8 +3726,7 @@
       "objectId": "formulation:f113",
       "claim": "Relative inverse-parameter error",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "metric:parameter-relative-error"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:466",
@@ -3819,8 +3734,7 @@
       "objectId": "formulation:f113",
       "claim": "Relative inverse-parameter error",
       "supportType": "Synthesized",
-      "rationale": "Contributes to the cross-source normalized synthesis.",
-      "canonicalObjectId": "metric:parameter-relative-error"
+      "rationale": "Contributes to the cross-source normalized synthesis."
     },
     {
       "id": "evidence:467",
@@ -5173,10 +5087,5 @@
         "evidence:473"
       ]
     }
-  ],
-  "semanticMapping": {
-    "schemaVersion": "1.0.0",
-    "canonicalObjectField": "canonicalObjectId",
-    "description": "For exact same-concept mappings, canonicalObjectId exposes source evidence through the semantic canonical concept without duplicating paper relationships."
-  }
+  ]
 }
