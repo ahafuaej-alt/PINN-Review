@@ -9,28 +9,6 @@
   const state = { registry: null, byId: new Map(), evidence: null, fullRegistryPromise: null, activeId: null, returnFocus: null, observer: null, queued: false };
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
   const absoluteHref = (href) => new URL(href, rootUrl).href;
-  const contextOverlays = new Map([
-    ['metric:rmse', {
-      destinations: [{ label: 'Mathematical Formulations · Evaluation & Reliability', href: 'mathematical-formulations/#i-mathematical-evaluation-and-reliability' }],
-      appearsIn: [{ label: 'Mathematical Formulations · Evaluation & Reliability', href: 'mathematical-formulations/#i-mathematical-evaluation-and-reliability', context: 'Evaluation context' }]
-    }]
-  ]);
-  const mergeUniqueByHref = (base = [], extra = []) => {
-    const seen = new Set();
-    return [...base, ...extra].filter((entry) => {
-      if (!entry?.href || seen.has(entry.href)) return false;
-      seen.add(entry.href);
-      return true;
-    });
-  };
-  const applyContextOverlays = (registry) => {
-    for (const concept of registry?.concepts || []) {
-      const overlay = contextOverlays.get(concept.id);
-      if (!overlay) continue;
-      concept.destinations = mergeUniqueByHref(concept.destinations, overlay.destinations);
-      concept.appearsIn = mergeUniqueByHref(concept.appearsIn, overlay.appearsIn);
-    }
-  };
   const mathManagedSelector = 'mjx-container,mjx-assistive-mml,.MathJax,.equation-box,[data-formulation-catalogue],[data-notation-table],[data-mathjax-managed]';
   const blockedConceptSelector = `a,button,label,summary,select,option,textarea,input,pre,code,kbd,samp,script,style,svg,math,[contenteditable="true"],[data-no-concept-link],[data-concept-id],${mathManagedSelector}`;
   const isMathManaged = (node) => node instanceof Element && (node.matches(mathManagedSelector) || Boolean(node.closest(mathManagedSelector)));
@@ -76,7 +54,6 @@
   api.ready = fetch(coreRegistryUrl, { cache: 'no-store' })
     .then((response) => response.ok ? response.json() : Promise.reject(new Error(`Concept registry returned ${response.status}`)))
     .then((registry) => {
-      applyContextOverlays(registry);
       state.registry = registry;
       state.byId = new Map(registry.concepts.map((concept) => [concept.id, concept]));
       enhance(document);
@@ -226,7 +203,6 @@
     state.fullRegistryPromise ||= fetch(fullRegistryUrl, { cache: 'no-store' })
       .then((response) => response.ok ? response.json() : Promise.reject(new Error(`Full concept registry returned ${response.status}`)))
       .then((registry) => {
-        applyContextOverlays(registry);
         state.registry = registry;
         state.byId = new Map(registry.concepts.map((concept) => [concept.id, concept]));
         enhance(document);
@@ -238,8 +214,9 @@
   function renderInspector(concept) {
     const destinations = concept.destinations.map((destination, index) => `<a class="atlas-concept-destination${index === 0 ? ' primary' : ''}" href="${escapeHtml(absoluteHref(destination.href))}"><span>${escapeHtml(destination.label)}</span><b>${index === 0 ? 'Open →' : 'View →'}</b></a>`).join('');
     const contexts = concept.appearsIn?.length ? concept.appearsIn.map((context) => `<a href="${escapeHtml(absoluteHref(context.href))}"><span>${escapeHtml(context.context || 'Atlas context')}</span><strong>${escapeHtml(context.label)}</strong><b aria-hidden="true">→</b></a>`).join('') : '<p class="atlas-concept-empty">No additional maintained contexts are registered yet.</p>';
+    const identity = concept.canonicalId && concept.canonicalId !== concept.id ? `<p class="atlas-concept-identity">Canonical concept: <code>${escapeHtml(concept.canonicalId)}</code></p>` : '';
     return `<header class="atlas-concept-head"><p>${escapeHtml(concept.category)}</p><h2 id="atlas-concept-title">${escapeHtml(concept.label)}</h2><code>${escapeHtml(concept.id)}</code></header>
-      <p class="atlas-concept-meaning">${escapeHtml(concept.shortMeaning)}</p>
+      ${identity}<p class="atlas-concept-meaning">${escapeHtml(concept.shortMeaning)}</p>
       <section><h3>Canonical destination${concept.destinations.length === 1 ? '' : 's'}</h3><div class="atlas-concept-destinations">${destinations}</div></section>
       <section><h3>Where this concept appears</h3><div class="atlas-concept-contexts">${contexts}</div></section>
       <section data-concept-evidence-section ${concept.evidenceCount ? '' : 'hidden'}><h3>${concept.category === 'Reference' ? 'Supported concepts and claims' : 'Supporting evidence'}</h3><div class="atlas-concept-evidence" data-concept-evidence><p>Loading claim-level relationships…</p></div></section>
@@ -253,10 +230,11 @@
       if (state.activeId !== concept.id) return;
       const isReference = concept.category === 'Reference';
       const referenceId = isReference ? Number(concept.id.split(':')[1]) : null;
-      const relationships = state.evidence.relationships.filter((relation) => isReference ? relation.paperId === referenceId : relation.objectId === concept.id);
+      const relationships = state.evidence.relationships.filter((relation) => isReference ? relation.paperId === referenceId : relation.objectId === concept.id || relation.canonicalObjectId === concept.id);
       const host = inspector.querySelector('[data-concept-evidence]');
       host.innerHTML = relationships.slice(0, 12).map((relation) => {
-        const targetConcept = state.byId.get(relation.objectId);
+        const relationConceptId = relation.canonicalObjectId || relation.objectId;
+        const targetConcept = state.byId.get(relationConceptId) || state.byId.get(relation.objectId);
         const href = isReference && targetConcept?.destinations?.[0] ? absoluteHref(targetConcept.destinations[0].href) : absoluteHref(`references/#ref=${relation.paperId}`);
         const linkLabel = isReference ? (targetConcept?.label || relation.claim) : `[${relation.paperId}]`;
         return `<article><a href="${escapeHtml(href)}">${escapeHtml(linkLabel)}</a><div><strong>${escapeHtml(relation.supportType)}</strong><p>${escapeHtml(relation.rationale)}</p></div></article>`;
