@@ -1,11 +1,22 @@
 {
   "format": "table-v1-sharded",
   "record_type": "unresolved_resource_stage1",
-  "columns": ["unresolved_id","resource_id","source_line","candidate_url","atlas_reference_ids","relationship","reasons","status"],
+  "columns": [
+    "unresolved_id",
+    "resource_id",
+    "source_line",
+    "candidate_url",
+    "atlas_reference_ids",
+    "relationship",
+    "reasons",
+    "status"
+  ],
   "total_records": 163,
-  "shard_size": 100,
+  "shard_size": 50,
   "shards": [
-    {"file":"unresolved-links-0001.json","records":100,"first_row":1,"last_row":100},
-    {"file":"unresolved-links-0002.json","records":63,"first_row":101,"last_row":163}
+    {"file":"unresolved-links-0001.json","records":50,"first_row":1,"last_row":50},
+    {"file":"unresolved-links-0002.json","records":50,"first_row":51,"last_row":100},
+    {"file":"unresolved-links-0003.json","records":50,"first_row":101,"last_row":150},
+    {"file":"unresolved-links-0004.json","records":13,"first_row":151,"last_row":163}
   ]
 }
