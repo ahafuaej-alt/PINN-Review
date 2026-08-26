@@ -5,6 +5,11 @@
   const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[char]));
+  const nativeRevokeObjectUrl = URL.revokeObjectURL.bind(URL);
+  URL.revokeObjectURL = (url) => {
+    if (String(url).startsWith('blob:')) setTimeout(() => nativeRevokeObjectUrl(url), 1200);
+    else nativeRevokeObjectUrl(url);
+  };
   let attempts = 0;
   let relationMap = new Map();
   let titleMap = new Map([['core', 'PINN Co-Design']]);
