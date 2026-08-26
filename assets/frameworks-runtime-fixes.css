@@ -45,6 +45,12 @@
   box-shadow: 0 22px 60px rgba(4, 10, 20, .3);
 }
 
+.toolbar-export.opens-upward > div,
+.toolbar-contribute.opens-upward > div {
+  top: auto;
+  bottom: calc(100% + .45rem);
+}
+
 .toolbar-export > div {
   min-width: 210px;
 }
