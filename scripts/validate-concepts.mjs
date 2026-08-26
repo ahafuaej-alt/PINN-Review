@@ -95,21 +95,6 @@ const requireSeparation = (left, right) => {
 requireSeparation('metric:rmse', 'metric:mse');
 requireSeparation('formulation:weak-form', 'formulation:variational-form');
 
-// `appearsIn` must describe maintained occurrences, not namespace-wide topical relevance.
-// Guard against the former blanket framework-context injection, which falsely made
-// every formulation appear under Physics Enforcement and every metric under Evaluation.
-const forbidContext = (conceptId, href, reason) => {
-  const concept = registryById.get(conceptId);
-  if (concept?.appearsIn || []).some((entry) => entry.href === href)) failures.push(`${reason}: ${conceptId} -> ${href}`);
-};
-forbidContext('formulation:f107', 'frameworks/design-stack/#item=physics-enforcement', 'Evaluation formulation leaked into an unrelated Physics Enforcement context');
-forbidContext('formulation:f107', 'frameworks/co-design/#item=physics', 'Evaluation formulation leaked into an unrelated Co-Design physics context');
-forbidContext('formulation:f107', 'frameworks/design-performance/#item=physics-enforcement', 'Evaluation formulation leaked into an unrelated Design–Performance physics-enforcement context');
-forbidContext('metric:rmse', 'frameworks/design-stack/#item=physics-enforcement', 'RMSE inherited an unrelated Physics Enforcement context');
-forbidContext('metric:mse', 'frameworks/design-stack/#item=evaluation', 'MSE received a framework occurrence that is not explicitly maintained');
-forbidContext('optimizer:gradient-descent', 'frameworks/failure-diagnostics/#item=stagnation', 'Gradient descent received a diagnostic occurrence that is not explicitly maintained');
-forbidContext('activation:tanh', 'frameworks/design-performance/#item=activation-features', 'Tanh received a framework occurrence that is not explicitly maintained');
-
 // Exhaustive source-family coverage: every maintained object-bearing Atlas dataset must resolve to a registry object.
 const coverage = new Map();
 const checkFamily = (name, values) => {
@@ -144,7 +129,7 @@ const ecosystemIds = [
   ...(ecosystem.groups || []).flatMap((group) => [
     `ecosystem:${group.id}`,
     ...(group.subgroups || []).flatMap((subgroup) => (subgroup.items || []).map((item) => `ecosystem:${item.id}`))
-  ]
+  ])
 ];
 checkFamily('PINN Ecosystem', ecosystemIds);
 

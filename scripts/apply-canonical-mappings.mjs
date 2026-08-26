@@ -89,7 +89,7 @@ function applyMappings(document, sourceDocument = registry) {
   }
 
   // Paper Technical Details is a maintained occurrence only for object families
-  // backed by paper-level technical datasets. Framework /page occurrences are
+  // backed by paper-level technical datasets. Framework/page occurrences are
   // added from explicit object mappings, never from namespace-wide defaults.
   for (const concept of document.concepts) {
     const namespace = concept.id.split(':')[0];
@@ -103,7 +103,7 @@ function applyMappings(document, sourceDocument = registry) {
 
   document.semanticMapping = {
     schemaVersion: mappings.schemaVersion,
-    update: mappings.updated,
+    updated: mappings.updated,
     sameConceptCount: mappings.sameConcept.length,
     contextOnlyCount: mappings.contextOnly.length,
     keepSeparateCount: (mappings.keepSeparate || []).length
