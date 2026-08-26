@@ -161,6 +161,7 @@ const interaction = fs.readFileSync(path.join(root, 'assets/concepts.js'), 'utf8
 const styles = fs.readFileSync(path.join(root, 'assets/concepts.css'), 'utf8');
 for (const token of ['assets/concepts.js?v=knowledge-20260826', 'dataset.atlasConcepts']) if (!app.includes(token)) failures.push(`Shared application does not load the concept system token: ${token}`);
 for (const token of ['data/concepts/core.json', 'data/concepts/registry.json', 'loadFullRegistry', 'MutationObserver', "aria-haspopup", "event.key === 'Escape'", 'pointerover', 'focusin', 'data-concept-open', 'Where this concept appears', 'Supporting evidence']) if (!interaction.includes(token)) failures.push(`Concept interaction model lacks: ${token}`);
+for (const token of ['bibliographicProseSelector', '.bibliography-card', '[data-paper-title]', '[data-paper-abstract]', '.citation-title', '.citation-text', '.abstract-text']) if (!interaction.includes(token)) failures.push(`Concept bibliographic-prose guard lacks: ${token}`);
 if (interaction.includes('contextOverlays')) failures.push('Concept runtime still contains a one-off context overlay instead of registry-driven mapping.');
 for (const token of ['--atlas-action', '--atlas-evidence', '--atlas-selected', '--atlas-related', '--atlas-warning', ':focus-visible', '.atlas-concept-inspector', 'text-decoration: none']) if (!styles.includes(token)) failures.push(`Concept style system lacks: ${token}`);
 

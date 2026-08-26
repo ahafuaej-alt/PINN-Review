@@ -10,7 +10,8 @@
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
   const absoluteHref = (href) => new URL(href, rootUrl).href;
   const mathManagedSelector = 'mjx-container,mjx-assistive-mml,.MathJax,.equation-box,[data-formulation-catalogue],[data-notation-table],[data-mathjax-managed]';
-  const blockedConceptSelector = `a,button,label,summary,select,option,textarea,input,pre,code,kbd,samp,script,style,svg,math,[contenteditable="true"],[data-no-concept-link],[data-concept-id],${mathManagedSelector}`;
+  const bibliographicProseSelector = '.bibliography-card,[data-paper-title],[data-paper-abstract],[data-paper-citation],[data-reference-title],[data-reference-abstract],[data-reference-citation],.paper-title,.reference-title,.citation-title,.citation-text,.mdpi-reference,.abstract-text,.full-citation';
+  const blockedConceptSelector = `a,button,label,summary,select,option,textarea,input,pre,code,kbd,samp,script,style,svg,math,[contenteditable="true"],[data-no-concept-link],[data-concept-id],${bibliographicProseSelector},${mathManagedSelector}`;
   const isMathManaged = (node) => node instanceof Element && (node.matches(mathManagedSelector) || Boolean(node.closest(mathManagedSelector)));
 
   const style = document.createElement('link');
