@@ -17,9 +17,13 @@ on:
       - 'data/optimizers/**'
       - 'data/activation-functions/**'
       - 'data/performance/**'
+      - 'frameworks/design-stack/index.html'
+      - 'mathematical-formulations/index.html'
+      - 'performance-metrics/index.html'
       - 'scripts/build-concept-registry.mjs'
       - 'scripts/migrate-framework-concepts.mjs'
       - 'scripts/validate-concepts.mjs'
+      - 'scripts/visual-qa-concept-regressions.mjs'
   workflow_dispatch:
 
 permissions:
@@ -45,3 +49,19 @@ jobs:
       - run: node scripts/validate-concepts.mjs
       - run: node scripts/validate-frameworks.mjs
       - run: node scripts/validate-navigation.mjs
+      - name: Locate Chromium
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --prefix /tmp/pinn-concept-qa --no-save --package-lock=false playwright-core@1.55.0
+      - name: Run concept runtime regression QA
+        env:
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-concept-qa/node_modules/playwright-core/index.mjs
+          BASE_URL: http://127.0.0.1:4173
+        run: |
+          python3 -m http.server 4173 >/tmp/pinn-concept-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node scripts/visual-qa-concept-regressions.mjs
