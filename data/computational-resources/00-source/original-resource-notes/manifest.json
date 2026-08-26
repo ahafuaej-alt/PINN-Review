@@ -3,29 +3,9 @@
   "total_lines": 648,
   "sha256": "72a168a3c57e07afcdcd8f513fbb54d34851095ea46eeb9618a996fbf769ee8e",
   "shards": [
-    {
-      "file": "original-resource-notes-0001.txt",
-      "first_line": 1,
-      "last_line": 170,
-      "bytes": 10383
-    },
-    {
-      "file": "original-resource-notes-0002.txt",
-      "first_line": 171,
-      "last_line": 340,
-      "bytes": 6519
-    },
-    {
-      "file": "original-resource-notes-0003.txt",
-      "first_line": 341,
-      "last_line": 510,
-      "bytes": 11381
-    },
-    {
-      "file": "original-resource-notes-0004.txt",
-      "first_line": 511,
-      "last_line": 648,
-      "bytes": 7336
-    }
+    {"file":"original-resource-notes-0001.txt","first_line":1,"last_line":170,"bytes":10383,"sha256":"62d2248a71788dc3b8462011c1feaf6b6f0b794f4583510d919dc2cc7af53995"},
+    {"file":"original-resource-notes-0002.txt","first_line":171,"last_line":340,"bytes":6519,"sha256":"2d623aaa7eba9c8433415333b8f62323d57cf82465114cc71b0c2b4c86236eb6"},
+    {"file":"original-resource-notes-0003.txt","first_line":341,"last_line":510,"bytes":11381,"sha256":"f9458fa0d0e8f11daf345eaba3b3ffa271f2df42a7db9f7de28ad9c95ee900f8"},
+    {"file":"original-resource-notes-0004.txt","first_line":511,"last_line":648,"bytes":7336,"sha256":"49f8df436364a24a0e5eff9f1b9dbe7ac5e23a36a7b0f9054df9e005fb600914"}
   ]
 }
