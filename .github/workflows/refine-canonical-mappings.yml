@@ -1,0 +1,61 @@
+name: Refine canonical mapping classifications
+
+on:
+  push:
+    branches:
+      - feat/canonical-concept-mapping
+    paths:
+      - '.github/workflows/refine-canonical-mappings.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/canonical-concept-mapping
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reclassify narrower formulation records as contexts
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const file = 'data/concepts/canonical-mappings.json';
+          const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const reasons = new Map([
+            ['formulation:f036|ecosystem:hybrid-numerical-pinn-methods-pinn-finite-volume-residual-6', 'The finite-volume residual is a mathematical realization within the broader PINN + finite-volume residual method context.'],
+            ['formulation:f037|ecosystem:hybrid-numerical-pinn-methods-pinn-finite-difference-residual-7', 'The finite-difference residual is a mathematical realization within the broader PINN + finite-difference residual method context.'],
+            ['formulation:f049|ecosystem:differentiation-differential-operator-evaluation-implicit-runge-kutta-2', 'Implicit Runge-Kutta stage equations realize the broader implicit Runge-Kutta method but are not identical to the method as a whole.'],
+            ['formulation:f051|ecosystem:neural-architecture-approximation-model-radial-basis-function-networks-1', 'The radial-basis-function approximation is the basis realization used by RBF networks, not the complete network concept.'],
+            ['formulation:f077|ecosystem:operator-learning-physics-informed-deeponet-2', 'The physics-informed DeepONet residual is a formulation used within physics-informed DeepONet, not the complete operator-learning architecture.'],
+            ['formulation:f078|ecosystem:operator-learning-separable-operator-networks-14', 'The separable operator representation is a mathematical realization used by separable operator networks, not the entire network concept.'],
+            ['formulation:f079|ecosystem:operator-learning-fourier-neural-operator-7', 'A Fourier neural-operator layer is a component of the broader Fourier neural operator architecture.'],
+            ['formulation:f080|ecosystem:operator-learning-physics-informed-fno-8', 'The physics-informed Fourier-operator objective is a training/formulation component of physics-informed FNO, not the complete method identity.'],
+            ['formulation:f088|ecosystem:uncertainty-quantification-probabilistic-pinns-bayesian-pinns-1', 'A Bayesian PINN posterior is a defining probabilistic formulation used by Bayesian PINNs, but it is not identical to the complete Bayesian PINN model class.'],
+            ['formulation:f091|ecosystem:uncertainty-quantification-probabilistic-pinns-variational-inference-13', 'The variational-inference objective realizes variational inference in the probabilistic PINN context but is not identical to the inference method as a whole.'],
+            ['formulation:f101|ecosystem:loss-function-objective-construction-gradient-enhanced-residual-1', 'The gradient-enhanced physics loss uses a gradient-enhanced residual construction but is a loss realization rather than the residual concept itself.']
+          ]);
+          const moved = [];
+          data.sameConcept = data.sameConcept.filter((item) => {
+            const key = `${item.source}|${item.target}`;
+            if (!reasons.has(key)) return true;
+            moved.push({ source: item.source, target: item.target, reason: reasons.get(key) });
+            return false;
+          });
+          const existing = new Set(data.contextOnly.map((item) => `${item.source}|${item.target}`));
+          for (const item of moved) if (!existing.has(`${item.source}|${item.target}`)) data.contextOnly.push(item);
+          if (moved.length !== reasons.size) throw new Error(`Expected to reclassify ${reasons.size} mappings, reclassified ${moved.length}.`);
+          fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
+          console.log(`Reclassified ${moved.length} mappings: ${data.sameConcept.length} identities, ${data.contextOnly.length} contexts.`);
+          NODE
+      - name: Commit mapping classification refinement
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/concepts/canonical-mappings.json
+          git commit -m 'data: refine canonical mapping classifications'
+          git push origin HEAD:feat/canonical-concept-mapping
