@@ -53,9 +53,10 @@ function applyMappings(document, sourceDocument = registry) {
     const targetDestinations = target.destinations || [];
     const sourceContexts = source.appearsIn || [];
     const targetContexts = target.appearsIn || [];
+    const sourceOccurrences = sourceDestinations.map((destination) => contextFromDestination(source, destination, source.category || 'Atlas context'));
 
     target.destinations = uniqueLinks([...targetDestinations, ...sourceDestinations.map(asSecondary)]);
-    target.appearsIn = uniqueLinks([...targetContexts, ...sourceContexts]);
+    target.appearsIn = uniqueLinks([...targetContexts, ...sourceOccurrences, ...sourceContexts]);
     target.sameConceptRecords = uniqueStrings([...(target.sameConceptRecords || []), item.source]);
 
     if (localSource) {
