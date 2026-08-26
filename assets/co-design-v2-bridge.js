@@ -41,14 +41,15 @@
     const meta = relationMap.get(id);
     const detail = document.querySelector('[data-detail]');
     if (!meta || !detail || inspectorIsCurrent(detail, id)) return;
+    const relationships = detail.querySelector('[data-inspector-section="relationships"]');
+    if (!relationships) return;
     const source = titleMap.get(meta.from) || meta.from;
     const target = titleMap.get(meta.to) || meta.to;
     const heading = detail.querySelector('.framework-inspector-head h2');
     if (heading) heading.textContent = meta.label;
     const meaning = detail.querySelector('[data-inspector-section="meaning"]');
     if (meaning) meaning.innerHTML = `<h3>Scientific meaning</h3><p>${esc(meta.mechanism)}</p>`;
-    const relationships = detail.querySelector('[data-inspector-section="relationships"]');
-    if (relationships) relationships.innerHTML = `<h3>Relationships</h3>
+    relationships.innerHTML = `<h3>Relationships</h3>
       <div class="co-v2-route"><span>${esc(source)}</span><i>→</i><span>${esc(target)}</span></div>
       <div class="co-v2-inspector-grid">
         <article><b>Direction</b><p>${esc(semanticLabel(meta))}</p></article>
@@ -68,24 +69,21 @@
   }
 
   function bindInspectorObserver() {
-    const detail = document.querySelector('[data-detail]');
-    if (!detail || inspectorObserver) return;
+    if (inspectorObserver) return;
     inspectorObserver = new MutationObserver(queueInspectorEnrichment);
-    inspectorObserver.observe(detail, { childList: true, subtree: true });
-    document.addEventListener('click', (event) => {
-      const item = event.target.closest('[data-inspect-id]');
+    inspectorObserver.observe(document.body, { childList: true, subtree: true });
+    const resetAndEnrich = (event) => {
+      const item = event.target.closest?.('[data-inspect-id]');
       if (!item || !relationMap.has(item.dataset.inspectId)) return;
-      detail.removeAttribute('data-co-v2-enriched');
+      document.querySelector('[data-detail]')?.removeAttribute('data-co-v2-enriched');
       setTimeout(enrichInspector, 0);
       setTimeout(enrichInspector, 50);
-    }, true);
+      setTimeout(enrichInspector, 150);
+    };
+    document.addEventListener('click', resetAndEnrich, true);
     document.addEventListener('keydown', (event) => {
       if (!['Enter', ' '].includes(event.key)) return;
-      const item = event.target.closest('[data-inspect-id]');
-      if (!item || !relationMap.has(item.dataset.inspectId)) return;
-      detail.removeAttribute('data-co-v2-enriched');
-      setTimeout(enrichInspector, 0);
-      setTimeout(enrichInspector, 50);
+      resetAndEnrich(event);
     }, true);
   }
 
@@ -99,13 +97,8 @@
       const relation = base.get(meta.id) || {};
       return [meta.id, { ...meta, from: relation.from, to: relation.to }];
     }));
-    const wait = () => {
-      if (document.querySelector('[data-detail]')) {
-        bindInspectorObserver();
-        enrichInspector();
-      } else setTimeout(wait, 50);
-    };
-    wait();
+    bindInspectorObserver();
+    queueInspectorEnrichment();
   }).catch((error) => console.error('Co-Design relationship inspector bridge could not initialize.', error));
 
   enhanceConcepts();
