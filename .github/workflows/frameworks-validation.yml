@@ -5,6 +5,7 @@ on:
     paths:
       - 'frameworks/**'
       - 'assets/frameworks.*'
+      - 'assets/frameworks-runtime-fixes.*'
       - 'data/frameworks/**'
       - 'assets/theme-init.js'
       - 'index.html'
@@ -12,6 +13,7 @@ on:
       - 'sitemap.xml'
       - 'scripts/validate-frameworks.mjs'
       - 'scripts/visual-qa-frameworks.mjs'
+      - 'scripts/visual-qa-framework-runtime.mjs'
   workflow_dispatch:
 
 permissions:
@@ -25,6 +27,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node --check assets/frameworks-runtime-fixes.js
+      - run: node --check scripts/visual-qa-framework-runtime.mjs
       - run: node scripts/validate-frameworks.mjs
       - run: node scripts/validate-navigation.mjs
       - run: node scripts/validate-readme.mjs
@@ -44,6 +48,7 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           node scripts/visual-qa-frameworks.mjs
+          node scripts/visual-qa-framework-runtime.mjs
       - name: Upload Frameworks QA renders
         if: always()
         uses: actions/upload-artifact@v4
