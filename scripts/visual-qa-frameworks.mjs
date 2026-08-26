@@ -56,7 +56,9 @@ try {
           verifyPresent: Boolean(document.querySelector('.diagnostic-verify')),
           corePresent: Boolean(document.querySelector('.co-core')),
           markerSizes,
-          evidenceCards: document.querySelectorAll('.evidence-paper-grid a').length,
+          evidenceCards: document.querySelectorAll('.evidence-paper-card').length,
+          supportBadges: document.querySelectorAll('.evidence-paper-grid .evidence-support-badge').length,
+          locationTags: document.querySelectorAll('.evidence-paper-grid .framework-location-tag').length,
           navFrameworkChildren: [...document.querySelectorAll('.atlas-nav-group')].find((group) => group.querySelector('.atlas-nav-group-toggle')?.textContent.trim() === 'Frameworks')?.querySelectorAll('.atlas-nav-item').length || 0,
           zoomText: document.querySelector('[data-zoom-readout]')?.textContent,
           filterOptions: document.querySelector('[data-filter]')?.options.length || 0,
@@ -67,6 +69,7 @@ try {
       assert(snapshot.objectCount === route.objects[1], `${route.id}/${viewport.name}: expected ${route.objects[1]} objects, found ${snapshot.objectCount}.`);
       assert(snapshot.navFrameworkChildren === 5, `${route.id}/${viewport.name}: Frameworks navigator does not contain five children.`);
       assert(snapshot.evidenceCards >= 20, `${route.id}/${viewport.name}: claim-level evidence summary is incomplete (${snapshot.evidenceCards} verified papers).`);
+      assert(snapshot.supportBadges >= snapshot.evidenceCards && snapshot.locationTags >= snapshot.evidenceCards, `${route.id}/${viewport.name}: evidence cards lack shared support badges or framework-location tags.`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete (zoom ${snapshot.zoomText || 'missing'}, ${snapshot.filterOptions} filter options).`);
       if (viewport.width >= 1050) assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
       if (route.relations) assert(snapshot.relationCount === route.relations, `${route.id}/${viewport.name}: expected ${route.relations} relationships, found ${snapshot.relationCount}.`);
@@ -90,10 +93,11 @@ try {
   await matrix.goto(`${baseUrl}/frameworks/design-performance/`, { waitUntil: 'networkidle' });
   await matrix.waitForSelector('.matrix-cell');
   await matrix.selectOption('[data-filter]', 'representation');
-  const visibleRows = await matrix.locator('.matrix-row:not([hidden])').count();
-  assert(visibleRows === 4, `Matrix filter should show four representation rows, found ${visibleRows}.`);
+  const focusedRows = await matrix.locator('.matrix-row:not(.is-filter-muted)').count();
+  const allRowsAfterFocus = await matrix.locator('.matrix-row').count();
+  assert(allRowsAfterFocus === 14 && focusedRows === 4, `Matrix focus should preserve all fourteen rows while emphasizing four representation rows (${allRowsAfterFocus} total, ${focusedRows} focused).`);
   await matrix.fill('.framework-search', 'gradient flow');
-  const highlighted = await matrix.locator('.matrix-row:not(.is-search-muted):not([hidden])').count();
+  const highlighted = await matrix.locator('.matrix-row:not(.is-filter-muted):not(.is-search-muted)').count();
   assert(highlighted === 1, `Matrix search should isolate one row, found ${highlighted}.`);
   await matrix.click('[data-inspect-id="activation-features:trainability"]');
   assert((await matrix.locator('[data-detail]').textContent()).includes('gradient flow'), 'Matrix cell inspector does not expose the scientific relation label.');
@@ -110,8 +114,42 @@ try {
   const download = await downloadPromise;
   const downloadPath = await download.path();
   const svg = await fs.readFile(downloadPath, 'utf8');
-  assert(svg.includes('<foreignObject') && svg.includes('dependency-matrix') && svg.includes('gradient flow'), 'Current-state SVG export does not contain the live filtered matrix state.');
+  assert(svg.includes('<foreignObject') && svg.includes('dependency-matrix') && svg.includes('gradient flow') && svg.includes('framework-export-header') && svg.includes('data-export-mode=\"current\"'), 'Current-state SVG export does not contain the focused matrix state and standardized export header.');
+  const publicationPromise = matrix.waitForEvent('download');
+  await matrix.click('[data-svg-publication]');
+  const publication = await publicationPromise;
+  const publicationSvg = await fs.readFile(await publication.path(), 'utf8');
+  assert(publicationSvg.includes('data-export-mode=\"publication\"') && publicationSvg.includes('Clean publication view') && !publicationSvg.includes('is-filter-muted') && !publicationSvg.includes('is-search-muted'), 'Publication SVG does not remove transient focus/search state.');
+  await matrix.click('[data-reset]');
+  assert((await matrix.locator('.matrix-row.is-filter-muted').count()) === 0 && (await matrix.locator('.framework-search').inputValue()) === '', 'Reset did not restore the complete matrix context.');
   await matrix.close();
+
+
+  const inspectorCases = [
+    ['design-stack', 'physical-problem'],
+    ['co-design', 'representation'],
+    ['design-performance', 'architecture-basis'],
+    ['failure-diagnostics', 'spectral-bias']
+  ];
+  for (const [frameworkId, objectId] of inspectorCases) {
+    const page = await context.newPage();
+    await page.goto(`${baseUrl}/frameworks/${frameworkId}/`, { waitUntil: 'networkidle' });
+    await page.waitForSelector(`[data-inspect-id="${objectId}"]`);
+    await page.click(`[data-inspect-id="${objectId}"]`);
+    const sections = await page.locator('[data-detail] [data-inspector-section]').evaluateAll((nodes) => nodes.map((node) => node.dataset.inspectorSection));
+    assert(['meaning', 'relationships', 'evidence', 'concepts', 'related'].every((name) => sections.includes(name)), `${frameworkId}: inspector does not use the shared five-section architecture (${sections.join(', ')}).`);
+    assert(await page.locator('[data-detail] .evidence-support-badge').count() > 0, `${frameworkId}: inspector lacks standardized support-type badges.`);
+    assert(await page.locator('[data-detail] .framework-location-tag').count() > 0, `${frameworkId}: inspector lacks framework-location tags.`);
+    assert(await page.locator('[data-detail] [data-concept-id]').count() > 0, `${frameworkId}: canonical concept deep-link controls are missing.`);
+    await page.close();
+  }
+
+  const relations = await context.newPage();
+  await relations.goto(`${baseUrl}/frameworks/co-design/`, { waitUntil: 'networkidle' });
+  await relations.waitForSelector('.relation-coupling');
+  const couplingMarkers = await relations.locator('.relation-coupling').first().evaluate((node) => ({ start: node.getAttribute('marker-start'), end: node.getAttribute('marker-end') }));
+  assert(couplingMarkers.start?.includes('framework-arrow-coupling') && couplingMarkers.end?.includes('framework-arrow-coupling'), 'Co-Design coupling does not use the shared bidirectional marker contract.');
+  await relations.close();
 
   const diagnostics = await context.newPage();
   await diagnostics.goto(`${baseUrl}/frameworks/failure-diagnostics/#item=poor-conservation`, { waitUntil: 'networkidle' });
@@ -129,4 +167,4 @@ try {
   await browser.close();
 }
 
-console.log('Framework visual QA passed: 4 source-faithful views · 3 viewports · interactions · deep links · backlinks · current-state SVG export.');
+console.log('Framework visual QA passed: 4 source-faithful views · shared inspector/evidence/relationship/filter contracts · deep links · current + publication SVG export.');
