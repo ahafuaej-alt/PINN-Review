@@ -28,7 +28,7 @@ const normalize = (value = '') => String(value)
 
 const genericTerms = new Set(['accuracy','adaptive','architecture','basis','bayesian','collocation','constraint','data','derivative','discrete','domain decomposition','error','evaluation','inverse','loss','metric','network','optimization','physics','residual','sampling','training','uncertainty']);
 const safeTerms = (values) => unique(values.map(normalize)).filter((term) => term.length >= 3 && !genericTerms.has(term));
-const tokenSet = (value) => new Set(normalize(value).split(' ').filter((token) => token.length > 1 && !['error','relative','field','global','accuracy','matched','computational'].includes(token)));
+const tokenSet = (value) => new Set(normalize(value).split(' ').filter((token) => token.length > 1 && !['error','relative','field','global','accuracy','matched','computational','form','formulation','objective','representation','model','network','pinn','pinns','physics','informed'].includes(token)));
 const similarity = (left, right) => {
   const a = tokenSet(left), b = tokenSet(right);
   if (!a.size || !b.size) return 0;
@@ -51,21 +51,21 @@ const targets = registry.concepts.filter((concept) => targetNamespaces.has(conce
 }));
 
 const sources = [];
+const formulationSources = [];
 const formulationParts = read('data/mathematical-formulations/manifest.json').parts;
-for (const part of formulationParts) for (const item of read(`data/mathematical-formulations/${part.file}`).formulations || []) sources.push({
-  id: `formulation:${item.id.toLowerCase()}`,
-  type: 'Mathematical Formulations',
-  label: item.name,
-  terms: safeTerms([item.name, ...(item.tags || [])])
-});
+for (const part of formulationParts) for (const item of read(`data/mathematical-formulations/${part.file}`).formulations || []) {
+  const record = { id: `formulation:${item.id.toLowerCase()}`, type: 'Mathematical Formulations', label: item.name, terms: safeTerms([item.name, ...(item.tags || [])]) };
+  sources.push(record);
+  formulationSources.push(record);
+}
 
+const ecosystemSources = [];
 const ecosystem = read('data/pinn-ecosystem/pinn-ecosystem.json');
-for (const group of ecosystem.groups || []) for (const subgroup of group.subgroups || []) for (const item of subgroup.items || []) sources.push({
-  id: `ecosystem:${item.id}`,
-  type: 'PINN Ecosystem',
-  label: item.name,
-  terms: safeTerms([item.name])
-});
+for (const group of ecosystem.groups || []) for (const subgroup of group.subgroups || []) for (const item of subgroup.items || []) {
+  const record = { id: `ecosystem:${item.id}`, type: 'PINN Ecosystem', label: item.name, terms: safeTerms([item.name]) };
+  sources.push(record);
+  ecosystemSources.push(record);
+}
 
 const taxonomyBase64 = ['data/performance/metric-taxonomy.json.gz.b64.part1', 'data/performance/metric-taxonomy.json.gz.b64.part2']
   .map((file) => fs.readFileSync(path.join(root, file), 'utf8')).join('').replace(/\s+/g, '');
@@ -136,7 +136,7 @@ if (unresolved.length) {
   console.log('\nUNRESOLVED_HIGH_CONFIDENCE=0');
 }
 
-const evaluationFormulations = sources.filter((source) => /^formulation:f(?:10[6-9]|11[0-4])$/.test(source.id));
+const evaluationFormulations = formulationSources.filter((source) => /^formulation:f(?:10[6-9]|11[0-4])$/.test(source.id));
 const metricTargets = targets.filter((target) => target.id.startsWith('metric:'));
 console.log('\nEVALUATION_METRIC_REVIEW');
 for (const source of evaluationFormulations) {
@@ -145,6 +145,15 @@ for (const source of evaluationFormulations) {
     .sort((a,b) => b.score - a.score)
     .slice(0,5);
   console.log(JSON.stringify({ source: source.id, label: source.label, candidates: ranked }));
+}
+
+console.log('\nFORMULATION_ECOSYSTEM_REVIEW');
+for (const source of formulationSources) {
+  const ranked = ecosystemSources.map((target) => ({ id: target.id, label: target.label, score: similarity(source.label, target.label) }))
+    .filter((item) => item.score >= 0.45)
+    .sort((a,b) => b.score - a.score)
+    .slice(0,4);
+  if (ranked.length) console.log(JSON.stringify({ source: source.id, label: source.label, candidates: ranked }));
 }
 
 if (process.argv.includes('--strict') && (invalidDecisions.length || unresolved.length)) process.exitCode = 1;
