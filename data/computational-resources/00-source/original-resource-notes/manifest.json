@@ -1,0 +1,31 @@
+{
+  "encoding": "utf-8",
+  "total_lines": 648,
+  "sha256": "72a168a3c57e07afcdcd8f513fbb54d34851095ea46eeb9618a996fbf769ee8e",
+  "shards": [
+    {
+      "file": "original-resource-notes-0001.txt",
+      "first_line": 1,
+      "last_line": 170,
+      "bytes": 10383
+    },
+    {
+      "file": "original-resource-notes-0002.txt",
+      "first_line": 171,
+      "last_line": 340,
+      "bytes": 6519
+    },
+    {
+      "file": "original-resource-notes-0003.txt",
+      "first_line": 341,
+      "last_line": 510,
+      "bytes": 11381
+    },
+    {
+      "file": "original-resource-notes-0004.txt",
+      "first_line": 511,
+      "last_line": 648,
+      "bytes": 7336
+    }
+  ]
+}
