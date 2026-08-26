@@ -1,0 +1,51 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_pilot_acceptance",
+  "verification_date": "2026-08-26",
+  "branch": "data/computational-resources-stage2",
+  "pilot_commit": "cefd09b0ec636efebd52334a5e6bc4020ddcd957",
+  "checks": {
+    "mandatory_pilot_resources": 13,
+    "promoted_profile_discoveries": 1,
+    "total_overlay_resources": 14,
+    "verified_relationships": 17,
+    "cr000358_relationships": 0,
+    "stable_stage1_prls_preserved": 16,
+    "pilot_added_prls": [
+      "PRL000332"
+    ],
+    "jsonl_parse": "pass",
+    "resource_id_uniqueness": "pass",
+    "relationship_referential_integrity": "pass",
+    "internal_reference_isolation": "pass",
+    "typed_unknown_states": "pass",
+    "verified_negative_findings": "pass",
+    "profile_discovery_without_prl": "pass",
+    "static_commit_pinning": "pass",
+    "scope_isolation": "pass"
+  },
+  "scale_assessment": {
+    "status": "accepted_safe_to_scale",
+    "stage1_resources": 357,
+    "stage1_relationships": 331,
+    "stage1_resource_types": 8,
+    "stage1_relationship_types": 5,
+    "unprocessed_stage1_resources": 344,
+    "planned_batches": 14,
+    "target_batch_size": 25,
+    "model_supports_conflicting_evidence": true,
+    "model_supports_manual_review_continuation": true,
+    "model_supports_verified_absence": true,
+    "model_supports_profile_discovery": true,
+    "stable_id_policy_change_required": false,
+    "new_relationship_type_required": false
+  },
+  "stop_conditions": [
+    "new_database_or_schema_problem",
+    "new_relationship_type_required",
+    "stable_identifier_policy_change_required",
+    "conflicting_evidence_not_representable",
+    "scientifically_consequential_ambiguity_requires_review"
+  ],
+  "outcome": "pilot_accepted_stage2_expansion_authorized"
+}
