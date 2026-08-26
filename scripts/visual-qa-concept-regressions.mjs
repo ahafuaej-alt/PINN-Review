@@ -46,8 +46,8 @@ try {
     }));
     assert(snapshot.title.includes('Root mean squared error'), `Unexpected concept inspector title: ${snapshot.title}`);
     assert(snapshot.destinations.some((item) => item.href?.includes('/performance-metrics/?metric=root_mean_squared_error')), 'RMSE Metric Explorer destination is missing.');
-    assert(snapshot.destinations.some((item) => item.href?.includes('/mathematical-formulations/#i-mathematical-evaluation-and-reliability')), 'RMSE Mathematical Formulations destination is missing.');
-    assert(snapshot.contexts.some((item) => item.href?.includes('/mathematical-formulations/#i-mathematical-evaluation-and-reliability')), 'RMSE Mathematical Formulations context is missing from “Where this concept appears”.');
+    assert(snapshot.destinations.some((item) => item.href?.includes('/mathematical-formulations/#F107')), 'RMSE exact Mathematical Formulations F107 destination is missing.');
+    assert(snapshot.contexts.some((item) => item.href?.includes('/mathematical-formulations/#F107')), 'RMSE exact F107 occurrence is missing from “Where this concept appears”.');
     assert(errors.length === 0, `Design Stack concept inspector raised runtime errors: ${errors.join(' | ')}`);
     await page.close();
   }
@@ -56,17 +56,19 @@ try {
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto(`${baseUrl}/mathematical-formulations/`, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('.formula-card');
+    await page.goto(`${baseUrl}/mathematical-formulations/#F107`, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('#F107');
     await page.waitForFunction(() => document.querySelectorAll('.equation-box mjx-container').length > 0, null, { timeout: 30000 });
     await page.waitForTimeout(300);
     const snapshot = await page.evaluate(() => ({
       formulaCards: document.querySelectorAll('.formula-card').length,
       equationBoxes: document.querySelectorAll('.equation-box').length,
       renderedMath: document.querySelectorAll('.equation-box mjx-container').length,
+      rmseCard: Boolean(document.querySelector('#F107')),
       rawEquationBoxes: [...document.querySelectorAll('.equation-box')].filter((box) => /\\\[|\\\]/.test(box.textContent)).length
     }));
     assert(snapshot.formulaCards >= 100, `Mathematical Formulations catalogue is incomplete (${snapshot.formulaCards} cards).`);
+    assert(snapshot.rmseCard, 'RMSE Mathematical Formulations F107 deep link does not resolve to its formula card.');
     assert(snapshot.renderedMath > 0, 'MathJax did not render the formulation equations.');
     assert(snapshot.rawEquationBoxes === 0, `${snapshot.rawEquationBoxes} equation boxes still expose raw display-math delimiters.`);
     const mathErrors = errors.filter((message) => /MathJax|replaceChild|Node\.replaceChild/i.test(message));
