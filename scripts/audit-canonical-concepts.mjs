@@ -28,6 +28,13 @@ const normalize = (value = '') => String(value)
 
 const genericTerms = new Set(['accuracy','adaptive','architecture','basis','bayesian','collocation','constraint','data','derivative','discrete','domain decomposition','error','evaluation','inverse','loss','metric','network','optimization','physics','residual','sampling','training','uncertainty']);
 const safeTerms = (values) => unique(values.map(normalize)).filter((term) => term.length >= 3 && !genericTerms.has(term));
+const tokenSet = (value) => new Set(normalize(value).split(' ').filter((token) => token.length > 1 && !['error','relative','field','global','accuracy','matched','computational'].includes(token)));
+const similarity = (left, right) => {
+  const a = tokenSet(left), b = tokenSet(right);
+  if (!a.size || !b.size) return 0;
+  const intersection = [...a].filter((token) => b.has(token)).length;
+  return intersection / new Set([...a, ...b]).size;
+};
 
 const registry = read('data/concepts/registry.json');
 const mappings = read('data/concepts/canonical-mappings.json');
@@ -127,6 +134,17 @@ if (unresolved.length) {
   unresolved.sort((a,b) => a.source.localeCompare(b.source) || a.target.localeCompare(b.target)).forEach((item) => console.log(JSON.stringify(item)));
 } else {
   console.log('\nUNRESOLVED_HIGH_CONFIDENCE=0');
+}
+
+const evaluationFormulations = sources.filter((source) => /^formulation:f(?:10[6-9]|11[0-4])$/.test(source.id));
+const metricTargets = targets.filter((target) => target.id.startsWith('metric:'));
+console.log('\nEVALUATION_METRIC_REVIEW');
+for (const source of evaluationFormulations) {
+  const ranked = metricTargets.map((target) => ({ id: target.id, label: target.label, score: similarity(source.label, target.label) }))
+    .filter((item) => item.score > 0)
+    .sort((a,b) => b.score - a.score)
+    .slice(0,5);
+  console.log(JSON.stringify({ source: source.id, label: source.label, candidates: ranked }));
 }
 
 if (process.argv.includes('--strict') && (invalidDecisions.length || unresolved.length)) process.exitCode = 1;
