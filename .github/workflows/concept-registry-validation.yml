@@ -48,10 +48,11 @@ jobs:
           cp data/concepts/core.json /tmp/core.json
           cp data/concepts/evidence-relationships.json /tmp/evidence-relationships.json
           node scripts/build-concept-registry.mjs
-          node scripts/apply-canonical-mappings.mjs
           cmp data/concepts/registry.json /tmp/registry.json
           cmp data/concepts/core.json /tmp/core.json
           cmp data/concepts/evidence-relationships.json /tmp/evidence-relationships.json
+      - name: Apply canonical semantic mappings
+        run: node scripts/apply-canonical-mappings.mjs
       - name: Audit canonical concept coverage
         run: node scripts/audit-canonical-concepts.mjs --strict
       - run: node scripts/validate-concepts.mjs
