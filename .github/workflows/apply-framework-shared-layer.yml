@@ -1,4 +1,4 @@
-name: Framework shared-layer QA
+name: Apply Framework export refinements
 
 on:
   push:
@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  qa:
+  apply-and-qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,12 +21,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Apply refinements
+        run: python scripts/apply-framework-shared-layer.py
       - name: Validate Framework contracts
         run: |
           node scripts/build-concept-registry.mjs
           node scripts/apply-canonical-mappings.mjs
           node scripts/validate-frameworks.mjs
           node scripts/validate-navigation.mjs
+          git restore data/concepts/registry.json data/concepts/core.json data/concepts/evidence-relationships.json
       - name: Locate Chromium
         run: |
           browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
@@ -43,3 +46,14 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           node scripts/visual-qa-frameworks.mjs
+      - name: Commit refinements
+        run: |
+          git add assets/frameworks.js scripts/visual-qa-frameworks.mjs
+          if git diff --cached --quiet; then
+            echo 'Framework export refinements already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refine Framework SVG export behavior'
+          git push origin HEAD:feat/frameworks-shared-interactions
