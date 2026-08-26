@@ -18,7 +18,6 @@ Only Stage 1 is implemented here. Later stages enrich records without overwritin
 - `01-inventory/unresolved-links/` — malformed/profile/ambiguous or otherwise unverified resources queued for Stage 2.
 - `reports/stage-1-summary.*` — inventory counts and rules.
 - `reports/stage-1-acceptance.*` — integrity checks and representative acceptance sample.
-- `reports/integrity-manifest.json` — SHA-256 hashes for Stage-1 data payloads.
 - `schemas/` — row schemas matching the final sharded tables.
 
 ## Identifier policy
