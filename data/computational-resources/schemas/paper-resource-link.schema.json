@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper-resource-link.schema.json",
+  "title": "Paper-resource relationship",
+  "type": "object",
+  "required": [
+    "link_id",
+    "resource_id",
+    "atlas_reference_id",
+    "relationship",
+    "evidence_observation_ids",
+    "mapping_status"
+  ],
+  "properties": {
+    "link_id": {
+      "type": "string",
+      "pattern": "^PRL\\d{6}$"
+    },
+    "resource_id": {
+      "type": "string",
+      "pattern": "^CR\\d{6}$"
+    },
+    "atlas_reference_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 853
+    },
+    "relationship": {
+      "type": "string"
+    },
+    "evidence_observation_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mapping_status": {
+      "const": "source_stated_unverified"
+    }
+  },
+  "additionalProperties": false
+}
