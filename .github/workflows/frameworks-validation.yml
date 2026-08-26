@@ -6,6 +6,7 @@ on:
       - 'frameworks/**'
       - 'assets/frameworks.*'
       - 'assets/frameworks-runtime-fixes.*'
+      - 'assets/co-design-v2.*'
       - 'data/frameworks/**'
       - 'assets/theme-init.js'
       - 'index.html'
@@ -14,6 +15,7 @@ on:
       - 'scripts/validate-frameworks.mjs'
       - 'scripts/visual-qa-frameworks.mjs'
       - 'scripts/visual-qa-framework-runtime.mjs'
+      - 'scripts/visual-qa-co-design-v2.mjs'
   workflow_dispatch:
 
 permissions:
@@ -28,7 +30,9 @@ jobs:
         with:
           node-version: '22'
       - run: node --check assets/frameworks-runtime-fixes.js
+      - run: node --check assets/co-design-v2.js
       - run: node --check scripts/visual-qa-framework-runtime.mjs
+      - run: node --check scripts/visual-qa-co-design-v2.mjs
       - run: node scripts/validate-frameworks.mjs
       - run: node scripts/validate-navigation.mjs
       - run: node scripts/validate-readme.mjs
@@ -49,6 +53,7 @@ jobs:
           trap 'kill "$server_pid"' EXIT
           node scripts/visual-qa-frameworks.mjs
           node scripts/visual-qa-framework-runtime.mjs
+          node scripts/visual-qa-co-design-v2.mjs
       - name: Upload Frameworks QA renders
         if: always()
         uses: actions/upload-artifact@v4
