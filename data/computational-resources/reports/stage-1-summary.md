@@ -1,28 +1,23 @@
 # Stage 1 computational-resource inventory
 
-Stage 1 converts the supplied resource notes into a normalized, deduplicated inventory. It does **not** claim live repository verification.
+Stage 1 converts the supplied resource notes into a normalized, deduplicated inventory. It does **not** claim that URLs, repository identity, paper associations, PINN relevance, licenses, dependencies, or technical properties have been live-verified yet.
 
-## Counts
+## Final counts
 
 - Source lines: **648**
-- URL observations parsed: **394**
+- URL observations: **394**
 - Unique canonical resources: **357**
-- GitHub repository identities: **218**
-- Paper-resource relationship records: **333**
-- Unique Atlas reference IDs mapped from the supplied notes: **212**
-- Repeated/canonical duplicate resource groups: **32**
+- Paper-resource relationships after redundant-repeat consolidation: **331**
+- Unique Atlas reference IDs mapped: **212**
+- Repeated-resource groups: **32**
 - Possible alias groups deliberately not merged: **13**
-- Unresolved URL/identity items: **163**
-- Schema validation of logical Stage 1 records: **passed**
+- Items queued for Stage 2 verification: **163**
+- Schema validation: **passed against final table rows**
 
 ## Provenance rule
 
-A bracket appearing inside a secondary source is not automatically treated as an Atlas ID. For `Supplementary code ... [32] from [701]`, Stage 1 maps the resource to Atlas paper **701**; the internal citation `[32]` remains only in the preserved source text. Likewise, `referenced in [100] from [367]` maps to Atlas paper **367** until the internal citation is independently reconciled with Atlas metadata.
+Internal citation numbers are not Atlas IDs. `Supplementary code ... [32] from [701]` maps to Atlas **701** only; `[32]` remains source text. Secondary-source forms such as `referenced in [100] from [367]` map to Atlas **367** until Stage 2 independently reconciles the internal citation.
 
-## Classification rule
+## Relationship semantics
 
-Stage 1 classifications are intentionally provisional. Explicit `NOT PINN` statements are preserved, while repository-name/context heuristics are marked unverified. Supporting libraries, operator-learning repositories, datasets, and PINN implementations are not collapsed into a binary PINN/non-PINN field.
-
-## Important limitation
-
-Canonicalization is syntactic only. Live status, official authorship, redirects, licenses, citations, dependency files, architecture, mathematical formulation, training strategy, dataset availability, and reproducibility belong to Stage 2 and Stage 3.
+Stage 1 avoids claims of official authorship. A resource appearing with a paper is stored as `paper_resource_mention` unless the supplied context specifically identifies a dataset, secondary-review mention, software mention, or non-PINN resource. Stage 2 determines official/author-associated/third-party/dependency relationships.
