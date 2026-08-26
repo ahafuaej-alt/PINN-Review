@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-08-26",
+  "policy": {
+    "sameConcept": "Use only when two maintained records represent the same scientific concept. The source record remains independently addressable; its destination is added to the canonical concept.",
+    "contextOnly": "Use when a maintained object is a meaningful occurrence or application context of a concept but is not another definition of that concept.",
+    "keepSeparate": "Scientifically related concepts remain distinct canonical concepts and must never be merged merely because their terminology overlaps."
+  },
+  "sameConcept": [
+    {
+      "source": "formulation:f011",
+      "target": "method:automatic-differentiation",
+      "exposure": "destination",
+      "reason": "F011 is the Mathematical Formulations record for automatic-differentiation derivatives."
+    },
+    {
+      "source": "formulation:f028",
+      "target": "formulation:weak-form",
+      "exposure": "destination",
+      "reason": "F028 is the continuous weak residual statement and is the dedicated weak-form formulation record."
+    },
+    {
+      "source": "formulation:f031",
+      "target": "formulation:variational-form",
+      "exposure": "destination",
+      "reason": "F031 is the dedicated variational stationarity / energy-minimum formulation record."
+    },
+    {
+      "source": "formulation:f052",
+      "target": "architecture:fourier-features",
+      "exposure": "destination",
+      "reason": "F052 is the Fourier feature map used as the same representation concept."
+    },
+    {
+      "source": "formulation:f053",
+      "target": "architecture:siren",
+      "exposure": "destination",
+      "reason": "F053 is the sinusoidal representation network (SIREN) formulation."
+    },
+    {
+      "source": "formulation:f106",
+      "target": "metric:relative-l2",
+      "exposure": "destination",
+      "reason": "F106 is the Mathematical Formulations definition of relative L2 field error."
+    },
+    {
+      "source": "formulation:f107",
+      "target": "metric:rmse",
+      "exposure": "destination",
+      "reason": "F107 is the Mathematical Formulations definition of root-mean-square error."
+    },
+    {
+      "source": "formulation:f108",
+      "target": "metric:mae",
+      "exposure": "destination",
+      "reason": "F108 is the Mathematical Formulations definition of mean absolute error."
+    }
+  ],
+  "contextOnly": [],
+  "keepSeparate": [
+    {
+      "left": "metric:rmse",
+      "right": "metric:mse",
+      "reason": "RMSE and MSE are different metrics with different scale and mathematical definitions."
+    },
+    {
+      "left": "formulation:weak-form",
+      "right": "formulation:variational-form",
+      "reason": "Weak and variational formulations can overlap in some methods but are not universally identical concepts."
+    },
+    {
+      "left": "architecture:siren",
+      "right": "activation:sine",
+      "reason": "SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."
+    },
+    {
+      "left": "method:automatic-differentiation",
+      "right": "formulation:f042",
+      "reason": "F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."
+    }
+  ]
+}
