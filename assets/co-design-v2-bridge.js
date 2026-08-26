@@ -56,26 +56,29 @@
     detail.dataset.coV2Enriched = id;
   }
 
+  function queueInspectorEnrichment() {
+    const detail = document.querySelector('[data-detail]');
+    const id = selectedRelationId();
+    if (!detail || !id || !relationMap.has(id) || detail.dataset.coV2Enriched === id) return;
+    queueMicrotask(enrichInspector);
+  }
+
   function bindInspectorObserver() {
     const detail = document.querySelector('[data-detail]');
     if (!detail || inspectorObserver) return;
-    inspectorObserver = new MutationObserver(() => {
-      const id = selectedRelationId();
-      if (id && relationMap.has(id)) {
-        detail.removeAttribute('data-co-v2-enriched');
-        queueMicrotask(enrichInspector);
-      }
-    });
+    inspectorObserver = new MutationObserver(queueInspectorEnrichment);
     inspectorObserver.observe(detail, { childList: true, subtree: true });
     document.addEventListener('click', (event) => {
       const item = event.target.closest('[data-inspect-id]');
       if (!item || !relationMap.has(item.dataset.inspectId)) return;
+      detail.removeAttribute('data-co-v2-enriched');
       setTimeout(enrichInspector, 0);
     }, true);
     document.addEventListener('keydown', (event) => {
       if (!['Enter', ' '].includes(event.key)) return;
       const item = event.target.closest('[data-inspect-id]');
       if (!item || !relationMap.has(item.dataset.inspectId)) return;
+      detail.removeAttribute('data-co-v2-enriched');
       setTimeout(enrichInspector, 0);
     }, true);
   }
