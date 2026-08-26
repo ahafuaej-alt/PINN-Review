@@ -2,7 +2,7 @@ WEB RESEARCH NOTES FOR THE EIGHT PREVIOUSLY MISSING OPTIMIZER RECORDS
 Research date: 2026-08-02
 
 Method:
-- Each Reference ID was matched to its target publication by exact title and DOI.
+- Each Atlas reference was matched to its target publication by exact title and DOI.
 - An optimizer was entered only when the target publication or a directly corresponding version exposed it.
 - Optimizers were not inferred from reference lists, related papers, or common practice.
 
