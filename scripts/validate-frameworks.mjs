@@ -33,19 +33,35 @@ const pages = Object.fromEntries(await Promise.all(manifest.frameworks.map(async
 const stack = pages['design-stack'];
 assert(stack.phases.length === 4, `Design Stack requires four phases, found ${stack.phases.length}.`);
 assert(stack.stages.length === 10, `Design Stack requires ten stages, found ${stack.stages.length}.`);
-assert(stack.relationships.length >= 18, `Design Stack requires complete flow and feedback relationships, found ${stack.relationships.length}.`);
+assert(stack.relationships.length === 24, `Design Stack requires 9 main-flow + 6 strong-interdependence + 9 feedback relationships, found ${stack.relationships.length}.`);
 unique(stack.stages.map((item) => item.id), 'Design Stack stage');
 unique(stack.relationships.map((item) => item.id), 'Design Stack relationship');
 const stageIds = new Set(stack.stages.map((item) => item.id));
 stack.relationships.forEach((relation) => assert(stageIds.has(relation.from) && stageIds.has(relation.to), `Design Stack relationship ${relation.id} has an invalid endpoint.`));
 assert(stack.relationships.filter((item) => item.type === 'flow').length === 9, 'Design Stack requires nine forward stage transitions.');
+assert(stack.relationships.filter((item) => item.type === 'coupling').length === 6, 'Design Stack requires six audited strong-interdependence relationships.');
 assert(stack.relationships.filter((item) => item.type === 'feedback').length === 9, 'Design Stack requires nine evaluation-driven feedback loops.');
 stack.stages.forEach((stage) => {
   assert(stage.columns.length === 3, `${stage.id} must preserve its three compact content columns.`);
   assert(stage.columns.every((column) => column.items.length >= 2), `${stage.id} contains an empty or underspecified content column.`);
   assert(Array.isArray(stage.evidence) && stage.evidence.length > 0, `${stage.id} lacks verified claim-level evidence.`);
+  const visibleItems = stage.columns.flatMap((column) => column.items);
+  assert(stage.interactive_items?.length === visibleItems.length, `${stage.id} does not expose every visible content item as an interactive object.`);
+  assert(stage.interactive_items.every((item) => item.id && item.label && item.column && item.summary && item.concepts?.length), `${stage.id} contains an incomplete interactive item mapping.`);
+  assert(new Set(stage.interactive_items.map((item) => item.label)).size === visibleItems.length, `${stage.id} interactive item labels are not unique.`);
 });
-assert(stack.relationships.filter((item) => item.type === 'feedback').every((item) => item.evidence.length > 0), 'Every Design Stack feedback loop must carry verified evidence.');
+assert(stack.relationships.filter((item) => item.type === 'coupling').every((item) => item.evidence.length > 0), 'Every audited Design Stack strong-interdependence relationship must carry verified evidence.');
+assert(stack.relationships.filter((item) => item.type === 'feedback').every((item) => item.evidence.length > 0 && item.trigger && item.action && item.message), 'Every Design Stack feedback loop must carry evidence plus an evaluation-specific trigger, action, and message.');
+const stackItemRecords = stack.stages.flatMap((stage) => stage.interactive_items);
+unique(stackItemRecords.map((item) => item.id), 'Design Stack internal item');
+const itemByLabel = new Map(stackItemRecords.map((item) => [item.label, item]));
+const conceptIds = (label) => new Set((itemByLabel.get(label)?.concepts || []).map((concept) => concept.id));
+assert(conceptIds('Weak form').has('formulation:weak-form') && !conceptIds('Weak form').has('formulation:variational-form'), 'Weak form must remain a distinct canonical concept.');
+assert(conceptIds('Variational form').has('formulation:variational-form') && !conceptIds('Variational form').has('formulation:weak-form'), 'Variational form must remain a distinct canonical concept.');
+assert(conceptIds('Mean squared error (MSE)').has('metric:mse') && !conceptIds('Mean squared error (MSE)').has('metric:rmse'), 'MSE must remain distinct from RMSE.');
+assert(conceptIds('Root mean squared error (RMSE)').has('metric:rmse') && !conceptIds('Root mean squared error (RMSE)').has('metric:mse'), 'RMSE must remain distinct from MSE.');
+assert(conceptIds('SIREN').has('architecture:siren') && !conceptIds('Sinusoidal activation').has('architecture:siren'), 'SIREN architecture must remain distinct from sinusoidal activation.');
+assert(conceptIds('Adam').has('optimizer:adam') && conceptIds('L-BFGS').has('optimizer:lbfgs'), 'Stage 9 optimizer mappings are incomplete.');
 
 const coDesign = pages['co-design'];
 assert(coDesign.core?.outcomes?.length === 5, 'Co-Design requires a central core with five outcomes.');

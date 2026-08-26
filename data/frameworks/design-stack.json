@@ -4,7 +4,7 @@
   "eyebrow": "Framework 01 · Design",
   "description": "A ten-stage design architecture showing how upstream scientific choices constrain downstream realization and how validation evidence drives targeted redesign.",
   "represents": "The stack organizes a PINN study as four coupled phases rather than as neural-network training alone. It begins with the physical problem and computational role, translates these into representation and physics-enforcement choices, realizes them numerically, and closes the loop through reliability-oriented evaluation.",
-  "interpretation": "The vertical path is a typical design sequence, not a universal recipe. Bidirectional phase links indicate strong interdependence, while evaluation feedback should return the workflow to the earliest plausible design cause. A redesign is accepted only after numerical, physical, robustness, uncertainty, and computational-cost checks improve.",
+  "interpretation": "The vertical 1→10 path is the dominant typical design sequence, not a universal recipe. Strong interdependence is shown only between specific stage choices that mutually constrain one another; phase rails are organizational labels rather than relationship arrows. Evaluation feedback returns the workflow to the earliest plausible design cause, and a redesign is accepted only after numerical, physical, robustness, uncertainty, and computational-cost checks improve.",
   "filters": [
     {
       "id": "all",
@@ -127,6 +127,151 @@
           "support": "Direct",
           "rationale": "The canonical PINN paper formulates forward and inverse PDE problems from equations, conditions, observations, and unknown quantities."
         }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-physical-problem-governing-equations-pde-ode-dae-integral",
+          "label": "Governing equations (PDE / ODE / DAE / integral)",
+          "column": "Physical system",
+          "summary": "Governing equations (PDE / ODE / DAE / integral) is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-domain-and-geometry",
+          "label": "Domain and geometry",
+          "column": "Physical system",
+          "summary": "Domain and geometry is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-boundary-initial-conditions",
+          "label": "Boundary / initial conditions",
+          "column": "Physical system",
+          "summary": "Boundary / initial conditions is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-material-physical-parameters",
+          "label": "Material / physical parameters",
+          "column": "Problem data",
+          "summary": "Material / physical parameters is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-forcing-source-terms",
+          "label": "Forcing / source terms",
+          "column": "Problem data",
+          "summary": "Forcing / source terms is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-data-availability",
+          "label": "Data availability",
+          "column": "Problem data",
+          "summary": "Data availability is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-time-dependence",
+          "label": "Time dependence",
+          "column": "Problem data",
+          "summary": "Time dependence is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-steady-transient",
+          "label": "Steady / transient",
+          "column": "Problem characteristics",
+          "summary": "Steady / transient is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-linear-nonlinear",
+          "label": "Linear / nonlinear",
+          "column": "Problem characteristics",
+          "summary": "Linear / nonlinear is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-smooth-discontinuous",
+          "label": "Smooth / discontinuous",
+          "column": "Problem characteristics",
+          "summary": "Smooth / discontinuous is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physical-problem-multiscale-stiff-high-dimensional",
+          "label": "Multiscale / stiff / high-dimensional",
+          "column": "Problem characteristics",
+          "summary": "Multiscale / stiff / high-dimensional is a Design Stack choice within Physical Problem Definition; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:problem",
+              "label": "PINN Ecosystem · Problem definition"
+            }
+          ],
+          "evidence": []
+        }
       ]
     },
     {
@@ -182,6 +327,138 @@
           "atlas_id": 603,
           "support": "Direct",
           "rationale": "Physics-informed DeepONets change the role from one solution to a reusable parametric solution operator."
+        }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-computational-role-forward-solution",
+          "label": "Forward solution",
+          "column": "Solution role",
+          "summary": "Forward solution is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-inverse-problem",
+          "label": "Inverse problem",
+          "column": "Solution role",
+          "summary": "Inverse problem is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-parameter-identification",
+          "label": "Parameter identification",
+          "column": "Solution role",
+          "summary": "Parameter identification is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-state-reconstruction",
+          "label": "State reconstruction",
+          "column": "Inference role",
+          "summary": "State reconstruction is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-pde-system-discovery",
+          "label": "PDE / system discovery",
+          "column": "Inference role",
+          "summary": "PDE / system discovery is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-source-bc-inference",
+          "label": "Source / BC inference",
+          "column": "Inference role",
+          "summary": "Source / BC inference is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-surrogate-modeling",
+          "label": "Surrogate modeling",
+          "column": "Reusable role",
+          "summary": "Surrogate modeling is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-operator-learning",
+          "label": "Operator learning",
+          "column": "Reusable role",
+          "summary": "Operator learning is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-control-optimization",
+          "label": "Control / optimization",
+          "column": "Reusable role",
+          "summary": "Control / optimization is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-computational-role-uncertainty-quantification",
+          "label": "Uncertainty quantification",
+          "column": "Reusable role",
+          "summary": "Uncertainty quantification is a Design Stack choice within Computational Role; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:purpose",
+              "label": "PINN Ecosystem · Computational role"
+            }
+          ],
+          "evidence": []
         }
       ]
     },
@@ -246,6 +523,216 @@
           "support": "Equivalent",
           "rationale": "The foundational formulation links coordinates and observations to state fields and unknown coefficients for forward and inverse tasks."
         }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-inputs-outputs-coordinates-x-y-z-t",
+          "label": "Coordinates (x, y, z, t)",
+          "column": "Inputs",
+          "summary": "Coordinates (x, y, z, t) is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-physical-parameters",
+          "label": "Physical parameters",
+          "column": "Inputs",
+          "summary": "Physical parameters is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-geometry-descriptors",
+          "label": "Geometry descriptors",
+          "column": "Inputs",
+          "summary": "Geometry descriptors is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-bc-ic-descriptors",
+          "label": "BC / IC descriptors",
+          "column": "Inputs",
+          "summary": "BC / IC descriptors is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-observations-measurements",
+          "label": "Observations / measurements",
+          "column": "Additional inputs",
+          "summary": "Observations / measurements is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-forcing-control-variables",
+          "label": "Forcing / control variables",
+          "column": "Additional inputs",
+          "summary": "Forcing / control variables is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-functional-field-inputs",
+          "label": "Functional / field inputs",
+          "column": "Additional inputs",
+          "summary": "Functional / field inputs is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-stochastic-variables",
+          "label": "Stochastic variables",
+          "column": "Additional inputs",
+          "summary": "Stochastic variables is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-scalar-vector-fields",
+          "label": "Scalar / vector fields",
+          "column": "Outputs",
+          "summary": "Scalar / vector fields is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-state-variables",
+          "label": "State variables",
+          "column": "Outputs",
+          "summary": "State variables is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-auxiliary-variables",
+          "label": "Auxiliary variables",
+          "column": "Outputs",
+          "summary": "Auxiliary variables is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-fluxes-stresses-derivatives",
+          "label": "Fluxes / stresses / derivatives",
+          "column": "Outputs",
+          "summary": "Fluxes / stresses / derivatives is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-unknown-coefficients",
+          "label": "Unknown coefficients",
+          "column": "Outputs",
+          "summary": "Unknown coefficients is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-latent-physical-quantities",
+          "label": "Latent physical quantities",
+          "column": "Outputs",
+          "summary": "Latent physical quantities is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-lagrange-multipliers",
+          "label": "Lagrange multipliers",
+          "column": "Outputs",
+          "summary": "Lagrange multipliers is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-inputs-outputs-constitutive-variables",
+          "label": "Constitutive variables",
+          "column": "Outputs",
+          "summary": "Constitutive variables is a Design Stack choice within Inputs and Outputs; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:representation",
+              "label": "PINN Ecosystem · Inputs and outputs"
+            }
+          ],
+          "evidence": []
+        }
       ]
     },
     {
@@ -274,8 +761,11 @@
         {
           "title": "Basis-rich forms",
           "items": [
-            "Fourier features / FNO",
-            "SIREN / sinusoidal / RBF",
+            "Fourier features",
+            "Fourier neural operator (FNO)",
+            "SIREN",
+            "Sinusoidal activation",
+            "Radial basis functions (RBF)",
             "Single- or multi-network structure"
           ]
         }
@@ -320,6 +810,164 @@
           "support": "Direct",
           "rationale": "Locally adaptive activations with slope recovery alter the effective approximation basis and training dynamics."
         }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-representation-mlp-fully-connected",
+          "label": "MLP / fully connected",
+          "column": "Classical neural forms",
+          "summary": "MLP / fully connected is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-cnn-u-net",
+          "label": "CNN / U-Net",
+          "column": "Classical neural forms",
+          "summary": "CNN / U-Net is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-rnn-lstm-gru",
+          "label": "RNN / LSTM / GRU",
+          "column": "Classical neural forms",
+          "summary": "RNN / LSTM / GRU is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-gnn-graph-networks",
+          "label": "GNN / graph networks",
+          "column": "Structured architectures",
+          "summary": "GNN / graph networks is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-transformer-attention",
+          "label": "Transformer / attention",
+          "column": "Structured architectures",
+          "summary": "Transformer / attention is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-kan-kolmogorov-arnold",
+          "label": "KAN / Kolmogorov-Arnold",
+          "column": "Structured architectures",
+          "summary": "KAN / Kolmogorov-Arnold is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-fourier-features",
+          "label": "Fourier features",
+          "column": "Basis-rich forms",
+          "summary": "Input-feature mapping that enriches high-frequency or multiscale representation; it is kept distinct from Fourier neural operator architectures.",
+          "concepts": [
+            {
+              "id": "architecture:fourier-features",
+              "label": "Fourier features"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-fourier-neural-operator-fno",
+          "label": "Fourier neural operator (FNO)",
+          "column": "Basis-rich forms",
+          "summary": "Operator-learning architecture based on spectral convolution; it is not the same canonical concept as Fourier feature input mapping.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-siren",
+          "label": "SIREN",
+          "column": "Basis-rich forms",
+          "summary": "Sinusoidal representation-network architecture; it is kept distinct from a generic sine activation function.",
+          "concepts": [
+            {
+              "id": "architecture:siren",
+              "label": "SIREN"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-sinusoidal-activation",
+          "label": "Sinusoidal activation",
+          "column": "Basis-rich forms",
+          "summary": "Periodic activation choice used inside a representation; it is not merged with the SIREN architecture.",
+          "concepts": [
+            {
+              "id": "page:activation-functions",
+              "label": "Activation Functions"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-radial-basis-functions-rbf",
+          "label": "Radial basis functions (RBF)",
+          "column": "Basis-rich forms",
+          "summary": "Radial basis functions (RBF) is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-representation-single-or-multi-network-structure",
+          "label": "Single- or multi-network structure",
+          "column": "Basis-rich forms",
+          "summary": "Single- or multi-network structure is a Design Stack choice within Representation / Architecture; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:architectures",
+              "label": "Architectures"
+            }
+          ],
+          "evidence": []
+        }
       ]
     },
     {
@@ -333,7 +981,8 @@
           "title": "Formulation",
           "items": [
             "Strong-form residual (penalty)",
-            "Weak / variational form",
+            "Weak form",
+            "Variational form",
             "Energy / integral formulation"
           ]
         },
@@ -393,6 +1042,138 @@
           "atlas_id": 636,
           "support": "Direct",
           "rationale": "VPINN accuracy depends on test functions and quadrature, showing that weak enforcement is a numerical formulation rather than a generic loss term."
+        }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-physics-enforcement-strong-form-residual-penalty",
+          "label": "Strong-form residual (penalty)",
+          "column": "Formulation",
+          "summary": "Strong-form residual (penalty) is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-weak-form",
+          "label": "Weak form",
+          "column": "Formulation",
+          "summary": "Integrated test-function enforcement of the governing equation; maintained as a distinct canonical concept from variational formulation.",
+          "concepts": [
+            {
+              "id": "formulation:weak-form",
+              "label": "Weak form"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-variational-form",
+          "label": "Variational form",
+          "column": "Formulation",
+          "summary": "Variational or stationarity-based integral formulation; maintained separately from the weak-form concept.",
+          "concepts": [
+            {
+              "id": "formulation:variational-form",
+              "label": "Variational form"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-energy-integral-formulation",
+          "label": "Energy / integral formulation",
+          "column": "Formulation",
+          "summary": "Energy / integral formulation is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-soft-equality-constraints",
+          "label": "Soft equality constraints",
+          "column": "Constraint mechanism",
+          "summary": "Soft equality constraints is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-hard-constraints-exact",
+          "label": "Hard constraints (exact)",
+          "column": "Constraint mechanism",
+          "summary": "Hard constraints (exact) is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-distance-function-trial-solutions",
+          "label": "Distance / function / trial solutions",
+          "column": "Constraint mechanism",
+          "summary": "Distance / function / trial solutions is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-conservative-discrete-enforcement",
+          "label": "Conservative / discrete enforcement",
+          "column": "Structure-aware enforcement",
+          "summary": "Conservative / discrete enforcement is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-interface-coupling-conditions",
+          "label": "Interface coupling conditions",
+          "column": "Structure-aware enforcement",
+          "summary": "Interface coupling conditions is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-physics-enforcement-constitutive-conservation-laws",
+          "label": "Constitutive / conservation laws",
+          "column": "Structure-aware enforcement",
+          "summary": "Constitutive / conservation laws is a Design Stack choice within Physics Enforcement; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
         }
       ]
     },
@@ -462,6 +1243,112 @@
           "support": "Direct",
           "rationale": "Variational residual evaluation exposes quadrature precision and test-function degree as explicit numerical choices."
         }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-differentiation-automatic-differentiation-ad",
+          "label": "Automatic differentiation (AD)",
+          "column": "Automatic differentiation",
+          "summary": "Computational-graph differentiation used to evaluate derivatives and residual operators.",
+          "concepts": [
+            {
+              "id": "method:automatic-differentiation",
+              "label": "Automatic differentiation"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-higher-order-ad",
+          "label": "Higher-order AD",
+          "column": "Automatic differentiation",
+          "summary": "Higher-order AD is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-finite-order-reformulation",
+          "label": "Finite-order reformulation",
+          "column": "Automatic differentiation",
+          "summary": "Finite-order reformulation is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-numerical-differentiation",
+          "label": "Numerical differentiation",
+          "column": "Hybrid numerical forms",
+          "summary": "Numerical differentiation is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-mixed-ad-numerical-methods",
+          "label": "Mixed AD-numerical methods",
+          "column": "Hybrid numerical forms",
+          "summary": "Mixed AD-numerical methods is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-auxiliary-derivative-outputs",
+          "label": "Auxiliary derivative outputs",
+          "column": "Residual realization",
+          "summary": "Auxiliary derivative outputs is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-time-space-discrete-residuals",
+          "label": "Time- / space-discrete residuals",
+          "column": "Residual realization",
+          "summary": "Time- / space-discrete residuals is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-differentiation-discretization-aware-solver-in-loop",
+          "label": "Discretization-aware / solver-in-loop",
+          "column": "Residual realization",
+          "summary": "Discretization-aware / solver-in-loop is a Design Stack choice within Differentiation and Residual Evaluation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:mathematical-formulations",
+              "label": "Mathematical Formulations"
+            }
+          ],
+          "evidence": []
+        }
       ]
     },
     {
@@ -490,7 +1377,10 @@
         {
           "title": "Sampling design",
           "items": [
-            "Uniform / random / LHS / Sobol",
+            "Uniform sampling",
+            "Random sampling",
+            "Latin hypercube sampling (LHS)",
+            "Sobol sampling",
             "Adaptive / residual-based",
             "Geometry-aware / interface-aware",
             "Causal / dynamic resampling"
@@ -526,6 +1416,177 @@
           "atlas_id": 534,
           "support": "Direct",
           "rationale": "Loss-proportional importance sampling improves convergence by changing which collocation information enters each update."
+        }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-sampling-interior-collocation-points",
+          "label": "Interior collocation points",
+          "column": "Constraint points",
+          "summary": "Interior collocation points is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-boundary-points",
+          "label": "Boundary points",
+          "column": "Constraint points",
+          "summary": "Boundary points is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-initial-condition-points",
+          "label": "Initial-condition points",
+          "column": "Constraint points",
+          "summary": "Initial-condition points is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-interface-points",
+          "label": "Interface points",
+          "column": "Additional support",
+          "summary": "Interface points is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-observation-data-points",
+          "label": "Observation / data points",
+          "column": "Additional support",
+          "summary": "Observation / data points is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-quadrature-points",
+          "label": "Quadrature points",
+          "column": "Additional support",
+          "summary": "Quadrature points is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-uniform-sampling",
+          "label": "Uniform sampling",
+          "column": "Sampling design",
+          "summary": "Uniform sampling is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-random-sampling",
+          "label": "Random sampling",
+          "column": "Sampling design",
+          "summary": "Random sampling is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-latin-hypercube-sampling-lhs",
+          "label": "Latin hypercube sampling (LHS)",
+          "column": "Sampling design",
+          "summary": "Latin hypercube sampling (LHS) is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-sobol-sampling",
+          "label": "Sobol sampling",
+          "column": "Sampling design",
+          "summary": "Low-discrepancy Sobol point placement for collocation or constraint sampling.",
+          "concepts": [
+            {
+              "id": "sampling:sobol",
+              "label": "Sobol sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-adaptive-residual-based",
+          "label": "Adaptive / residual-based",
+          "column": "Sampling design",
+          "summary": "Adaptive / residual-based is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-geometry-aware-interface-aware",
+          "label": "Geometry-aware / interface-aware",
+          "column": "Sampling design",
+          "summary": "Geometry-aware / interface-aware is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-sampling-causal-dynamic-resampling",
+          "label": "Causal / dynamic resampling",
+          "column": "Sampling design",
+          "summary": "Causal / dynamic resampling is a Design Stack choice within Sampling / Collocation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "ecosystem:collocation-sampling",
+              "label": "PINN Ecosystem · Sampling"
+            }
+          ],
+          "evidence": []
         }
       ]
     },
@@ -593,6 +1654,138 @@
           "atlas_id": 527,
           "support": "Direct",
           "rationale": "Dual-cone descent treats boundary and PDE losses as a multi-objective gradient-conflict problem."
+        }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-loss-pde-ode-residual-loss",
+          "label": "PDE / ODE residual loss",
+          "column": "Physics losses",
+          "summary": "PDE / ODE residual loss is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-bc-loss",
+          "label": "BC loss",
+          "column": "Physics losses",
+          "summary": "BC loss is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-ic-loss",
+          "label": "IC loss",
+          "column": "Physics losses",
+          "summary": "IC loss is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-data-observation-loss",
+          "label": "Data / observation loss",
+          "column": "Additional objectives",
+          "summary": "Data / observation loss is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-interface-loss",
+          "label": "Interface loss",
+          "column": "Additional objectives",
+          "summary": "Interface loss is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-conservation-constitutive-loss",
+          "label": "Conservation / constitutive loss",
+          "column": "Additional objectives",
+          "summary": "Conservation / constitutive loss is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-regularization-terms",
+          "label": "Regularization terms",
+          "column": "Balancing",
+          "summary": "Regularization terms is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-fixed-weights",
+          "label": "Fixed weights",
+          "column": "Balancing",
+          "summary": "Fixed weights is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-adaptive-dynamic-weighting",
+          "label": "Adaptive / dynamic weighting",
+          "column": "Balancing",
+          "summary": "Adaptive / dynamic weighting is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-loss-gradient-balancing-ntk-augmented-lagrangian",
+          "label": "Gradient balancing / NTK / Augmented Lagrangian",
+          "column": "Balancing",
+          "summary": "Gradient balancing / NTK / Augmented Lagrangian is a Design Stack choice within Loss Construction and Balancing; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
         }
       ]
     },
@@ -671,6 +1864,180 @@
           "support": "Direct",
           "rationale": "A staged self-adaptive, genetic-initialization, and L-BFGS workflow demonstrates the effect of hybrid training strategy."
         }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-optimization-adam",
+          "label": "Adam",
+          "column": "Optimizers",
+          "summary": "Adaptive first-order optimizer used widely in the initial or exploratory phase of PINN training.",
+          "concepts": [
+            {
+              "id": "optimizer:adam",
+              "label": "Adam"
+            },
+            {
+              "id": "page:optimizers",
+              "label": "Optimizers"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-l-bfgs",
+          "label": "L-BFGS",
+          "column": "Optimizers",
+          "summary": "Quasi-Newton optimizer commonly used for full-batch refinement of PINN objectives.",
+          "concepts": [
+            {
+              "id": "optimizer:lbfgs",
+              "label": "L-BFGS"
+            },
+            {
+              "id": "page:optimizers",
+              "label": "Optimizers"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-hybrid-adam-l-bfgs",
+          "label": "Hybrid Adam → L-BFGS",
+          "column": "Optimizers",
+          "summary": "Sequential training strategy that uses Adam and L-BFGS as distinct optimizer stages rather than treating the sequence as a new optimizer identity.",
+          "concepts": [
+            {
+              "id": "optimizer:adam",
+              "label": "Adam"
+            },
+            {
+              "id": "optimizer:lbfgs",
+              "label": "L-BFGS"
+            },
+            {
+              "id": "page:optimizers",
+              "label": "Optimizers"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-windowed-staged-methods",
+          "label": "Windowed / staged methods",
+          "column": "Optimizers",
+          "summary": "Windowed / staged methods is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-learning-rate-schedules",
+          "label": "Learning-rate schedules",
+          "column": "Training controls",
+          "summary": "Learning-rate schedules is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-initialization-xavier-he-etc",
+          "label": "Initialization (Xavier, He, etc.)",
+          "column": "Training controls",
+          "summary": "Initialization (Xavier, He, etc.) is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-full-batch-mini-batch",
+          "label": "Full-batch / mini-batch",
+          "column": "Training controls",
+          "summary": "Full-batch / mini-batch is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-pretraining-fine-tuning",
+          "label": "Pretraining / fine-tuning",
+          "column": "Extended strategies",
+          "summary": "Pretraining / fine-tuning is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-curriculum-annealing",
+          "label": "Curriculum / annealing",
+          "column": "Extended strategies",
+          "summary": "Curriculum / annealing is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-transfer-meta-learning",
+          "label": "Transfer / meta-learning",
+          "column": "Extended strategies",
+          "summary": "Transfer / meta-learning is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-decomposition-based-training",
+          "label": "Decomposition-based training",
+          "column": "Extended strategies",
+          "summary": "Decomposition-based training is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-optimization-early-stopping-regularization",
+          "label": "Early stopping / regularization",
+          "column": "Extended strategies",
+          "summary": "Early stopping / regularization is a Design Stack choice within Optimization and Training Strategy; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:training",
+              "label": "Training"
+            }
+          ],
+          "evidence": []
+        }
       ]
     },
     {
@@ -683,8 +2050,12 @@
         {
           "title": "Numerical accuracy",
           "items": [
-            "MSE, RMSE, MAE",
-            "L₂, L∞, R²",
+            "Mean squared error (MSE)",
+            "Root mean squared error (RMSE)",
+            "Mean absolute error (MAE)",
+            "Relative L₂ error",
+            "Maximum / L∞ error",
+            "Coefficient of determination (R²)",
             "Residual error (PDE / BC / IC / interface)"
           ]
         },
@@ -740,6 +2111,177 @@
           "support": "Direct",
           "rationale": "The paper separates parametric and approximation uncertainty and uses uncertainty-guided sensor placement, supporting calibrated reliability checks."
         }
+      ],
+      "interactive_items": [
+        {
+          "id": "item-evaluation-mean-squared-error-mse",
+          "label": "Mean squared error (MSE)",
+          "column": "Numerical accuracy",
+          "summary": "Mean squared prediction error; distinct from RMSE even though RMSE is its square root.",
+          "concepts": [
+            {
+              "id": "metric:mse",
+              "label": "Mean squared error (MSE)"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-root-mean-squared-error-rmse",
+          "label": "Root mean squared error (RMSE)",
+          "column": "Numerical accuracy",
+          "summary": "Root-mean-square prediction error used as a solution-accuracy metric; distinct from mean squared error.",
+          "concepts": [
+            {
+              "id": "metric:rmse",
+              "label": "Root mean squared error (RMSE)"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-mean-absolute-error-mae",
+          "label": "Mean absolute error (MAE)",
+          "column": "Numerical accuracy",
+          "summary": "Mean absolute prediction error used as a robust average-magnitude accuracy measure.",
+          "concepts": [
+            {
+              "id": "metric:mae",
+              "label": "Mean absolute error (MAE)"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-relative-l-error",
+          "label": "Relative L₂ error",
+          "column": "Numerical accuracy",
+          "summary": "Relative field error measured in an L₂ norm, normalized by an appropriate reference norm.",
+          "concepts": [
+            {
+              "id": "metric:relative-l2",
+              "label": "Relative L2 error"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-maximum-l-error",
+          "label": "Maximum / L∞ error",
+          "column": "Numerical accuracy",
+          "summary": "Maximum / L∞ error is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-coefficient-of-determination-r",
+          "label": "Coefficient of determination (R²)",
+          "column": "Numerical accuracy",
+          "summary": "Goodness-of-fit statistic comparing predictive variance explanation against the reference data.",
+          "concepts": [
+            {
+              "id": "metric:r2",
+              "label": "Coefficient of determination (R²)"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-residual-error-pde-bc-ic-interface",
+          "label": "Residual error (PDE / BC / IC / interface)",
+          "column": "Numerical accuracy",
+          "summary": "Residual error (PDE / BC / IC / interface) is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-physical-fidelity-conservation-admissibility-stability",
+          "label": "Physical fidelity (conservation, admissibility, stability)",
+          "column": "Scientific reliability",
+          "summary": "Physical fidelity (conservation, admissibility, stability) is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-robustness-noise-seeds-sparsity",
+          "label": "Robustness (noise, seeds, sparsity)",
+          "column": "Scientific reliability",
+          "summary": "Robustness (noise, seeds, sparsity) is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-inverse-recovery-quality",
+          "label": "Inverse recovery quality",
+          "column": "Decision relevance",
+          "summary": "Inverse recovery quality is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-uncertainty-calibration",
+          "label": "Uncertainty calibration",
+          "column": "Decision relevance",
+          "summary": "Uncertainty calibration is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-computational-cost-time-memory",
+          "label": "Computational cost (time, memory)",
+          "column": "Decision relevance",
+          "summary": "Computational cost (time, memory) is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        },
+        {
+          "id": "item-evaluation-benchmark-comparison",
+          "label": "Benchmark comparison",
+          "column": "Decision relevance",
+          "summary": "Benchmark comparison is a Design Stack choice within Evaluation and Validation; its interpretation depends on the governing problem and the surrounding design choices.",
+          "concepts": [
+            {
+              "id": "page:performance-metrics",
+              "label": "Performance Metrics"
+            }
+          ],
+          "evidence": []
+        }
       ]
     }
   ],
@@ -749,135 +2291,285 @@
       "type": "flow",
       "from": "physical-problem",
       "to": "computational-role",
-      "label": "Problem definition constrains the intended role",
-      "evidence": []
+      "label": "Problem definition frames the computational role",
+      "evidence": [],
+      "summary": "Governing equations, domain, conditions, data, and regime define which computational task is scientifically meaningful."
     },
     {
       "id": "flow-2-3",
       "type": "flow",
       "from": "computational-role",
       "to": "inputs-outputs",
-      "label": "Role determines the representation interface",
-      "evidence": []
+      "label": "Computational role specifies required inputs and outputs",
+      "evidence": [],
+      "summary": "Forward, inverse, discovery, operator-learning, control, and uncertainty tasks require different model interfaces."
     },
     {
       "id": "flow-3-4",
       "type": "flow",
       "from": "inputs-outputs",
       "to": "representation",
-      "label": "Interface constrains architecture",
-      "evidence": []
+      "label": "Input–output interface constrains representation choice",
+      "evidence": [],
+      "summary": "State dimension, parameterization, geometry encoding, and requested outputs constrain the representation that can realize the task."
     },
     {
       "id": "flow-4-5",
       "type": "flow",
       "from": "representation",
       "to": "physics-enforcement",
-      "label": "Ansatz and physics must be compatible",
-      "evidence": []
+      "label": "Representation must support the selected physics enforcement",
+      "evidence": [],
+      "summary": "The approximation space must be compatible with the regularity, admissibility, and constraint mechanism used to impose the physics."
     },
     {
       "id": "flow-5-6",
       "type": "flow",
       "from": "physics-enforcement",
       "to": "differentiation",
-      "label": "Constraint form determines residual evaluation",
-      "evidence": []
+      "label": "Physics formulation sets operator-evaluation requirements",
+      "evidence": [],
+      "summary": "Strong, weak, integral, conservative, or hard enforcement determines which derivatives, quadrature rules, or discrete operators must be evaluated."
     },
     {
       "id": "flow-6-7",
       "type": "flow",
       "from": "differentiation",
       "to": "sampling",
-      "label": "Residual evaluation determines sampling cost and information",
-      "evidence": []
+      "label": "Residual realization informs constraint sampling",
+      "evidence": [],
+      "summary": "The residual/operator implementation determines where evaluations are meaningful, affordable, and informative for collocation or quadrature."
     },
     {
       "id": "flow-7-8",
       "type": "flow",
       "from": "sampling",
       "to": "loss",
-      "label": "Point coverage determines the enforced objective",
-      "evidence": []
+      "label": "Sampled constraints instantiate the composite objective",
+      "evidence": [],
+      "summary": "Interior, boundary, initial, interface, data, or quadrature samples determine which objective terms are actually evaluated."
     },
     {
       "id": "flow-8-9",
       "type": "flow",
       "from": "loss",
       "to": "optimization",
-      "label": "Loss geometry determines optimizer behavior",
-      "evidence": []
+      "label": "Objective structure conditions the optimization problem",
+      "evidence": [],
+      "summary": "Loss scales, conflicts, curvature, and conditioning determine the numerical optimization problem presented to the training algorithm."
     },
     {
       "id": "flow-9-10",
       "type": "flow",
       "from": "optimization",
       "to": "evaluation",
-      "label": "Training produces the candidate model to validate",
-      "evidence": []
+      "label": "Training produces the candidate model to evaluate",
+      "evidence": [],
+      "summary": "The trained state is not accepted until numerical, physical, robustness, uncertainty, and computational checks are performed."
+    },
+    {
+      "id": "coupling-3-4",
+      "type": "coupling",
+      "from": "inputs-outputs",
+      "to": "representation",
+      "lane": 0,
+      "label": "Inputs / outputs ↔ representation",
+      "summary": "The interface constrains architecture, while the representational strategy can require additional encoded inputs, latent variables, or auxiliary outputs.",
+      "evidence": [
+        {
+          "atlas_id": 726,
+          "support": "Direct",
+          "rationale": "Parameterized PINNs explicitly encode PDE parameters as latent inputs, demonstrating that representation design and the input-output interface must be chosen together."
+        }
+      ]
+    },
+    {
+      "id": "coupling-4-6",
+      "type": "coupling",
+      "from": "representation",
+      "to": "differentiation",
+      "lane": 1,
+      "label": "Representation ↔ differentiation",
+      "summary": "Representation regularity and basis choice affect usable derivatives, while derivative order and numerical differentiation cost constrain viable representations.",
+      "evidence": [
+        {
+          "atlas_id": 401,
+          "support": "Synthesized",
+          "rationale": "The reviewed methodology treats neural representation and differential-operator evaluation as coupled design choices because approximation regularity and derivative requirements jointly determine residual construction."
+        },
+        {
+          "atlas_id": 552,
+          "support": "Equivalent",
+          "rationale": "High-dimensional high-order differentiation cost motivates alternative residual evaluation, showing that derivative requirements feed back on practical representation design."
+        }
+      ]
+    },
+    {
+      "id": "coupling-5-6",
+      "type": "coupling",
+      "from": "physics-enforcement",
+      "to": "differentiation",
+      "lane": 0,
+      "label": "Physics enforcement ↔ differentiation",
+      "summary": "The enforcement form determines derivative, quadrature, or discrete-operator requirements, while available operator evaluation can make one enforcement strategy preferable to another.",
+      "evidence": [
+        {
+          "atlas_id": 636,
+          "support": "Direct",
+          "rationale": "Variational residual evaluation makes test functions and quadrature explicit numerical choices, coupling weak enforcement directly to residual evaluation."
+        },
+        {
+          "atlas_id": 554,
+          "support": "Direct",
+          "rationale": "Coupled automatic and numerical differentiation changes residual realization and demonstrates that operator evaluation and enforcement cannot always be selected independently."
+        }
+      ]
+    },
+    {
+      "id": "coupling-5-8",
+      "type": "coupling",
+      "from": "physics-enforcement",
+      "to": "loss",
+      "lane": 3,
+      "label": "Physics enforcement ↔ loss construction",
+      "summary": "Soft, hard, conservative, interface, and constitutive enforcement determine which loss terms exist, while loss formulation determines how softly enforced constraints compete during training.",
+      "evidence": [
+        {
+          "atlas_id": 637,
+          "support": "Direct",
+          "rationale": "Comparison of exact and penalty-based boundary enforcement shows that constraint mechanism changes whether boundary satisfaction appears as a competing loss term."
+        },
+        {
+          "atlas_id": 628,
+          "support": "Direct",
+          "rationale": "Conservative PINNs introduce conservation and interface-flux conditions that alter the objective structure relative to a pointwise PDE penalty alone."
+        }
+      ]
+    },
+    {
+      "id": "coupling-7-8",
+      "type": "coupling",
+      "from": "sampling",
+      "to": "loss",
+      "lane": 0,
+      "label": "Sampling ↔ loss construction",
+      "summary": "Sampling determines which residuals contribute to the objective, while residual or loss information can be used to adapt the sampling distribution.",
+      "evidence": [
+        {
+          "atlas_id": 534,
+          "support": "Direct",
+          "rationale": "Loss-proportional importance sampling explicitly uses objective information to change collocation selection, demonstrating bidirectional sampling-loss dependence."
+        },
+        {
+          "atlas_id": 479,
+          "support": "Direct",
+          "rationale": "Residual-based adaptive refinement reallocates collocation points using current residual information, coupling objective diagnostics back to sampling."
+        }
+      ]
+    },
+    {
+      "id": "coupling-8-9",
+      "type": "coupling",
+      "from": "loss",
+      "to": "optimization",
+      "lane": 1,
+      "label": "Loss construction ↔ optimization",
+      "summary": "Loss scaling, gradient conflict, curvature, and conditioning affect optimizer behavior, while optimization diagnostics motivate reweighting or reformulating the objective.",
+      "evidence": [
+        {
+          "atlas_id": 525,
+          "support": "Direct",
+          "rationale": "Gradient-flow analysis identifies stiffness and imbalance among composite PINN objectives and motivates gradient-informed balancing during optimization."
+        },
+        {
+          "atlas_id": 823,
+          "support": "Direct",
+          "rationale": "Loss-landscape analysis connects differential-operator conditioning to optimizer performance and motivates hybrid or curvature-aware optimization strategies."
+        }
+      ]
     },
     {
       "id": "feedback-10-1",
       "type": "feedback",
       "from": "evaluation",
       "to": "physical-problem",
-      "label": "Results may require redefining the problem",
+      "label": "Systematic model-form mismatch → revisit the physical problem",
       "evidence": [
         {
           "atlas_id": 401,
           "support": "Synthesized",
           "rationale": "The reviewed evidence emphasizes matching physics-informed method and evaluation to the governing problem rather than assuming one universal formulation."
         }
-      ]
+      ],
+      "trigger": "Systematic model-form, regime, or benchmark mismatch",
+      "action": "Revisit governing assumptions, domain, conditions, forcing, or the target regime",
+      "message": "Systematic model-form mismatch → revisit problem definition",
+      "summary": "Only persistent evidence of a misframed physical problem should send the workflow back to Stage 1; ordinary training error should first be diagnosed downstream.",
+      "lane": 8
     },
     {
       "id": "feedback-10-2",
       "type": "feedback",
       "from": "evaluation",
       "to": "computational-role",
-      "label": "Results may require redefining the PINN role",
+      "label": "Task or repeated-query mismatch → reconsider the computational role",
       "evidence": [
         {
           "atlas_id": 603,
           "support": "Direct",
           "rationale": "Repeated-query evaluation motivates moving from a single PINN solve to a learned solution operator."
         }
-      ]
+      ],
+      "trigger": "The selected task is inefficient, ill-posed, or mismatched to repeated use",
+      "action": "Reconsider forward/inverse/discovery/surrogate/operator/control/uncertainty role",
+      "message": "Task or repeated-query mismatch → reconsider computational role",
+      "summary": "Evaluation can show that a single-solution PINN, inverse model, operator surrogate, or uncertainty formulation is the wrong computational role for the intended use.",
+      "lane": 7
     },
     {
       "id": "feedback-10-3",
       "type": "feedback",
       "from": "evaluation",
       "to": "inputs-outputs",
-      "label": "Poor performance may require changing outputs",
+      "label": "Poor identifiability or missing state information → revise inputs / outputs",
       "evidence": [
         {
           "atlas_id": 726,
           "support": "Direct",
           "rationale": "Explicit latent parameter encoding demonstrates how revising the input-output interface changes parameterized-PDE performance."
         }
-      ]
+      ],
+      "trigger": "Poor identifiability, missing observables, or inadequate state coverage",
+      "action": "Revise encoded inputs, auxiliary outputs, latent variables, or measured quantities",
+      "message": "Poor identifiability → revise inputs / outputs",
+      "summary": "Evaluation of inverse recovery or state reconstruction can reveal that the model interface does not expose the information needed by the task.",
+      "lane": 6
     },
     {
       "id": "feedback-10-4",
       "type": "feedback",
       "from": "evaluation",
       "to": "representation",
-      "label": "Poor performance may require changing architecture",
+      "label": "Spectral or localized approximation failure → change representation",
       "evidence": [
         {
           "atlas_id": 606,
           "support": "Direct",
           "rationale": "Spectral failure of standard representations motivates Fourier-feature redesign for multi-scale PDEs."
         }
-      ]
+      ],
+      "trigger": "Spectral bias, multiscale error, localized approximation failure, or inadequate capacity",
+      "action": "Change architecture, basis, activation, decomposition, or network structure",
+      "message": "Spectral / local approximation failure → change representation",
+      "summary": "Persistent approximation structure in the validation error can identify representation rather than optimization as the dominant cause.",
+      "lane": 5
     },
     {
       "id": "feedback-10-5",
       "type": "feedback",
       "from": "evaluation",
       "to": "physics-enforcement",
-      "label": "Reformulate physics if constraints are not satisfied",
+      "label": "Constraint or conservation failure → reformulate physics enforcement",
       "evidence": [
         {
           "atlas_id": 628,
@@ -889,14 +2581,19 @@
           "support": "Direct",
           "rationale": "Persistent boundary error motivates exact Dirichlet enforcement rather than penalty-only treatment."
         }
-      ]
+      ],
+      "trigger": "Persistent boundary, interface, conservation, admissibility, or constitutive violation",
+      "action": "Change strong/weak/integral formulation or soft/hard/conservative constraint mechanism",
+      "message": "Constraint / conservation failure → reformulate physics enforcement",
+      "summary": "Physical diagnostics can indicate that the governing constraints need a different enforcement mechanism rather than merely a larger penalty weight.",
+      "lane": 4
     },
     {
       "id": "feedback-10-6",
       "type": "feedback",
       "from": "evaluation",
       "to": "differentiation",
-      "label": "Reformulate differentiation if residual cost is high",
+      "label": "Derivative noise, memory, or operator cost → change residual evaluation",
       "evidence": [
         {
           "atlas_id": 552,
@@ -908,28 +2605,38 @@
           "support": "Direct",
           "rationale": "Sparse or costly residual evaluation motivates coupled automatic–numerical differentiation."
         }
-      ]
+      ],
+      "trigger": "Noisy/high-order derivatives, excessive memory, unstable residuals, or high operator cost",
+      "action": "Reformulate derivative order, use auxiliary variables, numerical differentiation, or discrete residuals",
+      "message": "Derivative / operator bottleneck → change residual evaluation",
+      "summary": "Cost or instability traceable to derivative evaluation should redirect redesign to Stage 6 rather than to unrelated architecture or optimizer changes.",
+      "lane": 3
     },
     {
       "id": "feedback-10-7",
       "type": "feedback",
       "from": "evaluation",
       "to": "sampling",
-      "label": "Evaluation may motivate resampling",
+      "label": "Localized error or poor coverage → adapt sampling",
       "evidence": [
         {
           "atlas_id": 479,
           "support": "Direct",
           "rationale": "Residual-based adaptive refinement explicitly reallocates points from current residual information."
         }
-      ]
+      ],
+      "trigger": "Localized error, under-resolved regions, weak boundary/interface coverage, or causal gaps",
+      "action": "Resample collocation, boundary, interface, observation, quadrature, or time points",
+      "message": "Localized error / poor coverage → adapt sampling",
+      "summary": "Spatial, temporal, boundary, or interface error localization is a direct signal to reconsider where constraints are sampled.",
+      "lane": 2
     },
     {
       "id": "feedback-10-8",
       "type": "feedback",
       "from": "evaluation",
       "to": "loss",
-      "label": "Evaluation may motivate reweighting",
+      "label": "Objective imbalance or competing constraints → rebalance the loss",
       "evidence": [
         {
           "atlas_id": 502,
@@ -941,21 +2648,31 @@
           "support": "Direct",
           "rationale": "Gradient statistics expose imbalance and drive learning-rate annealing across composite terms."
         }
-      ]
+      ],
+      "trigger": "One objective dominates, gradients conflict, or constraints converge at incompatible rates",
+      "action": "Rescale, reweight, normalize, or reformulate the composite objective",
+      "message": "Objective imbalance → rebalance / reformulate loss",
+      "summary": "Loss-term and gradient diagnostics should redirect redesign to objective construction when the failure is multi-objective imbalance rather than inadequate sampling.",
+      "lane": 1
     },
     {
       "id": "feedback-10-9",
       "type": "feedback",
       "from": "evaluation",
       "to": "optimization",
-      "label": "Adjust optimizer, learning rate, initialization, or strategy",
+      "label": "Stagnation or unstable convergence → adjust training strategy",
       "evidence": [
         {
           "atlas_id": 823,
           "support": "Direct",
           "rationale": "Ill-conditioned loss landscapes motivate hybrid and curvature-aware optimizer changes."
         }
-      ]
+      ],
+      "trigger": "Optimization stagnation, unstable updates, slow convergence, or sensitivity to initialization",
+      "action": "Change optimizer, learning rate, initialization, schedule, curriculum, staging, or stopping strategy",
+      "message": "Stagnation / instability → adjust optimizer and training strategy",
+      "summary": "When formulation and coverage are adequate but optimization fails to reach a useful solution, redesign should target Stage 9.",
+      "lane": 0
     }
   ]
 }
