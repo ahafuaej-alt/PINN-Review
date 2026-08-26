@@ -24,4 +24,9 @@ new = "  if (!(await matrix.locator('.toolbar-export').evaluate((node) => node.o
 if old not in qa:
     raise SystemExit('publication SVG QA anchor not found')
 qa = qa.replace(old, new, 1)
+old = "  assert(publicationSvg.includes('data-export-mode=\\\"publication\\\"') && publicationSvg.includes('Clean publication view') && !publicationSvg.includes('is-filter-muted') && !publicationSvg.includes('is-search-muted'), 'Publication SVG does not remove transient focus/search state.');"
+new = "  const publicationHasTransientClasses = /class=\\\"[^\\\"]*(?:is-filter-muted|is-search-muted|is-active|is-related|is-muted)[^\\\"]*\\\"/.test(publicationSvg);\n  assert(publicationSvg.includes('data-export-mode=\\\"publication\\\"') && publicationSvg.includes('Clean publication view') && !publicationHasTransientClasses, 'Publication SVG does not remove transient focus/search state.');"
+if old not in qa:
+    raise SystemExit('publication transient-state assertion anchor not found')
+qa = qa.replace(old, new, 1)
 qa_path.write_text(qa)
