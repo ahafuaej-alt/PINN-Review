@@ -8,6 +8,12 @@
   },
   "sameConcept": [
     {
+      "source": "activation:fourier-feature-mapping",
+      "target": "architecture:fourier-features",
+      "exposure": "destination",
+      "reason": "The activation taxonomy explicitly classifies Fourier feature mapping as an architecture feature-mapping component rather than an ordinary scalar activation."
+    },
+    {
       "source": "formulation:f011",
       "target": "method:automatic-differentiation",
       "exposure": "destination",
@@ -56,27 +62,61 @@
       "reason": "F108 is the Mathematical Formulations definition of mean absolute error."
     }
   ],
-  "contextOnly": [],
+  "contextOnly": [
+    {"source":"ecosystem:activation-function-adaptive-swish-2","target":"activation:adaptive-swish","reason":"The Ecosystem item is the same activation used as a taxonomy context."},
+    {"source":"ecosystem:activation-function-adaptive-tanh-1","target":"activation:adaptive-tanh","reason":"The Ecosystem item is the same adaptive tanh activation used as a taxonomy context."},
+    {"source":"ecosystem:activation-function-gelu-3","target":"activation:gelu","reason":"The Ecosystem item is the GELU activation context."},
+    {"source":"ecosystem:activation-function-leaky-relu-4","target":"activation:leaky-relu","reason":"The generic Ecosystem Leaky ReLU item maps to the generic activation record, not slope-specific variants."},
+    {"source":"ecosystem:activation-function-prelu-5","target":"activation:prelu","reason":"The Ecosystem item is the PReLU activation context."},
+    {"source":"ecosystem:activation-function-rbf-1","target":"activation:rbf-unspecified","reason":"The generic Ecosystem RBF activation item corresponds to the taxonomy's unspecified-form RBF activation context."},
+    {"source":"ecosystem:activation-function-relu-3","target":"activation:relu","reason":"The Ecosystem item is the ReLU activation context."},
+    {"source":"ecosystem:activation-function-sigmoid-2","target":"activation:sigmoid","reason":"The Ecosystem item is the sigmoid activation context."},
+    {"source":"ecosystem:activation-function-silu-1","target":"activation:silu","reason":"The Ecosystem item is the SiLU activation context."},
+    {"source":"ecosystem:activation-function-sine-1","target":"activation:sine","reason":"The Ecosystem item is the sine activation context."},
+    {"source":"ecosystem:activation-function-siren-3","target":"activation:siren","reason":"This Ecosystem item belongs to the activation-function group and therefore maps to the SIREN-style sinusoidal activation record, not to the SIREN architecture identity."},
+    {"source":"ecosystem:activation-function-softplus-6","target":"activation:softplus","reason":"The Ecosystem item is the Softplus activation context."},
+    {"source":"ecosystem:activation-function-swish-2","target":"activation:swish","reason":"The generic Ecosystem Swish item maps to fixed Swish, not the adaptive-Swish variant."},
+    {"source":"ecosystem:activation-function-tanh-1","target":"activation:tanh","reason":"The Ecosystem item is the tanh activation context."},
+    {"source":"ecosystem:activation-function-fourier-based-activation-features-4","target":"architecture:fourier-features","reason":"Fourier-based activation/features is a representation context for Fourier features, not a separate scalar activation identity."},
+    {"source":"ecosystem:neural-architecture-approximation-model-fourier-feature-networks-4","target":"architecture:fourier-features","reason":"Fourier-feature networks are the Architecture/Ecosystem context in which Fourier feature mapping is used."},
+    {"source":"ecosystem:neural-architecture-approximation-model-siren-3","target":"architecture:siren","reason":"This Ecosystem item belongs to the architecture group and is the SIREN architecture context."},
+    {"source":"ecosystem:collocation-sampling-sobol-sampling-5","target":"sampling:sobol","reason":"The Ecosystem item is the Sobol collocation-sampling context."},
+    {"source":"ecosystem:evaluation-inference-time-2","target":"metric:inference-time","reason":"The Ecosystem evaluation item is a contextual occurrence of the Inference time metric."},
+    {"source":"ecosystem:reproducibility-reporting-inference-time-21","target":"metric:inference-time","reason":"Inference time is also a reproducibility/reporting context for the same metric."},
+    {"source":"ecosystem:evaluation-noise-sensitivity-3","target":"metric:noise-sensitivity","reason":"The Ecosystem evaluation item is a contextual occurrence of the Noise sensitivity metric."},
+    {"source":"ecosystem:evaluation-spectral-error-8","target":"metric:spectral-error","reason":"The Ecosystem evaluation item is a contextual occurrence of the Spectral error metric."},
+    {"source":"ecosystem:loss-function-objective-construction-data-loss-3","target":"metric:data-loss","reason":"The Ecosystem loss-construction item is a training context for the Data loss quantity."},
+    {"source":"ecosystem:uncertainty-quantification-probabilistic-pinns-predictive-variance-5","target":"metric:predictive-variance","reason":"Predictive variance is the same reported quantity in the UQ context."},
+    {"source":"ecosystem:optimizer-adam-4","target":"optimizer:adam","reason":"The Ecosystem item is the Adam optimization context."},
+    {"source":"ecosystem:optimizer-bfgs-3","target":"optimizer:bfgs","reason":"The Ecosystem item is the BFGS optimization context."},
+    {"source":"ecosystem:optimizer-gradient-descent-1","target":"optimizer:gradient-descent","reason":"The Ecosystem item is the gradient-descent optimization context."},
+    {"source":"ecosystem:optimizer-hamiltonian-monte-carlo-1","target":"optimizer:hamiltonian-monte-carlo","reason":"The Ecosystem optimizer item is a Hamiltonian Monte Carlo context."},
+    {"source":"ecosystem:uncertainty-quantification-probabilistic-pinns-hamiltonian-monte-carlo-12","target":"optimizer:hamiltonian-monte-carlo","reason":"Hamiltonian Monte Carlo also occurs in the probabilistic/UQ context without becoming a different algorithm."},
+    {"source":"ecosystem:optimizer-l-bfgs-1","target":"optimizer:lbfgs","reason":"The Ecosystem item is the L-BFGS optimization context."},
+    {"source":"ecosystem:optimizer-l-bfgs-b-2","target":"optimizer:lbfgsb","reason":"The Ecosystem item is the L-BFGS-B optimization context."},
+    {"source":"ecosystem:optimizer-levenberg-marquardt-3","target":"optimizer:levenberg-marquardt","reason":"The Ecosystem item is the Levenberg-Marquardt optimization context."},
+    {"source":"ecosystem:optimizer-particle-swarm-optimization-1","target":"optimizer:particle-swarm-optimization","reason":"The Ecosystem item is the particle-swarm optimization context."},
+    {"source":"ecosystem:physics-enforcement-mechanism-weak-form-2","target":"formulation:weak-form","reason":"The Ecosystem item is the physics-enforcement context for weak form."},
+    {"source":"ecosystem:physics-enforcement-mechanism-variational-formulation-3","target":"formulation:variational-form","reason":"The Ecosystem item is the physics-enforcement context for variational formulation."},
+    {"source":"formulation:f014","target":"metric:data-loss","reason":"F014 formalizes data misfit; it is a Mathematical Formulations context for the reported Data loss quantity rather than a metric-definition identity."},
+    {"source":"formulation:f029","target":"formulation:weak-form","reason":"F029 is a specific integration-by-parts weak-form realization and therefore a context of weak form rather than the generic weak-form identity."},
+    {"source":"formulation:f030","target":"formulation:weak-form","reason":"F030 is a Galerkin/quadrature weak-loss realization and therefore a context of weak form rather than the generic weak-form identity."}
+  ],
   "keepSeparate": [
-    {
-      "left": "metric:rmse",
-      "right": "metric:mse",
-      "reason": "RMSE and MSE are different metrics with different scale and mathematical definitions."
-    },
-    {
-      "left": "formulation:weak-form",
-      "right": "formulation:variational-form",
-      "reason": "Weak and variational formulations can overlap in some methods but are not universally identical concepts."
-    },
-    {
-      "left": "architecture:siren",
-      "right": "activation:sine",
-      "reason": "SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."
-    },
-    {
-      "left": "method:automatic-differentiation",
-      "right": "formulation:f042",
-      "reason": "F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."
-    }
+    {"left":"metric:rmse","right":"metric:mse","reason":"RMSE and MSE are different metrics with different scale and mathematical definitions."},
+    {"left":"formulation:weak-form","right":"formulation:variational-form","reason":"Weak and variational formulations can overlap in some methods but are not universally identical concepts."},
+    {"left":"architecture:siren","right":"activation:sine","reason":"SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."},
+    {"left":"architecture:siren","right":"activation:siren","reason":"The activation taxonomy's SIREN-style sinusoidal activation is a component record, while SIREN itself is an architecture/representation."},
+    {"left":"method:automatic-differentiation","right":"formulation:f042","reason":"F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."},
+    {"left":"activation:adaptive-swish","right":"activation:swish","reason":"Adaptive Swish has trainable/adaptive behavior and is not identical to fixed Swish."},
+    {"left":"activation:leaky-relu","right":"activation:leaky-relu-alpha-0-1","reason":"Generic Leaky ReLU must remain distinct from the slope-0.1 parameterized variant."},
+    {"left":"activation:leaky-relu","right":"activation:leaky-relu-alpha-0-2","reason":"Generic Leaky ReLU must remain distinct from the alpha-0.2 parameterized variant."},
+    {"left":"activation:leaky-relu-alpha-0-1","right":"activation:leaky-relu-alpha-0-2","reason":"Different negative-slope parameterizations are distinct activation records."},
+    {"left":"ecosystem:activation-function-leaky-relu-4","right":"activation:leaky-relu-alpha-0-1","reason":"The generic Ecosystem item does not specify the slope-0.1 variant."},
+    {"left":"ecosystem:activation-function-leaky-relu-4","right":"activation:leaky-relu-alpha-0-2","reason":"The generic Ecosystem item does not specify the alpha-0.2 variant."},
+    {"left":"ecosystem:activation-function-swish-2","right":"activation:adaptive-swish","reason":"The generic Ecosystem Swish item does not imply adaptive Swish."},
+    {"left":"ecosystem:activation-function-siren-3","right":"architecture:siren","reason":"This Ecosystem object is explicitly in the activation-function group, not the architecture group."},
+    {"left":"ecosystem:neural-architecture-approximation-model-siren-3","right":"activation:siren","reason":"This Ecosystem object is explicitly in the neural-architecture group, not the activation taxonomy identity."},
+    {"left":"formulation:f053","right":"activation:siren","reason":"F053 formulates the SIREN representation network, not merely its sinusoidal activation component."}
   ]
 }
