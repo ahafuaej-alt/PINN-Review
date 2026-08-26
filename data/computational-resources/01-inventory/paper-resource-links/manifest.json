@@ -1,0 +1,13 @@
+{
+  "format": "table-v1-sharded",
+  "record_type": "paper_resource_link_stage1",
+  "columns": ["link_id","resource_id","atlas_reference_id","relationship","source_lines","mapping_status"],
+  "total_records": 333,
+  "shard_size": 100,
+  "shards": [
+    {"file":"paper-resource-links-0001.json","records":100,"first_row":1,"last_row":100},
+    {"file":"paper-resource-links-0002.json","records":100,"first_row":101,"last_row":200},
+    {"file":"paper-resource-links-0003.json","records":100,"first_row":201,"last_row":300},
+    {"file":"paper-resource-links-0004.json","records":33,"first_row":301,"last_row":333}
+  ]
+}
