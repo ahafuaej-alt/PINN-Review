@@ -736,3 +736,75 @@ body.framework-expanded { overflow: hidden; }
   .framework-detail > .framework-inspector-section { grid-column:1 / -1!important; }
   .framework-export-header { align-items:flex-start; flex-direction:column; }
 }
+
+
+/* Design Stack scientific flow v5 */
+.stack-board {
+  padding-right: 250px;
+}
+.stack-content { gap: 1.35rem; }
+.stack-phase { gap: 2.1rem; }
+.stack-stage-list { gap: .78rem; }
+.stack-stage { min-height: 98px; padding: .56rem .64rem; }
+.stack-stage-columns ul { list-style: none; display: grid; gap: .14rem; padding-left: 0; font-size: .57rem; line-height: 1.32; }
+.stack-stage-columns li { min-width: 0; }
+.stack-stage-item {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .25rem;
+  padding: .12rem .18rem;
+  border: 0;
+  border-radius: .3rem;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.stack-stage-item i { flex: 0 0 auto; color: var(--phase-color); font-style: normal; opacity: .48; }
+.stack-stage-item:hover,.stack-stage-item:focus-visible { background: color-mix(in srgb,var(--phase-color) 10%,transparent); color: var(--phase-color); outline: none; }
+.stack-stage-item:focus-visible { box-shadow: 0 0 0 2px color-mix(in srgb,var(--phase-color) 34%,transparent); }
+.stack-feedback-notes { width: 175px; padding: .65rem .5rem; justify-content: flex-start; gap: .34rem; }
+.stack-feedback-notes > small { margin: -.18rem 0 .18rem; color: var(--muted); font-size: .55rem; line-height: 1.25; text-align: center; }
+.stack-feedback-notes button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: .35rem;
+  width: 100%;
+  padding: .42rem .46rem;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: .55rem;
+  line-height: 1.28;
+  text-align: left;
+  cursor: pointer;
+}
+.stack-feedback-notes button i { color: var(--violet); font-size: .5rem; font-style: normal; white-space: nowrap; }
+.stack-feedback-notes button:hover,.stack-feedback-notes button:focus-visible,.stack-feedback-notes button.is-active { border-color: var(--violet); background: color-mix(in srgb,var(--violet) 8%,var(--paper)); color: var(--ink); }
+.stack-bottom-legend { left: 176px; right: 250px; gap: .8rem; }
+.stack-bottom-legend span { gap: .28rem; white-space: nowrap; }
+.stack-bottom-legend .relation-swatch { width: 22px; height: 18px; }
+.stack-bottom-legend .relation-swatch::before { top: 8px; }
+.stack-bottom-legend .relation-swatch::after { top: 5px; }
+.stack-board .relation-path.relation-flow { stroke: color-mix(in srgb,var(--ink) 88%,transparent); stroke-width: 2.45; }
+.stack-board .relation-path.relation-coupling { stroke: color-mix(in srgb,var(--mint) 78%,var(--ink)); stroke-width: 1.65; }
+.stack-board .relation-path.relation-feedback { stroke: var(--violet); stroke-width: 1.5; stroke-dasharray: 7 6; }
+.stack-board .relation-path.is-active { stroke: var(--framework-orange); stroke-width: 3.1; stroke-dasharray: none; }
+.design-stack-phase-fingerprints { display:flex; flex-wrap:wrap; gap:.32rem; margin-top:.45rem; }
+.design-stack-phase-fingerprints span { display:inline-flex; align-items:center; min-height:22px; padding:.2rem .48rem; border:1px solid color-mix(in srgb,var(--fingerprint) 55%,var(--line)); border-radius:999px; background:color-mix(in srgb,var(--fingerprint) 10%,var(--paper)); color:var(--fingerprint); font:700 .62rem/1 ui-monospace,monospace; }
+.design-stack-phase-fingerprints span[data-phase="problem-framing"] { --fingerprint: var(--framework-blue); }
+.design-stack-phase-fingerprints span[data-phase="formulation"] { --fingerprint: var(--framework-green); }
+.design-stack-phase-fingerprints span[data-phase="training"] { --fingerprint: var(--framework-orange); }
+.design-stack-phase-fingerprints span[data-phase="reliability"] { --fingerprint: var(--framework-purple); }
+.design-stack-feedback-detail { display:grid; gap:.22rem; margin-top:.65rem; padding:.62rem; border-left:3px solid var(--violet); border-radius:.35rem; background:color-mix(in srgb,var(--violet) 6%,var(--paper)); }
+.design-stack-feedback-detail b { color:var(--violet); font-size:.66rem; text-transform:uppercase; letter-spacing:.04em; }
+.design-stack-feedback-detail p { margin:0 0 .35rem; }
+@media (max-width: 1180px) {
+  .stack-board { min-width: 1080px; }
+}

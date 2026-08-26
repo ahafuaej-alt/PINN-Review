@@ -54,12 +54,27 @@
         {
           "label": "Architectures",
           "href": "architectures/"
+        },
+        {
+          "label": "Activation Explorer · Fourier feature mapping",
+          "href": "activation-functions/?activation=fourier_feature_mapping#activation-fourier_feature_mapping",
+          "primary": false
+        },
+        {
+          "label": "Mathematical Formulations · F052",
+          "href": "mathematical-formulations/#F052",
+          "primary": false
         }
       ],
       "appearsIn": [
         {
           "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
           "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Fourier features",
+          "href": "frameworks/design-stack/#item=item-representation-fourier-features",
           "context": "Framework"
         },
         {
@@ -76,9 +91,71 @@
           "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
           "href": "frameworks/failure-diagnostics/#item=spectral-bias",
           "context": "Framework"
+        },
+        {
+          "label": "Activation Explorer · Fourier feature mapping",
+          "href": "activation-functions/?activation=fourier_feature_mapping#activation-fourier_feature_mapping",
+          "context": "Activation function"
+        },
+        {
+          "label": "PINN Ecosystem · Architecture",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
+          "context": "Activation function"
+        },
+        {
+          "label": "Architectures",
+          "href": "architectures/",
+          "context": "Activation function"
+        },
+        {
+          "label": "Paper-level activation records",
+          "href": "activation-functions/?activation=fourier_feature_mapping"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
+        },
+        {
+          "label": "Mathematical Formulations · F052",
+          "href": "mathematical-formulations/#F052",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Architecture",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
+          "context": "Formulation"
+        },
+        {
+          "label": "Architectures",
+          "href": "architectures/",
+          "context": "Formulation"
+        },
+        {
+          "label": "Activation Explorer · Fourier feature mapping",
+          "href": "activation-functions/?activation=fourier_feature_mapping#activation-fourier_feature_mapping",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Activation Function",
+          "href": "pinn-ecosystem/?group=activation-function&item=activation-function-fourier-based-activation-features-4",
+          "context": "Ecosystem element"
+        },
+        {
+          "label": "PINN Ecosystem · Neural Architecture / Approximation Model",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model&item=neural-architecture-approximation-model-fourier-feature-networks-4",
+          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 2,
+      "sameConceptRecords": [
+        "activation:fourier-feature-mapping",
+        "formulation:f052"
+      ],
+      "contextRecords": [
+        "ecosystem:activation-function-fourier-based-activation-features-4",
+        "ecosystem:neural-architecture-approximation-model-fourier-feature-networks-4"
+      ]
     },
     {
       "id": "architecture:siren",
@@ -98,12 +175,22 @@
         {
           "label": "Activation Functions · sine",
           "href": "activation-functions/?activation=sine"
+        },
+        {
+          "label": "Mathematical Formulations · F053",
+          "href": "mathematical-formulations/#F053",
+          "primary": false
         }
       ],
       "appearsIn": [
         {
           "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
           "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · SIREN",
+          "href": "frameworks/design-stack/#item=item-representation-siren",
           "context": "Framework"
         },
         {
@@ -115,9 +202,35 @@
           "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
           "href": "frameworks/failure-diagnostics/#item=spectral-bias",
           "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F053",
+          "href": "mathematical-formulations/#F053",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Architecture",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
+          "context": "Formulation"
+        },
+        {
+          "label": "Activation Functions · sine",
+          "href": "activation-functions/?activation=sine",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Neural Architecture / Approximation Model",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model&item=neural-architecture-approximation-model-siren-3",
+          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 2,
+      "sameConceptRecords": [
+        "formulation:f053"
+      ],
+      "contextRecords": [
+        "ecosystem:neural-architecture-approximation-model-siren-3"
+      ]
     },
     {
       "id": "ecosystem:collocation-sampling",
@@ -136,6 +249,66 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Sampling / Collocation",
           "href": "frameworks/design-stack/#item=sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Interior collocation points",
+          "href": "frameworks/design-stack/#item=item-sampling-interior-collocation-points",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Boundary points",
+          "href": "frameworks/design-stack/#item=item-sampling-boundary-points",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Initial-condition points",
+          "href": "frameworks/design-stack/#item=item-sampling-initial-condition-points",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Interface points",
+          "href": "frameworks/design-stack/#item=item-sampling-interface-points",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Observation / data points",
+          "href": "frameworks/design-stack/#item=item-sampling-observation-data-points",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Quadrature points",
+          "href": "frameworks/design-stack/#item=item-sampling-quadrature-points",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Uniform sampling",
+          "href": "frameworks/design-stack/#item=item-sampling-uniform-sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Random sampling",
+          "href": "frameworks/design-stack/#item=item-sampling-random-sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Latin hypercube sampling (LHS)",
+          "href": "frameworks/design-stack/#item=item-sampling-latin-hypercube-sampling-lhs",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Adaptive / residual-based",
+          "href": "frameworks/design-stack/#item=item-sampling-adaptive-residual-based",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Geometry-aware / interface-aware",
+          "href": "frameworks/design-stack/#item=item-sampling-geometry-aware-interface-aware",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Causal / dynamic resampling",
+          "href": "frameworks/design-stack/#item=item-sampling-causal-dynamic-resampling",
           "context": "Framework"
         }
       ],
@@ -198,6 +371,61 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Governing equations (PDE / ODE / DAE / integral)",
+          "href": "frameworks/design-stack/#item=item-physical-problem-governing-equations-pde-ode-dae-integral",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Domain and geometry",
+          "href": "frameworks/design-stack/#item=item-physical-problem-domain-and-geometry",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Boundary / initial conditions",
+          "href": "frameworks/design-stack/#item=item-physical-problem-boundary-initial-conditions",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Material / physical parameters",
+          "href": "frameworks/design-stack/#item=item-physical-problem-material-physical-parameters",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Forcing / source terms",
+          "href": "frameworks/design-stack/#item=item-physical-problem-forcing-source-terms",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Data availability",
+          "href": "frameworks/design-stack/#item=item-physical-problem-data-availability",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Time dependence",
+          "href": "frameworks/design-stack/#item=item-physical-problem-time-dependence",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Steady / transient",
+          "href": "frameworks/design-stack/#item=item-physical-problem-steady-transient",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Linear / nonlinear",
+          "href": "frameworks/design-stack/#item=item-physical-problem-linear-nonlinear",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Smooth / discontinuous",
+          "href": "frameworks/design-stack/#item=item-physical-problem-smooth-discontinuous",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Multiscale / stiff / high-dimensional",
+          "href": "frameworks/design-stack/#item=item-physical-problem-multiscale-stiff-high-dimensional",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Physical Problem & Computational Role",
           "href": "frameworks/co-design/#item=problem",
           "context": "Framework"
@@ -223,6 +451,56 @@
           "label": "PINN Design Stack & Feedback Loops · Computational Role",
           "href": "frameworks/design-stack/#item=computational-role",
           "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Forward solution",
+          "href": "frameworks/design-stack/#item=item-computational-role-forward-solution",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Inverse problem",
+          "href": "frameworks/design-stack/#item=item-computational-role-inverse-problem",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Parameter identification",
+          "href": "frameworks/design-stack/#item=item-computational-role-parameter-identification",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · State reconstruction",
+          "href": "frameworks/design-stack/#item=item-computational-role-state-reconstruction",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · PDE / system discovery",
+          "href": "frameworks/design-stack/#item=item-computational-role-pde-system-discovery",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Source / BC inference",
+          "href": "frameworks/design-stack/#item=item-computational-role-source-bc-inference",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Surrogate modeling",
+          "href": "frameworks/design-stack/#item=item-computational-role-surrogate-modeling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Operator learning",
+          "href": "frameworks/design-stack/#item=item-computational-role-operator-learning",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Control / optimization",
+          "href": "frameworks/design-stack/#item=item-computational-role-control-optimization",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Uncertainty quantification",
+          "href": "frameworks/design-stack/#item=item-computational-role-uncertainty-quantification",
+          "context": "Framework"
         }
       ],
       "evidenceCount": 0
@@ -247,6 +525,86 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Coordinates (x, y, z, t)",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-coordinates-x-y-z-t",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Physical parameters",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-physical-parameters",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Geometry descriptors",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-geometry-descriptors",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · BC / IC descriptors",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-bc-ic-descriptors",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Observations / measurements",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-observations-measurements",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Forcing / control variables",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-forcing-control-variables",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Functional / field inputs",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-functional-field-inputs",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Stochastic variables",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-stochastic-variables",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Scalar / vector fields",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-scalar-vector-fields",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · State variables",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-state-variables",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Auxiliary variables",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-auxiliary-variables",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Fluxes / stresses / derivatives",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-fluxes-stresses-derivatives",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Unknown coefficients",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-unknown-coefficients",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Latent physical quantities",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-latent-physical-quantities",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Lagrange multipliers",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-lagrange-multipliers",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Constitutive variables",
+          "href": "frameworks/design-stack/#item=item-inputs-outputs-constitutive-variables",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Inputs & outputs",
           "href": "frameworks/design-performance/#item=inputs-outputs",
           "context": "Framework"
@@ -268,12 +626,22 @@
           "label": "Mathematical Formulations · variational physics",
           "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
           "primary": true
+        },
+        {
+          "label": "Mathematical Formulations · F031",
+          "href": "mathematical-formulations/#F031",
+          "primary": false
         }
       ],
       "appearsIn": [
         {
           "label": "PINN Design Stack & Feedback Loops · Physics Enforcement",
           "href": "frameworks/design-stack/#item=physics-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Variational form",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-variational-form",
           "context": "Framework"
         },
         {
@@ -285,9 +653,30 @@
           "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
           "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F031",
+          "href": "mathematical-formulations/#F031",
+          "context": "Formulation"
+        },
+        {
+          "label": "Mathematical Formulations · variational physics",
+          "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Physics-Enforcement Mechanism",
+          "href": "pinn-ecosystem/?group=physics-enforcement-mechanism&item=physics-enforcement-mechanism-variational-formulation-3",
+          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 3,
+      "sameConceptRecords": [
+        "formulation:f031"
+      ],
+      "contextRecords": [
+        "ecosystem:physics-enforcement-mechanism-variational-formulation-3"
+      ]
     },
     {
       "id": "formulation:weak-form",
@@ -304,12 +693,22 @@
           "label": "Mathematical Formulations · weak and variational physics",
           "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
           "primary": true
+        },
+        {
+          "label": "Mathematical Formulations · F028",
+          "href": "mathematical-formulations/#F028",
+          "primary": false
         }
       ],
       "appearsIn": [
         {
           "label": "PINN Design Stack & Feedback Loops · Physics Enforcement",
           "href": "frameworks/design-stack/#item=physics-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Weak form",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-weak-form",
           "context": "Framework"
         },
         {
@@ -321,9 +720,42 @@
           "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
           "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F028",
+          "href": "mathematical-formulations/#F028",
+          "context": "Formulation"
+        },
+        {
+          "label": "Mathematical Formulations · weak and variational physics",
+          "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Physics-Enforcement Mechanism",
+          "href": "pinn-ecosystem/?group=physics-enforcement-mechanism&item=physics-enforcement-mechanism-weak-form-2",
+          "context": "Ecosystem element"
+        },
+        {
+          "label": "Mathematical Formulations · F029",
+          "href": "mathematical-formulations/#F029",
+          "context": "Formulation"
+        },
+        {
+          "label": "Mathematical Formulations · F030",
+          "href": "mathematical-formulations/#F030",
+          "context": "Formulation"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 3,
+      "sameConceptRecords": [
+        "formulation:f028"
+      ],
+      "contextRecords": [
+        "ecosystem:physics-enforcement-mechanism-weak-form-2",
+        "formulation:f029",
+        "formulation:f030"
+      ]
     },
     {
       "id": "method:automatic-differentiation",
@@ -343,12 +775,22 @@
         {
           "label": "Mathematical Formulations · differentiation",
           "href": "mathematical-formulations/#d-reformulated-states-differentiation-and-approximation-bases"
+        },
+        {
+          "label": "Mathematical Formulations · F011",
+          "href": "mathematical-formulations/#F011",
+          "primary": false
         }
       ],
       "appearsIn": [
         {
           "label": "PINN Design Stack & Feedback Loops · Differentiation and Residual Evaluation",
           "href": "frameworks/design-stack/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Automatic differentiation (AD)",
+          "href": "frameworks/design-stack/#item=item-differentiation-automatic-differentiation-ad",
           "context": "Framework"
         },
         {
@@ -360,9 +802,32 @@
           "label": "PINN Design–Performance Dependency Matrix · Differentiation / operator evaluation",
           "href": "frameworks/design-performance/#item=differentiation",
           "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F011",
+          "href": "mathematical-formulations/#F011",
+          "context": "Formulation"
+        },
+        {
+          "label": "PINN Ecosystem · Differential-Operator Evaluation",
+          "href": "pinn-ecosystem/?group=differentiation-differential-operator-evaluation",
+          "context": "Formulation"
+        },
+        {
+          "label": "Mathematical Formulations · differentiation",
+          "href": "mathematical-formulations/#d-reformulated-states-differentiation-and-approximation-bases",
+          "context": "Formulation"
+        },
+        {
+          "label": "Canonical concept · AD",
+          "href": "pinn-ecosystem/?group=differentiation-differential-operator-evaluation&item=differentiation-differential-operator-evaluation-ad-1",
+          "context": "Canonical concept"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 3,
+      "sameConceptRecords": [
+        "formulation:f011"
+      ]
     },
     {
       "id": "metric:mae",
@@ -378,12 +843,108 @@
           "label": "Metric Explorer · Mean absolute error (MAE)",
           "href": "performance-metrics/?metric=mean_absolute_error#metric-mean_absolute_error",
           "primary": true
+        },
+        {
+          "label": "Mathematical Formulations · F108",
+          "href": "mathematical-formulations/#F108",
+          "primary": false
         }
       ],
       "appearsIn": [
         {
           "label": "Paper-level metric records",
           "href": "performance-metrics/?metric=mean_absolute_error"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Mean absolute error (MAE)",
+          "href": "frameworks/design-stack/#item=item-evaluation-mean-absolute-error-mae",
+          "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F108",
+          "href": "mathematical-formulations/#F108",
+          "context": "Formulation"
+        },
+        {
+          "label": "Metric Explorer · Mean absolute error (MAE)",
+          "href": "performance-metrics/?metric=mean_absolute_error#metric-mean_absolute_error",
+          "context": "Formulation"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
+        }
+      ],
+      "evidenceCount": 5,
+      "sameConceptRecords": [
+        "formulation:f108"
+      ]
+    },
+    {
+      "id": "metric:mse",
+      "label": "Mean squared error (MSE)",
+      "category": "Metric",
+      "shortMeaning": "Average squared prediction error, with stronger penalty on large deviations.",
+      "aliases": [
+        "Mean squared error (MSE)",
+        "MSE"
+      ],
+      "destinations": [
+        {
+          "label": "Metric Explorer · Mean squared error (MSE)",
+          "href": "performance-metrics/?metric=mean_squared_error#metric-mean_squared_error",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level metric records",
+          "href": "performance-metrics/?metric=mean_squared_error"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Mean squared error (MSE)",
+          "href": "frameworks/design-stack/#item=item-evaluation-mean-squared-error-mse",
+          "context": "Framework"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "metric:r2",
+      "label": "Coefficient of determination (R2)",
+      "category": "Metric",
+      "shortMeaning": "Fraction of reference variance explained by the PINN prediction.",
+      "aliases": [
+        "Coefficient of determination (R2)",
+        "R2"
+      ],
+      "destinations": [
+        {
+          "label": "Metric Explorer · Coefficient of determination (R2)",
+          "href": "performance-metrics/?metric=coefficient_of_determination#metric-coefficient_of_determination",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level metric records",
+          "href": "performance-metrics/?metric=coefficient_of_determination"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Coefficient of determination (R²)",
+          "href": "frameworks/design-stack/#item=item-evaluation-coefficient-of-determination-r",
+          "context": "Framework"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
         }
       ],
       "evidenceCount": 0
@@ -401,6 +962,11 @@
           "label": "Metric Explorer · Relative L2 error",
           "href": "performance-metrics/?metric=relative_l2_error#metric-relative_l2_error",
           "primary": true
+        },
+        {
+          "label": "Mathematical Formulations · F106",
+          "href": "mathematical-formulations/#F106",
+          "primary": false
         }
       ],
       "appearsIn": [
@@ -414,6 +980,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Relative L₂ error",
+          "href": "frameworks/design-stack/#item=item-evaluation-relative-l-error",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Verification & Reliability",
           "href": "frameworks/co-design/#item=reliability",
           "context": "Framework"
@@ -422,9 +993,27 @@
           "label": "PINN Failure-Mode Diagnostics · Verify improvement",
           "href": "frameworks/failure-diagnostics/#item=verify",
           "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F106",
+          "href": "mathematical-formulations/#F106",
+          "context": "Formulation"
+        },
+        {
+          "label": "Metric Explorer · Relative L2 error",
+          "href": "performance-metrics/?metric=relative_l2_error#metric-relative_l2_error",
+          "context": "Formulation"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 9,
+      "sameConceptRecords": [
+        "formulation:f106"
+      ]
     },
     {
       "id": "metric:rmse",
@@ -440,6 +1029,11 @@
           "label": "Metric Explorer · Root mean squared error (RMSE)",
           "href": "performance-metrics/?metric=root_mean_squared_error#metric-root_mean_squared_error",
           "primary": true
+        },
+        {
+          "label": "Mathematical Formulations · F107",
+          "href": "mathematical-formulations/#F107",
+          "primary": false
         }
       ],
       "appearsIn": [
@@ -453,6 +1047,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Root mean squared error (RMSE)",
+          "href": "frameworks/design-stack/#item=item-evaluation-root-mean-squared-error-rmse",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Verification & Reliability",
           "href": "frameworks/co-design/#item=reliability",
           "context": "Framework"
@@ -461,9 +1060,27 @@
           "label": "PINN Failure-Mode Diagnostics · Verify improvement",
           "href": "frameworks/failure-diagnostics/#item=verify",
           "context": "Framework"
+        },
+        {
+          "label": "Mathematical Formulations · F107",
+          "href": "mathematical-formulations/#F107",
+          "context": "Formulation"
+        },
+        {
+          "label": "Metric Explorer · Root mean squared error (RMSE)",
+          "href": "performance-metrics/?metric=root_mean_squared_error#metric-root_mean_squared_error",
+          "context": "Formulation"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 6,
+      "sameConceptRecords": [
+        "formulation:f107"
+      ]
     },
     {
       "id": "optimizer:adam",
@@ -492,6 +1109,16 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Adam",
+          "href": "frameworks/design-stack/#item=item-optimization-adam",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Hybrid Adam → L-BFGS",
+          "href": "frameworks/design-stack/#item=item-optimization-hybrid-adam-l-bfgs",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Training & Optimization",
           "href": "frameworks/co-design/#item=training",
           "context": "Framework"
@@ -505,9 +1132,22 @@
           "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
           "href": "frameworks/failure-diagnostics/#item=stagnation",
           "context": "Framework"
+        },
+        {
+          "label": "PINN Ecosystem · Optimizer",
+          "href": "pinn-ecosystem/?group=optimizer&item=optimizer-adam-4",
+          "context": "Ecosystem element"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 0,
+      "contextRecords": [
+        "ecosystem:optimizer-adam-4"
+      ]
     },
     {
       "id": "optimizer:lbfgs",
@@ -537,6 +1177,16 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · L-BFGS",
+          "href": "frameworks/design-stack/#item=item-optimization-l-bfgs",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Hybrid Adam → L-BFGS",
+          "href": "frameworks/design-stack/#item=item-optimization-hybrid-adam-l-bfgs",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Training & Optimization",
           "href": "frameworks/co-design/#item=training",
           "context": "Framework"
@@ -550,9 +1200,22 @@
           "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
           "href": "frameworks/failure-diagnostics/#item=stagnation",
           "context": "Framework"
+        },
+        {
+          "label": "PINN Ecosystem · Optimizer",
+          "href": "pinn-ecosystem/?group=optimizer&item=optimizer-l-bfgs-1",
+          "context": "Ecosystem element"
+        },
+        {
+          "label": "References · Paper Technical Details",
+          "href": "references/",
+          "context": "Paper-level usage"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 0,
+      "contextRecords": [
+        "ecosystem:optimizer-l-bfgs-1"
+      ]
     },
     {
       "id": "page:activation-functions",
@@ -571,6 +1234,11 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
           "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Sinusoidal activation",
+          "href": "frameworks/design-stack/#item=item-representation-sinusoidal-activation",
           "context": "Framework"
         },
         {
@@ -608,6 +1276,51 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
           "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · MLP / fully connected",
+          "href": "frameworks/design-stack/#item=item-representation-mlp-fully-connected",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · CNN / U-Net",
+          "href": "frameworks/design-stack/#item=item-representation-cnn-u-net",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · RNN / LSTM / GRU",
+          "href": "frameworks/design-stack/#item=item-representation-rnn-lstm-gru",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · GNN / graph networks",
+          "href": "frameworks/design-stack/#item=item-representation-gnn-graph-networks",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Transformer / attention",
+          "href": "frameworks/design-stack/#item=item-representation-transformer-attention",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · KAN / Kolmogorov-Arnold",
+          "href": "frameworks/design-stack/#item=item-representation-kan-kolmogorov-arnold",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Fourier neural operator (FNO)",
+          "href": "frameworks/design-stack/#item=item-representation-fourier-neural-operator-fno",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Radial basis functions (RBF)",
+          "href": "frameworks/design-stack/#item=item-representation-radial-basis-functions-rbf",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Single- or multi-network structure",
+          "href": "frameworks/design-stack/#item=item-representation-single-or-multi-network-structure",
           "context": "Framework"
         },
         {
@@ -663,8 +1376,83 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Strong-form residual (penalty)",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-strong-form-residual-penalty",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Energy / integral formulation",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-energy-integral-formulation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Soft equality constraints",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-soft-equality-constraints",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Hard constraints (exact)",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-hard-constraints-exact",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Distance / function / trial solutions",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-distance-function-trial-solutions",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Conservative / discrete enforcement",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-conservative-discrete-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Interface coupling conditions",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-interface-coupling-conditions",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Constitutive / conservation laws",
+          "href": "frameworks/design-stack/#item=item-physics-enforcement-constitutive-conservation-laws",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design Stack & Feedback Loops · Differentiation and Residual Evaluation",
           "href": "frameworks/design-stack/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Higher-order AD",
+          "href": "frameworks/design-stack/#item=item-differentiation-higher-order-ad",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Finite-order reformulation",
+          "href": "frameworks/design-stack/#item=item-differentiation-finite-order-reformulation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Numerical differentiation",
+          "href": "frameworks/design-stack/#item=item-differentiation-numerical-differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Mixed AD-numerical methods",
+          "href": "frameworks/design-stack/#item=item-differentiation-mixed-ad-numerical-methods",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Auxiliary derivative outputs",
+          "href": "frameworks/design-stack/#item=item-differentiation-auxiliary-derivative-outputs",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Time- / space-discrete residuals",
+          "href": "frameworks/design-stack/#item=item-differentiation-time-space-discrete-residuals",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Discretization-aware / solver-in-loop",
+          "href": "frameworks/design-stack/#item=item-differentiation-discretization-aware-solver-in-loop",
           "context": "Framework"
         },
         {
@@ -725,6 +1513,21 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Adam",
+          "href": "frameworks/design-stack/#item=item-optimization-adam",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · L-BFGS",
+          "href": "frameworks/design-stack/#item=item-optimization-l-bfgs",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Hybrid Adam → L-BFGS",
+          "href": "frameworks/design-stack/#item=item-optimization-hybrid-adam-l-bfgs",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Training & Optimization",
           "href": "frameworks/co-design/#item=training",
           "context": "Framework"
@@ -759,6 +1562,46 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Evaluation and Validation",
           "href": "frameworks/design-stack/#item=evaluation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Maximum / L∞ error",
+          "href": "frameworks/design-stack/#item=item-evaluation-maximum-l-error",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Residual error (PDE / BC / IC / interface)",
+          "href": "frameworks/design-stack/#item=item-evaluation-residual-error-pde-bc-ic-interface",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Physical fidelity (conservation, admissibility, stability)",
+          "href": "frameworks/design-stack/#item=item-evaluation-physical-fidelity-conservation-admissibility-stability",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Robustness (noise, seeds, sparsity)",
+          "href": "frameworks/design-stack/#item=item-evaluation-robustness-noise-seeds-sparsity",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Inverse recovery quality",
+          "href": "frameworks/design-stack/#item=item-evaluation-inverse-recovery-quality",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Uncertainty calibration",
+          "href": "frameworks/design-stack/#item=item-evaluation-uncertainty-calibration",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Computational cost (time, memory)",
+          "href": "frameworks/design-stack/#item=item-evaluation-computational-cost-time-memory",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Benchmark comparison",
+          "href": "frameworks/design-stack/#item=item-evaluation-benchmark-comparison",
           "context": "Framework"
         },
         {
@@ -841,8 +1684,103 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · PDE / ODE residual loss",
+          "href": "frameworks/design-stack/#item=item-loss-pde-ode-residual-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · BC loss",
+          "href": "frameworks/design-stack/#item=item-loss-bc-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · IC loss",
+          "href": "frameworks/design-stack/#item=item-loss-ic-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Data / observation loss",
+          "href": "frameworks/design-stack/#item=item-loss-data-observation-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Interface loss",
+          "href": "frameworks/design-stack/#item=item-loss-interface-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Conservation / constitutive loss",
+          "href": "frameworks/design-stack/#item=item-loss-conservation-constitutive-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Regularization terms",
+          "href": "frameworks/design-stack/#item=item-loss-regularization-terms",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Fixed weights",
+          "href": "frameworks/design-stack/#item=item-loss-fixed-weights",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Adaptive / dynamic weighting",
+          "href": "frameworks/design-stack/#item=item-loss-adaptive-dynamic-weighting",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Gradient balancing / NTK / Augmented Lagrangian",
+          "href": "frameworks/design-stack/#item=item-loss-gradient-balancing-ntk-augmented-lagrangian",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design Stack & Feedback Loops · Optimization and Training Strategy",
           "href": "frameworks/design-stack/#item=optimization",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Windowed / staged methods",
+          "href": "frameworks/design-stack/#item=item-optimization-windowed-staged-methods",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Learning-rate schedules",
+          "href": "frameworks/design-stack/#item=item-optimization-learning-rate-schedules",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Initialization (Xavier, He, etc.)",
+          "href": "frameworks/design-stack/#item=item-optimization-initialization-xavier-he-etc",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Full-batch / mini-batch",
+          "href": "frameworks/design-stack/#item=item-optimization-full-batch-mini-batch",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Pretraining / fine-tuning",
+          "href": "frameworks/design-stack/#item=item-optimization-pretraining-fine-tuning",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Curriculum / annealing",
+          "href": "frameworks/design-stack/#item=item-optimization-curriculum-annealing",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Transfer / meta-learning",
+          "href": "frameworks/design-stack/#item=item-optimization-transfer-meta-learning",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Decomposition-based training",
+          "href": "frameworks/design-stack/#item=item-optimization-decomposition-based-training",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Early stopping / regularization",
+          "href": "frameworks/design-stack/#item=item-optimization-early-stopping-regularization",
           "context": "Framework"
         },
         {
@@ -926,6 +1864,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Design Stack & Feedback Loops · Sobol sampling",
+          "href": "frameworks/design-stack/#item=item-sampling-sobol-sampling",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Co-Design Framework · Numerical Realization",
           "href": "frameworks/co-design/#item=numerical",
           "context": "Framework"
@@ -939,9 +1882,17 @@
           "label": "PINN Failure-Mode Diagnostics · Poor collocation / sampling coverage",
           "href": "frameworks/failure-diagnostics/#item=poor-sampling",
           "context": "Framework"
+        },
+        {
+          "label": "PINN Ecosystem · Collocation / Sampling",
+          "href": "pinn-ecosystem/?group=collocation-sampling&item=collocation-sampling-sobol-sampling-5",
+          "context": "Ecosystem element"
         }
       ],
-      "evidenceCount": 0
+      "evidenceCount": 0,
+      "contextRecords": [
+        "ecosystem:collocation-sampling-sobol-sampling-5"
+      ]
     }
   ],
   "autoLink": [
@@ -1018,5 +1969,119 @@
       ]
     }
   ],
-  "totalConcepts": 2385
+  "totalConcepts": 2509,
+  "semanticMapping": {
+    "schemaVersion": "1.0.0",
+    "updated": "2026-08-26",
+    "sameConceptCount": 28,
+    "contextOnlyCount": 86,
+    "keepSeparateCount": 21
+  },
+  "keepSeparate": [
+    {
+      "left": "metric:rmse",
+      "right": "metric:mse",
+      "reason": "RMSE and MSE are different metrics with different scale and mathematical definitions."
+    },
+    {
+      "left": "formulation:weak-form",
+      "right": "formulation:variational-form",
+      "reason": "Weak and variational formulations can overlap in some methods but are not universally identical concepts."
+    },
+    {
+      "left": "architecture:siren",
+      "right": "activation:sine",
+      "reason": "SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."
+    },
+    {
+      "left": "architecture:siren",
+      "right": "activation:siren",
+      "reason": "The activation taxonomy's SIREN-style sinusoidal activation is a component record, while SIREN itself is an architecture/representation."
+    },
+    {
+      "left": "method:automatic-differentiation",
+      "right": "formulation:f042",
+      "reason": "F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."
+    },
+    {
+      "left": "activation:adaptive-swish",
+      "right": "activation:swish",
+      "reason": "Adaptive Swish has trainable/adaptive behavior and is not identical to fixed Swish."
+    },
+    {
+      "left": "activation:leaky-relu",
+      "right": "activation:leaky-relu-alpha-0-1",
+      "reason": "Generic Leaky ReLU must remain distinct from the slope-0.1 parameterized variant."
+    },
+    {
+      "left": "activation:leaky-relu",
+      "right": "activation:leaky-relu-alpha-0-2",
+      "reason": "Generic Leaky ReLU must remain distinct from the alpha-0.2 parameterized variant."
+    },
+    {
+      "left": "activation:leaky-relu-alpha-0-1",
+      "right": "activation:leaky-relu-alpha-0-2",
+      "reason": "Different negative-slope parameterizations are distinct activation records."
+    },
+    {
+      "left": "ecosystem:activation-function-leaky-relu-4",
+      "right": "activation:leaky-relu-alpha-0-1",
+      "reason": "The generic Ecosystem item does not specify the slope-0.1 variant."
+    },
+    {
+      "left": "ecosystem:activation-function-leaky-relu-4",
+      "right": "activation:leaky-relu-alpha-0-2",
+      "reason": "The generic Ecosystem item does not specify the alpha-0.2 variant."
+    },
+    {
+      "left": "ecosystem:activation-function-swish-2",
+      "right": "activation:adaptive-swish",
+      "reason": "The generic Ecosystem Swish item does not imply adaptive Swish."
+    },
+    {
+      "left": "ecosystem:activation-function-siren-3",
+      "right": "architecture:siren",
+      "reason": "This Ecosystem object is explicitly in the activation-function group, not the architecture group."
+    },
+    {
+      "left": "ecosystem:neural-architecture-approximation-model-siren-3",
+      "right": "activation:siren",
+      "reason": "This Ecosystem object is explicitly in the neural-architecture group, not the activation taxonomy identity."
+    },
+    {
+      "left": "formulation:f053",
+      "right": "activation:siren",
+      "reason": "F053 formulates the SIREN representation network, not merely its sinusoidal activation component."
+    },
+    {
+      "left": "formulation:f109",
+      "right": "metric:maximum-absolute-error",
+      "reason": "Vector L-infinity error and scalar maximum absolute error can coincide in scalar cases but are not universally identical definitions."
+    },
+    {
+      "left": "formulation:f111",
+      "right": "metric:pde-residual-mse",
+      "reason": "Physics-residual RMS and PDE-residual MSE differ by the square-root operation and must remain separate."
+    },
+    {
+      "left": "formulation:f112",
+      "right": "metric:mass-conservation-error",
+      "reason": "A generic conservation imbalance is not identical to a mass-specific conservation error."
+    },
+    {
+      "left": "formulation:f112",
+      "right": "metric:energy-conservation-error",
+      "reason": "A generic conservation imbalance is not identical to an energy-specific conservation error."
+    },
+    {
+      "left": "formulation:f112",
+      "right": "metric:momentum-conservation-error",
+      "reason": "A generic conservation imbalance is not identical to a momentum-specific conservation error."
+    },
+    {
+      "left": "formulation:f114",
+      "right": "ecosystem:evaluation-speedup-9",
+      "reason": "Accuracy-matched speedup is a specialized measure with an accuracy threshold, whereas generic speedup is broader."
+    }
+  ]
 }
