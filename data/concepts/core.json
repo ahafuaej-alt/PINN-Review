@@ -384,21 +384,6 @@
         {
           "label": "Paper-level metric records",
           "href": "performance-metrics/?metric=mean_absolute_error"
-        },
-        {
-          "label": "Design Stack · Evaluation",
-          "href": "frameworks/design-stack/#item=evaluation",
-          "context": "Framework"
-        },
-        {
-          "label": "Co-Design · Verification & Reliability",
-          "href": "frameworks/co-design/#item=reliability",
-          "context": "Framework"
-        },
-        {
-          "label": "Failure Diagnostics · Verify improvement",
-          "href": "frameworks/failure-diagnostics/#item=verify",
-          "context": "Framework"
         }
       ],
       "evidenceCount": 0
@@ -424,17 +409,17 @@
           "href": "performance-metrics/?metric=relative_l2_error"
         },
         {
-          "label": "Design Stack · Evaluation",
+          "label": "PINN Design Stack & Feedback Loops · Evaluation and Validation",
           "href": "frameworks/design-stack/#item=evaluation",
           "context": "Framework"
         },
         {
-          "label": "Co-Design · Verification & Reliability",
+          "label": "PINN Co-Design Framework · Verification & Reliability",
           "href": "frameworks/co-design/#item=reliability",
           "context": "Framework"
         },
         {
-          "label": "Failure Diagnostics · Verify improvement",
+          "label": "PINN Failure-Mode Diagnostics · Verify improvement",
           "href": "frameworks/failure-diagnostics/#item=verify",
           "context": "Framework"
         }
@@ -463,17 +448,17 @@
           "href": "performance-metrics/?metric=root_mean_squared_error"
         },
         {
-          "label": "Design Stack · Evaluation",
+          "label": "PINN Design Stack & Feedback Loops · Evaluation and Validation",
           "href": "frameworks/design-stack/#item=evaluation",
           "context": "Framework"
         },
         {
-          "label": "Co-Design · Verification & Reliability",
+          "label": "PINN Co-Design Framework · Verification & Reliability",
           "href": "frameworks/co-design/#item=reliability",
           "context": "Framework"
         },
         {
-          "label": "Failure Diagnostics · Verify improvement",
+          "label": "PINN Failure-Mode Diagnostics · Verify improvement",
           "href": "frameworks/failure-diagnostics/#item=verify",
           "context": "Framework"
         }
@@ -502,22 +487,22 @@
           "href": "optimizers/?optimizer=adam"
         },
         {
-          "label": "Design Stack · Optimization",
+          "label": "PINN Design Stack & Feedback Loops · Optimization and Training Strategy",
           "href": "frameworks/design-stack/#item=optimization",
           "context": "Framework"
         },
         {
-          "label": "Co-Design · Training & Optimization",
+          "label": "PINN Co-Design Framework · Training & Optimization",
           "href": "frameworks/co-design/#item=training",
           "context": "Framework"
         },
         {
-          "label": "Design–Performance · Optimizer & LR strategy",
+          "label": "PINN Design–Performance Dependency Matrix · Optimizer & LR strategy",
           "href": "frameworks/design-performance/#item=optimizer",
           "context": "Framework"
         },
         {
-          "label": "Failure Diagnostics · Optimization stagnation",
+          "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
           "href": "frameworks/failure-diagnostics/#item=stagnation",
           "context": "Framework"
         }
@@ -547,22 +532,22 @@
           "href": "optimizers/?optimizer=l_bfgs"
         },
         {
-          "label": "Design Stack · Optimization",
+          "label": "PINN Design Stack & Feedback Loops · Optimization and Training Strategy",
           "href": "frameworks/design-stack/#item=optimization",
           "context": "Framework"
         },
         {
-          "label": "Co-Design · Training & Optimization",
+          "label": "PINN Co-Design Framework · Training & Optimization",
           "href": "frameworks/co-design/#item=training",
           "context": "Framework"
         },
         {
-          "label": "Design–Performance · Optimizer & LR strategy",
+          "label": "PINN Design–Performance Dependency Matrix · Optimizer & LR strategy",
           "href": "frameworks/design-performance/#item=optimizer",
           "context": "Framework"
         },
         {
-          "label": "Failure Diagnostics · Optimization stagnation",
+          "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
           "href": "frameworks/failure-diagnostics/#item=stagnation",
           "context": "Framework"
         }

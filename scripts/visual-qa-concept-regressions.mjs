@@ -48,6 +48,9 @@ try {
     assert(snapshot.destinations.some((item) => item.href?.includes('/performance-metrics/?metric=root_mean_squared_error')), 'RMSE Metric Explorer destination is missing.');
     assert(snapshot.destinations.some((item) => item.href?.includes('/mathematical-formulations/#F107')), 'RMSE exact Mathematical Formulations F107 destination is missing.');
     assert(snapshot.contexts.some((item) => item.href?.includes('/mathematical-formulations/#F107')), 'RMSE exact F107 occurrence is missing from “Where this concept appears”.');
+    assert(!snapshot.contexts.some((item) => item.href?.includes('/frameworks/design-stack/#item=physics-enforcement')), 'RMSE incorrectly appears in the Design Stack Physics Enforcement context.');
+    assert(!snapshot.contexts.some((item) => item.href?.includes('/frameworks/co-design/#item=physics')), 'RMSE incorrectly appears in the Co-Design Physics & Constraints context.');
+    assert(!snapshot.contexts.some((item) => item.href?.includes('/frameworks/design-performance/#item=physics-enforcement')), 'RMSE incorrectly appears in the Design–Performance Physics Enforcement context.');
     assert(errors.length === 0, `Design Stack concept inspector raised runtime errors: ${errors.join(' | ')}`);
     await page.close();
   }

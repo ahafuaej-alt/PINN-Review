@@ -68,29 +68,6 @@ for (const paper of paperMaster.papers) mergeConcept({
   appearsIn: [{ label: 'References', href: 'references/' }]
 });
 
-const frameworkContext = {
-  optimizer: [
-    ['Design Stack · Optimization', 'frameworks/design-stack/#item=optimization'],
-    ['Co-Design · Training & Optimization', 'frameworks/co-design/#item=training'],
-    ['Design–Performance · Optimizer & LR strategy', 'frameworks/design-performance/#item=optimizer'],
-    ['Failure Diagnostics · Optimization stagnation', 'frameworks/failure-diagnostics/#item=stagnation']
-  ],
-  metric: [
-    ['Design Stack · Evaluation', 'frameworks/design-stack/#item=evaluation'],
-    ['Co-Design · Verification & Reliability', 'frameworks/co-design/#item=reliability'],
-    ['Failure Diagnostics · Verify improvement', 'frameworks/failure-diagnostics/#item=verify']
-  ],
-  activation: [
-    ['Design Stack · Representation', 'frameworks/design-stack/#item=representation'],
-    ['Design–Performance · Activation / features', 'frameworks/design-performance/#item=activation-features']
-  ],
-  formulation: [
-    ['Design Stack · Physics Enforcement', 'frameworks/design-stack/#item=physics-enforcement'],
-    ['Co-Design · Physics & Constraints', 'frameworks/co-design/#item=physics'],
-    ['Design–Performance · Physics enforcement', 'frameworks/design-performance/#item=physics-enforcement']
-  ]
-};
-const contexts = (kind) => (frameworkContext[kind] || []).map(([label, href]) => ({ label, href, context: 'Framework' }));
 const optimizerCanonicalSlug = (id) => ({ l_bfgs: 'lbfgs', l_bfgs_b: 'lbfgsb' }[id] || slug(id));
 const metricCanonicalSlug = (id) => ({
   root_mean_squared_error: 'rmse',
@@ -110,7 +87,7 @@ for (const item of optimizerTaxonomy.optimizers) {
     shortMeaning: item.description,
     aliases: unique([item.optimizer_name, ...(item.aliases || [])]),
     destinations: [{ label: `Optimizer Explorer · ${item.optimizer_name}`, href: `optimizers/?optimizer=${encodeURIComponent(item.optimizer_id)}#optimizer-${encodeURIComponent(item.optimizer_id)}`, primary: true }],
-    appearsIn: [{ label: 'Paper-level optimizer records', href: `optimizers/?optimizer=${encodeURIComponent(item.optimizer_id)}` }, ...contexts('optimizer')]
+    appearsIn: [{ label: 'Paper-level optimizer records', href: `optimizers/?optimizer=${encodeURIComponent(item.optimizer_id)}` }]
   });
 }
 
@@ -124,7 +101,7 @@ for (const item of activationTaxonomy.activations) {
     shortMeaning: item.definition || item.typical_role,
     aliases: unique([item.activation_name, ...(item.aliases || [])]).filter((alias) => !alias.includes('\\b') && alias.length < 90),
     destinations: [{ label: `Activation Explorer · ${item.activation_name}`, href: `activation-functions/?activation=${encodeURIComponent(item.activation_id)}#activation-${encodeURIComponent(item.activation_id)}`, primary: true }],
-    appearsIn: [{ label: 'Paper-level activation records', href: `activation-functions/?activation=${encodeURIComponent(item.activation_id)}` }, ...contexts('activation')]
+    appearsIn: [{ label: 'Paper-level activation records', href: `activation-functions/?activation=${encodeURIComponent(item.activation_id)}` }]
   });
 }
 
@@ -140,7 +117,7 @@ for (const item of metricTaxonomy.metrics) {
     shortMeaning: item.what_it_measures,
     aliases: unique([item.metric_name, ...(item.aliases || [])]).filter((alias) => !alias.includes('\\b') && alias.length < 90),
     destinations: [{ label: `Metric Explorer · ${item.metric_name}`, href: `performance-metrics/?metric=${encodeURIComponent(item.metric_id)}#metric-${encodeURIComponent(item.metric_id)}`, primary: true }],
-    appearsIn: [{ label: 'Paper-level metric records', href: `performance-metrics/?metric=${encodeURIComponent(item.metric_id)}` }, ...contexts('metric')]
+    appearsIn: [{ label: 'Paper-level metric records', href: `performance-metrics/?metric=${encodeURIComponent(item.metric_id)}` }]
   });
 }
 
@@ -154,7 +131,7 @@ for (const item of formulations) {
     shortMeaning: item.meaning,
     aliases: unique([item.name, ...(item.tags || [])]),
     destinations: [{ label: `Mathematical Formulations · ${item.id}`, href: `mathematical-formulations/#${item.id}`, primary: true }],
-    appearsIn: contexts('formulation')
+    appearsIn: []
   });
 }
 
@@ -232,8 +209,8 @@ for (const entry of frameworkManifest.frameworks) {
 
 // Stable semantic aliases remain independent of source-specific record IDs.
 const curated = [
-  { id: 'formulation:weak-form', label: 'Weak form', category: 'Formulation', shortMeaning: 'Tests the governing equation against admissible test functions and enforces an integrated residual.', aliases: ['Weak form', 'weak-form', 'weak formulation'], destinations: [{ label: 'Mathematical Formulations · weak and variational physics', href: 'mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics', primary: true }], appearsIn: contexts('formulation') },
-  { id: 'formulation:variational-form', label: 'Variational form', category: 'Formulation', shortMeaning: 'An integral statement obtained through admissible variations or test functions.', aliases: ['Variational form', 'variational formulation'], destinations: [{ label: 'Mathematical Formulations · variational physics', href: 'mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics', primary: true }], appearsIn: contexts('formulation') },
+  { id: 'formulation:weak-form', label: 'Weak form', category: 'Formulation', shortMeaning: 'Tests the governing equation against admissible test functions and enforces an integrated residual.', aliases: ['Weak form', 'weak-form', 'weak formulation'], destinations: [{ label: 'Mathematical Formulations · weak and variational physics', href: 'mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics', primary: true }], appearsIn: [] },
+  { id: 'formulation:variational-form', label: 'Variational form', category: 'Formulation', shortMeaning: 'An integral statement obtained through admissible variations or test functions.', aliases: ['Variational form', 'variational formulation'], destinations: [{ label: 'Mathematical Formulations · variational physics', href: 'mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics', primary: true }], appearsIn: [] },
   { id: 'method:automatic-differentiation', label: 'Automatic differentiation', category: 'Numerical method', shortMeaning: 'Computes exact program derivatives through the computational graph, subject to floating-point arithmetic.', aliases: ['Automatic differentiation', 'automatic differentiation (AD)'], destinations: [{ label: 'PINN Ecosystem · Differential-Operator Evaluation', href: 'pinn-ecosystem/?group=differentiation-differential-operator-evaluation', primary: true }, { label: 'Mathematical Formulations · differentiation', href: 'mathematical-formulations/#d-reformulated-states-differentiation-and-approximation-bases' }], appearsIn: [{ label: 'Design Stack · Differentiation', href: 'frameworks/design-stack/#item=differentiation' }, { label: 'Design–Performance · Differentiation', href: 'frameworks/design-performance/#item=differentiation' }] },
   { id: 'architecture:fourier-features', label: 'Fourier features', category: 'Architecture', shortMeaning: 'Maps inputs through sinusoidal features to improve representation of high-frequency or multiscale structure.', aliases: ['Fourier features', 'Fourier feature mapping'], destinations: [{ label: 'PINN Ecosystem · Architecture', href: 'pinn-ecosystem/?group=neural-architecture-approximation-model', primary: true }, { label: 'Architectures', href: 'architectures/' }], appearsIn: [{ label: 'Design Stack · Representation', href: 'frameworks/design-stack/#item=representation' }, { label: 'Failure Diagnostics · Spectral bias', href: 'frameworks/failure-diagnostics/#item=spectral-bias' }] },
   { id: 'architecture:siren', label: 'SIREN', category: 'Architecture', shortMeaning: 'A sinusoidal representation network designed to model signals and their derivatives.', aliases: ['SIREN', 'sinusoidal representation network'], destinations: [{ label: 'PINN Ecosystem · Architecture', href: 'pinn-ecosystem/?group=neural-architecture-approximation-model', primary: true }, { label: 'Activation Functions · sine', href: 'activation-functions/?activation=sine' }], appearsIn: [{ label: 'Design Stack · Representation', href: 'frameworks/design-stack/#item=representation' }] },

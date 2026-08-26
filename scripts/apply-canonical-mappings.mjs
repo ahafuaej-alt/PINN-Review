@@ -88,22 +88,17 @@ function applyMappings(document, sourceDocument = registry) {
     }
   }
 
-  const genericContexts = {
-    metric: [{ label: 'References · Paper Technical Details', href: 'references/', context: 'Paper-level usage' }],
-    optimizer: [
-      { label: 'Training', href: 'training/', context: 'Training context' },
-      { label: 'References · Paper Technical Details', href: 'references/', context: 'Paper-level usage' }
-    ],
-    activation: [
-      { label: 'Architectures', href: 'architectures/', context: 'Representation context' },
-      { label: 'References · Paper Technical Details', href: 'references/', context: 'Paper-level usage' }
-    ],
-    architecture: [{ label: 'Architectures', href: 'architectures/', context: 'Representation context' }],
-    sampling: [{ label: 'Training', href: 'training/', context: 'Training context' }]
-  };
+  // Paper Technical Details is a maintained occurrence only for object families
+  // backed by paper-level technical datasets. Framework/page occurrences are
+  // added from explicit object mappings, never from namespace-wide defaults.
   for (const concept of document.concepts) {
     const namespace = concept.id.split(':')[0];
-    if (genericContexts[namespace]) concept.appearsIn = uniqueLinks([...(concept.appearsIn || []), ...genericContexts[namespace]]);
+    if (['metric', 'optimizer', 'activation'].includes(namespace)) {
+      concept.appearsIn = uniqueLinks([
+        ...(concept.appearsIn || []),
+        { label: 'References · Paper Technical Details', href: 'references/', context: 'Paper-level usage' }
+      ]);
+    }
   }
 
   document.semanticMapping = {
