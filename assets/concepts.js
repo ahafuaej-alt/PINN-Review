@@ -9,6 +9,31 @@
   const state = { registry: null, byId: new Map(), evidence: null, fullRegistryPromise: null, activeId: null, returnFocus: null, observer: null, queued: false };
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
   const absoluteHref = (href) => new URL(href, rootUrl).href;
+  const contextOverlays = new Map([
+    ['metric:rmse', {
+      destinations: [{ label: 'Mathematical Formulations · Evaluation & Reliability', href: 'mathematical-formulations/#i-mathematical-evaluation-and-reliability' }],
+      appearsIn: [{ label: 'Mathematical Formulations · Evaluation & Reliability', href: 'mathematical-formulations/#i-mathematical-evaluation-and-reliability', context: 'Evaluation context' }]
+    }]
+  ]);
+  const mergeUniqueByHref = (base = [], extra = []) => {
+    const seen = new Set();
+    return [...base, ...extra].filter((entry) => {
+      if (!entry?.href || seen.has(entry.href)) return false;
+      seen.add(entry.href);
+      return true;
+    });
+  };
+  const applyContextOverlays = (registry) => {
+    for (const concept of registry?.concepts || []) {
+      const overlay = contextOverlays.get(concept.id);
+      if (!overlay) continue;
+      concept.destinations = mergeUniqueByHref(concept.destinations, overlay.destinations);
+      concept.appearsIn = mergeUniqueByHref(concept.appearsIn, overlay.appearsIn);
+    }
+  };
+  const mathManagedSelector = 'mjx-container,mjx-assistive-mml,.MathJax,.equation-box,[data-formulation-catalogue],[data-notation-table],[data-mathjax-managed]';
+  const blockedConceptSelector = `a,button,label,summary,select,option,textarea,input,pre,code,kbd,samp,script,style,svg,math,[contenteditable="true"],[data-no-concept-link],[data-concept-id],${mathManagedSelector}`;
+  const isMathManaged = (node) => node instanceof Element && (node.matches(mathManagedSelector) || Boolean(node.closest(mathManagedSelector)));
 
   const style = document.createElement('link');
   style.rel = 'stylesheet';
@@ -51,6 +76,7 @@
   api.ready = fetch(coreRegistryUrl, { cache: 'no-store' })
     .then((response) => response.ok ? response.json() : Promise.reject(new Error(`Concept registry returned ${response.status}`)))
     .then((registry) => {
+      applyContextOverlays(registry);
       state.registry = registry;
       state.byId = new Map(registry.concepts.map((concept) => [concept.id, concept]));
       enhance(document);
@@ -103,7 +129,7 @@
         if (!node.nodeValue?.trim() || !expression.test(node.nodeValue)) { expression.lastIndex = 0; return NodeFilter.FILTER_REJECT; }
         expression.lastIndex = 0;
         const parent = node.parentElement;
-        if (!parent || parent.closest('a,button,label,summary,select,option,textarea,input,pre,code,kbd,samp,script,style,svg,math,[contenteditable="true"],[data-no-concept-link],[data-concept-id]')) return NodeFilter.FILTER_REJECT;
+        if (!parent || parent.closest(blockedConceptSelector)) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
@@ -138,7 +164,7 @@
   function startObserver() {
     state.observer = new MutationObserver((mutations) => {
       if (state.queued) return;
-      const roots = mutations.flatMap((mutation) => [...mutation.addedNodes]).filter((node) => node.nodeType === Node.ELEMENT_NODE);
+      const roots = mutations.flatMap((mutation) => [...mutation.addedNodes]).filter((node) => node.nodeType === Node.ELEMENT_NODE && !isMathManaged(node));
       if (!roots.length) return;
       state.queued = true;
       requestAnimationFrame(() => {
@@ -200,6 +226,7 @@
     state.fullRegistryPromise ||= fetch(fullRegistryUrl, { cache: 'no-store' })
       .then((response) => response.ok ? response.json() : Promise.reject(new Error(`Full concept registry returned ${response.status}`)))
       .then((registry) => {
+        applyContextOverlays(registry);
         state.registry = registry;
         state.byId = new Map(registry.concepts.map((concept) => [concept.id, concept]));
         enhance(document);
