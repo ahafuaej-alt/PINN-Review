@@ -1,4 +1,4 @@
-name: Apply Framework export refinements
+name: Apply Framework export refinements v2
 
 on:
   push:
