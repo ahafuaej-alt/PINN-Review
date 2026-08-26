@@ -6,157 +6,1031 @@
   "represents": "No design element controls a single outcome. The matrix exposes recurring methodological dependencies between representation, physics and numerics, training, structural extension, and the numerical, physical, optimization, cost, robustness, inverse, and reuse properties of a PINN.",
   "interpretation": "Influence levels summarize recurring dependencies in the reviewed evidence. They are not effect sizes and do not imply universal monotonic effects. Strength varies with the problem, formulation, and implementation. Trade-off markers identify choices for which improvement in one dimension may increase cost or reduce another.",
   "filters": [
-    {"id": "all", "label": "All design dimensions"},
-    {"id": "representation", "label": "I · Representation"},
-    {"id": "physics-numerics", "label": "II · Physics & Numerics"},
-    {"id": "training", "label": "III · Training"},
-    {"id": "extension", "label": "IV · Structural Extension & Reuse"}
+    {
+      "id": "all",
+      "label": "All design dimensions"
+    },
+    {
+      "id": "representation",
+      "label": "I · Representation"
+    },
+    {
+      "id": "physics-numerics",
+      "label": "II · Physics & Numerics"
+    },
+    {
+      "id": "training",
+      "label": "III · Training"
+    },
+    {
+      "id": "extension",
+      "label": "IV · Structural Extension & Reuse"
+    }
   ],
   "legend": [
-    {"id": "major", "label": "Direct / major dependency", "description": "A primary design-to-outcome dependency recurring across the synthesis."},
-    {"id": "context", "label": "Context-dependent dependency", "description": "Influence is substantial but depends strongly on the problem or formulation."},
-    {"id": "indirect", "label": "Indirect / secondary dependency", "description": "Influence is mediated through another design element or outcome."}
+    {
+      "id": "major",
+      "label": "Direct / major dependency",
+      "description": "A primary design-to-outcome dependency recurring across the synthesis."
+    },
+    {
+      "id": "context",
+      "label": "Context-dependent dependency",
+      "description": "Influence is substantial but depends strongly on the problem or formulation."
+    },
+    {
+      "id": "indirect",
+      "label": "Indirect / secondary dependency",
+      "description": "Influence is mediated through another design element or outcome."
+    }
   ],
   "columns": [
-    {"id": "accuracy", "code": "A", "title": "Numerical Accuracy", "subtitle": "Fields / states"},
-    {"id": "fidelity", "code": "B", "title": "Physical Fidelity", "subtitle": "Conservation & constraints"},
-    {"id": "trainability", "code": "C", "title": "Trainability & Convergence", "subtitle": "Optimization behavior"},
-    {"id": "cost", "code": "D", "title": "Computational Cost", "subtitle": "Time / memory / solver calls"},
-    {"id": "robustness", "code": "E", "title": "Robustness & Generalization", "subtitle": "Noise / OOD / seed variability"},
-    {"id": "identifiability", "code": "F", "title": "Identifiability & Uncertainty", "subtitle": "Parameter recovery & UQ"},
-    {"id": "scalability", "code": "G", "title": "Scalability & Reuse", "subtitle": "Large scale / repeated queries"}
+    {
+      "id": "accuracy",
+      "code": "A",
+      "title": "Numerical Accuracy",
+      "subtitle": "Fields / states"
+    },
+    {
+      "id": "fidelity",
+      "code": "B",
+      "title": "Physical Fidelity",
+      "subtitle": "Conservation & constraints"
+    },
+    {
+      "id": "trainability",
+      "code": "C",
+      "title": "Trainability & Convergence",
+      "subtitle": "Optimization behavior"
+    },
+    {
+      "id": "cost",
+      "code": "D",
+      "title": "Computational Cost",
+      "subtitle": "Time / memory / solver calls"
+    },
+    {
+      "id": "robustness",
+      "code": "E",
+      "title": "Robustness & Generalization",
+      "subtitle": "Noise / OOD / seed variability"
+    },
+    {
+      "id": "identifiability",
+      "code": "F",
+      "title": "Identifiability & Uncertainty",
+      "subtitle": "Parameter recovery & UQ"
+    },
+    {
+      "id": "scalability",
+      "code": "G",
+      "title": "Scalability & Reuse",
+      "subtitle": "Large scale / repeated queries"
+    }
   ],
   "rows": [
     {
-      "id": "inputs-outputs", "number": 1, "group": "representation", "title": "Inputs & outputs", "detail": "Variables, parameters, and the representation interface", "concepts": [{"label": "PINN Ecosystem · Inputs and outputs", "route": "pinn-ecosystem/#layer-3"}], "tradeoff": false,
+      "id": "inputs-outputs",
+      "number": 1,
+      "group": "representation",
+      "title": "Inputs & outputs",
+      "detail": "Variables, parameters, and the representation interface",
+      "concepts": [
+        {
+          "label": "PINN Ecosystem · Inputs and outputs",
+          "id": "ecosystem:representation"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "inputs-outputs:accuracy", "level": "major", "label": "state coverage"}, {"id": "inputs-outputs:fidelity", "level": "major", "label": "constraint mapping"}, {"id": "inputs-outputs:trainability", "level": "context", "label": "dimensionality"}, {"id": "inputs-outputs:cost", "level": "indirect", "label": "I/O size"}, {"id": "inputs-outputs:robustness", "level": "major", "label": "extrapolation"}, {"id": "inputs-outputs:identifiability", "level": "major", "label": "parameter link"}, {"id": "inputs-outputs:scalability", "level": "context", "label": "parameter dimension"}
-      ], "evidence": [
-        {"atlas_id": 450, "support": "Direct", "rationale": "Coordinate, state, observation, and unknown-parameter interfaces differ between forward and inverse PINN tasks, affecting coverage and identifiability."},
-        {"atlas_id": 726, "support": "Direct", "rationale": "Explicit latent parameter inputs enable one model to cover a parameterized PDE family, linking interface design to reuse and parameter efficiency."}
+        {
+          "id": "inputs-outputs:accuracy",
+          "level": "major",
+          "label": "state coverage"
+        },
+        {
+          "id": "inputs-outputs:fidelity",
+          "level": "major",
+          "label": "constraint mapping"
+        },
+        {
+          "id": "inputs-outputs:trainability",
+          "level": "context",
+          "label": "dimensionality"
+        },
+        {
+          "id": "inputs-outputs:cost",
+          "level": "indirect",
+          "label": "I/O size"
+        },
+        {
+          "id": "inputs-outputs:robustness",
+          "level": "major",
+          "label": "extrapolation"
+        },
+        {
+          "id": "inputs-outputs:identifiability",
+          "level": "major",
+          "label": "parameter link"
+        },
+        {
+          "id": "inputs-outputs:scalability",
+          "level": "context",
+          "label": "parameter dimension"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 450,
+          "support": "Direct",
+          "rationale": "Coordinate, state, observation, and unknown-parameter interfaces differ between forward and inverse PINN tasks, affecting coverage and identifiability."
+        },
+        {
+          "atlas_id": 726,
+          "support": "Direct",
+          "rationale": "Explicit latent parameter inputs enable one model to cover a parameterized PDE family, linking interface design to reuse and parameter efficiency."
+        }
       ]
     },
     {
-      "id": "architecture-basis", "number": 2, "group": "representation", "title": "Architecture / basis", "detail": "MLP, CNN, GNN, Transformer, KAN, Fourier, RBF, and related bases", "concepts": [{"label": "Architectures", "route": "architectures/"}], "tradeoff": false,
+      "id": "architecture-basis",
+      "number": 2,
+      "group": "representation",
+      "title": "Architecture / basis",
+      "detail": "MLP, CNN, GNN, Transformer, KAN, Fourier, RBF, and related bases",
+      "concepts": [
+        {
+          "label": "Architectures",
+          "id": "page:architectures"
+        },
+        {
+          "id": "architecture:fourier-features",
+          "label": "Fourier features"
+        },
+        {
+          "id": "architecture:siren",
+          "label": "SIREN"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "architecture-basis:accuracy", "level": "major", "label": "capacity / bias"}, {"id": "architecture-basis:fidelity", "level": "context", "label": "inductive bias"}, {"id": "architecture-basis:trainability", "level": "major", "label": "optimization geometry"}, {"id": "architecture-basis:cost", "level": "major", "label": "parameters / depth"}, {"id": "architecture-basis:robustness", "level": "major", "label": "expressive generalization"}, {"id": "architecture-basis:identifiability", "level": "context", "label": "identifiability"}, {"id": "architecture-basis:scalability", "level": "major", "label": "transferability"}
-      ], "evidence": [
-        {"atlas_id": 606, "support": "Direct", "rationale": "Fourier-feature architecture changes approximation bias, multi-scale accuracy, and the spectral properties seen by optimization."},
-        {"atlas_id": 231, "support": "Direct", "rationale": "A SIREN architecture improves high-frequency field representation while interacting with adaptive sampling and computational efficiency."}
+        {
+          "id": "architecture-basis:accuracy",
+          "level": "major",
+          "label": "capacity / bias"
+        },
+        {
+          "id": "architecture-basis:fidelity",
+          "level": "context",
+          "label": "inductive bias"
+        },
+        {
+          "id": "architecture-basis:trainability",
+          "level": "major",
+          "label": "optimization geometry"
+        },
+        {
+          "id": "architecture-basis:cost",
+          "level": "major",
+          "label": "parameters / depth"
+        },
+        {
+          "id": "architecture-basis:robustness",
+          "level": "major",
+          "label": "expressive generalization"
+        },
+        {
+          "id": "architecture-basis:identifiability",
+          "level": "context",
+          "label": "identifiability"
+        },
+        {
+          "id": "architecture-basis:scalability",
+          "level": "major",
+          "label": "transferability"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 606,
+          "support": "Direct",
+          "rationale": "Fourier-feature architecture changes approximation bias, multi-scale accuracy, and the spectral properties seen by optimization."
+        },
+        {
+          "atlas_id": 231,
+          "support": "Direct",
+          "rationale": "A SIREN architecture improves high-frequency field representation while interacting with adaptive sampling and computational efficiency."
+        }
       ]
     },
     {
-      "id": "activation-features", "number": 3, "group": "representation", "title": "Activation / features", "detail": "Tanh, sine, adaptive, Fourier features, and related basis choices", "concepts": [{"label": "Activation Functions", "route": "activation-functions/"}], "tradeoff": false,
+      "id": "activation-features",
+      "number": 3,
+      "group": "representation",
+      "title": "Activation / features",
+      "detail": "Tanh, sine, adaptive, Fourier features, and related basis choices",
+      "concepts": [
+        {
+          "label": "Activation Functions",
+          "id": "page:activation-functions"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "activation-features:accuracy", "level": "major", "label": "frequency content"}, {"id": "activation-features:fidelity", "level": "indirect", "label": "indirect"}, {"id": "activation-features:trainability", "level": "major", "label": "gradient flow"}, {"id": "activation-features:cost", "level": "context", "label": "evaluation complexity"}, {"id": "activation-features:robustness", "level": "major", "label": "feature extrapolation"}, {"id": "activation-features:identifiability", "level": "indirect", "label": "indirect"}, {"id": "activation-features:scalability", "level": "major", "label": "reusability"}
-      ], "evidence": [
-        {"atlas_id": 517, "support": "Direct", "rationale": "Adaptive activations with slope recovery affect solution accuracy and gradient dynamics simultaneously."},
-        {"atlas_id": 606, "support": "Direct", "rationale": "Fourier features alter both representable frequency content and the eigenspectrum governing learning."}
+        {
+          "id": "activation-features:accuracy",
+          "level": "major",
+          "label": "frequency content"
+        },
+        {
+          "id": "activation-features:fidelity",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "activation-features:trainability",
+          "level": "major",
+          "label": "gradient flow"
+        },
+        {
+          "id": "activation-features:cost",
+          "level": "context",
+          "label": "evaluation complexity"
+        },
+        {
+          "id": "activation-features:robustness",
+          "level": "major",
+          "label": "feature extrapolation"
+        },
+        {
+          "id": "activation-features:identifiability",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "activation-features:scalability",
+          "level": "major",
+          "label": "reusability"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 517,
+          "support": "Direct",
+          "rationale": "Adaptive activations with slope recovery affect solution accuracy and gradient dynamics simultaneously."
+        },
+        {
+          "atlas_id": 606,
+          "support": "Direct",
+          "rationale": "Fourier features alter both representable frequency content and the eigenspectrum governing learning."
+        }
       ]
     },
     {
-      "id": "scaling", "number": 4, "group": "representation", "title": "Scaling / non-dimensionalization", "detail": "Normalization of variables, domains, residuals, and objective components", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": false,
+      "id": "scaling",
+      "number": 4,
+      "group": "representation",
+      "title": "Scaling / non-dimensionalization",
+      "detail": "Normalization of variables, domains, residuals, and objective components",
+      "concepts": [
+        {
+          "label": "Training",
+          "id": "page:training"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "scaling:accuracy", "level": "context", "label": "error normalization"}, {"id": "scaling:fidelity", "level": "context", "label": "residual balance"}, {"id": "scaling:trainability", "level": "major", "label": "conditioning"}, {"id": "scaling:cost", "level": "indirect", "label": "numerical range"}, {"id": "scaling:robustness", "level": "context", "label": "sensitivity"}, {"id": "scaling:identifiability", "level": "indirect", "label": "indirect"}, {"id": "scaling:scalability", "level": "context", "label": "transfer across ranges"}
-      ], "evidence": [
-        {"atlas_id": 630, "support": "Direct", "rationale": "The mixed-variable flow study reports PDE normalization as crucial, supporting scaling as a conditioning and accuracy decision."},
-        {"atlas_id": 525, "support": "Direct", "rationale": "Residual stiffness and unequal gradient magnitudes link numerical scaling to conditioning, stability, and final accuracy."}
+        {
+          "id": "scaling:accuracy",
+          "level": "context",
+          "label": "error normalization"
+        },
+        {
+          "id": "scaling:fidelity",
+          "level": "context",
+          "label": "residual balance"
+        },
+        {
+          "id": "scaling:trainability",
+          "level": "major",
+          "label": "conditioning"
+        },
+        {
+          "id": "scaling:cost",
+          "level": "indirect",
+          "label": "numerical range"
+        },
+        {
+          "id": "scaling:robustness",
+          "level": "context",
+          "label": "sensitivity"
+        },
+        {
+          "id": "scaling:identifiability",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "scaling:scalability",
+          "level": "context",
+          "label": "transfer across ranges"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 630,
+          "support": "Direct",
+          "rationale": "The mixed-variable flow study reports PDE normalization as crucial, supporting scaling as a conditioning and accuracy decision."
+        },
+        {
+          "atlas_id": 525,
+          "support": "Direct",
+          "rationale": "Residual stiffness and unequal gradient magnitudes link numerical scaling to conditioning, stability, and final accuracy."
+        }
       ]
     },
     {
-      "id": "physics-enforcement", "number": 5, "group": "physics-numerics", "title": "Physics-enforcement mechanism", "detail": "Soft, hard, strong, weak, variational, conservative, and related enforcement forms", "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "tradeoff": true,
+      "id": "physics-enforcement",
+      "number": 5,
+      "group": "physics-numerics",
+      "title": "Physics-enforcement mechanism",
+      "detail": "Soft, hard, strong, weak, variational, conservative, and related enforcement forms",
+      "concepts": [
+        {
+          "label": "Mathematical Formulations",
+          "id": "page:mathematical-formulations"
+        },
+        {
+          "id": "formulation:weak-form",
+          "label": "Weak form"
+        },
+        {
+          "id": "formulation:variational-form",
+          "label": "Variational form"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "physics-enforcement:accuracy", "level": "major", "label": "solution consistency"}, {"id": "physics-enforcement:fidelity", "level": "major", "label": "constraint satisfaction"}, {"id": "physics-enforcement:trainability", "level": "major", "label": "loss landscape"}, {"id": "physics-enforcement:cost", "level": "major", "label": "formulation cost"}, {"id": "physics-enforcement:robustness", "level": "context", "label": "less overfit to data"}, {"id": "physics-enforcement:identifiability", "level": "indirect", "label": "UQ reliability"}, {"id": "physics-enforcement:scalability", "level": "major", "label": "general applicability"}
-      ], "evidence": [
-        {"atlas_id": 637, "support": "Direct", "rationale": "Exact versus penalty boundary enforcement changes admissibility, approximation error, and loss competition."},
-        {"atlas_id": 636, "support": "Direct", "rationale": "Variational enforcement adds test-function and quadrature costs while changing convergence behavior."},
-        {"atlas_id": 628, "support": "Direct", "rationale": "Conservative enforcement improves conservation and interface fidelity but introduces a decomposed discrete formulation."}
+        {
+          "id": "physics-enforcement:accuracy",
+          "level": "major",
+          "label": "solution consistency"
+        },
+        {
+          "id": "physics-enforcement:fidelity",
+          "level": "major",
+          "label": "constraint satisfaction"
+        },
+        {
+          "id": "physics-enforcement:trainability",
+          "level": "major",
+          "label": "loss landscape"
+        },
+        {
+          "id": "physics-enforcement:cost",
+          "level": "major",
+          "label": "formulation cost"
+        },
+        {
+          "id": "physics-enforcement:robustness",
+          "level": "context",
+          "label": "less overfit to data"
+        },
+        {
+          "id": "physics-enforcement:identifiability",
+          "level": "indirect",
+          "label": "UQ reliability"
+        },
+        {
+          "id": "physics-enforcement:scalability",
+          "level": "major",
+          "label": "general applicability"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 637,
+          "support": "Direct",
+          "rationale": "Exact versus penalty boundary enforcement changes admissibility, approximation error, and loss competition."
+        },
+        {
+          "atlas_id": 636,
+          "support": "Direct",
+          "rationale": "Variational enforcement adds test-function and quadrature costs while changing convergence behavior."
+        },
+        {
+          "atlas_id": 628,
+          "support": "Direct",
+          "rationale": "Conservative enforcement improves conservation and interface fidelity but introduces a decomposed discrete formulation."
+        }
       ]
     },
     {
-      "id": "physics-constraints", "number": 6, "group": "physics-numerics", "title": "Physics / constraints", "detail": "PDE, IC, BC, interface, conservation, constitutive, and admissibility constraints", "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "tradeoff": false,
+      "id": "physics-constraints",
+      "number": 6,
+      "group": "physics-numerics",
+      "title": "Physics / constraints",
+      "detail": "PDE, IC, BC, interface, conservation, constitutive, and admissibility constraints",
+      "concepts": [
+        {
+          "label": "Mathematical Formulations",
+          "id": "page:mathematical-formulations"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "physics-constraints:accuracy", "level": "major", "label": "error reduction"}, {"id": "physics-constraints:fidelity", "level": "major", "label": "physical consistency"}, {"id": "physics-constraints:trainability", "level": "context", "label": "competition"}, {"id": "physics-constraints:cost", "level": "context", "label": "extra terms"}, {"id": "physics-constraints:robustness", "level": "major", "label": "robustness"}, {"id": "physics-constraints:identifiability", "level": "major", "label": "identifiability"}, {"id": "physics-constraints:scalability", "level": "indirect", "label": "indirect"}
-      ], "evidence": [
-        {"atlas_id": 750, "support": "Direct", "rationale": "Equality-constrained training links physical satisfaction to solution accuracy and inverse recovery without treating every requirement as a fixed penalty."},
-        {"atlas_id": 628, "support": "Direct", "rationale": "Discrete conservation and interface flux constraints affect physical fidelity, local accuracy, and decomposition cost together."}
+        {
+          "id": "physics-constraints:accuracy",
+          "level": "major",
+          "label": "error reduction"
+        },
+        {
+          "id": "physics-constraints:fidelity",
+          "level": "major",
+          "label": "physical consistency"
+        },
+        {
+          "id": "physics-constraints:trainability",
+          "level": "context",
+          "label": "competition"
+        },
+        {
+          "id": "physics-constraints:cost",
+          "level": "context",
+          "label": "extra terms"
+        },
+        {
+          "id": "physics-constraints:robustness",
+          "level": "major",
+          "label": "robustness"
+        },
+        {
+          "id": "physics-constraints:identifiability",
+          "level": "major",
+          "label": "identifiability"
+        },
+        {
+          "id": "physics-constraints:scalability",
+          "level": "indirect",
+          "label": "indirect"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 750,
+          "support": "Direct",
+          "rationale": "Equality-constrained training links physical satisfaction to solution accuracy and inverse recovery without treating every requirement as a fixed penalty."
+        },
+        {
+          "atlas_id": 628,
+          "support": "Direct",
+          "rationale": "Discrete conservation and interface flux constraints affect physical fidelity, local accuracy, and decomposition cost together."
+        }
       ]
     },
     {
-      "id": "differentiation", "number": 7, "group": "physics-numerics", "title": "Differentiation / operator evaluation", "detail": "AD, finite differences, mixed differentiation, spectral methods, and first-order reformulation", "concepts": [{"label": "PINN Ecosystem · Differentiation", "route": "pinn-ecosystem/#layer-5"}], "tradeoff": true,
+      "id": "differentiation",
+      "number": 7,
+      "group": "physics-numerics",
+      "title": "Differentiation / operator evaluation",
+      "detail": "AD, finite differences, mixed differentiation, spectral methods, and first-order reformulation",
+      "concepts": [
+        {
+          "label": "PINN Ecosystem · Differentiation",
+          "id": "ecosystem:operators"
+        },
+        {
+          "id": "method:automatic-differentiation",
+          "label": "Automatic differentiation"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "differentiation:accuracy", "level": "major", "label": "derivative accuracy"}, {"id": "differentiation:fidelity", "level": "major", "label": "PDE residual quality"}, {"id": "differentiation:trainability", "level": "major", "label": "gradient quality"}, {"id": "differentiation:cost", "level": "major", "label": "AD complexity"}, {"id": "differentiation:robustness", "level": "indirect", "label": "indirect"}, {"id": "differentiation:identifiability", "level": "indirect", "label": "indirect"}, {"id": "differentiation:scalability", "level": "major", "label": "efficient reuse"}
-      ], "evidence": [
-        {"atlas_id": 554, "support": "Direct", "rationale": "Coupling automatic and numerical differentiation changes derivative accuracy, residual quality, sparse-point robustness, and computational efficiency."},
-        {"atlas_id": 552, "support": "Direct", "rationale": "High-order trace estimation directly trades differentiation formulation against memory and runtime while preserving residual accuracy."}
+        {
+          "id": "differentiation:accuracy",
+          "level": "major",
+          "label": "derivative accuracy"
+        },
+        {
+          "id": "differentiation:fidelity",
+          "level": "major",
+          "label": "PDE residual quality"
+        },
+        {
+          "id": "differentiation:trainability",
+          "level": "major",
+          "label": "gradient quality"
+        },
+        {
+          "id": "differentiation:cost",
+          "level": "major",
+          "label": "AD complexity"
+        },
+        {
+          "id": "differentiation:robustness",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "differentiation:identifiability",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "differentiation:scalability",
+          "level": "major",
+          "label": "efficient reuse"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 554,
+          "support": "Direct",
+          "rationale": "Coupling automatic and numerical differentiation changes derivative accuracy, residual quality, sparse-point robustness, and computational efficiency."
+        },
+        {
+          "atlas_id": 552,
+          "support": "Direct",
+          "rationale": "High-order trace estimation directly trades differentiation formulation against memory and runtime while preserving residual accuracy."
+        }
       ]
     },
     {
-      "id": "sampling", "number": 8, "group": "physics-numerics", "title": "Sampling / collocation", "detail": "Uniform, LHS, Sobol, adaptive, interface-aware, causal, and geometry-aware sampling", "concepts": [{"label": "Training · Sampling", "route": "training/"}], "tradeoff": true,
+      "id": "sampling",
+      "number": 8,
+      "group": "physics-numerics",
+      "title": "Sampling / collocation",
+      "detail": "Uniform, LHS, Sobol, adaptive, interface-aware, causal, and geometry-aware sampling",
+      "concepts": [
+        {
+          "label": "Training · Sampling",
+          "id": "page:training"
+        },
+        {
+          "id": "sampling:sobol",
+          "label": "Sobol sampling"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "sampling:accuracy", "level": "context", "label": "domain coverage"}, {"id": "sampling:fidelity", "level": "major", "label": "constraint coverage"}, {"id": "sampling:trainability", "level": "major", "label": "gradient information"}, {"id": "sampling:cost", "level": "context", "label": "point / AD cost"}, {"id": "sampling:robustness", "level": "major", "label": "noise / OOD robustness"}, {"id": "sampling:identifiability", "level": "major", "label": "identifiability"}, {"id": "sampling:scalability", "level": "major", "label": "scalability"}
-      ], "evidence": [
-        {"atlas_id": 479, "support": "Direct", "rationale": "Across more than 6000 runs, collocation distribution changes accuracy and point efficiency for forward and inverse problems."},
-        {"atlas_id": 534, "support": "Direct", "rationale": "Importance sampling improves convergence by reallocating collocation points according to loss information."}
+        {
+          "id": "sampling:accuracy",
+          "level": "context",
+          "label": "domain coverage"
+        },
+        {
+          "id": "sampling:fidelity",
+          "level": "major",
+          "label": "constraint coverage"
+        },
+        {
+          "id": "sampling:trainability",
+          "level": "major",
+          "label": "gradient information"
+        },
+        {
+          "id": "sampling:cost",
+          "level": "context",
+          "label": "point / AD cost"
+        },
+        {
+          "id": "sampling:robustness",
+          "level": "major",
+          "label": "noise / OOD robustness"
+        },
+        {
+          "id": "sampling:identifiability",
+          "level": "major",
+          "label": "identifiability"
+        },
+        {
+          "id": "sampling:scalability",
+          "level": "major",
+          "label": "scalability"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 479,
+          "support": "Direct",
+          "rationale": "Across more than 6000 runs, collocation distribution changes accuracy and point efficiency for forward and inverse problems."
+        },
+        {
+          "atlas_id": 534,
+          "support": "Direct",
+          "rationale": "Importance sampling improves convergence by reallocating collocation points according to loss information."
+        }
       ]
     },
     {
-      "id": "loss-formulation", "number": 9, "group": "training", "title": "Loss formulation", "detail": "Residual, data, BC / IC, conservative, probabilistic, and multi-objective components", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": false,
+      "id": "loss-formulation",
+      "number": 9,
+      "group": "training",
+      "title": "Loss formulation",
+      "detail": "Residual, data, BC / IC, conservative, probabilistic, and multi-objective components",
+      "concepts": [
+        {
+          "label": "Training",
+          "id": "page:training"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "loss-formulation:accuracy", "level": "major", "label": "objective alignment"}, {"id": "loss-formulation:fidelity", "level": "major", "label": "physics alignment"}, {"id": "loss-formulation:trainability", "level": "major", "label": "signal quality"}, {"id": "loss-formulation:cost", "level": "context", "label": "loss evaluation cost"}, {"id": "loss-formulation:robustness", "level": "major", "label": "generalization"}, {"id": "loss-formulation:identifiability", "level": "major", "label": "statistical consistency"}, {"id": "loss-formulation:scalability", "level": "context", "label": "reusability"}
-      ], "evidence": [
-        {"atlas_id": 502, "support": "Direct", "rationale": "Composite data, boundary, initial, and PDE losses connect objective construction to accuracy, physics alignment, robustness, and cost."},
-        {"atlas_id": 410, "support": "Direct", "rationale": "A Bayesian loss and posterior estimator change inverse consistency, noise robustness, uncertainty, and computational cost."}
+        {
+          "id": "loss-formulation:accuracy",
+          "level": "major",
+          "label": "objective alignment"
+        },
+        {
+          "id": "loss-formulation:fidelity",
+          "level": "major",
+          "label": "physics alignment"
+        },
+        {
+          "id": "loss-formulation:trainability",
+          "level": "major",
+          "label": "signal quality"
+        },
+        {
+          "id": "loss-formulation:cost",
+          "level": "context",
+          "label": "loss evaluation cost"
+        },
+        {
+          "id": "loss-formulation:robustness",
+          "level": "major",
+          "label": "generalization"
+        },
+        {
+          "id": "loss-formulation:identifiability",
+          "level": "major",
+          "label": "statistical consistency"
+        },
+        {
+          "id": "loss-formulation:scalability",
+          "level": "context",
+          "label": "reusability"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 502,
+          "support": "Direct",
+          "rationale": "Composite data, boundary, initial, and PDE losses connect objective construction to accuracy, physics alignment, robustness, and cost."
+        },
+        {
+          "atlas_id": 410,
+          "support": "Direct",
+          "rationale": "A Bayesian loss and posterior estimator change inverse consistency, noise robustness, uncertainty, and computational cost."
+        }
       ]
     },
     {
-      "id": "loss-balancing", "number": 10, "group": "training", "title": "Loss weighting / balancing", "detail": "Fixed, adaptive, gradient, NTK, augmented-Lagrangian, and related balancing", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": false,
+      "id": "loss-balancing",
+      "number": 10,
+      "group": "training",
+      "title": "Loss weighting / balancing",
+      "detail": "Fixed, adaptive, gradient, NTK, augmented-Lagrangian, and related balancing",
+      "concepts": [
+        {
+          "label": "Training",
+          "id": "page:training"
+        }
+      ],
+      "tradeoff": false,
       "cells": [
-        {"id": "loss-balancing:accuracy", "level": "major", "label": "error balance"}, {"id": "loss-balancing:fidelity", "level": "major", "label": "constraint balance"}, {"id": "loss-balancing:trainability", "level": "major", "label": "convergence rate"}, {"id": "loss-balancing:cost", "level": "context", "label": "extra computation"}, {"id": "loss-balancing:robustness", "level": "context", "label": "stability"}, {"id": "loss-balancing:identifiability", "level": "indirect", "label": "UQ calibration"}, {"id": "loss-balancing:scalability", "level": "indirect", "label": "indirect"}
-      ], "evidence": [
-        {"atlas_id": 502, "support": "Direct", "rationale": "Adaptive loss weights improve error balance and robustness to initial weighting across multiple PDEs."},
-        {"atlas_id": 525, "support": "Direct", "rationale": "Gradient-statistic annealing connects weighting to gradient balance, convergence, and predictive accuracy."},
-        {"atlas_id": 527, "support": "Direct", "rationale": "Multi-objective gradient conflict affects stability and accuracy and motivates a constrained update direction."}
+        {
+          "id": "loss-balancing:accuracy",
+          "level": "major",
+          "label": "error balance"
+        },
+        {
+          "id": "loss-balancing:fidelity",
+          "level": "major",
+          "label": "constraint balance"
+        },
+        {
+          "id": "loss-balancing:trainability",
+          "level": "major",
+          "label": "convergence rate"
+        },
+        {
+          "id": "loss-balancing:cost",
+          "level": "context",
+          "label": "extra computation"
+        },
+        {
+          "id": "loss-balancing:robustness",
+          "level": "context",
+          "label": "stability"
+        },
+        {
+          "id": "loss-balancing:identifiability",
+          "level": "indirect",
+          "label": "UQ calibration"
+        },
+        {
+          "id": "loss-balancing:scalability",
+          "level": "indirect",
+          "label": "indirect"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 502,
+          "support": "Direct",
+          "rationale": "Adaptive loss weights improve error balance and robustness to initial weighting across multiple PDEs."
+        },
+        {
+          "atlas_id": 525,
+          "support": "Direct",
+          "rationale": "Gradient-statistic annealing connects weighting to gradient balance, convergence, and predictive accuracy."
+        },
+        {
+          "atlas_id": 527,
+          "support": "Direct",
+          "rationale": "Multi-objective gradient conflict affects stability and accuracy and motivates a constrained update direction."
+        }
       ]
     },
     {
-      "id": "optimizer", "number": 11, "group": "training", "title": "Optimizer & LR strategy", "detail": "Adam, L-BFGS, hybrid, Newton, schedules, and related optimization choices", "concepts": [{"label": "Optimizers", "route": "optimizers/"}], "tradeoff": true,
+      "id": "optimizer",
+      "number": 11,
+      "group": "training",
+      "title": "Optimizer & LR strategy",
+      "detail": "Adam, L-BFGS, hybrid, Newton, schedules, and related optimization choices",
+      "concepts": [
+        {
+          "label": "Optimizers",
+          "id": "page:optimizers"
+        },
+        {
+          "id": "optimizer:adam",
+          "label": "Adam"
+        },
+        {
+          "id": "optimizer:lbfgs",
+          "label": "L-BFGS"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "optimizer:accuracy", "level": "major", "label": "final accuracy"}, {"id": "optimizer:fidelity", "level": "indirect", "label": "indirect"}, {"id": "optimizer:trainability", "level": "major", "label": "convergence speed"}, {"id": "optimizer:cost", "level": "major", "label": "iterations / time"}, {"id": "optimizer:robustness", "level": "context", "label": "seed stability"}, {"id": "optimizer:identifiability", "level": "context", "label": "posterior quality"}, {"id": "optimizer:scalability", "level": "context", "label": "workflow cost"}
-      ], "evidence": [
-        {"atlas_id": 823, "support": "Direct", "rationale": "Optimizer choice and differential-operator ill-conditioning jointly determine convergence speed, cost, and final accuracy."},
-        {"atlas_id": 819, "support": "Direct", "rationale": "The optimization-process study directly evaluates how optimizer behavior controls PINN competitiveness and achievable accuracy."},
-        {"atlas_id": 543, "support": "Direct", "rationale": "Genetic initialization and L-BFGS are combined to improve stability, iteration efficiency, and accuracy."}
+        {
+          "id": "optimizer:accuracy",
+          "level": "major",
+          "label": "final accuracy"
+        },
+        {
+          "id": "optimizer:fidelity",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "optimizer:trainability",
+          "level": "major",
+          "label": "convergence speed"
+        },
+        {
+          "id": "optimizer:cost",
+          "level": "major",
+          "label": "iterations / time"
+        },
+        {
+          "id": "optimizer:robustness",
+          "level": "context",
+          "label": "seed stability"
+        },
+        {
+          "id": "optimizer:identifiability",
+          "level": "context",
+          "label": "posterior quality"
+        },
+        {
+          "id": "optimizer:scalability",
+          "level": "context",
+          "label": "workflow cost"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 823,
+          "support": "Direct",
+          "rationale": "Optimizer choice and differential-operator ill-conditioning jointly determine convergence speed, cost, and final accuracy."
+        },
+        {
+          "atlas_id": 819,
+          "support": "Direct",
+          "rationale": "The optimization-process study directly evaluates how optimizer behavior controls PINN competitiveness and achievable accuracy."
+        },
+        {
+          "atlas_id": 543,
+          "support": "Direct",
+          "rationale": "Genetic initialization and L-BFGS are combined to improve stability, iteration efficiency, and accuracy."
+        }
       ]
     },
     {
-      "id": "training-strategy", "number": 12, "group": "training", "title": "Initialization / training strategy", "detail": "Pretraining, curriculum, continuation, causal training, and stabilization", "concepts": [{"label": "Training", "route": "training/"}], "tradeoff": true,
+      "id": "training-strategy",
+      "number": 12,
+      "group": "training",
+      "title": "Initialization / training strategy",
+      "detail": "Pretraining, curriculum, continuation, causal training, and stabilization",
+      "concepts": [
+        {
+          "label": "Training",
+          "id": "page:training"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "training-strategy:accuracy", "level": "major", "label": "quality of solution"}, {"id": "training-strategy:fidelity", "level": "indirect", "label": "indirect"}, {"id": "training-strategy:trainability", "level": "major", "label": "stability / basin"}, {"id": "training-strategy:cost", "level": "major", "label": "training time"}, {"id": "training-strategy:robustness", "level": "major", "label": "seed invariance"}, {"id": "training-strategy:identifiability", "level": "context", "label": "uncertainty stability"}, {"id": "training-strategy:scalability", "level": "major", "label": "transfer potential"}
-      ], "evidence": [
-        {"atlas_id": 543, "support": "Direct", "rationale": "A staged initialization and fine-optimization workflow changes the basin reached, training time, and solution quality."},
-        {"atlas_id": 660, "support": "Direct", "rationale": "Time-piecewise training improves long-domain performance by decomposing temporal optimization into adjustable subnetworks."}
+        {
+          "id": "training-strategy:accuracy",
+          "level": "major",
+          "label": "quality of solution"
+        },
+        {
+          "id": "training-strategy:fidelity",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "training-strategy:trainability",
+          "level": "major",
+          "label": "stability / basin"
+        },
+        {
+          "id": "training-strategy:cost",
+          "level": "major",
+          "label": "training time"
+        },
+        {
+          "id": "training-strategy:robustness",
+          "level": "major",
+          "label": "seed invariance"
+        },
+        {
+          "id": "training-strategy:identifiability",
+          "level": "context",
+          "label": "uncertainty stability"
+        },
+        {
+          "id": "training-strategy:scalability",
+          "level": "major",
+          "label": "transfer potential"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 543,
+          "support": "Direct",
+          "rationale": "A staged initialization and fine-optimization workflow changes the basin reached, training time, and solution quality."
+        },
+        {
+          "atlas_id": 660,
+          "support": "Direct",
+          "rationale": "Time-piecewise training improves long-domain performance by decomposing temporal optimization into adjustable subnetworks."
+        }
       ]
     },
     {
-      "id": "decomposition", "number": 13, "group": "extension", "title": "Decomposition / parallelization", "detail": "Spatial, temporal, space-time, variable-wise, and other decompositions", "concepts": [{"label": "Architectures", "route": "architectures/"}], "tradeoff": true,
+      "id": "decomposition",
+      "number": 13,
+      "group": "extension",
+      "title": "Decomposition / parallelization",
+      "detail": "Spatial, temporal, space-time, variable-wise, and other decompositions",
+      "concepts": [
+        {
+          "label": "Architectures",
+          "id": "page:architectures"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "decomposition:accuracy", "level": "major", "label": "local accuracy"}, {"id": "decomposition:fidelity", "level": "major", "label": "interface consistency"}, {"id": "decomposition:trainability", "level": "major", "label": "local convergence"}, {"id": "decomposition:cost", "level": "major", "label": "parallel efficiency"}, {"id": "decomposition:robustness", "level": "context", "label": "less overfitting"}, {"id": "decomposition:identifiability", "level": "indirect", "label": "indirect"}, {"id": "decomposition:scalability", "level": "major", "label": "scalability"}
-      ], "evidence": [
-        {"atlas_id": 647, "support": "Direct", "rationale": "XPINN couples local specialization, interface transmission, space-time parallelization, and training cost."},
-        {"atlas_id": 612, "support": "Direct", "rationale": "Soft trainable decomposition changes generalization, local representation, parameter sharing, and decomposition sensitivity."},
-        {"atlas_id": 498, "support": "Direct", "rationale": "Distributed decomposition demonstrates strong scaling and reuse while retaining accuracy on domains far larger than the training domain."}
+        {
+          "id": "decomposition:accuracy",
+          "level": "major",
+          "label": "local accuracy"
+        },
+        {
+          "id": "decomposition:fidelity",
+          "level": "major",
+          "label": "interface consistency"
+        },
+        {
+          "id": "decomposition:trainability",
+          "level": "major",
+          "label": "local convergence"
+        },
+        {
+          "id": "decomposition:cost",
+          "level": "major",
+          "label": "parallel efficiency"
+        },
+        {
+          "id": "decomposition:robustness",
+          "level": "context",
+          "label": "less overfitting"
+        },
+        {
+          "id": "decomposition:identifiability",
+          "level": "indirect",
+          "label": "indirect"
+        },
+        {
+          "id": "decomposition:scalability",
+          "level": "major",
+          "label": "scalability"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 647,
+          "support": "Direct",
+          "rationale": "XPINN couples local specialization, interface transmission, space-time parallelization, and training cost."
+        },
+        {
+          "atlas_id": 612,
+          "support": "Direct",
+          "rationale": "Soft trainable decomposition changes generalization, local representation, parameter sharing, and decomposition sensitivity."
+        },
+        {
+          "atlas_id": 498,
+          "support": "Direct",
+          "rationale": "Distributed decomposition demonstrates strong scaling and reuse while retaining accuracy on domains far larger than the training domain."
+        }
       ]
     },
     {
-      "id": "reuse-generalize", "number": 14, "group": "extension", "title": "Reuse / generalize", "detail": "Pretrained, enriched, amortized PINN, transfer / meta-learning, operator learning, and reduced order", "concepts": [{"label": "Architectures", "route": "architectures/"}], "tradeoff": true,
+      "id": "reuse-generalize",
+      "number": 14,
+      "group": "extension",
+      "title": "Reuse / generalize",
+      "detail": "Pretrained, enriched, amortized PINN, transfer / meta-learning, operator learning, and reduced order",
+      "concepts": [
+        {
+          "label": "Architectures",
+          "id": "page:architectures"
+        }
+      ],
+      "tradeoff": true,
       "cells": [
-        {"id": "reuse-generalize:accuracy", "level": "major", "label": "within training domain"}, {"id": "reuse-generalize:fidelity", "level": "context", "label": "physics retention"}, {"id": "reuse-generalize:trainability", "level": "major", "label": "amortized training"}, {"id": "reuse-generalize:cost", "level": "major", "label": "low online cost"}, {"id": "reuse-generalize:robustness", "level": "context", "label": "parameter / OOD generalization"}, {"id": "reuse-generalize:identifiability", "level": "indirect", "label": "UQ across queries"}, {"id": "reuse-generalize:scalability", "level": "major", "label": "reuse / amortization"}
-      ], "evidence": [
-        {"atlas_id": 603, "support": "Direct", "rationale": "Physics-informed DeepONets amortize a learned solution operator across parametric PDE queries with low online cost."},
-        {"atlas_id": 578, "support": "Direct", "rationale": "GPT-PINN reuses pretrained PINNs in a meta-network to reduce repeated training and parameter count."},
-        {"atlas_id": 726, "support": "Direct", "rationale": "P2INNs explicitly target repetitive parameterized-PDE training through a latent parameter representation."},
-        {"atlas_id": 599, "support": "Direct", "rationale": "Separable PI-DeepONet improves high-dimensional scalability and cuts training time while maintaining accuracy."}
+        {
+          "id": "reuse-generalize:accuracy",
+          "level": "major",
+          "label": "within training domain"
+        },
+        {
+          "id": "reuse-generalize:fidelity",
+          "level": "context",
+          "label": "physics retention"
+        },
+        {
+          "id": "reuse-generalize:trainability",
+          "level": "major",
+          "label": "amortized training"
+        },
+        {
+          "id": "reuse-generalize:cost",
+          "level": "major",
+          "label": "low online cost"
+        },
+        {
+          "id": "reuse-generalize:robustness",
+          "level": "context",
+          "label": "parameter / OOD generalization"
+        },
+        {
+          "id": "reuse-generalize:identifiability",
+          "level": "indirect",
+          "label": "UQ across queries"
+        },
+        {
+          "id": "reuse-generalize:scalability",
+          "level": "major",
+          "label": "reuse / amortization"
+        }
+      ],
+      "evidence": [
+        {
+          "atlas_id": 603,
+          "support": "Direct",
+          "rationale": "Physics-informed DeepONets amortize a learned solution operator across parametric PDE queries with low online cost."
+        },
+        {
+          "atlas_id": 578,
+          "support": "Direct",
+          "rationale": "GPT-PINN reuses pretrained PINNs in a meta-network to reduce repeated training and parameter count."
+        },
+        {
+          "atlas_id": 726,
+          "support": "Direct",
+          "rationale": "P2INNs explicitly target repetitive parameterized-PDE training through a latent parameter representation."
+        },
+        {
+          "atlas_id": 599,
+          "support": "Direct",
+          "rationale": "Separable PI-DeepONet improves high-dimensional scalability and cuts training time while maintaining accuracy."
+        }
       ]
     }
   ]

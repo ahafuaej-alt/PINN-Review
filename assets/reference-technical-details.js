@@ -204,7 +204,7 @@
     const technical = document.createElement('details');
     technical.className = 'nested-reference-detail technical-reference-detail';
     technical.dataset.technicalDetail = String(paperId);
-    technical.innerHTML = `<summary><span>Technical details</span><small>Metrics, optimizers, activations, abbreviations, and Atlas evidence</small></summary><div class="nested-detail-body"><div class="technical-loading"><strong>Open this panel to load technical details.</strong></div></div>`;
+    technical.innerHTML = `<summary><span>Technical details</span><small>Metrics, optimizers, activations, abbreviations, and Supporting evidence</small></summary><div class="nested-detail-body"><div class="technical-loading"><strong>Open this panel to load technical details.</strong></div></div>`;
     list.insertBefore(technical, list.children[1] || null);
     technical.addEventListener('toggle', () => {
       if (technical.open) renderTechnicalDetails(technical, paperId);

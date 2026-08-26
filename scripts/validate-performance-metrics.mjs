@@ -59,7 +59,7 @@ assert.ok(papers.every((paper) => /^\[\d+\]$/.test(paper.paper_label)), 'A visib
 assert.deepEqual(
   [...Array(853)].map((_, index) => index + 1).filter((id) => !new Set(ids).has(id)),
   [],
-  'One or more Atlas reference IDs still lack a performance record'
+  'One or more Reference IDs still lack a performance record'
 );
 
 assert.ok(supplementalRecords.every((paper) => Array.isArray(paper.research_sources) && paper.research_sources.length > 0), 'Every supplemental record must retain research sources');

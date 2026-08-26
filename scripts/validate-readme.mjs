@@ -95,7 +95,7 @@ const requiredFacts = [
   `**${stats.optimizer_forms}** canonical optimizer forms`,
   `**${stats.activation_functions}** canonical activation-function entries`,
   `**${stats.ecosystem_layers}** PINN ecosystem layers and **${stats.ecosystem_groups}** methodological groups`,
-  `**${stats.mathematical_formulations}** mathematical formulation records supported by **${integrity.unique_atlas_references_used}** unique Atlas references`
+  `**${stats.mathematical_formulations}** mathematical formulation records supported by **${integrity.unique_atlas_references_used}** unique papers`
 ];
 for (const fact of requiredFacts) assert(readme.includes(fact), `README data snapshot is stale or missing: ${fact}`);
 

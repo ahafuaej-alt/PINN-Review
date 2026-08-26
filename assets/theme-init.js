@@ -499,25 +499,21 @@
     }, { passive: true });
 
     // Framework concepts are bidirectional: canonical Atlas pages expose every
-    // framework object that reuses the page-level concept. The index is small,
-    // static, and independently versioned with the structured framework data.
+    // framework object that reuses their canonical page concept. The shared
+    // registry is the only runtime source for these relationships.
     if (!currentRoute.startsWith('frameworks/')) {
-      fetch(`${rootHref}data/frameworks/backlinks.json`)
-        .then((response) => response.ok ? response.json() : null)
-        .then((index) => {
-          const links = index?.routes?.[`${currentRoute}/`] || index?.routes?.[currentRoute];
+      const renderFrameworkBacklinks = () => {
+          const concept = window.AtlasConcepts?.get?.(`page:${currentRoute}`);
+          const links = (concept?.appearsIn || []).filter((link) => link.href.startsWith('frameworks/'));
           const footer = document.querySelector('.site-footer');
           if (!links?.length || !footer || document.querySelector('[data-framework-backlinks]')) return;
-          const frameworkNames = {
-            'design-stack': 'Design Stack',
-            'co-design': 'Co-Design',
-            'design-performance': 'Design–Performance Matrix',
-            'failure-diagnostics': 'Failure Diagnostics'
-          };
           const section = document.createElement('section');
           section.className = 'atlas-framework-backlinks';
           section.dataset.frameworkBacklinks = '';
-          section.innerHTML = `<div class="container"><div><p>Appears in Frameworks</p><h2>Cross-linked scientific context</h2></div><div class="atlas-framework-backlink-grid">${links.map((link) => `<a href="${rootHref}frameworks/${link.framework === 'design-stack' ? 'design-stack/' : link.framework === 'co-design' ? 'co-design/' : link.framework === 'design-performance' ? 'design-performance/' : 'failure-diagnostics/'}#item=${encodeURIComponent(link.item)}"><small>${frameworkNames[link.framework]}</small><strong>${link.label}</strong><span>Inspect relationship →</span></a>`).join('')}</div></div>`;
+          section.innerHTML = `<div class="container"><div><p>Appears in Frameworks</p><h2>Cross-linked scientific context</h2></div><div class="atlas-framework-backlink-grid">${links.map((link) => {
+            const [framework, object] = link.label.split(' · ');
+            return `<a href="${new URL(link.href, rootUrl).href}"><small>${framework || 'Framework'}</small><strong>${object || link.label}</strong><span>Inspect relationship →</span></a>`;
+          }).join('')}</div></div>`;
           footer.before(section);
           if (!document.querySelector('style[data-framework-backlink-style]')) {
             const backlinkStyle = document.createElement('style');
@@ -525,8 +521,9 @@
             backlinkStyle.textContent = `.atlas-framework-backlinks{position:relative;z-index:1;padding:clamp(2.5rem,5vw,5rem) 0;border-top:1px solid var(--line);background:color-mix(in srgb,var(--violet) 4%,transparent)}.atlas-framework-backlinks>.container{display:grid;grid-template-columns:minmax(220px,.55fr) 1.45fr;gap:2rem}.atlas-framework-backlinks p{margin:0;color:var(--violet);font:700 .7rem/1 ui-monospace,monospace;text-transform:uppercase}.atlas-framework-backlinks h2{margin:.45rem 0 0;font-size:clamp(1.5rem,3vw,2.8rem)}.atlas-framework-backlink-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.atlas-framework-backlink-grid a{display:grid;gap:.22rem;padding:.8rem;border:1px solid var(--line);border-radius:.7rem;background:var(--paper);color:inherit}.atlas-framework-backlink-grid a:hover{border-color:var(--mint);transform:translateY(-2px)}.atlas-framework-backlink-grid small{color:var(--violet);font-size:.6rem}.atlas-framework-backlink-grid span{color:var(--muted);font-size:.66rem}@media(max-width:760px){.atlas-framework-backlinks>.container,.atlas-framework-backlink-grid{grid-template-columns:1fr}}`;
             document.head.append(backlinkStyle);
           }
-        })
-        .catch(() => { /* Cross-links are supplementary and never block the page. */ });
+      };
+      if (window.AtlasConcepts?.ready) window.AtlasConcepts.ready.then(renderFrameworkBacklinks);
+      else document.addEventListener('atlas:concepts-ready', renderFrameworkBacklinks, { once: true });
     }
   });
 })();

@@ -1,0 +1,1037 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-08-26",
+  "canonicalIdFormat": "<namespace>:<stable-slug>",
+  "deepLinkContract": {
+    "concept": "?concept=<canonical-id>",
+    "metric": "performance-metrics/?metric=<metric-id>#metric-<metric-id>",
+    "optimizer": "optimizers/?optimizer=<optimizer-id>#optimizer-<optimizer-id>",
+    "activation": "activation-functions/?activation=<activation-id>#activation-<activation-id>",
+    "formulation": "mathematical-formulations/#<formulation-id>",
+    "framework": "frameworks/<framework>/#item=<object-id>",
+    "ecosystem": "pinn-ecosystem/?group=<group-id>&item=<item-id>",
+    "reference": "references/#ref=<Reference-ID>"
+  },
+  "terminology": {
+    "evidenceHeading": "Supporting evidence",
+    "papersHeading": "Supporting papers",
+    "referenceId": "Reference ID",
+    "verifiedPapers": "Verified papers",
+    "claimSupport": "Claim-level support",
+    "inAtlasReferenceLabel": "[<Reference-ID>]"
+  },
+  "interactionModel": {
+    "hoverOrFocus": "Show a short meaning and the number of available destinations.",
+    "clickOrEnter": "Pin the concept inspector.",
+    "space": "Pin the concept inspector when the concept is rendered as a button.",
+    "open": "Navigate to the primary canonical destination.",
+    "escape": "Close the pinned inspector and return focus."
+  },
+  "colorSemantics": {
+    "action": "Canonical concept or navigation action",
+    "evidence": "Verified evidence or positive validation state",
+    "selected": "Current selection or pinned object",
+    "related": "Related object or backlink context",
+    "warning": "Trade-off, caveat, or diagnostic warning",
+    "muted": "Unavailable, disabled, or contextually inactive"
+  },
+  "concepts": [
+    {
+      "id": "architecture:fourier-features",
+      "label": "Fourier features",
+      "category": "Architecture",
+      "shortMeaning": "Maps inputs through sinusoidal features to improve representation of high-frequency or multiscale structure.",
+      "aliases": [
+        "Fourier features",
+        "Fourier feature mapping"
+      ],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Architecture",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
+          "primary": true
+        },
+        {
+          "label": "Architectures",
+          "href": "architectures/"
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
+          "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Representation",
+          "href": "frameworks/co-design/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Architecture / basis",
+          "href": "frameworks/design-performance/#item=architecture-basis",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
+          "href": "frameworks/failure-diagnostics/#item=spectral-bias",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "architecture:siren",
+      "label": "SIREN",
+      "category": "Architecture",
+      "shortMeaning": "A sinusoidal representation network designed to model signals and their derivatives.",
+      "aliases": [
+        "SIREN",
+        "sinusoidal representation network"
+      ],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Architecture",
+          "href": "pinn-ecosystem/?group=neural-architecture-approximation-model",
+          "primary": true
+        },
+        {
+          "label": "Activation Functions · sine",
+          "href": "activation-functions/?activation=sine"
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
+          "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Architecture / basis",
+          "href": "frameworks/design-performance/#item=architecture-basis",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
+          "href": "frameworks/failure-diagnostics/#item=spectral-bias",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "ecosystem:collocation-sampling",
+      "label": "Collocation / Sampling",
+      "category": "Ecosystem group",
+      "shortMeaning": "Your example of sampler should become this entire branch.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Collocation / Sampling",
+          "href": "pinn-ecosystem/?group=collocation-sampling",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Sampling / Collocation",
+          "href": "frameworks/design-stack/#item=sampling",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "ecosystem:operators",
+      "label": "Numerical Evaluation of Physics",
+      "category": "Ecosystem layer",
+      "shortMeaning": "Evaluates differential, integral, discrete, or time-stepping operators used to construct the physical residual.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Layer 5",
+          "href": "pinn-ecosystem/?layer=operators#layer-5",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Differentiation and Residual Evaluation",
+          "href": "frameworks/design-stack/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Differentiation / operator evaluation",
+          "href": "frameworks/design-performance/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · High-order derivative cost or instability",
+          "href": "frameworks/failure-diagnostics/#item=high-order-derivatives",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "ecosystem:problem",
+      "label": "Problem & Physics",
+      "category": "Ecosystem layer",
+      "shortMeaning": "Defines the governing relations, numerical character, observations, and physical context that drive every downstream choice.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Layer 1",
+          "href": "pinn-ecosystem/?layer=problem#layer-1",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Physical Problem Definition",
+          "href": "frameworks/design-stack/#item=physical-problem",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Physical Problem & Computational Role",
+          "href": "frameworks/co-design/#item=problem",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "ecosystem:purpose",
+      "label": "PINN Purpose",
+      "category": "Ecosystem layer",
+      "shortMeaning": "States what the model must accomplish: solve, infer, discover, reuse, quantify, optimize, or control.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Layer 2",
+          "href": "pinn-ecosystem/?layer=purpose#layer-2",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Computational Role",
+          "href": "frameworks/design-stack/#item=computational-role",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "ecosystem:representation",
+      "label": "Representation",
+      "category": "Ecosystem layer",
+      "shortMeaning": "Chooses how inputs, outputs, bases, architectures, and activations represent the physical state.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Layer 3",
+          "href": "pinn-ecosystem/?layer=representation#layer-3",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Inputs and Outputs",
+          "href": "frameworks/design-stack/#item=inputs-outputs",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Inputs & outputs",
+          "href": "frameworks/design-performance/#item=inputs-outputs",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "formulation:variational-form",
+      "label": "Variational form",
+      "category": "Formulation",
+      "shortMeaning": "An integral statement obtained through admissible variations or test functions.",
+      "aliases": [
+        "Variational form",
+        "variational formulation"
+      ],
+      "destinations": [
+        {
+          "label": "Mathematical Formulations · variational physics",
+          "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Physics Enforcement",
+          "href": "frameworks/design-stack/#item=physics-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Physics & Constraints",
+          "href": "frameworks/co-design/#item=physics",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
+          "href": "frameworks/design-performance/#item=physics-enforcement",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "formulation:weak-form",
+      "label": "Weak form",
+      "category": "Formulation",
+      "shortMeaning": "Tests the governing equation against admissible test functions and enforces an integrated residual.",
+      "aliases": [
+        "Weak form",
+        "weak-form",
+        "weak formulation"
+      ],
+      "destinations": [
+        {
+          "label": "Mathematical Formulations · weak and variational physics",
+          "href": "mathematical-formulations/#c-weak-variational-conservative-integral-and-discrete-physics",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Physics Enforcement",
+          "href": "frameworks/design-stack/#item=physics-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Physics & Constraints",
+          "href": "frameworks/co-design/#item=physics",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
+          "href": "frameworks/design-performance/#item=physics-enforcement",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "method:automatic-differentiation",
+      "label": "Automatic differentiation",
+      "category": "Numerical method",
+      "shortMeaning": "Computes exact program derivatives through the computational graph, subject to floating-point arithmetic.",
+      "aliases": [
+        "Automatic differentiation",
+        "automatic differentiation (AD)"
+      ],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Differential-Operator Evaluation",
+          "href": "pinn-ecosystem/?group=differentiation-differential-operator-evaluation",
+          "primary": true
+        },
+        {
+          "label": "Mathematical Formulations · differentiation",
+          "href": "mathematical-formulations/#d-reformulated-states-differentiation-and-approximation-bases"
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Differentiation and Residual Evaluation",
+          "href": "frameworks/design-stack/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Differentiation / operator evaluation",
+          "href": "frameworks/design-performance/#item=differentiation",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "metric:mae",
+      "label": "Mean absolute error (MAE)",
+      "category": "Metric",
+      "shortMeaning": "Average magnitude of prediction error without emphasizing large errors strongly.",
+      "aliases": [
+        "Mean absolute error (MAE)",
+        "MAE"
+      ],
+      "destinations": [
+        {
+          "label": "Metric Explorer · Mean absolute error (MAE)",
+          "href": "performance-metrics/?metric=mean_absolute_error#metric-mean_absolute_error",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level metric records",
+          "href": "performance-metrics/?metric=mean_absolute_error"
+        },
+        {
+          "label": "Design Stack · Evaluation",
+          "href": "frameworks/design-stack/#item=evaluation",
+          "context": "Framework"
+        },
+        {
+          "label": "Co-Design · Verification & Reliability",
+          "href": "frameworks/co-design/#item=reliability",
+          "context": "Framework"
+        },
+        {
+          "label": "Failure Diagnostics · Verify improvement",
+          "href": "frameworks/failure-diagnostics/#item=verify",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "metric:relative-l2",
+      "label": "Relative L2 error",
+      "category": "Metric",
+      "shortMeaning": "Global error relative to the magnitude of the reference solution.",
+      "aliases": [
+        "Relative L2 error"
+      ],
+      "destinations": [
+        {
+          "label": "Metric Explorer · Relative L2 error",
+          "href": "performance-metrics/?metric=relative_l2_error#metric-relative_l2_error",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level metric records",
+          "href": "performance-metrics/?metric=relative_l2_error"
+        },
+        {
+          "label": "Design Stack · Evaluation",
+          "href": "frameworks/design-stack/#item=evaluation",
+          "context": "Framework"
+        },
+        {
+          "label": "Co-Design · Verification & Reliability",
+          "href": "frameworks/co-design/#item=reliability",
+          "context": "Framework"
+        },
+        {
+          "label": "Failure Diagnostics · Verify improvement",
+          "href": "frameworks/failure-diagnostics/#item=verify",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "metric:rmse",
+      "label": "Root mean squared error (RMSE)",
+      "category": "Metric",
+      "shortMeaning": "Typical prediction error in the physical units of the solution variable.",
+      "aliases": [
+        "Root mean squared error (RMSE)",
+        "RMSE"
+      ],
+      "destinations": [
+        {
+          "label": "Metric Explorer · Root mean squared error (RMSE)",
+          "href": "performance-metrics/?metric=root_mean_squared_error#metric-root_mean_squared_error",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level metric records",
+          "href": "performance-metrics/?metric=root_mean_squared_error"
+        },
+        {
+          "label": "Design Stack · Evaluation",
+          "href": "frameworks/design-stack/#item=evaluation",
+          "context": "Framework"
+        },
+        {
+          "label": "Co-Design · Verification & Reliability",
+          "href": "frameworks/co-design/#item=reliability",
+          "context": "Framework"
+        },
+        {
+          "label": "Failure Diagnostics · Verify improvement",
+          "href": "frameworks/failure-diagnostics/#item=verify",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "optimizer:adam",
+      "label": "Adam",
+      "category": "Optimizer",
+      "shortMeaning": "Adaptive first-order gradient optimization algorithm.",
+      "aliases": [
+        "Adam",
+        "ADAM"
+      ],
+      "destinations": [
+        {
+          "label": "Optimizer Explorer · Adam",
+          "href": "optimizers/?optimizer=adam#optimizer-adam",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level optimizer records",
+          "href": "optimizers/?optimizer=adam"
+        },
+        {
+          "label": "Design Stack · Optimization",
+          "href": "frameworks/design-stack/#item=optimization",
+          "context": "Framework"
+        },
+        {
+          "label": "Co-Design · Training & Optimization",
+          "href": "frameworks/co-design/#item=training",
+          "context": "Framework"
+        },
+        {
+          "label": "Design–Performance · Optimizer & LR strategy",
+          "href": "frameworks/design-performance/#item=optimizer",
+          "context": "Framework"
+        },
+        {
+          "label": "Failure Diagnostics · Optimization stagnation",
+          "href": "frameworks/failure-diagnostics/#item=stagnation",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "optimizer:lbfgs",
+      "label": "L-BFGS",
+      "category": "Optimizer",
+      "shortMeaning": "Limited-memory quasi-Newton optimization method.",
+      "aliases": [
+        "L-BFGS",
+        "L‑BFGS",
+        "LBFGS"
+      ],
+      "destinations": [
+        {
+          "label": "Optimizer Explorer · L-BFGS",
+          "href": "optimizers/?optimizer=l_bfgs#optimizer-l_bfgs",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "Paper-level optimizer records",
+          "href": "optimizers/?optimizer=l_bfgs"
+        },
+        {
+          "label": "Design Stack · Optimization",
+          "href": "frameworks/design-stack/#item=optimization",
+          "context": "Framework"
+        },
+        {
+          "label": "Co-Design · Training & Optimization",
+          "href": "frameworks/co-design/#item=training",
+          "context": "Framework"
+        },
+        {
+          "label": "Design–Performance · Optimizer & LR strategy",
+          "href": "frameworks/design-performance/#item=optimizer",
+          "context": "Framework"
+        },
+        {
+          "label": "Failure Diagnostics · Optimization stagnation",
+          "href": "frameworks/failure-diagnostics/#item=stagnation",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:activation-functions",
+      "label": "Activation Functions",
+      "category": "Activation function",
+      "shortMeaning": "Nonlinearities and basis functions used in PINN representations.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "Activation Functions",
+          "href": "activation-functions/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
+          "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Representation",
+          "href": "frameworks/co-design/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Activation / features",
+          "href": "frameworks/design-performance/#item=activation-features",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Spectral bias / multiscale or high-frequency solution",
+          "href": "frameworks/failure-diagnostics/#item=spectral-bias",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:architectures",
+      "label": "Architectures",
+      "category": "Architecture",
+      "shortMeaning": "Neural architectures and representation models used in physics-informed learning.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "Architectures",
+          "href": "architectures/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
+          "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Representation",
+          "href": "frameworks/co-design/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Architecture / basis",
+          "href": "frameworks/design-performance/#item=architecture-basis",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Decomposition / parallelization",
+          "href": "frameworks/design-performance/#item=decomposition",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Reuse / generalize",
+          "href": "frameworks/design-performance/#item=reuse-generalize",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Large / heterogeneous domain (scalability)",
+          "href": "frameworks/failure-diagnostics/#item=large-domain",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Repeated-query cost / retraining for new instances",
+          "href": "frameworks/failure-diagnostics/#item=repeated-query",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:mathematical-formulations",
+      "label": "Mathematical Formulations",
+      "category": "Formulation",
+      "shortMeaning": "Canonical mathematical statements and constraint formulations used across the Atlas.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "Mathematical Formulations",
+          "href": "mathematical-formulations/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Physics Enforcement",
+          "href": "frameworks/design-stack/#item=physics-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Differentiation and Residual Evaluation",
+          "href": "frameworks/design-stack/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Loss Construction and Balancing",
+          "href": "frameworks/design-stack/#item=loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Physics & Constraints",
+          "href": "frameworks/co-design/#item=physics",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
+          "href": "frameworks/design-performance/#item=physics-enforcement",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Physics / constraints",
+          "href": "frameworks/design-performance/#item=physics-constraints",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Discontinuities, shocks, or sharp fronts",
+          "href": "frameworks/failure-diagnostics/#item=discontinuities",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Weak satisfaction of BCs / ICs / interfaces",
+          "href": "frameworks/failure-diagnostics/#item=weak-boundaries",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Poor conservation (flux / mass / energy)",
+          "href": "frameworks/failure-diagnostics/#item=poor-conservation",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:optimizers",
+      "label": "Optimizers",
+      "category": "Optimizer",
+      "shortMeaning": "Reported optimization algorithms and training sequences.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "Optimizers",
+          "href": "optimizers/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Optimization and Training Strategy",
+          "href": "frameworks/design-stack/#item=optimization",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Training & Optimization",
+          "href": "frameworks/co-design/#item=training",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Optimizer & LR strategy",
+          "href": "frameworks/design-performance/#item=optimizer",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
+          "href": "frameworks/failure-diagnostics/#item=stagnation",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:performance-metrics",
+      "label": "Performance Metrics",
+      "category": "Metric",
+      "shortMeaning": "Numerical, physical, robustness, uncertainty, and cost evaluation measures.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "Performance Metrics",
+          "href": "performance-metrics/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Evaluation and Validation",
+          "href": "frameworks/design-stack/#item=evaluation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Verification & Reliability",
+          "href": "frameworks/co-design/#item=reliability",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Sparse / noisy data, non-identifiable inverse problem",
+          "href": "frameworks/failure-diagnostics/#item=sparse-noisy-inverse",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Unquantified or uncalibrated uncertainty",
+          "href": "frameworks/failure-diagnostics/#item=uncertainty",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Verify improvement",
+          "href": "frameworks/failure-diagnostics/#item=verify",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:pinn-ecosystem",
+      "label": "PINN Ecosystem",
+      "category": "Ecosystem",
+      "shortMeaning": "The layered design taxonomy connecting problem definition through deployment.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem",
+          "href": "pinn-ecosystem/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:references",
+      "label": "References",
+      "category": "Evidence",
+      "shortMeaning": "The canonical 853-record evidence corpus.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "References",
+          "href": "references/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [],
+      "evidenceCount": 0
+    },
+    {
+      "id": "page:training",
+      "label": "Training",
+      "category": "Training",
+      "shortMeaning": "Sampling, objective construction, optimization, and training controls.",
+      "aliases": [],
+      "destinations": [
+        {
+          "label": "Training",
+          "href": "training/",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Sampling / Collocation",
+          "href": "frameworks/design-stack/#item=sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Loss Construction and Balancing",
+          "href": "frameworks/design-stack/#item=loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design Stack & Feedback Loops · Optimization and Training Strategy",
+          "href": "frameworks/design-stack/#item=optimization",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Training & Optimization",
+          "href": "frameworks/co-design/#item=training",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Scaling / non-dimensionalization",
+          "href": "frameworks/design-performance/#item=scaling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Sampling / collocation",
+          "href": "frameworks/design-performance/#item=sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Loss formulation",
+          "href": "frameworks/design-performance/#item=loss-formulation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Loss weighting / balancing",
+          "href": "frameworks/design-performance/#item=loss-balancing",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Initialization / training strategy",
+          "href": "frameworks/design-performance/#item=training-strategy",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Imbalanced multi-objective loss (gradient conflict)",
+          "href": "frameworks/failure-diagnostics/#item=imbalanced-loss",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Poor collocation / sampling coverage",
+          "href": "frameworks/failure-diagnostics/#item=poor-sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Long-time integration / temporal propagation",
+          "href": "frameworks/failure-diagnostics/#item=long-time",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Optimization stagnation / ill-conditioning",
+          "href": "frameworks/failure-diagnostics/#item=stagnation",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    },
+    {
+      "id": "sampling:sobol",
+      "label": "Sobol sampling",
+      "category": "Sampling method",
+      "shortMeaning": "Uses a low-discrepancy Sobol sequence to distribute collocation points through the domain.",
+      "aliases": [
+        "Sobol sampling",
+        "Sobol sequence"
+      ],
+      "destinations": [
+        {
+          "label": "PINN Ecosystem · Collocation / Sampling",
+          "href": "pinn-ecosystem/?group=collocation-sampling",
+          "primary": true
+        }
+      ],
+      "appearsIn": [
+        {
+          "label": "PINN Design Stack & Feedback Loops · Sampling / Collocation",
+          "href": "frameworks/design-stack/#item=sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Design–Performance Dependency Matrix · Sampling / collocation",
+          "href": "frameworks/design-performance/#item=sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Failure-Mode Diagnostics · Poor collocation / sampling coverage",
+          "href": "frameworks/failure-diagnostics/#item=poor-sampling",
+          "context": "Framework"
+        }
+      ],
+      "evidenceCount": 0
+    }
+  ],
+  "autoLink": [
+    {
+      "id": "optimizer:adam",
+      "terms": [
+        "Adam"
+      ]
+    },
+    {
+      "id": "optimizer:lbfgs",
+      "terms": [
+        "L-BFGS",
+        "L‑BFGS",
+        "LBFGS"
+      ]
+    },
+    {
+      "id": "metric:rmse",
+      "terms": [
+        "RMSE",
+        "root mean squared error"
+      ]
+    },
+    {
+      "id": "metric:relative-l2",
+      "terms": [
+        "Relative L2 error",
+        "relative L₂ error",
+        "relative L2 error"
+      ]
+    },
+    {
+      "id": "metric:mae",
+      "terms": [
+        "MAE",
+        "mean absolute error"
+      ]
+    },
+    {
+      "id": "formulation:weak-form",
+      "terms": [
+        "weak form"
+      ]
+    },
+    {
+      "id": "formulation:variational-form",
+      "terms": [
+        "variational form"
+      ]
+    },
+    {
+      "id": "method:automatic-differentiation",
+      "terms": [
+        "automatic differentiation"
+      ]
+    },
+    {
+      "id": "architecture:fourier-features",
+      "terms": [
+        "Fourier features"
+      ]
+    },
+    {
+      "id": "architecture:siren",
+      "terms": [
+        "SIREN"
+      ]
+    },
+    {
+      "id": "sampling:sobol",
+      "terms": [
+        "Sobol sampling"
+      ]
+    }
+  ],
+  "totalConcepts": 2385
+}

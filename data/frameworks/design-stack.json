@@ -6,175 +6,956 @@
   "represents": "The stack organizes a PINN study as four coupled phases rather than as neural-network training alone. It begins with the physical problem and computational role, translates these into representation and physics-enforcement choices, realizes them numerically, and closes the loop through reliability-oriented evaluation.",
   "interpretation": "The vertical path is a typical design sequence, not a universal recipe. Bidirectional phase links indicate strong interdependence, while evaluation feedback should return the workflow to the earliest plausible design cause. A redesign is accepted only after numerical, physical, robustness, uncertainty, and computational-cost checks improve.",
   "filters": [
-    {"id": "all", "label": "All four phases"},
-    {"id": "problem-framing", "label": "I · Problem Framing"},
-    {"id": "formulation", "label": "II · PINN Formulation"},
-    {"id": "training", "label": "III · PINN Training"},
-    {"id": "reliability", "label": "IV · PINN Reliability"}
+    {
+      "id": "all",
+      "label": "All four phases"
+    },
+    {
+      "id": "problem-framing",
+      "label": "I · Problem Framing"
+    },
+    {
+      "id": "formulation",
+      "label": "II · PINN Formulation"
+    },
+    {
+      "id": "training",
+      "label": "III · PINN Training"
+    },
+    {
+      "id": "reliability",
+      "label": "IV · PINN Reliability"
+    }
   ],
   "phases": [
-    {"id": "problem-framing", "roman": "I", "title": "Problem Framing", "summary": "Defines the scientific system, numerical demands, intended PINN role, and representation interface.", "stage_ids": ["physical-problem", "computational-role", "inputs-outputs"]},
-    {"id": "formulation", "roman": "II", "title": "PINN Formulation", "summary": "Defines the trainable approximation and how governing knowledge and differential operators are realized.", "stage_ids": ["representation", "physics-enforcement", "differentiation"]},
-    {"id": "training", "roman": "III", "title": "PINN Training", "summary": "Defines where objectives are enforced, how losses are balanced, and how optimization is performed.", "stage_ids": ["sampling", "loss", "optimization"]},
-    {"id": "reliability", "roman": "IV", "title": "PINN Reliability", "summary": "Determines whether the resulting model is numerically accurate, physically faithful, robust, efficient, and reusable.", "stage_ids": ["evaluation"]}
+    {
+      "id": "problem-framing",
+      "roman": "I",
+      "title": "Problem Framing",
+      "summary": "Defines the scientific system, numerical demands, intended PINN role, and representation interface.",
+      "stage_ids": [
+        "physical-problem",
+        "computational-role",
+        "inputs-outputs"
+      ]
+    },
+    {
+      "id": "formulation",
+      "roman": "II",
+      "title": "PINN Formulation",
+      "summary": "Defines the trainable approximation and how governing knowledge and differential operators are realized.",
+      "stage_ids": [
+        "representation",
+        "physics-enforcement",
+        "differentiation"
+      ]
+    },
+    {
+      "id": "training",
+      "roman": "III",
+      "title": "PINN Training",
+      "summary": "Defines where objectives are enforced, how losses are balanced, and how optimization is performed.",
+      "stage_ids": [
+        "sampling",
+        "loss",
+        "optimization"
+      ]
+    },
+    {
+      "id": "reliability",
+      "roman": "IV",
+      "title": "PINN Reliability",
+      "summary": "Determines whether the resulting model is numerically accurate, physically faithful, robust, efficient, and reusable.",
+      "stage_ids": [
+        "evaluation"
+      ]
+    }
   ],
   "stages": [
     {
-      "id": "physical-problem", "number": 1, "phase": "problem-framing", "title": "Physical Problem Definition", "subtitle": "Defines the physical system and its numerical demands",
+      "id": "physical-problem",
+      "number": 1,
+      "phase": "problem-framing",
+      "title": "Physical Problem Definition",
+      "subtitle": "Defines the physical system and its numerical demands",
       "columns": [
-        {"title": "Physical system", "items": ["Governing equations (PDE / ODE / DAE / integral)", "Domain and geometry", "Boundary / initial conditions"]},
-        {"title": "Problem data", "items": ["Material / physical parameters", "Forcing / source terms", "Data availability", "Time dependence"]},
-        {"title": "Problem characteristics", "items": ["Steady / transient", "Linear / nonlinear", "Smooth / discontinuous", "Multiscale / stiff / high-dimensional"]}
+        {
+          "title": "Physical system",
+          "items": [
+            "Governing equations (PDE / ODE / DAE / integral)",
+            "Domain and geometry",
+            "Boundary / initial conditions"
+          ]
+        },
+        {
+          "title": "Problem data",
+          "items": [
+            "Material / physical parameters",
+            "Forcing / source terms",
+            "Data availability",
+            "Time dependence"
+          ]
+        },
+        {
+          "title": "Problem characteristics",
+          "items": [
+            "Steady / transient",
+            "Linear / nonlinear",
+            "Smooth / discontinuous",
+            "Multiscale / stiff / high-dimensional"
+          ]
+        }
       ],
       "summary": "The governing structure, geometry, conditions, scales, regularity, and available data determine every downstream design choice.",
-      "concepts": [{"label": "PINN Ecosystem · Problem definition", "route": "pinn-ecosystem/#layer-1"}], "related_frameworks": ["co-design:problem"], "evidence": [
-        {"atlas_id": 401, "support": "Contextual", "rationale": "The review frames physics-informed learning around governing laws, data, and computational task, supporting problem definition as the first design layer."},
-        {"atlas_id": 450, "support": "Direct", "rationale": "The canonical PINN paper formulates forward and inverse PDE problems from equations, conditions, observations, and unknown quantities."}
+      "concepts": [
+        {
+          "label": "PINN Ecosystem · Problem definition",
+          "id": "ecosystem:problem"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:problem"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 401,
+          "support": "Equivalent",
+          "rationale": "The review frames physics-informed learning around governing laws, data, and computational task, supporting problem definition as the first design layer."
+        },
+        {
+          "atlas_id": 450,
+          "support": "Direct",
+          "rationale": "The canonical PINN paper formulates forward and inverse PDE problems from equations, conditions, observations, and unknown quantities."
+        }
       ]
     },
     {
-      "id": "computational-role", "number": 2, "phase": "problem-framing", "title": "Computational Role", "subtitle": "Defines the intended use of the PINN",
+      "id": "computational-role",
+      "number": 2,
+      "phase": "problem-framing",
+      "title": "Computational Role",
+      "subtitle": "Defines the intended use of the PINN",
       "columns": [
-        {"title": "Solution role", "items": ["Forward solution", "Inverse problem", "Parameter identification"]},
-        {"title": "Inference role", "items": ["State reconstruction", "PDE / system discovery", "Source / BC inference"]},
-        {"title": "Reusable role", "items": ["Surrogate modeling", "Operator learning", "Control / optimization", "Uncertainty quantification"]}
+        {
+          "title": "Solution role",
+          "items": [
+            "Forward solution",
+            "Inverse problem",
+            "Parameter identification"
+          ]
+        },
+        {
+          "title": "Inference role",
+          "items": [
+            "State reconstruction",
+            "PDE / system discovery",
+            "Source / BC inference"
+          ]
+        },
+        {
+          "title": "Reusable role",
+          "items": [
+            "Surrogate modeling",
+            "Operator learning",
+            "Control / optimization",
+            "Uncertainty quantification"
+          ]
+        }
       ],
       "summary": "A PINN intended for forward solution, inverse recovery, discovery, control, or repeated queries requires different outputs, training data, and validation criteria.",
-      "concepts": [{"label": "PINN Ecosystem · Computational role", "route": "pinn-ecosystem/#layer-2"}], "related_frameworks": ["co-design:problem"], "evidence": [
-        {"atlas_id": 450, "support": "Direct", "rationale": "The same PINN formulation is demonstrated for forward solution and inverse identification, making intended role an explicit design choice."},
-        {"atlas_id": 603, "support": "Direct", "rationale": "Physics-informed DeepONets change the role from one solution to a reusable parametric solution operator."}
+      "concepts": [
+        {
+          "label": "PINN Ecosystem · Computational role",
+          "id": "ecosystem:purpose"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:problem"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 450,
+          "support": "Direct",
+          "rationale": "The same PINN formulation is demonstrated for forward solution and inverse identification, making intended role an explicit design choice."
+        },
+        {
+          "atlas_id": 603,
+          "support": "Direct",
+          "rationale": "Physics-informed DeepONets change the role from one solution to a reusable parametric solution operator."
+        }
       ]
     },
     {
-      "id": "inputs-outputs", "number": 3, "phase": "problem-framing", "title": "Inputs and Outputs", "subtitle": "Defines the representation interface",
+      "id": "inputs-outputs",
+      "number": 3,
+      "phase": "problem-framing",
+      "title": "Inputs and Outputs",
+      "subtitle": "Defines the representation interface",
       "columns": [
-        {"title": "Inputs", "items": ["Coordinates (x, y, z, t)", "Physical parameters", "Geometry descriptors", "BC / IC descriptors"]},
-        {"title": "Additional inputs", "items": ["Observations / measurements", "Forcing / control variables", "Functional / field inputs", "Stochastic variables"]},
-        {"title": "Outputs", "items": ["Scalar / vector fields", "State variables", "Auxiliary variables", "Fluxes / stresses / derivatives", "Unknown coefficients", "Latent physical quantities", "Lagrange multipliers", "Constitutive variables"]}
+        {
+          "title": "Inputs",
+          "items": [
+            "Coordinates (x, y, z, t)",
+            "Physical parameters",
+            "Geometry descriptors",
+            "BC / IC descriptors"
+          ]
+        },
+        {
+          "title": "Additional inputs",
+          "items": [
+            "Observations / measurements",
+            "Forcing / control variables",
+            "Functional / field inputs",
+            "Stochastic variables"
+          ]
+        },
+        {
+          "title": "Outputs",
+          "items": [
+            "Scalar / vector fields",
+            "State variables",
+            "Auxiliary variables",
+            "Fluxes / stresses / derivatives",
+            "Unknown coefficients",
+            "Latent physical quantities",
+            "Lagrange multipliers",
+            "Constitutive variables"
+          ]
+        }
       ],
       "summary": "Input and output choices define the model interface, dimensionality, state coverage, latent variables, and quantities available for physics enforcement.",
-      "concepts": [{"label": "PINN Ecosystem · Inputs and outputs", "route": "pinn-ecosystem/#layer-3"}], "related_frameworks": ["co-design:representation", "design-performance:inputs-outputs"], "evidence": [
-        {"atlas_id": 726, "support": "Direct", "rationale": "P2INNs explicitly encode PDE parameters as latent inputs, showing that the input-output interface determines reuse across a parameter family."},
-        {"atlas_id": 450, "support": "Contextual", "rationale": "The foundational formulation links coordinates and observations to state fields and unknown coefficients for forward and inverse tasks."}
+      "concepts": [
+        {
+          "label": "PINN Ecosystem · Inputs and outputs",
+          "id": "ecosystem:representation"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:representation",
+        "design-performance:inputs-outputs"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 726,
+          "support": "Direct",
+          "rationale": "P2INNs explicitly encode PDE parameters as latent inputs, showing that the input-output interface determines reuse across a parameter family."
+        },
+        {
+          "atlas_id": 450,
+          "support": "Equivalent",
+          "rationale": "The foundational formulation links coordinates and observations to state fields and unknown coefficients for forward and inverse tasks."
+        }
       ]
     },
     {
-      "id": "representation", "number": 4, "phase": "formulation", "title": "Representation / Architecture", "subtitle": "Defines the trainable approximation model",
+      "id": "representation",
+      "number": 4,
+      "phase": "formulation",
+      "title": "Representation / Architecture",
+      "subtitle": "Defines the trainable approximation model",
       "columns": [
-        {"title": "Classical neural forms", "items": ["MLP / fully connected", "CNN / U-Net", "RNN / LSTM / GRU"]},
-        {"title": "Structured architectures", "items": ["GNN / graph networks", "Transformer / attention", "KAN / Kolmogorov-Arnold"]},
-        {"title": "Basis-rich forms", "items": ["Fourier features / FNO", "SIREN / sinusoidal / RBF", "Single- or multi-network structure"]}
+        {
+          "title": "Classical neural forms",
+          "items": [
+            "MLP / fully connected",
+            "CNN / U-Net",
+            "RNN / LSTM / GRU"
+          ]
+        },
+        {
+          "title": "Structured architectures",
+          "items": [
+            "GNN / graph networks",
+            "Transformer / attention",
+            "KAN / Kolmogorov-Arnold"
+          ]
+        },
+        {
+          "title": "Basis-rich forms",
+          "items": [
+            "Fourier features / FNO",
+            "SIREN / sinusoidal / RBF",
+            "Single- or multi-network structure"
+          ]
+        }
       ],
       "summary": "The ansatz and basis determine approximation capacity, inductive bias, spectral behavior, derivative regularity, and optimization geometry.",
-      "concepts": [{"label": "Architectures", "route": "architectures/"}, {"label": "Activation Functions", "route": "activation-functions/"}], "related_frameworks": ["co-design:representation", "design-performance:architecture-basis", "design-performance:activation-features"], "evidence": [
-        {"atlas_id": 606, "support": "Direct", "rationale": "Fourier-feature representation changes the learned eigenspectrum and improves multi-scale PDE approximation, directly linking basis choice to solution structure."},
-        {"atlas_id": 231, "support": "Direct", "rationale": "SAS-PINN uses a SIREN representation for high-frequency electromagnetic fields and couples it to adaptive collocation."},
-        {"atlas_id": 517, "support": "Direct", "rationale": "Locally adaptive activations with slope recovery alter the effective approximation basis and training dynamics."}
+      "concepts": [
+        {
+          "label": "Architectures",
+          "id": "page:architectures"
+        },
+        {
+          "label": "Activation Functions",
+          "id": "page:activation-functions"
+        },
+        {
+          "id": "architecture:fourier-features",
+          "label": "Fourier features"
+        },
+        {
+          "id": "architecture:siren",
+          "label": "SIREN"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:representation",
+        "design-performance:architecture-basis",
+        "design-performance:activation-features"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 606,
+          "support": "Direct",
+          "rationale": "Fourier-feature representation changes the learned eigenspectrum and improves multi-scale PDE approximation, directly linking basis choice to solution structure."
+        },
+        {
+          "atlas_id": 231,
+          "support": "Direct",
+          "rationale": "SAS-PINN uses a SIREN representation for high-frequency electromagnetic fields and couples it to adaptive collocation."
+        },
+        {
+          "atlas_id": 517,
+          "support": "Direct",
+          "rationale": "Locally adaptive activations with slope recovery alter the effective approximation basis and training dynamics."
+        }
       ]
     },
     {
-      "id": "physics-enforcement", "number": 5, "phase": "formulation", "title": "Physics Enforcement", "subtitle": "Defines how governing knowledge constrains the model",
+      "id": "physics-enforcement",
+      "number": 5,
+      "phase": "formulation",
+      "title": "Physics Enforcement",
+      "subtitle": "Defines how governing knowledge constrains the model",
       "columns": [
-        {"title": "Formulation", "items": ["Strong-form residual (penalty)", "Weak / variational form", "Energy / integral formulation"]},
-        {"title": "Constraint mechanism", "items": ["Soft equality constraints", "Hard constraints (exact)", "Distance / function / trial solutions"]},
-        {"title": "Structure-aware enforcement", "items": ["Conservative / discrete enforcement", "Interface coupling conditions", "Constitutive / conservation laws"]}
+        {
+          "title": "Formulation",
+          "items": [
+            "Strong-form residual (penalty)",
+            "Weak / variational form",
+            "Energy / integral formulation"
+          ]
+        },
+        {
+          "title": "Constraint mechanism",
+          "items": [
+            "Soft equality constraints",
+            "Hard constraints (exact)",
+            "Distance / function / trial solutions"
+          ]
+        },
+        {
+          "title": "Structure-aware enforcement",
+          "items": [
+            "Conservative / discrete enforcement",
+            "Interface coupling conditions",
+            "Constitutive / conservation laws"
+          ]
+        }
       ],
       "summary": "Physics may enter through strong, weak, integral, hard, conservative, interface, or constitutive mechanisms with different admissibility and cost consequences.",
-      "concepts": [{"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:physics", "design-performance:physics-enforcement"], "evidence": [
-        {"atlas_id": 461, "support": "Direct", "rationale": "The neural trial-solution construction satisfies boundary conditions by design, providing the historical basis for exact ansatz enforcement."},
-        {"atlas_id": 637, "support": "Direct", "rationale": "The paper compares boundary enforcement in PINNs and VPINNs and supports exact Dirichlet satisfaction as a distinct enforcement choice."},
-        {"atlas_id": 628, "support": "Direct", "rationale": "Conservative PINNs impose discrete conservation and interface flux continuity rather than relying on a pointwise PDE penalty alone."},
-        {"atlas_id": 636, "support": "Direct", "rationale": "VPINN accuracy depends on test functions and quadrature, showing that weak enforcement is a numerical formulation rather than a generic loss term."}
+      "concepts": [
+        {
+          "label": "Mathematical Formulations",
+          "id": "page:mathematical-formulations"
+        },
+        {
+          "id": "formulation:weak-form",
+          "label": "Weak form"
+        },
+        {
+          "id": "formulation:variational-form",
+          "label": "Variational form"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:physics",
+        "design-performance:physics-enforcement"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 461,
+          "support": "Direct",
+          "rationale": "The neural trial-solution construction satisfies boundary conditions by design, providing the historical basis for exact ansatz enforcement."
+        },
+        {
+          "atlas_id": 637,
+          "support": "Direct",
+          "rationale": "The paper compares boundary enforcement in PINNs and VPINNs and supports exact Dirichlet satisfaction as a distinct enforcement choice."
+        },
+        {
+          "atlas_id": 628,
+          "support": "Direct",
+          "rationale": "Conservative PINNs impose discrete conservation and interface flux continuity rather than relying on a pointwise PDE penalty alone."
+        },
+        {
+          "atlas_id": 636,
+          "support": "Direct",
+          "rationale": "VPINN accuracy depends on test functions and quadrature, showing that weak enforcement is a numerical formulation rather than a generic loss term."
+        }
       ]
     },
     {
-      "id": "differentiation", "number": 6, "phase": "formulation", "title": "Differentiation and Residual Evaluation", "subtitle": "Defines how operators and derivatives are computed",
+      "id": "differentiation",
+      "number": 6,
+      "phase": "formulation",
+      "title": "Differentiation and Residual Evaluation",
+      "subtitle": "Defines how operators and derivatives are computed",
       "columns": [
-        {"title": "Automatic differentiation", "items": ["Automatic differentiation (AD)", "Higher-order AD", "Finite-order reformulation"]},
-        {"title": "Hybrid numerical forms", "items": ["Numerical differentiation", "Mixed AD-numerical methods"]},
-        {"title": "Residual realization", "items": ["Auxiliary derivative outputs", "Time- / space-discrete residuals", "Discretization-aware / solver-in-loop"]}
+        {
+          "title": "Automatic differentiation",
+          "items": [
+            "Automatic differentiation (AD)",
+            "Higher-order AD",
+            "Finite-order reformulation"
+          ]
+        },
+        {
+          "title": "Hybrid numerical forms",
+          "items": [
+            "Numerical differentiation",
+            "Mixed AD-numerical methods"
+          ]
+        },
+        {
+          "title": "Residual realization",
+          "items": [
+            "Auxiliary derivative outputs",
+            "Time- / space-discrete residuals",
+            "Discretization-aware / solver-in-loop"
+          ]
+        }
       ],
       "summary": "Derivative order and operator realization control residual fidelity, gradient quality, memory, solver calls, and numerical stability.",
-      "concepts": [{"label": "PINN Ecosystem · Differentiation", "route": "pinn-ecosystem/#layer-5"}, {"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:numerical", "design-performance:differentiation"], "evidence": [
-        {"atlas_id": 554, "support": "Direct", "rationale": "CAN-PINN couples automatic and numerical differentiation to change residual accuracy, support coupling, and training cost."},
-        {"atlas_id": 552, "support": "Direct", "rationale": "Hutchinson trace estimation targets the memory and runtime burden of high-dimensional, high-order automatic differentiation."},
-        {"atlas_id": 636, "support": "Direct", "rationale": "Variational residual evaluation exposes quadrature precision and test-function degree as explicit numerical choices."}
+      "concepts": [
+        {
+          "label": "PINN Ecosystem · Differentiation",
+          "id": "ecosystem:operators"
+        },
+        {
+          "label": "Mathematical Formulations",
+          "id": "page:mathematical-formulations"
+        },
+        {
+          "id": "method:automatic-differentiation",
+          "label": "Automatic differentiation"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:numerical",
+        "design-performance:differentiation"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 554,
+          "support": "Direct",
+          "rationale": "CAN-PINN couples automatic and numerical differentiation to change residual accuracy, support coupling, and training cost."
+        },
+        {
+          "atlas_id": 552,
+          "support": "Direct",
+          "rationale": "Hutchinson trace estimation targets the memory and runtime burden of high-dimensional, high-order automatic differentiation."
+        },
+        {
+          "atlas_id": 636,
+          "support": "Direct",
+          "rationale": "Variational residual evaluation exposes quadrature precision and test-function degree as explicit numerical choices."
+        }
       ]
     },
     {
-      "id": "sampling", "number": 7, "phase": "training", "title": "Sampling / Collocation", "subtitle": "Defines where the loss is enforced",
+      "id": "sampling",
+      "number": 7,
+      "phase": "training",
+      "title": "Sampling / Collocation",
+      "subtitle": "Defines where the loss is enforced",
       "columns": [
-        {"title": "Constraint points", "items": ["Interior collocation points", "Boundary points", "Initial-condition points"]},
-        {"title": "Additional support", "items": ["Interface points", "Observation / data points", "Quadrature points"]},
-        {"title": "Sampling design", "items": ["Uniform / random / LHS / Sobol", "Adaptive / residual-based", "Geometry-aware / interface-aware", "Causal / dynamic resampling"]}
+        {
+          "title": "Constraint points",
+          "items": [
+            "Interior collocation points",
+            "Boundary points",
+            "Initial-condition points"
+          ]
+        },
+        {
+          "title": "Additional support",
+          "items": [
+            "Interface points",
+            "Observation / data points",
+            "Quadrature points"
+          ]
+        },
+        {
+          "title": "Sampling design",
+          "items": [
+            "Uniform / random / LHS / Sobol",
+            "Adaptive / residual-based",
+            "Geometry-aware / interface-aware",
+            "Causal / dynamic resampling"
+          ]
+        }
       ],
       "summary": "Collocation determines domain and constraint coverage and therefore which residual information enters the gradient.",
-      "concepts": [{"label": "Training · Sampling", "route": "training/"}, {"label": "PINN Ecosystem · Sampling", "route": "pinn-ecosystem/#sampling"}], "related_frameworks": ["co-design:numerical", "design-performance:sampling"], "evidence": [
-        {"atlas_id": 479, "support": "Direct", "rationale": "A large comparative study shows that residual-point distribution materially changes PINN accuracy and sampling efficiency."},
-        {"atlas_id": 534, "support": "Direct", "rationale": "Loss-proportional importance sampling improves convergence by changing which collocation information enters each update."}
+      "concepts": [
+        {
+          "label": "Training · Sampling",
+          "id": "page:training"
+        },
+        {
+          "label": "PINN Ecosystem · Sampling",
+          "id": "ecosystem:collocation-sampling"
+        },
+        {
+          "id": "sampling:sobol",
+          "label": "Sobol sampling"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:numerical",
+        "design-performance:sampling"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 479,
+          "support": "Direct",
+          "rationale": "A large comparative study shows that residual-point distribution materially changes PINN accuracy and sampling efficiency."
+        },
+        {
+          "atlas_id": 534,
+          "support": "Direct",
+          "rationale": "Loss-proportional importance sampling improves convergence by changing which collocation information enters each update."
+        }
       ]
     },
     {
-      "id": "loss", "number": 8, "phase": "training", "title": "Loss Construction and Balancing", "subtitle": "Defines the optimization objective",
+      "id": "loss",
+      "number": 8,
+      "phase": "training",
+      "title": "Loss Construction and Balancing",
+      "subtitle": "Defines the optimization objective",
       "columns": [
-        {"title": "Physics losses", "items": ["PDE / ODE residual loss", "BC loss", "IC loss"]},
-        {"title": "Additional objectives", "items": ["Data / observation loss", "Interface loss", "Conservation / constitutive loss"]},
-        {"title": "Balancing", "items": ["Regularization terms", "Fixed weights", "Adaptive / dynamic weighting", "Gradient balancing / NTK / Augmented Lagrangian"]}
+        {
+          "title": "Physics losses",
+          "items": [
+            "PDE / ODE residual loss",
+            "BC loss",
+            "IC loss"
+          ]
+        },
+        {
+          "title": "Additional objectives",
+          "items": [
+            "Data / observation loss",
+            "Interface loss",
+            "Conservation / constitutive loss"
+          ]
+        },
+        {
+          "title": "Balancing",
+          "items": [
+            "Regularization terms",
+            "Fixed weights",
+            "Adaptive / dynamic weighting",
+            "Gradient balancing / NTK / Augmented Lagrangian"
+          ]
+        }
       ],
       "summary": "The composite objective couples data and physics; its scaling and competition determine signal quality, constraint balance, and convergence.",
-      "concepts": [{"label": "Training", "route": "training/"}, {"label": "Mathematical Formulations", "route": "mathematical-formulations/"}], "related_frameworks": ["co-design:training", "design-performance:loss-formulation", "design-performance:loss-balancing"], "evidence": [
-        {"atlas_id": 502, "support": "Direct", "rationale": "The paper models competitive data, boundary, initial, and PDE losses and updates their weights adaptively."},
-        {"atlas_id": 525, "support": "Direct", "rationale": "Gradient-flow analysis identifies stiffness-driven imbalance among composite PINN objectives and motivates gradient-statistic balancing."},
-        {"atlas_id": 527, "support": "Direct", "rationale": "Dual-cone descent treats boundary and PDE losses as a multi-objective gradient-conflict problem."}
+      "concepts": [
+        {
+          "label": "Training",
+          "id": "page:training"
+        },
+        {
+          "label": "Mathematical Formulations",
+          "id": "page:mathematical-formulations"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:training",
+        "design-performance:loss-formulation",
+        "design-performance:loss-balancing"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 502,
+          "support": "Direct",
+          "rationale": "The paper models competitive data, boundary, initial, and PDE losses and updates their weights adaptively."
+        },
+        {
+          "atlas_id": 525,
+          "support": "Direct",
+          "rationale": "Gradient-flow analysis identifies stiffness-driven imbalance among composite PINN objectives and motivates gradient-statistic balancing."
+        },
+        {
+          "atlas_id": 527,
+          "support": "Direct",
+          "rationale": "Dual-cone descent treats boundary and PDE losses as a multi-objective gradient-conflict problem."
+        }
       ]
     },
     {
-      "id": "optimization", "number": 9, "phase": "training", "title": "Optimization and Training Strategy", "subtitle": "Defines how the objective is minimized",
+      "id": "optimization",
+      "number": 9,
+      "phase": "training",
+      "title": "Optimization and Training Strategy",
+      "subtitle": "Defines how the objective is minimized",
       "columns": [
-        {"title": "Optimizers", "items": ["Adam", "L-BFGS", "Hybrid Adam → L-BFGS", "Windowed / staged methods"]},
-        {"title": "Training controls", "items": ["Learning-rate schedules", "Initialization (Xavier, He, etc.)", "Full-batch / mini-batch"]},
-        {"title": "Extended strategies", "items": ["Pretraining / fine-tuning", "Curriculum / annealing", "Transfer / meta-learning", "Decomposition-based training", "Early stopping / regularization"]}
+        {
+          "title": "Optimizers",
+          "items": [
+            "Adam",
+            "L-BFGS",
+            "Hybrid Adam → L-BFGS",
+            "Windowed / staged methods"
+          ]
+        },
+        {
+          "title": "Training controls",
+          "items": [
+            "Learning-rate schedules",
+            "Initialization (Xavier, He, etc.)",
+            "Full-batch / mini-batch"
+          ]
+        },
+        {
+          "title": "Extended strategies",
+          "items": [
+            "Pretraining / fine-tuning",
+            "Curriculum / annealing",
+            "Transfer / meta-learning",
+            "Decomposition-based training",
+            "Early stopping / regularization"
+          ]
+        }
       ],
       "summary": "Optimizer sequence, learning rate, initialization, curricula, transfer, and stopping determine convergence speed and stability.",
-      "concepts": [{"label": "Optimizers", "route": "optimizers/"}, {"label": "Training", "route": "training/"}], "related_frameworks": ["co-design:training", "design-performance:optimizer", "design-performance:training-strategy"], "evidence": [
-        {"atlas_id": 823, "support": "Direct", "rationale": "Loss-landscape analysis connects differential-operator ill-conditioning to optimizer behavior and compares Adam, L-BFGS, hybrid, and second-order strategies."},
-        {"atlas_id": 819, "support": "Direct", "rationale": "The study examines how optimization process and optimizer choice control achievable PINN accuracy."},
-        {"atlas_id": 543, "support": "Direct", "rationale": "A staged self-adaptive, genetic-initialization, and L-BFGS workflow demonstrates the effect of hybrid training strategy."}
+      "concepts": [
+        {
+          "label": "Optimizers",
+          "id": "page:optimizers"
+        },
+        {
+          "label": "Training",
+          "id": "page:training"
+        },
+        {
+          "id": "optimizer:adam",
+          "label": "Adam"
+        },
+        {
+          "id": "optimizer:lbfgs",
+          "label": "L-BFGS"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:training",
+        "design-performance:optimizer",
+        "design-performance:training-strategy"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 823,
+          "support": "Direct",
+          "rationale": "Loss-landscape analysis connects differential-operator ill-conditioning to optimizer behavior and compares Adam, L-BFGS, hybrid, and second-order strategies."
+        },
+        {
+          "atlas_id": 819,
+          "support": "Direct",
+          "rationale": "The study examines how optimization process and optimizer choice control achievable PINN accuracy."
+        },
+        {
+          "atlas_id": 543,
+          "support": "Direct",
+          "rationale": "A staged self-adaptive, genetic-initialization, and L-BFGS workflow demonstrates the effect of hybrid training strategy."
+        }
       ]
     },
     {
-      "id": "evaluation", "number": 10, "phase": "reliability", "title": "Evaluation and Validation", "subtitle": "Determines reliability and guides redesign",
+      "id": "evaluation",
+      "number": 10,
+      "phase": "reliability",
+      "title": "Evaluation and Validation",
+      "subtitle": "Determines reliability and guides redesign",
       "columns": [
-        {"title": "Numerical accuracy", "items": ["MSE, RMSE, MAE", "L₂, L∞, R²", "Residual error (PDE / BC / IC / interface)"]},
-        {"title": "Scientific reliability", "items": ["Physical fidelity (conservation, admissibility, stability)", "Robustness (noise, seeds, sparsity)"]},
-        {"title": "Decision relevance", "items": ["Inverse recovery quality", "Uncertainty calibration", "Computational cost (time, memory)", "Benchmark comparison"]}
+        {
+          "title": "Numerical accuracy",
+          "items": [
+            "MSE, RMSE, MAE",
+            "L₂, L∞, R²",
+            "Residual error (PDE / BC / IC / interface)"
+          ]
+        },
+        {
+          "title": "Scientific reliability",
+          "items": [
+            "Physical fidelity (conservation, admissibility, stability)",
+            "Robustness (noise, seeds, sparsity)"
+          ]
+        },
+        {
+          "title": "Decision relevance",
+          "items": [
+            "Inverse recovery quality",
+            "Uncertainty calibration",
+            "Computational cost (time, memory)",
+            "Benchmark comparison"
+          ]
+        }
       ],
       "summary": "Validation must combine solution error, residual diagnostics, physical fidelity, robustness, uncertainty, inverse recovery, computational cost, and benchmarks.",
-      "concepts": [{"label": "Performance Metrics", "route": "performance-metrics/"}], "related_frameworks": ["co-design:reliability", "failure-diagnostics:verify"], "evidence": [
-        {"atlas_id": 401, "support": "Synthesis", "rationale": "The review evaluates physics-informed learning across accuracy, physical consistency, data use, and computational roles rather than by training loss alone."},
-        {"atlas_id": 410, "support": "Direct", "rationale": "B-PINNs show that noisy inverse problems require uncertainty-aware validation in addition to point prediction."},
-        {"atlas_id": 507, "support": "Direct", "rationale": "The paper separates parametric and approximation uncertainty and uses uncertainty-guided sensor placement, supporting calibrated reliability checks."}
+      "concepts": [
+        {
+          "label": "Performance Metrics",
+          "id": "page:performance-metrics"
+        },
+        {
+          "id": "metric:rmse",
+          "label": "RMSE"
+        },
+        {
+          "id": "metric:relative-l2",
+          "label": "Relative L2 error"
+        }
+      ],
+      "related_frameworks": [
+        "co-design:reliability",
+        "failure-diagnostics:verify"
+      ],
+      "evidence": [
+        {
+          "atlas_id": 401,
+          "support": "Synthesized",
+          "rationale": "The review evaluates physics-informed learning across accuracy, physical consistency, data use, and computational roles rather than by training loss alone."
+        },
+        {
+          "atlas_id": 410,
+          "support": "Direct",
+          "rationale": "B-PINNs show that noisy inverse problems require uncertainty-aware validation in addition to point prediction."
+        },
+        {
+          "atlas_id": 507,
+          "support": "Direct",
+          "rationale": "The paper separates parametric and approximation uncertainty and uses uncertainty-guided sensor placement, supporting calibrated reliability checks."
+        }
       ]
     }
   ],
   "relationships": [
-    {"id": "flow-1-2", "type": "flow", "from": "physical-problem", "to": "computational-role", "label": "Problem definition constrains the intended role", "evidence": []},
-    {"id": "flow-2-3", "type": "flow", "from": "computational-role", "to": "inputs-outputs", "label": "Role determines the representation interface", "evidence": []},
-    {"id": "flow-3-4", "type": "flow", "from": "inputs-outputs", "to": "representation", "label": "Interface constrains architecture", "evidence": []},
-    {"id": "flow-4-5", "type": "flow", "from": "representation", "to": "physics-enforcement", "label": "Ansatz and physics must be compatible", "evidence": []},
-    {"id": "flow-5-6", "type": "flow", "from": "physics-enforcement", "to": "differentiation", "label": "Constraint form determines residual evaluation", "evidence": []},
-    {"id": "flow-6-7", "type": "flow", "from": "differentiation", "to": "sampling", "label": "Residual evaluation determines sampling cost and information", "evidence": []},
-    {"id": "flow-7-8", "type": "flow", "from": "sampling", "to": "loss", "label": "Point coverage determines the enforced objective", "evidence": []},
-    {"id": "flow-8-9", "type": "flow", "from": "loss", "to": "optimization", "label": "Loss geometry determines optimizer behavior", "evidence": []},
-    {"id": "flow-9-10", "type": "flow", "from": "optimization", "to": "evaluation", "label": "Training produces the candidate model to validate", "evidence": []},
-    {"id": "feedback-10-1", "type": "feedback", "from": "evaluation", "to": "physical-problem", "label": "Results may require redefining the problem", "evidence": [{"atlas_id": 401, "support": "Synthesis", "rationale": "The reviewed evidence emphasizes matching physics-informed method and evaluation to the governing problem rather than assuming one universal formulation."}]},
-    {"id": "feedback-10-2", "type": "feedback", "from": "evaluation", "to": "computational-role", "label": "Results may require redefining the PINN role", "evidence": [{"atlas_id": 603, "support": "Direct", "rationale": "Repeated-query evaluation motivates moving from a single PINN solve to a learned solution operator."}]},
-    {"id": "feedback-10-3", "type": "feedback", "from": "evaluation", "to": "inputs-outputs", "label": "Poor performance may require changing outputs", "evidence": [{"atlas_id": 726, "support": "Direct", "rationale": "Explicit latent parameter encoding demonstrates how revising the input-output interface changes parameterized-PDE performance."}]},
-    {"id": "feedback-10-4", "type": "feedback", "from": "evaluation", "to": "representation", "label": "Poor performance may require changing architecture", "evidence": [{"atlas_id": 606, "support": "Direct", "rationale": "Spectral failure of standard representations motivates Fourier-feature redesign for multi-scale PDEs."}]},
-    {"id": "feedback-10-5", "type": "feedback", "from": "evaluation", "to": "physics-enforcement", "label": "Reformulate physics if constraints are not satisfied", "evidence": [{"atlas_id": 628, "support": "Direct", "rationale": "Conservation and interface-flux errors motivate a conservative discrete-domain reformulation."}, {"atlas_id": 637, "support": "Direct", "rationale": "Persistent boundary error motivates exact Dirichlet enforcement rather than penalty-only treatment."}]},
-    {"id": "feedback-10-6", "type": "feedback", "from": "evaluation", "to": "differentiation", "label": "Reformulate differentiation if residual cost is high", "evidence": [{"atlas_id": 552, "support": "Direct", "rationale": "High-order derivative memory and runtime motivate trace-estimation reformulation."}, {"atlas_id": 554, "support": "Direct", "rationale": "Sparse or costly residual evaluation motivates coupled automatic–numerical differentiation."}]},
-    {"id": "feedback-10-7", "type": "feedback", "from": "evaluation", "to": "sampling", "label": "Evaluation may motivate resampling", "evidence": [{"atlas_id": 479, "support": "Direct", "rationale": "Residual-based adaptive refinement explicitly reallocates points from current residual information."}]},
-    {"id": "feedback-10-8", "type": "feedback", "from": "evaluation", "to": "loss", "label": "Evaluation may motivate reweighting", "evidence": [{"atlas_id": 502, "support": "Direct", "rationale": "Competitive loss progress is used to update adaptive objective weights during training."}, {"atlas_id": 525, "support": "Direct", "rationale": "Gradient statistics expose imbalance and drive learning-rate annealing across composite terms."}]},
-    {"id": "feedback-10-9", "type": "feedback", "from": "evaluation", "to": "optimization", "label": "Adjust optimizer, learning rate, initialization, or strategy", "evidence": [{"atlas_id": 823, "support": "Direct", "rationale": "Ill-conditioned loss landscapes motivate hybrid and curvature-aware optimizer changes."}]}
+    {
+      "id": "flow-1-2",
+      "type": "flow",
+      "from": "physical-problem",
+      "to": "computational-role",
+      "label": "Problem definition constrains the intended role",
+      "evidence": []
+    },
+    {
+      "id": "flow-2-3",
+      "type": "flow",
+      "from": "computational-role",
+      "to": "inputs-outputs",
+      "label": "Role determines the representation interface",
+      "evidence": []
+    },
+    {
+      "id": "flow-3-4",
+      "type": "flow",
+      "from": "inputs-outputs",
+      "to": "representation",
+      "label": "Interface constrains architecture",
+      "evidence": []
+    },
+    {
+      "id": "flow-4-5",
+      "type": "flow",
+      "from": "representation",
+      "to": "physics-enforcement",
+      "label": "Ansatz and physics must be compatible",
+      "evidence": []
+    },
+    {
+      "id": "flow-5-6",
+      "type": "flow",
+      "from": "physics-enforcement",
+      "to": "differentiation",
+      "label": "Constraint form determines residual evaluation",
+      "evidence": []
+    },
+    {
+      "id": "flow-6-7",
+      "type": "flow",
+      "from": "differentiation",
+      "to": "sampling",
+      "label": "Residual evaluation determines sampling cost and information",
+      "evidence": []
+    },
+    {
+      "id": "flow-7-8",
+      "type": "flow",
+      "from": "sampling",
+      "to": "loss",
+      "label": "Point coverage determines the enforced objective",
+      "evidence": []
+    },
+    {
+      "id": "flow-8-9",
+      "type": "flow",
+      "from": "loss",
+      "to": "optimization",
+      "label": "Loss geometry determines optimizer behavior",
+      "evidence": []
+    },
+    {
+      "id": "flow-9-10",
+      "type": "flow",
+      "from": "optimization",
+      "to": "evaluation",
+      "label": "Training produces the candidate model to validate",
+      "evidence": []
+    },
+    {
+      "id": "feedback-10-1",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "physical-problem",
+      "label": "Results may require redefining the problem",
+      "evidence": [
+        {
+          "atlas_id": 401,
+          "support": "Synthesized",
+          "rationale": "The reviewed evidence emphasizes matching physics-informed method and evaluation to the governing problem rather than assuming one universal formulation."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-2",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "computational-role",
+      "label": "Results may require redefining the PINN role",
+      "evidence": [
+        {
+          "atlas_id": 603,
+          "support": "Direct",
+          "rationale": "Repeated-query evaluation motivates moving from a single PINN solve to a learned solution operator."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-3",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "inputs-outputs",
+      "label": "Poor performance may require changing outputs",
+      "evidence": [
+        {
+          "atlas_id": 726,
+          "support": "Direct",
+          "rationale": "Explicit latent parameter encoding demonstrates how revising the input-output interface changes parameterized-PDE performance."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-4",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "representation",
+      "label": "Poor performance may require changing architecture",
+      "evidence": [
+        {
+          "atlas_id": 606,
+          "support": "Direct",
+          "rationale": "Spectral failure of standard representations motivates Fourier-feature redesign for multi-scale PDEs."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-5",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "physics-enforcement",
+      "label": "Reformulate physics if constraints are not satisfied",
+      "evidence": [
+        {
+          "atlas_id": 628,
+          "support": "Direct",
+          "rationale": "Conservation and interface-flux errors motivate a conservative discrete-domain reformulation."
+        },
+        {
+          "atlas_id": 637,
+          "support": "Direct",
+          "rationale": "Persistent boundary error motivates exact Dirichlet enforcement rather than penalty-only treatment."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-6",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "differentiation",
+      "label": "Reformulate differentiation if residual cost is high",
+      "evidence": [
+        {
+          "atlas_id": 552,
+          "support": "Direct",
+          "rationale": "High-order derivative memory and runtime motivate trace-estimation reformulation."
+        },
+        {
+          "atlas_id": 554,
+          "support": "Direct",
+          "rationale": "Sparse or costly residual evaluation motivates coupled automatic–numerical differentiation."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-7",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "sampling",
+      "label": "Evaluation may motivate resampling",
+      "evidence": [
+        {
+          "atlas_id": 479,
+          "support": "Direct",
+          "rationale": "Residual-based adaptive refinement explicitly reallocates points from current residual information."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-8",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "loss",
+      "label": "Evaluation may motivate reweighting",
+      "evidence": [
+        {
+          "atlas_id": 502,
+          "support": "Direct",
+          "rationale": "Competitive loss progress is used to update adaptive objective weights during training."
+        },
+        {
+          "atlas_id": 525,
+          "support": "Direct",
+          "rationale": "Gradient statistics expose imbalance and drive learning-rate annealing across composite terms."
+        }
+      ]
+    },
+    {
+      "id": "feedback-10-9",
+      "type": "feedback",
+      "from": "evaluation",
+      "to": "optimization",
+      "label": "Adjust optimizer, learning rate, initialization, or strategy",
+      "evidence": [
+        {
+          "atlas_id": 823,
+          "support": "Direct",
+          "rationale": "Ill-conditioned loss landscapes motivate hybrid and curvature-aware optimizer changes."
+        }
+      ]
+    }
   ]
 }

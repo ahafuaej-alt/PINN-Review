@@ -89,6 +89,13 @@
   systemTheme.addEventListener?.('change', () => { if (savedTheme() === 'system') updateThemeControls(); });
 
   const rootHref = document.querySelector('.brand')?.getAttribute('href') || './';
+  if (!document.querySelector('script[data-atlas-concepts]')) {
+    const conceptScript = document.createElement('script');
+    conceptScript.src = `${rootHref}assets/concepts.js?v=knowledge-20260826`;
+    conceptScript.defer = true;
+    conceptScript.dataset.atlasConcepts = '';
+    document.head.append(conceptScript);
+  }
 
   // Load one public, aggregate-only snapshot for both the homepage reach panel
   // and the privacy-preserving visit counter. The protected GoatCounter API
@@ -211,6 +218,7 @@
       ['Activation Functions', 'activation-functions/'],
       ['Abbreviations', 'abbreviations/'],
       ['References', 'references/'],
+      ['Frameworks', 'frameworks/'],
       ['Dataset Manager', 'dataset-manager/']
     ];
     orderedAtlasLinks.forEach(([label, route]) => {

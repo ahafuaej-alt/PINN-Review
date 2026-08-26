@@ -12,7 +12,7 @@
   };
   const issueUrl = (type, context) => {
     const title = `[Frameworks] ${type}: ${context}`;
-    const body = `Framework: ${state.page?.title || context}\nElement or relationship: ${context}\n\nRequested change:\n\nScientific rationale:\n\nSupporting DOI, URL, or verified Atlas paper IDs:`;
+    const body = `Framework: ${state.page?.title || context}\nElement or relationship: ${context}\n\nRequested change:\n\nScientific rationale:\n\nSupporting DOI, URL, or verified Reference IDs:`;
     return `https://github.com/ahafuaej-alt/PINN-Review/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -376,13 +376,13 @@
   function objectTitle(id) { const item = state.objects.get(id); return item?.title || id; }
 
   function renderEvidence(evidence) {
-    if (!evidence.length) return `<section class="detail-evidence"><h3>Supporting Atlas evidence</h3><p class="evidence-pending">No claim-level paper is displayed until its canonical Atlas record and relevance to this claim have been verified.</p></section>`;
-    return `<section class="detail-evidence"><h3>Supporting Atlas evidence</h3>${evidence.map((entry) => `<article><a href="${prefix}references/#ref=${entry.atlas_id}">Atlas [${entry.atlas_id}]</a><span>${esc(entry.support || 'Supporting')}</span><p>${esc(entry.rationale || '')}</p></article>`).join('')}</section>`;
+    if (!evidence.length) return `<section class="detail-evidence"><h3>Supporting evidence</h3><p class="evidence-pending">No claim-level paper is displayed until its canonical reference record and relevance to this claim have been verified.</p></section>`;
+    return `<section class="detail-evidence"><h3>Supporting evidence</h3>${evidence.map((entry) => `<article><a href="${prefix}references/#ref=${entry.atlas_id}">[${entry.atlas_id}]</a><span>${esc(entry.support || 'Supporting')}</span><p>${esc(entry.rationale || '')}</p></article>`).join('')}</section>`;
   }
 
   function renderConceptLinks(concepts) {
     if (!concepts.length) return '';
-    return `<section><h3>Canonical Atlas concepts</h3><div class="framework-detail-links">${concepts.map((concept) => `<a class="button primary" href="${prefix}${concept.route}">${esc(concept.label)} →</a>`).join('')}</div></section>`;
+    return `<section><h3>Canonical concepts</h3><div class="framework-detail-links">${concepts.map((concept) => `<span class="framework-concept-pair"><button class="button primary" type="button" data-concept-id="${esc(concept.id)}">${esc(concept.label)}</button><a class="button concept-open-link" data-concept-open="${esc(concept.id)}" href="#">Open →</a></span>`).join('')}</div></section>`;
   }
 
   function renderRelatedLinks(references) {
@@ -408,9 +408,9 @@
   function renderEvidenceSection(page) {
     const evidence = [...collectEvidence(page).values()];
     return `<section class="section framework-evidence-section"><div class="container">
-      <div class="section-head"><div><p class="eyebrow">Evidence & supporting papers</p><h2>Claim-level<br>support</h2></div><p>Supporting papers use canonical Atlas IDs and are separately rechecked against the exact framework claim.</p></div>
-      <div class="evidence-summary"><div><strong>${evidence.length}</strong><span>verified Atlas papers currently linked</span></div><p>${esc(state.manifest.evidence_status)}</p></div>
-      ${evidence.length ? `<div class="evidence-paper-grid">${evidence.map((entry) => `<a href="${prefix}references/#ref=${entry.atlas_id}"><b>Atlas [${entry.atlas_id}]</b><span>${esc(entry.support || 'Supporting')} support</span><small>${esc(entry.rationale || '')}</small></a>`).join('')}</div>` : '<p class="framework-caveat"><strong>Evidence gate:</strong> unverified placeholder IDs are never displayed.</p>'}
+      <div class="section-head"><div><p class="eyebrow">Evidence & supporting papers</p><h2>Claim-level<br>support</h2></div><p>Supporting papers use canonical Reference IDs and are separately rechecked against the exact framework claim.</p></div>
+      <div class="evidence-summary"><div><strong>${evidence.length}</strong><span>verified papers currently linked</span></div><p>${esc(state.manifest.evidence_status)}</p></div>
+      ${evidence.length ? `<div class="evidence-paper-grid">${evidence.map((entry) => `<a href="${prefix}references/#ref=${entry.atlas_id}"><b>[${entry.atlas_id}]</b><span>${esc(entry.support || 'Supporting')} support</span><small>${esc(entry.rationale || '')}</small></a>`).join('')}</div>` : '<p class="framework-caveat"><strong>Evidence gate:</strong> unverified placeholder IDs are never displayed.</p>'}
     </div></section>`;
   }
 

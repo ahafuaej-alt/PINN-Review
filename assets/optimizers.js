@@ -50,6 +50,8 @@
   function currentParams() {
     const fields = controls();
     const params = new URLSearchParams();
+    const concept = new URLSearchParams(location.search).get('concept');
+    if (concept) params.set('concept', concept);
     const mappings = [
       ['q', fields.search.value.trim()],
       ['family', fields.family.value],
@@ -313,6 +315,11 @@
     const relevant = state.taxonomy.filter((optimizer) => !fields.family.value || optimizer.family === fields.family.value || optimizer.secondary_tags?.includes(fields.family.value)).filter((optimizer) => !fields.optimizer.value || optimizer.optimizer_id === fields.optimizer.value);
     $('[data-optimizer-explorer]').innerHTML = relevant.map((optimizer) => `<details class="metric-entry optimizer-entry ${fields.optimizer.value === optimizer.optimizer_id ? 'is-filtered' : ''}" id="optimizer-${optimizer.optimizer_id}"><summary><strong>${escapeHtml(optimizer.optimizer_name)} <span class="method-type">${escapeHtml(optimizer.method_type)}</span></strong><span>${optimizer.paper_count} paper${optimizer.paper_count === 1 ? '' : 's'}</span></summary><div class="metric-body"><dl><dt>Primary family</dt><dd>${escapeHtml(optimizer.family)}</dd><dt>Method type</dt><dd>${escapeHtml(optimizer.method_type)}</dd><dt>Neutral description</dt><dd>${escapeHtml(optimizer.description)}</dd><dt>Aliases in source</dt><dd><div class="alias-list">${optimizer.aliases.map((alias) => `<code>${escapeHtml(alias)}</code>`).join('')}</div></dd>${optimizer.secondary_tags?.length ? `<dt>Secondary tags</dt><dd>${optimizer.secondary_tags.map(escapeHtml).join('; ')}</dd>` : ''}<dt>Manual review</dt><dd>${optimizer.manual_review_required ? 'Required for cautious classification or normalization' : 'No algorithm-level review flag'}</dd></dl>${optimizer.source_annotations?.length ? `<strong>Source-specific annotations</strong><ul class="annotation-list">${optimizer.source_annotations.map((annotation) => `<li>${escapeHtml(annotation)}</li>`).join('')}</ul>` : ''}<strong>Supporting paper IDs</strong><div class="paper-id-list">${optimizer.paper_ids.map((id) => `<button type="button" data-explorer-paper="${id}" aria-label="Open optimizer details for ${label(id)}">${label(id)}</button>`).join('')}</div></div></details>`).join('') || '<p>No optimizer dictionary entry matches the active family and optimizer filters.</p>';
     $$('[data-explorer-paper]').forEach((button) => button.addEventListener('click', () => openPaper(Number(button.dataset.explorerPaper), '', button)));
+    const target = fields.optimizer.value ? document.getElementById(`optimizer-${fields.optimizer.value}`) : null;
+    if (target) {
+      target.open = true;
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'center' }));
+    }
   }
 
   function exportRows(format) {

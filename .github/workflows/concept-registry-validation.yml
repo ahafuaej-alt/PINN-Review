@@ -1,0 +1,47 @@
+name: Concept registry validation
+
+on:
+  pull_request:
+    paths:
+      - 'assets/app.js'
+      - 'assets/concepts.*'
+      - 'assets/frameworks.js'
+      - 'assets/mathematical-formulations.js'
+      - 'assets/optimizers.js'
+      - 'assets/activation-functions.js'
+      - 'assets/performance.js'
+      - 'assets/pinn-ecosystem.js'
+      - 'data/concepts/**'
+      - 'data/frameworks/**'
+      - 'data/mathematical-formulations/**'
+      - 'data/optimizers/**'
+      - 'data/activation-functions/**'
+      - 'data/performance/**'
+      - 'scripts/build-concept-registry.mjs'
+      - 'scripts/migrate-framework-concepts.mjs'
+      - 'scripts/validate-concepts.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify generated concept data is current
+        run: |
+          cp data/concepts/registry.json /tmp/registry.json
+          cp data/concepts/core.json /tmp/core.json
+          cp data/concepts/evidence-relationships.json /tmp/evidence-relationships.json
+          node scripts/build-concept-registry.mjs
+          cmp data/concepts/registry.json /tmp/registry.json
+          cmp data/concepts/core.json /tmp/core.json
+          cmp data/concepts/evidence-relationships.json /tmp/evidence-relationships.json
+      - run: node scripts/validate-concepts.mjs
+      - run: node scripts/validate-frameworks.mjs
+      - run: node scripts/validate-navigation.mjs

@@ -97,7 +97,7 @@ try {
   assert(highlighted === 1, `Matrix search should isolate one row, found ${highlighted}.`);
   await matrix.click('[data-inspect-id="activation-features:trainability"]');
   assert((await matrix.locator('[data-detail]').textContent()).includes('gradient flow'), 'Matrix cell inspector does not expose the scientific relation label.');
-  assert((await matrix.locator('[data-detail]').textContent()).includes('Atlas [517]'), 'Matrix cell inspector does not inherit the row-level verified paper mapping.');
+  assert((await matrix.locator('[data-detail]').textContent()).includes('[517]'), 'Matrix cell inspector does not inherit the row-level verified paper mapping.');
   await matrix.click('[data-zoom-in]');
   assert((await matrix.locator('[data-zoom-readout]').textContent()) === '115%', 'Zoom-in control did not update the live state.');
   await matrix.click('[data-fit]');

@@ -18,7 +18,7 @@ const evidenceFrom = (value, items = []) => {
 };
 
 const manifest = await json('data/frameworks/frameworks.json');
-assert(manifest.version === '2.0.0', `Expected Frameworks data v2.0.0, found ${manifest.version}.`);
+assert(manifest.version === '3.0.0', `Expected Frameworks data v3.0.0, found ${manifest.version}.`);
 assert(manifest.frameworks.length === 4, `Expected four canonical frameworks, found ${manifest.frameworks.length}.`);
 unique(manifest.frameworks.map((item) => item.id), 'Framework');
 
@@ -98,23 +98,31 @@ assert(!allSource.includes('"papers"'), 'Legacy unverified paper-ID arrays remai
 const references = await json('data/references.json');
 const referenceIds = new Set(references.map((item) => item.id));
 const evidenceEntries = evidenceFrom(pages);
-const supportingAtlasIds = new Set();
+const supportingReferenceIds = new Set();
 for (const entry of evidenceEntries) {
-  assert(referenceIds.has(entry.atlas_id), `Evidence points to unknown Atlas ID ${entry.atlas_id}.`);
-  assert(['Direct', 'Contextual', 'Synthesis'].includes(entry.support), `Atlas [${entry.atlas_id}] has invalid support type ${entry.support}.`);
-  assert(entry.rationale?.length >= 40, `Atlas [${entry.atlas_id}] lacks a substantive claim-level rationale.`);
-  supportingAtlasIds.add(entry.atlas_id);
+  assert(referenceIds.has(entry.atlas_id), `Evidence points to unknown Reference ID ${entry.atlas_id}.`);
+  assert(['Direct', 'Equivalent', 'Synthesized'].includes(entry.support), `[${entry.atlas_id}] has invalid support type ${entry.support}.`);
+  assert(entry.rationale?.length >= 40, `[${entry.atlas_id}] lacks a substantive claim-level rationale.`);
+  supportingReferenceIds.add(entry.atlas_id);
 }
+const conceptRecords = [];
+const collectConcepts = (value) => {
+  if (Array.isArray(value)) value.forEach(collectConcepts);
+  else if (value && typeof value === 'object') {
+    if (Array.isArray(value.concepts)) conceptRecords.push(...value.concepts);
+    Object.values(value).forEach(collectConcepts);
+  }
+};
+collectConcepts(pages);
+assert(conceptRecords.length > 0, 'Framework objects contain no canonical concept records.');
+assert(conceptRecords.every((concept) => concept.id && !concept.route), 'Framework concept records must use canonical IDs rather than page-local routes.');
 
-const backlinks = await json('data/frameworks/backlinks.json');
-for (const [route, links] of Object.entries(backlinks.routes)) {
-  await fs.access(path.join(root, route, 'index.html'));
-  links.forEach((link) => {
-    assert(pages[link.framework], `Backlink ${route}/${link.label} points to unknown framework ${link.framework}.`);
-    const page = pages[link.framework];
-    const ids = new Set([page.core?.id, ...(page.stages || page.domains || page.rows || page.modes || []).map((item) => item?.id), page.verification?.id].filter(Boolean));
-    assert(ids.has(link.item), `Backlink ${route}/${link.label} points to unknown item ${link.item}.`);
-  });
+const conceptCore = await json('data/concepts/core.json');
+const conceptsById = new Map(conceptCore.concepts.map((concept) => [concept.id, concept]));
+for (const conceptId of new Set(conceptRecords.map((concept) => concept.id).filter((id) => id.startsWith('page:')))) {
+  const concept = conceptsById.get(conceptId);
+  assert(concept, `Framework page concept ${conceptId} is absent from the runtime registry.`);
+  assert(concept.appearsIn.some((link) => link.href.startsWith('frameworks/')), `${conceptId} lacks generated Frameworks backlinks.`);
 }
 
 const [landing, script, style, theme, home, readme, sitemap] = await Promise.all([
@@ -126,10 +134,10 @@ for (const token of ['Expand view', 'data-zoom-in', 'data-filter', 'Interactive 
 for (const token of ['.stack-board', '.co-board', '.dependency-matrix', '.diagnostic-board', '.influence-marker', 'width: 13px', 'height: 13px']) assert(style.includes(token), `Framework stylesheet lacks ${token}.`);
 for (const route of ['frameworks/', 'frameworks/design-stack/', 'frameworks/co-design/', 'frameworks/design-performance/', 'frameworks/failure-diagnostics/']) assert(theme.includes(`'${route}'`), `Shared navigation lacks ${route}.`);
 assert(theme.includes("label: 'Frameworks'") && theme.includes("['Frameworks Overview'"), 'Frameworks is not a top-level navigation family with child pages.');
-assert(theme.includes('data/frameworks/backlinks.json') && theme.includes('Appears in Frameworks'), 'Automatic semantic backlinks are missing.');
+assert(theme.includes('AtlasConcepts') && theme.includes('Appears in Frameworks'), 'Canonical automatic semantic backlinks are missing.');
 assert(home.includes('Six research doors') && home.includes('05 / FRAMEWORKS') && home.includes('06 / GOVERNANCE'), 'Homepage hierarchy is not updated to six research doors.');
 assert(readme.includes('### Frameworks') && readme.includes('**26** public HTML entry points'), 'README Frameworks/public-surface contract is stale.');
 for (const item of manifest.frameworks) assert(sitemap.includes(`/frameworks/${item.route}`), `Sitemap lacks ${item.route}.`);
 
 const inspectableCount = stack.phases.length + stack.stages.length + stack.relationships.length + 1 + coDesign.domains.length + coDesign.relationships.length + matrix.rows.length + 98 + diagnostics.categories.length + diagnostics.modes.length + 1;
-console.log(`Frameworks validation passed: 4 frameworks · ${inspectableCount} stable inspectable objects · 10 stages · 20 co-design relations · 98 matrix cells · 13 diagnostic pathways · ${evidenceEntries.length} claim-level links · ${supportingAtlasIds.size} unique supporting Atlas papers.`);
+console.log(`Frameworks validation passed: 4 frameworks · ${inspectableCount} stable inspectable objects · 10 stages · 20 co-design relations · 98 matrix cells · 13 diagnostic pathways · ${evidenceEntries.length} claim-level links · ${supportingReferenceIds.size} unique supporting papers.`);

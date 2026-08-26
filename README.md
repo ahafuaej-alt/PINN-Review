@@ -64,7 +64,7 @@ The public navigation is organized around one featured system and six research f
 
 | Module | Status | What it provides |
 |---|---|---|
-| **[Mathematical Formulations](https://ahafuaej-alt.github.io/PINN-Review/mathematical-formulations/)** | **Live** | Searchable catalogue of 114 formulation records with unified notation, Direct/Equivalent/Synthesized evidence labels, 154 unique Atlas evidence references, a nine-stage interactive workflow, and public edit proposals. |
+| **[Mathematical Formulations](https://ahafuaej-alt.github.io/PINN-Review/mathematical-formulations/)** | **Live** | Searchable catalogue of 114 formulation records with unified notation, Direct/Equivalent/Synthesized evidence labels, 154 unique supporting references, a nine-stage interactive workflow, and public edit proposals. |
 | **[PINN Types](https://ahafuaej-alt.github.io/PINN-Review/pinn-types/)** | **Prepared workspace** | Classification, family, alias, frequency, profile, and evidence routes prepared for validated PINN-type records. |
 | **[Abbreviations](https://ahafuaej-alt.github.io/PINN-Review/abbreviations/)** | **Live** | Reported PINN-related abbreviations, frequencies, and traceability to supporting reference IDs. |
 
@@ -87,7 +87,7 @@ The public navigation is organized around one featured system and six research f
 
 | Module | Status | What it provides |
 |---|---|---|
-| **[Frameworks](https://ahafuaej-alt.github.io/PINN-Review/frameworks/)** | **Live** | Four source-faithful, structured interactive views: a ten-stage Design Stack, six-domain Co-Design systems map, complete 14 × 7 Design–Performance Matrix, and thirteen-pathway Failure-Mode Diagnostics, with verified evidence, canonical Atlas backlinks, current-state SVG export, and public contribution routes. |
+| **[Frameworks](https://ahafuaej-alt.github.io/PINN-Review/frameworks/)** | **Live** | Four source-faithful, structured interactive views: a ten-stage Design Stack, six-domain Co-Design systems map, complete 14 × 7 Design–Performance Matrix, and thirteen-pathway Failure-Mode Diagnostics, with verified evidence, canonical concept links, current-state SVG export, and public contribution routes. |
 
 ### Data Governance
 
@@ -113,7 +113,7 @@ Current public data include:
 - **53** canonical optimizer forms
 - **62** canonical activation-function entries
 - **9** PINN ecosystem layers and **35** methodological groups
-- **114** mathematical formulation records supported by **154** unique Atlas references
+- **114** mathematical formulation records supported by **154** unique papers
 
 The compact cross-module status source is [`data/atlas-overview.json`](data/atlas-overview.json).
 
@@ -147,6 +147,7 @@ The canonical paper register is [`data/papers-master.json`](data/papers-master.j
 4. **Transparent normalization** — aliases, families, metrics, formulations, and methodological groupings are separated from source facts.
 5. **Versioned correction** — material dataset changes remain reviewable and auditable.
 6. **Scientific restraint** — frequency of use is not interpreted as methodological superiority.
+7. **Canonical concepts** — repeated scientific terms resolve through one stable registry, with consistent deep links, interaction states, and backlinks.
 
 ## Search, export, and reproducibility
 
@@ -165,6 +166,8 @@ Available client-side citation/data exports include BibTeX, RIS, EndNote-compati
 - [`data/activation-functions/activation-records.json`](data/activation-functions/activation-records.json) — normalized activation-function evidence
 - [`data/mathematical-formulations/manifest.json`](data/mathematical-formulations/manifest.json) — formulation catalogue manifest, notation dictionary, coverage audit, and A–I data parts
 - [`data/frameworks/frameworks.json`](data/frameworks/frameworks.json) — four-view Frameworks manifest and structured data routes
+- [`data/concepts/registry.json`](data/concepts/registry.json) — canonical IDs, stable destinations, aliases, and “where this appears” backlinks
+- [`data/concepts/evidence-relationships.json`](data/concepts/evidence-relationships.json) — many-to-many `paper → object/claim → support type → rationale` evidence graph
 
 ## Scientific interpretation
 

@@ -48,7 +48,7 @@ body:
   - type: input
     id: references
     attributes:
-      label: Supporting Atlas reference IDs
+      label: Supporting Reference IDs
       placeholder: "[149], [401]"
   - type: textarea
     id: rationale

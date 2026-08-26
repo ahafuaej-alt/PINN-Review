@@ -1,7 +1,7 @@
 {
-  "version": "2.0.0",
-  "updated": "2026-08-25",
-  "evidence_status": "Displayed Atlas paper IDs have been checked against canonical reference records and rechecked for claim-level relevance.",
+  "version": "3.0.0",
+  "updated": "2026-08-26",
+  "evidence_status": "Displayed Reference IDs have been checked against canonical reference records and rechecked for claim-level relevance.",
   "frameworks": [
     {
       "id": "design-stack",

@@ -212,6 +212,7 @@
       els.status.hidden = true;
       els.builderShell.hidden = false;
       els.builderStatus.hidden = true;
+      restoreCanonicalObjectRoute();
     } catch (error) {
       console.error(error);
       els.status.dataset.state = "error";
@@ -355,9 +356,34 @@
     els.groupDialogContent.innerHTML = `
       <header class="group-dialog-head"><p class="eyebrow compact" style="color:${colorForLayer(layer.id)}">Layer ${layer.number} · Group ${String(group.number).padStart(2, "0")} · ${group.itemCount} items</p><h2 id="group-dialog-title">${escapeHtml(group.title)}</h2><p>${escapeHtml(group.description)}</p></header>
       <div class="subgroup-list">${group.subgroups.map((subgroup) => `
-        <section class="subgroup"><div class="subgroup-head"><h3>${escapeHtml(subgroup.title)}</h3><span>${subgroup.items.length}</span></div><ul class="item-cloud">${subgroup.items.map((item) => `<li>${escapeHtml(item.name)}</li>`).join("")}</ul></section>`).join("")}</div>
+        <section class="subgroup"><div class="subgroup-head"><h3>${escapeHtml(subgroup.title)}</h3><span>${subgroup.items.length}</span></div><ul class="item-cloud">${subgroup.items.map((item) => `<li data-ecosystem-item="${escapeHtml(item.id)}">${escapeHtml(item.name)}</li>`).join("")}</ul></section>`).join("")}</div>
       <div class="group-dialog-actions"><button class="button primary" type="button" data-dialog-propose="${group.id}">Propose a missing item</button>${builderLocation ? `<button class="button" type="button" data-dialog-builder="${group.id}">Use this group in the builder →</button>` : ""}<button class="button" type="button" data-dialog-focus="${group.id}">Inspect relationships</button></div>`;
     els.groupDialog.showModal();
+  }
+
+  function restoreCanonicalObjectRoute() {
+    const params = new URLSearchParams(location.search);
+    const requestedItem = params.get('item');
+    let requestedGroup = params.get('group');
+    const requestedLayer = params.get('layer');
+    if (requestedItem && !requestedGroup) {
+      requestedGroup = state.data.groups.find((group) => group.subgroups.some((subgroup) => subgroup.items.some((item) => item.id === requestedItem)))?.id || '';
+    }
+    if (requestedGroup && state.groups.has(requestedGroup)) {
+      requestAnimationFrame(() => {
+        focusGroup(requestedGroup, { scroll: true });
+        openGroup(requestedGroup);
+        if (requestedItem) requestAnimationFrame(() => {
+          const target = els.groupDialog.querySelector(`[data-ecosystem-item="${CSS.escape(requestedItem)}"]`);
+          target?.classList.add('is-concept-target');
+          target?.scrollIntoView({ block: 'center' });
+        });
+      });
+      return;
+    }
+    if (requestedLayer && state.layers.has(requestedLayer)) requestAnimationFrame(() => {
+      document.querySelector(`[data-layer-id="${CSS.escape(requestedLayer)}"]`)?.scrollIntoView({ block: 'start' });
+    });
   }
 
   function openProposal(groupId = "") {
@@ -377,7 +403,7 @@
       `- **Layer:** ${layer ? `${layer.number}. ${layer.title}` : "Not selected"}`,
       `- **Subgroup:** ${formData.get("subgroup") || "Not specified"}`,
       `- **Authoritative evidence:** ${formData.get("evidence") || "Not supplied"}`,
-      `- **Supporting Atlas reference IDs:** ${formData.get("references") || "Not specified"}`,
+      `- **Supporting Reference IDs:** ${formData.get("references") || "Not specified"}`,
       `- **Related group(s):** ${formData.get("related") || "Not specified"}`,
       `- **Submitted by:** ${formData.get("submitter") || "Anonymous"}`,
       "",
