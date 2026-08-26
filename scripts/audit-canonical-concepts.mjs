@@ -113,10 +113,23 @@ for (const source of sources) {
 
 const unresolved = candidates.filter((item) => !decidedSources.has(`${item.source}|${item.target}`));
 const invalidDecisions = [];
-for (const item of [...mappings.sameConcept, ...mappings.contextOnly]) {
-  if (!registryById.has(item.source)) invalidDecisions.push(`Unknown source concept: ${item.source}`);
-  if (!registryById.has(item.target)) invalidDecisions.push(`Unknown target concept: ${item.target}`);
-  if (separatePairs.has(`${item.source}|${item.target}`)) invalidDecisions.push(`Mapping contradicts keepSeparate policy: ${item.source} -> ${item.target}`);
+const sameKeys = new Set();
+const contextKeys = new Set();
+for (const item of mappings.sameConcept) {
+  const key = `${item.source}|${item.target}`;
+  if (sameKeys.has(key)) invalidDecisions.push(`Duplicate same-concept mapping: ${item.source} -> ${item.target}`);
+  sameKeys.add(key);
+  if (!registryById.has(item.source)) invalidDecisions.push(`Unknown same-concept source: ${item.source}`);
+  if (!registryById.has(item.target)) invalidDecisions.push(`Unknown same-concept target: ${item.target}`);
+  if (separatePairs.has(key)) invalidDecisions.push(`Same-concept mapping contradicts keepSeparate policy: ${item.source} -> ${item.target}`);
+}
+for (const item of mappings.contextOnly) {
+  const key = `${item.source}|${item.target}`;
+  if (contextKeys.has(key)) invalidDecisions.push(`Duplicate contextual mapping: ${item.source} -> ${item.target}`);
+  contextKeys.add(key);
+  if (!registryById.has(item.source)) invalidDecisions.push(`Unknown contextual source: ${item.source}`);
+  if (!registryById.has(item.target)) invalidDecisions.push(`Unknown contextual target: ${item.target}`);
+  if (sameKeys.has(key)) invalidDecisions.push(`Mapping cannot be both same-concept and contextual: ${item.source} -> ${item.target}`);
 }
 for (const item of mappings.keepSeparate) {
   if (!registryById.has(item.left)) invalidDecisions.push(`Unknown keepSeparate concept: ${item.left}`);
