@@ -11,15 +11,18 @@ on:
       - 'assets/activation-functions.js'
       - 'assets/performance.js'
       - 'assets/pinn-ecosystem.js'
+      - 'assets/reference-technical-details.js'
       - 'data/concepts/**'
       - 'data/frameworks/**'
       - 'data/mathematical-formulations/**'
       - 'data/optimizers/**'
       - 'data/activation-functions/**'
       - 'data/performance/**'
+      - 'data/pinn-ecosystem/**'
       - 'frameworks/design-stack/index.html'
       - 'mathematical-formulations/index.html'
       - 'performance-metrics/index.html'
+      - 'scripts/audit-canonical-concepts.mjs'
       - 'scripts/build-concept-registry.mjs'
       - 'scripts/migrate-framework-concepts.mjs'
       - 'scripts/validate-concepts.mjs'
@@ -46,6 +49,8 @@ jobs:
           cmp data/concepts/registry.json /tmp/registry.json
           cmp data/concepts/core.json /tmp/core.json
           cmp data/concepts/evidence-relationships.json /tmp/evidence-relationships.json
+      - name: Audit canonical concept coverage
+        run: node scripts/audit-canonical-concepts.mjs
       - run: node scripts/validate-concepts.mjs
       - run: node scripts/validate-frameworks.mjs
       - run: node scripts/validate-navigation.mjs
