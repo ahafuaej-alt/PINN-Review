@@ -31,7 +31,7 @@ jobs:
         run: |
           node scripts/validate-frameworks.mjs
           node scripts/validate-concepts.mjs
-          node scripts/validate-canonical-mappings.mjs --strict
+          node scripts/audit-canonical-concepts.mjs --strict
           node scripts/validate-navigation.mjs
       - name: Locate Chromium
         run: |
