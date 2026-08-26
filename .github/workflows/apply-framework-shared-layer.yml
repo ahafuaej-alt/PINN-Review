@@ -1,4 +1,4 @@
-name: Apply Framework shared layer
+name: Framework shared-layer QA
 
 on:
   push:
@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,23 +21,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Apply shared Framework contracts
-        run: python scripts/apply-framework-shared-layer.py
-      - name: Validate static Framework contracts
+      - name: Validate Framework contracts
         run: |
           node scripts/build-concept-registry.mjs
           node scripts/apply-canonical-mappings.mjs
           node scripts/validate-frameworks.mjs
           node scripts/validate-navigation.mjs
-          git restore data/concepts/registry.json data/concepts/core.json data/concepts/evidence-relationships.json
-      - name: Commit Framework shared layer
+      - name: Locate Chromium
         run: |
-          git add assets/frameworks.js assets/frameworks.css assets/framework-icons.svg frameworks/index.html frameworks/design-stack/index.html frameworks/co-design/index.html frameworks/design-performance/index.html frameworks/failure-diagnostics/index.html scripts/validate-frameworks.mjs scripts/visual-qa-frameworks.mjs
-          if git diff --cached --quiet; then
-            echo 'Framework shared layer already applied.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Standardize Framework interaction and evidence contracts'
-          git push origin HEAD:feat/frameworks-shared-interactions
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --prefix /tmp/pinn-framework-qa --no-save --package-lock=false playwright-core@1.55.0
+      - name: Run Framework browser QA
+        env:
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-framework-qa/node_modules/playwright-core/index.mjs
+          BASE_URL: http://127.0.0.1:4173
+        run: |
+          python3 -m http.server 4173 >/tmp/pinn-framework-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node scripts/visual-qa-frameworks.mjs
