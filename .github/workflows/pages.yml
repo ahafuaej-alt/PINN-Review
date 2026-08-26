@@ -57,6 +57,8 @@ jobs:
           node scripts/build-atlas-overview.mjs --check
           node scripts/build-site-index.mjs --check
           node scripts/build-concept-registry.mjs
+          node scripts/apply-canonical-mappings.mjs
+          node scripts/audit-canonical-concepts.mjs --strict
           node --check assets/optimizers.js
           node --check assets/reference-technical-details.js
           node --check assets/home-refresh.js
@@ -107,6 +109,7 @@ jobs:
           node scripts/validate-ui-refinements.mjs --browser
           node scripts/validate-ambient-motion.mjs --browser
           node scripts/visual-qa-frameworks.mjs
+          node scripts/visual-qa-concept-regressions.mjs
       - name: Stop static preview
         if: always()
         run: kill "$PREVIEW_PID" 2>/dev/null || true

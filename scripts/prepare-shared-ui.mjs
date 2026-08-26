@@ -46,6 +46,17 @@ for (const page of pages) {
   if (!themePattern.test(html)) throw new Error(`${page}: shared theme-init.js script was not found.`);
   html = html.replace(themePattern, `$1${themeSrc}$3`);
 
+  const cacheBust = (asset, suffix) => {
+    const escaped = asset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const scriptPattern = new RegExp(`(<script\\b[^>]*src=["'])([^"']*assets\\/${escaped})(?:\\?[^"']*)?(["'][^>]*><\\/script>)`, 'gi');
+    const stylePattern = new RegExp(`(<link\\b[^>]*href=["'])([^"']*assets\\/${escaped})(?:\\?[^"']*)?(["'][^>]*>)`, 'gi');
+    html = html.replace(scriptPattern, `$1$2?v=${version}-${suffix}$3`);
+    html = html.replace(stylePattern, `$1$2?v=${version}-${suffix}$3`);
+  };
+  cacheBust('concepts.js', 'concepts');
+  cacheBust('reference-technical-details.js', 'technical');
+  cacheBust('reference-technical-details.css', 'technical');
+
   const ambientPattern = /\s*<link\b[^>]*href=["'][^"']*assets\/ambient-motion\.css(?:\?[^"']*)?["'][^>]*>/i;
   html = html.replace(ambientPattern, '');
   const richPattern = /\s*<script\b[^>]*src=["'][^"']*assets\/ambient-rich\.js(?:\?[^"']*)?["'][^>]*><\/script>/i;

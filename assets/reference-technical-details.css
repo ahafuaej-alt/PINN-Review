@@ -9,7 +9,10 @@
 .technical-group{display:grid;grid-template-columns:minmax(160px,.72fr) 1.28fr;gap:.7rem;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--line)}
 .technical-group>strong{font-size:.7rem;line-height:1.45}
 .technical-chips{display:flex;flex-wrap:wrap;gap:.35rem}
-.technical-chips span{padding:.25rem .48rem;border:1px solid var(--line);border-radius:99px;background:var(--panel);color:var(--muted);font-size:.66rem;line-height:1.25}
+.technical-chips span,.technical-concept-chip{padding:.25rem .48rem;border:1px solid var(--line);border-radius:99px;background:var(--panel);color:var(--muted);font:inherit;font-size:.66rem;line-height:1.25;text-decoration:none}
+.technical-concept-chip{appearance:none;cursor:pointer;transition:border-color .16s ease,background .16s ease,color .16s ease,transform .16s ease}
+.technical-concept-chip:hover,.technical-concept-chip:focus-visible{border-color:var(--mint);background:var(--panel-strong);color:var(--ink);transform:translateY(-1px);outline:none}
+.technical-concept-chip::after{content:' ↗';font-size:.58rem;opacity:.65}
 .technical-raw{margin-top:.75rem;border-top:1px solid var(--line);padding-top:.65rem}
 .technical-raw summary{cursor:pointer;color:var(--ink);font-size:.72rem;font-weight:750}
 .technical-raw p{white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:.68rem}
