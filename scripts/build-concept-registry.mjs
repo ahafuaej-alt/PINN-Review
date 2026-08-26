@@ -202,6 +202,17 @@ for (const entry of frameworkManifest.frameworks) {
   frameworkPages.set(entry.id, page);
   const seen = new Set();
   walkObjects(page, (item) => {
+    for (const concept of item.concepts || []) {
+      if (!concept.id) continue;
+      mergeConcept({
+        id: concept.id,
+        appearsIn: [{
+          label: `${entry.title} · ${item.title || item.label}`,
+          href: `frameworks/${entry.route}#item=${encodeURIComponent(item.id)}`,
+          context: 'Framework'
+        }]
+      });
+    }
     if (seen.has(item.id) || ['all'].includes(item.id)) return;
     seen.add(item.id);
     mergeConcept({
@@ -216,17 +227,6 @@ for (const entry of frameworkManifest.frameworks) {
         return linked ? { label: linked.title, href: `frameworks/${linked.route}#item=${encodeURIComponent(objectId)}` } : null;
       }).filter(Boolean)
     });
-    for (const concept of item.concepts || []) {
-      if (!concept.id) continue;
-      mergeConcept({
-        id: concept.id,
-        appearsIn: [{
-          label: `${entry.title} · ${item.title || item.label}`,
-          href: `frameworks/${entry.route}#item=${encodeURIComponent(item.id)}`,
-          context: 'Framework'
-        }]
-      });
-    }
   });
 }
 

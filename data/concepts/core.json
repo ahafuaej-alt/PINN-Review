@@ -63,6 +63,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Co-Design Framework · Representation",
+          "href": "frameworks/co-design/#item=representation",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Architecture / basis",
           "href": "frameworks/design-performance/#item=architecture-basis",
           "context": "Framework"
@@ -156,6 +161,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Differentiation / operator evaluation",
           "href": "frameworks/design-performance/#item=differentiation",
           "context": "Framework"
@@ -185,6 +195,11 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Physical Problem Definition",
           "href": "frameworks/design-stack/#item=physical-problem",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Physical Problem & Computational Role",
+          "href": "frameworks/co-design/#item=problem",
           "context": "Framework"
         }
       ],
@@ -262,13 +277,13 @@
           "context": "Framework"
         },
         {
-          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
-          "href": "frameworks/design-performance/#item=physics-enforcement",
+          "label": "PINN Co-Design Framework · Physics & Constraints",
+          "href": "frameworks/co-design/#item=physics",
           "context": "Framework"
         },
         {
-          "label": "Co-Design · Physics & Constraints",
-          "href": "frameworks/co-design/#item=physics",
+          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
+          "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
         }
       ],
@@ -298,13 +313,13 @@
           "context": "Framework"
         },
         {
-          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
-          "href": "frameworks/design-performance/#item=physics-enforcement",
+          "label": "PINN Co-Design Framework · Physics & Constraints",
+          "href": "frameworks/co-design/#item=physics",
           "context": "Framework"
         },
         {
-          "label": "Co-Design · Physics & Constraints",
-          "href": "frameworks/co-design/#item=physics",
+          "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
+          "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
         }
       ],
@@ -334,6 +349,11 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Differentiation and Residual Evaluation",
           "href": "frameworks/design-stack/#item=differentiation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
           "context": "Framework"
         },
         {
@@ -569,6 +589,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Co-Design Framework · Representation",
+          "href": "frameworks/co-design/#item=representation",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Activation / features",
           "href": "frameworks/design-performance/#item=activation-features",
           "context": "Framework"
@@ -598,6 +623,11 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Representation / Architecture",
           "href": "frameworks/design-stack/#item=representation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Representation",
+          "href": "frameworks/co-design/#item=representation",
           "context": "Framework"
         },
         {
@@ -658,6 +688,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Co-Design Framework · Physics & Constraints",
+          "href": "frameworks/co-design/#item=physics",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Physics-enforcement mechanism",
           "href": "frameworks/design-performance/#item=physics-enforcement",
           "context": "Framework"
@@ -705,6 +740,11 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Co-Design Framework · Training & Optimization",
+          "href": "frameworks/co-design/#item=training",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Optimizer & LR strategy",
           "href": "frameworks/design-performance/#item=optimizer",
           "context": "Framework"
@@ -734,6 +774,11 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Evaluation and Validation",
           "href": "frameworks/design-stack/#item=evaluation",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Verification & Reliability",
+          "href": "frameworks/co-design/#item=reliability",
           "context": "Framework"
         },
         {
@@ -816,6 +861,16 @@
           "context": "Framework"
         },
         {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Training & Optimization",
+          "href": "frameworks/co-design/#item=training",
+          "context": "Framework"
+        },
+        {
           "label": "PINN Design–Performance Dependency Matrix · Scaling / non-dimensionalization",
           "href": "frameworks/design-performance/#item=scaling",
           "context": "Framework"
@@ -883,6 +938,11 @@
         {
           "label": "PINN Design Stack & Feedback Loops · Sampling / Collocation",
           "href": "frameworks/design-stack/#item=sampling",
+          "context": "Framework"
+        },
+        {
+          "label": "PINN Co-Design Framework · Numerical Realization",
+          "href": "frameworks/co-design/#item=numerical",
           "context": "Framework"
         },
         {
