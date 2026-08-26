@@ -7,6 +7,11 @@
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
   }[character]));
+  const slug = (value = '') => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const metricConceptId = (metricId) => `metric:${({ root_mean_squared_error:'rmse', mean_squared_error:'mse', mean_absolute_error:'mae', relative_l2_error:'relative-l2', coefficient_of_determination:'r2' }[metricId] || slug(metricId))}`;
+  const optimizerConceptId = (optimizerId) => `optimizer:${({ l_bfgs:'lbfgs', l_bfgs_b:'lbfgsb' }[optimizerId] || slug(optimizerId))}`;
+  const activationConceptId = (activationId) => `activation:${slug(activationId)}`;
+  const conceptChip = (conceptId, text) => `<button type="button" class="technical-concept-chip" data-concept-id="${escapeHtml(conceptId)}">${escapeHtml(text)}</button>`;
   const label = (id) => `[${Number(id)}]`;
   const statusLabel = (status) => ({
     reported_numerically: 'Numerical values reported',
@@ -123,13 +128,16 @@
   const optimizersHtml = (paperId, data) => {
     const record = data.optimizerRecords.get(paperId);
     if (!record) return `<section class="technical-module"><div class="technical-module-head"><h4>Optimizers</h4><a href="../optimizers/?q=${paperId}">Open explorer ↗</a></div><p class="technical-empty">No optimizer source record is available for ${label(paperId)} in the current optimizer dataset.</p></section>`;
-    const resolved = (record.normalized_optimizer_ids || []).map((optimizerId) => data.optimizers.get(optimizerId)).filter(Boolean);
+    const resolved = (record.normalized_optimizer_ids || []).map((optimizerId) => ({ id: optimizerId, optimizer: data.optimizers.get(optimizerId) })).filter(({ optimizer }) => Boolean(optimizer));
     const grouped = new Map();
-    resolved.forEach((optimizer) => {
+    resolved.forEach(({ id, optimizer }) => {
       const families = [optimizer.family, ...(optimizer.secondary_tags || [])];
-      families.forEach((family) => grouped.set(family, [...(grouped.get(family) || []), optimizer.optimizer_name]));
+      families.forEach((family) => grouped.set(family, [...(grouped.get(family) || []), { id, name: optimizer.optimizer_name }]));
     });
-    const groupsHtml = [...grouped].map(([family, names]) => `<div class="technical-group"><strong>${escapeHtml(family)}</strong><div class="technical-chips">${[...new Set(names)].map((name) => `<span>${escapeHtml(name)}</span>`).join('')}</div></div>`).join('');
+    const groupsHtml = [...grouped].map(([family, entries]) => {
+      const uniqueEntries = [...new Map(entries.map((entry) => [entry.id, entry])).values()];
+      return `<div class="technical-group"><strong>${escapeHtml(family)}</strong><div class="technical-chips">${uniqueEntries.map((entry) => conceptChip(optimizerConceptId(entry.id), entry.name)).join('')}</div></div>`;
+    }).join('');
     const raw = String(record.optimizer_raw || '').trim();
     const notes = (record.normalization_notes || []).join(' ');
     return `<section class="technical-module"><div class="technical-module-head"><h4>Optimizers</h4><a href="../optimizers/?q=${paperId}">Open ${label(paperId)} in explorer ↗</a></div><p><span class="technical-status">${escapeHtml(optimizerStatusLabel(record.reporting_status))}</span>${resolved.length ? ` · ${resolved.length} canonical form${resolved.length === 1 ? '' : 's'}` : ''}</p>${groupsHtml || `<p class="technical-empty">${record.reporting_status === 'not_reported' ? 'The optimizer source explicitly reports N/A; no optimizer is inferred.' : `No normalized optimizer is assigned to ${label(paperId)}.`}</p>`}${raw ? `<details class="technical-raw"><summary>Exact raw optimizer field</summary><p>${escapeHtml(raw)}</p></details>` : ''}${notes ? `<p class="technical-warning"><strong>${record.manual_review_required ? 'Manual review warning:' : 'Normalization note:'}</strong> ${escapeHtml(notes)}</p>` : ''}</section>`;
@@ -138,17 +146,14 @@
   const performanceHtml = (paperId, data) => {
     const record = data.papers.get(paperId);
     if (!record) return `<section class="technical-module"><div class="technical-module-head"><h4>Performance metrics</h4><a href="../performance-metrics/?q=${paperId}">Open explorer ↗</a></div><p class="technical-empty">No paper-level performance record is present for ${label(paperId)} in the current source file.</p></section>`;
-    const resolved = (record.normalized_metric_ids || []).map((metricId) => ({
-      id: metricId,
-      metric: data.metrics.get(metricId)
-    }));
+    const resolved = (record.normalized_metric_ids || []).map((metricId) => ({ id: metricId, metric: data.metrics.get(metricId) }));
     const grouped = new Map();
     resolved.forEach(({ id, metric }) => {
       const group = metric?.metric_group || 'Source-only or pending taxonomy review';
       const name = metric?.metric_name || id.replaceAll('_', ' ');
-      grouped.set(group, [...(grouped.get(group) || []), name]);
+      grouped.set(group, [...(grouped.get(group) || []), { id, name }]);
     });
-    const groupsHtml = [...grouped].map(([group, names]) => `<div class="technical-group"><strong>${escapeHtml(group)}</strong><div class="technical-chips">${names.map((name) => `<span>${escapeHtml(name)}</span>`).join('')}</div></div>`).join('');
+    const groupsHtml = [...grouped].map(([group, entries]) => `<div class="technical-group"><strong>${escapeHtml(group)}</strong><div class="technical-chips">${entries.map((entry) => conceptChip(metricConceptId(entry.id), entry.name)).join('')}</div></div>`).join('');
     const rawDetails = String(record.metric_details_raw || '').trim();
     return `<section class="technical-module"><div class="technical-module-head"><h4>Performance metrics</h4><a href="../performance-metrics/?q=${paperId}">Open ${label(paperId)} in explorer ↗</a></div><p><span class="technical-status">${escapeHtml(statusLabel(record.reporting_status))}</span>${resolved.length ? ` · ${resolved.length} normalized metric${resolved.length === 1 ? '' : 's'}` : ''}</p>${groupsHtml || '<p class="technical-empty">No normalized metric is assigned to this record.</p>'}${rawDetails ? `<details class="technical-raw"><summary>Original extracted metric description</summary><p>${escapeHtml(rawDetails)}</p></details>` : ''}</section>`;
   };
@@ -156,10 +161,13 @@
   const activationsHtml = (paperId, data) => {
     const record = data.activationRecords.get(paperId);
     if (!record) return `<section class="technical-module"><div class="technical-module-head"><h4>Activation functions</h4><a href="../activation-functions/?q=${paperId}">Open explorer ↗</a></div><p class="technical-empty">No activation-function source record is available for ${label(paperId)}.</p></section>`;
-    const resolved = (record.normalized_activation_ids || []).map((activationId) => data.activations.get(activationId)).filter(Boolean);
+    const resolved = (record.normalized_activation_ids || []).map((activationId) => ({ id: activationId, activation: data.activations.get(activationId) })).filter(({ activation }) => Boolean(activation));
     const grouped = new Map();
-    resolved.forEach((activation) => grouped.set(activation.family, [...(grouped.get(activation.family) || []), activation.activation_name]));
-    const groupsHtml = [...grouped].map(([family, names]) => `<div class="technical-group"><strong>${escapeHtml(family)}</strong><div class="technical-chips">${[...new Set(names)].map((name) => `<span>${escapeHtml(name)}</span>`).join('')}</div></div>`).join('');
+    resolved.forEach(({ id, activation }) => grouped.set(activation.family, [...(grouped.get(activation.family) || []), { id, name: activation.activation_name }]));
+    const groupsHtml = [...grouped].map(([family, entries]) => {
+      const uniqueEntries = [...new Map(entries.map((entry) => [entry.id, entry])).values()];
+      return `<div class="technical-group"><strong>${escapeHtml(family)}</strong><div class="technical-chips">${uniqueEntries.map((entry) => conceptChip(activationConceptId(entry.id), entry.name)).join('')}</div></div>`;
+    }).join('');
     const roleHtml = (record.activation_roles || []).length ? `<div class="technical-group"><strong>Source-supported roles</strong><div class="technical-chips">${record.activation_roles.map((role) => `<span>${escapeHtml(activationRoleLabel(role))}</span>`).join('')}</div></div>` : '';
     const raw = String(record.activation_raw || '').trim();
     const sourceNote = String(record.notes_raw || '').trim();
@@ -182,6 +190,7 @@
     try {
       const data = await loadTechnicalData();
       body.innerHTML = `<div class="technical-details-grid">${performanceHtml(paperId, data)}${optimizersHtml(paperId, data)}${activationsHtml(paperId, data)}${abbreviationsHtml(paperId, data)}<section class="technical-module technical-future"><h4>Future technical modules</h4><p>Architecture, sampling, software, dataset, and other technical fields can be added here as their Atlas pages and validated paper-level datasets become available.</p></section></div>`;
+      window.AtlasConcepts?.enhance?.(body);
       const performanceCount = data.papers.get(paperId)?.normalized_metric_ids?.length || 0;
       const optimizerCount = data.optimizerRecords.get(paperId)?.normalized_optimizer_ids?.length || 0;
       const activationCount = data.activationRecords.get(paperId)?.normalized_activation_ids?.length || 0;
