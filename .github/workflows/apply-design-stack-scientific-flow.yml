@@ -23,17 +23,29 @@ jobs:
           node-version: '22'
       - name: Apply Design Stack refinements
         run: python scripts/apply-design-stack-scientific-flow.py
-      - name: Refine Design Stack browser interaction target
+      - name: Refine Design Stack browser interaction targets
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('scripts/visual-qa-frameworks.mjs')
           s = p.read_text()
-          old = "await stackPage.click('[data-inspect-id=\"feedback-10-7\"]');"
-          new = "await stackPage.click('.stack-feedback-notes [data-inspect-id=\"feedback-10-7\"]');"
-          if old not in s:
-              raise SystemExit('feedback QA anchor not found')
-          p.write_text(s.replace(old, new, 1))
+          changes = [
+              (
+                  "await stackPage.click('[data-inspect-id=\"feedback-10-7\"]');",
+                  "await stackPage.click('.stack-feedback-notes [data-inspect-id=\"feedback-10-7\"]');",
+                  'feedback QA anchor'
+              ),
+              (
+                  "await page.click(`[data-inspect-id=\"${objectId}\"]`);",
+                  "await page.click(frameworkId === 'design-stack' ? `[data-inspect-id=\"${objectId}\"] > header` : `[data-inspect-id=\"${objectId}\"]`);",
+                  'inspector QA click anchor'
+              )
+          ]
+          for old, new, label in changes:
+              if old not in s:
+                  raise SystemExit(f'{label} not found')
+              s = s.replace(old, new, 1)
+          p.write_text(s)
           PY
       - name: Regenerate canonical concept data
         run: |
