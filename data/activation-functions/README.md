@@ -4,7 +4,7 @@ This directory contains the auditable paper-level data behind the Atlas **Activa
 
 ## Provenance
 
-`reference-activation-functions-source.txt` is the authoritative completed table supplied for this feature. It contains one row for every Atlas reference `[1]`–`[853]`: 482 rows have a named activation field and 371 contain `N/A`. The source has 163 distinct non-`N/A` raw fields.
+`reference-activation-functions-source.txt` is the authoritative completed table supplied for this feature. It contains one row for every Reference ID `[1]`–`[853]`: 482 rows have a named activation field and 371 contain `N/A`. The source has 163 distinct non-`N/A` raw fields.
 
 `reference-activation-functions-web-research-notes.txt` documents the prior completion of nine formerly absent records: `[170]`, `[194]`, `[452]`, `[694]`, `[776]`, `[803]`, `[809]`, `[812]`, and `[813]`. The feature does not repeat or extend that research cycle. `[813]` is retained as `adaptive tanh`; the other completed records retain their documented `N/A` reasons.
 

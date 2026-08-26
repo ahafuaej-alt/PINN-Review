@@ -19,7 +19,7 @@ Ambiguous mappings remain auditable and are not silently converted to invented v
 
 ## Reference-ID invariant
 
-Every paper is represented by its Atlas reference ID in square brackets, for example **[248]**. The numeric `paper_id` is retained for joins and URLs, while `paper_label` is always `[ID]`. Validation fails when this invariant is violated.
+Every paper is represented by its Reference ID in square brackets, for example **[248]**. The numeric `paper_id` is retained for joins and URLs, while `paper_label` is always `[ID]`. Validation fails when this invariant is violated.
 
 ## Files
 

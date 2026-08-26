@@ -37,17 +37,17 @@ assert(evidenceCounts.Direct + evidenceCounts.Equivalent + evidenceCounts.Synthe
 
 for (const item of formulations) {
   assert(item.name && item.equation && item.meaning && item.purpose && item.relation && item.symbols, `${item.id}: required formulation content is incomplete.`);
-  assert(Array.isArray(item.refs) && item.refs.length > 0, `${item.id}: no Atlas evidence IDs.`);
+  assert(Array.isArray(item.refs) && item.refs.length > 0, `${item.id}: no supporting evidence.`);
   assert(item.refs.every((id) => Number.isInteger(id) && id >= 1 && id <= 853), `${item.id}: reference ID outside Atlas range 1–853.`);
   assert(Array.isArray(item.tags), `${item.id}: tags must be an array.`);
 }
 const uniqueRefs = [...new Set(formulations.flatMap((item) => item.refs))].sort((a,b) => a-b);
-assert(uniqueRefs.length === 154, `Expected 154 unique Atlas evidence references, got ${uniqueRefs.length}.`);
+assert(uniqueRefs.length === 154, `Expected 154 unique supporting references, got ${uniqueRefs.length}.`);
 assert(uniqueRefs[0] === 5 && uniqueRefs.at(-1) === 845, `Expected evidence ID range [5]–[845], got [${uniqueRefs[0]}]–[${uniqueRefs.at(-1)}].`);
 assert(manifest.integrity?.accepted_formulations === 114, 'Manifest accepted formulation total is not 114.');
 assert(manifest.integrity?.direct === 18 && manifest.integrity?.equivalent === 57 && manifest.integrity?.synthesized === 39, 'Manifest evidence counts differ from the formulation data.');
 assert(manifest.integrity?.unique_atlas_references_used === 154, 'Manifest unique reference count is not 154.');
-assert(manifest.integrity?.invalid_reference_ids?.length === 0, 'Manifest reports invalid Atlas evidence IDs.');
+assert(manifest.integrity?.invalid_reference_ids?.length === 0, 'Manifest reports invalid supporting evidence.');
 assert(Array.isArray(manifest.notation) && manifest.notation.length >= 20, 'Global symbol dictionary is missing or unexpectedly small.');
 assert(Array.isArray(manifest.coverage_audit) && manifest.coverage_audit.length >= 20, 'Coverage audit is missing or unexpectedly small.');
 

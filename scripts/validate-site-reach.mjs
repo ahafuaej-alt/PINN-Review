@@ -75,7 +75,7 @@ for (const file of pages) {
   const html = await read(file);
   if (!html.includes('assets/app.js?v=')) continue;
   appPages.push(file);
-  assert(html.includes('assets/app.js?v=ux-20260812-reach'), `${file} has a stale shared-app cache key.`);
+  assert(html.includes('assets/app.js?v=knowledge-20260826'), `${file} has a stale shared-app cache key.`);
 }
 assert(appPages.length === pages.length, `Every public Atlas entry point must load the shared application script; found ${appPages.length} of ${pages.length}.`);
 

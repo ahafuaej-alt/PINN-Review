@@ -70,6 +70,8 @@
   function currentParams() {
     const fields = controls();
     const params = new URLSearchParams();
+    const concept = new URLSearchParams(location.search).get('concept');
+    if (concept) params.set('concept', concept);
     const mappings = [
       ['q', fields.search.value.trim()],
       ['family', fields.family.value],
@@ -316,12 +318,17 @@
     $('[data-activation-explorer]').innerHTML = state.taxonomy.map((item) => {
       const supportingIds = idsFor(item);
       const annotations = item.source_specific_annotations || [];
-      return `<details class="metric-entry activation-entry ${selected === item.activation_id ? 'is-filtered' : ''}"><summary><strong>${escapeHtml(item.activation_name)}</strong><span>${countFor(item)} papers</span></summary><div class="metric-body"><div class="evidence-separator"><strong>Source-derived facts</strong></div><dl><dt>Raw aliases</dt><dd><div class="alias-list">${item.aliases.map((alias) => `<code>${escapeHtml(alias)}</code>`).join('')}</div></dd><dt>Supporting papers</dt><dd>${supportingIds.length} unique IDs in the selected count mode</dd><dt>Source annotations</dt><dd>${annotations.length ? `<ul class="annotation-list">${annotations.map((note) => `<li>${escapeHtml(note || '(blank source note)')}</li>`).join('')}</ul>` : 'No nonblank annotation.'}</dd></dl><div class="evidence-separator"><strong>General explanatory definition</strong></div><dl><dt>Definition</dt><dd>${escapeHtml(item.definition)}</dd><dt>Smoothness</dt><dd>${escapeHtml(item.smoothness)}</dd><dt>Typical role</dt><dd>${escapeHtml(item.typical_role)}</dd></dl><div class="evidence-separator"><strong>Normalization decisions</strong></div><dl><dt>Family</dt><dd>${escapeHtml(item.family)}</dd><dt>Type</dt><dd>${escapeHtml(humanize(item.activation_type))}</dd><dt>Tags</dt><dd>${item.tags.map((tag) => `<span class="activation-role-chip">${escapeHtml(tag)}</span>`).join(' ') || 'None'}</dd><dt>Adaptive variants</dt><dd>${item.adaptive_variants.length ? item.adaptive_variants.map(escapeHtml).join(', ') : 'None linked in the source taxonomy'}</dd><dt>Review flag</dt><dd>${item.manual_review_required ? 'Manual review retained' : 'No manual-review flag'}</dd><dt>Supporting IDs</dt><dd><div class="paper-id-list">${supportingIds.map((id) => `<button type="button" data-explorer-paper="${id}">${label(id)}</button>`).join('')}</div></dd></dl></div></details>`;
+      return `<details class="metric-entry activation-entry ${selected === item.activation_id ? 'is-filtered' : ''}" id="activation-${item.activation_id}"><summary><strong>${escapeHtml(item.activation_name)}</strong><span>${countFor(item)} papers</span></summary><div class="metric-body"><div class="evidence-separator"><strong>Source-derived facts</strong></div><dl><dt>Raw aliases</dt><dd><div class="alias-list">${item.aliases.map((alias) => `<code>${escapeHtml(alias)}</code>`).join('')}</div></dd><dt>Supporting papers</dt><dd>${supportingIds.length} unique IDs in the selected count mode</dd><dt>Source annotations</dt><dd>${annotations.length ? `<ul class="annotation-list">${annotations.map((note) => `<li>${escapeHtml(note || '(blank source note)')}</li>`).join('')}</ul>` : 'No nonblank annotation.'}</dd></dl><div class="evidence-separator"><strong>General explanatory definition</strong></div><dl><dt>Definition</dt><dd>${escapeHtml(item.definition)}</dd><dt>Smoothness</dt><dd>${escapeHtml(item.smoothness)}</dd><dt>Typical role</dt><dd>${escapeHtml(item.typical_role)}</dd></dl><div class="evidence-separator"><strong>Normalization decisions</strong></div><dl><dt>Family</dt><dd>${escapeHtml(item.family)}</dd><dt>Type</dt><dd>${escapeHtml(humanize(item.activation_type))}</dd><dt>Tags</dt><dd>${item.tags.map((tag) => `<span class="activation-role-chip">${escapeHtml(tag)}</span>`).join(' ') || 'None'}</dd><dt>Adaptive variants</dt><dd>${item.adaptive_variants.length ? item.adaptive_variants.map(escapeHtml).join(', ') : 'None linked in the source taxonomy'}</dd><dt>Review flag</dt><dd>${item.manual_review_required ? 'Manual review retained' : 'No manual-review flag'}</dd><dt>Supporting IDs</dt><dd><div class="paper-id-list">${supportingIds.map((id) => `<button type="button" data-explorer-paper="${id}">${label(id)}</button>`).join('')}</div></dd></dl></div></details>`;
     }).join('');
     $$('[data-explorer-paper]').forEach((button) => button.addEventListener('click', () => {
       controls().search.value = label(button.dataset.explorerPaper);
       applyFilters({ push: true, scroll: true });
     }));
+    const target = selected ? document.getElementById(`activation-${selected}`) : null;
+    if (target) {
+      target.open = true;
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'center' }));
+    }
   }
 
   function mentionRows(record, family = '') {

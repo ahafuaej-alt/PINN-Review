@@ -20,7 +20,7 @@
   const escapeHtml = (value='') => String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
   const issueUrl = ({title, body}) => `${issueBase}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
   const showToast = (message) => { if (!toast) return; toast.textContent = message; toast.hidden = false; clearTimeout(showToast.timer); showToast.timer = setTimeout(() => { toast.hidden = true; }, 2600); };
-  const refLink = (id) => `<a class="formula-ref" href="${rootHref}references/#ref=${Number(id)}" title="Open Atlas reference ${Number(id)}">[${Number(id)}]</a>`;
+  const refLink = (id) => `<a class="formula-ref" href="${rootHref}references/#ref=${Number(id)}" title="Open Reference ID ${Number(id)}">[${Number(id)}]</a>`;
   const formulaSearchText = (f) => [f.id,f.name,f.category,f.evidence,f.meaning,f.purpose,f.relation,f.symbols,...(f.tags||[]),...(f.refs||[])].join(' ').toLowerCase();
 
   const workflow = {
@@ -54,17 +54,17 @@
   };
   const renderReferences = () => {
     const refs=[...new Set((data.formulations||[]).flatMap((f)=>f.refs||[]))].sort((a,b)=>a-b);
-    referenceHost.innerHTML=refs.map((id)=>`<a href="${rootHref}references/#ref=${id}" title="Open Atlas reference ${id}">[${id}]</a>`).join('');
+    referenceHost.innerHTML=refs.map((id)=>`<a href="${rootHref}references/#ref=${id}" title="Open Reference ID ${id}">[${id}]</a>`).join('');
   };
   const copyEquation = async (formula) => {
     try { await navigator.clipboard.writeText(formula.equation); showToast(`${formula.id} equation copied`); }
     catch { showToast('Copy failed; select the equation manually'); }
   };
   const openFormulaEdit = (formula) => {
-    const body=`Atlas page: Mathematical Formulations\nFormulation: ${formula.id} — ${formula.name}\nEvidence level: ${formula.evidence}\n\nProposed correction:\n\n\nAuthoritative source / DOI / supporting Atlas IDs:\n\n\nReason for change:\n`;
+    const body=`Atlas page: Mathematical Formulations\nFormulation: ${formula.id} — ${formula.name}\nEvidence level: ${formula.evidence}\n\nProposed correction:\n\n\nAuthoritative source / DOI / supporting Reference IDs:\n\n\nReason for change:\n`;
     window.open(issueUrl({title:`Mathematical formulation edit: ${formula.id} ${formula.name}`,body}),'_blank','noopener');
   };
-  const cardHtml = (f,index) => `<article class="formula-card" id="${f.id}" data-formula-card data-category="${escapeHtml(f.category)}" data-evidence="${escapeHtml(f.evidence)}" data-search="${escapeHtml(formulaSearchText(f))}"><div class="formula-card-head"><div><div class="formula-kickers"><span class="formula-pill id">${escapeHtml(f.id)}</span><span class="formula-pill">Eq ${index+1}</span><span class="formula-pill" data-evidence="${escapeHtml(f.evidence)}">${escapeHtml(f.evidence)}</span></div><h4>${escapeHtml(f.name)}</h4></div><div class="formula-actions"><button class="formula-action" type="button" data-copy-formula="${f.id}">Copy LaTeX</button><button class="formula-action" type="button" data-edit-formula="${f.id}">Suggest edit ↗</button></div></div><div class="equation-box">\\[${f.equation}\\]</div><div class="formula-explain-grid"><div class="formula-explain"><strong>Meaning</strong><p>${escapeHtml(f.meaning)}</p></div><div class="formula-explain"><strong>Purpose</strong><p>${escapeHtml(f.purpose)}</p></div><div class="formula-explain"><strong>Relation to canonical PINN</strong><p>${escapeHtml(f.relation)}</p></div><div class="formula-explain"><strong>Symbols introduced or specialized</strong><p>${f.symbols}</p></div></div><div class="formula-evidence"><div><strong>Atlas evidence IDs</strong><div class="formula-refs">${(f.refs||[]).map(refLink).join('')}</div></div><div><strong>Evidence role</strong><p>${f.evidence==='Direct'?'Original or direct methodological evidence':f.evidence==='Equivalent'?'Equivalent source formulation normalized to Atlas notation':'Cross-source normalized synthesis; not a verbatim source equation'}</p></div><div><strong>Tags</strong><div class="formula-tags">${(f.tags||[]).map((tag)=>`<span class="formula-tag">${escapeHtml(tag)}</span>`).join('')}</div></div></div></article>`;
+  const cardHtml = (f,index) => `<article class="formula-card" id="${f.id}" data-formula-card data-category="${escapeHtml(f.category)}" data-evidence="${escapeHtml(f.evidence)}" data-search="${escapeHtml(formulaSearchText(f))}"><div class="formula-card-head"><div><div class="formula-kickers"><span class="formula-pill id">${escapeHtml(f.id)}</span><span class="formula-pill">Eq ${index+1}</span><span class="formula-pill" data-evidence="${escapeHtml(f.evidence)}">${escapeHtml(f.evidence)}</span></div><h4>${escapeHtml(f.name)}</h4></div><div class="formula-actions"><button class="formula-action" type="button" data-copy-formula="${f.id}">Copy LaTeX</button><button class="formula-action" type="button" data-edit-formula="${f.id}">Suggest edit ↗</button></div></div><div class="equation-box">\\[${f.equation}\\]</div><div class="formula-explain-grid"><div class="formula-explain"><strong>Meaning</strong><p>${escapeHtml(f.meaning)}</p></div><div class="formula-explain"><strong>Purpose</strong><p>${escapeHtml(f.purpose)}</p></div><div class="formula-explain"><strong>Relation to canonical PINN</strong><p>${escapeHtml(f.relation)}</p></div><div class="formula-explain"><strong>Symbols introduced or specialized</strong><p>${f.symbols}</p></div></div><div class="formula-evidence"><div><strong>Supporting evidence</strong><div class="formula-refs">${(f.refs||[]).map(refLink).join('')}</div></div><div><strong>Evidence role</strong><p>${f.evidence==='Direct'?'Original or direct methodological evidence':f.evidence==='Equivalent'?'Equivalent source formulation normalized to Atlas notation':'Cross-source normalized synthesis; not a verbatim source equation'}</p></div><div><strong>Tags</strong><div class="formula-tags">${(f.tags||[]).map((tag)=>`<span class="formula-tag">${escapeHtml(tag)}</span>`).join('')}</div></div></div></article>`;
 
   const renderCatalogue = () => {
     const forms=data.formulations||[];
@@ -84,7 +84,7 @@
   [search,category,evidence].forEach((control)=>control?.addEventListener(control===search?'input':'change',applyFilters));
 
   const openPageEdit = () => {
-    const body='Atlas page: Mathematical Formulations\n\nArea / formulation ID:\n\nProposed correction or addition:\n\nAuthoritative source / DOI / supporting Atlas IDs:\n\nReason for change:\n';
+    const body='Atlas page: Mathematical Formulations\n\nArea / formulation ID:\n\nProposed correction or addition:\n\nAuthoritative source / DOI / supporting Reference IDs:\n\nReason for change:\n';
     window.open(issueUrl({title:'Mathematical Formulations: proposed edit',body}),'_blank','noopener');
   };
   document.querySelectorAll('[data-page-edit]').forEach((button)=>button.addEventListener('click',openPageEdit));
@@ -105,5 +105,10 @@
     Object.entries(statMap).forEach(([key,value])=>{document.querySelectorAll(`[data-math-stat="${key}"]`).forEach((node)=>node.textContent=String(value));});
     const generated=document.querySelector('[data-math-generated]'); if(generated&&data.generated){const d=new Date(`${data.generated}T00:00:00Z`);if(!Number.isNaN(d.getTime()))generated.textContent=new Intl.DateTimeFormat('en',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(d);}
     renderNotation();renderCoverage();renderReferences();renderCatalogue();applyFilters();
+    if (/^#F\d{3}$/i.test(location.hash)) requestAnimationFrame(() => {
+      const target = document.getElementById(location.hash.slice(1).toUpperCase());
+      target?.scrollIntoView({ block: 'center' });
+      target?.classList.add('is-selected');
+    });
   }).catch((error)=>{catalogue.innerHTML=`<div class="math-loading">Could not load the formulation catalogue. ${escapeHtml(error.message)}</div>`;notationHost.innerHTML='<div class="math-loading">Notation unavailable.</div>';coverageHost.innerHTML='<div class="math-loading">Coverage audit unavailable.</div>';referenceHost.innerHTML='<div class="math-loading">Evidence register unavailable.</div>';});
 })();

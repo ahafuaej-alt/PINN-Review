@@ -64,9 +64,9 @@
 
     const landscape = document.querySelector('[aria-labelledby="landscape-title"]');
     const landscapeCopy = landscape?.querySelector('.directory-label p');
-    if (landscapeCopy) landscapeCopy.textContent = 'Where PINN research appears, who collaborates, and which papers support the Atlas evidence base.';
+    if (landscapeCopy) landscapeCopy.textContent = 'Where PINN research appears, who collaborates, and which papers support the evidence base.';
     const applicationCopy = landscape?.querySelector('a[href="applications/"] p');
-    if (applicationCopy) applicationCopy.textContent = 'Scientific and engineering application domains represented across the Atlas evidence corpus.';
+    if (applicationCopy) applicationCopy.textContent = 'Scientific and engineering application domains represented across the evidence corpus.';
     const referencesCopy = landscape?.querySelector('a[href="references/"] p');
     if (referencesCopy) referencesCopy.textContent = 'Search the complete Atlas bibliography, metadata, source links, abstracts, and exports.';
   };

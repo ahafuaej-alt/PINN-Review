@@ -1,0 +1,4992 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-08-26",
+  "supportTypes": {
+    "Direct": "The paper directly introduces, evaluates, or substantiates the displayed object or claim.",
+    "Equivalent": "The paper provides an equivalent or contextual formulation normalized to the maintained Atlas object.",
+    "Synthesized": "The relationship is part of a conservative cross-source synthesis rather than a verbatim source claim."
+  },
+  "relationshipModel": "paper → supported claim/object → support type → rationale",
+  "relationships": [
+    {
+      "id": "evidence:1",
+      "paperId": 401,
+      "objectId": "framework:design-stack:physical-problem",
+      "claim": "Physical Problem Definition",
+      "supportType": "Equivalent",
+      "rationale": "The review frames physics-informed learning around governing laws, data, and computational task, supporting problem definition as the first design layer."
+    },
+    {
+      "id": "evidence:2",
+      "paperId": 450,
+      "objectId": "framework:design-stack:physical-problem",
+      "claim": "Physical Problem Definition",
+      "supportType": "Direct",
+      "rationale": "The canonical PINN paper formulates forward and inverse PDE problems from equations, conditions, observations, and unknown quantities."
+    },
+    {
+      "id": "evidence:3",
+      "paperId": 450,
+      "objectId": "framework:design-stack:computational-role",
+      "claim": "Computational Role",
+      "supportType": "Direct",
+      "rationale": "The same PINN formulation is demonstrated for forward solution and inverse identification, making intended role an explicit design choice."
+    },
+    {
+      "id": "evidence:4",
+      "paperId": 603,
+      "objectId": "framework:design-stack:computational-role",
+      "claim": "Computational Role",
+      "supportType": "Direct",
+      "rationale": "Physics-informed DeepONets change the role from one solution to a reusable parametric solution operator."
+    },
+    {
+      "id": "evidence:5",
+      "paperId": 726,
+      "objectId": "framework:design-stack:inputs-outputs",
+      "claim": "Inputs and Outputs",
+      "supportType": "Direct",
+      "rationale": "P2INNs explicitly encode PDE parameters as latent inputs, showing that the input-output interface determines reuse across a parameter family."
+    },
+    {
+      "id": "evidence:6",
+      "paperId": 450,
+      "objectId": "framework:design-stack:inputs-outputs",
+      "claim": "Inputs and Outputs",
+      "supportType": "Equivalent",
+      "rationale": "The foundational formulation links coordinates and observations to state fields and unknown coefficients for forward and inverse tasks."
+    },
+    {
+      "id": "evidence:7",
+      "paperId": 606,
+      "objectId": "framework:design-stack:representation",
+      "claim": "Representation / Architecture",
+      "supportType": "Direct",
+      "rationale": "Fourier-feature representation changes the learned eigenspectrum and improves multi-scale PDE approximation, directly linking basis choice to solution structure."
+    },
+    {
+      "id": "evidence:8",
+      "paperId": 231,
+      "objectId": "framework:design-stack:representation",
+      "claim": "Representation / Architecture",
+      "supportType": "Direct",
+      "rationale": "SAS-PINN uses a SIREN representation for high-frequency electromagnetic fields and couples it to adaptive collocation."
+    },
+    {
+      "id": "evidence:9",
+      "paperId": 517,
+      "objectId": "framework:design-stack:representation",
+      "claim": "Representation / Architecture",
+      "supportType": "Direct",
+      "rationale": "Locally adaptive activations with slope recovery alter the effective approximation basis and training dynamics."
+    },
+    {
+      "id": "evidence:10",
+      "paperId": 461,
+      "objectId": "framework:design-stack:physics-enforcement",
+      "claim": "Physics Enforcement",
+      "supportType": "Direct",
+      "rationale": "The neural trial-solution construction satisfies boundary conditions by design, providing the historical basis for exact ansatz enforcement."
+    },
+    {
+      "id": "evidence:11",
+      "paperId": 637,
+      "objectId": "framework:design-stack:physics-enforcement",
+      "claim": "Physics Enforcement",
+      "supportType": "Direct",
+      "rationale": "The paper compares boundary enforcement in PINNs and VPINNs and supports exact Dirichlet satisfaction as a distinct enforcement choice."
+    },
+    {
+      "id": "evidence:12",
+      "paperId": 628,
+      "objectId": "framework:design-stack:physics-enforcement",
+      "claim": "Physics Enforcement",
+      "supportType": "Direct",
+      "rationale": "Conservative PINNs impose discrete conservation and interface flux continuity rather than relying on a pointwise PDE penalty alone."
+    },
+    {
+      "id": "evidence:13",
+      "paperId": 636,
+      "objectId": "framework:design-stack:physics-enforcement",
+      "claim": "Physics Enforcement",
+      "supportType": "Direct",
+      "rationale": "VPINN accuracy depends on test functions and quadrature, showing that weak enforcement is a numerical formulation rather than a generic loss term."
+    },
+    {
+      "id": "evidence:14",
+      "paperId": 554,
+      "objectId": "framework:design-stack:differentiation",
+      "claim": "Differentiation and Residual Evaluation",
+      "supportType": "Direct",
+      "rationale": "CAN-PINN couples automatic and numerical differentiation to change residual accuracy, support coupling, and training cost."
+    },
+    {
+      "id": "evidence:15",
+      "paperId": 552,
+      "objectId": "framework:design-stack:differentiation",
+      "claim": "Differentiation and Residual Evaluation",
+      "supportType": "Direct",
+      "rationale": "Hutchinson trace estimation targets the memory and runtime burden of high-dimensional, high-order automatic differentiation."
+    },
+    {
+      "id": "evidence:16",
+      "paperId": 636,
+      "objectId": "framework:design-stack:differentiation",
+      "claim": "Differentiation and Residual Evaluation",
+      "supportType": "Direct",
+      "rationale": "Variational residual evaluation exposes quadrature precision and test-function degree as explicit numerical choices."
+    },
+    {
+      "id": "evidence:17",
+      "paperId": 479,
+      "objectId": "framework:design-stack:sampling",
+      "claim": "Sampling / Collocation",
+      "supportType": "Direct",
+      "rationale": "A large comparative study shows that residual-point distribution materially changes PINN accuracy and sampling efficiency."
+    },
+    {
+      "id": "evidence:18",
+      "paperId": 534,
+      "objectId": "framework:design-stack:sampling",
+      "claim": "Sampling / Collocation",
+      "supportType": "Direct",
+      "rationale": "Loss-proportional importance sampling improves convergence by changing which collocation information enters each update."
+    },
+    {
+      "id": "evidence:19",
+      "paperId": 502,
+      "objectId": "framework:design-stack:loss",
+      "claim": "Loss Construction and Balancing",
+      "supportType": "Direct",
+      "rationale": "The paper models competitive data, boundary, initial, and PDE losses and updates their weights adaptively."
+    },
+    {
+      "id": "evidence:20",
+      "paperId": 525,
+      "objectId": "framework:design-stack:loss",
+      "claim": "Loss Construction and Balancing",
+      "supportType": "Direct",
+      "rationale": "Gradient-flow analysis identifies stiffness-driven imbalance among composite PINN objectives and motivates gradient-statistic balancing."
+    },
+    {
+      "id": "evidence:21",
+      "paperId": 527,
+      "objectId": "framework:design-stack:loss",
+      "claim": "Loss Construction and Balancing",
+      "supportType": "Direct",
+      "rationale": "Dual-cone descent treats boundary and PDE losses as a multi-objective gradient-conflict problem."
+    },
+    {
+      "id": "evidence:22",
+      "paperId": 823,
+      "objectId": "framework:design-stack:optimization",
+      "claim": "Optimization and Training Strategy",
+      "supportType": "Direct",
+      "rationale": "Loss-landscape analysis connects differential-operator ill-conditioning to optimizer behavior and compares Adam, L-BFGS, hybrid, and second-order strategies."
+    },
+    {
+      "id": "evidence:23",
+      "paperId": 819,
+      "objectId": "framework:design-stack:optimization",
+      "claim": "Optimization and Training Strategy",
+      "supportType": "Direct",
+      "rationale": "The study examines how optimization process and optimizer choice control achievable PINN accuracy."
+    },
+    {
+      "id": "evidence:24",
+      "paperId": 543,
+      "objectId": "framework:design-stack:optimization",
+      "claim": "Optimization and Training Strategy",
+      "supportType": "Direct",
+      "rationale": "A staged self-adaptive, genetic-initialization, and L-BFGS workflow demonstrates the effect of hybrid training strategy."
+    },
+    {
+      "id": "evidence:25",
+      "paperId": 401,
+      "objectId": "framework:design-stack:evaluation",
+      "claim": "Evaluation and Validation",
+      "supportType": "Synthesized",
+      "rationale": "The review evaluates physics-informed learning across accuracy, physical consistency, data use, and computational roles rather than by training loss alone."
+    },
+    {
+      "id": "evidence:26",
+      "paperId": 410,
+      "objectId": "framework:design-stack:evaluation",
+      "claim": "Evaluation and Validation",
+      "supportType": "Direct",
+      "rationale": "B-PINNs show that noisy inverse problems require uncertainty-aware validation in addition to point prediction."
+    },
+    {
+      "id": "evidence:27",
+      "paperId": 507,
+      "objectId": "framework:design-stack:evaluation",
+      "claim": "Evaluation and Validation",
+      "supportType": "Direct",
+      "rationale": "The paper separates parametric and approximation uncertainty and uses uncertainty-guided sensor placement, supporting calibrated reliability checks."
+    },
+    {
+      "id": "evidence:28",
+      "paperId": 401,
+      "objectId": "framework:design-stack:feedback-10-1",
+      "claim": "Results may require redefining the problem",
+      "supportType": "Synthesized",
+      "rationale": "The reviewed evidence emphasizes matching physics-informed method and evaluation to the governing problem rather than assuming one universal formulation."
+    },
+    {
+      "id": "evidence:29",
+      "paperId": 603,
+      "objectId": "framework:design-stack:feedback-10-2",
+      "claim": "Results may require redefining the PINN role",
+      "supportType": "Direct",
+      "rationale": "Repeated-query evaluation motivates moving from a single PINN solve to a learned solution operator."
+    },
+    {
+      "id": "evidence:30",
+      "paperId": 726,
+      "objectId": "framework:design-stack:feedback-10-3",
+      "claim": "Poor performance may require changing outputs",
+      "supportType": "Direct",
+      "rationale": "Explicit latent parameter encoding demonstrates how revising the input-output interface changes parameterized-PDE performance."
+    },
+    {
+      "id": "evidence:31",
+      "paperId": 606,
+      "objectId": "framework:design-stack:feedback-10-4",
+      "claim": "Poor performance may require changing architecture",
+      "supportType": "Direct",
+      "rationale": "Spectral failure of standard representations motivates Fourier-feature redesign for multi-scale PDEs."
+    },
+    {
+      "id": "evidence:32",
+      "paperId": 628,
+      "objectId": "framework:design-stack:feedback-10-5",
+      "claim": "Reformulate physics if constraints are not satisfied",
+      "supportType": "Direct",
+      "rationale": "Conservation and interface-flux errors motivate a conservative discrete-domain reformulation."
+    },
+    {
+      "id": "evidence:33",
+      "paperId": 637,
+      "objectId": "framework:design-stack:feedback-10-5",
+      "claim": "Reformulate physics if constraints are not satisfied",
+      "supportType": "Direct",
+      "rationale": "Persistent boundary error motivates exact Dirichlet enforcement rather than penalty-only treatment."
+    },
+    {
+      "id": "evidence:34",
+      "paperId": 552,
+      "objectId": "framework:design-stack:feedback-10-6",
+      "claim": "Reformulate differentiation if residual cost is high",
+      "supportType": "Direct",
+      "rationale": "High-order derivative memory and runtime motivate trace-estimation reformulation."
+    },
+    {
+      "id": "evidence:35",
+      "paperId": 554,
+      "objectId": "framework:design-stack:feedback-10-6",
+      "claim": "Reformulate differentiation if residual cost is high",
+      "supportType": "Direct",
+      "rationale": "Sparse or costly residual evaluation motivates coupled automatic–numerical differentiation."
+    },
+    {
+      "id": "evidence:36",
+      "paperId": 479,
+      "objectId": "framework:design-stack:feedback-10-7",
+      "claim": "Evaluation may motivate resampling",
+      "supportType": "Direct",
+      "rationale": "Residual-based adaptive refinement explicitly reallocates points from current residual information."
+    },
+    {
+      "id": "evidence:37",
+      "paperId": 502,
+      "objectId": "framework:design-stack:feedback-10-8",
+      "claim": "Evaluation may motivate reweighting",
+      "supportType": "Direct",
+      "rationale": "Competitive loss progress is used to update adaptive objective weights during training."
+    },
+    {
+      "id": "evidence:38",
+      "paperId": 525,
+      "objectId": "framework:design-stack:feedback-10-8",
+      "claim": "Evaluation may motivate reweighting",
+      "supportType": "Direct",
+      "rationale": "Gradient statistics expose imbalance and drive learning-rate annealing across composite terms."
+    },
+    {
+      "id": "evidence:39",
+      "paperId": 823,
+      "objectId": "framework:design-stack:feedback-10-9",
+      "claim": "Adjust optimizer, learning rate, initialization, or strategy",
+      "supportType": "Direct",
+      "rationale": "Ill-conditioned loss landscapes motivate hybrid and curvature-aware optimizer changes."
+    },
+    {
+      "id": "evidence:40",
+      "paperId": 401,
+      "objectId": "framework:co-design:core",
+      "claim": "PINN Co-Design",
+      "supportType": "Synthesized",
+      "rationale": "The review presents physics-informed learning as a joint design of governing knowledge, data, representation, optimization, and task."
+    },
+    {
+      "id": "evidence:41",
+      "paperId": 450,
+      "objectId": "framework:co-design:core",
+      "claim": "PINN Co-Design",
+      "supportType": "Equivalent",
+      "rationale": "The foundational PINN formulation couples approximation, automatic differentiation, physical residuals, conditions, observations, and inverse quantities in one trainable system."
+    },
+    {
+      "id": "evidence:42",
+      "paperId": 401,
+      "objectId": "framework:co-design:problem",
+      "claim": "Physical Problem & Computational Role",
+      "supportType": "Synthesized",
+      "rationale": "Physics-informed method selection is organized around the governing problem, available data, and intended scientific role."
+    },
+    {
+      "id": "evidence:43",
+      "paperId": 603,
+      "objectId": "framework:co-design:problem",
+      "claim": "Physical Problem & Computational Role",
+      "supportType": "Direct",
+      "rationale": "A repeated-query role motivates learning a PDE solution operator instead of fitting a single state."
+    },
+    {
+      "id": "evidence:44",
+      "paperId": 606,
+      "objectId": "framework:co-design:representation",
+      "claim": "Representation",
+      "supportType": "Direct",
+      "rationale": "Fourier features alter multi-scale approximation and spectral behavior, directly supporting representation as a co-design domain."
+    },
+    {
+      "id": "evidence:45",
+      "paperId": 231,
+      "objectId": "framework:co-design:representation",
+      "claim": "Representation",
+      "supportType": "Direct",
+      "rationale": "SIREN representation and adaptive sampling are co-designed for stiff, high-frequency electromagnetic fields."
+    },
+    {
+      "id": "evidence:46",
+      "paperId": 726,
+      "objectId": "framework:co-design:representation",
+      "claim": "Representation",
+      "supportType": "Direct",
+      "rationale": "Latent parameter encoding changes the representation so one PINN can span a parameterized PDE family."
+    },
+    {
+      "id": "evidence:47",
+      "paperId": 637,
+      "objectId": "framework:co-design:physics",
+      "claim": "Physics & Constraints",
+      "supportType": "Direct",
+      "rationale": "Exact Dirichlet enforcement changes admissibility and removes a boundary requirement from permanent penalty competition."
+    },
+    {
+      "id": "evidence:48",
+      "paperId": 628,
+      "objectId": "framework:co-design:physics",
+      "claim": "Physics & Constraints",
+      "supportType": "Direct",
+      "rationale": "Discrete conservative enforcement adds local conservation and interface-flux structure to the physical constraints."
+    },
+    {
+      "id": "evidence:49",
+      "paperId": 750,
+      "objectId": "framework:co-design:physics",
+      "claim": "Physics & Constraints",
+      "supportType": "Direct",
+      "rationale": "Equality-constrained neural networks treat physical requirements as constraints for forward, inverse, and multi-fidelity problems."
+    },
+    {
+      "id": "evidence:50",
+      "paperId": 554,
+      "objectId": "framework:co-design:numerical",
+      "claim": "Numerical Realization",
+      "supportType": "Direct",
+      "rationale": "Coupled automatic–numerical differentiation changes residual accuracy, support coupling, and computation."
+    },
+    {
+      "id": "evidence:51",
+      "paperId": 552,
+      "objectId": "framework:co-design:numerical",
+      "claim": "Numerical Realization",
+      "supportType": "Direct",
+      "rationale": "Trace estimation redesigns high-order derivative evaluation to reduce memory and runtime."
+    },
+    {
+      "id": "evidence:52",
+      "paperId": 638,
+      "objectId": "framework:co-design:numerical",
+      "claim": "Numerical Realization",
+      "supportType": "Direct",
+      "rationale": "cv-PINN combines subdomain numerical integration, embedded test functions, and domain decomposition as one numerical realization."
+    },
+    {
+      "id": "evidence:53",
+      "paperId": 479,
+      "objectId": "framework:co-design:numerical",
+      "claim": "Numerical Realization",
+      "supportType": "Direct",
+      "rationale": "Residual-point placement is shown to change both accuracy and point efficiency across forward and inverse problems."
+    },
+    {
+      "id": "evidence:54",
+      "paperId": 647,
+      "objectId": "framework:co-design:numerical",
+      "claim": "Numerical Realization",
+      "supportType": "Direct",
+      "rationale": "XPINN realizes spatial and temporal decomposition with local networks, interface conditions, and parallel training."
+    },
+    {
+      "id": "evidence:55",
+      "paperId": 502,
+      "objectId": "framework:co-design:training",
+      "claim": "Training & Optimization",
+      "supportType": "Direct",
+      "rationale": "Self-adaptive weighting addresses competition among data, boundary, initial, and PDE objectives."
+    },
+    {
+      "id": "evidence:56",
+      "paperId": 525,
+      "objectId": "framework:co-design:training",
+      "claim": "Training & Optimization",
+      "supportType": "Direct",
+      "rationale": "Gradient-flow pathology analysis links residual stiffness, loss imbalance, architecture, and annealing."
+    },
+    {
+      "id": "evidence:57",
+      "paperId": 823,
+      "objectId": "framework:co-design:training",
+      "claim": "Training & Optimization",
+      "supportType": "Direct",
+      "rationale": "Loss-landscape conditioning is shown to determine whether first-order, hybrid, or second-order optimization succeeds."
+    },
+    {
+      "id": "evidence:58",
+      "paperId": 527,
+      "objectId": "framework:co-design:training",
+      "claim": "Training & Optimization",
+      "supportType": "Direct",
+      "rationale": "Dual-cone descent explicitly treats PDE and boundary losses as a conflicting multi-objective optimization problem."
+    },
+    {
+      "id": "evidence:59",
+      "paperId": 410,
+      "objectId": "framework:co-design:reliability",
+      "claim": "Verification & Reliability",
+      "supportType": "Direct",
+      "rationale": "Noisy forward and inverse problems require posterior inference and uncertainty validation, not pointwise fit alone."
+    },
+    {
+      "id": "evidence:60",
+      "paperId": 507,
+      "objectId": "framework:co-design:reliability",
+      "claim": "Verification & Reliability",
+      "supportType": "Direct",
+      "rationale": "Total-uncertainty analysis distinguishes parametric and approximation uncertainty and supports coverage-aware reliability."
+    },
+    {
+      "id": "evidence:61",
+      "paperId": 508,
+      "objectId": "framework:co-design:reliability",
+      "claim": "Verification & Reliability",
+      "supportType": "Direct",
+      "rationale": "Physics-informed variational inference supplies a probabilistic formulation for forward and inverse stochastic equations."
+    },
+    {
+      "id": "evidence:62",
+      "paperId": 606,
+      "objectId": "framework:co-design:problem-representation",
+      "claim": "regularity · scale · geometry · data",
+      "supportType": "Direct",
+      "rationale": "Multi-scale target structure changes which feature spectrum the representation must supply."
+    },
+    {
+      "id": "evidence:63",
+      "paperId": 726,
+      "objectId": "framework:co-design:representation-problem",
+      "claim": "state variables & solution regularity",
+      "supportType": "Direct",
+      "rationale": "Encoding the PDE parameter as a latent representation changes the family of physical states the model can express."
+    },
+    {
+      "id": "evidence:64",
+      "paperId": 401,
+      "objectId": "framework:co-design:problem-physics",
+      "claim": "governing structure & objectives",
+      "supportType": "Synthesized",
+      "rationale": "The governing laws and available information determine how physical knowledge enters learning."
+    },
+    {
+      "id": "evidence:65",
+      "paperId": 552,
+      "objectId": "framework:co-design:problem-core",
+      "claim": "operator order · scales · boundary information",
+      "supportType": "Direct",
+      "rationale": "High operator order and dimensionality directly change derivative memory and runtime in the coupled formulation."
+    },
+    {
+      "id": "evidence:66",
+      "paperId": 637,
+      "objectId": "framework:co-design:representation-core",
+      "claim": "ansatz affects constraint form",
+      "supportType": "Direct",
+      "rationale": "A boundary-aware trial construction changes whether Dirichlet conditions are exact or optimized as penalties."
+    },
+    {
+      "id": "evidence:67",
+      "paperId": 606,
+      "objectId": "framework:co-design:core-representation",
+      "claim": "conditioning · spectral bias · approximation capacity",
+      "supportType": "Direct",
+      "rationale": "Eigenvector bias links PDE-learning behavior to the feature spectrum and representation capacity."
+    },
+    {
+      "id": "evidence:68",
+      "paperId": 636,
+      "objectId": "framework:co-design:physics-core",
+      "claim": "physics determines residual form",
+      "supportType": "Direct",
+      "rationale": "Weak enforcement replaces pointwise residuals with test functions and quadrature, changing the numerical core."
+    },
+    {
+      "id": "evidence:69",
+      "paperId": 750,
+      "objectId": "framework:co-design:core-physics",
+      "claim": "constraints shape objective",
+      "supportType": "Direct",
+      "rationale": "Equality-constrained training changes physical requirements from weighted penalties to explicit constraints."
+    },
+    {
+      "id": "evidence:70",
+      "paperId": 628,
+      "objectId": "framework:co-design:physics-numerical",
+      "claim": "derivative order · continuity · conservation",
+      "supportType": "Direct",
+      "rationale": "Conservation-law structure requires discrete subdomains and interface-flux treatment."
+    },
+    {
+      "id": "evidence:71",
+      "paperId": 636,
+      "objectId": "framework:co-design:physics-numerical",
+      "claim": "derivative order · continuity · conservation",
+      "supportType": "Direct",
+      "rationale": "Variational constraint form introduces test-function and quadrature decisions."
+    },
+    {
+      "id": "evidence:72",
+      "paperId": 479,
+      "objectId": "framework:co-design:numerical-core",
+      "claim": "sampling influences gradient information",
+      "supportType": "Direct",
+      "rationale": "Residual-point distribution changes the training information and final error across thousands of PINN runs."
+    },
+    {
+      "id": "evidence:73",
+      "paperId": 552,
+      "objectId": "framework:co-design:core-numerical",
+      "claim": "computational cost · memory · stability",
+      "supportType": "Direct",
+      "rationale": "High-order residual structure drives derivative memory and runtime."
+    },
+    {
+      "id": "evidence:74",
+      "paperId": 554,
+      "objectId": "framework:co-design:core-numerical",
+      "claim": "computational cost · memory · stability",
+      "supportType": "Direct",
+      "rationale": "Coupling AD and ND changes residual stability, sparsity requirements, and computational cost."
+    },
+    {
+      "id": "evidence:75",
+      "paperId": 502,
+      "objectId": "framework:co-design:training-core",
+      "claim": "objective depends on physics & data",
+      "supportType": "Direct",
+      "rationale": "Competitive data, condition, and PDE losses define the composite objective and require balancing."
+    },
+    {
+      "id": "evidence:76",
+      "paperId": 823,
+      "objectId": "framework:co-design:core-training",
+      "claim": "optimizer performance depends on sampling & loss conditioning",
+      "supportType": "Direct",
+      "rationale": "Differential operators induce loss ill-conditioning that changes optimizer performance."
+    },
+    {
+      "id": "evidence:77",
+      "paperId": 525,
+      "objectId": "framework:co-design:core-training",
+      "claim": "optimizer performance depends on sampling & loss conditioning",
+      "supportType": "Direct",
+      "rationale": "Residual stiffness produces unbalanced gradients and motivates annealing."
+    },
+    {
+      "id": "evidence:78",
+      "paperId": 517,
+      "objectId": "framework:co-design:representation-training",
+      "claim": "architecture affects conditioning",
+      "supportType": "Direct",
+      "rationale": "Adaptive activation slopes and slope recovery jointly modify approximation and gradient dynamics."
+    },
+    {
+      "id": "evidence:79",
+      "paperId": 410,
+      "objectId": "framework:co-design:core-reliability",
+      "claim": "verify every co-design outcome",
+      "supportType": "Direct",
+      "rationale": "Noisy inverse problems demonstrate that accuracy and uncertainty must be assessed together."
+    },
+    {
+      "id": "evidence:80",
+      "paperId": 603,
+      "objectId": "framework:co-design:reliability-problem",
+      "claim": "poor reliability prompts problem or role redesign",
+      "supportType": "Direct",
+      "rationale": "When repeated-query cost is the failure criterion, the computational role can be redesigned as operator learning."
+    },
+    {
+      "id": "evidence:81",
+      "paperId": 606,
+      "objectId": "framework:co-design:reliability-representation",
+      "claim": "stagnation · imbalance · overfitting · instability",
+      "supportType": "Direct",
+      "rationale": "Poor multi-scale resolution motivates feature-space redesign."
+    },
+    {
+      "id": "evidence:82",
+      "paperId": 517,
+      "objectId": "framework:co-design:reliability-representation",
+      "claim": "stagnation · imbalance · overfitting · instability",
+      "supportType": "Direct",
+      "rationale": "Training pathologies motivate an adaptive activation and slope-recovery response."
+    },
+    {
+      "id": "evidence:83",
+      "paperId": 637,
+      "objectId": "framework:co-design:reliability-physics",
+      "claim": "constraint or admissibility failure",
+      "supportType": "Direct",
+      "rationale": "Boundary-condition failure motivates exact trial-space enforcement."
+    },
+    {
+      "id": "evidence:84",
+      "paperId": 628,
+      "objectId": "framework:co-design:reliability-physics",
+      "claim": "constraint or admissibility failure",
+      "supportType": "Direct",
+      "rationale": "Conservation failure motivates a conservative discrete residual and flux continuity."
+    },
+    {
+      "id": "evidence:85",
+      "paperId": 479,
+      "objectId": "framework:co-design:reliability-numerical",
+      "claim": "poor accuracy or conservation prompts resampling / reformulation",
+      "supportType": "Direct",
+      "rationale": "Observed residual error drives adaptive resampling."
+    },
+    {
+      "id": "evidence:86",
+      "paperId": 554,
+      "objectId": "framework:co-design:reliability-numerical",
+      "claim": "poor accuracy or conservation prompts resampling / reformulation",
+      "supportType": "Direct",
+      "rationale": "Accuracy and efficiency failures motivate a mixed differentiation pathway."
+    },
+    {
+      "id": "evidence:87",
+      "paperId": 502,
+      "objectId": "framework:co-design:reliability-training",
+      "claim": "training diagnostics prompt loss or optimizer redesign",
+      "supportType": "Direct",
+      "rationale": "Unequal loss progress motivates dynamic reweighting."
+    },
+    {
+      "id": "evidence:88",
+      "paperId": 823,
+      "objectId": "framework:co-design:reliability-training",
+      "claim": "training diagnostics prompt loss or optimizer redesign",
+      "supportType": "Direct",
+      "rationale": "Ill-conditioned loss landscapes motivate hybrid or second-order optimization."
+    },
+    {
+      "id": "evidence:89",
+      "paperId": 450,
+      "objectId": "framework:design-performance:inputs-outputs",
+      "claim": "Inputs & outputs",
+      "supportType": "Direct",
+      "rationale": "Coordinate, state, observation, and unknown-parameter interfaces differ between forward and inverse PINN tasks, affecting coverage and identifiability."
+    },
+    {
+      "id": "evidence:90",
+      "paperId": 726,
+      "objectId": "framework:design-performance:inputs-outputs",
+      "claim": "Inputs & outputs",
+      "supportType": "Direct",
+      "rationale": "Explicit latent parameter inputs enable one model to cover a parameterized PDE family, linking interface design to reuse and parameter efficiency."
+    },
+    {
+      "id": "evidence:91",
+      "paperId": 606,
+      "objectId": "framework:design-performance:architecture-basis",
+      "claim": "Architecture / basis",
+      "supportType": "Direct",
+      "rationale": "Fourier-feature architecture changes approximation bias, multi-scale accuracy, and the spectral properties seen by optimization."
+    },
+    {
+      "id": "evidence:92",
+      "paperId": 231,
+      "objectId": "framework:design-performance:architecture-basis",
+      "claim": "Architecture / basis",
+      "supportType": "Direct",
+      "rationale": "A SIREN architecture improves high-frequency field representation while interacting with adaptive sampling and computational efficiency."
+    },
+    {
+      "id": "evidence:93",
+      "paperId": 517,
+      "objectId": "framework:design-performance:activation-features",
+      "claim": "Activation / features",
+      "supportType": "Direct",
+      "rationale": "Adaptive activations with slope recovery affect solution accuracy and gradient dynamics simultaneously."
+    },
+    {
+      "id": "evidence:94",
+      "paperId": 606,
+      "objectId": "framework:design-performance:activation-features",
+      "claim": "Activation / features",
+      "supportType": "Direct",
+      "rationale": "Fourier features alter both representable frequency content and the eigenspectrum governing learning."
+    },
+    {
+      "id": "evidence:95",
+      "paperId": 630,
+      "objectId": "framework:design-performance:scaling",
+      "claim": "Scaling / non-dimensionalization",
+      "supportType": "Direct",
+      "rationale": "The mixed-variable flow study reports PDE normalization as crucial, supporting scaling as a conditioning and accuracy decision."
+    },
+    {
+      "id": "evidence:96",
+      "paperId": 525,
+      "objectId": "framework:design-performance:scaling",
+      "claim": "Scaling / non-dimensionalization",
+      "supportType": "Direct",
+      "rationale": "Residual stiffness and unequal gradient magnitudes link numerical scaling to conditioning, stability, and final accuracy."
+    },
+    {
+      "id": "evidence:97",
+      "paperId": 637,
+      "objectId": "framework:design-performance:physics-enforcement",
+      "claim": "Physics-enforcement mechanism",
+      "supportType": "Direct",
+      "rationale": "Exact versus penalty boundary enforcement changes admissibility, approximation error, and loss competition."
+    },
+    {
+      "id": "evidence:98",
+      "paperId": 636,
+      "objectId": "framework:design-performance:physics-enforcement",
+      "claim": "Physics-enforcement mechanism",
+      "supportType": "Direct",
+      "rationale": "Variational enforcement adds test-function and quadrature costs while changing convergence behavior."
+    },
+    {
+      "id": "evidence:99",
+      "paperId": 628,
+      "objectId": "framework:design-performance:physics-enforcement",
+      "claim": "Physics-enforcement mechanism",
+      "supportType": "Direct",
+      "rationale": "Conservative enforcement improves conservation and interface fidelity but introduces a decomposed discrete formulation."
+    },
+    {
+      "id": "evidence:100",
+      "paperId": 750,
+      "objectId": "framework:design-performance:physics-constraints",
+      "claim": "Physics / constraints",
+      "supportType": "Direct",
+      "rationale": "Equality-constrained training links physical satisfaction to solution accuracy and inverse recovery without treating every requirement as a fixed penalty."
+    },
+    {
+      "id": "evidence:101",
+      "paperId": 628,
+      "objectId": "framework:design-performance:physics-constraints",
+      "claim": "Physics / constraints",
+      "supportType": "Direct",
+      "rationale": "Discrete conservation and interface flux constraints affect physical fidelity, local accuracy, and decomposition cost together."
+    },
+    {
+      "id": "evidence:102",
+      "paperId": 554,
+      "objectId": "framework:design-performance:differentiation",
+      "claim": "Differentiation / operator evaluation",
+      "supportType": "Direct",
+      "rationale": "Coupling automatic and numerical differentiation changes derivative accuracy, residual quality, sparse-point robustness, and computational efficiency."
+    },
+    {
+      "id": "evidence:103",
+      "paperId": 552,
+      "objectId": "framework:design-performance:differentiation",
+      "claim": "Differentiation / operator evaluation",
+      "supportType": "Direct",
+      "rationale": "High-order trace estimation directly trades differentiation formulation against memory and runtime while preserving residual accuracy."
+    },
+    {
+      "id": "evidence:104",
+      "paperId": 479,
+      "objectId": "framework:design-performance:sampling",
+      "claim": "Sampling / collocation",
+      "supportType": "Direct",
+      "rationale": "Across more than 6000 runs, collocation distribution changes accuracy and point efficiency for forward and inverse problems."
+    },
+    {
+      "id": "evidence:105",
+      "paperId": 534,
+      "objectId": "framework:design-performance:sampling",
+      "claim": "Sampling / collocation",
+      "supportType": "Direct",
+      "rationale": "Importance sampling improves convergence by reallocating collocation points according to loss information."
+    },
+    {
+      "id": "evidence:106",
+      "paperId": 502,
+      "objectId": "framework:design-performance:loss-formulation",
+      "claim": "Loss formulation",
+      "supportType": "Direct",
+      "rationale": "Composite data, boundary, initial, and PDE losses connect objective construction to accuracy, physics alignment, robustness, and cost."
+    },
+    {
+      "id": "evidence:107",
+      "paperId": 410,
+      "objectId": "framework:design-performance:loss-formulation",
+      "claim": "Loss formulation",
+      "supportType": "Direct",
+      "rationale": "A Bayesian loss and posterior estimator change inverse consistency, noise robustness, uncertainty, and computational cost."
+    },
+    {
+      "id": "evidence:108",
+      "paperId": 502,
+      "objectId": "framework:design-performance:loss-balancing",
+      "claim": "Loss weighting / balancing",
+      "supportType": "Direct",
+      "rationale": "Adaptive loss weights improve error balance and robustness to initial weighting across multiple PDEs."
+    },
+    {
+      "id": "evidence:109",
+      "paperId": 525,
+      "objectId": "framework:design-performance:loss-balancing",
+      "claim": "Loss weighting / balancing",
+      "supportType": "Direct",
+      "rationale": "Gradient-statistic annealing connects weighting to gradient balance, convergence, and predictive accuracy."
+    },
+    {
+      "id": "evidence:110",
+      "paperId": 527,
+      "objectId": "framework:design-performance:loss-balancing",
+      "claim": "Loss weighting / balancing",
+      "supportType": "Direct",
+      "rationale": "Multi-objective gradient conflict affects stability and accuracy and motivates a constrained update direction."
+    },
+    {
+      "id": "evidence:111",
+      "paperId": 823,
+      "objectId": "framework:design-performance:optimizer",
+      "claim": "Optimizer & LR strategy",
+      "supportType": "Direct",
+      "rationale": "Optimizer choice and differential-operator ill-conditioning jointly determine convergence speed, cost, and final accuracy."
+    },
+    {
+      "id": "evidence:112",
+      "paperId": 819,
+      "objectId": "framework:design-performance:optimizer",
+      "claim": "Optimizer & LR strategy",
+      "supportType": "Direct",
+      "rationale": "The optimization-process study directly evaluates how optimizer behavior controls PINN competitiveness and achievable accuracy."
+    },
+    {
+      "id": "evidence:113",
+      "paperId": 543,
+      "objectId": "framework:design-performance:optimizer",
+      "claim": "Optimizer & LR strategy",
+      "supportType": "Direct",
+      "rationale": "Genetic initialization and L-BFGS are combined to improve stability, iteration efficiency, and accuracy."
+    },
+    {
+      "id": "evidence:114",
+      "paperId": 543,
+      "objectId": "framework:design-performance:training-strategy",
+      "claim": "Initialization / training strategy",
+      "supportType": "Direct",
+      "rationale": "A staged initialization and fine-optimization workflow changes the basin reached, training time, and solution quality."
+    },
+    {
+      "id": "evidence:115",
+      "paperId": 660,
+      "objectId": "framework:design-performance:training-strategy",
+      "claim": "Initialization / training strategy",
+      "supportType": "Direct",
+      "rationale": "Time-piecewise training improves long-domain performance by decomposing temporal optimization into adjustable subnetworks."
+    },
+    {
+      "id": "evidence:116",
+      "paperId": 647,
+      "objectId": "framework:design-performance:decomposition",
+      "claim": "Decomposition / parallelization",
+      "supportType": "Direct",
+      "rationale": "XPINN couples local specialization, interface transmission, space-time parallelization, and training cost."
+    },
+    {
+      "id": "evidence:117",
+      "paperId": 612,
+      "objectId": "framework:design-performance:decomposition",
+      "claim": "Decomposition / parallelization",
+      "supportType": "Direct",
+      "rationale": "Soft trainable decomposition changes generalization, local representation, parameter sharing, and decomposition sensitivity."
+    },
+    {
+      "id": "evidence:118",
+      "paperId": 498,
+      "objectId": "framework:design-performance:decomposition",
+      "claim": "Decomposition / parallelization",
+      "supportType": "Direct",
+      "rationale": "Distributed decomposition demonstrates strong scaling and reuse while retaining accuracy on domains far larger than the training domain."
+    },
+    {
+      "id": "evidence:119",
+      "paperId": 603,
+      "objectId": "framework:design-performance:reuse-generalize",
+      "claim": "Reuse / generalize",
+      "supportType": "Direct",
+      "rationale": "Physics-informed DeepONets amortize a learned solution operator across parametric PDE queries with low online cost."
+    },
+    {
+      "id": "evidence:120",
+      "paperId": 578,
+      "objectId": "framework:design-performance:reuse-generalize",
+      "claim": "Reuse / generalize",
+      "supportType": "Direct",
+      "rationale": "GPT-PINN reuses pretrained PINNs in a meta-network to reduce repeated training and parameter count."
+    },
+    {
+      "id": "evidence:121",
+      "paperId": 726,
+      "objectId": "framework:design-performance:reuse-generalize",
+      "claim": "Reuse / generalize",
+      "supportType": "Direct",
+      "rationale": "P2INNs explicitly target repetitive parameterized-PDE training through a latent parameter representation."
+    },
+    {
+      "id": "evidence:122",
+      "paperId": 599,
+      "objectId": "framework:design-performance:reuse-generalize",
+      "claim": "Reuse / generalize",
+      "supportType": "Direct",
+      "rationale": "Separable PI-DeepONet improves high-dimensional scalability and cuts training time while maintaining accuracy."
+    },
+    {
+      "id": "evidence:123",
+      "paperId": 606,
+      "objectId": "framework:failure-diagnostics:spectral-bias",
+      "claim": "Spectral bias / multiscale or high-frequency solution",
+      "supportType": "Direct",
+      "rationale": "The paper identifies eigenvector bias and shows Fourier features improving multi-scale PDE learning, directly supporting the spectral-bias diagnosis and response."
+    },
+    {
+      "id": "evidence:124",
+      "paperId": 231,
+      "objectId": "framework:failure-diagnostics:spectral-bias",
+      "claim": "Spectral bias / multiscale or high-frequency solution",
+      "supportType": "Direct",
+      "rationale": "SAS-PINN uses SIREN high-frequency representation with adaptive collocation for stiff electromagnetic fields."
+    },
+    {
+      "id": "evidence:125",
+      "paperId": 517,
+      "objectId": "framework:failure-diagnostics:spectral-bias",
+      "claim": "Spectral bias / multiscale or high-frequency solution",
+      "supportType": "Direct",
+      "rationale": "Locally adaptive activations with slope recovery provide an alternative basis and improve difficult PINN training."
+    },
+    {
+      "id": "evidence:126",
+      "paperId": 631,
+      "objectId": "framework:failure-diagnostics:discontinuities",
+      "claim": "Discontinuities, shocks, or sharp fronts",
+      "supportType": "Direct",
+      "rationale": "wPINNs use a weak formulation to approximate entropy solutions of hyperbolic conservation laws, directly addressing shocks and discontinuities."
+    },
+    {
+      "id": "evidence:127",
+      "paperId": 628,
+      "objectId": "framework:failure-diagnostics:discontinuities",
+      "claim": "Discontinuities, shocks, or sharp fronts",
+      "supportType": "Direct",
+      "rationale": "Conservative PINNs use subdomains and interface flux continuity for discontinuous conservation-law problems."
+    },
+    {
+      "id": "evidence:128",
+      "paperId": 461,
+      "objectId": "framework:failure-diagnostics:weak-boundaries",
+      "claim": "Weak satisfaction of BCs / ICs / interfaces",
+      "supportType": "Direct",
+      "rationale": "The original neural trial-solution method embeds boundary conditions in the ansatz, directly supporting exact boundary fitting as a response."
+    },
+    {
+      "id": "evidence:129",
+      "paperId": 637,
+      "objectId": "framework:failure-diagnostics:weak-boundaries",
+      "claim": "Weak satisfaction of BCs / ICs / interfaces",
+      "supportType": "Direct",
+      "rationale": "The study directly evaluates exact Dirichlet enforcement in PINNs and VPINNs, supporting a hard-constraint response to persistent boundary error."
+    },
+    {
+      "id": "evidence:130",
+      "paperId": 609,
+      "objectId": "framework:failure-diagnostics:weak-boundaries",
+      "claim": "Weak satisfaction of BCs / ICs / interfaces",
+      "supportType": "Direct",
+      "rationale": "A hard-constraint PINN is constructed to satisfy governing conditions across multiple forward PDE cases."
+    },
+    {
+      "id": "evidence:131",
+      "paperId": 750,
+      "objectId": "framework:failure-diagnostics:weak-boundaries",
+      "claim": "Weak satisfaction of BCs / ICs / interfaces",
+      "supportType": "Direct",
+      "rationale": "Equality-constrained neural training supplies a constraint-based alternative to fixed penalty competition."
+    },
+    {
+      "id": "evidence:132",
+      "paperId": 628,
+      "objectId": "framework:failure-diagnostics:poor-conservation",
+      "claim": "Poor conservation (flux / mass / energy)",
+      "supportType": "Direct",
+      "rationale": "The conservative PINN formulation enforces local conservation and interface flux continuity, matching the diagnosed balance error and targeted response."
+    },
+    {
+      "id": "evidence:133",
+      "paperId": 552,
+      "objectId": "framework:failure-diagnostics:high-order-derivatives",
+      "claim": "High-order derivative cost or instability",
+      "supportType": "Direct",
+      "rationale": "High-order and high-dimensional automatic differentiation is identified as a memory and computation bottleneck and reduced through trace estimation."
+    },
+    {
+      "id": "evidence:134",
+      "paperId": 554,
+      "objectId": "framework:failure-diagnostics:high-order-derivatives",
+      "claim": "High-order derivative cost or instability",
+      "supportType": "Direct",
+      "rationale": "Coupled automatic–numerical differentiation improves efficiency and robustness when conventional AD residuals are costly or sparse."
+    },
+    {
+      "id": "evidence:135",
+      "paperId": 502,
+      "objectId": "framework:failure-diagnostics:imbalanced-loss",
+      "claim": "Imbalanced multi-objective loss (gradient conflict)",
+      "supportType": "Direct",
+      "rationale": "The paper identifies competitive multi-term losses and automatically updates weights to restore balance."
+    },
+    {
+      "id": "evidence:136",
+      "paperId": 525,
+      "objectId": "framework:failure-diagnostics:imbalanced-loss",
+      "claim": "Imbalanced multi-objective loss (gradient conflict)",
+      "supportType": "Direct",
+      "rationale": "Numerical stiffness is linked to unbalanced back-propagated gradients, with gradient-statistic annealing as the response."
+    },
+    {
+      "id": "evidence:137",
+      "paperId": 527,
+      "objectId": "framework:failure-diagnostics:imbalanced-loss",
+      "claim": "Imbalanced multi-objective loss (gradient conflict)",
+      "supportType": "Direct",
+      "rationale": "Negative gradient interaction between PDE and boundary objectives is treated as a multi-objective conflict through dual-cone descent."
+    },
+    {
+      "id": "evidence:138",
+      "paperId": 479,
+      "objectId": "framework:failure-diagnostics:poor-sampling",
+      "claim": "Poor collocation / sampling coverage",
+      "supportType": "Direct",
+      "rationale": "Residual-point placement is shown to control accuracy, and RAD/RAR-D dynamically move points toward under-resolved regions."
+    },
+    {
+      "id": "evidence:139",
+      "paperId": 534,
+      "objectId": "framework:failure-diagnostics:poor-sampling",
+      "claim": "Poor collocation / sampling coverage",
+      "supportType": "Direct",
+      "rationale": "Loss-proportional importance sampling improves convergence by concentrating collocation effort where it is informative."
+    },
+    {
+      "id": "evidence:140",
+      "paperId": 612,
+      "objectId": "framework:failure-diagnostics:large-domain",
+      "claim": "Large / heterogeneous domain (scalability)",
+      "supportType": "Direct",
+      "rationale": "APINN uses a trainable gating network and shared subnetworks for soft domain and function decomposition."
+    },
+    {
+      "id": "evidence:141",
+      "paperId": 647,
+      "objectId": "framework:failure-diagnostics:large-domain",
+      "claim": "Large / heterogeneous domain (scalability)",
+      "supportType": "Direct",
+      "rationale": "XPINN provides spatial and temporal decomposition, local network specialization, interface coupling, and parallelization."
+    },
+    {
+      "id": "evidence:142",
+      "paperId": 498,
+      "objectId": "framework:failure-diagnostics:large-domain",
+      "claim": "Large / heterogeneous domain (scalability)",
+      "supportType": "Direct",
+      "rationale": "Distributed domain decomposition demonstrates strong scaling and reusable inference on domains much larger than the training domain."
+    },
+    {
+      "id": "evidence:143",
+      "paperId": 660,
+      "objectId": "framework:failure-diagnostics:long-time",
+      "claim": "Long-time integration / temporal propagation",
+      "supportType": "Direct",
+      "rationale": "Time-piecewise PINNs improve long-time-domain training by assigning independently adjustable subnetworks to temporal pieces."
+    },
+    {
+      "id": "evidence:144",
+      "paperId": 647,
+      "objectId": "framework:failure-diagnostics:long-time",
+      "claim": "Long-time integration / temporal propagation",
+      "supportType": "Direct",
+      "rationale": "XPINN explicitly supports time-domain decomposition and local temporal specialization."
+    },
+    {
+      "id": "evidence:145",
+      "paperId": 823,
+      "objectId": "framework:failure-diagnostics:stagnation",
+      "claim": "Optimization stagnation / ill-conditioning",
+      "supportType": "Direct",
+      "rationale": "The paper links differential operators to an ill-conditioned PINN loss landscape and compares first-order, hybrid, and second-order remedies."
+    },
+    {
+      "id": "evidence:146",
+      "paperId": 819,
+      "objectId": "framework:failure-diagnostics:stagnation",
+      "claim": "Optimization stagnation / ill-conditioning",
+      "supportType": "Direct",
+      "rationale": "Optimization-process analysis examines attainable accuracy and optimizer competitiveness rather than treating stagnation as an architecture-only issue."
+    },
+    {
+      "id": "evidence:147",
+      "paperId": 543,
+      "objectId": "framework:failure-diagnostics:stagnation",
+      "claim": "Optimization stagnation / ill-conditioning",
+      "supportType": "Direct",
+      "rationale": "Genetic initialization followed by L-BFGS supplies a staged response intended to improve stability and final accuracy."
+    },
+    {
+      "id": "evidence:148",
+      "paperId": 410,
+      "objectId": "framework:failure-diagnostics:sparse-noisy-inverse",
+      "claim": "Sparse / noisy data, non-identifiable inverse problem",
+      "supportType": "Direct",
+      "rationale": "B-PINNs combine physical laws and scattered noisy measurements for forward and inverse inference while quantifying aleatoric uncertainty."
+    },
+    {
+      "id": "evidence:149",
+      "paperId": 507,
+      "objectId": "framework:failure-diagnostics:sparse-noisy-inverse",
+      "claim": "Sparse / noisy data, non-identifiable inverse problem",
+      "supportType": "Direct",
+      "rationale": "The method separates parametric and approximation uncertainty and uses uncertainty to guide new sensor placement."
+    },
+    {
+      "id": "evidence:150",
+      "paperId": 603,
+      "objectId": "framework:failure-diagnostics:repeated-query",
+      "claim": "Repeated-query cost / retraining for new instances",
+      "supportType": "Direct",
+      "rationale": "Physics-informed DeepONets learn a reusable solution operator and report rapid prediction across parametric PDE instances."
+    },
+    {
+      "id": "evidence:151",
+      "paperId": 578,
+      "objectId": "framework:failure-diagnostics:repeated-query",
+      "claim": "Repeated-query cost / retraining for new instances",
+      "supportType": "Direct",
+      "rationale": "GPT-PINN reuses selected pretrained PINNs in a compact meta-network for parametric systems."
+    },
+    {
+      "id": "evidence:152",
+      "paperId": 726,
+      "objectId": "framework:failure-diagnostics:repeated-query",
+      "claim": "Repeated-query cost / retraining for new instances",
+      "supportType": "Direct",
+      "rationale": "P2INNs avoid repetitive training by learning a latent representation across parameterized PDEs."
+    },
+    {
+      "id": "evidence:153",
+      "paperId": 599,
+      "objectId": "framework:failure-diagnostics:repeated-query",
+      "claim": "Repeated-query cost / retraining for new instances",
+      "supportType": "Direct",
+      "rationale": "Separable PI-DeepONet reduces high-dimensional operator-learning cost while retaining comparable accuracy."
+    },
+    {
+      "id": "evidence:154",
+      "paperId": 410,
+      "objectId": "framework:failure-diagnostics:uncertainty",
+      "claim": "Unquantified or uncalibrated uncertainty",
+      "supportType": "Direct",
+      "rationale": "Bayesian PINNs compare posterior estimators and show that predictive fit alone does not establish reasonable uncertainty under noisy data."
+    },
+    {
+      "id": "evidence:155",
+      "paperId": 507,
+      "objectId": "framework:failure-diagnostics:uncertainty",
+      "claim": "Unquantified or uncalibrated uncertainty",
+      "supportType": "Direct",
+      "rationale": "Total-uncertainty PINNs quantify both parametric and approximation uncertainty for forward and inverse stochastic problems."
+    },
+    {
+      "id": "evidence:156",
+      "paperId": 508,
+      "objectId": "framework:failure-diagnostics:uncertainty",
+      "claim": "Unquantified or uncalibrated uncertainty",
+      "supportType": "Direct",
+      "rationale": "Physics-informed variational inference supplies a probabilistic latent representation for stochastic forward and inverse equations."
+    },
+    {
+      "id": "evidence:157",
+      "paperId": 401,
+      "objectId": "framework:failure-diagnostics:verify",
+      "claim": "Verify improvement",
+      "supportType": "Synthesized",
+      "rationale": "The review supports evaluating physics-informed models through numerical, physical, robustness, uncertainty, and computational criteria rather than one loss value."
+    },
+    {
+      "id": "evidence:158",
+      "paperId": 401,
+      "objectId": "formulation:f001",
+      "claim": "General governing physical problem",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:159",
+      "paperId": 450,
+      "objectId": "formulation:f001",
+      "claim": "General governing physical problem",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:160",
+      "paperId": 323,
+      "objectId": "formulation:f001",
+      "claim": "General governing physical problem",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:161",
+      "paperId": 228,
+      "objectId": "formulation:f002",
+      "claim": "Boundary operator",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:162",
+      "paperId": 323,
+      "objectId": "formulation:f002",
+      "claim": "Boundary operator",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:163",
+      "paperId": 401,
+      "objectId": "formulation:f002",
+      "claim": "Boundary operator",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:164",
+      "paperId": 323,
+      "objectId": "formulation:f003",
+      "claim": "Initial condition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:165",
+      "paperId": 401,
+      "objectId": "formulation:f003",
+      "claim": "Initial condition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:166",
+      "paperId": 266,
+      "objectId": "formulation:f003",
+      "claim": "Initial condition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:167",
+      "paperId": 77,
+      "objectId": "formulation:f004",
+      "claim": "Interface conditions",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:168",
+      "paperId": 733,
+      "objectId": "formulation:f004",
+      "claim": "Interface conditions",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:169",
+      "paperId": 840,
+      "objectId": "formulation:f004",
+      "claim": "Interface conditions",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:170",
+      "paperId": 431,
+      "objectId": "formulation:f005",
+      "claim": "Observation model",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:171",
+      "paperId": 241,
+      "objectId": "formulation:f005",
+      "claim": "Observation model",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:172",
+      "paperId": 244,
+      "objectId": "formulation:f005",
+      "claim": "Observation model",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:173",
+      "paperId": 149,
+      "objectId": "formulation:f006",
+      "claim": "Canonical neural approximation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:174",
+      "paperId": 401,
+      "objectId": "formulation:f006",
+      "claim": "Canonical neural approximation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:175",
+      "paperId": 450,
+      "objectId": "formulation:f006",
+      "claim": "Canonical neural approximation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:176",
+      "paperId": 24,
+      "objectId": "formulation:f007",
+      "claim": "Unified input descriptor",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:177",
+      "paperId": 226,
+      "objectId": "formulation:f007",
+      "claim": "Unified input descriptor",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:178",
+      "paperId": 353,
+      "objectId": "formulation:f007",
+      "claim": "Unified input descriptor",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:179",
+      "paperId": 726,
+      "objectId": "formulation:f007",
+      "claim": "Unified input descriptor",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:180",
+      "paperId": 817,
+      "objectId": "formulation:f007",
+      "claim": "Unified input descriptor",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:181",
+      "paperId": 31,
+      "objectId": "formulation:f008",
+      "claim": "Vector-valued physical output",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:182",
+      "paperId": 431,
+      "objectId": "formulation:f008",
+      "claim": "Vector-valued physical output",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:183",
+      "paperId": 604,
+      "objectId": "formulation:f008",
+      "claim": "Vector-valued physical output",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:184",
+      "paperId": 834,
+      "objectId": "formulation:f008",
+      "claim": "Vector-valued physical output",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:185",
+      "paperId": 7,
+      "objectId": "formulation:f009",
+      "claim": "Multilayer-perceptron realization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:186",
+      "paperId": 401,
+      "objectId": "formulation:f009",
+      "claim": "Multilayer-perceptron realization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:187",
+      "paperId": 488,
+      "objectId": "formulation:f009",
+      "claim": "Multilayer-perceptron realization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:188",
+      "paperId": 513,
+      "objectId": "formulation:f009",
+      "claim": "Multilayer-perceptron realization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:189",
+      "paperId": 149,
+      "objectId": "formulation:f010",
+      "claim": "Strong-form governing residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:190",
+      "paperId": 323,
+      "objectId": "formulation:f010",
+      "claim": "Strong-form governing residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:191",
+      "paperId": 401,
+      "objectId": "formulation:f010",
+      "claim": "Strong-form governing residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:192",
+      "paperId": 450,
+      "objectId": "formulation:f010",
+      "claim": "Strong-form governing residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:193",
+      "paperId": 401,
+      "objectId": "formulation:f011",
+      "claim": "Automatic-differentiation derivative",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:194",
+      "paperId": 450,
+      "objectId": "formulation:f011",
+      "claim": "Automatic-differentiation derivative",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:195",
+      "paperId": 466,
+      "objectId": "formulation:f011",
+      "claim": "Automatic-differentiation derivative",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:196",
+      "paperId": 323,
+      "objectId": "formulation:f012",
+      "claim": "Collocation approximation of physics loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:197",
+      "paperId": 401,
+      "objectId": "formulation:f012",
+      "claim": "Collocation approximation of physics loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:198",
+      "paperId": 450,
+      "objectId": "formulation:f012",
+      "claim": "Collocation approximation of physics loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:199",
+      "paperId": 323,
+      "objectId": "formulation:f013",
+      "claim": "Canonical composite PINN objective",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:200",
+      "paperId": 401,
+      "objectId": "formulation:f013",
+      "claim": "Canonical composite PINN objective",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:201",
+      "paperId": 502,
+      "objectId": "formulation:f013",
+      "claim": "Canonical composite PINN objective",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:202",
+      "paperId": 401,
+      "objectId": "formulation:f014",
+      "claim": "Data-misfit loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:203",
+      "paperId": 431,
+      "objectId": "formulation:f014",
+      "claim": "Data-misfit loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:204",
+      "paperId": 241,
+      "objectId": "formulation:f014",
+      "claim": "Data-misfit loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:205",
+      "paperId": 228,
+      "objectId": "formulation:f015",
+      "claim": "Boundary-condition loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:206",
+      "paperId": 323,
+      "objectId": "formulation:f015",
+      "claim": "Boundary-condition loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:207",
+      "paperId": 401,
+      "objectId": "formulation:f015",
+      "claim": "Boundary-condition loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:208",
+      "paperId": 323,
+      "objectId": "formulation:f016",
+      "claim": "Initial-condition loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:209",
+      "paperId": 401,
+      "objectId": "formulation:f016",
+      "claim": "Initial-condition loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:210",
+      "paperId": 266,
+      "objectId": "formulation:f016",
+      "claim": "Initial-condition loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:211",
+      "paperId": 281,
+      "objectId": "formulation:f017",
+      "claim": "Terminal-condition loss",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:212",
+      "paperId": 77,
+      "objectId": "formulation:f018",
+      "claim": "Interface state-continuity loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:213",
+      "paperId": 733,
+      "objectId": "formulation:f018",
+      "claim": "Interface state-continuity loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:214",
+      "paperId": 840,
+      "objectId": "formulation:f018",
+      "claim": "Interface state-continuity loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:215",
+      "paperId": 77,
+      "objectId": "formulation:f019",
+      "claim": "Interface flux-continuity loss",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:216",
+      "paperId": 733,
+      "objectId": "formulation:f019",
+      "claim": "Interface flux-continuity loss",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:217",
+      "paperId": 840,
+      "objectId": "formulation:f019",
+      "claim": "Interface flux-continuity loss",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:218",
+      "paperId": 450,
+      "objectId": "formulation:f020",
+      "claim": "Forward PINN optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:219",
+      "paperId": 266,
+      "objectId": "formulation:f020",
+      "claim": "Forward PINN optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:220",
+      "paperId": 401,
+      "objectId": "formulation:f020",
+      "claim": "Forward PINN optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:221",
+      "paperId": 450,
+      "objectId": "formulation:f021",
+      "claim": "Joint inverse state-parameter optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:222",
+      "paperId": 334,
+      "objectId": "formulation:f021",
+      "claim": "Joint inverse state-parameter optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:223",
+      "paperId": 431,
+      "objectId": "formulation:f021",
+      "claim": "Joint inverse state-parameter optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:224",
+      "paperId": 241,
+      "objectId": "formulation:f021",
+      "claim": "Joint inverse state-parameter optimization",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:225",
+      "paperId": 154,
+      "objectId": "formulation:f022",
+      "claim": "Auxiliary parameter-field network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:226",
+      "paperId": 420,
+      "objectId": "formulation:f022",
+      "claim": "Auxiliary parameter-field network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:227",
+      "paperId": 834,
+      "objectId": "formulation:f022",
+      "claim": "Auxiliary parameter-field network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:228",
+      "paperId": 431,
+      "objectId": "formulation:f023",
+      "claim": "Data-assimilation objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:229",
+      "paperId": 244,
+      "objectId": "formulation:f023",
+      "claim": "Data-assimilation objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:230",
+      "paperId": 401,
+      "objectId": "formulation:f023",
+      "claim": "Data-assimilation objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:231",
+      "paperId": 461,
+      "objectId": "formulation:f024",
+      "claim": "Hard-constrained value/Dirichlet trial function",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:232",
+      "paperId": 298,
+      "objectId": "formulation:f024",
+      "claim": "Hard-constrained value/Dirichlet trial function",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:233",
+      "paperId": 47,
+      "objectId": "formulation:f024",
+      "claim": "Hard-constrained value/Dirichlet trial function",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:234",
+      "paperId": 40,
+      "objectId": "formulation:f025",
+      "claim": "Distance-function Dirichlet construction",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:235",
+      "paperId": 500,
+      "objectId": "formulation:f025",
+      "claim": "Distance-function Dirichlet construction",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:236",
+      "paperId": 47,
+      "objectId": "formulation:f025",
+      "claim": "Distance-function Dirichlet construction",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:237",
+      "paperId": 147,
+      "objectId": "formulation:f026",
+      "claim": "Augmented-Lagrangian equality constraint",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:238",
+      "paperId": 750,
+      "objectId": "formulation:f026",
+      "claim": "Augmented-Lagrangian equality constraint",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:239",
+      "paperId": 267,
+      "objectId": "formulation:f027",
+      "claim": "Equality, inequality, and KKT consistency",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:240",
+      "paperId": 338,
+      "objectId": "formulation:f027",
+      "claim": "Equality, inequality, and KKT consistency",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:241",
+      "paperId": 228,
+      "objectId": "formulation:f028",
+      "claim": "Weak residual statement",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:242",
+      "paperId": 379,
+      "objectId": "formulation:f028",
+      "claim": "Weak residual statement",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:243",
+      "paperId": 636,
+      "objectId": "formulation:f028",
+      "claim": "Weak residual statement",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:244",
+      "paperId": 228,
+      "objectId": "formulation:f029",
+      "claim": "Integration-by-parts weak form (elliptic example)",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:245",
+      "paperId": 379,
+      "objectId": "formulation:f029",
+      "claim": "Integration-by-parts weak form (elliptic example)",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:246",
+      "paperId": 631,
+      "objectId": "formulation:f029",
+      "claim": "Integration-by-parts weak form (elliptic example)",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:247",
+      "paperId": 379,
+      "objectId": "formulation:f030",
+      "claim": "Galerkin/quadrature weak loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:248",
+      "paperId": 636,
+      "objectId": "formulation:f030",
+      "claim": "Galerkin/quadrature weak loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:249",
+      "paperId": 638,
+      "objectId": "formulation:f030",
+      "claim": "Galerkin/quadrature weak loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:250",
+      "paperId": 353,
+      "objectId": "formulation:f031",
+      "claim": "Variational stationarity and energy minimum",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:251",
+      "paperId": 190,
+      "objectId": "formulation:f031",
+      "claim": "Variational stationarity and energy minimum",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:252",
+      "paperId": 636,
+      "objectId": "formulation:f031",
+      "claim": "Variational stationarity and energy minimum",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:253",
+      "paperId": 190,
+      "objectId": "formulation:f032",
+      "claim": "Total potential-energy objective",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:254",
+      "paperId": 285,
+      "objectId": "formulation:f033",
+      "claim": "Entropy admissibility inequality",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:255",
+      "paperId": 631,
+      "objectId": "formulation:f033",
+      "claim": "Entropy admissibility inequality",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:256",
+      "paperId": 285,
+      "objectId": "formulation:f034",
+      "claim": "Entropy-violation penalty",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:257",
+      "paperId": 631,
+      "objectId": "formulation:f034",
+      "claim": "Entropy-violation penalty",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:258",
+      "paperId": 818,
+      "objectId": "formulation:f034",
+      "claim": "Entropy-violation penalty",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:259",
+      "paperId": 734,
+      "objectId": "formulation:f035",
+      "claim": "Integral conservation balance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:260",
+      "paperId": 321,
+      "objectId": "formulation:f035",
+      "claim": "Integral conservation balance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:261",
+      "paperId": 801,
+      "objectId": "formulation:f035",
+      "claim": "Integral conservation balance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:262",
+      "paperId": 321,
+      "objectId": "formulation:f036",
+      "claim": "Finite-volume residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:263",
+      "paperId": 801,
+      "objectId": "formulation:f036",
+      "claim": "Finite-volume residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:264",
+      "paperId": 802,
+      "objectId": "formulation:f036",
+      "claim": "Finite-volume residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:265",
+      "paperId": 514,
+      "objectId": "formulation:f037",
+      "claim": "Finite-difference residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:266",
+      "paperId": 291,
+      "objectId": "formulation:f037",
+      "claim": "Finite-difference residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:267",
+      "paperId": 554,
+      "objectId": "formulation:f037",
+      "claim": "Finite-difference residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:268",
+      "paperId": 514,
+      "objectId": "formulation:f038",
+      "claim": "Convolutional discrete-operator residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:269",
+      "paperId": 749,
+      "objectId": "formulation:f039",
+      "claim": "Boundary-integral representation (Laplace-type)",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:270",
+      "paperId": 759,
+      "objectId": "formulation:f039",
+      "claim": "Boundary-integral representation (Laplace-type)",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:271",
+      "paperId": 5,
+      "objectId": "formulation:f040",
+      "claim": "Fredholm-type integral-equation residual",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:272",
+      "paperId": 759,
+      "objectId": "formulation:f040",
+      "claim": "Fredholm-type integral-equation residual",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:273",
+      "paperId": 154,
+      "objectId": "formulation:f041",
+      "claim": "Fractional/nonlocal residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:274",
+      "paperId": 13,
+      "objectId": "formulation:f041",
+      "claim": "Fractional/nonlocal residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:275",
+      "paperId": 505,
+      "objectId": "formulation:f041",
+      "claim": "Fractional/nonlocal residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:276",
+      "paperId": 554,
+      "objectId": "formulation:f042",
+      "claim": "Coupled automatic–numerical differentiation",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:277",
+      "paperId": 506,
+      "objectId": "formulation:f043",
+      "claim": "Mixed diffusion flux-state formulation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:278",
+      "paperId": 427,
+      "objectId": "formulation:f043",
+      "claim": "Mixed diffusion flux-state formulation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:279",
+      "paperId": 476,
+      "objectId": "formulation:f043",
+      "claim": "Mixed diffusion flux-state formulation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:280",
+      "paperId": 506,
+      "objectId": "formulation:f044",
+      "claim": "First-order compatibility residual",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:281",
+      "paperId": 501,
+      "objectId": "formulation:f045",
+      "claim": "Streamfunction incompressibility representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:282",
+      "paperId": 427,
+      "objectId": "formulation:f045",
+      "claim": "Streamfunction incompressibility representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:283",
+      "paperId": 391,
+      "objectId": "formulation:f046",
+      "claim": "Mixed displacement–stress representation (linear elasticity)",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:284",
+      "paperId": 548,
+      "objectId": "formulation:f046",
+      "claim": "Mixed displacement–stress representation (linear elasticity)",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:285",
+      "paperId": 403,
+      "objectId": "formulation:f047",
+      "claim": "Auxiliary derivative network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:286",
+      "paperId": 506,
+      "objectId": "formulation:f047",
+      "claim": "Auxiliary derivative network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:287",
+      "paperId": 604,
+      "objectId": "formulation:f048",
+      "claim": "Semi-explicit differential-algebraic residual system",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:288",
+      "paperId": 450,
+      "objectId": "formulation:f049",
+      "claim": "Implicit Runge–Kutta stage equations",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:289",
+      "paperId": 604,
+      "objectId": "formulation:f049",
+      "claim": "Implicit Runge–Kutta stage equations",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:290",
+      "paperId": 450,
+      "objectId": "formulation:f050",
+      "claim": "Backward-Euler governing residual",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:291",
+      "paperId": 291,
+      "objectId": "formulation:f050",
+      "claim": "Backward-Euler governing residual",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:292",
+      "paperId": 801,
+      "objectId": "formulation:f050",
+      "claim": "Backward-Euler governing residual",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:293",
+      "paperId": 191,
+      "objectId": "formulation:f051",
+      "claim": "Radial-basis-function approximation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:294",
+      "paperId": 610,
+      "objectId": "formulation:f051",
+      "claim": "Radial-basis-function approximation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:295",
+      "paperId": 640,
+      "objectId": "formulation:f051",
+      "claim": "Radial-basis-function approximation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:296",
+      "paperId": 606,
+      "objectId": "formulation:f052",
+      "claim": "Fourier feature map",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:297",
+      "paperId": 204,
+      "objectId": "formulation:f052",
+      "claim": "Fourier feature map",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:298",
+      "paperId": 231,
+      "objectId": "formulation:f053",
+      "claim": "Sinusoidal representation network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:299",
+      "paperId": 279,
+      "objectId": "formulation:f053",
+      "claim": "Sinusoidal representation network",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:300",
+      "paperId": 621,
+      "objectId": "formulation:f054",
+      "claim": "Gabor-type feature",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:301",
+      "paperId": 625,
+      "objectId": "formulation:f054",
+      "claim": "Gabor-type feature",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:302",
+      "paperId": 81,
+      "objectId": "formulation:f055",
+      "claim": "Kolmogorov–Arnold edge-function layer",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:303",
+      "paperId": 262,
+      "objectId": "formulation:f055",
+      "claim": "Kolmogorov–Arnold edge-function layer",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:304",
+      "paperId": 175,
+      "objectId": "formulation:f056",
+      "claim": "Separated-variable representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:305",
+      "paperId": 220,
+      "objectId": "formulation:f056",
+      "claim": "Separated-variable representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:306",
+      "paperId": 200,
+      "objectId": "formulation:f056",
+      "claim": "Separated-variable representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:307",
+      "paperId": 172,
+      "objectId": "formulation:f057",
+      "claim": "Local subdomain PINNs",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:308",
+      "paperId": 612,
+      "objectId": "formulation:f057",
+      "claim": "Local subdomain PINNs",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:309",
+      "paperId": 733,
+      "objectId": "formulation:f057",
+      "claim": "Local subdomain PINNs",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:310",
+      "paperId": 612,
+      "objectId": "formulation:f058",
+      "claim": "Subdomain state coupling",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:311",
+      "paperId": 733,
+      "objectId": "formulation:f058",
+      "claim": "Subdomain state coupling",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:312",
+      "paperId": 840,
+      "objectId": "formulation:f058",
+      "claim": "Subdomain state coupling",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:313",
+      "paperId": 733,
+      "objectId": "formulation:f059",
+      "claim": "Conservative subdomain flux coupling",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:314",
+      "paperId": 840,
+      "objectId": "formulation:f059",
+      "claim": "Conservative subdomain flux coupling",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:315",
+      "paperId": 612,
+      "objectId": "formulation:f060",
+      "claim": "Domain-decomposed composite objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:316",
+      "paperId": 733,
+      "objectId": "formulation:f060",
+      "claim": "Domain-decomposed composite objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:317",
+      "paperId": 612,
+      "objectId": "formulation:f061",
+      "claim": "Gated soft decomposition",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:318",
+      "paperId": 172,
+      "objectId": "formulation:f062",
+      "claim": "Progressive residual-driven decomposition",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:319",
+      "paperId": 733,
+      "objectId": "formulation:f063",
+      "claim": "Parallel block-gradient objective aggregation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:320",
+      "paperId": 498,
+      "objectId": "formulation:f063",
+      "claim": "Parallel block-gradient objective aggregation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:321",
+      "paperId": 660,
+      "objectId": "formulation:f064",
+      "claim": "Temporal-window decomposition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:322",
+      "paperId": 810,
+      "objectId": "formulation:f064",
+      "claim": "Temporal-window decomposition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:323",
+      "paperId": 845,
+      "objectId": "formulation:f064",
+      "claim": "Temporal-window decomposition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:324",
+      "paperId": 321,
+      "objectId": "formulation:f065",
+      "claim": "Time-marching state transfer",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:325",
+      "paperId": 413,
+      "objectId": "formulation:f065",
+      "claim": "Time-marching state transfer",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:326",
+      "paperId": 586,
+      "objectId": "formulation:f065",
+      "claim": "Time-marching state transfer",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:327",
+      "paperId": 660,
+      "objectId": "formulation:f065",
+      "claim": "Time-marching state transfer",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:328",
+      "paperId": 660,
+      "objectId": "formulation:f066",
+      "claim": "Sequential time-block objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:329",
+      "paperId": 810,
+      "objectId": "formulation:f066",
+      "claim": "Sequential time-block objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:330",
+      "paperId": 845,
+      "objectId": "formulation:f066",
+      "claim": "Sequential time-block objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:331",
+      "paperId": 187,
+      "objectId": "formulation:f067",
+      "claim": "One-network-per-region/phase representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:332",
+      "paperId": 199,
+      "objectId": "formulation:f067",
+      "claim": "One-network-per-region/phase representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:333",
+      "paperId": 840,
+      "objectId": "formulation:f067",
+      "claim": "One-network-per-region/phase representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:334",
+      "paperId": 817,
+      "objectId": "formulation:f068",
+      "claim": "Shared-trunk / branched physical outputs",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:335",
+      "paperId": 835,
+      "objectId": "formulation:f068",
+      "claim": "Shared-trunk / branched physical outputs",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:336",
+      "paperId": 647,
+      "objectId": "formulation:f069",
+      "claim": "Space–time decomposition",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:337",
+      "paperId": 733,
+      "objectId": "formulation:f069",
+      "claim": "Space–time decomposition",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:338",
+      "paperId": 660,
+      "objectId": "formulation:f069",
+      "claim": "Space–time decomposition",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:339",
+      "paperId": 726,
+      "objectId": "formulation:f070",
+      "claim": "Parameterized PINN",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:340",
+      "paperId": 353,
+      "objectId": "formulation:f070",
+      "claim": "Parameterized PINN",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:341",
+      "paperId": 226,
+      "objectId": "formulation:f070",
+      "claim": "Parameterized PINN",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:342",
+      "paperId": 697,
+      "objectId": "formulation:f070",
+      "claim": "Parameterized PINN",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:343",
+      "paperId": 613,
+      "objectId": "formulation:f071",
+      "claim": "Conditional residual over a parameter family",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:344",
+      "paperId": 726,
+      "objectId": "formulation:f071",
+      "claim": "Conditional residual over a parameter family",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:345",
+      "paperId": 726,
+      "objectId": "formulation:f072",
+      "claim": "Hypernetwork-generated PINN parameters",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:346",
+      "paperId": 752,
+      "objectId": "formulation:f072",
+      "claim": "Hypernetwork-generated PINN parameters",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:347",
+      "paperId": 578,
+      "objectId": "formulation:f073",
+      "claim": "Reduced-basis PINN representation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:348",
+      "paperId": 553,
+      "objectId": "formulation:f073",
+      "claim": "Reduced-basis PINN representation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:349",
+      "paperId": 343,
+      "objectId": "formulation:f073",
+      "claim": "Reduced-basis PINN representation",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:350",
+      "paperId": 236,
+      "objectId": "formulation:f074",
+      "claim": "POD-coordinate surrogate",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:351",
+      "paperId": 242,
+      "objectId": "formulation:f074",
+      "claim": "POD-coordinate surrogate",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:352",
+      "paperId": 465,
+      "objectId": "formulation:f075",
+      "claim": "Solution operator",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:353",
+      "paperId": 808,
+      "objectId": "formulation:f075",
+      "claim": "Solution operator",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:354",
+      "paperId": 596,
+      "objectId": "formulation:f076",
+      "claim": "DeepONet branch–trunk representation",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:355",
+      "paperId": 601,
+      "objectId": "formulation:f076",
+      "claim": "DeepONet branch–trunk representation",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:356",
+      "paperId": 602,
+      "objectId": "formulation:f076",
+      "claim": "DeepONet branch–trunk representation",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:357",
+      "paperId": 743,
+      "objectId": "formulation:f076",
+      "claim": "DeepONet branch–trunk representation",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:358",
+      "paperId": 601,
+      "objectId": "formulation:f077",
+      "claim": "Physics-informed DeepONet residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:359",
+      "paperId": 603,
+      "objectId": "formulation:f077",
+      "claim": "Physics-informed DeepONet residual",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:360",
+      "paperId": 599,
+      "objectId": "formulation:f078",
+      "claim": "Separable operator representation",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:361",
+      "paperId": 693,
+      "objectId": "formulation:f079",
+      "claim": "Fourier neural-operator layer",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:362",
+      "paperId": 746,
+      "objectId": "formulation:f079",
+      "claim": "Fourier neural-operator layer",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:363",
+      "paperId": 808,
+      "objectId": "formulation:f079",
+      "claim": "Fourier neural-operator layer",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:364",
+      "paperId": 622,
+      "objectId": "formulation:f080",
+      "claim": "Physics-informed Fourier-operator objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:365",
+      "paperId": 693,
+      "objectId": "formulation:f080",
+      "claim": "Physics-informed Fourier-operator objective",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:366",
+      "paperId": 642,
+      "objectId": "formulation:f081",
+      "claim": "Multi-fidelity operator correction",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:367",
+      "paperId": 603,
+      "objectId": "formulation:f081",
+      "claim": "Multi-fidelity operator correction",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:368",
+      "paperId": 645,
+      "objectId": "formulation:f082",
+      "claim": "Stacked operator composition",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:369",
+      "paperId": 603,
+      "objectId": "formulation:f083",
+      "claim": "Family-averaged operator loss",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:370",
+      "paperId": 599,
+      "objectId": "formulation:f083",
+      "claim": "Family-averaged operator loss",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:371",
+      "paperId": 600,
+      "objectId": "formulation:f083",
+      "claim": "Family-averaged operator loss",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:372",
+      "paperId": 450,
+      "objectId": "formulation:f084",
+      "claim": "Joint state–parameter inverse model",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:373",
+      "paperId": 334,
+      "objectId": "formulation:f084",
+      "claim": "Joint state–parameter inverse model",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:374",
+      "paperId": 431,
+      "objectId": "formulation:f084",
+      "claim": "Joint state–parameter inverse model",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:375",
+      "paperId": 154,
+      "objectId": "formulation:f085",
+      "claim": "Spatial coefficient-field inversion",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:376",
+      "paperId": 420,
+      "objectId": "formulation:f085",
+      "claim": "Spatial coefficient-field inversion",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:377",
+      "paperId": 834,
+      "objectId": "formulation:f085",
+      "claim": "Spatial coefficient-field inversion",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:378",
+      "paperId": 338,
+      "objectId": "formulation:f086",
+      "claim": "Constitutive feasibility and complementarity penalty",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:379",
+      "paperId": 144,
+      "objectId": "formulation:f087",
+      "claim": "Sparse governing-equation discovery",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:380",
+      "paperId": 338,
+      "objectId": "formulation:f087",
+      "claim": "Sparse governing-equation discovery",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:381",
+      "paperId": 410,
+      "objectId": "formulation:f088",
+      "claim": "Bayesian PINN posterior",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:382",
+      "paperId": 410,
+      "objectId": "formulation:f089",
+      "claim": "Independent Gaussian residual likelihood",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:383",
+      "paperId": 614,
+      "objectId": "formulation:f089",
+      "claim": "Independent Gaussian residual likelihood",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:384",
+      "paperId": 410,
+      "objectId": "formulation:f090",
+      "claim": "Posterior predictive distribution",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:385",
+      "paperId": 614,
+      "objectId": "formulation:f090",
+      "claim": "Posterior predictive distribution",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:386",
+      "paperId": 410,
+      "objectId": "formulation:f091",
+      "claim": "Variational-inference objective",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:387",
+      "paperId": 614,
+      "objectId": "formulation:f091",
+      "claim": "Variational-inference objective",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:388",
+      "paperId": 444,
+      "objectId": "formulation:f092",
+      "claim": "Physics-informed adversarial objective",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:389",
+      "paperId": 499,
+      "objectId": "formulation:f092",
+      "claim": "Physics-informed adversarial objective",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:390",
+      "paperId": 562,
+      "objectId": "formulation:f093",
+      "claim": "Physics-constrained invertible/flow model",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:391",
+      "paperId": 680,
+      "objectId": "formulation:f093",
+      "claim": "Physics-constrained invertible/flow model",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:392",
+      "paperId": 483,
+      "objectId": "formulation:f094",
+      "claim": "Ensemble predictive mean and covariance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:393",
+      "paperId": 410,
+      "objectId": "formulation:f094",
+      "claim": "Ensemble predictive mean and covariance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:394",
+      "paperId": 410,
+      "objectId": "formulation:f095",
+      "claim": "Empirical predictive-interval coverage",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:395",
+      "paperId": 617,
+      "objectId": "formulation:f095",
+      "claim": "Empirical predictive-interval coverage",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:396",
+      "paperId": 95,
+      "objectId": "formulation:f096",
+      "claim": "Nondimensionalization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:397",
+      "paperId": 204,
+      "objectId": "formulation:f096",
+      "claim": "Nondimensionalization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:398",
+      "paperId": 717,
+      "objectId": "formulation:f096",
+      "claim": "Nondimensionalization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:399",
+      "paperId": 401,
+      "objectId": "formulation:f097",
+      "claim": "Normalized multi-term scalarization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:400",
+      "paperId": 340,
+      "objectId": "formulation:f097",
+      "claim": "Normalized multi-term scalarization",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:401",
+      "paperId": 61,
+      "objectId": "formulation:f098",
+      "claim": "Adaptive loss weighting",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:402",
+      "paperId": 541,
+      "objectId": "formulation:f098",
+      "claim": "Adaptive loss weighting",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:403",
+      "paperId": 700,
+      "objectId": "formulation:f098",
+      "claim": "Adaptive loss weighting",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:404",
+      "paperId": 810,
+      "objectId": "formulation:f098",
+      "claim": "Adaptive loss weighting",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:405",
+      "paperId": 525,
+      "objectId": "formulation:f099",
+      "claim": "Gradient-norm balancing target",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:406",
+      "paperId": 541,
+      "objectId": "formulation:f099",
+      "claim": "Gradient-norm balancing target",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:407",
+      "paperId": 541,
+      "objectId": "formulation:f100",
+      "claim": "Bounded-mask self-adaptive point weighting",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:408",
+      "paperId": 700,
+      "objectId": "formulation:f100",
+      "claim": "Bounded-mask self-adaptive point weighting",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:409",
+      "paperId": 505,
+      "objectId": "formulation:f101",
+      "claim": "Gradient-enhanced physics loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:410",
+      "paperId": 516,
+      "objectId": "formulation:f101",
+      "claim": "Gradient-enhanced physics loss",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:411",
+      "paperId": 534,
+      "objectId": "formulation:f102",
+      "claim": "Loss-informed importance-sampling density",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:412",
+      "paperId": 479,
+      "objectId": "formulation:f103",
+      "claim": "Residual-based adaptive sampling",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:413",
+      "paperId": 534,
+      "objectId": "formulation:f103",
+      "claim": "Residual-based adaptive sampling",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:414",
+      "paperId": 820,
+      "objectId": "formulation:f103",
+      "claim": "Residual-based adaptive sampling",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:415",
+      "paperId": 509,
+      "objectId": "formulation:f104",
+      "claim": "Neural tangent kernel for scalar and vector PINN outputs",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:416",
+      "paperId": 525,
+      "objectId": "formulation:f104",
+      "claim": "Neural tangent kernel for scalar and vector PINN outputs",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:417",
+      "paperId": 527,
+      "objectId": "formulation:f105",
+      "claim": "Pareto stationarity for multi-objective PINNs",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:418",
+      "paperId": 11,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:419",
+      "paperId": 77,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:420",
+      "paperId": 172,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:421",
+      "paperId": 260,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:422",
+      "paperId": 420,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:423",
+      "paperId": 502,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:424",
+      "paperId": 603,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:425",
+      "paperId": 703,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:426",
+      "paperId": 817,
+      "objectId": "formulation:f106",
+      "claim": "Relative \\(L_2\\) field error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:427",
+      "paperId": 11,
+      "objectId": "formulation:f107",
+      "claim": "Root-mean-square error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:428",
+      "paperId": 77,
+      "objectId": "formulation:f107",
+      "claim": "Root-mean-square error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:429",
+      "paperId": 172,
+      "objectId": "formulation:f107",
+      "claim": "Root-mean-square error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:430",
+      "paperId": 260,
+      "objectId": "formulation:f107",
+      "claim": "Root-mean-square error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:431",
+      "paperId": 420,
+      "objectId": "formulation:f107",
+      "claim": "Root-mean-square error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:432",
+      "paperId": 502,
+      "objectId": "formulation:f107",
+      "claim": "Root-mean-square error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:433",
+      "paperId": 11,
+      "objectId": "formulation:f108",
+      "claim": "Mean absolute error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:434",
+      "paperId": 77,
+      "objectId": "formulation:f108",
+      "claim": "Mean absolute error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:435",
+      "paperId": 260,
+      "objectId": "formulation:f108",
+      "claim": "Mean absolute error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:436",
+      "paperId": 420,
+      "objectId": "formulation:f108",
+      "claim": "Mean absolute error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:437",
+      "paperId": 502,
+      "objectId": "formulation:f108",
+      "claim": "Mean absolute error",
+      "supportType": "Direct",
+      "rationale": "Provides direct methodological support for this formulation."
+    },
+    {
+      "id": "evidence:438",
+      "paperId": 103,
+      "objectId": "formulation:f109",
+      "claim": "Maximum / \\(L_\\infty\\) error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:439",
+      "paperId": 257,
+      "objectId": "formulation:f109",
+      "claim": "Maximum / \\(L_\\infty\\) error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:440",
+      "paperId": 260,
+      "objectId": "formulation:f109",
+      "claim": "Maximum / \\(L_\\infty\\) error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:441",
+      "paperId": 820,
+      "objectId": "formulation:f109",
+      "claim": "Maximum / \\(L_\\infty\\) error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:442",
+      "paperId": 8,
+      "objectId": "formulation:f110",
+      "claim": "Relative \\(H^1\\) error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:443",
+      "paperId": 603,
+      "objectId": "formulation:f110",
+      "claim": "Relative \\(H^1\\) error",
+      "supportType": "Equivalent",
+      "rationale": "Provides an equivalent source formulation normalized to the maintained notation."
+    },
+    {
+      "id": "evidence:444",
+      "paperId": 333,
+      "objectId": "formulation:f111",
+      "claim": "Physics-residual RMS",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:445",
+      "paperId": 510,
+      "objectId": "formulation:f111",
+      "claim": "Physics-residual RMS",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:446",
+      "paperId": 554,
+      "objectId": "formulation:f111",
+      "claim": "Physics-residual RMS",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:447",
+      "paperId": 819,
+      "objectId": "formulation:f111",
+      "claim": "Physics-residual RMS",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:448",
+      "paperId": 734,
+      "objectId": "formulation:f112",
+      "claim": "Global conservation imbalance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:449",
+      "paperId": 244,
+      "objectId": "formulation:f112",
+      "claim": "Global conservation imbalance",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:450",
+      "paperId": 154,
+      "objectId": "formulation:f113",
+      "claim": "Relative inverse-parameter error",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:451",
+      "paperId": 192,
+      "objectId": "formulation:f113",
+      "claim": "Relative inverse-parameter error",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:452",
+      "paperId": 341,
+      "objectId": "formulation:f113",
+      "claim": "Relative inverse-parameter error",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:453",
+      "paperId": 421,
+      "objectId": "formulation:f113",
+      "claim": "Relative inverse-parameter error",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:454",
+      "paperId": 520,
+      "objectId": "formulation:f113",
+      "claim": "Relative inverse-parameter error",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:455",
+      "paperId": 816,
+      "objectId": "formulation:f113",
+      "claim": "Relative inverse-parameter error",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:456",
+      "paperId": 25,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:457",
+      "paperId": 28,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:458",
+      "paperId": 33,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:459",
+      "paperId": 159,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:460",
+      "paperId": 202,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:461",
+      "paperId": 832,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    },
+    {
+      "id": "evidence:462",
+      "paperId": 845,
+      "objectId": "formulation:f114",
+      "claim": "Accuracy-matched computational speedup",
+      "supportType": "Synthesized",
+      "rationale": "Contributes to the cross-source normalized synthesis."
+    }
+  ],
+  "byPaper": [
+    {
+      "paperId": 5,
+      "relationshipIds": [
+        "evidence:271"
+      ]
+    },
+    {
+      "paperId": 7,
+      "relationshipIds": [
+        "evidence:185"
+      ]
+    },
+    {
+      "paperId": 8,
+      "relationshipIds": [
+        "evidence:442"
+      ]
+    },
+    {
+      "paperId": 11,
+      "relationshipIds": [
+        "evidence:418",
+        "evidence:427",
+        "evidence:433"
+      ]
+    },
+    {
+      "paperId": 13,
+      "relationshipIds": [
+        "evidence:274"
+      ]
+    },
+    {
+      "paperId": 24,
+      "relationshipIds": [
+        "evidence:176"
+      ]
+    },
+    {
+      "paperId": 25,
+      "relationshipIds": [
+        "evidence:456"
+      ]
+    },
+    {
+      "paperId": 28,
+      "relationshipIds": [
+        "evidence:457"
+      ]
+    },
+    {
+      "paperId": 31,
+      "relationshipIds": [
+        "evidence:181"
+      ]
+    },
+    {
+      "paperId": 33,
+      "relationshipIds": [
+        "evidence:458"
+      ]
+    },
+    {
+      "paperId": 40,
+      "relationshipIds": [
+        "evidence:234"
+      ]
+    },
+    {
+      "paperId": 47,
+      "relationshipIds": [
+        "evidence:233",
+        "evidence:236"
+      ]
+    },
+    {
+      "paperId": 61,
+      "relationshipIds": [
+        "evidence:401"
+      ]
+    },
+    {
+      "paperId": 77,
+      "relationshipIds": [
+        "evidence:167",
+        "evidence:212",
+        "evidence:215",
+        "evidence:419",
+        "evidence:428",
+        "evidence:434"
+      ]
+    },
+    {
+      "paperId": 81,
+      "relationshipIds": [
+        "evidence:302"
+      ]
+    },
+    {
+      "paperId": 95,
+      "relationshipIds": [
+        "evidence:396"
+      ]
+    },
+    {
+      "paperId": 103,
+      "relationshipIds": [
+        "evidence:438"
+      ]
+    },
+    {
+      "paperId": 144,
+      "relationshipIds": [
+        "evidence:379"
+      ]
+    },
+    {
+      "paperId": 147,
+      "relationshipIds": [
+        "evidence:237"
+      ]
+    },
+    {
+      "paperId": 149,
+      "relationshipIds": [
+        "evidence:173",
+        "evidence:189"
+      ]
+    },
+    {
+      "paperId": 154,
+      "relationshipIds": [
+        "evidence:225",
+        "evidence:273",
+        "evidence:375",
+        "evidence:450"
+      ]
+    },
+    {
+      "paperId": 159,
+      "relationshipIds": [
+        "evidence:459"
+      ]
+    },
+    {
+      "paperId": 172,
+      "relationshipIds": [
+        "evidence:307",
+        "evidence:318",
+        "evidence:420",
+        "evidence:429"
+      ]
+    },
+    {
+      "paperId": 175,
+      "relationshipIds": [
+        "evidence:304"
+      ]
+    },
+    {
+      "paperId": 187,
+      "relationshipIds": [
+        "evidence:331"
+      ]
+    },
+    {
+      "paperId": 190,
+      "relationshipIds": [
+        "evidence:251",
+        "evidence:253"
+      ]
+    },
+    {
+      "paperId": 191,
+      "relationshipIds": [
+        "evidence:293"
+      ]
+    },
+    {
+      "paperId": 192,
+      "relationshipIds": [
+        "evidence:451"
+      ]
+    },
+    {
+      "paperId": 199,
+      "relationshipIds": [
+        "evidence:332"
+      ]
+    },
+    {
+      "paperId": 200,
+      "relationshipIds": [
+        "evidence:306"
+      ]
+    },
+    {
+      "paperId": 202,
+      "relationshipIds": [
+        "evidence:460"
+      ]
+    },
+    {
+      "paperId": 204,
+      "relationshipIds": [
+        "evidence:297",
+        "evidence:397"
+      ]
+    },
+    {
+      "paperId": 220,
+      "relationshipIds": [
+        "evidence:305"
+      ]
+    },
+    {
+      "paperId": 226,
+      "relationshipIds": [
+        "evidence:177",
+        "evidence:341"
+      ]
+    },
+    {
+      "paperId": 228,
+      "relationshipIds": [
+        "evidence:161",
+        "evidence:205",
+        "evidence:241",
+        "evidence:244"
+      ]
+    },
+    {
+      "paperId": 231,
+      "relationshipIds": [
+        "evidence:8",
+        "evidence:45",
+        "evidence:92",
+        "evidence:124",
+        "evidence:298"
+      ]
+    },
+    {
+      "paperId": 236,
+      "relationshipIds": [
+        "evidence:350"
+      ]
+    },
+    {
+      "paperId": 241,
+      "relationshipIds": [
+        "evidence:171",
+        "evidence:204",
+        "evidence:224"
+      ]
+    },
+    {
+      "paperId": 242,
+      "relationshipIds": [
+        "evidence:351"
+      ]
+    },
+    {
+      "paperId": 244,
+      "relationshipIds": [
+        "evidence:172",
+        "evidence:229",
+        "evidence:449"
+      ]
+    },
+    {
+      "paperId": 257,
+      "relationshipIds": [
+        "evidence:439"
+      ]
+    },
+    {
+      "paperId": 260,
+      "relationshipIds": [
+        "evidence:421",
+        "evidence:430",
+        "evidence:435",
+        "evidence:440"
+      ]
+    },
+    {
+      "paperId": 262,
+      "relationshipIds": [
+        "evidence:303"
+      ]
+    },
+    {
+      "paperId": 266,
+      "relationshipIds": [
+        "evidence:166",
+        "evidence:210",
+        "evidence:219"
+      ]
+    },
+    {
+      "paperId": 267,
+      "relationshipIds": [
+        "evidence:239"
+      ]
+    },
+    {
+      "paperId": 279,
+      "relationshipIds": [
+        "evidence:299"
+      ]
+    },
+    {
+      "paperId": 281,
+      "relationshipIds": [
+        "evidence:211"
+      ]
+    },
+    {
+      "paperId": 285,
+      "relationshipIds": [
+        "evidence:254",
+        "evidence:256"
+      ]
+    },
+    {
+      "paperId": 291,
+      "relationshipIds": [
+        "evidence:266",
+        "evidence:291"
+      ]
+    },
+    {
+      "paperId": 298,
+      "relationshipIds": [
+        "evidence:232"
+      ]
+    },
+    {
+      "paperId": 321,
+      "relationshipIds": [
+        "evidence:260",
+        "evidence:262",
+        "evidence:324"
+      ]
+    },
+    {
+      "paperId": 323,
+      "relationshipIds": [
+        "evidence:160",
+        "evidence:162",
+        "evidence:164",
+        "evidence:190",
+        "evidence:196",
+        "evidence:199",
+        "evidence:206",
+        "evidence:208"
+      ]
+    },
+    {
+      "paperId": 333,
+      "relationshipIds": [
+        "evidence:444"
+      ]
+    },
+    {
+      "paperId": 334,
+      "relationshipIds": [
+        "evidence:222",
+        "evidence:373"
+      ]
+    },
+    {
+      "paperId": 338,
+      "relationshipIds": [
+        "evidence:240",
+        "evidence:378",
+        "evidence:380"
+      ]
+    },
+    {
+      "paperId": 340,
+      "relationshipIds": [
+        "evidence:400"
+      ]
+    },
+    {
+      "paperId": 341,
+      "relationshipIds": [
+        "evidence:452"
+      ]
+    },
+    {
+      "paperId": 343,
+      "relationshipIds": [
+        "evidence:349"
+      ]
+    },
+    {
+      "paperId": 353,
+      "relationshipIds": [
+        "evidence:178",
+        "evidence:250",
+        "evidence:340"
+      ]
+    },
+    {
+      "paperId": 379,
+      "relationshipIds": [
+        "evidence:242",
+        "evidence:245",
+        "evidence:247"
+      ]
+    },
+    {
+      "paperId": 391,
+      "relationshipIds": [
+        "evidence:283"
+      ]
+    },
+    {
+      "paperId": 401,
+      "relationshipIds": [
+        "evidence:1",
+        "evidence:25",
+        "evidence:28",
+        "evidence:40",
+        "evidence:42",
+        "evidence:64",
+        "evidence:157",
+        "evidence:158",
+        "evidence:163",
+        "evidence:165",
+        "evidence:174",
+        "evidence:186",
+        "evidence:191",
+        "evidence:193",
+        "evidence:197",
+        "evidence:200",
+        "evidence:202",
+        "evidence:207",
+        "evidence:209",
+        "evidence:220",
+        "evidence:230",
+        "evidence:399"
+      ]
+    },
+    {
+      "paperId": 403,
+      "relationshipIds": [
+        "evidence:285"
+      ]
+    },
+    {
+      "paperId": 410,
+      "relationshipIds": [
+        "evidence:26",
+        "evidence:59",
+        "evidence:79",
+        "evidence:107",
+        "evidence:148",
+        "evidence:154",
+        "evidence:381",
+        "evidence:382",
+        "evidence:384",
+        "evidence:386",
+        "evidence:393",
+        "evidence:394"
+      ]
+    },
+    {
+      "paperId": 413,
+      "relationshipIds": [
+        "evidence:325"
+      ]
+    },
+    {
+      "paperId": 420,
+      "relationshipIds": [
+        "evidence:226",
+        "evidence:376",
+        "evidence:422",
+        "evidence:431",
+        "evidence:436"
+      ]
+    },
+    {
+      "paperId": 421,
+      "relationshipIds": [
+        "evidence:453"
+      ]
+    },
+    {
+      "paperId": 427,
+      "relationshipIds": [
+        "evidence:278",
+        "evidence:282"
+      ]
+    },
+    {
+      "paperId": 431,
+      "relationshipIds": [
+        "evidence:170",
+        "evidence:182",
+        "evidence:203",
+        "evidence:223",
+        "evidence:228",
+        "evidence:374"
+      ]
+    },
+    {
+      "paperId": 444,
+      "relationshipIds": [
+        "evidence:388"
+      ]
+    },
+    {
+      "paperId": 450,
+      "relationshipIds": [
+        "evidence:2",
+        "evidence:3",
+        "evidence:6",
+        "evidence:41",
+        "evidence:89",
+        "evidence:159",
+        "evidence:175",
+        "evidence:192",
+        "evidence:194",
+        "evidence:198",
+        "evidence:218",
+        "evidence:221",
+        "evidence:288",
+        "evidence:290",
+        "evidence:372"
+      ]
+    },
+    {
+      "paperId": 461,
+      "relationshipIds": [
+        "evidence:10",
+        "evidence:128",
+        "evidence:231"
+      ]
+    },
+    {
+      "paperId": 465,
+      "relationshipIds": [
+        "evidence:352"
+      ]
+    },
+    {
+      "paperId": 466,
+      "relationshipIds": [
+        "evidence:195"
+      ]
+    },
+    {
+      "paperId": 476,
+      "relationshipIds": [
+        "evidence:279"
+      ]
+    },
+    {
+      "paperId": 479,
+      "relationshipIds": [
+        "evidence:17",
+        "evidence:36",
+        "evidence:53",
+        "evidence:72",
+        "evidence:85",
+        "evidence:104",
+        "evidence:138",
+        "evidence:412"
+      ]
+    },
+    {
+      "paperId": 483,
+      "relationshipIds": [
+        "evidence:392"
+      ]
+    },
+    {
+      "paperId": 488,
+      "relationshipIds": [
+        "evidence:187"
+      ]
+    },
+    {
+      "paperId": 498,
+      "relationshipIds": [
+        "evidence:118",
+        "evidence:142",
+        "evidence:320"
+      ]
+    },
+    {
+      "paperId": 499,
+      "relationshipIds": [
+        "evidence:389"
+      ]
+    },
+    {
+      "paperId": 500,
+      "relationshipIds": [
+        "evidence:235"
+      ]
+    },
+    {
+      "paperId": 501,
+      "relationshipIds": [
+        "evidence:281"
+      ]
+    },
+    {
+      "paperId": 502,
+      "relationshipIds": [
+        "evidence:19",
+        "evidence:37",
+        "evidence:55",
+        "evidence:75",
+        "evidence:87",
+        "evidence:106",
+        "evidence:108",
+        "evidence:135",
+        "evidence:201",
+        "evidence:423",
+        "evidence:432",
+        "evidence:437"
+      ]
+    },
+    {
+      "paperId": 505,
+      "relationshipIds": [
+        "evidence:275",
+        "evidence:409"
+      ]
+    },
+    {
+      "paperId": 506,
+      "relationshipIds": [
+        "evidence:277",
+        "evidence:280",
+        "evidence:286"
+      ]
+    },
+    {
+      "paperId": 507,
+      "relationshipIds": [
+        "evidence:27",
+        "evidence:60",
+        "evidence:149",
+        "evidence:155"
+      ]
+    },
+    {
+      "paperId": 508,
+      "relationshipIds": [
+        "evidence:61",
+        "evidence:156"
+      ]
+    },
+    {
+      "paperId": 509,
+      "relationshipIds": [
+        "evidence:415"
+      ]
+    },
+    {
+      "paperId": 510,
+      "relationshipIds": [
+        "evidence:445"
+      ]
+    },
+    {
+      "paperId": 513,
+      "relationshipIds": [
+        "evidence:188"
+      ]
+    },
+    {
+      "paperId": 514,
+      "relationshipIds": [
+        "evidence:265",
+        "evidence:268"
+      ]
+    },
+    {
+      "paperId": 516,
+      "relationshipIds": [
+        "evidence:410"
+      ]
+    },
+    {
+      "paperId": 517,
+      "relationshipIds": [
+        "evidence:9",
+        "evidence:78",
+        "evidence:82",
+        "evidence:93",
+        "evidence:125"
+      ]
+    },
+    {
+      "paperId": 520,
+      "relationshipIds": [
+        "evidence:454"
+      ]
+    },
+    {
+      "paperId": 525,
+      "relationshipIds": [
+        "evidence:20",
+        "evidence:38",
+        "evidence:56",
+        "evidence:77",
+        "evidence:96",
+        "evidence:109",
+        "evidence:136",
+        "evidence:405",
+        "evidence:416"
+      ]
+    },
+    {
+      "paperId": 527,
+      "relationshipIds": [
+        "evidence:21",
+        "evidence:58",
+        "evidence:110",
+        "evidence:137",
+        "evidence:417"
+      ]
+    },
+    {
+      "paperId": 534,
+      "relationshipIds": [
+        "evidence:18",
+        "evidence:105",
+        "evidence:139",
+        "evidence:411",
+        "evidence:413"
+      ]
+    },
+    {
+      "paperId": 541,
+      "relationshipIds": [
+        "evidence:402",
+        "evidence:406",
+        "evidence:407"
+      ]
+    },
+    {
+      "paperId": 543,
+      "relationshipIds": [
+        "evidence:24",
+        "evidence:113",
+        "evidence:114",
+        "evidence:147"
+      ]
+    },
+    {
+      "paperId": 548,
+      "relationshipIds": [
+        "evidence:284"
+      ]
+    },
+    {
+      "paperId": 552,
+      "relationshipIds": [
+        "evidence:15",
+        "evidence:34",
+        "evidence:51",
+        "evidence:65",
+        "evidence:73",
+        "evidence:103",
+        "evidence:133"
+      ]
+    },
+    {
+      "paperId": 553,
+      "relationshipIds": [
+        "evidence:348"
+      ]
+    },
+    {
+      "paperId": 554,
+      "relationshipIds": [
+        "evidence:14",
+        "evidence:35",
+        "evidence:50",
+        "evidence:74",
+        "evidence:86",
+        "evidence:102",
+        "evidence:134",
+        "evidence:267",
+        "evidence:276",
+        "evidence:446"
+      ]
+    },
+    {
+      "paperId": 562,
+      "relationshipIds": [
+        "evidence:390"
+      ]
+    },
+    {
+      "paperId": 578,
+      "relationshipIds": [
+        "evidence:120",
+        "evidence:151",
+        "evidence:347"
+      ]
+    },
+    {
+      "paperId": 586,
+      "relationshipIds": [
+        "evidence:326"
+      ]
+    },
+    {
+      "paperId": 596,
+      "relationshipIds": [
+        "evidence:354"
+      ]
+    },
+    {
+      "paperId": 599,
+      "relationshipIds": [
+        "evidence:122",
+        "evidence:153",
+        "evidence:360",
+        "evidence:370"
+      ]
+    },
+    {
+      "paperId": 600,
+      "relationshipIds": [
+        "evidence:371"
+      ]
+    },
+    {
+      "paperId": 601,
+      "relationshipIds": [
+        "evidence:355",
+        "evidence:358"
+      ]
+    },
+    {
+      "paperId": 602,
+      "relationshipIds": [
+        "evidence:356"
+      ]
+    },
+    {
+      "paperId": 603,
+      "relationshipIds": [
+        "evidence:4",
+        "evidence:29",
+        "evidence:43",
+        "evidence:80",
+        "evidence:119",
+        "evidence:150",
+        "evidence:359",
+        "evidence:367",
+        "evidence:369",
+        "evidence:424",
+        "evidence:443"
+      ]
+    },
+    {
+      "paperId": 604,
+      "relationshipIds": [
+        "evidence:183",
+        "evidence:287",
+        "evidence:289"
+      ]
+    },
+    {
+      "paperId": 606,
+      "relationshipIds": [
+        "evidence:7",
+        "evidence:31",
+        "evidence:44",
+        "evidence:62",
+        "evidence:67",
+        "evidence:81",
+        "evidence:91",
+        "evidence:94",
+        "evidence:123",
+        "evidence:296"
+      ]
+    },
+    {
+      "paperId": 609,
+      "relationshipIds": [
+        "evidence:130"
+      ]
+    },
+    {
+      "paperId": 610,
+      "relationshipIds": [
+        "evidence:294"
+      ]
+    },
+    {
+      "paperId": 612,
+      "relationshipIds": [
+        "evidence:117",
+        "evidence:140",
+        "evidence:308",
+        "evidence:310",
+        "evidence:315",
+        "evidence:317"
+      ]
+    },
+    {
+      "paperId": 613,
+      "relationshipIds": [
+        "evidence:343"
+      ]
+    },
+    {
+      "paperId": 614,
+      "relationshipIds": [
+        "evidence:383",
+        "evidence:385",
+        "evidence:387"
+      ]
+    },
+    {
+      "paperId": 617,
+      "relationshipIds": [
+        "evidence:395"
+      ]
+    },
+    {
+      "paperId": 621,
+      "relationshipIds": [
+        "evidence:300"
+      ]
+    },
+    {
+      "paperId": 622,
+      "relationshipIds": [
+        "evidence:364"
+      ]
+    },
+    {
+      "paperId": 625,
+      "relationshipIds": [
+        "evidence:301"
+      ]
+    },
+    {
+      "paperId": 628,
+      "relationshipIds": [
+        "evidence:12",
+        "evidence:32",
+        "evidence:48",
+        "evidence:70",
+        "evidence:84",
+        "evidence:99",
+        "evidence:101",
+        "evidence:127",
+        "evidence:132"
+      ]
+    },
+    {
+      "paperId": 630,
+      "relationshipIds": [
+        "evidence:95"
+      ]
+    },
+    {
+      "paperId": 631,
+      "relationshipIds": [
+        "evidence:126",
+        "evidence:246",
+        "evidence:255",
+        "evidence:257"
+      ]
+    },
+    {
+      "paperId": 636,
+      "relationshipIds": [
+        "evidence:13",
+        "evidence:16",
+        "evidence:68",
+        "evidence:71",
+        "evidence:98",
+        "evidence:243",
+        "evidence:248",
+        "evidence:252"
+      ]
+    },
+    {
+      "paperId": 637,
+      "relationshipIds": [
+        "evidence:11",
+        "evidence:33",
+        "evidence:47",
+        "evidence:66",
+        "evidence:83",
+        "evidence:97",
+        "evidence:129"
+      ]
+    },
+    {
+      "paperId": 638,
+      "relationshipIds": [
+        "evidence:52",
+        "evidence:249"
+      ]
+    },
+    {
+      "paperId": 640,
+      "relationshipIds": [
+        "evidence:295"
+      ]
+    },
+    {
+      "paperId": 642,
+      "relationshipIds": [
+        "evidence:366"
+      ]
+    },
+    {
+      "paperId": 645,
+      "relationshipIds": [
+        "evidence:368"
+      ]
+    },
+    {
+      "paperId": 647,
+      "relationshipIds": [
+        "evidence:54",
+        "evidence:116",
+        "evidence:141",
+        "evidence:144",
+        "evidence:336"
+      ]
+    },
+    {
+      "paperId": 660,
+      "relationshipIds": [
+        "evidence:115",
+        "evidence:143",
+        "evidence:321",
+        "evidence:327",
+        "evidence:328",
+        "evidence:338"
+      ]
+    },
+    {
+      "paperId": 680,
+      "relationshipIds": [
+        "evidence:391"
+      ]
+    },
+    {
+      "paperId": 693,
+      "relationshipIds": [
+        "evidence:361",
+        "evidence:365"
+      ]
+    },
+    {
+      "paperId": 697,
+      "relationshipIds": [
+        "evidence:342"
+      ]
+    },
+    {
+      "paperId": 700,
+      "relationshipIds": [
+        "evidence:403",
+        "evidence:408"
+      ]
+    },
+    {
+      "paperId": 703,
+      "relationshipIds": [
+        "evidence:425"
+      ]
+    },
+    {
+      "paperId": 717,
+      "relationshipIds": [
+        "evidence:398"
+      ]
+    },
+    {
+      "paperId": 726,
+      "relationshipIds": [
+        "evidence:5",
+        "evidence:30",
+        "evidence:46",
+        "evidence:63",
+        "evidence:90",
+        "evidence:121",
+        "evidence:152",
+        "evidence:179",
+        "evidence:339",
+        "evidence:344",
+        "evidence:345"
+      ]
+    },
+    {
+      "paperId": 733,
+      "relationshipIds": [
+        "evidence:168",
+        "evidence:213",
+        "evidence:216",
+        "evidence:309",
+        "evidence:311",
+        "evidence:313",
+        "evidence:316",
+        "evidence:319",
+        "evidence:337"
+      ]
+    },
+    {
+      "paperId": 734,
+      "relationshipIds": [
+        "evidence:259",
+        "evidence:448"
+      ]
+    },
+    {
+      "paperId": 743,
+      "relationshipIds": [
+        "evidence:357"
+      ]
+    },
+    {
+      "paperId": 746,
+      "relationshipIds": [
+        "evidence:362"
+      ]
+    },
+    {
+      "paperId": 749,
+      "relationshipIds": [
+        "evidence:269"
+      ]
+    },
+    {
+      "paperId": 750,
+      "relationshipIds": [
+        "evidence:49",
+        "evidence:69",
+        "evidence:100",
+        "evidence:131",
+        "evidence:238"
+      ]
+    },
+    {
+      "paperId": 752,
+      "relationshipIds": [
+        "evidence:346"
+      ]
+    },
+    {
+      "paperId": 759,
+      "relationshipIds": [
+        "evidence:270",
+        "evidence:272"
+      ]
+    },
+    {
+      "paperId": 801,
+      "relationshipIds": [
+        "evidence:261",
+        "evidence:263",
+        "evidence:292"
+      ]
+    },
+    {
+      "paperId": 802,
+      "relationshipIds": [
+        "evidence:264"
+      ]
+    },
+    {
+      "paperId": 808,
+      "relationshipIds": [
+        "evidence:353",
+        "evidence:363"
+      ]
+    },
+    {
+      "paperId": 810,
+      "relationshipIds": [
+        "evidence:322",
+        "evidence:329",
+        "evidence:404"
+      ]
+    },
+    {
+      "paperId": 816,
+      "relationshipIds": [
+        "evidence:455"
+      ]
+    },
+    {
+      "paperId": 817,
+      "relationshipIds": [
+        "evidence:180",
+        "evidence:334",
+        "evidence:426"
+      ]
+    },
+    {
+      "paperId": 818,
+      "relationshipIds": [
+        "evidence:258"
+      ]
+    },
+    {
+      "paperId": 819,
+      "relationshipIds": [
+        "evidence:23",
+        "evidence:112",
+        "evidence:146",
+        "evidence:447"
+      ]
+    },
+    {
+      "paperId": 820,
+      "relationshipIds": [
+        "evidence:414",
+        "evidence:441"
+      ]
+    },
+    {
+      "paperId": 823,
+      "relationshipIds": [
+        "evidence:22",
+        "evidence:39",
+        "evidence:57",
+        "evidence:76",
+        "evidence:88",
+        "evidence:111",
+        "evidence:145"
+      ]
+    },
+    {
+      "paperId": 832,
+      "relationshipIds": [
+        "evidence:461"
+      ]
+    },
+    {
+      "paperId": 834,
+      "relationshipIds": [
+        "evidence:184",
+        "evidence:227",
+        "evidence:377"
+      ]
+    },
+    {
+      "paperId": 835,
+      "relationshipIds": [
+        "evidence:335"
+      ]
+    },
+    {
+      "paperId": 840,
+      "relationshipIds": [
+        "evidence:169",
+        "evidence:214",
+        "evidence:217",
+        "evidence:312",
+        "evidence:314",
+        "evidence:333"
+      ]
+    },
+    {
+      "paperId": 845,
+      "relationshipIds": [
+        "evidence:323",
+        "evidence:330",
+        "evidence:462"
+      ]
+    }
+  ]
+}

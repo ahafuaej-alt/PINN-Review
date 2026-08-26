@@ -37,7 +37,7 @@
     {"topic":"Automatic architecture search","status":"Duplicate/equivalent","note":"Bi-level search is mathematically formalizable, but in this page it is treated as training/architecture methodology rather than a distinct physics formulation."},
     {"topic":"Activation-function catalogue","status":"Duplicate/equivalent","note":"Only basis/activation families that materially define the approximation space (Fourier, SIREN, Gabor, KAN, RBF) receive dedicated formulations."},
     {"topic":"Future safe-fallback / runtime failure detection","status":"Insufficient evidence","note":"This remains a research direction and is not yet supported by one defensible canonical formula."},
-    {"topic":"Full uncertainty decomposition by source","status":"Insufficient evidence","note":"This remains a gap; no unified equation is presented as established across the Atlas evidence corpus."},
+    {"topic":"Full uncertainty decomposition by source","status":"Insufficient evidence","note":"This remains a gap; no unified equation is presented as established across the maintained evidence corpus."},
     {"topic":"Unified PINN design-selection decision rule","status":"Insufficient evidence","note":"The Atlas supports diagnostic design reasoning, but a universal mathematical decision rule would be a new proposal rather than an extracted formulation."}
   ],
   "notation": [
