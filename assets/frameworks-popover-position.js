@@ -1,24 +1,35 @@
 (() => {
   const selector = '.toolbar-export, .toolbar-contribute';
 
-  function position(details) {
-    details.classList.remove('opens-upward');
-    if (!details.open) return;
+  function shouldOpenUpward(details) {
     const summary = details.querySelector('summary');
     const menu = details.querySelector(':scope > div');
-    if (!summary || !menu) return;
+    if (!summary || !menu) return false;
     const summaryRect = summary.getBoundingClientRect();
-    const menuHeight = menu.getBoundingClientRect().height;
     const gap = 8;
     const roomBelow = window.innerHeight - summaryRect.bottom - gap;
     const roomAbove = summaryRect.top - gap;
-    if (menuHeight > roomBelow && roomAbove > roomBelow) details.classList.add('opens-upward');
+    const renderedHeight = menu.getBoundingClientRect().height;
+    const estimatedHeight = renderedHeight || Math.min(window.innerHeight * .6, Math.max(56, menu.children.length * 44 + 16));
+    return estimatedHeight > roomBelow && roomAbove > roomBelow;
+  }
+
+  function position(details) {
+    if (!details.open) return;
+    details.classList.toggle('opens-upward', shouldOpenUpward(details));
   }
 
   function bind(details) {
     if (details.dataset.popoverPositionBound) return;
     details.dataset.popoverPositionBound = 'true';
-    details.addEventListener('toggle', () => position(details));
+    const summary = details.querySelector('summary');
+    summary?.addEventListener('click', () => {
+      if (!details.open) details.classList.toggle('opens-upward', shouldOpenUpward(details));
+    }, true);
+    details.addEventListener('toggle', () => {
+      if (details.open) position(details);
+      else details.classList.remove('opens-upward');
+    });
   }
 
   function bindAll(root = document) {
