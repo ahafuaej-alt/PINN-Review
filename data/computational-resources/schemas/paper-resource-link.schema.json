@@ -1,42 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "paper-resource-link.schema.json",
-  "title": "Paper-resource relationship",
+  "title": "Stage 1 paper-resource relationship",
   "type": "object",
-  "required": [
-    "link_id",
-    "resource_id",
-    "atlas_reference_id",
-    "relationship",
-    "evidence_observation_ids",
-    "mapping_status"
-  ],
+  "required": ["link_id","resource_id","atlas_reference_id","relationship","source_lines","mapping_status"],
   "properties": {
-    "link_id": {
-      "type": "string",
-      "pattern": "^PRL\\d{6}$"
-    },
-    "resource_id": {
-      "type": "string",
-      "pattern": "^CR\\d{6}$"
-    },
-    "atlas_reference_id": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 853
-    },
-    "relationship": {
-      "type": "string"
-    },
-    "evidence_observation_ids": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "mapping_status": {
-      "const": "source_stated_unverified"
-    }
+    "link_id":{"type":"string","pattern":"^PRL\\d{6}$"},
+    "resource_id":{"type":"string","pattern":"^CR\\d{6}$"},
+    "atlas_reference_id":{"type":"integer","minimum":1,"maximum":853},
+    "relationship":{"enum":["paper_resource_mention","paper_dataset_mention","paper_non_pinn_resource_mention","secondary_review_mention","paper_software_mention","manual_or_unclassified_mention"]},
+    "source_lines":{"type":"array","items":{"type":"integer","minimum":1,"maximum":648},"minItems":1,"uniqueItems":true},
+    "mapping_status":{"const":"source_stated_unverified"}
   },
   "additionalProperties": false
 }
