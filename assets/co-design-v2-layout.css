@@ -57,7 +57,7 @@ body[data-framework="co-design"] .framework-explorer {
 
 @media (min-width: 821px) and (max-width: 1499px) {
   body[data-framework="co-design"] .co-board {
-    min-width: 1460px;
+    min-width: 1388px;
   }
 }
 
