@@ -32,11 +32,15 @@
     return new URLSearchParams(location.hash.replace(/^#/, '')).get('item') || '';
   }
 
+  function inspectorIsCurrent(detail, id) {
+    return detail?.dataset.coV2Enriched === id && Boolean(detail.querySelector('.co-v2-inspector-grid'));
+  }
+
   function enrichInspector() {
     const id = selectedRelationId();
     const meta = relationMap.get(id);
     const detail = document.querySelector('[data-detail]');
-    if (!meta || !detail || detail.dataset.coV2Enriched === id) return;
+    if (!meta || !detail || inspectorIsCurrent(detail, id)) return;
     const source = titleMap.get(meta.from) || meta.from;
     const target = titleMap.get(meta.to) || meta.to;
     const heading = detail.querySelector('.framework-inspector-head h2');
@@ -59,7 +63,7 @@
   function queueInspectorEnrichment() {
     const detail = document.querySelector('[data-detail]');
     const id = selectedRelationId();
-    if (!detail || !id || !relationMap.has(id) || detail.dataset.coV2Enriched === id) return;
+    if (!detail || !id || !relationMap.has(id) || inspectorIsCurrent(detail, id)) return;
     queueMicrotask(enrichInspector);
   }
 
@@ -73,6 +77,7 @@
       if (!item || !relationMap.has(item.dataset.inspectId)) return;
       detail.removeAttribute('data-co-v2-enriched');
       setTimeout(enrichInspector, 0);
+      setTimeout(enrichInspector, 50);
     }, true);
     document.addEventListener('keydown', (event) => {
       if (!['Enter', ' '].includes(event.key)) return;
@@ -80,6 +85,7 @@
       if (!item || !relationMap.has(item.dataset.inspectId)) return;
       detail.removeAttribute('data-co-v2-enriched');
       setTimeout(enrichInspector, 0);
+      setTimeout(enrichInspector, 50);
     }, true);
   }
 
