@@ -79,6 +79,30 @@ try {
     await page.close();
   }
 
+  {
+    const page = await context.newPage();
+    const errors = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto(`${baseUrl}/references/?q=1#ref=1`, { waitUntil: 'networkidle' });
+    await page.waitForSelector('#ref-1 .citation-title');
+    await page.waitForFunction(() => Boolean(window.AtlasConcepts));
+    await page.waitForTimeout(250);
+    const snapshot = await page.evaluate(() => ({
+      title: document.querySelector('#ref-1 .citation-title')?.textContent?.trim() || '',
+      titleConcepts: document.querySelectorAll('.bibliography-card .citation-title .atlas-concept').length,
+      citationConcepts: document.querySelectorAll('.bibliography-card .citation-text .atlas-concept').length,
+      abstractConcepts: document.querySelectorAll('.bibliography-card .abstract-text .atlas-concept').length,
+      fullCitationConcepts: document.querySelectorAll('.bibliography-card .full-citation .atlas-concept').length
+    }));
+    assert(snapshot.title.includes('Software-based automatic differentiation is flawed'), `Unexpected Reference [1] title: ${snapshot.title}`);
+    assert(snapshot.titleConcepts === 0, 'Canonical auto-linking still modifies paper titles on the References page.');
+    assert(snapshot.citationConcepts === 0, 'Canonical auto-linking still modifies formatted citations on the References page.');
+    assert(snapshot.abstractConcepts === 0, 'Canonical auto-linking still modifies paper abstracts on the References page.');
+    assert(snapshot.fullCitationConcepts === 0, 'Canonical auto-linking still modifies the full citation in reference details.');
+    assert(errors.length === 0, `References page raised runtime errors: ${errors.join(' | ')}`);
+    await page.close();
+  }
+
   await context.close();
   console.log('Concept runtime regression QA passed.');
 } finally {
