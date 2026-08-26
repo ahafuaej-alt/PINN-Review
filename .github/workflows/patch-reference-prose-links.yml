@@ -26,7 +26,9 @@ jobs:
       - name: Validate static concept contracts
         run: |
           node scripts/build-concept-registry.mjs
+          node scripts/apply-canonical-mappings.mjs
           node scripts/validate-concepts.mjs
+          git restore data/concepts/registry.json data/concepts/core.json data/concepts/evidence-relationships.json
       - name: Commit scoped guard
         run: |
           git add assets/concepts.js scripts/visual-qa-concept-regressions.mjs scripts/validate-concepts.mjs
