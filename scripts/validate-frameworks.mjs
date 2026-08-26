@@ -114,6 +114,7 @@ const collectConcepts = (value) => {
   }
 };
 collectConcepts(pages);
+for (const [frameworkId, page] of Object.entries(pages)) { const records = []; collectConcepts(page); assert(JSON.stringify(page).includes('\"concepts\"'), `${frameworkId} contains no canonical concept mappings.`); }
 assert(conceptRecords.length > 0, 'Framework objects contain no canonical concept records.');
 assert(conceptRecords.every((concept) => concept.id && !concept.route), 'Framework concept records must use canonical IDs rather than page-local routes.');
 
@@ -130,8 +131,8 @@ const [landing, script, style, theme, home, readme, sitemap] = await Promise.all
   read('assets/theme-init.js'), read('index.html'), read('README.md'), read('sitemap.xml')
 ]);
 for (const token of ['data-framework-cards', 'Interpretation boundary', 'Four views']) assert(landing.includes(token), `Framework landing page lacks ${token}.`);
-for (const token of ['Expand view', 'data-zoom-in', 'data-filter', 'Interactive explorer', 'Download current SVG', 'Copy shareable link', 'Propose a missing item', 'Propose a missing relationship', 'foreignObject']) assert(script.includes(token), `Framework interaction script lacks ${token}.`);
-for (const token of ['.stack-board', '.co-board', '.dependency-matrix', '.diagnostic-board', '.influence-marker', 'width: 13px', 'height: 13px']) assert(style.includes(token), `Framework stylesheet lacks ${token}.`);
+for (const token of ['Expand view', 'data-zoom-in', 'data-filter', 'data-reset', 'Interactive explorer', 'Current view SVG', 'Publication SVG', 'Copy shareable link', 'data-inspector-section', 'framework-location-tag', 'evidence-support-badge', 'collectEvidenceGroups', 'is-filter-muted', 'marker-start', 'framework-icons.svg', 'Propose a missing item', 'Propose a missing relationship', 'foreignObject']) assert(script.includes(token), `Framework interaction script lacks ${token}.`);
+for (const token of ['.stack-board', '.co-board', '.dependency-matrix', '.diagnostic-board', '.influence-marker', 'width: 13px', 'height: 13px', '.framework-inspector-section', '.evidence-support-badge', '.framework-location-tag', '.is-filter-muted', '.framework-export-header', '.framework-icon']) assert(style.includes(token), `Framework stylesheet lacks ${token}.`);
 for (const route of ['frameworks/', 'frameworks/design-stack/', 'frameworks/co-design/', 'frameworks/design-performance/', 'frameworks/failure-diagnostics/']) assert(theme.includes(`'${route}'`), `Shared navigation lacks ${route}.`);
 assert(theme.includes("label: 'Frameworks'") && theme.includes("['Frameworks Overview'"), 'Frameworks is not a top-level navigation family with child pages.');
 assert(theme.includes('AtlasConcepts') && theme.includes('Appears in Frameworks'), 'Canonical automatic semantic backlinks are missing.');

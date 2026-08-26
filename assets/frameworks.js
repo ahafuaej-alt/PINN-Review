@@ -2,7 +2,7 @@
   const root = document.body.dataset.framework;
   const prefix = root === 'landing' ? '../' : '../../';
   const dataRoot = `${prefix}data/frameworks/`;
-  const state = { manifest: null, page: null, objects: new Map(), zoom: 1, filter: 'all', query: '' };
+  const state = { manifest: null, page: null, objects: new Map(), zoom: 1, filter: 'all', query: '', selectedId: null };
   const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const slug = (value = '') => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const flatten = (value) => {
@@ -15,6 +15,41 @@
     const body = `Framework: ${state.page?.title || context}\nElement or relationship: ${context}\n\nRequested change:\n\nScientific rationale:\n\nSupporting DOI, URL, or verified Reference IDs:`;
     return `https://github.com/ahafuaej-alt/PINN-Review/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
   };
+
+  const relationshipMeta = {
+    flow: { label: 'Forward dependency', description: 'Primary directional dependency in the maintained framework.' },
+    coupling: { label: 'Coupling / interdependence', description: 'Mutually constraining design choices; neither side is treated as independent.' },
+    feedback: { label: 'Feedback / redesign', description: 'Evidence-driven return from an observed outcome to an upstream design cause.' },
+    selected: { label: 'Selected relationship', description: 'The relationship currently pinned in the inspector.' }
+  };
+
+  function frameworkIcon(id, label = '') {
+    return `<svg class="framework-icon" viewBox="0 0 24 24" role="img"${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><use href="${prefix}assets/framework-icons.svg#icon-${esc(id)}"></use></svg>`;
+  }
+
+  function iconForFramework(id) {
+    return ({ 'design-stack': 'design', 'co-design': 'coupling', 'design-performance': 'dependency', 'failure-diagnostics': 'diagnosis' })[id] || 'design';
+  }
+
+  function iconForItem(item) {
+    if (item.kind === 'relationship') return item.type === 'feedback' ? 'feedback' : item.type === 'coupling' ? 'coupling' : 'dependency';
+    if (root === 'design-stack') {
+      const phase = item.phase || (item.kind === 'phase' ? item.id : '');
+      return ({ 'problem-framing': 'problem', formulation: 'physics', training: 'training', reliability: 'reliability' })[phase] || 'design';
+    }
+    if (root === 'co-design') return ({ problem: 'problem', representation: 'representation', physics: 'physics', numerical: 'numerical', training: 'training', reliability: 'reliability', core: 'coupling' })[item.id] || 'coupling';
+    if (root === 'design-performance') return 'dependency';
+    if (root === 'failure-diagnostics') return item.kind === 'verification' ? 'reliability' : 'diagnosis';
+    return 'design';
+  }
+
+  function relationLegend(types) {
+    return `<div class="legend-items relationship-legend">${types.map((type) => {
+      const meta = relationshipMeta[type];
+      return `<article><span class="relation-swatch" data-type="${type}" aria-hidden="true"><i></i></span><div><b>${esc(meta.label)}</b><p>${esc(meta.description)}</p></div></article>`;
+    }).join('')}</div>`;
+  }
+
 
   fetch(`${dataRoot}frameworks.json`)
     .then((response) => response.ok ? response.json() : Promise.reject(new Error(`Framework manifest returned ${response.status}`)))
@@ -36,7 +71,7 @@
     const mount = document.querySelector('[data-framework-cards]');
     mount.innerHTML = manifest.frameworks.map((item) => `
       <a class="framework-card" href="${item.route}">
-        <span class="number">${item.number} · ${esc(item.short).toUpperCase()}</span>
+        <div class="framework-card-heading">${frameworkIcon(iconForFramework(item.id))}<span class="number">${item.number} · ${esc(item.short).toUpperCase()}</span></div>
         <h2>${esc(item.title)}</h2><p>${esc(item.description)}</p>
         <footer><span>${esc(item.kind)}</span><b aria-hidden="true">↗</b></footer>
       </a>`).join('');
@@ -110,26 +145,25 @@
   function renderToolbar(page) {
     return `<div class="framework-toolbar"><div class="container framework-toolbar-inner">
       <label class="toolbar-search"><span class="sr-only">Search this framework</span><input class="framework-search" type="search" value="${esc(state.query)}" placeholder="Search every element and relationship…" aria-label="Search this framework"></label>
-      <label class="toolbar-filter"><span class="sr-only">Filter framework</span><select data-filter aria-label="Filter framework">${page.filters.map((filter) => `<option value="${filter.id}"${state.filter === filter.id ? ' selected' : ''}>${esc(filter.label)}</option>`).join('')}</select></label>
+      <label class="toolbar-filter"><span class="sr-only">Focus framework subset</span><select data-filter aria-label="Focus framework subset">${page.filters.map((filter) => `<option value="${filter.id}"${state.filter === filter.id ? ' selected' : ''}>${esc(filter.label)}</option>`).join('')}</select></label>
       <button class="button compact" type="button" data-zoom-out aria-label="Zoom out">−</button>
       <span class="zoom-readout" data-zoom-readout>${Math.round(state.zoom * 100)}%</span>
       <button class="button compact" type="button" data-zoom-in aria-label="Zoom in">+</button>
       <button class="button" type="button" data-fit>Fit</button>
+      <button class="button" type="button" data-reset>Reset</button>
       <button class="button" type="button" data-expand>Expand view</button>
       <button class="button" type="button" data-legend aria-expanded="false">Legend</button>
       <button class="button" type="button" data-share>Copy shareable link</button>
-      <button class="button" type="button" data-svg>Download current SVG</button>
+      <details class="toolbar-export"><summary class="button">Export SVG</summary><div><button type="button" data-svg>Current view SVG</button><button type="button" data-svg-publication>Publication SVG</button></div></details>
       <details class="toolbar-contribute"><summary class="button">Contribute</summary><div><a href="${issueUrl('Suggest an edit', page.title)}" target="_blank" rel="noopener">Suggest an edit ↗</a><a href="${issueUrl('Propose a missing item', page.title)}" target="_blank" rel="noopener">Missing item ↗</a><a href="${issueUrl('Propose a missing relationship', page.title)}" target="_blank" rel="noopener">Missing relationship ↗</a></div></details>
     </div></div>`;
   }
 
   function renderLegend(page) {
-    if (root === 'design-performance') return `<div class="legend-title"><strong>Qualitative influence level</strong><button type="button" data-close-legend aria-label="Close legend">×</button></div><div class="legend-items">${page.legend.map((item) => `<article><span class="influence-marker" data-level="${item.id}" aria-hidden="true"></span><div><b>${esc(item.label)}</b><p>${esc(item.description)}</p></div></article>`).join('')}<article><span class="tradeoff-symbol" aria-hidden="true">↕</span><div><b>Trade-off indicator</b><p>Improvement in one dimension may increase cost or reduce another.</p></div></article></div>`;
-    if (root === 'failure-diagnostics') return `<div class="legend-title"><strong>Diagnostic reasoning path</strong><button type="button" data-close-legend aria-label="Close legend">×</button></div><div class="legend-path"><span>1 · Challenge / pathology</span><i>→</i><span>2 · Observable symptoms</span><i>→</i><span>3 · Methodological response</span><i>→</i><span>4 · Targeted improvement</span><i>↻</i><span>Verify and re-diagnose</span></div>`;
-    const items = root === 'design-stack'
-      ? [['flow', 'Main design flow', 'Typical forward design sequence'], ['coupling', 'Strong interdependence', 'Coupled phases and design choices'], ['feedback', 'Feedback / redesign loop', 'Evaluation-guided return to an upstream cause']]
-      : [['coupling', 'Coupled relationship', 'A labelled scientific dependency between domains'], ['feedback', 'Verification feedback', 'A reliability outcome that prompts redesign'], ['selected', 'Selected relationship', 'Highlighted source, target, and scientific interpretation']];
-    return `<div class="legend-title"><strong>Relationship legend</strong><button type="button" data-close-legend aria-label="Close legend">×</button></div><div class="legend-items">${items.map(([type, title, text]) => `<article><span class="relation-swatch" data-type="${type}" aria-hidden="true"></span><div><b>${title}</b><p>${text}</p></div></article>`).join('')}</div>`;
+    if (root === 'design-performance') return `<div class="legend-title"><strong>Qualitative influence level</strong><button type="button" data-close-legend aria-label="Close legend">×</button></div><div class="legend-items">${page.legend.map((item) => `<article><span class="influence-marker" data-level="${item.id}" aria-hidden="true"></span><div><b>${esc(item.label)}</b><p>${esc(item.description)}</p></div></article>`).join('')}<article><span class="tradeoff-symbol" aria-hidden="true">↕</span><div><b>Trade-off indicator</b><p>Improvement in one dimension may increase cost or reduce another.</p></div></article><article><span class="relation-swatch" data-type="selected"><i></i></span><div><b>${relationshipMeta.selected.label}</b><p>${relationshipMeta.selected.description}</p></div></article></div>`;
+    if (root === 'failure-diagnostics') return `<div class="legend-title"><strong>Diagnostic relationship legend</strong><button type="button" data-close-legend aria-label="Close legend">×</button></div>${relationLegend(['flow', 'feedback', 'selected'])}<div class="legend-path"><span>Challenge</span><i>→</i><span>Symptoms</span><i>→</i><span>Response</span><i>→</i><span>Improvement</span><i>↻</i><span>Verify / re-diagnose</span></div>`;
+    const types = root === 'design-stack' ? ['flow', 'coupling', 'feedback', 'selected'] : ['coupling', 'feedback', 'selected'];
+    return `<div class="legend-title"><strong>Relationship legend</strong><button type="button" data-close-legend aria-label="Close legend">×</button></div>${relationLegend(types)}`;
   }
 
   function renderVisual(page) {
@@ -237,7 +271,7 @@
     } else if (root === 'design-performance') {
       page.rows.forEach((row) => {
         state.objects.set(row.id, { ...row, kind: 'matrix-row' });
-        row.cells.forEach((cell, index) => state.objects.set(cell.id, { ...cell, kind: 'matrix-cell', row, column: page.columns[index], evidence: cell.evidence || row.evidence || [] }));
+        row.cells.forEach((cell, index) => state.objects.set(cell.id, { ...cell, kind: 'matrix-cell', row, column: page.columns[index], evidence: cell.evidence || [] }));
       });
     } else {
       page.categories.forEach((item) => state.objects.set(`category:${item.id}`, { ...item, kind: 'diagnostic-category' }));
@@ -268,15 +302,30 @@
     document.querySelector('[data-zoom-in]').addEventListener('click', () => setZoom(state.zoom + 0.15));
     document.querySelector('[data-zoom-out]').addEventListener('click', () => setZoom(state.zoom - 0.15));
     document.querySelector('[data-fit]').addEventListener('click', () => { setZoom(1); canvas.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); });
+    document.querySelector('[data-reset]').addEventListener('click', resetFrameworkView);
     document.querySelector('[data-expand]').addEventListener('click', toggleExpanded);
     document.querySelector('[data-legend]').addEventListener('click', toggleLegend);
     document.querySelector('[data-close-legend]').addEventListener('click', toggleLegend);
     document.querySelector('[data-share]').addEventListener('click', copyShareLink);
-    document.querySelector('[data-svg]').addEventListener('click', downloadCurrentSvg);
+    document.querySelector('[data-svg]').addEventListener('click', () => downloadFrameworkSvg('current'));
+    document.querySelector('[data-svg-publication]').addEventListener('click', () => downloadFrameworkSvg('publication'));
     applyVisibility(); setZoom(state.zoom, false);
     requestAnimationFrame(() => { drawRelations(); restoreSelectedItem(); });
     if ('ResizeObserver' in window) new ResizeObserver(() => drawRelations()).observe(document.querySelector('[data-relation-board]') || canvas);
     window.addEventListener('resize', drawRelations, { passive: true });
+  }
+
+  function resetFrameworkView() {
+    state.filter = 'all'; state.query = ''; state.zoom = 1; state.selectedId = null;
+    const search = document.querySelector('.framework-search');
+    const filter = document.querySelector('[data-filter]');
+    if (search) search.value = '';
+    if (filter) filter.value = 'all';
+    document.querySelectorAll('[data-inspect-id]').forEach((node) => node.classList.remove('is-active', 'is-related'));
+    document.querySelector('[data-detail]').innerHTML = `<p class="eyebrow">Interactive explorer</p><h2>Choose an object</h2><p>${defaultInspectorText()}</p><div class="detail-hint"><span>Search</span><span>Focus</span><span>Select</span><span>Verify</span></div>`;
+    applyVisibility(); setZoom(1, false);
+    const url = new URL(location.href); url.searchParams.delete('filter'); url.searchParams.delete('q'); url.searchParams.delete('zoom'); url.hash = ''; history.replaceState(null, '', url);
+    document.querySelector('[data-canvas]')?.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
   function restoreUrlState(page) {
@@ -320,7 +369,8 @@
     const query = state.query.toLowerCase();
     document.querySelectorAll('[data-filter-key]').forEach((node) => {
       const filterMatch = state.filter === 'all' || node.dataset.filterKey === state.filter;
-      node.hidden = !filterMatch;
+      node.hidden = false;
+      node.classList.toggle('is-filter-muted', !filterMatch);
     });
     const searchable = root === 'design-performance' ? '.matrix-row' : root === 'failure-diagnostics' ? '.diagnostic-row' : root === 'design-stack' ? '.stack-stage' : '.co-domain, .co-core';
     document.querySelectorAll(searchable).forEach((node) => {
@@ -341,6 +391,7 @@
   function showDetail(id, updateHistory = true) {
     const item = state.objects.get(id);
     if (!item) return;
+    state.selectedId = id;
     document.querySelectorAll('[data-inspect-id]').forEach((node) => {
       node.classList.toggle('is-active', node.dataset.inspectId === id);
       node.classList.remove('is-related');
@@ -349,68 +400,135 @@
       document.querySelectorAll('[data-node-id]').forEach((node) => node.classList.toggle('is-related', [item.from, item.to].includes(node.dataset.nodeId)));
     }
     document.querySelector('[data-detail]').innerHTML = renderDetail(item);
+    if (window.AtlasConcepts) window.AtlasConcepts.enhance(document.querySelector('[data-detail]'));
     if (updateHistory) {
       const url = new URL(location.href); url.hash = `item=${encodeURIComponent(id)}`; history.replaceState(null, '', url);
     }
   }
 
   function renderDetail(item) {
-    let body = `<p>${esc(item.summary || item.detail || item.instruction || '')}</p>`;
-    if (item.kind === 'stage') body += renderColumnDetails(item.columns);
-    if (item.kind === 'domain') body += renderPanelDetails(item.panels);
-    if (item.kind === 'core') body += `<h3>Co-design outcomes</h3>${renderList(item.outcomes)}`;
-    if (item.kind === 'relationship') body += `<div class="relationship-route"><span>${esc(objectTitle(item.from))}</span><i>→</i><span>${esc(objectTitle(item.to))}</span></div>`;
-    if (item.kind === 'matrix-row') body += `<h3>Dependency profile</h3>${renderList(item.cells.map((cell, index) => `${state.page.columns[index].title}: ${cell.label} (${levelLabel(cell.level)})`))}`;
-    if (item.kind === 'matrix-cell') body += `<div class="matrix-detail"><span class="influence-marker" data-level="${item.level}"></span><div><b>${esc(levelLabel(item.level))}</b><p>${esc(item.row.title)} influences ${esc(item.column.title)} through <strong>${esc(item.label)}</strong>.</p>${item.row.tradeoff ? '<p class="tradeoff-note">↕ This design row carries a problem-dependent trade-off indicator.</p>' : ''}</div></div>`;
-    if (item.kind === 'failure-mode') body += `<h3>Observable symptoms</h3>${renderList(item.symptoms)}<h3>Methodological responses</h3>${renderList(item.responses)}<h3>Targeted improvement</h3><p class="target-improvement">${esc(item.improvement)}</p>`;
-    if (item.kind === 'verification') body += `<h3>Evaluation criteria</h3>${renderList(item.criteria)}`;
     const title = item.kind === 'relationship' ? item.label : item.kind === 'matrix-cell' ? `${item.row.title} → ${item.column.title}` : item.title;
-    return `<p class="eyebrow">${esc(kindLabel(item.kind))}</p><h2>${esc(title)}</h2>${body}${renderEvidence(item.evidence || item.row?.evidence || [])}${renderConceptLinks(item.concepts || item.row?.concepts || [])}${renderRelatedLinks(item.related_frameworks || [])}<div class="detail-actions"><a class="button" href="${issueUrl('Suggest a framework correction', title)}" target="_blank" rel="noopener">Suggest correction ↗</a>${root === 'failure-diagnostics' && item.kind === 'failure-mode' ? `<a class="button" href="${issueUrl('Propose a missing response', title)}" target="_blank" rel="noopener">Missing response ↗</a>` : ''}</div>`;
+    const evidence = item.kind === 'matrix-cell' && !item.evidence?.length ? (item.row?.evidence || []) : (item.evidence || []);
+    const concepts = item.concepts || item.row?.concepts || [];
+    const related = item.related_frameworks || item.row?.related_frameworks || [];
+    return `<div class="framework-inspector-head">${frameworkIcon(iconForItem(item))}<div><p class="eyebrow">${esc(kindLabel(item.kind))}</p><h2>${esc(title)}</h2></div></div>
+      <section class="framework-inspector-section" data-inspector-section="meaning"><h3>Scientific meaning</h3>${renderScientificMeaning(item)}</section>
+      <section class="framework-inspector-section" data-inspector-section="relationships"><h3>Relationships</h3>${renderRelationshipSection(item)}</section>
+      ${renderEvidence(evidence, item)}
+      ${renderConceptLinks(concepts)}
+      ${renderRelatedLinks(related)}
+      <div class="detail-actions"><a class="button" href="${issueUrl('Suggest a framework correction', title)}" target="_blank" rel="noopener">Suggest correction ↗</a>${root === 'failure-diagnostics' && item.kind === 'failure-mode' ? `<a class="button" href="${issueUrl('Propose a missing response', title)}" target="_blank" rel="noopener">Missing response ↗</a>` : ''}</div>`;
   }
 
-  function renderColumnDetails(columns = []) { return `<div class="detail-columns">${columns.map((column) => `<section><h3>${esc(column.title)}</h3>${renderList(column.items)}</section>`).join('')}</div>`; }
-  function renderPanelDetails(panels = []) { return `<div class="detail-columns">${panels.map((panel) => `<section><h3>${esc(panel.title)}</h3>${renderList(panel.items)}</section>`).join('')}</div>`; }
+  function renderScientificMeaning(item) {
+    let body = `<p>${esc(item.summary || item.detail || item.instruction || (item.kind === 'failure-mode' ? `Diagnostic pathway for ${item.title}.` : ''))}</p>`;
+    if (item.kind === 'stage') body += renderColumnDetails(item.columns);
+    if (item.kind === 'domain') body += renderPanelDetails(item.panels);
+    if (item.kind === 'core') body += `<h4>Co-design outcomes</h4>${renderList(item.outcomes)}`;
+    if (item.kind === 'matrix-cell') body += `<div class="matrix-detail"><span class="influence-marker" data-level="${item.level}"></span><div><b>${esc(levelLabel(item.level))}</b><p>${esc(item.row.title)} influences ${esc(item.column.title)} through <strong>${esc(item.label)}</strong>.</p>${item.row.tradeoff ? '<p class="tradeoff-note">↕ This design row carries a problem-dependent trade-off indicator.</p>' : ''}</div></div>`;
+    if (item.kind === 'failure-mode') body += `<h4>Observable symptoms</h4>${renderList(item.symptoms)}<h4>Methodological responses</h4>${renderList(item.responses)}<h4>Targeted improvement</h4><p class="target-improvement">${esc(item.improvement)}</p>`;
+    if (item.kind === 'verification') body += `<h4>Evaluation criteria</h4>${renderList(item.criteria)}`;
+    return body;
+  }
+
+  function renderRelationshipSection(item) {
+    if (item.kind === 'relationship') return `<div class="relationship-route"><span>${esc(objectTitle(item.from))}</span><i>→</i><span>${esc(objectTitle(item.to))}</span></div><p>${esc(item.summary || item.detail || '')}</p>`;
+    if (item.kind === 'matrix-row') return `<div class="framework-relationship-list">${item.cells.map((cell, index) => `<button type="button" data-inspect-id="${cell.id}"><span>${esc(state.page.columns[index].title)}</span><b>${esc(cell.label)}</b><small>${esc(levelLabel(cell.level))}</small></button>`).join('')}</div>`;
+    if (item.kind === 'matrix-cell') return `<div class="relationship-route"><span>${esc(item.row.title)}</span><i>→</i><span>${esc(item.column.title)}</span></div>`;
+    if (item.kind === 'failure-mode') return `<div class="diagnostic-mini-path"><span>Challenge</span><i>→</i><span>Symptoms</span><i>→</i><span>Response</span><i>→</i><span>Improvement</span><i>↻</i><span>Verify</span></div>`;
+    if (item.kind === 'verification') return `<div class="diagnostic-mini-path"><span>Targeted improvement</span><i>→</i><span>Verification</span><i>↻</i><span>Re-diagnose if needed</span></div>`;
+    if (item.kind === 'phase') {
+      const children = item.stage_ids || [];
+      return `<div class="framework-relationship-list">${children.map((id) => `<button type="button" data-inspect-id="${id}"><span>Contains</span><b>${esc(objectTitle(id))}</b></button>`).join('')}</div>`;
+    }
+    if (item.kind === 'diagnostic-category') {
+      const children = item.mode_ids || [];
+      return `<div class="framework-relationship-list">${children.map((id) => `<button type="button" data-inspect-id="${id}"><span>Contains</span><b>${esc(objectTitle(id))}</b></button>`).join('')}</div>`;
+    }
+    const relationships = (state.page.relationships || []).filter((relation) => relation.from === item.id || relation.to === item.id);
+    if (!relationships.length) return '<p class="framework-detail-empty">No explicit relationship object is registered for this item.</p>';
+    return `<div class="framework-relationship-list">${relationships.map((relation) => `<button type="button" data-inspect-id="${relation.id}"><span>${esc(relationshipMeta[relation.type]?.label || relation.type)}</span><b>${esc(relation.label)}</b><small>${esc(objectTitle(relation.from))} → ${esc(objectTitle(relation.to))}</small></button>`).join('')}</div>`;
+  }
+
+  function renderColumnDetails(columns = []) { return `<div class="detail-columns">${columns.map((column) => `<section><h4>${esc(column.title)}</h4>${renderList(column.items)}</section>`).join('')}</div>`; }
+  function renderPanelDetails(panels = []) { return `<div class="detail-columns">${panels.map((panel) => `<section><h4>${esc(panel.title)}</h4>${renderList(panel.items)}</section>`).join('')}</div>`; }
   function renderList(items = []) { return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`; }
   function kindLabel(kind) { return ({ phase: 'Design phase', stage: 'Design stage', relationship: 'Scientific relationship', core: 'Central co-design formulation', domain: 'Co-design domain', 'matrix-row': 'Design dimension', 'matrix-cell': 'Design–performance dependency', 'diagnostic-category': 'Diagnostic category', 'failure-mode': 'Failure-mode pathway', verification: 'Verification loop' })[kind] || 'Framework object'; }
   function levelLabel(level) { return ({ major: 'Direct / major dependency', context: 'Context-dependent dependency', indirect: 'Indirect / secondary dependency' })[level] || level; }
   function objectTitle(id) { const item = state.objects.get(id); return item?.title || id; }
 
-  function renderEvidence(evidence) {
-    if (!evidence.length) return `<section class="detail-evidence"><h3>Supporting evidence</h3><p class="evidence-pending">No claim-level paper is displayed until its canonical reference record and relevance to this claim have been verified.</p></section>`;
-    return `<section class="detail-evidence"><h3>Supporting evidence</h3>${evidence.map((entry) => `<article><a href="${prefix}references/#ref=${entry.atlas_id}">[${entry.atlas_id}]</a><span>${esc(entry.support || 'Supporting')}</span><p>${esc(entry.rationale || '')}</p></article>`).join('')}</section>`;
+  function frameworkLocation(item) {
+    if (!item) return state.page.title;
+    if (root === 'design-stack') {
+      if (item.kind === 'phase') return `${item.roman} · ${item.title}`;
+      if (item.kind === 'stage') { const phase = state.page.phases.find((entry) => entry.id === item.phase); return `${phase?.roman || ''} · ${item.number} · ${item.title}`.replace(/^ · /, ''); }
+      if (item.kind === 'relationship') return `Relationship · ${objectTitle(item.from)} → ${objectTitle(item.to)}`;
+    }
+    if (root === 'co-design') {
+      if (item.kind === 'core') return `Core · ${item.title}`;
+      if (item.kind === 'domain') return `${item.number} · ${item.title}`;
+      if (item.kind === 'relationship') return `Relationship · ${objectTitle(item.from)} → ${objectTitle(item.to)}`;
+    }
+    if (root === 'design-performance') {
+      if (item.kind === 'matrix-row') return `${item.number} · ${item.title}`;
+      if (item.kind === 'matrix-cell') return `${item.row.number} · ${item.row.title} → ${item.column.code} · ${item.column.title}`;
+    }
+    if (root === 'failure-diagnostics') {
+      if (item.kind === 'diagnostic-category') return `${item.code} · ${item.title}`;
+      if (item.kind === 'failure-mode') { const category = state.page.categories.find((entry) => entry.id === item.category); return `${category?.code || ''} · ${item.number} · ${item.title}`.replace(/^ · /, ''); }
+      if (item.kind === 'verification') return 'Verification loop';
+    }
+    return item.title || state.page.title;
+  }
+
+  function supportBadge(support) {
+    const value = support || 'Supporting';
+    return `<span class="evidence-support-badge" data-support="${slug(value)}">${esc(value)}</span>`;
+  }
+
+  function renderEvidence(evidence, item) {
+    const location = frameworkLocation(item);
+    if (!evidence.length) return `<section class="framework-inspector-section detail-evidence" data-inspector-section="evidence"><h3>Supporting evidence</h3><p class="evidence-pending">No claim-level paper is displayed until its Reference ID and relevance to this exact framework object have been verified.</p></section>`;
+    return `<section class="framework-inspector-section detail-evidence" data-inspector-section="evidence"><h3>Supporting evidence</h3>${evidence.map((entry) => `<article class="framework-evidence-claim"><div class="evidence-claim-head"><a class="evidence-reference-id" href="${prefix}references/#ref=${entry.atlas_id}">[${entry.atlas_id}]</a>${supportBadge(entry.support)}<span class="framework-location-tag">${esc(location)}</span></div><p>${esc(entry.rationale || '')}</p></article>`).join('')}</section>`;
   }
 
   function renderConceptLinks(concepts) {
-    if (!concepts.length) return '';
-    return `<section><h3>Canonical concepts</h3><div class="framework-detail-links">${concepts.map((concept) => `<span class="framework-concept-pair"><button class="button primary" type="button" data-concept-id="${esc(concept.id)}">${esc(concept.label)}</button><a class="button concept-open-link" data-concept-open="${esc(concept.id)}" href="#">Open →</a></span>`).join('')}</div></section>`;
+    return `<section class="framework-inspector-section" data-inspector-section="concepts"><h3>Canonical concepts</h3>${concepts.length ? `<div class="framework-detail-links">${concepts.map((concept) => `<span class="framework-concept-pair"><button class="button primary" type="button" data-concept-id="${esc(concept.id)}">${esc(concept.label)}</button><a class="button concept-open-link" data-concept-open="${esc(concept.id)}" href="#">Open →</a></span>`).join('')}</div>` : '<p class="framework-detail-empty">No additional canonical concept is registered for this object.</p>'}</section>`;
   }
 
   function renderRelatedLinks(references) {
-    if (!references.length) return '';
-    return `<section><h3>Related framework objects</h3><div class="framework-detail-links">${references.map((reference) => {
+    const content = references.length ? `<div class="framework-detail-links">${references.map((reference) => {
       const [frameworkId, itemId] = reference.split(':');
       const framework = state.manifest.frameworks.find((entry) => entry.id === frameworkId);
       if (!framework) return '';
       const href = `${prefix}frameworks/${framework.route}${itemId ? `#item=${encodeURIComponent(itemId)}` : ''}`;
       return `<a class="button" href="${href}">${esc(framework.title)}${itemId ? ` · ${esc(itemId.replace(/-/g, ' '))}` : ''} →</a>`;
-    }).join('')}</div></section>`;
+    }).join('')}</div>` : '<p class="framework-detail-empty">No explicit cross-framework object is registered for this item.</p>';
+    return `<section class="framework-inspector-section" data-inspector-section="related"><h3>Related framework objects</h3>${content}</section>`;
   }
 
-  function collectEvidence(value, found = new Map()) {
-    if (Array.isArray(value)) value.forEach((item) => collectEvidence(item, found));
-    else if (value && typeof value === 'object') {
-      if (Number.isInteger(value.atlas_id)) found.set(value.atlas_id, value);
-      Object.values(value).forEach((item) => collectEvidence(item, found));
+  function collectEvidenceGroups() {
+    const groups = new Map();
+    for (const item of state.objects.values()) {
+      const entries = item.evidence || [];
+      for (const entry of entries) {
+        if (!Number.isInteger(entry.atlas_id)) continue;
+        if (!groups.has(entry.atlas_id)) groups.set(entry.atlas_id, { atlas_id: entry.atlas_id, claims: [] });
+        const claim = { support: entry.support || 'Supporting', rationale: entry.rationale || '', location: frameworkLocation(item) };
+        const signature = `${claim.support}|${claim.rationale}|${claim.location}`;
+        const target = groups.get(entry.atlas_id).claims;
+        if (!target.some((existing) => `${existing.support}|${existing.rationale}|${existing.location}` === signature)) target.push(claim);
+      }
     }
-    return found;
+    return [...groups.values()].sort((a, b) => a.atlas_id - b.atlas_id);
   }
 
   function renderEvidenceSection(page) {
-    const evidence = [...collectEvidence(page).values()];
+    const evidence = collectEvidenceGroups();
     return `<section class="section framework-evidence-section"><div class="container">
-      <div class="section-head"><div><p class="eyebrow">Evidence & supporting papers</p><h2>Claim-level<br>support</h2></div><p>Supporting papers use canonical Reference IDs and are separately rechecked against the exact framework claim.</p></div>
+      <div class="section-head"><div><p class="eyebrow">Supporting evidence</p><h2>Claim-level<br>support</h2></div><p>Each Reference ID is linked to the exact framework locations it supports; support type and rationale remain attached to every claim.</p></div>
       <div class="evidence-summary"><div><strong>${evidence.length}</strong><span>verified papers currently linked</span></div><p>${esc(state.manifest.evidence_status)}</p></div>
-      ${evidence.length ? `<div class="evidence-paper-grid">${evidence.map((entry) => `<a href="${prefix}references/#ref=${entry.atlas_id}"><b>[${entry.atlas_id}]</b><span>${esc(entry.support || 'Supporting')} support</span><small>${esc(entry.rationale || '')}</small></a>`).join('')}</div>` : '<p class="framework-caveat"><strong>Evidence gate:</strong> unverified placeholder IDs are never displayed.</p>'}
+      ${evidence.length ? `<div class="evidence-paper-grid">${evidence.map((paper) => `<article class="evidence-paper-card"><header><a class="evidence-reference-id" href="${prefix}references/#ref=${paper.atlas_id}"><b>[${paper.atlas_id}]</b></a><span>${paper.claims.length} supported location${paper.claims.length === 1 ? '' : 's'}</span></header><div class="evidence-paper-claims">${paper.claims.slice(0, 2).map((claim) => `<div class="evidence-paper-claim"><div>${supportBadge(claim.support)}<span class="framework-location-tag">${esc(claim.location)}</span></div><small>${esc(claim.rationale)}</small></div>`).join('')}${paper.claims.length > 2 ? `<details><summary>+${paper.claims.length - 2} more supported locations</summary>${paper.claims.slice(2).map((claim) => `<div class="evidence-paper-claim"><div>${supportBadge(claim.support)}<span class="framework-location-tag">${esc(claim.location)}</span></div><small>${esc(claim.rationale)}</small></div>`).join('')}</details>` : ''}</div></article>`).join('')}</div>` : '<p class="framework-caveat"><strong>Evidence gate:</strong> unverified placeholder IDs are never displayed.</p>'}
     </div></section>`;
   }
 
@@ -432,26 +550,34 @@
     const width = board.scrollWidth, height = board.scrollHeight;
     layer.setAttribute('viewBox', `0 0 ${width} ${height}`);
     layer.setAttribute('width', width); layer.setAttribute('height', height);
-    layer.innerHTML = `<defs><marker id="framework-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 Z"></path></marker><marker id="framework-arrow-feedback" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 Z"></path></marker></defs>`;
+    layer.innerHTML = `<defs>
+      <marker id="framework-arrow-flow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L6,3.5 L0,7 Z"></path></marker>
+      <marker id="framework-arrow-coupling" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L6,3.5 L0,7 Z"></path></marker>
+      <marker id="framework-arrow-feedback" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L6,3.5 L0,7 Z"></path></marker>
+    </defs>`;
     const rect = board.getBoundingClientRect();
     const scaleX = width / rect.width, scaleY = height / rect.height;
     const box = (id) => {
       const node = board.querySelector(`[data-node-id="${id}"]`);
       if (!node || node.hidden || node.closest('[hidden]')) return null;
       const bounds = node.getBoundingClientRect();
-      return { left: (bounds.left - rect.left) * scaleX, right: (bounds.right - rect.left) * scaleX, top: (bounds.top - rect.top) * scaleY, bottom: (bounds.bottom - rect.top) * scaleY, width: bounds.width * scaleX, height: bounds.height * scaleY };
+      const muted = node.classList.contains('is-filter-muted') || node.classList.contains('is-search-muted') || Boolean(node.closest('.is-filter-muted,.is-search-muted'));
+      return { left: (bounds.left - rect.left) * scaleX, right: (bounds.right - rect.left) * scaleX, top: (bounds.top - rect.top) * scaleY, bottom: (bounds.bottom - rect.top) * scaleY, width: bounds.width * scaleX, height: bounds.height * scaleY, muted };
     };
     state.page.relationships.forEach((relation, index) => {
       const source = box(relation.from), target = box(relation.to);
       if (!source || !target) return;
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('class', `relation-path relation-${relation.type}`);
+      path.setAttribute('class', `relation-path relation-${relation.type}${source.muted || target.muted ? ' is-muted' : ''}`);
       path.setAttribute('data-inspect-id', relation.id); path.setAttribute('tabindex', '0');
-      path.setAttribute('marker-end', relation.type === 'feedback' ? 'url(#framework-arrow-feedback)' : 'url(#framework-arrow)');
+      const marker = relation.type === 'feedback' ? 'framework-arrow-feedback' : relation.type === 'coupling' ? 'framework-arrow-coupling' : 'framework-arrow-flow';
+      if (relation.type === 'coupling') path.setAttribute('marker-start', `url(#${marker})`);
+      path.setAttribute('marker-end', `url(#${marker})`);
       path.setAttribute('d', relationPath(source, target, relation, width, index));
       const title = document.createElementNS('http://www.w3.org/2000/svg', 'title'); title.textContent = relation.label; path.append(title); layer.append(path);
-      if (root === 'co-design' && relation.type === 'coupling') drawRelationCaption(layer, source, target, relation, index);
+      if (root === 'co-design' && relation.type === 'coupling') drawRelationCaption(layer, source, target, relation, index, source.muted || target.muted);
     });
+    if (state.selectedId) document.querySelectorAll(`[data-inspect-id="${CSS.escape(state.selectedId)}"]`).forEach((node) => node.classList.add('is-active'));
   }
 
   function relationPath(source, target, relation, width, index) {
@@ -473,13 +599,13 @@
     return `M ${sx} ${sy} C ${sx + bend} ${(sy + ty) / 2}, ${tx - bend} ${(sy + ty) / 2}, ${tx} ${ty}`;
   }
 
-  function drawRelationCaption(layer, source, target, relation, index) {
+  function drawRelationCaption(layer, source, target, relation, index, muted = false) {
     const x = (source.left + source.width / 2 + target.left + target.width / 2) / 2;
     const y = (source.top + source.height / 2 + target.top + target.height / 2) / 2 + ((index % 3) - 1) * 18;
     const label = relation.label.length > 42 ? `${relation.label.slice(0, 40)}…` : relation.label;
     const width = Math.min(250, Math.max(98, label.length * 5.2 + 16));
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    group.setAttribute('class', 'relation-caption'); group.setAttribute('data-inspect-id', relation.id); group.setAttribute('tabindex', '0');
+    group.setAttribute('class', `relation-caption${muted ? ' is-muted' : ''}`); group.setAttribute('data-inspect-id', relation.id); group.setAttribute('tabindex', '0');
     const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect'); rect.setAttribute('x', x - width / 2); rect.setAttribute('y', y - 10); rect.setAttribute('width', width); rect.setAttribute('height', 20); rect.setAttribute('rx', 8);
     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text'); text.setAttribute('x', x); text.setAttribute('y', y + 3.5); text.setAttribute('text-anchor', 'middle'); text.textContent = label;
     const title = document.createElementNS('http://www.w3.org/2000/svg', 'title'); title.textContent = relation.label;
@@ -492,22 +618,33 @@
     catch (_) { const input = document.createElement('textarea'); input.value = location.href; document.body.append(input); input.select(); document.execCommand('copy'); input.remove(); flash('Shareable framework state copied'); }
   }
 
-  function downloadCurrentSvg() {
+  function renderExportLegend() {
+    if (root === 'design-performance') return `<div class="framework-export-legend">${state.page.legend.map((item) => `<span><i class="influence-marker" data-level="${item.id}"></i>${esc(item.label)}</span>`).join('')}<span><i class="tradeoff-symbol">↕</i>Potential trade-off</span></div>`;
+    if (root === 'failure-diagnostics') return `<div class="framework-export-legend"><span><span class="relation-swatch" data-type="flow"><i></i></span>${relationshipMeta.flow.label}</span><span><span class="relation-swatch" data-type="feedback"><i></i></span>${relationshipMeta.feedback.label}</span></div>`;
+    const types = root === 'design-stack' ? ['flow', 'coupling', 'feedback'] : ['coupling', 'feedback'];
+    return `<div class="framework-export-legend">${types.map((type) => `<span><span class="relation-swatch" data-type="${type}"><i></i></span>${relationshipMeta[type].label}</span>`).join('')}</div>`;
+  }
+
+  function downloadFrameworkSvg(mode = 'current') {
     const surface = document.querySelector('[data-zoom-surface]');
     const clone = surface.cloneNode(true);
     clone.querySelectorAll('[tabindex]').forEach((node) => node.removeAttribute('tabindex'));
     clone.querySelectorAll('button').forEach((node) => { const replacement = document.createElement('div'); replacement.className = node.className; replacement.innerHTML = node.innerHTML; [...node.attributes].forEach((attribute) => { if (attribute.name.startsWith('data-')) replacement.setAttribute(attribute.name, attribute.value); }); node.replaceWith(replacement); });
+    if (mode === 'publication') clone.querySelectorAll('.is-search-muted,.is-filter-muted,.is-active,.is-related,.is-muted').forEach((node) => node.classList.remove('is-search-muted', 'is-filter-muted', 'is-active', 'is-related', 'is-muted'));
+    const header = document.createElement('div'); header.className = 'framework-export-header'; header.innerHTML = `<div><small>PINN Review Atlas · Framework</small><strong>${esc(state.page.title)}</strong><span>${mode === 'publication' ? 'Clean publication view' : 'Current focused view'}</span></div>${renderExportLegend()}`; clone.prepend(header);
     const width = Math.max(1200, Math.ceil(surface.scrollWidth));
-    const height = Math.max(700, Math.ceil(surface.scrollHeight));
+    const height = Math.max(820, Math.ceil(surface.scrollHeight) + 140);
     const computed = getComputedStyle(document.documentElement);
-    const variables = ['--paper', '--ink', '--muted', '--faint', '--line', '--violet', '--mint', '--surface-hover', '--surface-faint', '--nav-popover'].map((name) => `${name}:${computed.getPropertyValue(name)};`).join('');
+    const variables = ['--paper', '--ink', '--muted', '--faint', '--line', '--violet', '--mint', '--surface-hover', '--surface-faint', '--nav-popover', '--framework-orange'].map((name) => `${name}:${computed.getPropertyValue(name)};`).join('');
     let css = '';
     [...document.styleSheets].forEach((sheet) => { try { if (sheet.href?.includes('frameworks.css')) css += [...sheet.cssRules].map((rule) => rule.cssText).join('\n'); } catch (_) { /* Cross-origin styles are intentionally skipped. */ } });
     const html = new XMLSerializer().serializeToString(clone);
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><style>:root{${variables}}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}${css.replace(/<\/style/gi, '<\\/style')}</style><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;min-height:${height}px;padding:16px;background:var(--paper);box-sizing:border-box">${html}</div></foreignObject></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" data-export-mode="${mode}"><style>:root{${variables}}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}${css.replace(/<\/style/gi, '<\\/style')}</style><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;min-height:${height}px;padding:16px;background:var(--paper);box-sizing:border-box">${html}</div></foreignObject></svg>`;
     const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }));
-    const link = document.createElement('a'); link.href = url; link.download = `${root}-current-view.svg`; document.body.append(link); link.click(); link.remove(); URL.revokeObjectURL(url); flash('Current live framework exported as SVG');
+    const link = document.createElement('a'); link.href = url; link.download = `${root}-${mode}-view.svg`; document.body.append(link); link.click(); link.remove(); URL.revokeObjectURL(url); flash(mode === 'publication' ? 'Clean publication SVG exported' : 'Current focused framework exported as SVG');
   }
+
+  function downloadCurrentSvg() { downloadFrameworkSvg('current'); }
 
   function flash(message) {
     let toast = document.querySelector('.framework-toast');
