@@ -7,144 +7,712 @@
     "keepSeparate": "Scientifically related concepts remain distinct canonical concepts and must never be merged merely because their terminology overlaps."
   },
   "sameConcept": [
-    {"source":"activation:fourier-feature-mapping","target":"architecture:fourier-features","exposure":"destination","reason":"The activation taxonomy explicitly classifies Fourier feature mapping as an architecture feature-mapping component rather than an ordinary scalar activation."},
-    {"source":"formulation:f004","target":"ecosystem:physical-constraints-interface-conditions-4","exposure":"destination","reason":"F004 is the Mathematical Formulations record for interface conditions."},
-    {"source":"formulation:f009","target":"ecosystem:neural-architecture-approximation-model-multilayer-perceptron-mlp-2","exposure":"destination","reason":"F009 is the explicit multilayer-perceptron realization of the same MLP representation concept."},
-    {"source":"formulation:f011","target":"method:automatic-differentiation","exposure":"destination","reason":"F011 is the Mathematical Formulations record for automatic-differentiation derivatives."},
-    {"source":"formulation:f015","target":"ecosystem:physics-enforcement-mechanism-boundary-condition-loss-5","exposure":"destination","reason":"F015 is the mathematical definition of boundary-condition loss."},
-    {"source":"formulation:f016","target":"ecosystem:physics-enforcement-mechanism-initial-condition-loss-6","exposure":"destination","reason":"F016 is the mathematical definition of initial-condition loss."},
-    {"source":"formulation:f025","target":"ecosystem:physics-enforcement-mechanism-distance-function-construction-5","exposure":"destination","reason":"F025 is the distance-function construction used for hard Dirichlet enforcement."},
-    {"source":"formulation:f026","target":"ecosystem:loss-weighting-balancing-augmented-lagrangian-17","exposure":"destination","reason":"F026 is the augmented-Lagrangian equality-constraint formulation."},
-    {"source":"formulation:f028","target":"formulation:weak-form","exposure":"destination","reason":"F028 is the continuous weak residual statement and is the dedicated weak-form formulation record."},
-    {"source":"formulation:f031","target":"formulation:variational-form","exposure":"destination","reason":"F031 is the dedicated variational stationarity / energy-minimum formulation record."},
-    {"source":"formulation:f036","target":"ecosystem:hybrid-numerical-pinn-methods-pinn-finite-volume-residual-6","exposure":"destination","reason":"F036 is the finite-volume residual used by the corresponding hybrid numerical PINN method."},
-    {"source":"formulation:f037","target":"ecosystem:hybrid-numerical-pinn-methods-pinn-finite-difference-residual-7","exposure":"destination","reason":"F037 is the finite-difference residual used by the corresponding hybrid numerical PINN method."},
-    {"source":"formulation:f039","target":"ecosystem:physics-enforcement-mechanism-boundary-integral-formulation-7","exposure":"destination","reason":"F039 is the boundary-integral formulation represented in the physics-enforcement taxonomy."},
-    {"source":"formulation:f042","target":"ecosystem:differentiation-differential-operator-evaluation-mixed-automatic-numerical-differentiation-2","exposure":"destination","reason":"F042 is the coupled automatic-numerical differentiation formulation."},
-    {"source":"formulation:f045","target":"ecosystem:output-state-representation-streamfunction-formulation-3","exposure":"destination","reason":"F045 is the streamfunction formulation used to encode incompressibility."},
-    {"source":"formulation:f046","target":"ecosystem:output-state-representation-stress-displacement-formulation-4","exposure":"destination","reason":"F046 is the mixed stress-displacement state formulation."},
-    {"source":"formulation:f049","target":"ecosystem:differentiation-differential-operator-evaluation-implicit-runge-kutta-2","exposure":"destination","reason":"F049 is the implicit Runge-Kutta stage formulation."},
-    {"source":"formulation:f051","target":"ecosystem:neural-architecture-approximation-model-radial-basis-function-networks-1","exposure":"destination","reason":"F051 is the radial-basis-function approximation used by the corresponding representation family."},
-    {"source":"formulation:f052","target":"architecture:fourier-features","exposure":"destination","reason":"F052 is the Fourier feature map used as the same representation concept."},
-    {"source":"formulation:f053","target":"architecture:siren","exposure":"destination","reason":"F053 is the sinusoidal representation network (SIREN) formulation."},
-    {"source":"formulation:f070","target":"ecosystem:neural-architecture-approximation-model-parameterized-pinns-8","exposure":"destination","reason":"F070 is the parameterized PINN representation."},
-    {"source":"formulation:f077","target":"ecosystem:operator-learning-physics-informed-deeponet-2","exposure":"destination","reason":"F077 is the physics-informed DeepONet residual formulation."},
-    {"source":"formulation:f078","target":"ecosystem:operator-learning-separable-operator-networks-14","exposure":"destination","reason":"F078 is the separable operator representation."},
-    {"source":"formulation:f079","target":"ecosystem:operator-learning-fourier-neural-operator-7","exposure":"destination","reason":"F079 is the Fourier neural-operator layer formulation."},
-    {"source":"formulation:f080","target":"ecosystem:operator-learning-physics-informed-fno-8","exposure":"destination","reason":"F080 is the physics-informed Fourier-operator objective represented by the physics-informed FNO concept."},
-    {"source":"formulation:f084","target":"ecosystem:output-state-representation-state-parameter-joint-formulation-5","exposure":"destination","reason":"F084 is the joint state-parameter inverse formulation."},
-    {"source":"formulation:f088","target":"ecosystem:uncertainty-quantification-probabilistic-pinns-bayesian-pinns-1","exposure":"destination","reason":"F088 is the Bayesian PINN posterior formulation."},
-    {"source":"formulation:f091","target":"ecosystem:uncertainty-quantification-probabilistic-pinns-variational-inference-13","exposure":"destination","reason":"F091 is the variational-inference objective used in the probabilistic PINN context."},
-    {"source":"formulation:f092","target":"ecosystem:loss-function-objective-construction-adversarial-objective-12","exposure":"destination","reason":"F092 is the physics-informed adversarial objective."},
-    {"source":"formulation:f096","target":"ecosystem:scaling-normalization-preprocessing-nondimensionalization-1","exposure":"destination","reason":"F096 is the nondimensionalization transformation."},
-    {"source":"formulation:f098","target":"ecosystem:loss-weighting-balancing-adaptive-weighting-3","exposure":"destination","reason":"F098 is the adaptive loss-weighting mechanism."},
-    {"source":"formulation:f099","target":"ecosystem:loss-weighting-balancing-gradient-norm-balancing-7","exposure":"destination","reason":"F099 is the gradient-norm balancing target."},
-    {"source":"formulation:f101","target":"ecosystem:loss-function-objective-construction-gradient-enhanced-residual-1","exposure":"destination","reason":"F101 is the gradient-enhanced residual/loss construction."},
-    {"source":"formulation:f103","target":"ecosystem:collocation-sampling-residual-based-sampling-1","exposure":"destination","reason":"F103 is the residual-based adaptive sampling rule."},
-    {"source":"formulation:f105","target":"ecosystem:theory-pareto-stationarity-15","exposure":"destination","reason":"F105 is the Pareto-stationarity condition for the multi-objective PINN problem."},
-    {"source":"formulation:f106","target":"metric:relative-l2","exposure":"destination","reason":"F106 is the Mathematical Formulations definition of relative L2 field error."},
-    {"source":"formulation:f107","target":"metric:rmse","exposure":"destination","reason":"F107 is the Mathematical Formulations definition of root-mean-square error."},
-    {"source":"formulation:f108","target":"metric:mae","exposure":"destination","reason":"F108 is the Mathematical Formulations definition of mean absolute error."},
-    {"source":"formulation:f113","target":"metric:parameter-relative-error","exposure":"destination","reason":"F113 is the relative parameter-error formulation used to evaluate inverse identification."}
+    {
+      "source": "activation:fourier-feature-mapping",
+      "target": "architecture:fourier-features",
+      "exposure": "destination",
+      "reason": "The activation taxonomy explicitly classifies Fourier feature mapping as an architecture feature-mapping component rather than an ordinary scalar activation."
+    },
+    {
+      "source": "formulation:f004",
+      "target": "ecosystem:physical-constraints-interface-conditions-4",
+      "exposure": "destination",
+      "reason": "F004 is the Mathematical Formulations record for interface conditions."
+    },
+    {
+      "source": "formulation:f009",
+      "target": "ecosystem:neural-architecture-approximation-model-multilayer-perceptron-mlp-2",
+      "exposure": "destination",
+      "reason": "F009 is the explicit multilayer-perceptron realization of the same MLP representation concept."
+    },
+    {
+      "source": "formulation:f011",
+      "target": "method:automatic-differentiation",
+      "exposure": "destination",
+      "reason": "F011 is the Mathematical Formulations record for automatic-differentiation derivatives."
+    },
+    {
+      "source": "formulation:f015",
+      "target": "ecosystem:physics-enforcement-mechanism-boundary-condition-loss-5",
+      "exposure": "destination",
+      "reason": "F015 is the mathematical definition of boundary-condition loss."
+    },
+    {
+      "source": "formulation:f016",
+      "target": "ecosystem:physics-enforcement-mechanism-initial-condition-loss-6",
+      "exposure": "destination",
+      "reason": "F016 is the mathematical definition of initial-condition loss."
+    },
+    {
+      "source": "formulation:f025",
+      "target": "ecosystem:physics-enforcement-mechanism-distance-function-construction-5",
+      "exposure": "destination",
+      "reason": "F025 is the distance-function construction used for hard Dirichlet enforcement."
+    },
+    {
+      "source": "formulation:f026",
+      "target": "ecosystem:loss-weighting-balancing-augmented-lagrangian-17",
+      "exposure": "destination",
+      "reason": "F026 is the augmented-Lagrangian equality-constraint formulation."
+    },
+    {
+      "source": "formulation:f028",
+      "target": "formulation:weak-form",
+      "exposure": "destination",
+      "reason": "F028 is the continuous weak residual statement and is the dedicated weak-form formulation record."
+    },
+    {
+      "source": "formulation:f031",
+      "target": "formulation:variational-form",
+      "exposure": "destination",
+      "reason": "F031 is the dedicated variational stationarity / energy-minimum formulation record."
+    },
+    {
+      "source": "formulation:f039",
+      "target": "ecosystem:physics-enforcement-mechanism-boundary-integral-formulation-7",
+      "exposure": "destination",
+      "reason": "F039 is the boundary-integral formulation represented in the physics-enforcement taxonomy."
+    },
+    {
+      "source": "formulation:f042",
+      "target": "ecosystem:differentiation-differential-operator-evaluation-mixed-automatic-numerical-differentiation-2",
+      "exposure": "destination",
+      "reason": "F042 is the coupled automatic-numerical differentiation formulation."
+    },
+    {
+      "source": "formulation:f045",
+      "target": "ecosystem:output-state-representation-streamfunction-formulation-3",
+      "exposure": "destination",
+      "reason": "F045 is the streamfunction formulation used to encode incompressibility."
+    },
+    {
+      "source": "formulation:f046",
+      "target": "ecosystem:output-state-representation-stress-displacement-formulation-4",
+      "exposure": "destination",
+      "reason": "F046 is the mixed stress-displacement state formulation."
+    },
+    {
+      "source": "formulation:f052",
+      "target": "architecture:fourier-features",
+      "exposure": "destination",
+      "reason": "F052 is the Fourier feature map used as the same representation concept."
+    },
+    {
+      "source": "formulation:f053",
+      "target": "architecture:siren",
+      "exposure": "destination",
+      "reason": "F053 is the sinusoidal representation network (SIREN) formulation."
+    },
+    {
+      "source": "formulation:f070",
+      "target": "ecosystem:neural-architecture-approximation-model-parameterized-pinns-8",
+      "exposure": "destination",
+      "reason": "F070 is the parameterized PINN representation."
+    },
+    {
+      "source": "formulation:f084",
+      "target": "ecosystem:output-state-representation-state-parameter-joint-formulation-5",
+      "exposure": "destination",
+      "reason": "F084 is the joint state-parameter inverse formulation."
+    },
+    {
+      "source": "formulation:f092",
+      "target": "ecosystem:loss-function-objective-construction-adversarial-objective-12",
+      "exposure": "destination",
+      "reason": "F092 is the physics-informed adversarial objective."
+    },
+    {
+      "source": "formulation:f096",
+      "target": "ecosystem:scaling-normalization-preprocessing-nondimensionalization-1",
+      "exposure": "destination",
+      "reason": "F096 is the nondimensionalization transformation."
+    },
+    {
+      "source": "formulation:f098",
+      "target": "ecosystem:loss-weighting-balancing-adaptive-weighting-3",
+      "exposure": "destination",
+      "reason": "F098 is the adaptive loss-weighting mechanism."
+    },
+    {
+      "source": "formulation:f099",
+      "target": "ecosystem:loss-weighting-balancing-gradient-norm-balancing-7",
+      "exposure": "destination",
+      "reason": "F099 is the gradient-norm balancing target."
+    },
+    {
+      "source": "formulation:f103",
+      "target": "ecosystem:collocation-sampling-residual-based-sampling-1",
+      "exposure": "destination",
+      "reason": "F103 is the residual-based adaptive sampling rule."
+    },
+    {
+      "source": "formulation:f105",
+      "target": "ecosystem:theory-pareto-stationarity-15",
+      "exposure": "destination",
+      "reason": "F105 is the Pareto-stationarity condition for the multi-objective PINN problem."
+    },
+    {
+      "source": "formulation:f106",
+      "target": "metric:relative-l2",
+      "exposure": "destination",
+      "reason": "F106 is the Mathematical Formulations definition of relative L2 field error."
+    },
+    {
+      "source": "formulation:f107",
+      "target": "metric:rmse",
+      "exposure": "destination",
+      "reason": "F107 is the Mathematical Formulations definition of root-mean-square error."
+    },
+    {
+      "source": "formulation:f108",
+      "target": "metric:mae",
+      "exposure": "destination",
+      "reason": "F108 is the Mathematical Formulations definition of mean absolute error."
+    },
+    {
+      "source": "formulation:f113",
+      "target": "metric:parameter-relative-error",
+      "exposure": "destination",
+      "reason": "F113 is the relative parameter-error formulation used to evaluate inverse identification."
+    }
   ],
   "contextOnly": [
-    {"source":"ecosystem:activation-function-adaptive-swish-2","target":"activation:adaptive-swish","reason":"The Ecosystem item is the same activation used as a taxonomy context."},
-    {"source":"ecosystem:activation-function-adaptive-tanh-1","target":"activation:adaptive-tanh","reason":"The Ecosystem item is the same adaptive tanh activation used as a taxonomy context."},
-    {"source":"ecosystem:activation-function-gelu-3","target":"activation:gelu","reason":"The Ecosystem item is the GELU activation context."},
-    {"source":"ecosystem:activation-function-leaky-relu-4","target":"activation:leaky-relu","reason":"The generic Ecosystem Leaky ReLU item maps to the generic activation record, not slope-specific variants."},
-    {"source":"ecosystem:activation-function-prelu-5","target":"activation:prelu","reason":"The Ecosystem item is the PReLU activation context."},
-    {"source":"ecosystem:activation-function-rbf-1","target":"activation:rbf-unspecified","reason":"The generic Ecosystem RBF activation item corresponds to the taxonomy's unspecified-form RBF activation context."},
-    {"source":"ecosystem:activation-function-relu-3","target":"activation:relu","reason":"The Ecosystem item is the ReLU activation context."},
-    {"source":"ecosystem:activation-function-sigmoid-2","target":"activation:sigmoid","reason":"The Ecosystem item is the sigmoid activation context."},
-    {"source":"ecosystem:activation-function-silu-1","target":"activation:silu","reason":"The Ecosystem item is the SiLU activation context."},
-    {"source":"ecosystem:activation-function-sine-1","target":"activation:sine","reason":"The Ecosystem item is the sine activation context."},
-    {"source":"ecosystem:activation-function-siren-3","target":"activation:siren","reason":"This Ecosystem item belongs to the activation-function group and therefore maps to the SIREN-style sinusoidal activation record, not to the SIREN architecture identity."},
-    {"source":"ecosystem:activation-function-softplus-6","target":"activation:softplus","reason":"The Ecosystem item is the Softplus activation context."},
-    {"source":"ecosystem:activation-function-swish-2","target":"activation:swish","reason":"The generic Ecosystem Swish item maps to fixed Swish, not the adaptive-Swish variant."},
-    {"source":"ecosystem:activation-function-tanh-1","target":"activation:tanh","reason":"The Ecosystem item is the tanh activation context."},
-    {"source":"ecosystem:activation-function-fourier-based-activation-features-4","target":"architecture:fourier-features","reason":"Fourier-based activation/features is a representation context for Fourier features, not a separate scalar activation identity."},
-    {"source":"ecosystem:neural-architecture-approximation-model-fourier-feature-networks-4","target":"architecture:fourier-features","reason":"Fourier-feature networks are the Architecture/Ecosystem context in which Fourier feature mapping is used."},
-    {"source":"ecosystem:neural-architecture-approximation-model-siren-3","target":"architecture:siren","reason":"This Ecosystem item belongs to the architecture group and is the SIREN architecture context."},
-    {"source":"ecosystem:collocation-sampling-sobol-sampling-5","target":"sampling:sobol","reason":"The Ecosystem item is the Sobol collocation-sampling context."},
-    {"source":"ecosystem:evaluation-inference-time-2","target":"metric:inference-time","reason":"The Ecosystem evaluation item is a contextual occurrence of the Inference time metric."},
-    {"source":"ecosystem:reproducibility-reporting-inference-time-21","target":"metric:inference-time","reason":"Inference time is also a reproducibility/reporting context for the same metric."},
-    {"source":"ecosystem:evaluation-noise-sensitivity-3","target":"metric:noise-sensitivity","reason":"The Ecosystem evaluation item is a contextual occurrence of the Noise sensitivity metric."},
-    {"source":"ecosystem:evaluation-spectral-error-8","target":"metric:spectral-error","reason":"The Ecosystem evaluation item is a contextual occurrence of the Spectral error metric."},
-    {"source":"ecosystem:loss-function-objective-construction-data-loss-3","target":"metric:data-loss","reason":"The Ecosystem loss-construction item is a training context for the Data loss quantity."},
-    {"source":"ecosystem:uncertainty-quantification-probabilistic-pinns-predictive-variance-5","target":"metric:predictive-variance","reason":"Predictive variance is the same reported quantity in the UQ context."},
-    {"source":"ecosystem:optimizer-adam-4","target":"optimizer:adam","reason":"The Ecosystem item is the Adam optimization context."},
-    {"source":"ecosystem:optimizer-bfgs-3","target":"optimizer:bfgs","reason":"The Ecosystem item is the BFGS optimization context."},
-    {"source":"ecosystem:optimizer-gradient-descent-1","target":"optimizer:gradient-descent","reason":"The Ecosystem item is the gradient-descent optimization context."},
-    {"source":"ecosystem:optimizer-hamiltonian-monte-carlo-1","target":"optimizer:hamiltonian-monte-carlo","reason":"The Ecosystem optimizer item is a Hamiltonian Monte Carlo context."},
-    {"source":"ecosystem:uncertainty-quantification-probabilistic-pinns-hamiltonian-monte-carlo-12","target":"optimizer:hamiltonian-monte-carlo","reason":"Hamiltonian Monte Carlo also occurs in the probabilistic/UQ context without becoming a different algorithm."},
-    {"source":"ecosystem:optimizer-l-bfgs-1","target":"optimizer:lbfgs","reason":"The Ecosystem item is the L-BFGS optimization context."},
-    {"source":"ecosystem:optimizer-l-bfgs-b-2","target":"optimizer:lbfgsb","reason":"The Ecosystem item is the L-BFGS-B optimization context."},
-    {"source":"ecosystem:optimizer-levenberg-marquardt-3","target":"optimizer:levenberg-marquardt","reason":"The Ecosystem item is the Levenberg-Marquardt optimization context."},
-    {"source":"ecosystem:optimizer-particle-swarm-optimization-1","target":"optimizer:particle-swarm-optimization","reason":"The Ecosystem item is the particle-swarm optimization context."},
-    {"source":"ecosystem:physics-enforcement-mechanism-weak-form-2","target":"formulation:weak-form","reason":"The Ecosystem item is the physics-enforcement context for weak form."},
-    {"source":"ecosystem:physics-enforcement-mechanism-variational-formulation-3","target":"formulation:variational-form","reason":"The Ecosystem item is the physics-enforcement context for variational formulation."},
-    {"source":"formulation:f011","target":"ecosystem:differentiation-differential-operator-evaluation-ad-1","reason":"The F011 formulation is the mathematical realization of the Ecosystem automatic-differentiation context."},
-    {"source":"formulation:f014","target":"metric:data-loss","reason":"F014 formalizes data misfit; it is a Mathematical Formulations context for the reported Data loss quantity rather than a metric-definition identity."},
-    {"source":"formulation:f014","target":"ecosystem:loss-function-objective-construction-data-loss-3","reason":"The data-misfit formulation is a mathematical context for the Ecosystem data-loss object."},
-    {"source":"formulation:f018","target":"ecosystem:physics-enforcement-mechanism-interface-loss-7","reason":"State-continuity interface loss is a specific mathematical realization of the broader interface-loss enforcement context."},
-    {"source":"formulation:f018","target":"ecosystem:loss-function-objective-construction-interface-loss-6","reason":"State-continuity interface loss is a specific mathematical realization of the broader interface-loss objective context."},
-    {"source":"formulation:f019","target":"ecosystem:physics-enforcement-mechanism-interface-loss-7","reason":"Flux-continuity interface loss is a specific mathematical realization of the broader interface-loss enforcement context."},
-    {"source":"formulation:f019","target":"ecosystem:physical-constraints-flux-continuity-2","reason":"F019 enforces the flux-continuity physical constraint."},
-    {"source":"formulation:f019","target":"ecosystem:decomposition-flux-continuity-2","reason":"F019 is also relevant to flux-continuity coupling between decomposed regions."},
-    {"source":"formulation:f021","target":"ecosystem:output-state-representation-state-parameter-joint-formulation-5","reason":"The joint inverse optimization is a training context for the state-parameter joint formulation."},
-    {"source":"formulation:f023","target":"ecosystem:computational-role-pinn-task-data-assimilation-9","reason":"The data-assimilation objective serves the data-assimilation computational role but is not identical to the role itself."},
-    {"source":"formulation:f029","target":"formulation:weak-form","reason":"F029 is a specific integration-by-parts weak-form realization and therefore a context of weak form rather than the generic weak-form identity."},
-    {"source":"formulation:f030","target":"formulation:weak-form","reason":"F030 is a Galerkin/quadrature weak-loss realization and therefore a context of weak form rather than the generic weak-form identity."},
-    {"source":"formulation:f030","target":"ecosystem:loss-function-objective-construction-weak-form-loss-5","reason":"F030 is a mathematical realization of weak-form loss construction."},
-    {"source":"formulation:f047","target":"ecosystem:differentiation-differential-operator-evaluation-auxiliary-derivative-outputs-5","reason":"The auxiliary-derivative network is a representation mechanism for the auxiliary derivative-output context."},
-    {"source":"formulation:f057","target":"ecosystem:decomposition-subdomain-pinns-2","reason":"Local subdomain PINNs are a specific realization within the subdomain-PINN decomposition context."},
-    {"source":"formulation:f057","target":"ecosystem:decomposition-local-pinns-3","reason":"F057 is a mathematical realization of local PINNs."},
-    {"source":"formulation:f061","target":"ecosystem:decomposition-soft-decomposition-9","reason":"Gated soft decomposition contains the soft-decomposition mechanism but is more specific than the generic context."},
-    {"source":"formulation:f061","target":"ecosystem:decomposition-gated-decomposition-10","reason":"Gated soft decomposition contains the gated-decomposition mechanism but is more specific than the generic context."},
-    {"source":"formulation:f065","target":"ecosystem:training-strategy-time-marching-2","reason":"Time-marching state transfer is a mathematical realization of the time-marching training context."},
-    {"source":"formulation:f065","target":"ecosystem:decomposition-time-marching-3","reason":"Time-marching state transfer is also used in time-decomposed solution strategies."},
-    {"source":"formulation:f066","target":"ecosystem:training-strategy-block-time-marching-4","reason":"The sequential time-block objective is a mathematical realization of block time marching."},
-    {"source":"formulation:f067","target":"ecosystem:decomposition-one-network-per-phase-2","reason":"The one-network-per-region/phase formulation includes the one-network-per-phase decomposition strategy but is broader than that context."},
-    {"source":"formulation:f069","target":"ecosystem:decomposition-time-decomposition-1","reason":"Space-time decomposition includes time decomposition but is not identical to time-only decomposition."},
-    {"source":"formulation:f069","target":"ecosystem:decomposition-space-time-subdomains-1","reason":"Space-time decomposition is a mathematical context for space-time subdomains."},
-    {"source":"formulation:f070","target":"ecosystem:operator-learning-parameterized-pinns-2","reason":"Parameterized PINNs also appear in the operator-learning context."},
-    {"source":"formulation:f070","target":"ecosystem:generalization-knowledge-reuse-parameterized-pinns-4","reason":"Parameterized PINNs also appear in the generalization/knowledge-reuse context."},
-    {"source":"formulation:f073","target":"ecosystem:reduced-order-basis-approaches-reduced-basis-2","reason":"The reduced-basis PINN representation uses the reduced-basis concept."},
-    {"source":"formulation:f073","target":"ecosystem:neural-architecture-approximation-model-reduced-basis-models-2","reason":"The reduced-basis PINN representation also appears in the reduced-basis-model architecture context."},
-    {"source":"formulation:f081","target":"ecosystem:training-strategy-multi-fidelity-learning-3","reason":"Multi-fidelity operator correction is a specific mathematical mechanism within multi-fidelity learning."},
-    {"source":"formulation:f087","target":"ecosystem:computational-role-pinn-task-governing-equation-discovery-10","reason":"Sparse governing-equation discovery serves the governing-equation discovery task."},
-    {"source":"formulation:f087","target":"ecosystem:inverse-problems-and-discovery-governing-equation-discovery-11","reason":"Sparse governing-equation discovery is a specific method within the governing-equation discovery context."},
-    {"source":"formulation:f091","target":"ecosystem:optimizer-variational-inference-2","reason":"The variational-inference objective is also represented in the optimizer/probabilistic-inference context."},
-    {"source":"formulation:f102","target":"ecosystem:collocation-sampling-importance-sampling-3","reason":"Loss-informed importance-sampling density is a specialized importance-sampling strategy."},
-    {"source":"formulation:f109","target":"metric:maximum-absolute-error","reason":"The maximum/L-infinity formulation is a worst-case pointwise-error context; it is not collapsed into the scalar maximum-absolute-error metric because vector-valued definitions can differ."},
-    {"source":"formulation:f109","target":"ecosystem:evaluation-maximum-error-10","reason":"The maximum/L-infinity formulation is a mathematical realization of maximum-error evaluation."},
-    {"source":"formulation:f109","target":"ecosystem:evaluation-l-7","reason":"The formulation also represents the L-infinity evaluation context."},
-    {"source":"formulation:f112","target":"ecosystem:evaluation-conservation-error-5","reason":"Global conservation imbalance is a generic conservation-error diagnostic context, not a specific mass, energy, or momentum error identity."},
-    {"source":"formulation:f112","target":"ecosystem:failure-modes-challenges-conservation-error-1","reason":"Global conservation imbalance is also a diagnostic signal for the conservation-error failure mode."},
-    {"source":"formulation:f113","target":"ecosystem:evaluation-parameter-error-1","reason":"Relative inverse-parameter error appears in the broader parameter-error evaluation context."},
-    {"source":"formulation:f114","target":"ecosystem:evaluation-speedup-9","reason":"Accuracy-matched computational speedup is a specialized speedup measure and therefore remains distinct from generic speedup while appearing in that evaluation context."}
+    {
+      "source": "ecosystem:activation-function-adaptive-swish-2",
+      "target": "activation:adaptive-swish",
+      "reason": "The Ecosystem item is the same activation used as a taxonomy context."
+    },
+    {
+      "source": "ecosystem:activation-function-adaptive-tanh-1",
+      "target": "activation:adaptive-tanh",
+      "reason": "The Ecosystem item is the same adaptive tanh activation used as a taxonomy context."
+    },
+    {
+      "source": "ecosystem:activation-function-gelu-3",
+      "target": "activation:gelu",
+      "reason": "The Ecosystem item is the GELU activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-leaky-relu-4",
+      "target": "activation:leaky-relu",
+      "reason": "The generic Ecosystem Leaky ReLU item maps to the generic activation record, not slope-specific variants."
+    },
+    {
+      "source": "ecosystem:activation-function-prelu-5",
+      "target": "activation:prelu",
+      "reason": "The Ecosystem item is the PReLU activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-rbf-1",
+      "target": "activation:rbf-unspecified",
+      "reason": "The generic Ecosystem RBF activation item corresponds to the taxonomy's unspecified-form RBF activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-relu-3",
+      "target": "activation:relu",
+      "reason": "The Ecosystem item is the ReLU activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-sigmoid-2",
+      "target": "activation:sigmoid",
+      "reason": "The Ecosystem item is the sigmoid activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-silu-1",
+      "target": "activation:silu",
+      "reason": "The Ecosystem item is the SiLU activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-sine-1",
+      "target": "activation:sine",
+      "reason": "The Ecosystem item is the sine activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-siren-3",
+      "target": "activation:siren",
+      "reason": "This Ecosystem item belongs to the activation-function group and therefore maps to the SIREN-style sinusoidal activation record, not to the SIREN architecture identity."
+    },
+    {
+      "source": "ecosystem:activation-function-softplus-6",
+      "target": "activation:softplus",
+      "reason": "The Ecosystem item is the Softplus activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-swish-2",
+      "target": "activation:swish",
+      "reason": "The generic Ecosystem Swish item maps to fixed Swish, not the adaptive-Swish variant."
+    },
+    {
+      "source": "ecosystem:activation-function-tanh-1",
+      "target": "activation:tanh",
+      "reason": "The Ecosystem item is the tanh activation context."
+    },
+    {
+      "source": "ecosystem:activation-function-fourier-based-activation-features-4",
+      "target": "architecture:fourier-features",
+      "reason": "Fourier-based activation/features is a representation context for Fourier features, not a separate scalar activation identity."
+    },
+    {
+      "source": "ecosystem:neural-architecture-approximation-model-fourier-feature-networks-4",
+      "target": "architecture:fourier-features",
+      "reason": "Fourier-feature networks are the Architecture/Ecosystem context in which Fourier feature mapping is used."
+    },
+    {
+      "source": "ecosystem:neural-architecture-approximation-model-siren-3",
+      "target": "architecture:siren",
+      "reason": "This Ecosystem item belongs to the architecture group and is the SIREN architecture context."
+    },
+    {
+      "source": "ecosystem:collocation-sampling-sobol-sampling-5",
+      "target": "sampling:sobol",
+      "reason": "The Ecosystem item is the Sobol collocation-sampling context."
+    },
+    {
+      "source": "ecosystem:evaluation-inference-time-2",
+      "target": "metric:inference-time",
+      "reason": "The Ecosystem evaluation item is a contextual occurrence of the Inference time metric."
+    },
+    {
+      "source": "ecosystem:reproducibility-reporting-inference-time-21",
+      "target": "metric:inference-time",
+      "reason": "Inference time is also a reproducibility/reporting context for the same metric."
+    },
+    {
+      "source": "ecosystem:evaluation-noise-sensitivity-3",
+      "target": "metric:noise-sensitivity",
+      "reason": "The Ecosystem evaluation item is a contextual occurrence of the Noise sensitivity metric."
+    },
+    {
+      "source": "ecosystem:evaluation-spectral-error-8",
+      "target": "metric:spectral-error",
+      "reason": "The Ecosystem evaluation item is a contextual occurrence of the Spectral error metric."
+    },
+    {
+      "source": "ecosystem:loss-function-objective-construction-data-loss-3",
+      "target": "metric:data-loss",
+      "reason": "The Ecosystem loss-construction item is a training context for the Data loss quantity."
+    },
+    {
+      "source": "ecosystem:uncertainty-quantification-probabilistic-pinns-predictive-variance-5",
+      "target": "metric:predictive-variance",
+      "reason": "Predictive variance is the same reported quantity in the UQ context."
+    },
+    {
+      "source": "ecosystem:optimizer-adam-4",
+      "target": "optimizer:adam",
+      "reason": "The Ecosystem item is the Adam optimization context."
+    },
+    {
+      "source": "ecosystem:optimizer-bfgs-3",
+      "target": "optimizer:bfgs",
+      "reason": "The Ecosystem item is the BFGS optimization context."
+    },
+    {
+      "source": "ecosystem:optimizer-gradient-descent-1",
+      "target": "optimizer:gradient-descent",
+      "reason": "The Ecosystem item is the gradient-descent optimization context."
+    },
+    {
+      "source": "ecosystem:optimizer-hamiltonian-monte-carlo-1",
+      "target": "optimizer:hamiltonian-monte-carlo",
+      "reason": "The Ecosystem optimizer item is a Hamiltonian Monte Carlo context."
+    },
+    {
+      "source": "ecosystem:uncertainty-quantification-probabilistic-pinns-hamiltonian-monte-carlo-12",
+      "target": "optimizer:hamiltonian-monte-carlo",
+      "reason": "Hamiltonian Monte Carlo also occurs in the probabilistic/UQ context without becoming a different algorithm."
+    },
+    {
+      "source": "ecosystem:optimizer-l-bfgs-1",
+      "target": "optimizer:lbfgs",
+      "reason": "The Ecosystem item is the L-BFGS optimization context."
+    },
+    {
+      "source": "ecosystem:optimizer-l-bfgs-b-2",
+      "target": "optimizer:lbfgsb",
+      "reason": "The Ecosystem item is the L-BFGS-B optimization context."
+    },
+    {
+      "source": "ecosystem:optimizer-levenberg-marquardt-3",
+      "target": "optimizer:levenberg-marquardt",
+      "reason": "The Ecosystem item is the Levenberg-Marquardt optimization context."
+    },
+    {
+      "source": "ecosystem:optimizer-particle-swarm-optimization-1",
+      "target": "optimizer:particle-swarm-optimization",
+      "reason": "The Ecosystem item is the particle-swarm optimization context."
+    },
+    {
+      "source": "ecosystem:physics-enforcement-mechanism-weak-form-2",
+      "target": "formulation:weak-form",
+      "reason": "The Ecosystem item is the physics-enforcement context for weak form."
+    },
+    {
+      "source": "ecosystem:physics-enforcement-mechanism-variational-formulation-3",
+      "target": "formulation:variational-form",
+      "reason": "The Ecosystem item is the physics-enforcement context for variational formulation."
+    },
+    {
+      "source": "formulation:f011",
+      "target": "ecosystem:differentiation-differential-operator-evaluation-ad-1",
+      "reason": "The F011 formulation is the mathematical realization of the Ecosystem automatic-differentiation context."
+    },
+    {
+      "source": "formulation:f014",
+      "target": "metric:data-loss",
+      "reason": "F014 formalizes data misfit; it is a Mathematical Formulations context for the reported Data loss quantity rather than a metric-definition identity."
+    },
+    {
+      "source": "formulation:f014",
+      "target": "ecosystem:loss-function-objective-construction-data-loss-3",
+      "reason": "The data-misfit formulation is a mathematical context for the Ecosystem data-loss object."
+    },
+    {
+      "source": "formulation:f018",
+      "target": "ecosystem:physics-enforcement-mechanism-interface-loss-7",
+      "reason": "State-continuity interface loss is a specific mathematical realization of the broader interface-loss enforcement context."
+    },
+    {
+      "source": "formulation:f018",
+      "target": "ecosystem:loss-function-objective-construction-interface-loss-6",
+      "reason": "State-continuity interface loss is a specific mathematical realization of the broader interface-loss objective context."
+    },
+    {
+      "source": "formulation:f019",
+      "target": "ecosystem:physics-enforcement-mechanism-interface-loss-7",
+      "reason": "Flux-continuity interface loss is a specific mathematical realization of the broader interface-loss enforcement context."
+    },
+    {
+      "source": "formulation:f019",
+      "target": "ecosystem:physical-constraints-flux-continuity-2",
+      "reason": "F019 enforces the flux-continuity physical constraint."
+    },
+    {
+      "source": "formulation:f019",
+      "target": "ecosystem:decomposition-flux-continuity-2",
+      "reason": "F019 is also relevant to flux-continuity coupling between decomposed regions."
+    },
+    {
+      "source": "formulation:f021",
+      "target": "ecosystem:output-state-representation-state-parameter-joint-formulation-5",
+      "reason": "The joint inverse optimization is a training context for the state-parameter joint formulation."
+    },
+    {
+      "source": "formulation:f023",
+      "target": "ecosystem:computational-role-pinn-task-data-assimilation-9",
+      "reason": "The data-assimilation objective serves the data-assimilation computational role but is not identical to the role itself."
+    },
+    {
+      "source": "formulation:f029",
+      "target": "formulation:weak-form",
+      "reason": "F029 is a specific integration-by-parts weak-form realization and therefore a context of weak form rather than the generic weak-form identity."
+    },
+    {
+      "source": "formulation:f030",
+      "target": "formulation:weak-form",
+      "reason": "F030 is a Galerkin/quadrature weak-loss realization and therefore a context of weak form rather than the generic weak-form identity."
+    },
+    {
+      "source": "formulation:f030",
+      "target": "ecosystem:loss-function-objective-construction-weak-form-loss-5",
+      "reason": "F030 is a mathematical realization of weak-form loss construction."
+    },
+    {
+      "source": "formulation:f047",
+      "target": "ecosystem:differentiation-differential-operator-evaluation-auxiliary-derivative-outputs-5",
+      "reason": "The auxiliary-derivative network is a representation mechanism for the auxiliary derivative-output context."
+    },
+    {
+      "source": "formulation:f057",
+      "target": "ecosystem:decomposition-subdomain-pinns-2",
+      "reason": "Local subdomain PINNs are a specific realization within the subdomain-PINN decomposition context."
+    },
+    {
+      "source": "formulation:f057",
+      "target": "ecosystem:decomposition-local-pinns-3",
+      "reason": "F057 is a mathematical realization of local PINNs."
+    },
+    {
+      "source": "formulation:f061",
+      "target": "ecosystem:decomposition-soft-decomposition-9",
+      "reason": "Gated soft decomposition contains the soft-decomposition mechanism but is more specific than the generic context."
+    },
+    {
+      "source": "formulation:f061",
+      "target": "ecosystem:decomposition-gated-decomposition-10",
+      "reason": "Gated soft decomposition contains the gated-decomposition mechanism but is more specific than the generic context."
+    },
+    {
+      "source": "formulation:f065",
+      "target": "ecosystem:training-strategy-time-marching-2",
+      "reason": "Time-marching state transfer is a mathematical realization of the time-marching training context."
+    },
+    {
+      "source": "formulation:f065",
+      "target": "ecosystem:decomposition-time-marching-3",
+      "reason": "Time-marching state transfer is also used in time-decomposed solution strategies."
+    },
+    {
+      "source": "formulation:f066",
+      "target": "ecosystem:training-strategy-block-time-marching-4",
+      "reason": "The sequential time-block objective is a mathematical realization of block time marching."
+    },
+    {
+      "source": "formulation:f067",
+      "target": "ecosystem:decomposition-one-network-per-phase-2",
+      "reason": "The one-network-per-region/phase formulation includes the one-network-per-phase decomposition strategy but is broader than that context."
+    },
+    {
+      "source": "formulation:f069",
+      "target": "ecosystem:decomposition-time-decomposition-1",
+      "reason": "Space-time decomposition includes time decomposition but is not identical to time-only decomposition."
+    },
+    {
+      "source": "formulation:f069",
+      "target": "ecosystem:decomposition-space-time-subdomains-1",
+      "reason": "Space-time decomposition is a mathematical context for space-time subdomains."
+    },
+    {
+      "source": "formulation:f070",
+      "target": "ecosystem:operator-learning-parameterized-pinns-2",
+      "reason": "Parameterized PINNs also appear in the operator-learning context."
+    },
+    {
+      "source": "formulation:f070",
+      "target": "ecosystem:generalization-knowledge-reuse-parameterized-pinns-4",
+      "reason": "Parameterized PINNs also appear in the generalization/knowledge-reuse context."
+    },
+    {
+      "source": "formulation:f073",
+      "target": "ecosystem:reduced-order-basis-approaches-reduced-basis-2",
+      "reason": "The reduced-basis PINN representation uses the reduced-basis concept."
+    },
+    {
+      "source": "formulation:f073",
+      "target": "ecosystem:neural-architecture-approximation-model-reduced-basis-models-2",
+      "reason": "The reduced-basis PINN representation also appears in the reduced-basis-model architecture context."
+    },
+    {
+      "source": "formulation:f081",
+      "target": "ecosystem:training-strategy-multi-fidelity-learning-3",
+      "reason": "Multi-fidelity operator correction is a specific mathematical mechanism within multi-fidelity learning."
+    },
+    {
+      "source": "formulation:f087",
+      "target": "ecosystem:computational-role-pinn-task-governing-equation-discovery-10",
+      "reason": "Sparse governing-equation discovery serves the governing-equation discovery task."
+    },
+    {
+      "source": "formulation:f087",
+      "target": "ecosystem:inverse-problems-and-discovery-governing-equation-discovery-11",
+      "reason": "Sparse governing-equation discovery is a specific method within the governing-equation discovery context."
+    },
+    {
+      "source": "formulation:f091",
+      "target": "ecosystem:optimizer-variational-inference-2",
+      "reason": "The variational-inference objective is also represented in the optimizer/probabilistic-inference context."
+    },
+    {
+      "source": "formulation:f102",
+      "target": "ecosystem:collocation-sampling-importance-sampling-3",
+      "reason": "Loss-informed importance-sampling density is a specialized importance-sampling strategy."
+    },
+    {
+      "source": "formulation:f109",
+      "target": "metric:maximum-absolute-error",
+      "reason": "The maximum/L-infinity formulation is a worst-case pointwise-error context; it is not collapsed into the scalar maximum-absolute-error metric because vector-valued definitions can differ."
+    },
+    {
+      "source": "formulation:f109",
+      "target": "ecosystem:evaluation-maximum-error-10",
+      "reason": "The maximum/L-infinity formulation is a mathematical realization of maximum-error evaluation."
+    },
+    {
+      "source": "formulation:f109",
+      "target": "ecosystem:evaluation-l-7",
+      "reason": "The formulation also represents the L-infinity evaluation context."
+    },
+    {
+      "source": "formulation:f112",
+      "target": "ecosystem:evaluation-conservation-error-5",
+      "reason": "Global conservation imbalance is a generic conservation-error diagnostic context, not a specific mass, energy, or momentum error identity."
+    },
+    {
+      "source": "formulation:f112",
+      "target": "ecosystem:failure-modes-challenges-conservation-error-1",
+      "reason": "Global conservation imbalance is also a diagnostic signal for the conservation-error failure mode."
+    },
+    {
+      "source": "formulation:f113",
+      "target": "ecosystem:evaluation-parameter-error-1",
+      "reason": "Relative inverse-parameter error appears in the broader parameter-error evaluation context."
+    },
+    {
+      "source": "formulation:f114",
+      "target": "ecosystem:evaluation-speedup-9",
+      "reason": "Accuracy-matched computational speedup is a specialized speedup measure and therefore remains distinct from generic speedup while appearing in that evaluation context."
+    },
+    {
+      "source": "formulation:f036",
+      "target": "ecosystem:hybrid-numerical-pinn-methods-pinn-finite-volume-residual-6",
+      "reason": "The finite-volume residual is a mathematical realization within the broader PINN + finite-volume residual method context."
+    },
+    {
+      "source": "formulation:f037",
+      "target": "ecosystem:hybrid-numerical-pinn-methods-pinn-finite-difference-residual-7",
+      "reason": "The finite-difference residual is a mathematical realization within the broader PINN + finite-difference residual method context."
+    },
+    {
+      "source": "formulation:f049",
+      "target": "ecosystem:differentiation-differential-operator-evaluation-implicit-runge-kutta-2",
+      "reason": "Implicit Runge-Kutta stage equations realize the broader implicit Runge-Kutta method but are not identical to the method as a whole."
+    },
+    {
+      "source": "formulation:f051",
+      "target": "ecosystem:neural-architecture-approximation-model-radial-basis-function-networks-1",
+      "reason": "The radial-basis-function approximation is the basis realization used by RBF networks, not the complete network concept."
+    },
+    {
+      "source": "formulation:f077",
+      "target": "ecosystem:operator-learning-physics-informed-deeponet-2",
+      "reason": "The physics-informed DeepONet residual is a formulation used within physics-informed DeepONet, not the complete operator-learning architecture."
+    },
+    {
+      "source": "formulation:f078",
+      "target": "ecosystem:operator-learning-separable-operator-networks-14",
+      "reason": "The separable operator representation is a mathematical realization used by separable operator networks, not the entire network concept."
+    },
+    {
+      "source": "formulation:f079",
+      "target": "ecosystem:operator-learning-fourier-neural-operator-7",
+      "reason": "A Fourier neural-operator layer is a component of the broader Fourier neural operator architecture."
+    },
+    {
+      "source": "formulation:f080",
+      "target": "ecosystem:operator-learning-physics-informed-fno-8",
+      "reason": "The physics-informed Fourier-operator objective is a training/formulation component of physics-informed FNO, not the complete method identity."
+    },
+    {
+      "source": "formulation:f088",
+      "target": "ecosystem:uncertainty-quantification-probabilistic-pinns-bayesian-pinns-1",
+      "reason": "A Bayesian PINN posterior is a defining probabilistic formulation used by Bayesian PINNs, but it is not identical to the complete Bayesian PINN model class."
+    },
+    {
+      "source": "formulation:f091",
+      "target": "ecosystem:uncertainty-quantification-probabilistic-pinns-variational-inference-13",
+      "reason": "The variational-inference objective realizes variational inference in the probabilistic PINN context but is not identical to the inference method as a whole."
+    },
+    {
+      "source": "formulation:f101",
+      "target": "ecosystem:loss-function-objective-construction-gradient-enhanced-residual-1",
+      "reason": "The gradient-enhanced physics loss uses a gradient-enhanced residual construction but is a loss realization rather than the residual concept itself."
+    }
   ],
   "keepSeparate": [
-    {"left":"metric:rmse","right":"metric:mse","reason":"RMSE and MSE are different metrics with different scale and mathematical definitions."},
-    {"left":"formulation:weak-form","right":"formulation:variational-form","reason":"Weak and variational formulations can overlap in some methods but are not universally identical concepts."},
-    {"left":"architecture:siren","right":"activation:sine","reason":"SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."},
-    {"left":"architecture:siren","right":"activation:siren","reason":"The activation taxonomy's SIREN-style sinusoidal activation is a component record, while SIREN itself is an architecture/representation."},
-    {"left":"method:automatic-differentiation","right":"formulation:f042","reason":"F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."},
-    {"left":"activation:adaptive-swish","right":"activation:swish","reason":"Adaptive Swish has trainable/adaptive behavior and is not identical to fixed Swish."},
-    {"left":"activation:leaky-relu","right":"activation:leaky-relu-alpha-0-1","reason":"Generic Leaky ReLU must remain distinct from the slope-0.1 parameterized variant."},
-    {"left":"activation:leaky-relu","right":"activation:leaky-relu-alpha-0-2","reason":"Generic Leaky ReLU must remain distinct from the alpha-0.2 parameterized variant."},
-    {"left":"activation:leaky-relu-alpha-0-1","right":"activation:leaky-relu-alpha-0-2","reason":"Different negative-slope parameterizations are distinct activation records."},
-    {"left":"ecosystem:activation-function-leaky-relu-4","right":"activation:leaky-relu-alpha-0-1","reason":"The generic Ecosystem item does not specify the slope-0.1 variant."},
-    {"left":"ecosystem:activation-function-leaky-relu-4","right":"activation:leaky-relu-alpha-0-2","reason":"The generic Ecosystem item does not specify the alpha-0.2 variant."},
-    {"left":"ecosystem:activation-function-swish-2","right":"activation:adaptive-swish","reason":"The generic Ecosystem Swish item does not imply adaptive Swish."},
-    {"left":"ecosystem:activation-function-siren-3","right":"architecture:siren","reason":"This Ecosystem object is explicitly in the activation-function group, not the architecture group."},
-    {"left":"ecosystem:neural-architecture-approximation-model-siren-3","right":"activation:siren","reason":"This Ecosystem object is explicitly in the neural-architecture group, not the activation taxonomy identity."},
-    {"left":"formulation:f053","right":"activation:siren","reason":"F053 formulates the SIREN representation network, not merely its sinusoidal activation component."},
-    {"left":"formulation:f109","right":"metric:maximum-absolute-error","reason":"Vector L-infinity error and scalar maximum absolute error can coincide in scalar cases but are not universally identical definitions."},
-    {"left":"formulation:f111","right":"metric:pde-residual-mse","reason":"Physics-residual RMS and PDE-residual MSE differ by the square-root operation and must remain separate."},
-    {"left":"formulation:f112","right":"metric:mass-conservation-error","reason":"A generic conservation imbalance is not identical to a mass-specific conservation error."},
-    {"left":"formulation:f112","right":"metric:energy-conservation-error","reason":"A generic conservation imbalance is not identical to an energy-specific conservation error."},
-    {"left":"formulation:f112","right":"metric:momentum-conservation-error","reason":"A generic conservation imbalance is not identical to a momentum-specific conservation error."},
-    {"left":"formulation:f114","right":"ecosystem:evaluation-speedup-9","reason":"Accuracy-matched speedup is a specialized measure with an accuracy threshold, whereas generic speedup is broader."}
+    {
+      "left": "metric:rmse",
+      "right": "metric:mse",
+      "reason": "RMSE and MSE are different metrics with different scale and mathematical definitions."
+    },
+    {
+      "left": "formulation:weak-form",
+      "right": "formulation:variational-form",
+      "reason": "Weak and variational formulations can overlap in some methods but are not universally identical concepts."
+    },
+    {
+      "left": "architecture:siren",
+      "right": "activation:sine",
+      "reason": "SIREN is an architecture/representation using sinusoidal activations; generic sine activation is not itself the SIREN architecture."
+    },
+    {
+      "left": "architecture:siren",
+      "right": "activation:siren",
+      "reason": "The activation taxonomy's SIREN-style sinusoidal activation is a component record, while SIREN itself is an architecture/representation."
+    },
+    {
+      "left": "method:automatic-differentiation",
+      "right": "formulation:f042",
+      "reason": "F042 deliberately combines automatic and numerical differentiation and is not identical to pure automatic differentiation."
+    },
+    {
+      "left": "activation:adaptive-swish",
+      "right": "activation:swish",
+      "reason": "Adaptive Swish has trainable/adaptive behavior and is not identical to fixed Swish."
+    },
+    {
+      "left": "activation:leaky-relu",
+      "right": "activation:leaky-relu-alpha-0-1",
+      "reason": "Generic Leaky ReLU must remain distinct from the slope-0.1 parameterized variant."
+    },
+    {
+      "left": "activation:leaky-relu",
+      "right": "activation:leaky-relu-alpha-0-2",
+      "reason": "Generic Leaky ReLU must remain distinct from the alpha-0.2 parameterized variant."
+    },
+    {
+      "left": "activation:leaky-relu-alpha-0-1",
+      "right": "activation:leaky-relu-alpha-0-2",
+      "reason": "Different negative-slope parameterizations are distinct activation records."
+    },
+    {
+      "left": "ecosystem:activation-function-leaky-relu-4",
+      "right": "activation:leaky-relu-alpha-0-1",
+      "reason": "The generic Ecosystem item does not specify the slope-0.1 variant."
+    },
+    {
+      "left": "ecosystem:activation-function-leaky-relu-4",
+      "right": "activation:leaky-relu-alpha-0-2",
+      "reason": "The generic Ecosystem item does not specify the alpha-0.2 variant."
+    },
+    {
+      "left": "ecosystem:activation-function-swish-2",
+      "right": "activation:adaptive-swish",
+      "reason": "The generic Ecosystem Swish item does not imply adaptive Swish."
+    },
+    {
+      "left": "ecosystem:activation-function-siren-3",
+      "right": "architecture:siren",
+      "reason": "This Ecosystem object is explicitly in the activation-function group, not the architecture group."
+    },
+    {
+      "left": "ecosystem:neural-architecture-approximation-model-siren-3",
+      "right": "activation:siren",
+      "reason": "This Ecosystem object is explicitly in the neural-architecture group, not the activation taxonomy identity."
+    },
+    {
+      "left": "formulation:f053",
+      "right": "activation:siren",
+      "reason": "F053 formulates the SIREN representation network, not merely its sinusoidal activation component."
+    },
+    {
+      "left": "formulation:f109",
+      "right": "metric:maximum-absolute-error",
+      "reason": "Vector L-infinity error and scalar maximum absolute error can coincide in scalar cases but are not universally identical definitions."
+    },
+    {
+      "left": "formulation:f111",
+      "right": "metric:pde-residual-mse",
+      "reason": "Physics-residual RMS and PDE-residual MSE differ by the square-root operation and must remain separate."
+    },
+    {
+      "left": "formulation:f112",
+      "right": "metric:mass-conservation-error",
+      "reason": "A generic conservation imbalance is not identical to a mass-specific conservation error."
+    },
+    {
+      "left": "formulation:f112",
+      "right": "metric:energy-conservation-error",
+      "reason": "A generic conservation imbalance is not identical to an energy-specific conservation error."
+    },
+    {
+      "left": "formulation:f112",
+      "right": "metric:momentum-conservation-error",
+      "reason": "A generic conservation imbalance is not identical to a momentum-specific conservation error."
+    },
+    {
+      "left": "formulation:f114",
+      "right": "ecosystem:evaluation-speedup-9",
+      "reason": "Accuracy-matched speedup is a specialized measure with an accuracy threshold, whereas generic speedup is broader."
+    }
   ]
 }
