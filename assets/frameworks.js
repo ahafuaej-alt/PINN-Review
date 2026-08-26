@@ -620,9 +620,9 @@
 
   function renderExportLegend() {
     if (root === 'design-performance') return `<div class="framework-export-legend">${state.page.legend.map((item) => `<span><i class="influence-marker" data-level="${item.id}"></i>${esc(item.label)}</span>`).join('')}<span><i class="tradeoff-symbol">↕</i>Potential trade-off</span></div>`;
-    if (root === 'failure-diagnostics') return `<div class="framework-export-legend"><span><i class="relation-swatch" data-type="flow"><i></i></i>${relationshipMeta.flow.label}</span><span><i class="relation-swatch" data-type="feedback"><i></i></i>${relationshipMeta.feedback.label}</span></div>`;
+    if (root === 'failure-diagnostics') return `<div class="framework-export-legend"><span><span class="relation-swatch" data-type="flow"><i></i></span>${relationshipMeta.flow.label}</span><span><span class="relation-swatch" data-type="feedback"><i></i></span>${relationshipMeta.feedback.label}</span></div>`;
     const types = root === 'design-stack' ? ['flow', 'coupling', 'feedback'] : ['coupling', 'feedback'];
-    return `<div class="framework-export-legend">${types.map((type) => `<span><i class="relation-swatch" data-type="${type}"><i></i></i>${relationshipMeta[type].label}</span>`).join('')}</div>`;
+    return `<div class="framework-export-legend">${types.map((type) => `<span><span class="relation-swatch" data-type="${type}"><i></i></span>${relationshipMeta[type].label}</span>`).join('')}</div>`;
   }
 
   function downloadFrameworkSvg(mode = 'current') {
