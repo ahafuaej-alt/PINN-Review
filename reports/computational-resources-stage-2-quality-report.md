@@ -4,46 +4,49 @@ Verification date: 2026-08-26
 
 ## Result
 
-The 13-resource pilot passes structural and referential integrity checks. It is ready for schema and scientific review, not publication.
+The pilot passes structural and referential integrity checks after closure review. It contains 13 mandatory pilot resources plus one promoted profile-derived resource. Two bounded scientific-review questions remain, neither representing an identity-verification failure.
 
 ## Structural checks
 
 - All JSONL files parse line by line.
-- Exactly 13 pilot resource records are present and every resource ID is unique.
+- The overlay contains exactly 14 unique resource records: 13 mandatory resources and CR000358.
+- CR000358 is the next unused resource ID after the accepted Stage 1 inventory ending at CR000357.
+- CR000358 is classified `profile_level_discovery` and has zero PRL records.
+- PD000001 resolves to CR000358 while retaining `relationship_to_atlas_778: not_established`.
+- PRL000303 remains the verified paper-778 association to profile CR000145.
 - All 16 Stage 1 pilot PRL IDs are preserved.
-- PRL000332 is the only new relationship ID and materializes the paper 312 mapping to canonical resource CR000184.
-- All 17 relationship records point to one of the 13 pilot resources and to an Atlas paper ID present in the master paper dataset.
-- Alias records point to valid canonical pilot resource IDs.
-- Profile discoveries use discovery IDs only; no stable resource ID is invented.
-- Static-evidence tables contain one row per pilot resource.
+- PRL000332 remains the only relationship ID added during the pilot.
+- All 17 relationship records point to a verified resource and an Atlas paper ID present in the master paper dataset.
+- CR000024 is reused for the HamidrezaEiv profile discovery; no duplicate resource ID is created.
+- Static-evidence tables contain one row for each of the 14 verified resource records.
 - Evidence-log subject IDs resolve to resources, relationships, or aliases in this overlay.
+
+## Scientific-state checks
+
+- Identity verification and relationship attribution are represented separately.
+- A stable resource ID does not imply a paper relationship.
+- Profile-discovery edges do not create PRLs.
+- CR000174 has no inferred Atlas-paper relationship.
+- Missing repository licenses are encoded as verified negative findings.
+- CR000049 retains `NOASSERTION` and the separate BSD-style description.
+- CR000117 archive-internal extraction is marked Stage-3 deferred, not Stage-2 unresolved.
+- The internal paper reference 32 for paper 701 appears only under provenance; it is not an Atlas paper ID.
 
 ## Provenance checks
 
 - Stage 1 source snapshot SHA-256 remains `72a168a3c57e07afcdcd8f513fbb54d34851095ea46eeb9618a996fbf769ee8e`.
-- Stage 1 resource IDs are unchanged.
-- Stage 1 relationship IDs are unchanged.
+- Accepted Stage 1 CR and PRL identifiers are unchanged.
 - Source line numbers are retained on every relationship.
-- The internal paper reference 32 for paper 701 appears only under provenance; it is not an Atlas paper ID.
-- URL repairs and alias resolutions are recorded separately from canonical records.
+- URL repairs and alias resolutions remain separate from canonical records.
+- Repository verification is pinned to recorded default-branch commit SHAs.
 
 ## Scope checks
 
-- Changes are confined to `data/computational-resources/02-verification/` and the three Stage 2 reports.
+- Changes remain confined to `data/computational-resources/02-verification/` and the three Stage 2 reports.
+- The accepted Stage 1 inventory is not rewritten to insert CR000358.
 - No public Atlas page, navigation, application, dataset, or deployment file is modified.
 - No clone, build, package installation, notebook execution, model training, or test-suite execution was performed.
-- Repository verification is static and pinned to recorded default-branch commit SHAs.
-- The mandatory pilot boundary is respected.
-
-## Review-sensitive outcomes
-
-- CR000145 remains a profile resource; the likely paper-specific repository is a discovery candidate pending stable-ID approval.
-- CR000174 remains a profile resource with discoveries but no inferred paper relationship.
-- CR000049 is a software mention for paper 467, not paper-specific code.
-- CR000069 is an upstream dataset source for paper 526, not that paper's official repository.
-- CR000117 is supplementary code for paper 701; the separate supplementary-data DOI is not merged into CR000117.
-- CR000044 remains non-PINN by accepted manual decision.
 
 ## Gate
 
-Stop after this commit. Do not merge, deploy, publish, or continue to a broader Stage 2 batch until review approval is recorded.
+The pilot methodology is ready for acceptance. Stop after this closure commit; do not merge, deploy, publish, or begin registry-wide promotion from this branch without review approval.

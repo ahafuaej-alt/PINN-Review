@@ -11,3 +11,4 @@
 {"schema_version":"2.0.0-pilot","resource_id":"CR000154","status":"verified","citation_metadata_present":true,"source":"README.md plus publisher article","title":"Data-Free and Data-Efficient Physics-Informed Neural Network Approaches to Solve the Buckley–Leverett Problem","doi":"10.3390/en15217864","verified_at":"2026-08-26"}
 {"schema_version":"2.0.0-pilot","resource_id":"CR000174","status":"not_applicable","citation_metadata_present":null,"source":null,"title":null,"doi":null,"verified_at":"2026-08-26"}
 {"schema_version":"2.0.0-pilot","resource_id":"CR000221","status":"unavailable","citation_metadata_present":false,"source":null,"title":null,"doi":null,"verified_at":"2026-08-26"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000358","status":"verified","citation_metadata_present":true,"source":"README.md","title":"Physics informed neural networks for extreme mechanics problems","doi":null,"relationship_implication":"none","verified_at":"2026-08-26"}

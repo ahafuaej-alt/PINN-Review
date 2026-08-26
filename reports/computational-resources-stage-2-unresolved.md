@@ -1,21 +1,43 @@
-# Computational Resources Stage 2 Pilot Unresolved Items
+# Computational Resources Stage 2 Pilot Review and Deferred Items
 
 Verification date: 2026-08-26
 
-The pilot has no unresolved canonical URL for its 13 required resources. The following bounded review items remain.
+The pilot has no unresolved canonical resource identity. Two bounded questions require scientific judgment; the remaining items are verified limitations or explicitly deferred technical work.
 
-| Item | Resource | State | Evidence | Required decision |
+## Requires scientific review
+
+| Item | Resource | Established result | Open decision | Pilot effect |
 |---|---|---|---|---|
-| Paper-specific repository candidate | CR000145 | needs scientific review | `JeongsLee/PINN-for-ExtremeMechanics` matches the author, topic, dynamic beam, and fluid-structure scope of paper 778. The paper itself points to the profile rather than a repository. | Decide whether to assign a new stable CR ID and a new PRL ID. Preserve CR000145 regardless. |
-| Profile discovery set | CR000174 | needs scientific review | Seven scoped repositories were verified, including one already represented by CR000024 / paper 339. No paper relationship was stated for CR000174. | Review candidates outside the pilot before assigning any new IDs. |
-| Archive file internals | CR000117 | unknown | Landing metadata, DOI identity, resource type, openness, and paper relationship are verified. Deposited files were not unpacked. | Optional later inspection for dependency and README details. |
-| License SPDX precision | CR000049 | identified without SPDX assertion | Repository metadata reports `NOASSERTION`; the README and LICENSE describe a BSD-style license. | Retain `NOASSERTION` unless a later license review maps the exact text. |
-| Missing repository license | CR000184, CR000044, CR000149, CR000154 | unavailable | No license file or repository license metadata was identified at the verified commits. | Do not infer a license. Owners may add one upstream. |
+| Specific repository attribution | CR000145 / CR000358 | CR000358 is a verified repository discovered under the profile explicitly cited by paper 778. CR000145 retains PRL000303 to paper 778. | Determine whether later direct evidence establishes `paper 778 ↔ CR000358`. No PRL is created now. | Does not block pilot acceptance. |
+| Registry promotion scope | CR000174 | The profile and seven scoped discoveries are verified. CR000024 is reused for `Enhancement-of-PIV-via-PINNs`; no duplicate is created. | During registry expansion, decide which remaining discoveries warrant stable CR IDs. No PRL may be created without paper evidence. | Resolved for pilot; expansion decision deferred. |
 
-## Resolved during the pilot
+### CR000145 graph rule
 
-- The invalid `fashli/Delta-PINNs` source reference is remapped to CR000184 at `fsahli/Delta-PINNs`; PRL000332 records paper 312 without reusing CR000021.
-- The canonical repository for paper 745 is CR000137 at `NeuroDiffGym/neurodiffeq`; the two alternate owner spellings return not found.
-- The malformed space in the paper 804 URL is repaired without changing CR000149.
-- CR000044 remains deliberately classified `non_pinn`, while its paper-provided sample-code relationship is verified.
-- Paper 701's internal reference 32 is stored only as provenance and is not treated as an Atlas reference ID.
+```text
+Atlas paper 778
+  └── verified association → CR000145 JeongsLee profile
+        ├── profile discovery → CR000358 PINN-for-ExtremeMechanics
+        ├── profile discovery → ADAF
+        ├── profile discovery → NTO-ADA
+        └── profile discovery → MOTION
+```
+
+CR000358 is a stable resource identity with classification `profile_level_discovery`. Its paper relationship status is `not_established`.
+
+## Verified limitations and deferred work
+
+| Item | Resource | Verified Stage 2 result | Disposition |
+|---|---|---|---|
+| Archive internals | CR000117 | Identity, DOI, openness, software type, and supplementary-code relationship to paper 701 are verified. | Archive unpacking is deferred to Stage 3 technical extraction. |
+| Qualified license metadata | CR000049 | Machine-readable SPDX result is `NOASSERTION`; repository documentation describes a BSD-style license. | Retain both facts. Do not normalize to BSD-2-Clause or BSD-3-Clause without exact text verification. |
+| No repository license identified | CR000184, CR000044, CR000149, CR000154, CR000358 | No repository license was identified at the pinned commit for each resource. | Treat as verified negative findings. Never infer a license. |
+
+## Closed pilot decisions
+
+- CR000358 is assigned as the next unused stable resource ID after Stage 1 CR000357.
+- No new PRL is created for CR000358.
+- PRL000303 remains attached to CR000145 and paper 778.
+- CR000174 is resolved for the pilot; promotion decisions are deferred to registry expansion.
+- CR000117 is resolved for Stage 2.
+- CR000049 is resolved with qualified license metadata.
+- Missing licenses are verified negative findings, not unresolved failures.

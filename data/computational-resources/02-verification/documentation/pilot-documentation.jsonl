@@ -11,3 +11,4 @@
 {"schema_version":"2.0.0-pilot","resource_id":"CR000154","status":"verified","documentation_present":true,"artifacts":["README.md"],"verified_commit_sha":"51e0c7fbbb345145abeba5efbcf61dcf3abb5620","verified_at":"2026-08-26"}
 {"schema_version":"2.0.0-pilot","resource_id":"CR000174","status":"not_applicable","documentation_present":null,"artifacts":[],"verified_commit_sha":null,"verified_at":"2026-08-26"}
 {"schema_version":"2.0.0-pilot","resource_id":"CR000221","status":"verified","documentation_present":true,"artifacts":["README.md","docs/"],"verified_commit_sha":"c6b8f64527cf426cfbd9ddfc3677ba3bfec473b9","verified_at":"2026-08-26"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000358","status":"verified","documentation_present":true,"artifacts":["README.md"],"verified_commit_sha":"f6eacf7d773e9d6b9327a0f5c234692074bb1e4a","verified_at":"2026-08-26"}
