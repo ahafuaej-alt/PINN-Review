@@ -1,0 +1,62 @@
+name: Apply Design Stack scientific flow update
+
+on:
+  push:
+    branches:
+      - feat/design-stack-scientific-flow
+    paths:
+      - '.github/workflows/apply-design-stack-scientific-flow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/design-stack-scientific-flow
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply Design Stack refinements
+        run: python scripts/apply-design-stack-scientific-flow.py
+      - name: Regenerate canonical concept data
+        run: |
+          node scripts/build-concept-registry.mjs
+          node scripts/apply-canonical-mappings.mjs
+      - name: Validate scientific and navigation contracts
+        run: |
+          node scripts/validate-frameworks.mjs
+          node scripts/validate-concepts.mjs
+          node scripts/validate-canonical-mappings.mjs --strict
+          node scripts/validate-navigation.mjs
+      - name: Locate Chromium
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --prefix /tmp/pinn-design-stack-qa --no-save --package-lock=false playwright-core@1.55.0
+      - name: Run Framework browser QA
+        env:
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-design-stack-qa/node_modules/playwright-core/index.mjs
+          BASE_URL: http://127.0.0.1:4173
+        run: |
+          python3 -m http.server 4173 >/tmp/pinn-design-stack-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node scripts/visual-qa-frameworks.mjs
+      - name: Commit Design Stack update
+        run: |
+          git add data/frameworks/design-stack.json assets/frameworks.js assets/frameworks.css frameworks/design-stack/index.html scripts/validate-frameworks.mjs scripts/visual-qa-frameworks.mjs data/concepts/core.json data/concepts/registry.json data/concepts/evidence-relationships.json
+          if git diff --cached --quiet; then
+            echo 'Design Stack refinements already applied.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refine Design Stack scientific flow and interactions'
+          git push origin HEAD:feat/design-stack-scientific-flow
