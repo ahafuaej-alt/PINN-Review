@@ -85,8 +85,8 @@ try {
   assert(correctedLabels.training?.includes('loss imbalance'), `Training feedback label was not corrected: ${correctedLabels.training}`);
   assert(correctedLabels.coreReliability === 'verification', 'Core → Reliability must be a verification dependency, not generic coupling.');
 
-  await page.locator('.co-v2-path[data-inspect-id="representation-core"]').click({ position: { x: 1, y: 1 }, force: true });
-  await page.waitForTimeout(50);
+  await page.locator('.co-v2-caption[data-inspect-id="representation-core"]').click({ force: true });
+  await page.waitForFunction(() => document.querySelector('[data-detail]')?.dataset.coV2Enriched === 'representation-core');
   const inspectorText = await page.locator('[data-detail]').innerText();
   assert(inspectorText.includes('Direction') && inspectorText.includes('Mechanism') && inspectorText.includes('Scientific consequence'), 'Relationship inspector does not expose the v2 directional scientific structure.');
   assert(inspectorText.includes('reciprocal pair member'), 'Relationship inspector does not distinguish reciprocal pair semantics.');
