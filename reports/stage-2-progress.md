@@ -11,18 +11,21 @@ Verification date: 2026-08-26
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 0 |
-| Expansion resources verified | 0 |
-| Expansion relationships verified | 0 |
-| Expansion resources requiring manual review | 0 |
+| Completed expansion batches | 1 |
+| Expansion resources verified | 25 |
+| Expansion relationships verified | 23 |
+| Expansion Stage-1 relationships accounted through existing canonical links | 1 |
+| Expansion resources requiring manual review | 1 |
 
 Pilot acceptance status: **passed; safe to scale**.
+
+Latest batch status: **B001 passed**. No stop condition was triggered.
 
 ## Batch register
 
 | Batch | Resources | First ID | Last ID | Status | QA |
 |---|---:|---|---|---|---|
-| B001 | 25 | CR000001 | CR000027 | pending | pending |
+| B001 | 25 | CR000001 | CR000027 | completed | passed |
 | B002 | 25 | CR000028 | CR000054 | pending | pending |
 | B003 | 25 | CR000055 | CR000080 | pending | pending |
 | B004 | 25 | CR000081 | CR000105 | pending | pending |
@@ -36,6 +39,17 @@ Pilot acceptance status: **passed; safe to scale**.
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
 | B013 | 25 | CR000314 | CR000338 | pending | pending |
 | B014 | 19 | CR000339 | CR000357 | pending | pending |
+
+## Batch 001 summary
+
+- 25 resources processed.
+- 20 live GitHub repositories pinned to verified commits.
+- 23 new paper–resource relationships verified.
+- One Stage-1 relationship was accounted through the existing CR000021 alias resolution and canonical PRL000332.
+- Five moved, renamed, case-normalized, or corrected URLs were preserved as aliases without changing CR identity.
+- Eleven repositories have the verified negative finding: `No repository license identified at verified commit`.
+- CR000022 and CR000023 archive internals remain deferred to Stage 3.
+- CR000001 carries a routine manual-review flag and does not block continuation.
 
 ## Stop conditions
 

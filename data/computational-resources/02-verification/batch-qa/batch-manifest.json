@@ -56,11 +56,18 @@
       "resource_count": 25,
       "first_resource_id": "CR000001",
       "last_resource_id": "CR000027",
-      "status": "pending",
-      "verified_records": 0,
-      "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "status": "completed",
+      "verified_records": 25,
+      "manual_review_records": 1,
+      "relationship_records": 24,
+      "qa_status": "passed",
+      "completed_at": "2026-08-26",
+      "artifact_prefix": "batch-001",
+      "notes": [
+        "23 new Stage-2 relationship records verified.",
+        "PRL000062 is accounted for by canonical pilot link PRL000332 after alias resolution VA000001.",
+        "CR000001 carries a routine manual-review flag for canonical URL normalization."
+      ]
     },
     {
       "batch_id": "B002",
@@ -565,5 +572,11 @@
     }
   ],
   "final_global_audit_status": "pending",
-  "final_acceptance_status": "pending"
+  "final_acceptance_status": "pending",
+  "completed_batch_count": 1,
+  "expansion_resources_verified": 25,
+  "expansion_relationships_verified": 23,
+  "expansion_resources_requiring_manual_review": 1,
+  "last_completed_batch": "B001",
+  "updated_at": "2026-08-26"
 }

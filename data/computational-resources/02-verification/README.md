@@ -1,6 +1,6 @@
 # Computational Resource Verification Overlay
 
-This directory is the Stage 2 verification overlay for the mandatory 13-resource pilot. It does not replace or rewrite the accepted Stage 1 inventory.
+This directory is the Stage 2 verification overlay for the accepted pilot and controlled registry expansion. It does not replace or rewrite the accepted Stage 1 inventory.
 
 ## Record-state rules
 
@@ -22,8 +22,13 @@ Fields retain typed values where verified. A companion `status` or `field_status
 - CR000024 is reused for `KTH-FlowAI/Enhancement-of-PIV-via-PINNs`; no duplicate identity is created.
 - Unpromoted profile discoveries retain PD identifiers and do not create Atlas resource identities.
 - Paper-internal reference numbers are provenance, not Atlas paper IDs.
-- Every repository record is pinned to the default-branch commit observed on 2026-08-26.
+- Every verified repository record is pinned to the default-branch commit observed on its Stage-2 verification date.
+- Expansion batches reuse the pilot schema and evidence-state rules. Batch-specific artifacts and QA records are cumulative.
 
 ## Review categories
 
 The review report separates bounded scientific-review questions from verified limitations and Stage-3 deferred extraction. The latter do not block acceptance of the Stage 2 pilot methodology.
+
+## Expansion status
+
+Batch B001 is complete and passed QA. Progress, unresolved/manual-review items, and batch accounting are maintained in `reports/stage-2-progress.md`, `reports/stage-2-unresolved.md`, and `batch-qa/`.
