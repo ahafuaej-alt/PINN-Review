@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "unresolved-resource.schema.json",
+  "title": "Stage 1 unresolved resource queue item",
+  "type": "object",
+  "required": ["unresolved_id","resource_id","source_line","candidate_url","atlas_reference_ids","relationship","reasons","status"],
+  "properties": {
+    "unresolved_id":{"type":"string","minLength":1},
+    "resource_id":{"type":["string","null"],"pattern":"^CR\\d{6}$"},
+    "source_line":{"type":"integer","minimum":1,"maximum":648},
+    "candidate_url":{"type":["string","null"]},
+    "atlas_reference_ids":{"type":["array","null"],"items":{"type":"integer","minimum":1,"maximum":853}},
+    "relationship":{"type":["string","null"]},
+    "reasons":{"type":"array","items":{"type":"string"},"minItems":1},
+    "status":{"enum":["needs_stage2_live_verification","needs_stage2_identity_resolution"]}
+  },
+  "additionalProperties": false
+}
