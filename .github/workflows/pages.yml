@@ -65,6 +65,8 @@ jobs:
           node --check assets/mathematical-formulations.js
           node --check assets/frameworks.js
           node --check assets/frameworks-runtime-fixes.js
+          node --check assets/co-design-v2.js
+          node --check scripts/visual-qa-co-design-v2.mjs
           node --check assets/concepts.js
           node --check assets/theme-init.js
           node --check assets/ambient-rich.js
@@ -111,6 +113,7 @@ jobs:
           node scripts/validate-ambient-motion.mjs --browser
           node scripts/visual-qa-frameworks.mjs
           node scripts/visual-qa-framework-runtime.mjs
+          node scripts/visual-qa-co-design-v2.mjs
           node scripts/visual-qa-concept-regressions.mjs
       - name: Stop static preview
         if: always()
