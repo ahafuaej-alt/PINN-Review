@@ -1,0 +1,137 @@
+datasets used in the paper are from the UCI machine learning repository [2] from [530]
+https://github.com/sjiang23/senbaojiang.github.io  trapz-PiNN [549]
+LXCat database for electron-impact cross sections and the Chebfun package for reference solutions [550]
+UNSW gear tooth wear dataset: https://doi.org/10.17632/p2yrryg9k6z.1 [555]
+Dataset available at: https://www.lias-lab.fr/mcsa [563]
+ICESat-2 ATL03 data: https://nsidc.org/data/ATL03/versions/5 [571]
+Sentinel-2 Level-1C imagery: https://earthexplorer.usgs.gov/ [571]
+Continuously Updated Digital Elevation Model (CUDEM) data: https://chs.coast.noaa.gov/htdata/raster2/elevation/ [571]
+PHM 2010 Society Conference Data Challenge dataset: https://phmsociety.org/phm_competition/2010-phm-society-conference-data-challenge [572]
+University of Ottawa bearing dataset: https://data.mendeley.com/datasets/v43hmbwxpm/1 [577]
+ABIDE I+II dataset: Available through the Neuro Informatics Tools and Resources Collaboratory (nitrc.org) [582]
+Brain Tumor MRI dataset: Available on Kaggle at https://www.kaggle.com/dsv/2645886 [582]
+the HAWC2 simulation data set used in this study can be found at https://doi.org/10.11583/DTU.12245978 [590].
+https://doi.org/10.5281/zenodo.5206676 Physics-informed-DeepONets dataset [603]
+U.S. Geological Survey. The short records from headwater gauging stations in East River Watershed are available on ESS-DIVE (https://essdive.lbl.gov) [615].
+the Johns Hopkins University COVID-19 database [25] [616].
+Southern California Earthquake Data Centre (SCEDC): https://scdec.caltech.edu (source of earthquake phase arrival and station location data) [634]
+ https://doi.org/10.5281/zenodo.6637469 (contains the datasets used in the paper) [646]
+https://figshare.com/collections/Defect_design/4946874 - Repository containing structure graphs and defect structures [657]
+https://doi.org/10.4224/PhysRevA.96.042113 - Supporting data from the digital repository of the National Research Council of Canada [664]
+DataverseNO: The Jensen dataset [65] is available through DataverseNO [665]
+ https://doi.org/10.17863/CAM.41410 (as cited in [687]).
+https://doi.org/10.34740/kaggle/dsv/2637500 [691]
+the turbulent channel flow database from the Johns Hopkins Turbulence Database (JHTDB) available at: https://turbulence.pha.jhu.edu/ [692].
+https://doi.org/10.1016/j.ijnonlinmec.2024.104988 [692].
+https://www.kaggle.com/c/diabetic-retinopathy-detection [706].
+the Italian Civil Protection (http://www.protezionecivile.gov.it/media-comunicazione/comunicati-stampa) [714].
+Ministry of Health (http://www.salute.gov.it/portale/home.html) [714].
+Intervention timelines are available from official websites (https://mn.gov/governor/covid-19/news/) [714].
+https://resources.marine.copernicus.eu/?option=com_csw&view=details&product_id=GLOBAL_ANALYSIS_FORECAST_PHY_001_024 (Copernicus Marine Environment Monitoring Service) [716].
+https://portal.edirepository.org/nis/mapbrowse?packageid=edi.200.6 (EDI Data Repository) [716].
+https://doi.org/10.6073/pasta/8f19c5d19d816857e55077ba20570265 (EDI Data Repository) [716].
+https://prism.oregonstate.edu/ (PRISM Climate Data) [716].
+https://lter.limnology.wisc.edu/data (North Temperate Lakes LTER) [716].
+https://doi.org/10.5281/zenodo.2559313 (Zenodo) [716].
+The ERA5 dataset is available through the ECMWF and WeatherBench (Rasp et al., 2020), accessible at https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation [717].
+ImageNet: http://image-net.org/ (mentioned as analogy for benchmark libraries) [721].
+OpenAI Gym: https://gym.openai.com/ (for reinforcement learning environments) [721].
+https://doi.org/10.5281/zenodo.3764917 (Atrial fibre atlas from Roney et al., 2021) [835]
+https://zenodo.org/records/10557024 [836]
+The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/acs.jpca.1c05102, containing details of the POLLU model including the original full model and the QSSA reduction, and training results for the POLLU model using the regular PINN [739]
+2007 PhysioNet Computing in Cardiology Challenge: https://physionet.org/ (heart and torso geometries) [837]
+NASA hypersonic thermal protection tests [839]
+Multi-centre 7T MRI datasets [839]
+2025 Luding earthquake (M6.8) data [839]
+CMIP6 climate model data [839]
+CWRU bearing fault dataset (Case Western Reserve University) [841]
+XJTU bearing fault dataset (Xi'an Jiaotong University) [841]
+IEEE PHM 2014 Data Challenge: http://eng.fclab.fr/ieee-phm-2014-data-challenge/ [842]
+FCLAB Research Federation: http://fclab.fr [842]
+BattFlex pilot project data (shared by Elvia, OSO Hotwater, and COFACTOR research project) [845]
+https://gitlab.com/aroffringa/wsclean WSClean: Advanced imaging tool for radio interferometric data [853]
+SKA Science Data Challenge 3a (SDC3a): https://sdc3.skao.int/challenges/foregrounds [853]
+http://vis-www.cs.umass.edu/lfw/. Labeled Faces in the Wild (LFW) dataset: [760]
+Jittered-Cluttered NORB dataset [760]
+Pubfig dataset [760]
+CIFAR-10 and CIFAR-100 datasets https://www.cs.toronto.edu/~kriz/cifar.html  the Canadian Institute for Advanced Research [761] [762] [763] [765] [767]
+ImageNet dataset http://www.image-net.org/ [761] [763] [765]
+MNIST dataset: [762] [765] [772]
+TIMIT dataset: [762]
+Twitter POS tagging dataset: [762]
+WMT 2014 English→German dataset: [763]
+MS-COCO Dataset: The Common Objects in Context dataset is available at http://cocodataset.org/. [765]
+http://fclab.fr/FCLAB Dataset: The open dataset from the "IEEE PHM Data Challenge" [28] from [842]
+
+
+
+
+
+
+OSKAR: Software package for generating visibilities [853]
+
+21cmFAST: Simulation tool for EoR signal [853]
+
+Tools21cm: Package for 21 cm power spectrum analysis [853]
+
+
+PlotNeuralNet Visualization Library: https://github.com/Harishqbal88/PlotNeuralNet [853]
+
+
+
+
+The paper [557] uses OpenSees [37], PEER strong-motion database [36], and CESMD [39] as data sources from [557].
+standard datasets (MNIST, IMDB, CIFAR-10) [523]
+standard datasets (MNIST, Fashion-MNIST, SVHN, CIFAR-10, CIFAR-100) [524]
+
+https://github.com/bawalla2/JMLR-2024 (RCI code and datasets) [42] from [314]
+
+ 
+
+battery datasets: (1) the LFP dataset provided by MIT-Stanford [20]; (2) the NCA dataset tested by Tongji University [21]; and (3) the LCO dataset provided by CALCE [22]
+
+MIT-Stanford LFP dataset [22],from [207].
+CALCE LCO dataset [23],from [207].
+Tongji University NCA and NMC datasets [24] from [207].
+
+
+
+
+
+
+
+
+
+
+
+
+
+Railway Track Performance [114] from [106] – time‑series strain data (approx. 5 GB)
+
+PubDAS [150] from [106]– seismic waveforms from 8 global field experiments (~90 TB)
+
+Brady Hot Springs [151] from [106]– temperature/strain data from geothermal monitoring (~90 TB)
+
+Φ‑OTDR Events [152] from [106]– time‑space matrices of human/mechanical activities (15 GB)
+
+DAShip [153] from [106]– ship detection dataset with AIS correlation (3 TB)
+
+Intelligent Traffic DAS [154] from [106]– spectrograms of vehicle patterns (200 sample pairs)
+
+Subsea Cable [155] from [106]– vibration signals over 131 km fibre (45 GB)
+
+
+NetworkX: https://networkx.org/ (Hagberg et al., 2008) - A Python package for exploring and analyzing networks and network algorithms [722].
+
+
+
+
+
+
+
+
+
+
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+http://colah.github.io/posts/2014-07-Understanding-Convolutions/
