@@ -91,7 +91,7 @@ try {
     const detail = document.querySelector('[data-detail]');
     return detail?.dataset.coV2Enriched === 'representation-core' && Boolean(detail.querySelector('.co-v2-inspector-grid'));
   });
-  const inspectorText = await page.locator('[data-detail]').innerText();
+  const inspectorText = await page.locator('[data-detail]').textContent();
   assert(inspectorText.includes('Direction') && inspectorText.includes('Mechanism') && inspectorText.includes('Scientific consequence'), 'Relationship inspector does not expose the v2 directional scientific structure.');
   assert(inspectorText.includes('reciprocal pair member'), 'Relationship inspector does not distinguish reciprocal pair semantics.');
 
