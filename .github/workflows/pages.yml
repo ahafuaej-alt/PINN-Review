@@ -66,6 +66,7 @@ jobs:
           node --check assets/frameworks.js
           node --check assets/frameworks-runtime-fixes.js
           node --check assets/co-design-v2.js
+          node --check assets/co-design-v2-bridge.js
           node --check scripts/visual-qa-co-design-v2.mjs
           node --check assets/concepts.js
           node --check assets/theme-init.js
