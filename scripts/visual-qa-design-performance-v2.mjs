@@ -81,11 +81,11 @@ try {
   const targetCell = page.locator('.matrix-cell[data-inspect-id="sampling:trainability"]');
   await targetCell.click();
   await detail.locator('[data-dp-audit-panel]').waitFor({ state: 'visible', timeout: 3000 });
-  const cellInspector = await detail.innerText();
-  assert(cellInspector.includes('Audited dependency record'), 'Cell inspector is missing the audited dependency record.');
-  assert(cellInspector.includes('Evidence scope') && cellInspector.includes('row-level synthesis'), 'Cell inspector does not distinguish row-level evidence scope.');
-  assert(cellInspector.includes('Registered trade-offs involving this outcome'), 'Cell inspector is missing explicit trade-off relationships.');
-  assert(cellInspector.includes('Design Stack') && cellInspector.includes('Co-Design') && cellInspector.includes('Failure Diagnostics'), 'Cell inspector is missing cross-framework reasoning links.');
+  const cellInspector = (await detail.innerText()).toLowerCase();
+  assert(cellInspector.includes('audited dependency record'), 'Cell inspector is missing the audited dependency record.');
+  assert(cellInspector.includes('evidence scope') && cellInspector.includes('row-level synthesis'), 'Cell inspector does not distinguish row-level evidence scope.');
+  assert(cellInspector.includes('registered trade-offs involving this outcome'), 'Cell inspector is missing explicit trade-off relationships.');
+  assert(cellInspector.includes('design stack') && cellInspector.includes('co-design') && cellInspector.includes('failure diagnostics'), 'Cell inspector is missing cross-framework reasoning links.');
 
   await page.locator('[data-dp-compare]').click();
   for (const id of ['architecture-basis', 'sampling', 'optimizer']) await page.locator(`[data-dp-compare-toggle="${id}"]`).click();
