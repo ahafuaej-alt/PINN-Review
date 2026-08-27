@@ -82,7 +82,12 @@ try {
       assert(snapshot.evidenceCards >= 20, `${route.id}/${viewport.name}: claim-level evidence summary is incomplete (${snapshot.evidenceCards} verified papers).`);
       assert(snapshot.supportBadges >= snapshot.evidenceCards && snapshot.locationTags >= snapshot.evidenceCards, `${route.id}/${viewport.name}: evidence cards lack shared support badges or framework-location tags.`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete (zoom ${snapshot.zoomText || 'missing'}, ${snapshot.filterOptions} filter options).`);
-      if (viewport.width >= 1050) assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
+      if (viewport.width >= 1050 && route.id !== 'co-design') {
+        assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
+      }
+      if (viewport.width >= 1050 && route.id === 'co-design') {
+        assert(snapshot.canvasScrollWidth >= 2400 && snapshot.canvasScrollWidth > snapshot.canvasClientWidth + 300, `${route.id}/${viewport.name}: the intentionally oversized systems map is not preserved (${snapshot.canvasScrollWidth} scroll width, ${snapshot.canvasClientWidth} viewport width).`);
+      }
       if (route.relations) assert(snapshot.relationCount === route.relations, `${route.id}/${viewport.name}: expected ${route.relations} relationships, found ${snapshot.relationCount}.`);
       if (route.id === 'design-stack') {
         assert(snapshot.feedbackCount === 9 && snapshot.couplingCount === 6, `${route.id}/${viewport.name}: audited relation set is incomplete (${snapshot.feedbackCount} feedback, ${snapshot.couplingCount} coupling).`);
