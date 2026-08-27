@@ -34,7 +34,7 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     width: 100%;
   }
 
-  body[data-framework="design-performance"]:not(:has(.matrix-board-v2.dp-force-full-mobile)) .dp-table-shell {
+  body[data-framework="design-performance"] .dp-table-shell {
     position: absolute;
     display: block;
     width: 100%;
@@ -47,7 +47,7 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     pointer-events: none;
   }
 
-  body[data-framework="design-performance"]:has(.matrix-board-v2.dp-force-full-mobile) .dp-table-shell {
+  body[data-framework="design-performance"] .dp-force-full-mobile .dp-table-shell {
     position: relative;
     display: block;
     width: 100%;
@@ -56,8 +56,8 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     height: auto;
     overflow-x: auto;
     overflow-y: visible;
-    opacity: 1;
-    clip-path: none;
+    opacity: 1 !important;
+    clip-path: none !important;
     pointer-events: auto;
   }
 }
