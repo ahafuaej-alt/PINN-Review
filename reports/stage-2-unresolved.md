@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 02 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 03 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -77,5 +77,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000164, CR000165, CR000166 | No repository license identified at the pinned commit. | B007 checkpoint-02 verified negative findings; no license inferred from article-level open-access terms. |
 | CR000164 | README identifies bundled training/testing data, but `data/train.xlsx` is 2 bytes at the pinned commit. | Bounded Stage-2 dataset-completeness limitation; repository identity and official paper relationship are verified, and corpus completeness is not inferred. |
 | CR000166 | Repository bundles only the example notebook; the notebook installs packages inline and downloads the SDSS-derived dataset from Kaggle rather than bundling it. | Stage-2 dependency/dataset provenance verified; formal dependency normalization and any external-data reproducibility checks remain deferred to Stage 3. |
+| CR000167, CR000168, CR000169 | No repository license identified at the pinned commit. | B007 checkpoint-03 verified negative findings; no license inferred from article terms or open-source wording. |
+| CR000167 | The repository contains generic ChebyKAN code/examples and downloads MNIST through `torchvision.datasets.MNIST(..., download=True)`; no reusable research dataset or formal dependency manifest is bundled. | Stage-2 resource/dataset provenance verified; full dependency normalization remains deferred to Stage 3. |
+| CR000168 | Stage-1 records `utvone/airfoilVAEGAN`, while paper 273 and the live repository establish `utyone/airfoilVAEGAN`. | Resolved source URL repair via VA000027 without changing CR identity. |
+| CR000168 | The exact pinned canonical repository currently contains only a 15-byte README.md despite the paper's verified Data Availability relationship. | Bounded current-content limitation; do not infer present code/data or invalidate the historical paper-resource relationship. |
+| CR000169 | Repository provides open-hardware CAD models, assembly instructions, and companion-paper artifacts for the experimental tendon-driven platform; no software dependency manifest or reusable research dataset was identified. | Stage-2 resource role verified; no PINN-software classification inferred and no Stage-3 execution performed. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
