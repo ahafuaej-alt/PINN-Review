@@ -24,6 +24,7 @@ try {
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(`${baseUrl}/frameworks/design-performance/`, { waitUntil: 'networkidle' });
   await page.waitForSelector('.dependency-matrix-v2');
+  await page.waitForFunction(() => document.documentElement.dataset.designPerformanceLayout === 'ready');
 
   const contract = await page.evaluate(() => ({
     rows: document.querySelectorAll('.matrix-row').length,
