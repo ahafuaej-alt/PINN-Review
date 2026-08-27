@@ -48,7 +48,7 @@ Latest persistence checkpoint: **B007-C07 passed**. B007 remains in progress; th
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `8fec1fb74ff46b193ee9ab4d40ee64797666ee4c` |
+| Last verification checkpoint commit | `f19d347552e1112ebecbc86d1528770e384cf37e` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
 The pilot set, B001–B006, and B007 checkpoints 01–07 must not be reprocessed. Resume at CR000183. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
