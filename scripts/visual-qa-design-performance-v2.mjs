@@ -64,18 +64,16 @@ try {
   }));
   assert(evidenceLens.total === 98 && /documentation scope/i.test(evidenceLens.status), `Evidence lens must classify all 98 cells without implying strength: ${JSON.stringify(evidenceLens)}.`);
 
+  const detail = page.locator('[data-detail]:visible').first();
   await page.locator('[data-dp-outcome="accuracy"]').click();
-  await page.waitForFunction(() => {
-    const text = document.querySelector('[data-detail]')?.innerText || '';
-    return text.includes('Numerical Accuracy') && text.includes('Do not infer') && text.includes('Typical verification quantities');
-  }, null, { timeout: 3000 });
-  const outcomeInspector = await page.locator('[data-detail]').innerText();
+  await detail.locator('h2', { hasText: 'Numerical Accuracy' }).waitFor({ state: 'visible', timeout: 3000 });
+  const outcomeInspector = await detail.innerText();
   assert(outcomeInspector.includes('Numerical Accuracy') && outcomeInspector.includes('Do not infer') && outcomeInspector.includes('Typical verification quantities'), 'Outcome inspector is missing scientific scope/caution/metrics guidance.');
 
   const targetCell = page.locator('.matrix-cell[data-inspect-id="sampling:trainability"]');
   await targetCell.click();
-  await page.waitForTimeout(40);
-  const cellInspector = await page.locator('[data-detail]').innerText();
+  await detail.locator('[data-dp-audit-panel]').waitFor({ state: 'visible', timeout: 3000 });
+  const cellInspector = await detail.innerText();
   assert(cellInspector.includes('Audited dependency record'), 'Cell inspector is missing the audited dependency record.');
   assert(cellInspector.includes('Evidence scope') && cellInspector.includes('row-level synthesis'), 'Cell inspector does not distinguish row-level evidence scope.');
   assert(cellInspector.includes('Registered trade-offs involving this outcome'), 'Cell inspector is missing explicit trade-off relationships.');
