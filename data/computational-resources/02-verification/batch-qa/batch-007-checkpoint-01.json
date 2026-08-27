@@ -1,0 +1,104 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B007",
+  "checkpoint_id": "B007-C01",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000161",
+    "CR000162",
+    "CR000163"
+  ],
+  "next_resource_id": "CR000164",
+  "counts": {
+    "expected_checkpoint_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 2,
+    "gitlab_projects_verified_with_unknown_commit_sha": 1,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 6,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 3,
+    "verified_negative_license_findings": 0,
+    "bounded_unknown_snapshot_fields": 1
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000161, CR000162, and CR000163 are present exactly once and are the first three resources of B007."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "Existing CR and PRL identifiers are preserved; no new alias or identity replacement is required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000327, PRL000328, and PRL000007 are independently verified from primary-paper evidence and canonical resources."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "CR000161 and CR000163 are pinned to exact GitHub commits. CR000162 is a verified public GitLab project with a bounded unknown exact commit SHA rather than an inferred snapshot."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "CR000161 and CR000162 remain PINN implementations; CR000163 remains non_pinn while retaining its verified paper-provided code relationship."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "CR000161 GPL-3.0 and CR000163 CC0-1.0 are independently supported. CR000162 preserves the verified GNU LGPLv2.1 label without asserting an unresolved SPDX only/or-later variant."
+    },
+    {
+      "check": "unknown_not_false",
+      "status": "passed",
+      "detail": "CR000162 commit SHA, repository citation metadata, and dependency declarations remain explicit bounded unknowns rather than false or guessed values."
+    },
+    {
+      "check": "dataset_classification",
+      "status": "passed",
+      "detail": "Bundled IEEE simulation/model artifacts, paper-stated astrophysical-shock reproduction notebooks/data, and absence of a reusable TF_Quantum dataset remain distinct."
+    },
+    {
+      "check": "internal_reference_rule",
+      "status": "passed",
+      "detail": "No internal bibliography number was promoted to an Atlas ID; the verified Atlas IDs are 843, 852, and 44."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "No third-party code was executed and no full Stage-3 technical extraction was performed."
+    },
+    {
+      "check": "scope_isolation",
+      "status": "passed",
+      "detail": "Checkpoint changes are confined to Stage-2 computational-resource verification records and reports."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The bounded GitLab snapshot limitation is representable in the existing schema and does not trigger a methodology or scientific-review stop."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": [
+      "PRL000327",
+      "PRL000328",
+      "PRL000007"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B007 checkpoint 01 passes. B007 remains in progress and resumes at CR000164."
+}

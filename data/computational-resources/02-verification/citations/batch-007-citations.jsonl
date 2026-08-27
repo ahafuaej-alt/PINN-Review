@@ -1,0 +1,3 @@
+{"schema_version":"2.0.0-pilot","resource_id":"CR000161","status":"verified","citation_metadata_present":true,"source":"pinned README.md","title":"Physics-Informed Neural Networks in Power System Dynamics: Improving Simulation Accuracy","doi":"10.48550/arXiv.2501.17621","verified_at":"2026-08-27"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000162","status":"unknown","citation_metadata_present":null,"source":"public GitLab project; README content not reliably exposed through current primary-source interface","title":null,"doi":null,"verified_at":"2026-08-27"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000163","status":"verified_negative","citation_metadata_present":false,"source":"pinned repository root","title":null,"doi":null,"verified_at":"2026-08-27"}
