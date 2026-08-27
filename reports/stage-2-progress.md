@@ -1,6 +1,6 @@
 # Computational Resources Stage 2 Progress
 
-Verification date: 2026-08-27
+Verification date: 2026-08-28
 
 ## Current state
 
@@ -12,46 +12,46 @@ Verification date: 2026-08-27
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 7 |
-| Expansion resources processed | 190 |
+| Expansion resources processed | 195 |
 | Expansion relationships verified | 161 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 154 |
+| Pending expansion resources | 149 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B008-C03 passed**. B008 remains in progress; the next micro-batch begins at CR000203. No stop condition was triggered.
+Latest persistence checkpoint: **B008-C04 passed**. B008 remains in progress; the next micro-batch begins at CR000208. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B008 (in progress) |
-| Last completed resource | CR000202 |
+| Last completed resource | CR000207 |
 | Last completed logical batch | B007 |
-| Last persistence checkpoint | B008-C03 |
-| Next resource | CR000203 |
-| Completed Stage-1 resource count | 203 |
+| Last persistence checkpoint | B008-C04 |
+| Next resource | CR000208 |
+| Completed Stage-1 resource count | 208 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 154 |
-| Completed CR IDs/ranges | CR000001–CR000202; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000203–CR000220; CR000222–CR000357 |
+| Remaining Stage-1 resource count | 149 |
+| Completed CR IDs/ranges | CR000001–CR000207; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000208–CR000220; CR000222–CR000357 |
 | Completed Stage-1 PRL assertions | 187 |
 | Pending Stage-1 PRL assertions | 144 |
 | Verified relationship records | 178 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B007 |
-| Current batch checkpoint | B008-C03 passed |
+| Current batch checkpoint | B008-C04 passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000198–CR000202 |
-| Resources remaining in current batch | 10 |
+| Resources completed in last checkpoint | CR000203–CR000207 |
+| Resources remaining in current batch | 5 |
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `37363c20648ea4a305a695fd7374a1bcaa8359de` |
+| Last verification checkpoint commit | `28d115cef3e0713b024d61c51aaf0bab4bc3763e` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B007, and B008 checkpoints 01–03 must not be reprocessed. Resume at CR000203. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B007, and B008 checkpoints 01–04 must not be reprocessed. Resume at CR000208. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -64,7 +64,7 @@ The pilot set, B001–B007, and B008 checkpoints 01–03 must not be reprocessed
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
-| B008 | 25 | CR000188 | CR000212 | in progress | checkpoint 03 passed |
+| B008 | 25 | CR000188 | CR000212 | in progress | checkpoint 04 passed |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
@@ -261,6 +261,17 @@ The pilot set, B001–B007, and B008 checkpoints 01–03 must not be reprocessed
 - CR000202 is resolved from `uncertain` to `paper_code_collection_or_tutorial`: NABLA-SciML is a multi-module PINN/operator-learning tutorial and research collection with a root `pyproject.toml`, module-specific citations, and extensive benchmark/result arrays. No repository-level license was identified.
 - None of the five resources has a Stage-1 Atlas-paper assertion, so no paper-resource relationship was invented. No code was executed, no external data were downloaded, and no Stage-3 normalization was performed.
 - No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B008 remains in progress and resumes at CR000203.
+
+## Batch 008 checkpoint 04 summary
+
+- Five resources were processed: CR000203 through CR000207; all five public GitHub repository identities were pinned to exact default-branch commits.
+- CR000203 is resolved from `uncertain` to `pinn_or_physics_informed_implementation`: Instant-AIVT provides physics-informed KAN code and notebooks with citation DOI `10.1126/sciadv.ads5236`. No license, formal manifest, or research data is bundled; root and case documentation point to different external dataset locations, both preserved.
+- VA000033 resolves CR000204 as a distinct fork of CR000089. Their immutable repository IDs differ even though both default branches share commit `77e7c747d653b34e79e43df7d88bad87de5c27d8`; CR000089 retains PRL000190, while CR000204 has no independent Atlas relationship.
+- CR000205 is an independently implemented separable-PINN variant with source and result images. No license, project citation metadata, formal manifest, or reusable research dataset was identified.
+- CR000206 remains a physics-informed operator-learning implementation. Its source expects `./Data/Dataset_square`, but no Data directory is bundled; static source limitations and missing input are recorded without executing or repairing the code.
+- CR000207 remains a physics-informed operator-learning implementation with citation DOI `10.1016/j.cma.2026.118917` and a full pinned requirements freeze. No license or bundled dataset/checkpoint was identified.
+- None of the five resources has a Stage-1 Atlas-paper assertion, so no new relationship was invented. No code was executed, no external data were downloaded, and no Stage-3 normalization was performed.
+- No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B008 remains in progress and resumes at CR000208.
 
 ## Stop conditions
 
