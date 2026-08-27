@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B007",
+  "checkpoint_id": "B007-C06",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000177", "CR000178", "CR000179"],
+  "precompleted_skipped_resource_ids": [],
+  "next_resource_id": "CR000180",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 2,
+    "relationship_records": 1,
+    "verified_relationship_records": 1,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 4,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 0,
+    "verified_negative_license_findings": 2,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"The next three unprocessed Stage-1 resources are CR000177, CR000178, and CR000179."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"All three CR identifiers and PRL000064 are preserved; no source alias or new stable identity is required."},
+    {"check":"relationship_accounting","status":"passed","detail":"The only Stage-1 paper assertion in this checkpoint, PRL000064 for Atlas paper 314, is independently verified as the official JMLR code/data relationship. CR000177 and CR000178 have no Stage-1 Atlas-paper assertions and none are invented."},
+    {"check":"repository_snapshot_pinning","status":"passed","detail":"CR000177 and CR000179 are public GitHub repositories pinned to exact observed default-branch commits. CR000178 is a profile-level resource, so commit pinning is not applicable; the exact public owner identity is verified through GitHub repository search."},
+    {"check":"classification_integrity","status":"passed","detail":"CR000177 retains PINN implementation classification; CR000178 is resolved from uncertain to github_profile; CR000179 is resolved from mixed_or_uncertain to adjacent_physics_informed_ml_implementation because it implements physics-informed continuous-time reinforcement learning, not PINN."},
+    {"check":"license_non_inference","status":"passed","detail":"No repository license is identified for CR000177 or CR000179. The JMLR article CC-BY 4.0 license is not inferred as a repository license. License is not applicable to CR000178 as a profile-level resource."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"CR000177 has no formal manifest but static PyTorch/NumPy/Matplotlib imports and bundled example training/model artifacts; CR000178 dependency/data fields are not applicable; CR000179 has MATLAB source plus bundled study datasets but no formal manifest. No execution, binary inspection, archive unpacking, or Stage-3 normalization was performed."},
+    {"check":"internal_reference_rule","status":"passed","detail":"No paper-internal bibliography number was promoted to an Atlas ID. Atlas paper 314 comes only from the Stage-1 registry/PRL and is independently matched to the JMLR paper."},
+    {"check":"stop_condition_scan","status":"passed","detail":"Profile handling, classification resolution, license findings, paper-link verification, and dependency/data boundaries are representable within the established schema and require no new relationship type, stable-ID policy, scientific-review item, or processing pause."}
+  ],
+  "relationship_accounting": {"stage1_link_count":1,"verified_link_ids":["PRL000064"],"bounded_unverified_link_ids":[]},
+  "qa_conclusion": "B007 checkpoint 06 passes. B007 remains in progress and resumes at CR000180."
+}
