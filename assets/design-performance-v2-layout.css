@@ -34,7 +34,7 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     width: 100%;
   }
 
-  body[data-framework="design-performance"] .matrix-board-v2:not(.dp-force-full-mobile) .dp-table-shell {
+  body[data-framework="design-performance"]:not(:has(.matrix-board-v2.dp-force-full-mobile)) .dp-table-shell {
     position: absolute;
     display: block;
     width: 100%;
@@ -47,7 +47,7 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     pointer-events: none;
   }
 
-  body[data-framework="design-performance"] .matrix-board-v2.dp-force-full-mobile .dp-table-shell {
+  body[data-framework="design-performance"]:has(.matrix-board-v2.dp-force-full-mobile) .dp-table-shell {
     position: relative;
     display: block;
     width: 100%;
