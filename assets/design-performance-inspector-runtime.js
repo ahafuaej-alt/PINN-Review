@@ -30,20 +30,28 @@
   const tradeoffsFor = (rowId, columnId) => (meta?.tradeoffs || []).filter((item) => item.row === rowId && (item.from === columnId || item.to === columnId));
   const scopeFor = (row, cell) => Array.isArray(cell.evidence) && cell.evidence.length ? 'cell-specific' : Array.isArray(row.evidence) && row.evidence.length ? 'row-level synthesis' : 'unverified';
 
-  function applyIntegrity(id) {
-    const record = recordFor(id);
+  function enforceEvidenceScope(scope) {
     const detail = document.querySelector('[data-detail]');
-    if (!record || !detail) return;
-    const { row, column, cell } = record;
-    const scope = scopeFor(row, cell);
-    const evidence = detail.querySelector('[data-inspector-section="evidence"]');
+    const evidence = detail?.querySelector('[data-inspector-section="evidence"]');
     if (!evidence) return;
-
     const heading = evidence.querySelector('h3');
     if (heading) heading.textContent = scope === 'row-level synthesis' ? 'Row-level synthesis evidence' : scope === 'cell-specific' ? 'Cell-specific supporting evidence' : 'Supporting evidence';
     if (scope === 'row-level synthesis' && !evidence.querySelector('.dp-evidence-scope-note')) {
       evidence.insertAdjacentHTML('afterbegin', '<p class="dp-evidence-scope-note"><b>Evidence scope:</b> these verified references support the design dimension at row level; they are not automatically claimed as exact support for every individual cell.</p>');
     }
+  }
+
+  function applyIntegrity(id, fallbackScope = '') {
+    const record = recordFor(id);
+    const detail = document.querySelector('[data-detail]');
+    if (!detail) return;
+    if (!record) {
+      if (fallbackScope) enforceEvidenceScope(fallbackScope);
+      return;
+    }
+    const { row, column, cell } = record;
+    const scope = scopeFor(row, cell);
+    enforceEvidenceScope(scope);
 
     detail.querySelector('[data-dp-audit-panel]')?.remove();
     const links = meta.row_links?.[row.id] || { stack: [], codesign: [] };
@@ -68,15 +76,15 @@
     if (id) requestAnimationFrame(() => applyIntegrity(id));
   }
 
-  document.addEventListener('click', (event) => {
+  function handleInspect(event) {
     const target = event.target.closest('[data-inspect-id]');
-    if (target) applyIntegrity(target.dataset.inspectId);
-  });
+    if (!target) return;
+    applyIntegrity(target.dataset.inspectId, target.dataset.evidenceScope || '');
+  }
 
+  document.addEventListener('click', handleInspect);
   document.addEventListener('keydown', (event) => {
-    if (!['Enter', ' '].includes(event.key)) return;
-    const target = event.target.closest('[data-inspect-id]');
-    if (target) applyIntegrity(target.dataset.inspectId);
+    if (['Enter', ' '].includes(event.key)) handleInspect(event);
   });
 
   const detailObserver = new MutationObserver(() => scheduleCurrent());
