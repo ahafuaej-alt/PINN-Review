@@ -1,0 +1,3 @@
+{"schema_version":"2.0.0-pilot","resource_id":"CR000170","status":"verified","documentation_present":true,"artifacts":["README.md"],"verified_commit_sha":"69359d29f8930dd05f70cf909682be23311ec1d2","verified_at":"2026-08-27"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000171","status":"verified","documentation_present":true,"artifacts":["README.md","CAD Solid and Field - Manual-v1.docx"],"verified_commit_sha":"52b1aca771eb60e62fda2b05024c516bb059e9f0","verified_at":"2026-08-27"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000172","status":"verified","documentation_present":true,"artifacts":["README.md"],"verified_commit_sha":"4e28e68cabd831b84cb7be0aa40b1fba6ba38c74","verified_at":"2026-08-27"}
