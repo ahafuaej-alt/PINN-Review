@@ -137,6 +137,7 @@ try {
   await matrix.fill('.framework-search', 'gradient flow');
   assert(await matrix.locator('.matrix-row:not(.is-filter-muted):not(.is-search-muted)').count() === 1, 'Matrix search should isolate the activation/features row for gradient flow.');
   await matrix.click('[data-inspect-id="activation-features:trainability"]');
+  await matrix.locator('[data-detail] [data-inspector-section="evidence"] h3', { hasText: 'Row-level synthesis evidence' }).waitFor({ state: 'visible', timeout: 3000 });
   const matrixDetail = await matrix.locator('[data-detail]').innerText();
   assert(matrixDetail.includes('gradient flow') && matrixDetail.includes('[517]'), 'Matrix cell inspector lost its maintained mechanism or supporting paper mapping.');
   assert(matrixDetail.includes('Row-level synthesis evidence'), 'Matrix inspector must identify inherited row-level evidence rather than imply exact cell support.');
