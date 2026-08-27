@@ -65,7 +65,10 @@ try {
   assert(evidenceLens.total === 98 && /documentation scope/i.test(evidenceLens.status), `Evidence lens must classify all 98 cells without implying strength: ${JSON.stringify(evidenceLens)}.`);
 
   await page.locator('[data-dp-outcome="accuracy"]').click();
-  await page.waitForTimeout(30);
+  await page.waitForFunction(() => {
+    const text = document.querySelector('[data-detail]')?.innerText || '';
+    return text.includes('Numerical Accuracy') && text.includes('Do not infer') && text.includes('Typical verification quantities');
+  }, null, { timeout: 3000 });
   const outcomeInspector = await page.locator('[data-detail]').innerText();
   assert(outcomeInspector.includes('Numerical Accuracy') && outcomeInspector.includes('Do not infer') && outcomeInspector.includes('Typical verification quantities'), 'Outcome inspector is missing scientific scope/caution/metrics guidance.');
 
