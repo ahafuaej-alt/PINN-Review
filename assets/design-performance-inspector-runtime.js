@@ -63,25 +63,20 @@
     window.AtlasConcepts?.enhance(detail);
   }
 
-  function schedule(id) {
-    if (!id) return;
-    setTimeout(() => applyIntegrity(id), 0);
-  }
-
   function scheduleCurrent() {
     const id = new URLSearchParams(location.hash.replace(/^#/, '')).get('item');
-    if (id) requestAnimationFrame(() => schedule(id));
+    if (id) requestAnimationFrame(() => applyIntegrity(id));
   }
 
   document.addEventListener('click', (event) => {
     const target = event.target.closest('[data-inspect-id]');
-    if (target) schedule(target.dataset.inspectId);
+    if (target) applyIntegrity(target.dataset.inspectId);
   });
 
   document.addEventListener('keydown', (event) => {
     if (!['Enter', ' '].includes(event.key)) return;
     const target = event.target.closest('[data-inspect-id]');
-    if (target) schedule(target.dataset.inspectId);
+    if (target) applyIntegrity(target.dataset.inspectId);
   });
 
   const detailObserver = new MutationObserver(() => scheduleCurrent());
