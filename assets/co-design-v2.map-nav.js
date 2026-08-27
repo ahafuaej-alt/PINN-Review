@@ -29,6 +29,14 @@
     ['reliability', '6 · Verification & Reliability']
   ];
 
+  window.addEventListener('click', (event) => {
+    if (!event.target.closest?.('[data-svg],[data-svg-publication]')) return;
+    setTimeout(() => {
+      const menu = document.querySelector('.toolbar-export');
+      if (menu) menu.open = false;
+    }, 0);
+  }, true);
+
   waitForMap().then(({ canvas, board }) => {
     const controls = document.querySelector('.co-v2-controls');
     if (!controls || controls.querySelector('[data-co-map-nav]')) return;
