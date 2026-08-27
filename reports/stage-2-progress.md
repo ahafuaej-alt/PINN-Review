@@ -11,46 +11,46 @@ Verification date: 2026-08-27
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 5 |
-| Expansion resources processed | 141 |
-| Expansion relationships verified | 138 |
+| Completed expansion batches | 6 |
+| Expansion resources processed | 150 |
+| Expansion relationships verified | 147 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 203 |
+| Pending expansion resources | 194 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B006-C02 passed**. B006 remains in progress; no stop condition was triggered.
+Latest persistence checkpoint: **B006 passed**. B007 is ready to begin; no stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B006 (checkpoint 02 complete; 16/25 resources) |
-| Last completed resource | CR000150 |
-| Last completed logical batch | B005 |
-| Last persistence checkpoint | B006-C02 |
-| Next resource | CR000151 |
-| Completed Stage-1 resource count | 154 |
+| Current logical batch | B007 (not started) |
+| Last completed resource | CR000160 |
+| Last completed logical batch | B006 |
+| Last persistence checkpoint | B006 |
+| Next resource | CR000161 |
+| Completed Stage-1 resource count | 163 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 203 |
-| Completed CR IDs/ranges | CR000001–CR000150; CR000154; CR000174; CR000184; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000151–CR000153; CR000155–CR000173; CR000175–CR000183; CR000185–CR000220; CR000222–CR000357 |
-| Completed Stage-1 PRL assertions | 164 |
-| Pending Stage-1 PRL assertions | 167 |
-| Verified relationship records | 155 |
+| Remaining Stage-1 resource count | 194 |
+| Completed CR IDs/ranges | CR000001–CR000160; CR000174; CR000184; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000161–CR000173; CR000175–CR000183; CR000185–CR000220; CR000222–CR000357 |
+| Completed Stage-1 PRL assertions | 173 |
+| Pending Stage-1 PRL assertions | 158 |
+| Verified relationship records | 164 |
 | Explicitly `not_verified` relationship records | 9 |
-| Completed batches | B001–B005 |
-| Pending batches | B006–B014 |
-| Resources completed in current checkpoint | CR000141, CR000142, CR000143, CR000144, CR000146, CR000147, CR000148, CR000150 |
-| Resources remaining in current batch | 9 |
+| Completed batches | B001–B006 |
+| Pending batches | B007–B014 |
+| Resources completed in last checkpoint | CR000151, CR000152, CR000153, CR000155, CR000156, CR000157, CR000158, CR000159, CR000160 |
+| Resources remaining in current batch | 25 |
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
 | Last checkpoint commit | `57f8d556f84c94e29cb78c8cfe958ecda0ad3f96` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set (13 Stage-1 resources plus promoted CR000358), B001–B005, and B006 checkpoint resources through CR000150 must not be reprocessed. Resume at CR000151.
+The pilot set (13 Stage-1 resources plus promoted CR000358) and B001–B006 must not be reprocessed. Resume at CR000161.
 
 The structured batch manifest was reconciled at this checkpoint because its top-level summary had remained at B003 even though the committed B004/B005 records and QA files were complete. The verification records and QA files were authoritative; no resource or relationship was re-verified during this metadata repair.
 
@@ -63,7 +63,7 @@ The structured batch manifest was reconciled at this checkpoint because its top-
 | B003 | 25 | CR000055 | CR000080 | completed | passed |
 | B004 | 25 | CR000081 | CR000105 | completed | passed |
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
-| B006 | 25 | CR000132 | CR000160 | in progress (16/25) | checkpoint passed |
+| B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | pending | pending |
 | B008 | 25 | CR000188 | CR000212 | pending | pending |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
@@ -144,7 +144,16 @@ The structured batch manifest was reconciled at this checkpoint because its top-
 - Five licenses were positively verified; CR000142 and CR000143 have verified negative license findings; CR000150 remains unknown because the repository is unavailable.
 - The CR000144 archive was not downloaded or unpacked; technical extraction remains deferred to Stage 3.
 - No new manual-review item, schema issue, or stop condition was produced.
-- B006 remains in progress and resumes at CR000151.
+- The final checkpoint completed B006.
+
+## Batch 006 summary
+
+- 25 resources were processed: 21 live GitHub repositories and two GitLab projects were pinned, one Zenodo software record was verified, and one paper-cited repository is unavailable.
+- 25 of 26 Stage-1 paper-resource assertions were verified; PRL000309 remains `not_verified` because paper 810 maps to the distinct CR000151 identity.
+- Five source URL repairs preserve existing CR identities, including the immutable repository-ID move for CR000156 and primary JOSS resolution for CR000159.
+- Fifteen licenses were positively verified, nine repositories have verified negative license findings, and CR000150 remains a bounded unknown because the repository is unavailable.
+- CR000153's default branch is pinned separately from its non-default master content; CR000144 and CR000160 external archives remain unextracted for Stage 3.
+- No new manual-review item, schema issue, or stop condition was produced.
 
 ## Stop conditions
 

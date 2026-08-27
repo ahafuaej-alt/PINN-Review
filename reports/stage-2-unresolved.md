@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B006 checkpoints 01–02 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. Completed B006 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -73,5 +73,11 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000142, CR000143 | No repository license identified at pinned commit. | B006 checkpoint-02 verified negative findings. |
 | CR000144 | Open Zenodo software record, DOI, creator, CC BY 4.0 license, and code/data/results archive preview verified; 650 MB archive internals were not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
 | CR000150 | Paper-cited canonical repository is unavailable; public forks do not justify identity replacement. | Verified unavailability; PRL000308 remains verified from the primary paper. |
+
+| CR000151, CR000153, CR000155, CR000157, CR000160 | No repository or project license identified at the pinned commit. | B006 verified negative findings. |
+| CR000153 | Default branch main is README-only; code and bundled data are on separately pinned master commit 0f2a36c3d4882784a5e3f11defb9c09282fecd92. | Resolved qualified metadata; both snapshots remain explicit. |
+| CR000156 | Source URL moved from tianjuxue/jax-am to CMSL-HKUST/jax-am. | Resolved by immutable GitHub repository ID 509117694 without changing CR identity. |
+| CR000159 | Recorded ThomasGrandits/fim_py path is unavailable; the paper citation and primary JOSS review identify thomgrand/fim-python. | Resolved source URL repair without changing CR identity. |
+| CR000160 | Public GitLab project, main-branch commit, README, dependency file, and external Zenodo dependency verified; the external archive was not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
