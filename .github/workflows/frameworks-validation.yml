@@ -34,6 +34,7 @@ jobs:
       - run: node --check assets/frameworks-runtime-fixes.js
       - run: node --check assets/co-design-v2.js
       - run: node --check assets/co-design-v2-bridge.js
+      - run: node --check assets/co-design-v2.map-nav.js
       - run: node --check scripts/visual-qa-framework-runtime.mjs
       - run: node --check scripts/visual-qa-co-design-v2.mjs
       - run: node scripts/validate-frameworks.mjs
