@@ -41,6 +41,25 @@
     return detail?.dataset.coV2Enriched === id && Boolean(detail.querySelector('.co-v2-inspector-grid'));
   }
 
+  function relationIsSelected(id) {
+    return Boolean(document.querySelector(`[data-inspect-id="${CSS.escape(id)}"].is-active`));
+  }
+
+  function restoreRelationFromHash() {
+    const id = selectedRelationId();
+    if (!id || !relationMap.has(id) || relationIsSelected(id)) {
+      queueInspectorEnrichment();
+      return;
+    }
+    const target = document.querySelector(`.co-v2-caption[data-inspect-id="${CSS.escape(id)}"], .co-v2-path[data-inspect-id="${CSS.escape(id)}"], [data-inspect-id="${CSS.escape(id)}"]`);
+    if (!target) {
+      setTimeout(restoreRelationFromHash, 50);
+      return;
+    }
+    target.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+    queueInspectorEnrichment();
+  }
+
   function enrichInspector() {
     const id = selectedRelationId();
     const meta = relationMap.get(id);
@@ -90,6 +109,10 @@
       if (!['Enter', ' '].includes(event.key)) return;
       resetAndEnrich(event);
     }, true);
+    window.addEventListener('hashchange', () => {
+      document.querySelector('[data-detail]')?.removeAttribute('data-co-v2-enriched');
+      restoreRelationFromHash();
+    });
   }
 
   Promise.all([
@@ -103,6 +126,7 @@
       return [meta.id, { ...meta, from: relation.from, to: relation.to }];
     }));
     bindInspectorObserver();
+    requestAnimationFrame(() => requestAnimationFrame(restoreRelationFromHash));
     queueInspectorEnrichment();
   }).catch((error) => console.error('Co-Design relationship inspector bridge could not initialize.', error));
 
