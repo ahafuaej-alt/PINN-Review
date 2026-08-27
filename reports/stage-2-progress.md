@@ -12,46 +12,46 @@ Verification date: 2026-08-27
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 6 |
-| Expansion resources processed | 153 |
-| Expansion relationships verified | 150 |
+| Expansion resources processed | 156 |
+| Expansion relationships verified | 153 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 191 |
+| Pending expansion resources | 188 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B007-C01 passed**. B007 remains in progress; the next micro-batch begins at CR000164. No stop condition was triggered.
+Latest persistence checkpoint: **B007-C02 passed**. B007 remains in progress; the next micro-batch begins at CR000167. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B007 (in progress) |
-| Last completed resource | CR000163 |
+| Last completed resource | CR000166 |
 | Last completed logical batch | B006 |
-| Last persistence checkpoint | B007-C01 |
-| Next resource | CR000164 |
-| Completed Stage-1 resource count | 166 |
+| Last persistence checkpoint | B007-C02 |
+| Next resource | CR000167 |
+| Completed Stage-1 resource count | 169 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 191 |
-| Completed CR IDs/ranges | CR000001–CR000163; CR000174; CR000184; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000164–CR000173; CR000175–CR000183; CR000185–CR000220; CR000222–CR000357 |
-| Completed Stage-1 PRL assertions | 176 |
-| Pending Stage-1 PRL assertions | 155 |
-| Verified relationship records | 167 |
+| Remaining Stage-1 resource count | 188 |
+| Completed CR IDs/ranges | CR000001–CR000166; CR000174; CR000184; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000167–CR000173; CR000175–CR000183; CR000185–CR000220; CR000222–CR000357 |
+| Completed Stage-1 PRL assertions | 179 |
+| Pending Stage-1 PRL assertions | 152 |
+| Verified relationship records | 170 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B006 |
-| Current batch checkpoint | B007-C01 passed |
+| Current batch checkpoint | B007-C02 passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000161, CR000162, CR000163 |
-| Resources remaining in current batch | 22 |
+| Resources completed in last checkpoint | CR000164, CR000165, CR000166 |
+| Resources remaining in current batch | 19 |
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `3b758d6de575d4a28ac04a3d9cfcf941f5d746b4` |
+| Last verification checkpoint commit | `3657e749d0ea212f9286f6a7f9e4f628185f83cc` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B006, and B007 checkpoint 01 must not be reprocessed. Resume at CR000164.
+The pilot set, B001–B006, and B007 checkpoints 01–02 must not be reprocessed. Resume at CR000167.
 
 ## Batch register
 
@@ -63,7 +63,7 @@ The pilot set, B001–B006, and B007 checkpoint 01 must not be reprocessed. Resu
 | B004 | 25 | CR000081 | CR000105 | completed | passed |
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
-| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 01 passed |
+| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 02 passed |
 | B008 | 25 | CR000188 | CR000212 | pending | pending |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
@@ -143,6 +143,17 @@ The pilot set, B001–B006, and B007 checkpoint 01 must not be reprocessed. Resu
 - CR000163 remains `non_pinn` but is verified as the exact paper-provided quantum-physics code repository; its CC0-1.0 license is verified from pinned text.
 - No new alias, ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced.
 - B007 remains in progress and resumes at CR000164.
+
+## Batch 007 checkpoint 02 summary
+
+- Three resources were processed: CR000164, CR000165, and CR000166; all three live GitHub repositories were pinned to exact `main` commits.
+- All three Stage-1 paper-resource assertions are verified as official relationships: PRL000010 for paper 59, PRL000026 for paper 135, and PRL000030 for paper 151.
+- All three resources remain scientifically classified as `non_pinn`; their direct paper association does not change that classification.
+- No repository license was identified for any of the three pinned repositories; article-level open-access licenses were not inferred as repository licenses.
+- CR000164 contains equation training/testing data artifacts, but the 2-byte `data/train.xlsx` prevents Stage 2 from asserting completeness of the published training corpus.
+- CR000165 bundles financial time-series and simulation/application data; CR000166 contains one example notebook with inline install commands and an external Kaggle SDSS dataset download rather than a bundled reusable dataset.
+- No new alias, ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B007 remains in progress and resumes at CR000167.
 
 ## Stop conditions
 
