@@ -1,0 +1,191 @@
+{
+  "version": "2.0.0",
+  "audit": {
+    "expected_rows": 14,
+    "expected_columns": 7,
+    "expected_cells": 98,
+    "method": "Each maintained cell is checked for a valid qualitative level, a non-empty mechanism label, a unique row–outcome identity, evidence scope, and explicit trade-off registration where applicable. The audit does not convert qualitative synthesis into effect-size estimation.",
+    "evidence_policy": "Cell-specific evidence is shown as exact cell support only when explicitly attached to that cell. Otherwise the interface labels the inherited references as row-level synthesis evidence and does not imply that every paper supports every cell in the row.",
+    "direction_policy": "Influence strength describes methodological dependency, not sign. Major does not mean beneficial; context-dependent does not mean weak; indirect means the effect is mediated through another design choice or performance outcome."
+  },
+  "outcomes": {
+    "accuracy": {
+      "icon": "numerical",
+      "summary": "Agreement of predicted fields or states with a trusted reference, analytical solution, manufactured solution, or other accepted numerical benchmark.",
+      "caution": "Low field error does not by itself establish conservation, admissibility, robustness, or parameter identifiability.",
+      "typical_metrics": ["Relative L2 error", "RMSE", "MAE", "pointwise / local error"]
+    },
+    "fidelity": {
+      "icon": "physics",
+      "summary": "Consistency with governing equations and physical constraints, including PDE residuals, conservation, boundary and initial conditions, interfaces, and constitutive relations.",
+      "caution": "Small residuals or constraint violations do not automatically guarantee low solution error over the full domain.",
+      "typical_metrics": ["PDE residual error", "BC / IC satisfaction", "conservation / flux balance", "constitutive consistency"]
+    },
+    "trainability": {
+      "icon": "training",
+      "summary": "Conditioning, convergence behavior, gradient quality, basin accessibility, and stability of the optimization process used to train the PINN.",
+      "caution": "Rapid or smooth optimization does not by itself establish that the converged solution is accurate or physically admissible.",
+      "typical_metrics": ["convergence rate", "loss / gradient histories", "failure / divergence rate", "iteration count"]
+    },
+    "cost": {
+      "icon": "numerical",
+      "summary": "Computational resources required by the formulation, including training time, memory, residual and derivative evaluation, solver calls, and inference cost where relevant.",
+      "caution": "Lower nominal operation count does not guarantee lower wall-clock time, and training and repeated-query costs should be distinguished.",
+      "typical_metrics": ["wall-clock training time", "inference time", "memory", "FLOPs / residual calls / solver calls"]
+    },
+    "robustness": {
+      "icon": "reliability",
+      "summary": "Stability of performance under random seeds, noisy or sparse observations, perturbations, and distribution or parameter shifts.",
+      "caution": "Robustness to perturbations is distinct from calibrated predictive or parameter uncertainty.",
+      "typical_metrics": ["multi-seed spread", "noise sensitivity", "sparse-data performance", "OOD / extrapolation error"]
+    },
+    "identifiability": {
+      "icon": "reliability",
+      "summary": "Recoverability of unknown parameters or latent quantities together with the informativeness and calibration of uncertainty estimates when uncertainty quantification is performed.",
+      "caution": "Good forward prediction can coexist with weak parameter identifiability; uncertainty calibration requires dedicated diagnostics.",
+      "typical_metrics": ["parameter relative error", "posterior / interval calibration", "coverage / reliability", "parameter correlation / identifiability"]
+    },
+    "scalability": {
+      "icon": "coupling",
+      "summary": "Ability to extend the workflow to larger domains, higher dimensions, more parameters, parallel execution, or repeated-query and transfer settings without prohibitive retraining or cost.",
+      "caution": "A larger model is not automatically scalable; offline training, communication, transfer error, and online reuse costs must be separated.",
+      "typical_metrics": ["strong / weak scaling", "online cost", "amortized cost", "transfer / repeated-query performance"]
+    }
+  },
+  "label_overrides": {
+    "architecture-basis:identifiability": "architecture-mediated recovery",
+    "activation-features:fidelity": "approximation-mediated fidelity",
+    "activation-features:identifiability": "representation-mediated recovery",
+    "scaling:identifiability": "conditioning-mediated recovery",
+    "physics-enforcement:scalability": "formulation portability",
+    "physics-constraints:robustness": "constraint-regularized stability",
+    "physics-constraints:identifiability": "parameter observability",
+    "physics-constraints:scalability": "constraint-overhead scaling",
+    "differentiation:robustness": "derivative-noise sensitivity",
+    "differentiation:identifiability": "gradient-mediated recovery",
+    "differentiation:scalability": "operator reuse efficiency",
+    "sampling:identifiability": "collocation / observation informativeness",
+    "sampling:scalability": "point-count scaling",
+    "loss-formulation:robustness": "objective-driven generalization",
+    "loss-formulation:scalability": "objective portability",
+    "loss-balancing:scalability": "balancing overhead",
+    "optimizer:fidelity": "optimization-mediated satisfaction",
+    "training-strategy:fidelity": "optimization-mediated fidelity",
+    "decomposition:identifiability": "interface-mediated recovery",
+    "decomposition:scalability": "parallel / domain scaling"
+  },
+  "tradeoffs": [
+    {
+      "id": "tradeoff-architecture-capacity-cost",
+      "row": "architecture-basis",
+      "from": "accuracy",
+      "to": "cost",
+      "strength": "context",
+      "summary": "Increasing representational capacity or using richer bases can improve approximation capability while increasing parameter, evaluation, or memory cost; the balance depends on architecture and problem scale."
+    },
+    {
+      "id": "tradeoff-physics-enforcement-fidelity-cost",
+      "row": "physics-enforcement",
+      "from": "fidelity",
+      "to": "cost",
+      "strength": "major",
+      "summary": "Exact, variational, conservative, or otherwise stronger enforcement can improve constraint satisfaction while adding formulation, quadrature, interface, or residual-evaluation cost."
+    },
+    {
+      "id": "tradeoff-physics-enforcement-fidelity-trainability",
+      "row": "physics-enforcement",
+      "from": "fidelity",
+      "to": "trainability",
+      "strength": "context",
+      "summary": "A formulation that strengthens physical admissibility can also reshape loss competition and conditioning, so improved fidelity does not imply easier optimization."
+    },
+    {
+      "id": "tradeoff-differentiation-fidelity-cost",
+      "row": "differentiation",
+      "from": "fidelity",
+      "to": "cost",
+      "strength": "major",
+      "summary": "More accurate or higher-order operator evaluation can improve residual fidelity while increasing automatic-differentiation depth, memory, numerical work, or solver calls."
+    },
+    {
+      "id": "tradeoff-sampling-trainability-cost",
+      "row": "sampling",
+      "from": "trainability",
+      "to": "cost",
+      "strength": "major",
+      "summary": "Denser or adaptive collocation can improve gradient information and constraint coverage while increasing residual and derivative-evaluation cost."
+    },
+    {
+      "id": "tradeoff-sampling-accuracy-cost",
+      "row": "sampling",
+      "from": "accuracy",
+      "to": "cost",
+      "strength": "context",
+      "summary": "Broader or targeted domain coverage can reduce local approximation error but may require more points, resampling work, or training iterations."
+    },
+    {
+      "id": "tradeoff-loss-balancing-trainability-cost",
+      "row": "loss-balancing",
+      "from": "trainability",
+      "to": "cost",
+      "strength": "context",
+      "summary": "Adaptive balancing can reduce gradient imbalance or objective conflict but may require additional gradient statistics, spectral estimates, or constrained-update computations."
+    },
+    {
+      "id": "tradeoff-optimizer-trainability-cost",
+      "row": "optimizer",
+      "from": "trainability",
+      "to": "cost",
+      "strength": "major",
+      "summary": "An optimizer can reduce iteration count yet use more memory or more expensive steps; wall-clock improvement is therefore optimizer- and problem-dependent."
+    },
+    {
+      "id": "tradeoff-training-strategy-robustness-cost",
+      "row": "training-strategy",
+      "from": "robustness",
+      "to": "cost",
+      "strength": "context",
+      "summary": "Pretraining, continuation, curriculum, or staged optimization can improve basin stability and seed robustness while adding training stages and overhead."
+    },
+    {
+      "id": "tradeoff-decomposition-scalability-fidelity",
+      "row": "decomposition",
+      "from": "scalability",
+      "to": "fidelity",
+      "strength": "major",
+      "summary": "Decomposition and parallelization can improve scale and local specialization while introducing interface continuity, flux, or transmission constraints that must remain physically consistent."
+    },
+    {
+      "id": "tradeoff-decomposition-scalability-cost",
+      "row": "decomposition",
+      "from": "scalability",
+      "to": "cost",
+      "strength": "context",
+      "summary": "Parallel execution can reduce wall time while introducing communication, synchronization, interface, or multi-network overhead."
+    },
+    {
+      "id": "tradeoff-reuse-scalability-accuracy",
+      "row": "reuse-generalize",
+      "from": "scalability",
+      "to": "accuracy",
+      "strength": "context",
+      "summary": "Amortized or transferred models can sharply reduce repeated-query cost, while accuracy outside the training or parameter distribution remains problem dependent."
+    }
+  ],
+  "row_links": {
+    "inputs-outputs": {"stack": ["inputs-outputs"], "codesign": ["representation"]},
+    "architecture-basis": {"stack": ["representation"], "codesign": ["representation"]},
+    "activation-features": {"stack": ["representation"], "codesign": ["representation"]},
+    "scaling": {"stack": ["representation", "loss"], "codesign": ["representation", "training"]},
+    "physics-enforcement": {"stack": ["physics-enforcement"], "codesign": ["physics"]},
+    "physics-constraints": {"stack": ["physics-enforcement"], "codesign": ["physics"]},
+    "differentiation": {"stack": ["differentiation"], "codesign": ["numerical"]},
+    "sampling": {"stack": ["sampling"], "codesign": ["numerical"]},
+    "loss-formulation": {"stack": ["loss"], "codesign": ["training"]},
+    "loss-balancing": {"stack": ["loss"], "codesign": ["training"]},
+    "optimizer": {"stack": ["optimization"], "codesign": ["training"]},
+    "training-strategy": {"stack": ["optimization"], "codesign": ["training"]},
+    "decomposition": {"stack": ["representation", "sampling"], "codesign": ["numerical"]},
+    "reuse-generalize": {"stack": ["computational-role", "representation"], "codesign": ["representation"]}
+  }
+}
