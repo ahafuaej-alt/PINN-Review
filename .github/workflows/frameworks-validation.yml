@@ -14,6 +14,7 @@ on:
       - 'assets/co-design-v2.map-nav.css'
       - 'assets/co-design-arrange-runtime.js'
       - 'assets/co-design-arrange.css'
+      - 'assets/co-design-label-layout.js'
       - 'data/frameworks/**'
       - 'assets/theme-init.js'
       - 'index.html'
@@ -42,6 +43,7 @@ jobs:
       - run: node --check assets/co-design-v2-bridge.js
       - run: node --check assets/co-design-v2.map-nav.js
       - run: node --check assets/co-design-arrange-runtime.js
+      - run: node --check assets/co-design-label-layout.js
       - run: node --check scripts/visual-qa-framework-runtime.mjs
       - run: node --check scripts/visual-qa-co-design-v2.mjs
       - run: node --check scripts/visual-qa-co-design-arrange.mjs
