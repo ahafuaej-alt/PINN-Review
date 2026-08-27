@@ -8,6 +8,12 @@ body[data-framework="design-performance"] .dp-table-shell {
   scrollbar-width: thin;
 }
 
+body[data-framework="design-performance"] .dependency-matrix-v2 .dp-family-rail {
+  position: sticky !important;
+  left: 0;
+  z-index: 5;
+}
+
 body[data-framework="design-performance"] .dependency-matrix-v2 .dp-design-head.dp-combined-head {
   left: 0;
   z-index: 10;
