@@ -31,4 +31,4 @@ The review report separates bounded scientific-review questions from verified li
 
 ## Expansion status
 
-Batch B001 is complete and passed QA. Progress, unresolved/manual-review items, and batch accounting are maintained in `reports/stage-2-progress.md`, `reports/stage-2-unresolved.md`, and `batch-qa/`.
+Batches B001 and B002 are complete and passed QA. The branch-head checkpoint names CR000054 as the last completed resource and CR000055 as the next resource. Progress, unresolved/manual-review items, verification evidence, and batch accounting are cumulative in `reports/stage-2-progress.md`, `reports/stage-2-unresolved.md`, `verification-log/`, and `batch-qa/`.

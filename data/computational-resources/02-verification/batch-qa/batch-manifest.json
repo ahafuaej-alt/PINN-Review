@@ -102,11 +102,20 @@
       "resource_count": 25,
       "first_resource_id": "CR000028",
       "last_resource_id": "CR000054",
-      "status": "pending",
-      "verified_records": 0,
-      "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "status": "completed",
+      "verified_records": 25,
+      "manual_review_records": 2,
+      "relationship_records": 26,
+      "qa_status": "passed",
+      "verified_relationship_records": 24,
+      "bounded_unverified_relationship_records": 2,
+      "completed_at": "2026-08-27",
+      "artifact_prefix": "batch-002",
+      "notes": [
+        "24 Stage-2 relationships verified; PRL000114 and PRL000136 remain explicitly not_verified.",
+        "CR000045 and CR000046 retain identity through immutable GitHub repository-ID moves.",
+        "CR000028 is unavailable but its paper-cited relationship remains verified."
+      ]
     },
     {
       "batch_id": "B003",
@@ -573,23 +582,23 @@
   ],
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
-  "completed_batch_count": 1,
-  "expansion_resources_verified": 25,
-  "expansion_relationships_verified": 23,
-  "expansion_resources_requiring_manual_review": 1,
-  "last_completed_batch": "B001",
+  "completed_batch_count": 2,
+  "expansion_resources_verified": 50,
+  "expansion_relationships_verified": 47,
+  "expansion_resources_requiring_manual_review": 3,
+  "last_completed_batch": "B002",
   "updated_at": "2026-08-27",
   "checkpoint": {
-    "last_completed_resource_id": "CR000027",
-    "last_completed_batch_id": "B001",
-    "next_resource_id": "CR000028",
-    "completed_expansion_resource_count": 25,
-    "pending_expansion_resource_count": 319,
+    "last_completed_resource_id": "CR000054",
+    "last_completed_batch_id": "B002",
+    "next_resource_id": "CR000055",
+    "completed_expansion_resource_count": 50,
+    "pending_expansion_resource_count": 294,
     "completed_batch_ids": [
-      "B001"
+      "B001",
+      "B002"
     ],
     "pending_batch_ids": [
-      "B002",
       "B003",
       "B004",
       "B005",
@@ -604,6 +613,6 @@
       "B014"
     ],
     "current_qa_status": "passed",
-    "authoritative_checkpoint_commit": "27011d5ae1edf6acde8eea01676bfd7515321806"
+    "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   }
 }

@@ -1,0 +1,140 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B002",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repositories_pinned": 23,
+    "relationship_records": 26,
+    "verified_relationship_records": 24,
+    "bounded_unverified_relationship_records": 2,
+    "stage1_relationships_accounted": 26,
+    "alias_records_created": 2,
+    "evidence_records": 51,
+    "manual_review_records": 2,
+    "verified_negative_license_findings": 8,
+    "bounded_unknown_license_findings": 1,
+    "license_not_applicable_records": 1,
+    "exact_text_license_mappings": 1
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned resource IDs are present once and in batch order."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All batch JSONL records parse and contain their required stable subject identifiers."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "No new CR ID was required; two moved repositories retain CR000045 and CR000046 through immutable GitHub repository-ID resolution."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 26 Stage-1 relationship assertions are represented: 24 verified and two explicitly not verified."
+    },
+    {
+      "check": "unsupported_relationship_prevention",
+      "status": "passed",
+      "detail": "PRL000114 and PRL000136 remain not_verified with manual-review flags; no unsupported paper relationship was promoted."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All 23 live GitHub repositories are pinned to the observed default-branch commit."
+    },
+    {
+      "check": "repository_unavailability_representation",
+      "status": "passed",
+      "detail": "CR000028 is a verified 404 at the paper-cited URL while PRL000074 remains verified from the archived primary paper."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Eight repositories have verified negative findings; CR000028 remains unknown and CR000038 is not applicable."
+    },
+    {
+      "check": "qualified_license_mapping",
+      "status": "passed",
+      "detail": "CR000052 GitHub SPDX metadata is NOASSERTION, but the pinned LICENSE.txt is the exact MIT text, so MIT was independently verified."
+    },
+    {
+      "check": "ordinary_manual_review_continuation",
+      "status": "passed",
+      "detail": "CR000038 and CR000054 are marked requires_manual_review=true without blocking the batch."
+    },
+    {
+      "check": "identity_alias_integrity",
+      "status": "passed",
+      "detail": "Two repository moves are recorded as aliases without creating duplicate resource identities."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "External archives and datasets were identified but not unpacked or technically extracted."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "No schema, relationship-type, stable-ID-policy, unrepresentable-evidence, or consequential-ambiguity stop condition was found."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 26,
+    "verified_link_ids": [
+      "PRL000019",
+      "PRL000074",
+      "PRL000091",
+      "PRL000093",
+      "PRL000094",
+      "PRL000108",
+      "PRL000109",
+      "PRL000110",
+      "PRL000111",
+      "PRL000112",
+      "PRL000113",
+      "PRL000116",
+      "PRL000118",
+      "PRL000119",
+      "PRL000120",
+      "PRL000124",
+      "PRL000126",
+      "PRL000127",
+      "PRL000128",
+      "PRL000129",
+      "PRL000131",
+      "PRL000132",
+      "PRL000134",
+      "PRL000135"
+    ],
+    "bounded_unverified_link_ids": [
+      "PRL000114",
+      "PRL000136"
+    ]
+  },
+  "manual_review": [
+    {
+      "resource_id": "CR000038",
+      "reason": "The gist-profile contents could not be enumerated, and paper 431 does not identify this profile.",
+      "scientific_consequence": "No paper-specific relationship is promoted; PRL000114 remains not_verified.",
+      "continue_processing": true
+    },
+    {
+      "resource_id": "CR000054",
+      "reason": "Paper 476 and the repository README do not directly establish that CR000054 is the paper's code.",
+      "scientific_consequence": "PRL000136 remains not_verified.",
+      "continue_processing": true
+    }
+  ],
+  "qa_conclusion": "Batch 002 passes. Correctly bounded uncertainty is explicit, and no stop condition was triggered."
+}
