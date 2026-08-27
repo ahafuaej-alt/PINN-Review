@@ -1,0 +1,28 @@
+/* Final geometry contract for the large Co-Design map.
+   Desktop keeps the 2520 × 1800 scientific systems canvas. On small screens,
+   the default remains the compact vertical stack; opting into the full map
+   exposes the same complete canvas inside the scrollable framework viewport. */
+
+@media (max-width: 820px) {
+  body[data-framework="co-design"] .framework-canvas {
+    overflow: auto !important;
+    overscroll-behavior: contain;
+  }
+
+  body[data-framework="co-design"] .co-board.force-full-map {
+    display: block !important;
+    box-sizing: border-box !important;
+    flex: none !important;
+    width: 2520px !important;
+    min-width: 2520px !important;
+    max-width: none !important;
+    height: 1800px !important;
+    min-height: 1800px !important;
+    max-height: none !important;
+  }
+
+  body[data-framework="co-design"] .co-board.force-full-map .co-relation-layer,
+  body[data-framework="co-design"] .co-board.force-full-map .co-v2-legend {
+    display: block;
+  }
+}
