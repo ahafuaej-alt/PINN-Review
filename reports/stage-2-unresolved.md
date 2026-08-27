@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B006 checkpoint 01 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B006 checkpoints 01–02 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -31,6 +31,12 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000111 | Whether the unavailable DEM_TOgit repository is the resource for paper 671. | Direct evidence for the specific URL was not recovered; PRL000218 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 | CR000114 | Whether the unavailable DG-PINN repository is the resource for paper 692. | Direct evidence for the specific URL was not recovered; PRL000223 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 | CR000128 | Whether the unavailable generic Power Grid Lib path is the specific resource intended by paper 721. | Paper 721 mentions Power Grid Lib as a benchmark concept but does not establish the `power-grid-lib/pgl` identity; PRL000250 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
+
+## Resolved relationship corrections
+
+| Relationship | Verified result | Status |
+|---|---|---|
+| PRL000309 / CR000146 ↔ paper 810 | CR000146 is the official repository for paper 779. Paper 810 matches the distinct two-phase-flow repository already registered as CR000151. | Stage-1 assertion retained as `not_verified` with high confidence; no ID was reassigned and no manual review remains open. |
 
 ## Verified limitations and Stage-3-deferred work
 
@@ -64,5 +70,8 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000132 | Public GitLab identity, main-branch commit, README, citation.cff, BSD-2-Clause license, and root data/results structure verified; a complete recursive tree was not exposed by the inspected public interface. | Bounded Stage-2 snapshot limitation; identity and official paper relationship are verified. |
 | CR000134, CR000138 | No repository license identified at pinned commit. | B006 checkpoint-01 verified negative findings. |
 | CR000136 | GitHub API reports `NOASSERTION`; exact pinned LICENSE and README specify CC BY-NC-SA 4.0. | Resolved by exact-text verification; mapped to `CC-BY-NC-SA-4.0`. |
+| CR000142, CR000143 | No repository license identified at pinned commit. | B006 checkpoint-02 verified negative findings. |
+| CR000144 | Open Zenodo software record, DOI, creator, CC BY 4.0 license, and code/data/results archive preview verified; 650 MB archive internals were not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
+| CR000150 | Paper-cited canonical repository is unavailable; public forks do not justify identity replacement. | Verified unavailability; PRL000308 remains verified from the primary paper. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
