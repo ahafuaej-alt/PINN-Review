@@ -12,46 +12,46 @@ Verification date: 2026-08-27
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 6 |
-| Expansion resources processed | 171 |
+| Expansion resources processed | 174 |
 | Expansion relationships verified | 161 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 173 |
+| Pending expansion resources | 170 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B007-C07 passed**. B007 remains in progress; the next micro-batch begins at CR000183. No stop condition was triggered.
+Latest persistence checkpoint: **B007-C08 passed**. B007 remains in progress; the next micro-batch begins at CR000187. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B007 (in progress) |
-| Last completed resource | CR000182 |
+| Last completed resource | CR000186 |
 | Last completed logical batch | B006 |
-| Last persistence checkpoint | B007-C07 |
-| Next resource | CR000183 |
-| Completed Stage-1 resource count | 184 |
+| Last persistence checkpoint | B007-C08 |
+| Next resource | CR000187 |
+| Completed Stage-1 resource count | 187 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 173 |
-| Completed CR IDs/ranges | CR000001–CR000182; CR000184; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000183; CR000185–CR000220; CR000222–CR000357 |
+| Remaining Stage-1 resource count | 170 |
+| Completed CR IDs/ranges | CR000001–CR000186; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000187–CR000220; CR000222–CR000357 |
 | Completed Stage-1 PRL assertions | 187 |
 | Pending Stage-1 PRL assertions | 144 |
 | Verified relationship records | 178 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B006 |
-| Current batch checkpoint | B007-C07 passed |
+| Current batch checkpoint | B007-C08 passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000180, CR000181, CR000182 |
-| Resources remaining in current batch | 4 |
+| Resources completed in last checkpoint | CR000183, CR000185, CR000186 (CR000184 precompleted and skipped) |
+| Resources remaining in current batch | 1 |
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `f19d347552e1112ebecbc86d1528770e384cf37e` |
+| Last verification checkpoint commit | `5b8f794787da9ac594b5c98a0c448f863426b368` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B006, and B007 checkpoints 01–07 must not be reprocessed. Resume at CR000183. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B006, and B007 checkpoints 01–08 must not be reprocessed. Resume at CR000187. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -63,7 +63,7 @@ The pilot set, B001–B006, and B007 checkpoints 01–07 must not be reprocessed
 | B004 | 25 | CR000081 | CR000105 | completed | passed |
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
-| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 07 passed |
+| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 08 passed |
 | B008 | 25 | CR000188 | CR000212 | pending | pending |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
@@ -208,6 +208,16 @@ The pilot set, B001–B006, and B007 checkpoints 01–07 must not be reprocessed
 - CR000182 remains `supporting_software_or_library`. The Stage-1 `fchollet/keras` URL is verified as the same immutable GitHub repository now hosted at `keras-team/keras`; VA000029 records the transfer without changing CR identity. Apache-2.0, `CITATION.cff`, documentation, and multi-backend dependency manifests are verified.
 - No code or binary was executed, no external dataset was downloaded, and no Stage-3 normalization was performed. No new ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
 - B007 remains in progress and resumes at CR000183.
+
+## Batch 007 checkpoint 08 summary
+
+- Three previously unprocessed resources were processed: CR000183, CR000185, and CR000186. CR000184 was already completed in the pilot and was not reprocessed.
+- None of the three processed resources has a Stage-1 Atlas-paper assertion, so no paper-resource relationship was invented.
+- CR000183 is resolved from `uncertain` to `supporting_software_or_library`: `pywaterflood` is physics-inspired capacitance-resistance modeling software for well-connectivity analysis, not a PINN implementation. BSD-2-Clause, JOSS citation metadata, Python/Rust manifests, documentation, and bundled test/example CSV data are verified.
+- CR000185 is resolved from `uncertain` to `paper_code_collection_or_tutorial`: `google-research/google-research` is a large general research code-and-data collection, not a PINN-specific implementation. Source files are Apache-2.0 and the root README states datasets are CC BY 4.0; project-local dependency and dataset heterogeneity is not recursively normalized in Stage 2.
+- CR000186 remains `supporting_software_or_library`: JAX-CFD is Apache-2.0 differentiable CFD/ML software with explicit `setup.py` dependencies and research-paper citation metadata. The README states it is no longer maintained while the GitHub archived flag is false; evaluation datasets and model checkpoints are external Google Cloud Storage resources while notebooks are bundled.
+- No code or binary was executed, no external dataset or model was downloaded, and no Stage-3 normalization was performed. No new alias, ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
+- B007 remains in progress and resumes at CR000187.
 
 ## Stop conditions
 
