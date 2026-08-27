@@ -22,6 +22,9 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000001 | Whether to normalize the obsolete PINA documentation fragment to the live project documentation or repository. | Original URL retained with `url_status = not_found`; PINA project identity and MIT license verified separately; no Atlas-paper relationship exists. | `requires_manual_review = true`; preserve evidence and continue. |
 | CR000038 | Whether any specific gist under the huidonghu profile is related to paper 431. | Gist-profile contents are unknown; PRL000114 is `not_verified`; paper 431 names other HFM software releases. | `requires_manual_review = true`; do not promote a paper relationship and continue. |
 | CR000054 | Whether CR000054 is code for paper 476. | Repository exists and is pinned, but neither paper 476 nor the README establishes the relationship; PRL000136 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
+| CR000062 | Which license statement should be normalized. | Exact pinned LICENSE text is MIT; the README badge claims Apache-2.0. MIT is recorded with the conflict preserved. | `requires_manual_review = true`; retain both observations and continue. |
+| CR000074 | Whether hamiltorch is software used by paper 536. | The corrected repository is verified, but paper 536 does not identify it; PRL000163 is `not_verified`. | `requires_manual_review = true`; do not promote and continue. |
+| CR000076 | Whether the unavailable trapz-PiNN repository is the code for paper 549. | Paper 549 points to the author's profile, not the specific repository; PRL000167 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 
 ## Verified limitations and Stage-3-deferred work
 
@@ -37,5 +40,8 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000030, CR000031, CR000035, CR000039, CR000040, CR000041, CR000053, CR000054 | No repository license identified at pinned commit. | Batch-002 verified negative findings. |
 | CR000052 | Repository API SPDX is `NOASSERTION`; exact pinned `LICENSE.txt` is the MIT License. | Resolved by independent exact-text verification; mapped to MIT. |
 | CR000036, CR000042, CR000046, CR000052, CR000053 | External datasets or weights were identified but not unpacked. | Stage-2 provenance verified; Stage-3 technical inspection deferred. |
+| CR000064, CR000065, CR000068, CR000070, CR000072, CR000075, CR000077, CR000078, CR000079, CR000080 | No repository license identified at pinned commit. | Batch-003 verified negative findings. |
+| CR000063 | GitLab project and master branch verified; commit SHA and full tree not exposed by the available primary-source interface. | Bounded Stage-2 snapshot limitation; identity and paper relationship verified. |
+| CR000076 | Repository URL returns 404; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; the paper-specific relationship remains not_verified. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.

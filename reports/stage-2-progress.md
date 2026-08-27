@@ -11,32 +11,32 @@ Verification date: 2026-08-27
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 2 |
-| Expansion resources processed | 50 |
-| Expansion relationships verified | 47 |
+| Completed expansion batches | 3 |
+| Expansion resources processed | 75 |
+| Expansion relationships verified | 76 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
-| Expansion resources requiring manual review | 3 |
-| Pending expansion resources | 294 |
+| Expansion resources requiring manual review | 6 |
+| Pending expansion resources | 269 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest batch status: **B002 passed**. No stop condition was triggered.
+Latest batch status: **B003 passed**. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Last completed resource | CR000054 |
-| Last completed batch | B002 |
-| Next resource | CR000055 |
-| Completed expansion resources | 50 |
-| Pending expansion resources | 294 |
-| Completed batches | B001–B002 |
-| Pending batches | B003–B014 |
+| Last completed resource | CR000080 |
+| Last completed batch | B003 |
+| Next resource | CR000081 |
+| Completed expansion resources | 75 |
+| Pending expansion resources | 269 |
+| Completed batches | B001–B003 |
+| Pending batches | B004–B014 |
 | Current QA status | passed |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set (13 Stage-1 resources plus promoted CR000358) and B001–B002 must not be reprocessed. Resume at CR000055.
+The pilot set (13 Stage-1 resources plus promoted CR000358) and B001–B003 must not be reprocessed. Resume at CR000081.
 
 ## Batch register
 
@@ -44,7 +44,7 @@ The pilot set (13 Stage-1 resources plus promoted CR000358) and B001–B002 must
 |---|---:|---|---|---|---|
 | B001 | 25 | CR000001 | CR000027 | completed | passed |
 | B002 | 25 | CR000028 | CR000054 | completed | passed |
-| B003 | 25 | CR000055 | CR000080 | pending | pending |
+| B003 | 25 | CR000055 | CR000080 | completed | passed |
 | B004 | 25 | CR000081 | CR000105 | pending | pending |
 | B005 | 25 | CR000106 | CR000131 | pending | pending |
 | B006 | 25 | CR000132 | CR000160 | pending | pending |
@@ -78,6 +78,16 @@ The pilot set (13 Stage-1 resources plus promoted CR000358) and B001–B002 must
 - Eight repositories have the verified negative finding: `No repository license identified at verified commit`.
 - CR000052 was independently mapped to MIT from its exact pinned license text despite repository API `NOASSERTION`.
 - No external archive or dataset was unpacked; Stage 3 has not begun.
+
+## Batch 003 summary
+
+- 25 resources processed: 23 GitHub repositories pinned, one live GitLab project verified with an explicit unknown commit SHA, and one unavailable GitHub repository.
+- 29 of 31 Stage-1 relationship assertions were verified.
+- PRL000163 (CR000074 ↔ paper 536) and PRL000167 (CR000076 ↔ paper 549) remain `not_verified` with routine manual-review flags.
+- Four moved, case-normalized, or corrected URLs retain their existing CR identities.
+- Ten repositories have the verified negative finding: `No repository license identified at verified commit`.
+- CR000062 is mapped to MIT from exact license text while its conflicting Apache-2.0 README badge is preserved.
+- No external dataset was unpacked; Stage 3 has not begun.
 
 ## Stop conditions
 

@@ -150,11 +150,20 @@
       "resource_count": 25,
       "first_resource_id": "CR000055",
       "last_resource_id": "CR000080",
-      "status": "pending",
-      "verified_records": 0,
-      "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "status": "completed",
+      "verified_records": 25,
+      "manual_review_records": 3,
+      "relationship_records": 31,
+      "qa_status": "passed",
+      "verified_relationship_records": 29,
+      "bounded_unverified_relationship_records": 2,
+      "completed_at": "2026-08-27",
+      "artifact_prefix": "batch-003",
+      "notes": [
+        "29 relationships verified; PRL000163 and PRL000167 remain explicitly not_verified.",
+        "CR000062 preserves conflicting license evidence with exact MIT text authoritative.",
+        "One GitLab commit SHA remains a bounded unknown."
+      ]
     },
     {
       "batch_id": "B004",
@@ -582,24 +591,24 @@
   ],
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
-  "completed_batch_count": 2,
-  "expansion_resources_verified": 50,
-  "expansion_relationships_verified": 47,
-  "expansion_resources_requiring_manual_review": 3,
-  "last_completed_batch": "B002",
+  "completed_batch_count": 3,
+  "expansion_resources_verified": 75,
+  "expansion_relationships_verified": 76,
+  "expansion_resources_requiring_manual_review": 6,
+  "last_completed_batch": "B003",
   "updated_at": "2026-08-27",
   "checkpoint": {
-    "last_completed_resource_id": "CR000054",
-    "last_completed_batch_id": "B002",
-    "next_resource_id": "CR000055",
-    "completed_expansion_resource_count": 50,
-    "pending_expansion_resource_count": 294,
+    "last_completed_resource_id": "CR000080",
+    "last_completed_batch_id": "B003",
+    "next_resource_id": "CR000081",
+    "completed_expansion_resource_count": 75,
+    "pending_expansion_resource_count": 269,
     "completed_batch_ids": [
       "B001",
-      "B002"
+      "B002",
+      "B003"
     ],
     "pending_batch_ids": [
-      "B003",
       "B004",
       "B005",
       "B006",
