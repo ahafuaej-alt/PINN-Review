@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 01 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 02 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -74,5 +74,8 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000159 | Recorded ThomasGrandits/fim_py path is unavailable; the paper citation and primary JOSS review identify thomgrand/fim-python. | Resolved source URL repair without changing CR identity. |
 | CR000160 | Public GitLab project, main-branch commit, README, dependency file, and external Zenodo dependency verified; the external archive was not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
 | CR000162 | Public QDataLabs GitLab project, master branch, README, paper relationship, and GNU LGPLv2.1 project label verified; exact commit SHA, full tree, exact SPDX variant, repository citation metadata, and dependency declarations were not exposed reliably. | Bounded Stage-2 snapshot/metadata limitation; identity and official paper relationship are verified and no manual review is required. |
+| CR000164, CR000165, CR000166 | No repository license identified at the pinned commit. | B007 checkpoint-02 verified negative findings; no license inferred from article-level open-access terms. |
+| CR000164 | README identifies bundled training/testing data, but `data/train.xlsx` is 2 bytes at the pinned commit. | Bounded Stage-2 dataset-completeness limitation; repository identity and official paper relationship are verified, and corpus completeness is not inferred. |
+| CR000166 | Repository bundles only the example notebook; the notebook installs packages inline and downloads the SDSS-derived dataset from Kaggle rather than bundling it. | Stage-2 dependency/dataset provenance verified; formal dependency normalization and any external-data reproducibility checks remain deferred to Stage 3. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
