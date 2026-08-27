@@ -11,47 +11,47 @@ Verification date: 2026-08-28
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 7 |
-| Expansion resources processed | 195 |
-| Expansion relationships verified | 161 |
+| Completed expansion batches | 8 |
+| Expansion resources processed | 200 |
+| Expansion relationships verified | 162 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 149 |
+| Pending expansion resources | 144 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B008-C04 passed**. B008 remains in progress; the next micro-batch begins at CR000208. No stop condition was triggered.
+Latest persistence checkpoint: **B008-C05 passed**. B008 is complete; the next controlled batch is B009 beginning at CR000213. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B008 (in progress) |
-| Last completed resource | CR000207 |
-| Last completed logical batch | B007 |
-| Last persistence checkpoint | B008-C04 |
-| Next resource | CR000208 |
-| Completed Stage-1 resource count | 208 |
+| Current logical batch | B009 (next) |
+| Last completed resource | CR000212 |
+| Last completed logical batch | B008 |
+| Last persistence checkpoint | B008-C05 |
+| Next resource | CR000213 |
+| Completed Stage-1 resource count | 213 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 149 |
-| Completed CR IDs/ranges | CR000001–CR000207; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000208–CR000220; CR000222–CR000357 |
-| Completed Stage-1 PRL assertions | 187 |
-| Pending Stage-1 PRL assertions | 144 |
-| Verified relationship records | 178 |
+| Remaining Stage-1 resource count | 144 |
+| Completed CR IDs/ranges | CR000001–CR000212; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000213–CR000220; CR000222–CR000357 |
+| Completed Stage-1 PRL assertions | 188 |
+| Pending Stage-1 PRL assertions | 143 |
+| Verified relationship records | 179 |
 | Explicitly `not_verified` relationship records | 9 |
-| Completed batches | B001–B007 |
-| Current batch checkpoint | B008-C04 passed |
-| Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000203–CR000207 |
-| Resources remaining in current batch | 5 |
-| Current QA status | checkpoint passed |
+| Completed batches | B001–B008 |
+| Current batch checkpoint | B008-C05 passed |
+| Pending full batches | B009–B014 |
+| Resources completed in last checkpoint | CR000208–CR000212 |
+| Resources remaining in current batch | 0 |
+| Current QA status | checkpoint passed; B008 complete |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `28d115cef3e0713b024d61c51aaf0bab4bc3763e` |
+| Last verification checkpoint commit | `eb3d7ef06f50e0ed99b4758c5539b158e4ce6479` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B007, and B008 checkpoints 01–04 must not be reprocessed. Resume at CR000208. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B008, and all B008 checkpoints 01–05 must not be reprocessed. Resume at CR000213 in B009. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -64,7 +64,7 @@ The pilot set, B001–B007, and B008 checkpoints 01–04 must not be reprocessed
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
-| B008 | 25 | CR000188 | CR000212 | in progress | checkpoint 04 passed |
+| B008 | 25 | CR000188 | CR000212 | completed | passed |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
@@ -272,6 +272,17 @@ The pilot set, B001–B007, and B008 checkpoints 01–04 must not be reprocessed
 - CR000207 remains a physics-informed operator-learning implementation with citation DOI `10.1016/j.cma.2026.118917` and a full pinned requirements freeze. No license or bundled dataset/checkpoint was identified.
 - None of the five resources has a Stage-1 Atlas-paper assertion, so no new relationship was invented. No code was executed, no external data were downloaded, and no Stage-3 normalization was performed.
 - No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B008 remains in progress and resumes at CR000208.
+
+## Batch 008 checkpoint 05 and completion summary
+
+- Five resources were processed: CR000208 through CR000212; four GitHub repositories were pinned to exact default-branch commits and the FEniCS Project website was independently verified.
+- VA000034 preserves CR000208 as a distinct fork of CR000202 using immutable repository IDs. The pinned fork is a PINN/DeepONet tutorial collection with bundled `Burgers.mat` and `Euler.mat` data, but no repository license, project self-citation metadata, or formal dependency manifest was identified.
+- CR000209 remains a physics-informed operator-learning implementation. Its README points to external Google Drive datasets while the repository bundles problem notebooks and `Posting.zip`; the archive was not unpacked, and no repository license, citation metadata, or formal dependency manifest was identified.
+- CR000210 remains supporting finite-element software. PRL000321 for Atlas paper 836 is verified as a `paper_software_mention` because the paper cites simcardems under the explicit title “A FEniCS-based cardiac electro-mechanics solver.” No relationship is invented for Atlas ID 752 because Stage 1 contains no PRL for that ID. The aggregate FEniCS/FEniCSx project is not assigned one inferred site-level SPDX license across its component projects.
+- CR000211 remains supporting software: PhiFlow is an MIT-licensed differentiable PDE/simulation framework with citation metadata, `setup.py`, a PhiML submodule, documentation, and demos. External datasets created with PhiFlow are not treated as bundled repository data.
+- VA000035 resolves the CR000212 transfer from `yuanming-hu/difftaichi` to `taichi-dev/difftaichi` by immutable repository ID 225531542 without changing CR identity. DiffTaichi has explicit citation metadata and `requirements.txt`, but no repository license or standalone research dataset is identified.
+- No third-party code was executed, no external dataset was downloaded, no archive was unpacked, and no Stage-3 normalization was performed. No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B008 is complete and passed checkpoint QA. Resume Stage 2 with B009 at CR000213.
 
 ## Stop conditions
 
