@@ -101,9 +101,12 @@ try {
   const focusedCol = await page.evaluate(() => document.activeElement?.dataset?.colIndex);
   assert(focusedCol === '1', `Spreadsheet ArrowRight navigation failed; focused column ${focusedCol}.`);
 
-  const publicationDownload = page.waitForEvent('download');
-  await page.locator('[data-svg-publication]').click();
-  const download = await publicationDownload;
+  const exportMenu = page.locator('.toolbar-export');
+  if (!(await exportMenu.evaluate((node) => node.open))) await exportMenu.locator('summary').click();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.locator('[data-svg-publication]').click()
+  ]);
   const downloadPath = await download.path();
   const svg = await fs.readFile(downloadPath, 'utf8');
   assert(svg.includes('data-native-vector="true"'), 'Publication export is not the dedicated native-vector matrix exporter.');
