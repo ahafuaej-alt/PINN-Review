@@ -12,46 +12,46 @@ Verification date: 2026-08-27
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 6 |
-| Expansion resources processed | 165 |
-| Expansion relationships verified | 160 |
+| Expansion resources processed | 168 |
+| Expansion relationships verified | 161 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 179 |
+| Pending expansion resources | 176 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B007-C05 passed**. B007 remains in progress; the next micro-batch begins at CR000177. No stop condition was triggered.
+Latest persistence checkpoint: **B007-C06 passed**. B007 remains in progress; the next micro-batch begins at CR000180. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B007 (in progress) |
-| Last completed resource | CR000176 |
+| Last completed resource | CR000179 |
 | Last completed logical batch | B006 |
-| Last persistence checkpoint | B007-C05 |
-| Next resource | CR000177 |
-| Completed Stage-1 resource count | 178 |
+| Last persistence checkpoint | B007-C06 |
+| Next resource | CR000180 |
+| Completed Stage-1 resource count | 181 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 179 |
-| Completed CR IDs/ranges | CR000001–CR000176; CR000184; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000177–CR000183; CR000185–CR000220; CR000222–CR000357 |
-| Completed Stage-1 PRL assertions | 186 |
-| Pending Stage-1 PRL assertions | 145 |
-| Verified relationship records | 177 |
+| Remaining Stage-1 resource count | 176 |
+| Completed CR IDs/ranges | CR000001–CR000179; CR000184; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000180–CR000183; CR000185–CR000220; CR000222–CR000357 |
+| Completed Stage-1 PRL assertions | 187 |
+| Pending Stage-1 PRL assertions | 144 |
+| Verified relationship records | 178 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B006 |
-| Current batch checkpoint | B007-C05 passed |
+| Current batch checkpoint | B007-C06 passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000173, CR000175, CR000176 (CR000174 already completed in pilot) |
-| Resources remaining in current batch | 10 |
+| Resources completed in last checkpoint | CR000177, CR000178, CR000179 |
+| Resources remaining in current batch | 7 |
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `cb1f47be9b7876b4ad2846fec8eff6d56d299673` |
+| Last verification checkpoint commit | `fe721fbc6ca1636d2246b2c4ec2e44130d58fe63` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B006, and B007 checkpoints 01–05 must not be reprocessed. Resume at CR000177. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B006, and B007 checkpoints 01–06 must not be reprocessed. Resume at CR000180. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -63,7 +63,7 @@ The pilot set, B001–B006, and B007 checkpoints 01–05 must not be reprocessed
 | B004 | 25 | CR000081 | CR000105 | completed | passed |
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
-| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 05 passed |
+| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 06 passed |
 | B008 | 25 | CR000188 | CR000212 | pending | pending |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
@@ -188,6 +188,18 @@ The pilot set, B001–B006, and B007 checkpoints 01–05 must not be reprocessed
 - CR000176 is resolved from Stage-1 `uncertain` to `supporting_software_or_library`: it is Parareal theory/figure-reproduction software rather than PINN code. BSD-2-Clause, `CITATION.cff`, and `environment.yml` are verified; no Stage-1 Atlas relationship or standalone dataset is asserted.
 - No code or binary was executed, no dataset was unpacked, and no Stage-3 normalization was performed. No new ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
 - B007 remains in progress and resumes at CR000177.
+
+## Batch 007 checkpoint 06 summary
+
+- Three resources were processed: CR000177, CR000178, and CR000179.
+- CR000177 is pinned to `main` commit `dc12ed7a23256edd409bf395ef99536a2ea01c2a` and remains `pinn_or_physics_informed_implementation`; its README and publisher article identify the A-PINN code attachment and DOI `10.1016/j.jcp.2022.111260`.
+- CR000177 has bundled example training-point and saved-model artifacts, but no repository license or formal dependency manifest was identified; static source inspection only identified PyTorch, NumPy, and Matplotlib imports.
+- CR000178 is verified as the live public GitHub profile `aqibrahimbt` and is resolved from Stage-1 `uncertain` to `github_profile`. Owned repositories were observed, but no repository promotion or Atlas relationship is inferred in this checkpoint.
+- CR000179 is pinned to `main` commit `f73f2fc5c1ba2484e60e3db101bff18139fd1cef` and resolved to `adjacent_physics_informed_ml_implementation`: it implements physics-informed continuous-time reinforcement learning rather than PINN.
+- PRL000064 is independently verified as official: the JMLR article page links directly to `bawalla2/JMLR-2024`, and Section 5.4 states that all RCI code and datasets are available through the cited repository. The pinned tree contains the MATLAB implementation and extensive bundled `.mat` study datasets.
+- No repository license or formal dependency manifest was identified for CR000179; the JMLR article's CC-BY 4.0 terms were not inferred as a repository license.
+- No code or binary was executed, no dataset was unpacked, and no Stage-3 normalization was performed. No new alias, ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
+- B007 remains in progress and resumes at CR000180.
 
 ## Stop conditions
 
