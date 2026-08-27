@@ -28,7 +28,7 @@ try {
 
   const audit = await page.evaluate(() => {
     const paths = [...document.querySelectorAll('.co-v2-path')];
-    const captions = [...document.querySelectorAll('.co-v2-caption')];
+    const captions = [...document.querySelectorAll('.co-relation-layer .co-v2-caption')];
     const conceptButtons = [...document.querySelectorAll('.co-concept-item')];
     const board = document.querySelector('.co-board');
     const core = document.querySelector('.co-core');
@@ -55,7 +55,7 @@ try {
 
   assert(audit.total === 20, `Expected 20 audited Co-Design relations, found ${audit.total}.`);
   assert(audit.influences === 14 && audit.verification === 1 && audit.feedback === 5, `Unexpected relation semantics: ${JSON.stringify(audit)}.`);
-  assert(audit.captions === 20, `Expected one maintained caption per relation, found ${audit.captions}.`);
+  assert(audit.captions === 20, `Expected one maintained source caption per relation, found ${audit.captions}.`);
   assert(audit.domainIcons === 6, `Expected six common-family domain icons, found ${audit.domainIcons}.`);
   assert(audit.boardWidth >= 2450 && audit.boardHeight >= 1750, `Co-Design full map is not using the intended large-format canvas (${audit.boardWidth}×${audit.boardHeight}).`);
   assert(audit.minPanelFont >= 11, `Co-Design panel text remains too small for the large-format map (${audit.minPanelFont}px).`);
@@ -77,8 +77,8 @@ try {
   });
 
   const correctedLabels = await page.evaluate(() => ({
-    representation: document.querySelector('.co-v2-caption[data-inspect-id="reliability-representation"]')?.textContent.replace(/\s+/g, ' ').trim(),
-    training: document.querySelector('.co-v2-caption[data-inspect-id="reliability-training"]')?.textContent.replace(/\s+/g, ' ').trim(),
+    representation: document.querySelector('.co-relation-layer .co-v2-caption[data-inspect-id="reliability-representation"]')?.textContent.replace(/\s+/g, ' ').trim(),
+    training: document.querySelector('.co-relation-layer .co-v2-caption[data-inspect-id="reliability-training"]')?.textContent.replace(/\s+/g, ' ').trim(),
     coreReliability: document.querySelector('.co-v2-path[data-inspect-id="core-reliability"]')?.dataset.semantic
   }));
   assert(correctedLabels.representation?.includes('approximation failure'), `Representation feedback label was not corrected: ${correctedLabels.representation}`);
