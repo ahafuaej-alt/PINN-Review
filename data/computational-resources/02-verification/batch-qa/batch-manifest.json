@@ -246,11 +246,20 @@
       "resource_count": 25,
       "first_resource_id": "CR000106",
       "last_resource_id": "CR000131",
-      "status": "pending",
-      "verified_records": 0,
-      "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "status": "completed",
+      "verified_records": 25,
+      "manual_review_records": 3,
+      "relationship_records": 25,
+      "qa_status": "passed",
+      "completed_at": "2026-08-27",
+      "artifact_prefix": "batch-005",
+      "notes": [
+        "22 of 25 Stage-1 relationships were verified; three remain explicitly not_verified.",
+        "15 GitHub repositories were pinned, one additional GitHub identity and four other public resources were verified, and five repositories were unavailable.",
+        "Paper 716's archived data-accessibility statement verifies its seven resource links.",
+        "Nine repositories have verified negative license findings; no license was inferred.",
+        "Three archive internals remain deferred to Stage 3."
+      ]
     },
     {
       "batch_id": "B006",

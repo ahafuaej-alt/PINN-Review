@@ -28,6 +28,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 
 | CR000088 | Whether the unavailable ExtendedPhysics-Informed-Neural-Operator repository is code for paper 600. | Repository checks and current paper/web evidence do not establish the specific relationship; PRL000189 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 
+| CR000111 | Whether the unavailable DEM_TOgit repository is the resource for paper 671. | Direct evidence for the specific URL was not recovered; PRL000218 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
+| CR000114 | Whether the unavailable DG-PINN repository is the resource for paper 692. | Direct evidence for the specific URL was not recovered; PRL000223 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
+| CR000128 | Whether the unavailable generic Power Grid Lib path is the specific resource intended by paper 721. | Paper 721 mentions Power Grid Lib as a benchmark concept but does not establish the `power-grid-lib/pgl` identity; PRL000250 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
+
 ## Verified limitations and Stage-3-deferred work
 
 | Resource | Result | Status |
@@ -50,5 +54,11 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000083 | Repository API SPDX is `NOASSERTION`; exact pinned `COPYING` text and README specify GNU GPL version 3 or later. | Resolved by independent exact-text verification; mapped to `GPL-3.0-or-later`. |
 | CR000088 | Repository URL is unavailable; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; PRL000189 remains `not_verified`. |
 | CR000091, CR000092 | DOI identities and paper roles verified; archive contents not unpacked and exact record-license fields not independently captured. | Resolved for Stage 2; archive internals deferred to Stage 3 and license fields retained as bounded unknowns. |
+
+| CR000106, CR000107, CR000112, CR000115, CR000121, CR000123, CR000124, CR000130, CR000131 | No repository license identified at pinned commit. | Batch-005 verified negative findings. |
+| CR000109 | Public GitHub identity and current GPL-3.0 label visible, but API exposes only a move response; commit SHA and exact license text remain unknown. | Bounded Stage-2 snapshot and license limitation; no exact SPDX normalization. |
+| CR000125 | Public GitLab project and master branch verified; commit SHA and full tree not exposed. | Bounded Stage-2 snapshot limitation; paper relationship verified. |
+| CR000111, CR000114, CR000119, CR000122, CR000128 | Recorded repository URL is unavailable; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; CR000119 and CR000122 paper links remain verified from archived paper evidence. |
+| CR000108, CR000116, CR000127 | Supplemental or DOI identity and paper role verified; archive contents not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.

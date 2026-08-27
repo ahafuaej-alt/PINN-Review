@@ -1,0 +1,172 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B005",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repositories_pinned": 15,
+    "github_repository_identity_verified_without_commit": 1,
+    "other_public_resources_verified": 4,
+    "unavailable_repositories": 5,
+    "relationship_records": 25,
+    "verified_relationship_records": 22,
+    "bounded_unverified_relationship_records": 3,
+    "stage1_relationships_accounted": 25,
+    "alias_records_created": 3,
+    "evidence_records": 50,
+    "manual_review_records": 3,
+    "verified_positive_license_findings": 8,
+    "verified_negative_license_findings": 9,
+    "bounded_unknown_license_findings": 8
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned resource IDs are present once and in batch order."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All batch JSONL records parse and contain required stable identifiers."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "Three source URL repairs retain their existing CR identities; no new stable ID was required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 25 Stage-1 assertions are represented: 22 verified and three explicitly not_verified."
+    },
+    {
+      "check": "unsupported_relationship_prevention",
+      "status": "passed",
+      "detail": "PRL000218, PRL000223, and PRL000250 remain not_verified; unavailable resources were not promoted without direct evidence."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All 15 live GitHub repositories with exposed Git data are pinned to observed default-branch commits."
+    },
+    {
+      "check": "bounded_snapshot_interfaces",
+      "status": "passed",
+      "detail": "CR000109 and CR000125 identities are verified while their commit SHA fields remain explicit unknowns."
+    },
+    {
+      "check": "primary_paper_resource_list",
+      "status": "passed",
+      "detail": "Paper 716's archived page-30 data-accessibility statement verifies seven resource links, including unavailable CR000119 and CR000122."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Nine pinned repositories have verified negative findings; eight resources retain bounded unknown licenses."
+    },
+    {
+      "check": "ordinary_manual_review_continuation",
+      "status": "passed",
+      "detail": "CR000111, CR000114, and CR000128 are flagged without blocking continuation."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "Supplemental and DOI-hosted archives were identified but not unpacked or technically extracted."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The existing model represents URL repairs, bounded snapshot limitations, unavailable resources, and unverified links; no stop condition was found."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 25,
+    "verified_link_ids": [
+      "PRL000212",
+      "PRL000213",
+      "PRL000214",
+      "PRL000216",
+      "PRL000217",
+      "PRL000219",
+      "PRL000220",
+      "PRL000226",
+      "PRL000227",
+      "PRL000230",
+      "PRL000234",
+      "PRL000235",
+      "PRL000236",
+      "PRL000237",
+      "PRL000238",
+      "PRL000239",
+      "PRL000240",
+      "PRL000247",
+      "PRL000249",
+      "PRL000254",
+      "PRL000255",
+      "PRL000256"
+    ],
+    "bounded_unverified_link_ids": [
+      "PRL000218",
+      "PRL000223",
+      "PRL000250"
+    ]
+  },
+  "manual_review": [
+    {
+      "resource_id": "CR000111",
+      "reason": "The repository is unavailable and direct paper evidence for the specific URL was not recovered.",
+      "scientific_consequence": "PRL000218 remains not_verified.",
+      "continue_processing": true
+    },
+    {
+      "resource_id": "CR000114",
+      "reason": "The DG-PINN repository is unavailable and direct paper evidence for the specific URL was not recovered.",
+      "scientific_consequence": "PRL000223 remains not_verified.",
+      "continue_processing": true
+    },
+    {
+      "resource_id": "CR000128",
+      "reason": "Paper 721 mentions Power Grid Lib generally, but not the unavailable generic pgl repository as a specific resource.",
+      "scientific_consequence": "PRL000250 remains not_verified.",
+      "continue_processing": true
+    }
+  ],
+  "verified_limitations": {
+    "no_repository_license_identified": [
+      "CR000106",
+      "CR000107",
+      "CR000112",
+      "CR000115",
+      "CR000121",
+      "CR000123",
+      "CR000124",
+      "CR000130",
+      "CR000131"
+    ],
+    "unavailable_resources": [
+      "CR000111",
+      "CR000114",
+      "CR000119",
+      "CR000122",
+      "CR000128"
+    ],
+    "snapshot_sha_unknown": [
+      "CR000109",
+      "CR000125"
+    ],
+    "stage3_deferred_archives": [
+      "CR000108",
+      "CR000116",
+      "CR000127"
+    ]
+  },
+  "integrity_result": "passed",
+  "safe_to_continue": true
+}
