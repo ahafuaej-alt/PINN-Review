@@ -12,46 +12,46 @@ Verification date: 2026-08-27
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 6 |
-| Expansion resources processed | 162 |
-| Expansion relationships verified | 159 |
+| Expansion resources processed | 165 |
+| Expansion relationships verified | 160 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 182 |
+| Pending expansion resources | 179 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B007-C04 passed**. B007 remains in progress; the next micro-batch begins at CR000173. No stop condition was triggered.
+Latest persistence checkpoint: **B007-C05 passed**. B007 remains in progress; the next micro-batch begins at CR000177. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B007 (in progress) |
-| Last completed resource | CR000172 |
+| Last completed resource | CR000176 |
 | Last completed logical batch | B006 |
-| Last persistence checkpoint | B007-C04 |
-| Next resource | CR000173 |
-| Completed Stage-1 resource count | 175 |
+| Last persistence checkpoint | B007-C05 |
+| Next resource | CR000177 |
+| Completed Stage-1 resource count | 178 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 182 |
-| Completed CR IDs/ranges | CR000001–CR000172; CR000174; CR000184; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000173; CR000175–CR000183; CR000185–CR000220; CR000222–CR000357 |
-| Completed Stage-1 PRL assertions | 185 |
-| Pending Stage-1 PRL assertions | 146 |
-| Verified relationship records | 176 |
+| Remaining Stage-1 resource count | 179 |
+| Completed CR IDs/ranges | CR000001–CR000176; CR000184; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000177–CR000183; CR000185–CR000220; CR000222–CR000357 |
+| Completed Stage-1 PRL assertions | 186 |
+| Pending Stage-1 PRL assertions | 145 |
+| Verified relationship records | 177 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B006 |
-| Current batch checkpoint | B007-C04 passed |
+| Current batch checkpoint | B007-C05 passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000170, CR000171, CR000172 |
-| Resources remaining in current batch | 13 |
+| Resources completed in last checkpoint | CR000173, CR000175, CR000176 (CR000174 already completed in pilot) |
+| Resources remaining in current batch | 10 |
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `4cf1b43da672b4fbfe8385e2d8874a5ad83e8a6c` |
+| Last verification checkpoint commit | `cb1f47be9b7876b4ad2846fec8eff6d56d299673` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B006, and B007 checkpoints 01–04 must not be reprocessed. Resume at CR000173. Checkpoint 04 verification records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B006, and B007 checkpoints 01–05 must not be reprocessed. Resume at CR000177. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -63,7 +63,7 @@ The pilot set, B001–B006, and B007 checkpoints 01–04 must not be reprocessed
 | B004 | 25 | CR000081 | CR000105 | completed | passed |
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
-| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 04 passed |
+| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 05 passed |
 | B008 | 25 | CR000188 | CR000212 | pending | pending |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
@@ -177,6 +177,17 @@ The pilot set, B001–B006, and B007 checkpoints 01–04 must not be reprocessed
 - Checkpoint 04 uses checkpoint-specific JSONL files within the existing Stage-2 verification categories to preserve append-only recoverability without rewriting prior B007 records; schemas and stable IDs are unchanged.
 - No new alias, ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
 - B007 remains in progress and resumes at CR000173.
+
+## Batch 007 checkpoint 05 summary
+
+- Three previously unprocessed resources were processed: CR000173, CR000175, and CR000176. CR000174 was already completed in the pilot and was not reprocessed.
+- CR000173 is pinned to `main` commit `93ab29cd6a04cff5a8b5384dc71c4c56b4526884`. Primary paper 539 explicitly identifies this repository as the location of its synthetic data and PyTorch EPNN code, so PRL000165 is verified as official and the Stage-1 `non_pinn` classification is corrected to `pinn_or_physics_informed_implementation`.
+- CR000173 has an independently verified MIT License, a formal `requirements.txt`, and large bundled synthetic WG state/stress datasets documented under `Datasets/WG/`.
+- CR000175's Stage-1 typo `energy_PIsNN_Contact` is repaired to the live same-owner `energy_PINN_Contact` repository by VA000028 without changing CR identity. Its README and code tree establish an energy-based PINN implementation for large-deformation frictionless contact; no Atlas relationship is invented because Stage 1 contains none.
+- No repository license or formal dependency manifest was identified for CR000175; README open-source wording is not treated as a license. README records the software environment, and the repository bundles case `Coord.mat` inputs.
+- CR000176 is resolved from Stage-1 `uncertain` to `supporting_software_or_library`: it is Parareal theory/figure-reproduction software rather than PINN code. BSD-2-Clause, `CITATION.cff`, and `environment.yml` are verified; no Stage-1 Atlas relationship or standalone dataset is asserted.
+- No code or binary was executed, no dataset was unpacked, and no Stage-3 normalization was performed. No new ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
+- B007 remains in progress and resumes at CR000177.
 
 ## Stop conditions
 
