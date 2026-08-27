@@ -57,8 +57,8 @@ try {
   assert(audit.influences === 14 && audit.verification === 1 && audit.feedback === 5, `Unexpected relation semantics: ${JSON.stringify(audit)}.`);
   assert(audit.captions === 20, `Expected one maintained caption per relation, found ${audit.captions}.`);
   assert(audit.domainIcons === 6, `Expected six common-family domain icons, found ${audit.domainIcons}.`);
-  assert(audit.boardWidth >= 1500 && audit.boardHeight >= 1000, `Co-Design full map is too compressed (${audit.boardWidth}×${audit.boardHeight}).`);
-  assert(audit.minPanelFont >= 9.5, `Co-Design panel text remains too small (${audit.minPanelFont}px).`);
+  assert(audit.boardWidth >= 2450 && audit.boardHeight >= 1750, `Co-Design full map is not using the intended large-format canvas (${audit.boardWidth}×${audit.boardHeight}).`);
+  assert(audit.minPanelFont >= 11, `Co-Design panel text remains too small for the large-format map (${audit.minPanelFont}px).`);
   assert(audit.coreClip && audit.coreClip !== 'none', 'Co-Design core is not rendered as a hexagonal visual center.');
   assert(audit.weakSeparate && audit.variationalSeparate, 'Weak form and variational form are not independently addressable canonical concepts.');
   assert(audit.rmseSeparate && audit.maeSeparate, 'RMSE and MAE are not independently addressable canonical concepts.');
@@ -131,6 +131,7 @@ try {
   assert(!publicationSvg.includes('<foreignObject'), 'Co-Design publication SVG still contains foreignObject HTML.');
 
   await fs.mkdir(artifactRoot, { recursive: true });
+  await page.locator('.co-board').screenshot({ path: path.join(artifactRoot, 'co-design-v2-map.png') });
   await page.screenshot({ path: path.join(artifactRoot, 'co-design-v2-wide.png'), fullPage: true });
   await page.close();
   await context.close();
@@ -161,14 +162,14 @@ try {
   assert(mobileState.singleColumnPanels && mobileState.fullMapToggle, 'Mobile Co-Design representation is missing stacked panels or full-map access.');
   await mobile.locator('[data-co-full-map]').click();
   const fullMap = await mobile.locator('.co-board').evaluate((node) => ({ forced: node.classList.contains('force-full-map'), width: node.scrollWidth }));
-  assert(fullMap.forced && fullMap.width >= 1500, 'Mobile Expand full map did not expose the complete radial map.');
+  assert(fullMap.forced && fullMap.width >= 2400, 'Mobile Expand full map did not expose the complete large radial map.');
   await mobile.screenshot({ path: path.join(artifactRoot, 'co-design-v2-mobile.png'), fullPage: true });
   assert(mobileErrors.length === 0, `Co-Design mobile browser errors: ${mobileErrors.join(' | ')}`);
   await mobile.close();
   await mobileContext.close();
 
   assert(errors.length === 0, `Co-Design v2 browser errors: ${errors.join(' | ')}`);
-  console.log('Co-Design v2 scientific, interaction, responsive, and native-export QA passed.');
+  console.log('Co-Design v2 scientific, large-map, interaction, responsive, and native-export QA passed.');
 } finally {
   await browser.close();
 }
