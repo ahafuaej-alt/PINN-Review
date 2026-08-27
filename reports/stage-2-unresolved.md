@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 04 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 05 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -86,5 +86,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000170 | `environment.yml` and README installation instructions are verified; the study uses the public IXI MRI dataset and externally hosted pretrained models rather than establishing those external resources as bundled repository content. | Stage-2 dependency/data provenance verified; full dependency normalization and external-data/model inspection remain deferred to Stage 3. |
 | CR000171 | Repository bundles CAD/visualization binaries, cardiac geometry, echo inputs, and PAK/PAKT simulation-support artifacts but no formal dependency manifest. | Stage-2 software/data-support role verified; no binary execution or PINN classification inferred. |
 | CR000172 | Exact pinned `LICENSE` is MIT; repository contains the classical WG elastoplasticity Python source but no formal dependency manifest or reusable research dataset. | Stage-2 license and resource role verified; the distinct neural-network code/data resource for paper 539 is not inferred into CR000172. |
+| CR000173 | Stage-1 classifies ANNElastoplasticity as `non_pinn`, while primary paper 539 explicitly defines its EPNN as a Physics-Informed Neural Network and identifies the exact repository as the EPNN code and synthetic-data location. | Resolved classification correction to `pinn_or_physics_informed_implementation`; PRL000165 is verified official, with no manual review required. |
+| CR000173 | Exact pinned repository has MIT licensing, `requirements.txt`, and four large normalized WG synthetic state/stress datasets documented under `Datasets/WG/`; the root README itself is minimal and has no citation metadata. | Stage-2 dependency/data provenance verified; package normalization, execution, and reproducibility testing remain Stage 3 work. |
+| CR000175 | Stage-1 records `JinshuaiBai/energy_PIsNN_Contact`, while the recorded path is unavailable and the live same-owner `energy_PINN_Contact` repository explicitly identifies the energy-based PINN contact paper/code. | Resolved source URL typo via VA000028 without changing CR identity; Stage-1 `uncertain` classification is resolved to a PINN implementation. |
+| CR000175 | No repository license or formal dependency manifest is present despite README wording describing the code as open source; README supplies Python/TensorFlow/NumPy/SciPy versions and the tree bundles `Coord.mat` case inputs. | Verified negative license finding and Stage-2 dependency/data provenance; no license inference, execution, or Stage-3 normalization performed. |
+| CR000176 | Stage-1 classification is `uncertain`; the pinned project is theoretical Parareal analysis and figure-reproduction software with BSD-2-Clause, `CITATION.cff`, and `environment.yml`, and it has no Stage-1 Atlas relationship or standalone research dataset. | Resolved as `supporting_software_or_library`; citation/dependency metadata verified and no paper relationship inferred. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
