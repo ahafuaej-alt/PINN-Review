@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 05 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 06 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -91,5 +91,9 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000175 | Stage-1 records `JinshuaiBai/energy_PIsNN_Contact`, while the recorded path is unavailable and the live same-owner `energy_PINN_Contact` repository explicitly identifies the energy-based PINN contact paper/code. | Resolved source URL typo via VA000028 without changing CR identity; Stage-1 `uncertain` classification is resolved to a PINN implementation. |
 | CR000175 | No repository license or formal dependency manifest is present despite README wording describing the code as open source; README supplies Python/TensorFlow/NumPy/SciPy versions and the tree bundles `Coord.mat` case inputs. | Verified negative license finding and Stage-2 dependency/data provenance; no license inference, execution, or Stage-3 normalization performed. |
 | CR000176 | Stage-1 classification is `uncertain`; the pinned project is theoretical Parareal analysis and figure-reproduction software with BSD-2-Clause, `CITATION.cff`, and `environment.yml`, and it has no Stage-1 Atlas relationship or standalone research dataset. | Resolved as `supporting_software_or_library`; citation/dependency metadata verified and no paper relationship inferred. |
+| CR000177 | Pinned A-PINN repository is a verified PINN implementation with publisher-confirmed paper DOI, bundled example training-point/model artifacts, but no repository license or formal dependency manifest. | Stage-2 identity/classification/citation/data provenance verified; dependency normalization, execution, and reproducibility testing remain Stage 3 work. |
+| CR000178 | Exact `aqibrahimbt` GitHub profile identity is live and public; owned repositories were observed, but Stage 1 states no Atlas-paper relationship. | Resolved as `github_profile`; repository promotion and any relationship assignment remain deferred, with no relationship inferred in this checkpoint. |
+| CR000179 | JMLR article and repository README independently identify `bawalla2/JMLR-2024` as the study code/data resource; the paper states all RCI code and datasets are available there. The pinned tree contains MATLAB source and extensive `.mat` study data/results. | PRL000064 verified official; classification resolved to `adjacent_physics_informed_ml_implementation`, not PINN. Runtime/toolbox normalization and execution remain Stage 3 work. |
+| CR000179 | No repository license or formal dependency manifest is identified; the JMLR article is CC-BY 4.0 but that article license is not propagated to repository content. | Verified negative repository-license finding and Stage-2 dependency boundary; no license inference performed. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
