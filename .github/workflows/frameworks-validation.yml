@@ -15,8 +15,7 @@ on:
       - 'assets/co-design-arrange-runtime.js'
       - 'assets/co-design-arrange.css'
       - 'assets/co-design-label-layout.js'
-      - 'assets/design-performance-v2.js'
-      - 'assets/design-performance-v2.css'
+      - 'assets/design-performance-v2*'
       - 'data/frameworks/**'
       - 'assets/theme-init.js'
       - 'index.html'
@@ -24,7 +23,7 @@ on:
       - 'sitemap.xml'
       - 'scripts/validate-frameworks.mjs'
       - 'scripts/audit-design-performance.mjs'
-      - 'scripts/visual-qa-frameworks.mjs'
+      - 'scripts/visual-qa-frameworks-contract.mjs'
       - 'scripts/visual-qa-framework-runtime.mjs'
       - 'scripts/visual-qa-co-design-v2.mjs'
       - 'scripts/visual-qa-co-design-arrange.mjs'
@@ -49,7 +48,9 @@ jobs:
       - run: node --check assets/co-design-arrange-runtime.js
       - run: node --check assets/co-design-label-layout.js
       - run: node --check assets/design-performance-v2.js
+      - run: node --check assets/design-performance-v2-layout.js
       - run: node --check scripts/audit-design-performance.mjs
+      - run: node --check scripts/visual-qa-frameworks-contract.mjs
       - run: node --check scripts/visual-qa-framework-runtime.mjs
       - run: node --check scripts/visual-qa-co-design-v2.mjs
       - run: node --check scripts/visual-qa-co-design-arrange.mjs
@@ -73,7 +74,7 @@ jobs:
           python3 -m http.server 4173 >/tmp/pinn-frameworks-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
-          node scripts/visual-qa-frameworks.mjs
+          node scripts/visual-qa-frameworks-contract.mjs
           node scripts/visual-qa-framework-runtime.mjs
           node scripts/visual-qa-co-design-v2.mjs
           node scripts/visual-qa-co-design-arrange.mjs
