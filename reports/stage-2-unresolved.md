@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. Completed B006 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 01 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -25,9 +25,7 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000062 | Which license statement should be normalized. | Exact pinned LICENSE text is MIT; the README badge claims Apache-2.0. MIT is recorded with the conflict preserved. | `requires_manual_review = true`; retain both observations and continue. |
 | CR000074 | Whether hamiltorch is software used by paper 536. | The corrected repository is verified, but paper 536 does not identify it; PRL000163 is `not_verified`. | `requires_manual_review = true`; do not promote and continue. |
 | CR000076 | Whether the unavailable trapz-PiNN repository is the code for paper 549. | Paper 549 points to the author's profile, not the specific repository; PRL000167 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
-
 | CR000088 | Whether the unavailable ExtendedPhysics-Informed-Neural-Operator repository is code for paper 600. | Repository checks and current paper/web evidence do not establish the specific relationship; PRL000189 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
-
 | CR000111 | Whether the unavailable DEM_TOgit repository is the resource for paper 671. | Direct evidence for the specific URL was not recovered; PRL000218 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 | CR000114 | Whether the unavailable DG-PINN repository is the resource for paper 692. | Direct evidence for the specific URL was not recovered; PRL000223 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 | CR000128 | Whether the unavailable generic Power Grid Lib path is the specific resource intended by paper 721. | Paper 721 mentions Power Grid Lib as a benchmark concept but does not establish the `power-grid-lib/pgl` identity; PRL000250 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
@@ -55,29 +53,26 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000064, CR000065, CR000068, CR000070, CR000072, CR000075, CR000077, CR000078, CR000079, CR000080 | No repository license identified at pinned commit. | Batch-003 verified negative findings. |
 | CR000063 | GitLab project and master branch verified; commit SHA and full tree not exposed by the available primary-source interface. | Bounded Stage-2 snapshot limitation; identity and paper relationship verified. |
 | CR000076 | Repository URL returns 404; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; the paper-specific relationship remains not_verified. |
-
 | CR000081, CR000084, CR000085, CR000086, CR000087, CR000089, CR000093, CR000094, CR000096, CR000097, CR000098, CR000099, CR000102, CR000103, CR000104 | No repository license identified at pinned commit. | Batch-004 verified negative findings. |
 | CR000083 | Repository API SPDX is `NOASSERTION`; exact pinned `COPYING` text and README specify GNU GPL version 3 or later. | Resolved by independent exact-text verification; mapped to `GPL-3.0-or-later`. |
 | CR000088 | Repository URL is unavailable; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; PRL000189 remains `not_verified`. |
 | CR000091, CR000092 | DOI identities and paper roles verified; archive contents not unpacked and exact record-license fields not independently captured. | Resolved for Stage 2; archive internals deferred to Stage 3 and license fields retained as bounded unknowns. |
-
 | CR000106, CR000107, CR000112, CR000115, CR000121, CR000123, CR000124, CR000130, CR000131 | No repository license identified at pinned commit. | Batch-005 verified negative findings. |
 | CR000109 | Public GitHub identity and current GPL-3.0 label visible, but API exposes only a move response; commit SHA and exact license text remain unknown. | Bounded Stage-2 snapshot and license limitation; no exact SPDX normalization. |
 | CR000125 | Public GitLab project and master branch verified; commit SHA and full tree not exposed. | Bounded Stage-2 snapshot limitation; paper relationship verified. |
 | CR000111, CR000114, CR000119, CR000122, CR000128 | Recorded repository URL is unavailable; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; CR000119 and CR000122 paper links remain verified from archived paper evidence. |
 | CR000108, CR000116, CR000127 | Supplemental or DOI identity and paper role verified; archive contents not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
-
 | CR000132 | Public GitLab identity, main-branch commit, README, citation.cff, BSD-2-Clause license, and root data/results structure verified; a complete recursive tree was not exposed by the inspected public interface. | Bounded Stage-2 snapshot limitation; identity and official paper relationship are verified. |
 | CR000134, CR000138 | No repository license identified at pinned commit. | B006 checkpoint-01 verified negative findings. |
 | CR000136 | GitHub API reports `NOASSERTION`; exact pinned LICENSE and README specify CC BY-NC-SA 4.0. | Resolved by exact-text verification; mapped to `CC-BY-NC-SA-4.0`. |
 | CR000142, CR000143 | No repository license identified at pinned commit. | B006 checkpoint-02 verified negative findings. |
 | CR000144 | Open Zenodo software record, DOI, creator, CC BY 4.0 license, and code/data/results archive preview verified; 650 MB archive internals were not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
 | CR000150 | Paper-cited canonical repository is unavailable; public forks do not justify identity replacement. | Verified unavailability; PRL000308 remains verified from the primary paper. |
-
 | CR000151, CR000153, CR000155, CR000157, CR000160 | No repository or project license identified at the pinned commit. | B006 verified negative findings. |
 | CR000153 | Default branch main is README-only; code and bundled data are on separately pinned master commit 0f2a36c3d4882784a5e3f11defb9c09282fecd92. | Resolved qualified metadata; both snapshots remain explicit. |
 | CR000156 | Source URL moved from tianjuxue/jax-am to CMSL-HKUST/jax-am. | Resolved by immutable GitHub repository ID 509117694 without changing CR identity. |
 | CR000159 | Recorded ThomasGrandits/fim_py path is unavailable; the paper citation and primary JOSS review identify thomgrand/fim-python. | Resolved source URL repair without changing CR identity. |
 | CR000160 | Public GitLab project, main-branch commit, README, dependency file, and external Zenodo dependency verified; the external archive was not unpacked. | Resolved for Stage 2; technical inspection deferred to Stage 3. |
+| CR000162 | Public QDataLabs GitLab project, master branch, README, paper relationship, and GNU LGPLv2.1 project label verified; exact commit SHA, full tree, exact SPDX variant, repository citation metadata, and dependency declarations were not exposed reliably. | Bounded Stage-2 snapshot/metadata limitation; identity and official paper relationship are verified and no manual review is required. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
