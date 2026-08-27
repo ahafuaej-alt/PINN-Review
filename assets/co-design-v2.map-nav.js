@@ -52,6 +52,21 @@
 
     const isMobileStack = () => matchMedia('(max-width: 820px)').matches && !board.classList.contains('force-full-map');
 
+    const syncFullMapDimensions = () => {
+      const expanded = board.classList.contains('force-full-map');
+      if (expanded && matchMedia('(max-width: 820px)').matches) {
+        board.style.width = '2520px';
+        board.style.minWidth = '2520px';
+        board.style.height = '1800px';
+        board.style.minHeight = '1800px';
+      } else {
+        board.style.removeProperty('width');
+        board.style.removeProperty('min-width');
+        board.style.removeProperty('height');
+        board.style.removeProperty('min-height');
+      }
+    };
+
     const focusNode = (id, behavior = 'smooth') => {
       const node = board.querySelector(`[data-node-id="${CSS.escape(id)}"]`);
       if (!node) return;
@@ -74,13 +89,23 @@
     });
 
     document.addEventListener('click', (event) => {
+      const fullMap = event.target.closest('[data-co-full-map]');
+      if (fullMap) syncFullMapDimensions();
       if (!event.target.closest('[data-fit],[data-reset],[data-expand],[data-co-full-map]')) return;
-      setTimeout(() => focusNode(select.value || 'core'), 80);
+      setTimeout(() => {
+        syncFullMapDimensions();
+        focusNode(select.value || 'core');
+      }, 80);
     });
+
+    window.addEventListener('resize', () => {
+      syncFullMapDimensions();
+    }, { passive: true });
 
     const hashId = new URLSearchParams(location.hash.replace(/^#/, '')).get('item');
     const initial = hashId && board.querySelector(`[data-node-id="${CSS.escape(hashId)}"]`) ? hashId : 'core';
     select.value = initial;
+    syncFullMapDimensions();
     requestAnimationFrame(() => requestAnimationFrame(() => focusNode(initial, 'auto')));
   });
 })();
