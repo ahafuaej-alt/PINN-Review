@@ -47,7 +47,7 @@ Latest persistence checkpoint: **B006-C02 passed**. B006 remains in progress; no
 | Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last checkpoint commit | pending branch-head assignment for B006-C02 |
+| Last checkpoint commit | `57f8d556f84c94e29cb78c8cfe958ecda0ad3f96` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
 The pilot set (13 Stage-1 resources plus promoted CR000358), B001–B005, and B006 checkpoint resources through CR000150 must not be reprocessed. Resume at CR000151.
