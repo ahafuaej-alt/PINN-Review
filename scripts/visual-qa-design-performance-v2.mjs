@@ -126,14 +126,14 @@ try {
     const mobileView = document.querySelector('.dp-mobile-view');
     return {
       tableDisplay: shellStyle.display,
-      tableOpacity: shellStyle.opacity,
+      tablePosition: shellStyle.position,
       tablePointerEvents: shellStyle.pointerEvents,
       tableHeight: shell.getBoundingClientRect().height,
       mobile: getComputedStyle(mobileView).display,
       cards: document.querySelectorAll('.dp-mobile-card').length
     };
   });
-  assert(mobileState.tableDisplay !== 'none' && mobileState.tableOpacity === '0' && mobileState.tablePointerEvents === 'none' && mobileState.tableHeight <= 1.5 && mobileState.mobile !== 'none' && mobileState.cards === 7, `Default mobile scientific representation failed: ${JSON.stringify(mobileState)}.`);
+  assert(mobileState.tableDisplay !== 'none' && mobileState.tablePosition === 'absolute' && mobileState.tablePointerEvents === 'none' && mobileState.tableHeight <= 1.5 && mobileState.mobile !== 'none' && mobileState.cards === 7, `Default mobile scientific representation failed: ${JSON.stringify(mobileState)}.`);
   await mobilePage.locator('[data-dp-mobile-mode="outcome"]').click();
   assert(await mobilePage.locator('.dp-mobile-card').count() === 14, 'Outcome-oriented mobile representation must show all 14 design dimensions.');
   await mobilePage.locator('[data-dp-full-mobile]').click();
@@ -143,12 +143,13 @@ try {
     return {
       classed: document.querySelector('.matrix-board-v2').classList.contains('dp-force-full-mobile'),
       table: shellStyle.display,
-      opacity: shellStyle.opacity,
+      position: shellStyle.position,
       pointerEvents: shellStyle.pointerEvents,
+      height: shell.getBoundingClientRect().height,
       width: document.querySelector('.dependency-matrix-v2').scrollWidth
     };
   });
-  assert(fullMobile.classed && fullMobile.table !== 'none' && fullMobile.opacity === '1' && fullMobile.pointerEvents !== 'none' && fullMobile.width >= 2200, `Mobile full-matrix expansion failed: ${JSON.stringify(fullMobile)}.`);
+  assert(fullMobile.classed && fullMobile.table !== 'none' && fullMobile.position === 'relative' && fullMobile.pointerEvents !== 'none' && fullMobile.height > 100 && fullMobile.width >= 2200, `Mobile full-matrix expansion failed: ${JSON.stringify(fullMobile)}.`);
   await mobilePage.screenshot({ path: path.join(artifactRoot, 'design-performance-v2-mobile.png'), fullPage: true });
   await mobile.close();
 
