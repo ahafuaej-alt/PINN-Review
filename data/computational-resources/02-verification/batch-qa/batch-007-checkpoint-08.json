@@ -1,0 +1,88 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B007",
+  "checkpoint_id": "B007-C08",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000183",
+    "CR000185",
+    "CR000186"
+  ],
+  "precompleted_skipped_resource_ids": [
+    "CR000184"
+  ],
+  "next_resource_id": "CR000187",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 3,
+    "relationship_records": 0,
+    "verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 3,
+    "verified_negative_license_findings": 0,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "The next three unprocessed Stage-1 resources are CR000183, CR000185, and CR000186. CR000184 was already completed in the pilot and is explicitly skipped without reprocessing."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "CR000183, CR000185, and CR000186 retain their Stage-1 resource identifiers and canonical URLs; no alias repair is required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "None of CR000183, CR000185, or CR000186 has a Stage-1 Atlas-paper assertion; no relationship record is invented."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All three public GitHub repositories are pinned to exact observed default-branch commits."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "CR000183 is resolved from uncertain to supporting_software_or_library; CR000185 is resolved from uncertain to paper_code_collection_or_tutorial as a general research-code collection; CR000186 remains supporting_software_or_library."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "CR000183 has BSD-2-Clause licensing; CR000185 and CR000186 have Apache-2.0 source licensing. CR000185's dataset CC-BY-4.0 statement is preserved separately and not propagated to source code."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "CR000183 has formal Python/Rust manifests and bundled test/example CSVs; CR000185 is a heterogeneous monorepo without one root dependency manifest; CR000186 has setup.py and downloads public evaluation data/models from Google Cloud Storage while bundling notebooks. No execution, external download, or Stage-3 normalization was performed."
+    },
+    {
+      "check": "internal_reference_rule",
+      "status": "passed",
+      "detail": "No paper-internal bibliography number was promoted to an Atlas ID; this checkpoint contains no Stage-1 Atlas-paper assertions."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "Classification resolution, licensing, repository snapshots, dependency/data boundaries, and the precompleted CR000184 skip are representable within the established schema and require no new relationship type, stable-ID policy, scientific-review item, or processing pause."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 0,
+    "verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B007 checkpoint 08 passes. B007 remains in progress and resumes at CR000187."
+}
