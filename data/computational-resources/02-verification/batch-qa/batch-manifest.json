@@ -660,7 +660,7 @@
     "current_qa_status": "passed",
     "current_scientific_review_item_count": 2,
     "current_ordinary_manual_review_resource_count": 10,
-    "last_checkpoint_commit": "57f8d556f84c94e29cb78c8cfe958ecda0ad3f96",
+    "last_checkpoint_commit": "b416bf814db572ccc434291b95c0d73dbd1ee8a9",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   },
   "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1,
