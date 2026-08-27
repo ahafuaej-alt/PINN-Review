@@ -2,6 +2,8 @@
 
 Verification date: 2026-08-26
 
+Checkpoint updated: 2026-08-27
+
 ## Current state
 
 | Measure | Count |
@@ -20,6 +22,24 @@ Verification date: 2026-08-26
 Pilot acceptance status: **passed; safe to scale**.
 
 Latest batch status: **B001 passed**. No stop condition was triggered.
+
+
+## Resume checkpoint
+
+| Field | Value |
+|---|---|
+| Last completed resource | CR000027 |
+| Last completed batch | B001 |
+| Next resource | CR000028 |
+| Completed expansion resources | 25 |
+| Pending expansion resources | 319 |
+| Completed batches | B001 |
+| Pending batches | B002–B014 |
+| Current QA status | passed |
+| Authoritative checkpoint commit | `27011d5ae1edf6acde8eea01676bfd7515321806` |
+
+The pilot set (13 Stage-1 resources plus promoted CR000358) and B001 must not be reprocessed. Resume at CR000028.
+
 
 ## Batch register
 

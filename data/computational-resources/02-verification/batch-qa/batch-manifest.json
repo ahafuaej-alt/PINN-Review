@@ -578,5 +578,32 @@
   "expansion_relationships_verified": 23,
   "expansion_resources_requiring_manual_review": 1,
   "last_completed_batch": "B001",
-  "updated_at": "2026-08-26"
+  "updated_at": "2026-08-27",
+  "checkpoint": {
+    "last_completed_resource_id": "CR000027",
+    "last_completed_batch_id": "B001",
+    "next_resource_id": "CR000028",
+    "completed_expansion_resource_count": 25,
+    "pending_expansion_resource_count": 319,
+    "completed_batch_ids": [
+      "B001"
+    ],
+    "pending_batch_ids": [
+      "B002",
+      "B003",
+      "B004",
+      "B005",
+      "B006",
+      "B007",
+      "B008",
+      "B009",
+      "B010",
+      "B011",
+      "B012",
+      "B013",
+      "B014"
+    ],
+    "current_qa_status": "passed",
+    "authoritative_checkpoint_commit": "27011d5ae1edf6acde8eea01676bfd7515321806"
+  }
 }
