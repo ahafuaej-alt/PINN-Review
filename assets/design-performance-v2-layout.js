@@ -67,10 +67,9 @@
   function bindMobileFullMatrixVisibility() {
     if (document.documentElement.dataset.dpMobileVisibilityBound === 'true') return;
     document.documentElement.dataset.dpMobileVisibilityBound = 'true';
-    document.addEventListener('click', (event) => {
-      if (!event.target.closest('[data-dp-full-mobile]')) return;
-      syncMobileFullMatrixVisibility();
-    });
+    const boards = [...document.querySelectorAll('.matrix-board-v2')];
+    const observer = new MutationObserver(syncMobileFullMatrixVisibility);
+    boards.forEach((board) => observer.observe(board, { attributes: true, attributeFilter: ['class'] }));
     syncMobileFullMatrixVisibility();
   }
 
