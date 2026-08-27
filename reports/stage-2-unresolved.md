@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 06 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 07 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -95,5 +95,7 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000178 | Exact `aqibrahimbt` GitHub profile identity is live and public; owned repositories were observed, but Stage 1 states no Atlas-paper relationship. | Resolved as `github_profile`; repository promotion and any relationship assignment remain deferred, with no relationship inferred in this checkpoint. |
 | CR000179 | JMLR article and repository README independently identify `bawalla2/JMLR-2024` as the study code/data resource; the paper states all RCI code and datasets are available there. The pinned tree contains MATLAB source and extensive `.mat` study data/results. | PRL000064 verified official; classification resolved to `adjacent_physics_informed_ml_implementation`, not PINN. Runtime/toolbox normalization and execution remain Stage 3 work. |
 | CR000179 | No repository license or formal dependency manifest is identified; the JMLR article is CC-BY 4.0 but that article license is not propagated to repository content. | Verified negative repository-license finding and Stage-2 dependency boundary; no license inference performed. |
+| CR000180 | The pinned adversarial-video repository has no formal dependency manifest; its Ms. Pac-Man training dataset and trained models are externally hosted while generated result artifacts are bundled. | Stage-2 dependency/data provenance verified; dependency normalization, external-data/model inspection, execution, and reproducibility testing remain Stage 3 work. |
+| CR000182 | Stage-1 records `fchollet/keras`, while GitHub reports a permanent move and the canonical `keras-team/keras` repository has the same immutable repository ID 33015583. | Resolved repository transfer via VA000029 without changing CR identity. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
