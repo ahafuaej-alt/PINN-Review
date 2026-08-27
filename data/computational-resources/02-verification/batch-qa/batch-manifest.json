@@ -198,11 +198,20 @@
       "resource_count": 25,
       "first_resource_id": "CR000081",
       "last_resource_id": "CR000105",
-      "status": "pending",
-      "verified_records": 0,
-      "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "status": "completed",
+      "verified_records": 25,
+      "manual_review_records": 1,
+      "relationship_records": 25,
+      "qa_status": "passed",
+      "completed_at": "2026-08-27",
+      "artifact_prefix": "batch-004",
+      "notes": [
+        "24 of 25 Stage-1 relationship assertions were verified; PRL000189 remains not_verified.",
+        "22 GitHub repositories were pinned, two DOI records were verified, and one repository was unavailable.",
+        "Three canonical URL repairs retain existing CR identities.",
+        "Fifteen repositories have verified negative license findings; no license was inferred.",
+        "CR000091 and CR000092 archive internals remain deferred to Stage 3."
+      ]
     },
     {
       "batch_id": "B005",

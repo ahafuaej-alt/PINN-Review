@@ -26,6 +26,8 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000074 | Whether hamiltorch is software used by paper 536. | The corrected repository is verified, but paper 536 does not identify it; PRL000163 is `not_verified`. | `requires_manual_review = true`; do not promote and continue. |
 | CR000076 | Whether the unavailable trapz-PiNN repository is the code for paper 549. | Paper 549 points to the author's profile, not the specific repository; PRL000167 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
 
+| CR000088 | Whether the unavailable ExtendedPhysics-Informed-Neural-Operator repository is code for paper 600. | Repository checks and current paper/web evidence do not establish the specific relationship; PRL000189 is `not_verified`. | `requires_manual_review = true`; preserve evidence and continue. |
+
 ## Verified limitations and Stage-3-deferred work
 
 | Resource | Result | Status |
@@ -43,5 +45,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000064, CR000065, CR000068, CR000070, CR000072, CR000075, CR000077, CR000078, CR000079, CR000080 | No repository license identified at pinned commit. | Batch-003 verified negative findings. |
 | CR000063 | GitLab project and master branch verified; commit SHA and full tree not exposed by the available primary-source interface. | Bounded Stage-2 snapshot limitation; identity and paper relationship verified. |
 | CR000076 | Repository URL returns 404; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; the paper-specific relationship remains not_verified. |
+
+| CR000081, CR000084, CR000085, CR000086, CR000087, CR000089, CR000093, CR000094, CR000096, CR000097, CR000098, CR000099, CR000102, CR000103, CR000104 | No repository license identified at pinned commit. | Batch-004 verified negative findings. |
+| CR000083 | Repository API SPDX is `NOASSERTION`; exact pinned `COPYING` text and README specify GNU GPL version 3 or later. | Resolved by independent exact-text verification; mapped to `GPL-3.0-or-later`. |
+| CR000088 | Repository URL is unavailable; contents, license, and snapshot fields cannot be inspected. | Verified unavailability; PRL000189 remains `not_verified`. |
+| CR000091, CR000092 | DOI identities and paper roles verified; archive contents not unpacked and exact record-license fields not independently captured. | Resolved for Stage 2; archive internals deferred to Stage 3 and license fields retained as bounded unknowns. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.

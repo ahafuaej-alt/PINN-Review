@@ -1,0 +1,156 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B004",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repositories_pinned": 22,
+    "persistent_doi_records_verified": 2,
+    "unavailable_repositories": 1,
+    "relationship_records": 25,
+    "verified_relationship_records": 24,
+    "bounded_unverified_relationship_records": 1,
+    "stage1_relationships_accounted": 25,
+    "alias_records_created": 3,
+    "evidence_records": 50,
+    "manual_review_records": 1,
+    "verified_positive_license_findings": 7,
+    "verified_negative_license_findings": 15,
+    "bounded_unknown_license_findings": 3
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned resource IDs are present once and in batch order."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All batch JSONL records parse and contain required stable identifiers."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "Three URL corrections retain their existing CR identities; no new stable ID was required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 25 Stage-1 assertions are represented: 24 verified and one explicitly not_verified."
+    },
+    {
+      "check": "unsupported_relationship_prevention",
+      "status": "passed",
+      "detail": "PRL000189 remains not_verified because CR000088 is unavailable and direct paper evidence was not found."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All 22 live GitHub repositories are pinned to observed default-branch commits."
+    },
+    {
+      "check": "persistent_archive_boundary",
+      "status": "passed",
+      "detail": "CR000091 and CR000092 DOI identities and paper roles are verified; archive contents were not unpacked."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Fifteen repositories have verified negative findings; CR000088 and the two DOI record license fields remain explicit bounded unknowns."
+    },
+    {
+      "check": "qualified_license_mapping",
+      "status": "passed",
+      "detail": "CR000083 is mapped to GPL-3.0-or-later from exact pinned COPYING text and the matching README statement despite API NOASSERTION."
+    },
+    {
+      "check": "ordinary_manual_review_continuation",
+      "status": "passed",
+      "detail": "CR000088 is flagged without blocking continuation."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "Zenodo archives and external datasets were identified but not unpacked or technically extracted."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The existing model represents bounded unavailability and unverified linkage; no stop condition was found."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 25,
+    "verified_link_ids": [
+      "PRL000180",
+      "PRL000183",
+      "PRL000184",
+      "PRL000185",
+      "PRL000186",
+      "PRL000187",
+      "PRL000188",
+      "PRL000190",
+      "PRL000192",
+      "PRL000193",
+      "PRL000194",
+      "PRL000195",
+      "PRL000196",
+      "PRL000197",
+      "PRL000198",
+      "PRL000199",
+      "PRL000201",
+      "PRL000202",
+      "PRL000203",
+      "PRL000206",
+      "PRL000207",
+      "PRL000208",
+      "PRL000209",
+      "PRL000210"
+    ],
+    "bounded_unverified_link_ids": [
+      "PRL000189"
+    ]
+  },
+  "manual_review": [
+    {
+      "resource_id": "CR000088",
+      "reason": "The recorded repository is unavailable and no direct paper evidence establishes it as the code for paper 600.",
+      "scientific_consequence": "PRL000189 remains not_verified.",
+      "continue_processing": true
+    }
+  ],
+  "verified_limitations": {
+    "no_repository_license_identified": [
+      "CR000081",
+      "CR000084",
+      "CR000085",
+      "CR000086",
+      "CR000087",
+      "CR000089",
+      "CR000093",
+      "CR000094",
+      "CR000096",
+      "CR000097",
+      "CR000098",
+      "CR000099",
+      "CR000102",
+      "CR000103",
+      "CR000104"
+    ],
+    "unavailable_resources": [
+      "CR000088"
+    ],
+    "stage3_deferred_archives": [
+      "CR000091",
+      "CR000092"
+    ]
+  },
+  "integrity_result": "passed",
+  "safe_to_continue": true
+}
