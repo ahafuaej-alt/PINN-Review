@@ -11,47 +11,47 @@ Verification date: 2026-08-27
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 6 |
-| Expansion resources processed | 174 |
+| Completed expansion batches | 7 |
+| Expansion resources processed | 175 |
 | Expansion relationships verified | 161 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 170 |
+| Pending expansion resources | 169 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B007-C08 passed**. B007 remains in progress; the next micro-batch begins at CR000187. No stop condition was triggered.
+Latest persistence checkpoint: **B007-C09 passed; full B007 QA passed**. B007 is complete; B008 begins at CR000188. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B007 (in progress) |
-| Last completed resource | CR000186 |
-| Last completed logical batch | B006 |
-| Last persistence checkpoint | B007-C08 |
-| Next resource | CR000187 |
-| Completed Stage-1 resource count | 187 |
+| Current logical batch | B008 (pending) |
+| Last completed resource | CR000187 |
+| Last completed logical batch | B007 |
+| Last persistence checkpoint | B007-C09 |
+| Next resource | CR000188 |
+| Completed Stage-1 resource count | 188 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 170 |
-| Completed CR IDs/ranges | CR000001–CR000186; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000187–CR000220; CR000222–CR000357 |
+| Remaining Stage-1 resource count | 169 |
+| Completed CR IDs/ranges | CR000001–CR000187; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000188–CR000220; CR000222–CR000357 |
 | Completed Stage-1 PRL assertions | 187 |
 | Pending Stage-1 PRL assertions | 144 |
 | Verified relationship records | 178 |
 | Explicitly `not_verified` relationship records | 9 |
-| Completed batches | B001–B006 |
-| Current batch checkpoint | B007-C08 passed |
+| Completed batches | B001–B007 |
+| Current batch checkpoint | B007-C09 and full B007 QA passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000183, CR000185, CR000186 (CR000184 precompleted and skipped) |
-| Resources remaining in current batch | 1 |
-| Current QA status | checkpoint passed |
+| Resources completed in last checkpoint | CR000187 |
+| Resources remaining in current batch | 25 (B008 not started) |
+| Current QA status | checkpoint and full-batch QA passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `5b8f794787da9ac594b5c98a0c448f863426b368` |
+| Last verification checkpoint commit | `75cdc63e5a4b09baf6981f5d65f13617826da35a` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B006, and B007 checkpoints 01–08 must not be reprocessed. Resume at CR000187. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set and B001–B007 must not be reprocessed. Resume at CR000188. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -63,7 +63,7 @@ The pilot set, B001–B006, and B007 checkpoints 01–08 must not be reprocessed
 | B004 | 25 | CR000081 | CR000105 | completed | passed |
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
-| B007 | 25 | CR000161 | CR000187 | in progress | checkpoint 08 passed |
+| B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | pending | pending |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
@@ -218,6 +218,16 @@ The pilot set, B001–B006, and B007 checkpoints 01–08 must not be reprocessed
 - CR000186 remains `supporting_software_or_library`: JAX-CFD is Apache-2.0 differentiable CFD/ML software with explicit `setup.py` dependencies and research-paper citation metadata. The README states it is no longer maintained while the GitHub archived flag is false; evaluation datasets and model checkpoints are external Google Cloud Storage resources while notebooks are bundled.
 - No code or binary was executed, no external dataset or model was downloaded, and no Stage-3 normalization was performed. No new alias, ordinary manual-review item, scientific-review item, relationship type, schema issue, or stop condition was produced.
 - B007 remains in progress and resumes at CR000187.
+
+## Batch 007 checkpoint 09 and completion summary
+
+- CR000187 was processed as the sole remaining B007 resource and pinned to `main` commit `90ac1bfe954b93dfce9f27d1de5ae912d9a66682`.
+- The repository is verified as an MIT-licensed physics-informed neural-network implementation for power-converter parameter estimation, explicitly based on `maziarraissi/PINNs`; README citation metadata identifies DOI `10.1109/TPEL.2022.3176468`.
+- No formal dependency manifest was identified. The source header records TensorFlow 1.15.0 and imports TensorFlow, NumPy, and SciPy; dependency normalization remains Stage 3 work.
+- Seven converter-simulation MAT files and MATLAB generation code are bundled. The dataset note inconsistently calls the 0-through-6 set six files; the observed seven-file tree and the source discrepancy are both preserved.
+- CR000187 has no Stage-1 Atlas-paper assertion, so no paper-resource relationship was invented.
+- Full B007 QA passed: all 25 planned expansion resources occur exactly once, 14 of 14 Stage-1 relationship assertions are verified, 39 evidence records are unique, three URL corrections/transfers preserve stable IDs, and no new manual-review or stop condition was produced.
+- B007 is complete. Resume Stage 2 at CR000188 in B008.
 
 ## Stop conditions
 

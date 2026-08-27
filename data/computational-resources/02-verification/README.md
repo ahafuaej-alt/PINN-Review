@@ -31,4 +31,4 @@ The review report separates bounded scientific-review questions from verified li
 
 ## Expansion status
 
-Batches B001–B005 are complete and passed QA. The branch-head checkpoint names CR000131 as the last completed resource and CR000132 as the next resource. Progress, unresolved/manual-review items, verification evidence, and batch accounting are cumulative in `reports/stage-2-progress.md`, `reports/stage-2-unresolved.md`, `verification-log/`, and `batch-qa/`.
+Batches B001–B007 are complete and passed QA. The branch-head verification checkpoint names CR000187 as the last completed resource and CR000188 as the next resource. Progress, unresolved/manual-review items, verification evidence, and batch accounting are cumulative in `reports/stage-2-progress.md`, `reports/stage-2-unresolved.md`, `verification-log/`, and `batch-qa/`.

@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 08 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B007 checkpoint 09 and full-batch QA added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -100,5 +100,6 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000183 | Pinned `pywaterflood` is physics-inspired capacitance-resistance modeling software rather than a PINN implementation; BSD-2-Clause, JOSS citation metadata, Python/Rust manifests, and bundled test/example CSV fixtures are verified. | Resolved as `supporting_software_or_library`; dependency normalization, execution, and reproducibility testing remain Stage 3 work. |
 | CR000185 | `google-research/google-research` is a heterogeneous research-code/data monorepo. Root source files are Apache-2.0 and the README states datasets are CC BY 4.0; no single root citation file or repository-wide dependency manifest was identified. | Resolved as `paper_code_collection_or_tutorial`; project-local dependency/data normalization is deferred to Stage 3 and no Atlas relationship is inferred. |
 | CR000186 | JAX-CFD is Apache-2.0 differentiable CFD/ML supporting software with `setup.py` dependencies and research-paper citation metadata. The README states it is no longer maintained while GitHub `archived = false`; evaluation data and model checkpoints are external Google Cloud Storage resources. | Stage-2 identity, maintenance-state qualification, dependency/data provenance, and citation metadata are verified; external-data/model inspection and execution remain Stage 3 work. |
+| CR000187 | Pinned PIML_Converter is an MIT-licensed physics-informed neural-network implementation with README citation DOI `10.1109/TPEL.2022.3176468`, no formal dependency manifest, and seven bundled converter-simulation MAT files plus MATLAB generation code. Its dataset note inconsistently calls the 0-through-6 set six files. | Stage-2 identity, classification, licensing, citation, and dataset provenance are verified; the documentation discrepancy is preserved, and dependency normalization, MAT-file inspection, execution, and reproducibility testing remain Stage 3 work. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
