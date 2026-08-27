@@ -42,7 +42,8 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     max-width: 100%;
     height: 1px;
     overflow: hidden;
-    visibility: hidden;
+    opacity: 0;
+    clip-path: inset(100%);
     pointer-events: none;
   }
 
@@ -55,7 +56,8 @@ body[data-framework="design-performance"] .dependency-matrix-v2 .influence-marke
     height: auto;
     overflow-x: auto;
     overflow-y: visible;
-    visibility: visible !important;
+    opacity: 1;
+    clip-path: none;
     pointer-events: auto;
   }
 }
