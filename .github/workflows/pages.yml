@@ -68,6 +68,7 @@ jobs:
           node --check assets/co-design-v2.js
           node --check assets/co-design-v2-bridge.js
           node --check assets/co-design-arrange-runtime.js
+          node --check assets/co-design-label-layout.js
           node --check scripts/visual-qa-co-design-v2.mjs
           node --check scripts/visual-qa-co-design-arrange.mjs
           node --check assets/concepts.js
