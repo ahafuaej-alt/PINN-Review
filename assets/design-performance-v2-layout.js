@@ -56,6 +56,25 @@
     });
   }
 
+  function syncMobileFullMatrixVisibility(table) {
+    const board = table.closest('.matrix-board-v2');
+    const shell = table.closest('.dp-table-shell');
+    if (!board || !shell) return;
+    if (board.classList.contains('dp-force-full-mobile')) shell.style.setProperty('visibility', 'visible', 'important');
+    else shell.style.removeProperty('visibility');
+  }
+
+  function bindMobileFullMatrixVisibility(table) {
+    const board = table.closest('.matrix-board-v2');
+    if (!board || board.dataset.dpMobileVisibilityBound === 'true') return;
+    board.dataset.dpMobileVisibilityBound = 'true';
+    board.addEventListener('click', (event) => {
+      if (!event.target.closest('[data-dp-full-mobile]')) return;
+      syncMobileFullMatrixVisibility(table);
+    });
+    syncMobileFullMatrixVisibility(table);
+  }
+
   function applyLayoutContract() {
     const table = document.querySelector('.dependency-matrix-v2');
     if (!table || table.dataset.dpLayoutReady === 'true') return false;
@@ -69,6 +88,7 @@
     design.innerHTML = '<span>PINN design dimension</span><small>Design family · what is chosen</small>';
     family.remove();
     bindOutcomeInspectorGuard(table);
+    bindMobileFullMatrixVisibility(table);
     table.dataset.dpLayoutReady = 'true';
     document.documentElement.dataset.designPerformanceLayout = 'ready';
     return true;
