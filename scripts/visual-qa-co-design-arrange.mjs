@@ -13,7 +13,6 @@ if (!chromium) throw new Error('Unable to load Chromium from playwright-core.');
 const baseUrl = (process.env.BASE_URL || 'http://127.0.0.1:4173').replace(/\/$/, '');
 const artifactRoot = path.resolve(process.env.FRAMEWORK_QA_ARTIFACTS || 'artifacts/frameworks');
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
-const overlaps = (a, b, padding = 0) => !(a.right + padding <= b.left || a.left >= b.right + padding || a.bottom + padding <= b.top || a.top >= b.bottom + padding);
 
 const browser = await chromium.launch({ executablePath, headless: true, args: ['--no-sandbox'] });
 try {
@@ -25,7 +24,7 @@ try {
 
   await page.goto(`${baseUrl}/frameworks/co-design/`, { waitUntil: 'networkidle' });
   await page.waitForFunction(() => document.documentElement.dataset.coDesignArrange === 'ready');
-  await page.waitForFunction(() => document.querySelectorAll('.co-label-layer .co-v2-caption').length === 20);
+  await page.waitForFunction(() => document.documentElement.dataset.coDesignLabelLayout === 'ready' && document.querySelectorAll('.co-label-layer .co-v2-caption').length === 20);
 
   const defaultState = await page.evaluate(() => {
     const labels = [...document.querySelectorAll('.co-label-layer .co-v2-caption')].map((node) => node.getBoundingClientRect());
@@ -64,6 +63,8 @@ try {
 
   const representation = page.locator('[data-node-id="representation"]');
   const relation = page.locator('.co-v2-path[data-inspect-id="representation-core"]');
+  await representation.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(80);
   const beforeBox = await representation.boundingBox();
   const beforePath = await relation.getAttribute('d');
   assert(beforeBox && beforePath, 'Unable to locate Representation or its relation to the Co-Design core.');
@@ -72,12 +73,12 @@ try {
   assert(await page.locator('body').evaluate((node) => node.classList.contains('co-arrange-active')), 'Arrange mode did not activate.');
   const dragTarget = page.locator('[data-node-id="representation"] header');
   const dragBox = await dragTarget.boundingBox();
-  assert(dragBox, 'Representation drag handle area is unavailable.');
+  assert(dragBox && dragBox.x >= 0 && dragBox.y >= 0, `Representation drag handle is not visible in the canvas viewport: ${JSON.stringify(dragBox)}.`);
   await page.mouse.move(dragBox.x + dragBox.width * .55, dragBox.y + Math.min(28, dragBox.height * .5));
   await page.mouse.down();
   await page.mouse.move(dragBox.x + dragBox.width * .55 + 140, dragBox.y + Math.min(28, dragBox.height * .5) + 90, { steps: 8 });
   await page.mouse.up();
-  await page.waitForTimeout(180);
+  await page.waitForTimeout(220);
 
   const afterBox = await representation.boundingBox();
   const afterPath = await relation.getAttribute('d');
@@ -86,7 +87,7 @@ try {
   assert(afterPath && afterPath !== beforePath, 'Attached relationship geometry did not update after moving its source card.');
   assert(stored.representation && Math.abs(stored.representation.x) > 50, 'Custom card position was not persisted locally.');
 
-  await page.waitForFunction(() => document.querySelectorAll('.co-label-layer .co-v2-caption').length === 20);
+  await page.waitForFunction(() => document.documentElement.dataset.coDesignLabelLayout === 'ready' && document.querySelectorAll('.co-label-layer .co-v2-caption').length === 20);
   const movedCollisions = await page.evaluate(() => {
     const labels = [...document.querySelectorAll('.co-label-layer .co-v2-caption')].map((node) => node.getBoundingClientRect());
     const cards = [...document.querySelectorAll('.co-domain, .co-core')].map((node) => node.getBoundingClientRect());
