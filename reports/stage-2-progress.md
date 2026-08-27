@@ -12,46 +12,46 @@ Verification date: 2026-08-27
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 7 |
-| Expansion resources processed | 175 |
+| Expansion resources processed | 180 |
 | Expansion relationships verified | 161 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 169 |
+| Pending expansion resources | 164 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B007-C09 passed; full B007 QA passed**. B007 is complete; B008 begins at CR000188. No stop condition was triggered.
+Latest persistence checkpoint: **B008-C01 passed**. B008 remains in progress; the next micro-batch begins at CR000193. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B008 (pending) |
-| Last completed resource | CR000187 |
+| Current logical batch | B008 (in progress) |
+| Last completed resource | CR000192 |
 | Last completed logical batch | B007 |
-| Last persistence checkpoint | B007-C09 |
-| Next resource | CR000188 |
-| Completed Stage-1 resource count | 188 |
+| Last persistence checkpoint | B008-C01 |
+| Next resource | CR000193 |
+| Completed Stage-1 resource count | 193 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 169 |
-| Completed CR IDs/ranges | CR000001–CR000187; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000188–CR000220; CR000222–CR000357 |
+| Remaining Stage-1 resource count | 164 |
+| Completed CR IDs/ranges | CR000001–CR000192; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000193–CR000220; CR000222–CR000357 |
 | Completed Stage-1 PRL assertions | 187 |
 | Pending Stage-1 PRL assertions | 144 |
 | Verified relationship records | 178 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B007 |
-| Current batch checkpoint | B007-C09 and full B007 QA passed |
+| Current batch checkpoint | B008-C01 passed |
 | Pending full batches | B008–B014 |
-| Resources completed in last checkpoint | CR000187 |
-| Resources remaining in current batch | 25 (B008 not started) |
-| Current QA status | checkpoint and full-batch QA passed |
+| Resources completed in last checkpoint | CR000188–CR000192 |
+| Resources remaining in current batch | 20 |
+| Current QA status | checkpoint passed |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `75cdc63e5a4b09baf6981f5d65f13617826da35a` |
+| Last verification checkpoint commit | `b4a38a38c0a1053e9d1fea7f01da197c7e2ae200` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set and B001–B007 must not be reprocessed. Resume at CR000188. B007 checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B007, and B008 checkpoint 01 must not be reprocessed. Resume at CR000193. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -64,7 +64,7 @@ The pilot set and B001–B007 must not be reprocessed. Resume at CR000188. B007 
 | B005 | 25 | CR000106 | CR000131 | completed | passed |
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
-| B008 | 25 | CR000188 | CR000212 | pending | pending |
+| B008 | 25 | CR000188 | CR000212 | in progress | checkpoint 01 passed |
 | B009 | 25 | CR000213 | CR000238 | pending | pending |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
@@ -228,6 +228,17 @@ The pilot set and B001–B007 must not be reprocessed. Resume at CR000188. B007 
 - CR000187 has no Stage-1 Atlas-paper assertion, so no paper-resource relationship was invented.
 - Full B007 QA passed: all 25 planned expansion resources occur exactly once, 14 of 14 Stage-1 relationship assertions are verified, 39 evidence records are unique, three URL corrections/transfers preserve stable IDs, and no new manual-review or stop condition was produced.
 - B007 is complete. Resume Stage 2 at CR000188 in B008.
+
+## Batch 008 checkpoint 01 summary
+
+- Five resources were processed: CR000188 through CR000192; four distinct GitHub repositories were pinned to exact default-branch commits and one Stage-1 duplicate identity was resolved.
+- CR000188 remains `supporting_software_or_library`: scikit-fmm is fast-marching scientific-computing software. Exact `LICENSE.txt` establishes BSD-3-Clause despite GitHub API `NOASSERTION`; formal build metadata and documentation are present, with no project citation file or standalone research dataset.
+- CR000189 is resolved from `uncertain` to `non_pinn`: FENet is a data-driven finite-element dynamics project. MIT and `environment.yml` are verified, but the pinned tree contains no code, pretrained models, or research data despite README future-release wording.
+- CR000190 is resolved from `uncertain` to `adjacent_physics_informed_ml_implementation`: DEM_TO uses deep-energy neural surrogates for topology optimization and bundles notebooks, trained models, topology designs, and result artifacts. No license or formal dependency manifest was identified.
+- VA000030 establishes that CR000191 is the exact AAF-for-PINNs canonical identity already materialized as CR000153 after VA000024 repaired the Stage-1 `AIF` typo. Metadata and PRL000312 remain on CR000153; no duplicate relationship is created.
+- VA000031 establishes that CR000192 is a distinct GitHub fork of CR000054 with its own immutable repository ID. It retains CR000192 and contains Navier-Stokes PINN code plus bundled training arrays and generation notebooks; no license, citation file, formal dependency manifest, or Atlas relationship was identified.
+- No code was executed, no external data were downloaded, and no Stage-3 normalization was performed. No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B008 remains in progress and resumes at CR000193.
 
 ## Stop conditions
 

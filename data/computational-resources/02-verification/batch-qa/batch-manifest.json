@@ -395,11 +395,21 @@
       "resource_count": 25,
       "first_resource_id": "CR000188",
       "last_resource_id": "CR000212",
-      "status": "pending",
-      "verified_records": 0,
+      "status": "in_progress",
+      "verified_records": 5,
       "manual_review_records": 0,
       "relationship_records": 0,
-      "qa_status": "pending"
+      "qa_status": "checkpoint_01_passed",
+      "verified_relationship_records": 0,
+      "bounded_unverified_relationship_records": 0,
+      "last_checkpoint": "B008-C01",
+      "next_resource_id": "CR000193",
+      "notes": [
+        "Checkpoint 01 verifies CR000188 through CR000192.",
+        "VA000030 maps exact duplicate CR000191 to canonical CR000153 without duplicating PRL000312.",
+        "VA000031 preserves CR000192 as a distinct fork of CR000054 rather than collapsing separate immutable repository identities.",
+        "No new relationship, manual-review item, or stop condition was produced."
+      ]
     },
     {
       "batch_id": "B009",
@@ -633,19 +643,19 @@
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
   "completed_batch_count": 7,
-  "expansion_resources_verified": 175,
+  "expansion_resources_verified": 180,
   "expansion_relationships_verified": 161,
   "expansion_resources_requiring_manual_review": 10,
   "last_completed_batch": "B007",
   "updated_at": "2026-08-27",
   "checkpoint": {
-    "last_completed_resource_id": "CR000187",
+    "last_completed_resource_id": "CR000192",
     "last_completed_batch_id": "B007",
     "current_logical_batch_id": "B008",
-    "last_persistence_checkpoint": "B007-C09",
-    "next_resource_id": "CR000188",
-    "completed_expansion_resource_count": 175,
-    "pending_expansion_resource_count": 169,
+    "last_persistence_checkpoint": "B008-C01",
+    "next_resource_id": "CR000193",
+    "completed_expansion_resource_count": 180,
+    "pending_expansion_resource_count": 164,
     "completed_stage1_prl_assertion_count": 187,
     "pending_stage1_prl_assertion_count": 144,
     "verified_relationship_record_count": 178,
@@ -671,10 +681,10 @@
     "current_qa_status": "passed",
     "current_scientific_review_item_count": 2,
     "current_ordinary_manual_review_resource_count": 10,
-    "last_checkpoint_commit": "75cdc63e5a4b09baf6981f5d65f13617826da35a",
+    "last_checkpoint_commit": "b4a38a38c0a1053e9d1fea7f01da197c7e2ae200",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   },
   "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1,
   "current_batch": "B008",
-  "last_persistence_checkpoint": "B007-C09"
+  "last_persistence_checkpoint": "B008-C01"
 }
