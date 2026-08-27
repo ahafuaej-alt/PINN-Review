@@ -70,7 +70,9 @@ jobs:
           node --check assets/co-design-arrange-runtime.js
           node --check assets/co-design-label-layout.js
           node --check assets/design-performance-v2.js
+          node --check assets/design-performance-v2-layout.js
           node --check scripts/audit-design-performance.mjs
+          node --check scripts/visual-qa-frameworks-contract.mjs
           node --check scripts/visual-qa-co-design-v2.mjs
           node --check scripts/visual-qa-co-design-arrange.mjs
           node --check scripts/visual-qa-design-performance-v2.mjs
@@ -119,7 +121,7 @@ jobs:
           node scripts/validate-mathematical-formulations.mjs --browser
           node scripts/validate-ui-refinements.mjs --browser
           node scripts/validate-ambient-motion.mjs --browser
-          node scripts/visual-qa-frameworks.mjs
+          node scripts/visual-qa-frameworks-contract.mjs
           node scripts/visual-qa-framework-runtime.mjs
           node scripts/visual-qa-co-design-v2.mjs
           node scripts/visual-qa-co-design-arrange.mjs
