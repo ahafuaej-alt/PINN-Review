@@ -56,20 +56,32 @@
     });
   }
 
-  function syncMobileFullMatrixVisibility() {
-    const expanded = Boolean(document.querySelector('.matrix-board-v2.dp-force-full-mobile'));
+  function setMobileFullMatrixVisibility(expanded) {
     document.querySelectorAll('.dp-table-shell').forEach((shell) => {
       if (expanded) shell.style.setProperty('visibility', 'visible', 'important');
       else shell.style.removeProperty('visibility');
     });
   }
 
+  function syncMobileFullMatrixVisibility() {
+    setMobileFullMatrixVisibility(Boolean(document.querySelector('.matrix-board-v2.dp-force-full-mobile')));
+  }
+
   function bindMobileFullMatrixVisibility() {
     if (document.documentElement.dataset.dpMobileVisibilityBound === 'true') return;
+    const button = document.querySelector('[data-dp-full-mobile]');
+    const board = button?.closest('.matrix-board-v2');
+    if (!button || !board) return;
     document.documentElement.dataset.dpMobileVisibilityBound = 'true';
-    const boards = [...document.querySelectorAll('.matrix-board-v2')];
+
+    button.addEventListener('click', () => {
+      const willExpand = !board.classList.contains('dp-force-full-mobile');
+      setMobileFullMatrixVisibility(willExpand);
+      queueMicrotask(syncMobileFullMatrixVisibility);
+    }, true);
+
     const observer = new MutationObserver(syncMobileFullMatrixVisibility);
-    boards.forEach((board) => observer.observe(board, { attributes: true, attributeFilter: ['class'] }));
+    observer.observe(board, { attributes: true, attributeFilter: ['class'] });
     syncMobileFullMatrixVisibility();
   }
 
