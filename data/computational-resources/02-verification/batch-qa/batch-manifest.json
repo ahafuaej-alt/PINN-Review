@@ -609,26 +609,31 @@
   ],
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
-  "completed_batch_count": 3,
-  "expansion_resources_verified": 75,
-  "expansion_relationships_verified": 76,
-  "expansion_resources_requiring_manual_review": 6,
-  "last_completed_batch": "B003",
+  "completed_batch_count": 5,
+  "expansion_resources_verified": 125,
+  "expansion_relationships_verified": 122,
+  "expansion_resources_requiring_manual_review": 10,
+  "last_completed_batch": "B005",
   "updated_at": "2026-08-27",
   "checkpoint": {
-    "last_completed_resource_id": "CR000080",
-    "last_completed_batch_id": "B003",
-    "next_resource_id": "CR000081",
-    "completed_expansion_resource_count": 75,
-    "pending_expansion_resource_count": 269,
+    "last_completed_resource_id": "CR000131",
+    "last_completed_batch_id": "B005",
+    "last_persistence_checkpoint": "B005",
+    "next_resource_id": "CR000132",
+    "completed_expansion_resource_count": 125,
+    "pending_expansion_resource_count": 219,
+    "completed_stage1_prl_assertion_count": 147,
+    "pending_stage1_prl_assertion_count": 184,
+    "verified_relationship_record_count": 139,
+    "not_verified_relationship_record_count": 8,
     "completed_batch_ids": [
       "B001",
       "B002",
-      "B003"
+      "B003",
+      "B004",
+      "B005"
     ],
     "pending_batch_ids": [
-      "B004",
-      "B005",
       "B006",
       "B007",
       "B008",
@@ -640,6 +645,10 @@
       "B014"
     ],
     "current_qa_status": "passed",
+    "current_scientific_review_item_count": 2,
+    "current_ordinary_manual_review_resource_count": 10,
+    "last_checkpoint_commit": "a3c5326358537e79a08ae80c855dc245c09acb77",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
-  }
+  },
+  "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1
 }

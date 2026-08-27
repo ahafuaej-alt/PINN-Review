@@ -26,17 +26,31 @@ Latest batch status: **B005 passed**. No stop condition was triggered.
 
 | Field | Value |
 |---|---|
+| Current logical batch | B006 (not started) |
 | Last completed resource | CR000131 |
-| Last completed batch | B005 |
+| Last completed logical batch | B005 |
+| Last persistence checkpoint | B005 |
 | Next resource | CR000132 |
-| Completed expansion resources | 125 |
-| Pending expansion resources | 219 |
+| Completed Stage-1 resource count | 138 |
+| Completed promoted-resource count | 1 (CR000358) |
+| Remaining Stage-1 resource count | 219 |
+| Completed CR IDs/ranges | CR000001–CR000131; CR000137; CR000145; CR000149; CR000154; CR000174; CR000184; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000132–CR000136; CR000138–CR000144; CR000146–CR000148; CR000150–CR000153; CR000155–CR000173; CR000175–CR000183; CR000185–CR000220; CR000222–CR000357 |
+| Completed Stage-1 PRL assertions | 147 |
+| Pending Stage-1 PRL assertions | 184 |
+| Verified relationship records | 139 |
+| Explicitly `not_verified` relationship records | 8 |
 | Completed batches | B001–B005 |
 | Pending batches | B006–B014 |
 | Current QA status | passed |
+| Current scientific-review items | 2 |
+| Current ordinary manual-review resources | 10 |
+| Last completed verification commit | `a3c5326358537e79a08ae80c855dc245c09acb77` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
 The pilot set (13 Stage-1 resources plus promoted CR000358) and B001–B005 must not be reprocessed. Resume at CR000132.
+
+The structured batch manifest was reconciled at this checkpoint because its top-level summary had remained at B003 even though the committed B004/B005 records and QA files were complete. The verification records and QA files were authoritative; no resource or relationship was re-verified during this metadata repair.
 
 ## Batch register
 
