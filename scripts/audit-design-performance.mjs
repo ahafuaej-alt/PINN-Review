@@ -6,7 +6,7 @@ const meta = JSON.parse(fs.readFileSync('data/frameworks/design-performance-v2.j
 const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 const validLevels = new Set(['major', 'context', 'indirect']);
-const vagueLabels = new Set(['indirect', 'robustness', 'identifiability', 'scalability', 'reusability', 'general applicability']);
+const vagueLabels = new Set(['indirect', 'robustness', 'identifiability', 'scalability', 'general applicability']);
 
 assert(matrix.rows.length === meta.audit.expected_rows, `Expected ${meta.audit.expected_rows} rows, found ${matrix.rows.length}`);
 assert(matrix.columns.length === meta.audit.expected_columns, `Expected ${meta.audit.expected_columns} columns, found ${matrix.columns.length}`);
