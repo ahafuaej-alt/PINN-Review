@@ -55,6 +55,20 @@
     const setImportant = (name, value) => board.style.setProperty(name, value, 'important');
     const clearGeometry = () => ['display', 'flex', 'width', 'min-width', 'max-width', 'height', 'min-height', 'max-height'].forEach((name) => board.style.removeProperty(name));
 
+    const ensureExtentSentinel = () => {
+      let sentinel = board.querySelector('[data-co-map-extent]');
+      if (!sentinel) {
+        sentinel = document.createElement('span');
+        sentinel.dataset.coMapExtent = 'true';
+        sentinel.setAttribute('aria-hidden', 'true');
+        sentinel.style.cssText = 'position:absolute;left:2519px;top:1799px;width:1px;height:1px;opacity:0;pointer-events:none;';
+        board.append(sentinel);
+      }
+      return sentinel;
+    };
+
+    const removeExtentSentinel = () => board.querySelector('[data-co-map-extent]')?.remove();
+
     const syncFullMapDimensions = () => {
       const expanded = board.classList.contains('force-full-map');
       if (expanded && matchMedia('(max-width: 820px)').matches) {
@@ -66,9 +80,11 @@
         setImportant('height', '1800px');
         setImportant('min-height', '1800px');
         setImportant('max-height', 'none');
+        ensureExtentSentinel();
         board.dataset.fullMapGeometry = '2520x1800';
       } else {
         clearGeometry();
+        removeExtentSentinel();
         delete board.dataset.fullMapGeometry;
       }
     };
