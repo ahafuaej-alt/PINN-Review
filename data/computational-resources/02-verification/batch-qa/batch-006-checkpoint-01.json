@@ -108,5 +108,6 @@
     ],
     "bounded_unverified_link_ids": []
   },
-  "qa_conclusion": "B006 checkpoint 01 passes. B006 remains in progress and resumes at CR000141."
+  "qa_conclusion": "B006 checkpoint 01 passes. B006 remains in progress and resumes at CR000141.",
+  "persistence_commit": "009471ae27dbbbb6f4ed340120fb87485454ca3f"
 }

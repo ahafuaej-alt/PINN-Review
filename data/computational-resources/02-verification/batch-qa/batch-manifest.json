@@ -688,7 +688,7 @@
     "current_qa_status": "checkpoint_passed",
     "current_scientific_review_item_count": 2,
     "current_ordinary_manual_review_resource_count": 10,
-    "last_checkpoint_commit": "pending branch-head assignment for B006-C01",
+    "last_checkpoint_commit": "009471ae27dbbbb6f4ed340120fb87485454ca3f",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   },
   "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1,
