@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B007",
+  "checkpoint_id": "B007-C05",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000173", "CR000175", "CR000176"],
+  "precompleted_skipped_resource_ids": ["CR000174"],
+  "next_resource_id": "CR000177",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 3,
+    "relationship_records": 1,
+    "verified_relationship_records": 1,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 4,
+    "alias_records": 1,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 2,
+    "verified_negative_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"The next three unprocessed Stage-1 resources are CR000173, CR000175, and CR000176. CR000174 was completed in the pilot and was not reprocessed."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR identifiers and PRL000165 are preserved. VA000028 repairs the CR000175 PIsNN/PINN source typo without changing resource identity."},
+    {"check":"relationship_accounting","status":"passed","detail":"The only Stage-1 paper assertion in this checkpoint, PRL000165 for Atlas paper 539, is independently verified as an official code/data relationship. CR000175 and CR000176 have no Stage-1 Atlas-paper assertions and none are invented."},
+    {"check":"repository_snapshot_pinning","status":"passed","detail":"All three resources are public GitHub repositories pinned to exact observed default-branch commits."},
+    {"check":"classification_integrity","status":"passed","detail":"CR000173 is corrected from Stage-1 non_pinn to a physics-informed EPNN implementation; CR000175 is resolved from uncertain to a physics-informed implementation; CR000176 is resolved from uncertain to supporting software/library."},
+    {"check":"license_non_inference","status":"passed","detail":"MIT is verified for CR000173, BSD-2-Clause for CR000176, and CR000175 has the verified negative finding No repository license identified at verified commit. README open-source wording is not treated as a license."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"CR000173 has requirements.txt and bundled WG synthetic data; CR000175 has README-level environment versions and case coordinate inputs but no formal manifest; CR000176 has environment.yml and no standalone dataset. No execution, archive unpacking, or Stage-3 normalization was performed."},
+    {"check":"internal_reference_rule","status":"passed","detail":"No paper-internal bibliography number was promoted to an Atlas ID. The only Atlas ID in this checkpoint is verified Stage-1 paper 539."},
+    {"check":"stop_condition_scan","status":"passed","detail":"Classification corrections, the source typo repair, license findings, and dependency/data boundaries are representable within the established schema and require no new relationship type, stable-ID policy, scientific-review item, or processing pause."}
+  ],
+  "relationship_accounting": {"stage1_link_count":1,"verified_link_ids":["PRL000165"],"bounded_unverified_link_ids":[]},
+  "qa_conclusion": "B007 checkpoint 05 passes. B007 remains in progress and resumes at CR000177."
+}
