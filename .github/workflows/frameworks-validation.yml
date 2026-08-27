@@ -12,6 +12,8 @@ on:
       - 'assets/co-design-v2-map-fixes.css'
       - 'assets/co-design-v2.map-nav.js'
       - 'assets/co-design-v2.map-nav.css'
+      - 'assets/co-design-arrange-runtime.js'
+      - 'assets/co-design-arrange.css'
       - 'data/frameworks/**'
       - 'assets/theme-init.js'
       - 'index.html'
@@ -21,6 +23,7 @@ on:
       - 'scripts/visual-qa-frameworks.mjs'
       - 'scripts/visual-qa-framework-runtime.mjs'
       - 'scripts/visual-qa-co-design-v2.mjs'
+      - 'scripts/visual-qa-co-design-arrange.mjs'
   workflow_dispatch:
 
 permissions:
@@ -38,8 +41,10 @@ jobs:
       - run: node --check assets/co-design-v2.js
       - run: node --check assets/co-design-v2-bridge.js
       - run: node --check assets/co-design-v2.map-nav.js
+      - run: node --check assets/co-design-arrange-runtime.js
       - run: node --check scripts/visual-qa-framework-runtime.mjs
       - run: node --check scripts/visual-qa-co-design-v2.mjs
+      - run: node --check scripts/visual-qa-co-design-arrange.mjs
       - run: node scripts/validate-frameworks.mjs
       - run: node scripts/validate-navigation.mjs
       - run: node scripts/validate-readme.mjs
@@ -61,6 +66,7 @@ jobs:
           node scripts/visual-qa-frameworks.mjs
           node scripts/visual-qa-framework-runtime.mjs
           node scripts/visual-qa-co-design-v2.mjs
+          node scripts/visual-qa-co-design-arrange.mjs
       - name: Upload Frameworks QA renders
         if: always()
         uses: actions/upload-artifact@v4
