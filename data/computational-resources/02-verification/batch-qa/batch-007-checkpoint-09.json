@@ -1,0 +1,84 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B007",
+  "checkpoint_id": "B007-C09",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000187"
+  ],
+  "precompleted_skipped_resource_ids": [],
+  "next_resource_id": "CR000188",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 1,
+    "resource_records": 1,
+    "availability_records": 1,
+    "github_repositories_pinned": 1,
+    "relationship_records": 0,
+    "verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 1,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 1,
+    "verified_negative_license_findings": 0,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000187 is the sole remaining unprocessed B007 resource and is represented exactly once in every applicable checkpoint table."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "CR000187 retains its Stage-1 identifier and canonical URL; no alias repair or new identity is required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "CR000187 has no Stage-1 Atlas-paper assertion; no relationship record is invented."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "The public GitHub repository is pinned to default branch main at 90ac1bfe954b93dfce9f27d1de5ae912d9a66682."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "CR000187 is resolved from uncertain to pinn_or_physics_informed_implementation using the repository's explicit paper/code description and the pinned PhysicsInformedNN implementation based on maziarraissi/PINNs."
+    },
+    {
+      "check": "license_and_citation_verification",
+      "status": "passed",
+      "detail": "MIT is verified from repository metadata and exact pinned text; README BibTeX and source documentation identify DOI 10.1109/TPEL.2022.3176468."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "No formal dependency manifest is identified; TensorFlow 1.15.0, NumPy, and SciPy are observed in source documentation/imports. Seven MAT simulation files and MATLAB generation code are present, while content inspection, execution, and normalization remain outside Stage 2."
+    },
+    {
+      "check": "source_inconsistency_preservation",
+      "status": "passed",
+      "detail": "The dataset note's six-file wording conflicts with its 0-through-6 names and the seven observed files; the discrepancy is preserved rather than silently corrected."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "Identity, classification, licensing, citation, dependency, and dataset evidence fit the established schema; no scientific-review item or stop condition is produced."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 0,
+    "verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B007 checkpoint 09 passes. B007 has processed all 25 planned expansion resources and is ready for full-batch QA."
+}
