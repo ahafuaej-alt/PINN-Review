@@ -49,7 +49,6 @@ jobs:
       - run: node --check assets/co-design-label-layout.js
       - run: node --check assets/design-performance-v2.js
       - run: node --check assets/design-performance-v2-layout.js
-      - run: node --check assets/design-performance-inspector-runtime.js
       - run: node --check scripts/audit-design-performance.mjs
       - run: node --check scripts/visual-qa-frameworks-contract.mjs
       - run: node --check scripts/visual-qa-framework-runtime.mjs
