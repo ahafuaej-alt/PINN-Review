@@ -141,7 +141,6 @@ try {
   await visibleMatrixDetail.locator('[data-inspector-section="evidence"] h3', { hasText: 'Row-level synthesis evidence' }).waitFor({ state: 'visible', timeout: 3000 });
   const matrixDetail = await visibleMatrixDetail.innerText();
   assert(matrixDetail.includes('gradient flow') && matrixDetail.includes('[517]'), 'Matrix cell inspector lost its maintained mechanism or supporting paper mapping.');
-  assert(matrixDetail.includes('Row-level synthesis evidence'), 'Matrix inspector must identify inherited row-level evidence rather than imply exact cell support.');
 
   await matrix.click('.toolbar-export summary');
   const currentPromise = matrix.waitForEvent('download');
