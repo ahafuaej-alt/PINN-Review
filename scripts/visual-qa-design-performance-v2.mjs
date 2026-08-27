@@ -66,7 +66,14 @@ try {
 
   const detail = page.locator('[data-detail]:visible').first();
   await page.locator('[data-dp-outcome="accuracy"]').click();
-  await detail.locator('h2', { hasText: 'Numerical Accuracy' }).waitFor({ state: 'visible', timeout: 3000 });
+  await page.waitForFunction(() => {
+    const visible = [...document.querySelectorAll('[data-detail]')].find((node) => {
+      const style = getComputedStyle(node);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+    const text = visible?.innerText || '';
+    return text.includes('Numerical Accuracy') && text.includes('Do not infer') && text.includes('Typical verification quantities');
+  }, null, { timeout: 3000 });
   const outcomeInspector = await detail.innerText();
   assert(outcomeInspector.includes('Numerical Accuracy') && outcomeInspector.includes('Do not infer') && outcomeInspector.includes('Typical verification quantities'), 'Outcome inspector is missing scientific scope/caution/metrics guidance.');
 
