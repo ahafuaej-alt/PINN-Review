@@ -1,0 +1,86 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B010",
+  "checkpoint_id": "B010-C03",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000249",
+    "CR000250",
+    "CR000251",
+    "CR000252",
+    "CR000253"
+  ],
+  "next_resource_id": "CR000254",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "web_resource_records": 4,
+    "available_web_resources": 1,
+    "github_repository_records": 1,
+    "direct_repository_snapshots_pinned": 0,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_or_qualified_license_findings": 0,
+    "bounded_unknown_resource_records": 5
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000249 through CR000253 are the next five unprocessed Stage-1 resources after B010-C02 and are each processed exactly once."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "All five Stage-1 CR and PRL identifiers are preserved. The CR000253 redirect ends at a Page Not Found response and is not promoted to an alias; no unsupported replacement identity is introduced for any unavailable resource."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000285 through PRL000289 are verified because the primary survey's software-download table explicitly maps Dai TrAdaBoost, Daume EasyAdapt, Duan HFA, Kulis ARC-t, and Qi TTI to the exact Stage-1 resource locations."
+    },
+    {
+      "check": "availability_and_identity_boundary",
+      "status": "passed",
+      "detail": "CR000249 returns GitHub 404; CR000250 retrieval is blocked and remains unconfirmed; CR000251 redirects to a Google sign-in gate; CR000252 is live; and CR000253 redirects to a Page Not Found response. Historical relationship verification is kept separate from current availability."
+    },
+    {
+      "check": "license_citation_dependency_dataset_boundary",
+      "status": "passed",
+      "detail": "No license or dependency metadata is inferred from unavailable or uninspected artifacts. CR000252's live citation, software links, and Office benchmark description are recorded; all inaccessible content fields remain explicit bounded unknowns."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code was executed; no authentication was attempted; no GZIP, RAR, or TAR archive was downloaded or unpacked; no external dataset was downloaded; and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The unavailable, blocked, authentication-gated, live project-page, and redirected-404 outcomes fit the established bounded-evidence schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000285",
+      "PRL000286",
+      "PRL000287",
+      "PRL000288",
+      "PRL000289"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B010 checkpoint 03 passes. B010 remains in progress and Stage 2 resumes at CR000254."
+}
