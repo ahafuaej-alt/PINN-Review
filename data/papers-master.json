@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.183",
+    "dataset_version": "2.2.184",
     "last_updated": "2026-08-28",
     "record_count": 853,
     "id_range": "1-853",
@@ -66846,11 +66846,11 @@
     {
       "id": 836,
       "title": "Reconstruction of excitation waves from mechanical deformation using physics-informed neural networks",
-      "citation": "Dermul, N.; Dierckx, H. Reconstruction of excitation waves from mechanical deformation using physics-informed neural networks. Sci. Rep 2024, 14, 16975.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Dermul, N.; Dierckx, H. Reconstruction of excitation waves from mechanical deformation using physics-informed neural networks. scientific reports 2024, 14, 16975. https://doi.org/10.1038/s41598-024-67597-3.",
+      "doi": "10.1038/s41598-024-67597-3",
+      "publisher_url": "https://www.nature.com/articles/s41598-024-67597-3",
       "venue": {
-        "name": "Sci. Rep.",
+        "name": "scientific reports",
         "type": "journal"
       },
       "year": 2024,
@@ -66861,8 +66861,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.nature.com/articles/s41598-024-67597-3",
+        "note": "links",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66875,12 +66875,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Dermul, N.; Dierckx, H",
+        "authors": "Dermul, N.; Dierckx, H.",
         "journal_abbreviation": "Sci. Rep.",
         "volume": "14",
-        "pages": "16975"
+        "article_number": "16975"
       },
       "abstract": "Non-invasive assessment of the electrical activation pattern can significantly contribute to the diagnosis and treatment of cardiac arrhythmias, due to faster and safer diagnosis, improved surgical planning and easier follow-up. One promising path is to measure the mechanical contraction via echocardiography and utilize this as an indirect way of measuring the original activation pattern. To solve this demanding inversion task, we make use of physics-informed neural networks, an upcoming methodology to solve forward and inverse physical problems governed by partial differential equations. In this study, synthetic data sets were created, consisting of 2D excitation waves coupled to an isotropic and linearly deforming elastic medium. We show that for both focal and spiral patterns, the underlying excitation waves can be reconstructed accurately. We test the robustness of the method against Gaussian noise, reduced spatial resolution and projected tri-planar data. In situations where the data quality is heavily reduced, we show how to improve the reconstruction by additional regularization on the wave speed. Our findings suggest that physics-informed neural networks hold the potential to solve sparse and noisy bio-mechanical inversion problems and may offer a pathway to non-invasive assessment of certain cardiac arrhythmias."
     },
