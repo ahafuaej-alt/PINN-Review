@@ -22496,16 +22496,16 @@
   {
     "id": 852,
     "title": "Physics-informed neural networks for modeling astrophysical shocks",
-    "citation": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N. Physics-informed neural networks for modeling astrophysical shocks. Mach. Learn. Sci. Technol 2023, 4, 035032.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Mach. Learn. Sci. Technol.",
+    "citation": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N. Physics-informed neural networks for modeling astrophysical shocks. Machine Learning: Science and Technology 2023, 4, 035032. https://doi.org/10.1088/2632-2153/acf116.",
+    "doi": "10.1088/2632-2153/acf116",
+    "publisher_url": "https://iopscience.iop.org/article/10.1088/2632-2153/acf116/meta",
+    "venue": "Machine Learning: Science and Technology",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N",
+      "authors": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N.",
       "journal_abbreviation": "Mach. Learn. Sci. Technol.",
       "volume": "4",
-      "pages": "035032"
+      "article_number": "035032"
     },
     "abstract": "Physics-informed neural networks (PINNs) are machine learning models that integrate data-based learning with partial differential equations (PDEs). In this work, for the first time we extend PINNs to model the numerically challenging case of astrophysical shock waves in the presence of a stellar gravitational field. Notably, PINNs suffer from competing losses during gradient descent that can lead to poor performance especially in physical setups involving multiple scales, which is the case for shocks in the gravitationally stratified solar atmosphere. We applied PINNs in three different setups ranging from modeling astrophysical shocks in cases with no or little data to data-intensive cases. Namely, we used PINNs (a) to determine the effective polytropic index controlling the heating mechanism of the space plasma within 1% error, (b) to quantitatively show that data assimilation is seamless in PINNs and small amounts of data can significantly increase the model’s accuracy, and (c) to solve the forward time-dependent problem for different temporal horizons. We addressed the poor performance of PINNs through an effective normalization approach by reformulating the fluid dynamics PDE system to absorb the gravity-caused variability. This led to a huge improvement in the overall model performance with the density accuracy improving between 2 and 16 times. Finally, we present a detailed critique on the strengths and drawbacks of PINNs in tackling realistic physical problems in astrophysics and conclude that PINNs can be a powerful complimentary modeling approach to classical fluid dynamics solvers.",
     "graphical_abstract": null,
@@ -22515,7 +22515,7 @@
       "United States",
       "Greece"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 853,
