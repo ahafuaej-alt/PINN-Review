@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete and added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete, and B010 checkpoint 01 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -147,5 +147,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000235 | The TensorDiffEq organization profile points to canonical repository CR000230. | Keep the profile as a distinct Stage-1 resource and do not duplicate repository metadata. |
 | CR000236, CR000237 | The Stage-1 ADCME and DeepXDE documentation hostnames contain transcription errors relative to the primary papers and live project documentation. | VA000042 and VA000043 repair the URLs without changing CR identities; canonical project metadata remain on CR000228 and CR000016. |
 | CR000238 | `https://gpytorch.ai` is the live GPyTorch project/documentation site associated with canonical repository CR000233. | PRL000099 is verified; repository license, citation, dependency, and example/test-asset metadata remain on CR000233. |
+| CR000239 | The Stage-1 NeuroDiffEq owner spelling is unavailable; Atlas paper 401 gives the accepted canonical CR000137 repository. | VA000044 preserves Stage-1 provenance and verifies PRL000100; canonical metadata are not duplicated. |
+| CR000240 | The Stage-1 NeuralPDE documentation location is legacy; current official SciML documentation identifies the NeuralPDE.jl project represented by CR000227. | VA000045 records the current documentation location and verifies PRL000101; repository metadata remain on CR000227. |
+| CR000241 | `pytorch.org` is the live project/documentation site associated with canonical PyTorch repository CR000049. | PRL000102 verified; canonical license, citation, dependency, and data/example evidence remain on CR000049. |
+| CR000242 | Stage-1 `www.sciam.com` resolves to Scientific American; Atlas paper 401 gives `www.sciann.com`, whose live documentation matches canonical SciANN CR000062. | VA000046 repairs the wrong-project URL and verifies PRL000103; CR000062 retains its canonical metadata and existing license-conflict review item. |
+| CR000243 | The Stage-1 SimNet URL uses a plural NVIDIA developer hostname; the paper-stated singular-host URL officially redirects to PhysicsNeMo. | VA000047 resolves the historical product alias to canonical CR000223 and verifies PRL000104; current product metadata remain on CR000223. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.

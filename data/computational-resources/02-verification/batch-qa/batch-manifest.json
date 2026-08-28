@@ -514,11 +514,21 @@
       "resource_count": 25,
       "first_resource_id": "CR000239",
       "last_resource_id": "CR000263",
-      "status": "pending",
-      "verified_records": 0,
+      "status": "in_progress",
+      "verified_records": 5,
       "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "relationship_records": 5,
+      "qa_status": "checkpoint_01_passed",
+      "verified_relationship_records": 5,
+      "bounded_unverified_relationship_records": 0,
+      "last_checkpoint": "B010-C01",
+      "next_resource_id": "CR000244",
+      "notes": [
+        "Checkpoint 01 verifies CR000239 through CR000243 and PRL000100 through PRL000104 from Atlas review paper 401.",
+        "VA000044 resolves the NeuroDiffCym owner typo to canonical CR000137; VA000045 records the current NeuralPDE documentation location.",
+        "VA000046 corrects the wrong-project SciANN URL, and VA000047 resolves the SimNet hostname typo and official product rename to canonical CR000223.",
+        "Canonical technical metadata remain on the established repository/project resources; no manual-review item or stop condition was produced."
+      ]
     },
     {
       "batch_id": "B011",
@@ -674,22 +684,22 @@
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
   "completed_batch_count": 9,
-  "expansion_resources_verified": 225,
-  "expansion_relationships_verified": 180,
+  "expansion_resources_verified": 230,
+  "expansion_relationships_verified": 185,
   "expansion_resources_requiring_manual_review": 10,
   "last_completed_batch": "B009",
   "updated_at": "2026-08-28",
   "checkpoint": {
-    "last_completed_resource_id": "CR000238",
+    "last_completed_resource_id": "CR000243",
     "last_completed_batch_id": "B009",
     "current_logical_batch_id": "B010",
-    "last_persistence_checkpoint": "B009-C06",
-    "next_resource_id": "CR000239",
-    "completed_expansion_resource_count": 225,
-    "pending_expansion_resource_count": 119,
-    "completed_stage1_prl_assertion_count": 206,
-    "pending_stage1_prl_assertion_count": 125,
-    "verified_relationship_record_count": 197,
+    "last_persistence_checkpoint": "B010-C01",
+    "next_resource_id": "CR000244",
+    "completed_expansion_resource_count": 230,
+    "pending_expansion_resource_count": 114,
+    "completed_stage1_prl_assertion_count": 211,
+    "pending_stage1_prl_assertion_count": 120,
+    "verified_relationship_record_count": 202,
     "not_verified_relationship_record_count": 9,
     "completed_batch_ids": [
       "B001",
@@ -712,10 +722,10 @@
     "current_qa_status": "passed",
     "current_scientific_review_item_count": 2,
     "current_ordinary_manual_review_resource_count": 10,
-    "last_checkpoint_commit": "11e6acdf448637ff5a3d31f84050a207a6923eb4",
+    "last_checkpoint_commit": "f3f5989bd6df525fdafb5e88b50e80964148a27e",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   },
   "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1,
   "current_batch": "B010",
-  "last_persistence_checkpoint": "B009-C06"
+  "last_persistence_checkpoint": "B010-C01"
 }

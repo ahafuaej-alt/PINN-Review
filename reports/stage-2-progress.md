@@ -12,46 +12,46 @@ Verification date: 2026-08-28
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 9 |
-| Expansion resources processed | 225 |
-| Expansion relationships verified | 180 |
+| Expansion resources processed | 230 |
+| Expansion relationships verified | 185 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 119 |
+| Pending expansion resources | 114 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B009-C06 passed**. B009 is complete; Stage 2 resumes with B010 at CR000239. No stop condition was triggered.
+Latest persistence checkpoint: **B010-C01 passed**. B010 is in progress and resumes at CR000244. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B010 (pending) |
-| Last completed resource | CR000238 |
+| Current logical batch | B010 (in progress) |
+| Last completed resource | CR000243 |
 | Last completed logical batch | B009 |
-| Last persistence checkpoint | B009-C06 |
-| Next resource | CR000239 |
-| Completed Stage-1 resource count | 238 |
+| Last persistence checkpoint | B010-C01 |
+| Next resource | CR000244 |
+| Completed Stage-1 resource count | 243 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 119 |
-| Completed CR IDs/ranges | CR000001–CR000238; promoted CR000358 |
-| Pending CR IDs/ranges | CR000239–CR000357 |
-| Completed Stage-1 PRL assertions | 206 |
-| Pending Stage-1 PRL assertions | 125 |
-| Verified relationship records | 197 |
+| Remaining Stage-1 resource count | 114 |
+| Completed CR IDs/ranges | CR000001–CR000243; promoted CR000358 |
+| Pending CR IDs/ranges | CR000244–CR000357 |
+| Completed Stage-1 PRL assertions | 211 |
+| Pending Stage-1 PRL assertions | 120 |
+| Verified relationship records | 202 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B009 |
-| Current batch checkpoint | B009-C06 passed; B009 complete |
+| Current batch checkpoint | B010-C01 passed |
 | Pending full batches | B010–B014 |
-| Resources completed in last checkpoint | CR000238 |
-| Resources remaining in current batch | 25 |
-| Current QA status | B009 passed; B010 pending |
+| Resources completed in last checkpoint | CR000239–CR000243 |
+| Resources remaining in current batch | 20 |
+| Current QA status | checkpoint passed; B010 in progress |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `11e6acdf448637ff5a3d31f84050a207a6923eb4` |
+| Last verification checkpoint commit | `f3f5989bd6df525fdafb5e88b50e80964148a27e` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B009, and all completed checkpoints through B009-C06 must not be reprocessed. Resume at CR000239 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B009, and all completed checkpoints through B010-C01 must not be reprocessed. Resume at CR000244 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -66,7 +66,7 @@ The pilot set, B001–B009, and all completed checkpoints through B009-C06 must 
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
 | B009 | 25 | CR000213 | CR000238 | completed | passed |
-| B010 | 25 | CR000239 | CR000263 | pending | pending |
+| B010 | 25 | CR000239 | CR000263 | in progress (5/25) | checkpoint 01 passed |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
 | B013 | 25 | CR000314 | CR000338 | pending | pending |
@@ -336,6 +336,16 @@ The pilot set, B001–B009, and all completed checkpoints through B009-C06 must 
 - Full B009 QA passed: all 25 planned expansion resources occur exactly once, all 17 Stage-1 relationship assertions are verified, evidence IDs S2E000406–S2E000430 are unique, eight new alias records plus accepted VA000002 preserve stable IDs, and no new manual-review item or stop condition was produced.
 - No third-party code was executed, no external dataset was downloaded, no archive was unpacked, and no Stage-3 normalization was performed.
 - B009 is complete. Resume Stage 2 with B010 at CR000239.
+
+## Batch 010 checkpoint 01 summary
+
+- Five resources were processed: CR000239 through CR000243. All five Stage-1 secondary-review relationships, PRL000100 through PRL000104, are verified from Atlas review paper 401 and current official project evidence.
+- VA000044 resolves the unavailable `NeuroDiffCym/neurodiffeq` owner typo to accepted canonical NeuroDiffEq resource CR000137. VA000045 records the move from the legacy NeuralPDE documentation location to current official SciML documentation associated with canonical CR000227.
+- CR000241 is the live PyTorch project/documentation site associated with canonical repository CR000049; canonical license, citation, dependency, and data/example metadata are not duplicated.
+- VA000046 corrects the Stage-1 SciANN URL from `www.sciam.com`, which resolves to Scientific American, to the paper-stated `www.sciann.com` documentation associated with canonical CR000062.
+- VA000047 corrects the Stage-1 plural NVIDIA developer hostname and resolves historical SimNet through the official redirect to PhysicsNeMo, represented canonically by CR000223.
+- No third-party code was executed, no external dataset was downloaded, no archive or model asset was unpacked, and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B010 remains in progress and resumes at CR000244.
 
 ## Stop conditions
 
