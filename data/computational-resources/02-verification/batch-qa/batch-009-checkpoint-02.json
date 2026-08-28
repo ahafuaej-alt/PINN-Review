@@ -1,0 +1,95 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B009",
+  "checkpoint_id": "B009-C02",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_sequence_start": "CR000218",
+  "checkpoint_sequence_end": "CR000222",
+  "checkpoint_resource_ids": [
+    "CR000218",
+    "CR000219",
+    "CR000220",
+    "CR000222"
+  ],
+  "precompleted_pilot_resource_ids": [
+    "CR000221"
+  ],
+  "next_resource_id": "CR000223",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 4,
+    "resource_records": 4,
+    "availability_records": 4,
+    "github_repositories_pinned": 3,
+    "web_resources_verified": 1,
+    "precompleted_pilot_resources_skipped": 1,
+    "relationship_records": 0,
+    "verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 4,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 2,
+    "verified_negative_license_findings": 1,
+    "verified_qualified_article_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 1
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "The checkpoint sequence spans CR000218 through CR000222. New B009 records cover CR000218, CR000219, CR000220, and CR000222 exactly once; mandatory-pilot CR000221 was already accepted and is deliberately not duplicated. B009 remains in progress."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "All four Stage-1 CR identifiers are unchanged. No alias or new resource identity is required, and the existing CR000221 pilot identity is reused without a second verification record."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "The four newly processed resources have no Stage-1 Atlas-paper assertions, so no PRL is created. MRD000016 and PD000011 retain CR000222 as a related-paper candidate from the MULTIPINN context for possible future Atlas reference review, not a current Atlas relationship."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "Three public GitHub repositories are pinned to exact default-branch commits. The ScienceDirect article identity is verified from the exact PII, DOI, and official publisher metadata; the direct automated-fetch restriction is preserved as a bounded access limitation."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "CR000218 is resolved from uncertain to a digital-book/tutorial landing collection; CR000219 and CR000220 remain tutorial/collection resources; CR000222 is a research-publication artifact rather than a software implementation or current Atlas paper relationship."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "CR000219 is MIT and CR000220 repository content is CC-BY-4.0. CR000218 has a verified negative license finding. CR000222 is publisher-labeled open access under a Creative Commons license, but the exact variant was not exposed in accessible metadata and remains NOASSERTION rather than inferred."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "CR000219 dependencies are documented without a formal manifest; CR000220 parser manifests are maintenance tooling; CR000218 has no executable project manifest; dependencies are not applicable to CR000222 as an article record. Illustrations, heterogeneous tutorial/CFD data and models, a bibliography, and article metadata are classified without execution or invention of a separate dataset."
+    },
+    {
+      "check": "primary_paper_and_internal_reference_rule",
+      "status": "passed",
+      "detail": "CR000222's own DOI and bibliographic metadata identify that resource but do not create an Atlas reference ID. Project/book citations and bibliography entries remain resource metadata and are not promoted to Atlas-paper relationships."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The precompleted-pilot skip, publication-candidate boundary, scoped license findings, archive state, and static artifact classifications fit the established schema. No new relationship type, stable-ID rule, scientific-review item, ordinary manual-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 0,
+    "verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 checkpoint 02 passes. B009 remains in progress and Stage 2 resumes at CR000223."
+}
