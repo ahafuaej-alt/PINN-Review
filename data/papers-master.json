@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.176",
+    "dataset_version": "2.2.177",
     "last_updated": "2026-08-28",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 97,
+      "legacy_realm_year_override_count": 96,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -41487,31 +41487,28 @@
     {
       "id": 510,
       "title": "NeuroDiffEq: A Python package for solving differential equations with neural networks",
-      "citation": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M. NeuroDiffEq: A Python package for solving differential equations with neural networks. Journal of open source software 1931, 5, 46. https://doi.org/10.21105/joss.01931.",
+      "citation": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M. NeuroDiffEq: A Python package for solving differential equations with neural networks. Journal of open source software 2020, 5, 46. https://doi.org/10.21105/joss.01931.",
       "doi": "10.21105/joss.01931",
       "publisher_url": "https://doi.org/10.21105/joss.01931",
       "venue": {
         "name": "Journal of open source software",
         "type": "journal"
       },
-      "year": 1931,
+      "year": 2020,
       "access": "Open access",
       "countries": [
         "United States",
         "China",
         "Italy"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://joss.theoj.org/papers/10.21105/joss.01931",
-        "note": "info",
+        "evidence_url": "https://doi.org/10.21105/joss.01931",
+        "note": "2020 change year",
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-28",
+      "last_updated": "2026-08-28",
       "abstract": "Differential equations underpin modeling in many areas of science and engineering, yet most problems of practical interest do not admit closed-form solutions and are traditionally treated with numerical time–space discretization schemes such as FDM, FVM, FEM, and spectral methods. These classical approaches are efficient and well-studied, but their expressivity is constrained by the underlying function representation, motivating the use of artificial neural networks as universal function approximators for solving ordinary and partial differential equations. We present NeuroDiffEq, a Python package built on PyTorch that formulates differential equation solution as an optimization problem in which the residual of the governing equations is minimized over the parameters of a neural network ansatz. The software supports systems of nonlinear ODEs and canonical PDEs, including the heat and Poisson equations in Cartesian domains with up to two spatial dimensions, and enforces initial and boundary conditions exactly via trial-function transformations of the neural network output. NeuroDiffEq has already been applied to investigate convergence properties of neural-network solvers and to tackle differential equations arising in general relativity, and is being actively extended to handle three-dimensional domains and more complex geometrie",
       "bibliographic": {
         "authors": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M.",
