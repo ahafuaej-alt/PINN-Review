@@ -12,46 +12,46 @@ Verification date: 2026-08-28
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 9 |
-| Expansion resources processed | 235 |
-| Expansion relationships verified | 190 |
+| Expansion resources processed | 240 |
+| Expansion relationships verified | 195 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 109 |
+| Pending expansion resources | 104 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B010-C02 passed**. B010 is in progress and resumes at CR000249. No stop condition was triggered.
+Latest persistence checkpoint: **B010-C03 passed**. B010 is in progress and resumes at CR000254. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B010 (in progress) |
-| Last completed resource | CR000248 |
+| Last completed resource | CR000253 |
 | Last completed logical batch | B009 |
-| Last persistence checkpoint | B010-C02 |
-| Next resource | CR000249 |
-| Completed Stage-1 resource count | 248 |
+| Last persistence checkpoint | B010-C03 |
+| Next resource | CR000254 |
+| Completed Stage-1 resource count | 253 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 109 |
-| Completed CR IDs/ranges | CR000001–CR000248; promoted CR000358 |
-| Pending CR IDs/ranges | CR000249–CR000357 |
-| Completed Stage-1 PRL assertions | 216 |
-| Pending Stage-1 PRL assertions | 115 |
-| Verified relationship records | 207 |
+| Remaining Stage-1 resource count | 104 |
+| Completed CR IDs/ranges | CR000001–CR000253; promoted CR000358 |
+| Pending CR IDs/ranges | CR000254–CR000357 |
+| Completed Stage-1 PRL assertions | 221 |
+| Pending Stage-1 PRL assertions | 110 |
+| Verified relationship records | 212 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B009 |
-| Current batch checkpoint | B010-C02 passed |
+| Current batch checkpoint | B010-C03 passed |
 | Pending full batches | B010–B014 |
-| Resources completed in last checkpoint | CR000244–CR000248 |
-| Resources remaining in current batch | 15 |
+| Resources completed in last checkpoint | CR000249–CR000253 |
+| Resources remaining in current batch | 10 |
 | Current QA status | checkpoint passed; B010 in progress |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `bdd1fd20f1da2f51ca0cf74a1a0c64e70f1f5379` |
+| Last verification checkpoint commit | `26639773cee4fa9e48ae4064095cefaac932e6f5` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B009, and all completed checkpoints through B010-C02 must not be reprocessed. Resume at CR000249 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B009, and all completed checkpoints through B010-C03 must not be reprocessed. Resume at CR000254 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -66,7 +66,7 @@ The pilot set, B001–B009, and all completed checkpoints through B010-C02 must 
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
 | B009 | 25 | CR000213 | CR000238 | completed | passed |
-| B010 | 25 | CR000239 | CR000263 | in progress (10/25) | checkpoint 02 passed |
+| B010 | 25 | CR000239 | CR000263 | in progress (15/25) | checkpoint 03 passed |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
 | B013 | 25 | CR000314 | CR000338 | pending | pending |
@@ -357,6 +357,17 @@ The pilot set, B001–B009, and all completed checkpoints through B010-C02 must 
 - VA000049 records the official redirect of CR000248 to Yin Zhu's current HKUST profile. The survey cites the profile in its software-download appendix, and the live page identifies the Heterogeneous Transfer Learning paper and links `htl4ic.zip`. The archive was not downloaded or unpacked, so archive-internal license and dependency fields remain bounded unknowns.
 - No third-party code, ROM, binary, model, or test was executed; no archive was unpacked; no external dataset or weight was downloaded; and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
 - B010 remains in progress and resumes at CR000249.
+
+## Batch 010 checkpoint 03 summary
+
+- Five resources were processed: CR000249 through CR000253. The primary transfer-learning survey's software-download table explicitly maps all five Stage-1 locations, verifying PRL000285 through PRL000289.
+- CR000249's `BoChen90/machine-learning-matlab` repository and survey-linked `TrAdaBoost.m` path now return 404. The historical relationship remains verified; current repository snapshot, license, dependency, citation, and dataset fields remain bounded unknowns.
+- CR000250 is the exact EasyAdapt compressed Perl-script endpoint cited by both the survey and author paper. Live retrieval was blocked before an HTTP result could be established, so availability and artifact-internal fields are not inferred.
+- CR000251 is the survey- and author-paper-linked HFA RAR archive. It currently redirects to a Google sign-in gate; no authentication was attempted and the archive was not downloaded or unpacked.
+- CR000252 is a live UMass Lowell domain-adaptation project page. It describes the surveyed Kulis ARC-t method, cites the paper, links code and further software, and documents the Office benchmark with 4,652 images across 31 categories and three domains.
+- CR000253's historical UCF publication URL redirects to `cecs.ucf.edu` and ends on a Page Not Found response. The failed location is not promoted as an alias, while the survey's exact mapping verifies the historical Qi TTI relationship.
+- No third-party code was executed; no authentication was attempted; no GZIP, RAR, or TAR archive was downloaded or unpacked; no external dataset was downloaded; and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B010 remains in progress and resumes at CR000254.
 
 ## Stop conditions
 
