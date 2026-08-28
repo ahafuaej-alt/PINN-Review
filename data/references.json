@@ -16192,7 +16192,7 @@
   {
     "id": 609,
     "title": "A Hard-Constraint Wide-Body Physics-Informed Neural Network Model for Solving Multiple Cases in Forward Problems for Partial Differential Equations",
-    "citation": "Chen, S.; Liu, Z.; Zhang, W.; Yang, J. A Hard-Constraint Wide-Body Physics-Informed Neural Network Model for Solving Multiple Cases in Forward Problems for Partial Differential Equations. Applied Sciences 2023, 14, 189. https://doi.org/10.3390/app14010189.",
+    "citation": "Chen, S.; Liu, Z.; Zhang, W.; Yang, J. A Hard-Constraint Wide-Body Physics-Informed Neural Network Model for Solving Multiple Cases in Forward Problems for Partial Differential Equations. Applied Sciences 2024, 14, 189. https://doi.org/10.3390/app14010189.",
     "doi": "10.3390/app14010189",
     "publisher_url": "https://www.mdpi.com/2076-3417/14/1/189",
     "venue": "Applied Sciences",
@@ -16209,12 +16209,12 @@
     },
     "abstract": "In the fields of physics and engineering, it is crucial to understand phase transition dynamics. This field involves fundamental partial differential equations (PDEs) such as the Allen–Cahn, Burgers, and two-dimensional (2D) wave equations. In alloys, the evolution of the phase transition interface is described by the Allen–Cahn equation. Vibrational and wave phenomena during phase transitions are modeled using the Burgers and 2D wave equations. The combination of these equations gives comprehensive information about the dynamic behavior during a phase transition. Numerical modeling methods such as finite difference method (FDM), finite volume method (FVM) and finite element method (FEM) are often applied to solve phase transition problems that involve many partial differential equations (PDEs). However, physical problems can lead to computational complexity, increasing computational costs dramatically. Physics-informed neural networks (PINNs), as new neural network algorithms, can integrate physical law constraints with neural network algorithms to solve partial differential equations (PDEs), providing a new way to solve PDEs in addition to the traditional numerical modeling methods. In this paper, a hard-constraint wide-body PINN (HWPINN) model based on PINN is proposed. This model improves the effectiveness of the approximation by adding a wide-body structure to the approximation neural network part of the PINN architecture. A hard constraint is used in the physically driven part instead of the traditional practice of PINN constituting a residual network with boundary or initial conditions. The high accuracy of HWPINN for solving PDEs is verified through numerical experiments. One-dimensional (1D) Allen–Cahn, one-dimensional Burgers, and two-dimensional wave equation cases are set up for numerical experiments. The properties of the HWPINN model are inferred from the experimental data. The solution predicted by the model is compared with the FDM solution for evaluating the experimental error in the numerical experiments. HWPINN shows great potential for solving the PDE forward problem and provides a new approach for solving PDEs.",
     "graphical_abstract": null,
-    "year": 2023,
+    "year": 2024,
     "access": "Open access",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 610,
