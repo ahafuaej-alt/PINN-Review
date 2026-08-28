@@ -22181,16 +22181,17 @@
   {
     "id": 839,
     "title": "Physics-Informed Neural Networks A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing",
-    "citation": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q. Physics-Informed Neural Networks A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing. Frontiers Toward Next-Generation Scientific Computing. Appl. Sci 2025, 15, 92.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Frontiers Toward Next-Generation Scientific Computing. Appl. Sci.",
+    "citation": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q. Physics-Informed Neural Networks A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing. Applied Sciences 2025, 15, 8092. https://doi.org/10.3390/app15148092.",
+    "doi": "10.3390/app15148092",
+    "publisher_url": "https://www.mdpi.com/2076-3417/15/14/8092",
+    "venue": "Applied Sciences",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q",
+      "authors": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q.",
       "journal_abbreviation": "Frontiers Toward Next-Generation Scientific Computing. Appl. Sci.",
       "volume": "15",
-      "pages": "92"
+      "issue": "14",
+      "pages": "8092"
     },
     "abstract": "Physics-informed neural networks (PINNs) have emerged as a transformative methodology integrating deep learning with scientific computing. This review establishes a threedimensional analytical framework to systematically decode PINNs’ development through methodological innovation, theoretical breakthroughs, and cross-disciplinary convergence. The contributions include threefold: First, identifying the co-evolutionary path of algorithmic architectures from adaptive optimization (neural tangent kernel-guided weighting achieving 230% convergence acceleration in Navier-Stokes solutions) to hybrid numericaldeep learning integration (5× speedup via domain decomposition) and second, constructing bidirectional theory-application mappings where convergence analysis (operator approximation theory) and generalization guarantees (Bayesian-physical hybrid frameworks) directly inform engineering implementations, as validated by 72% cost reduction compared to FEM in high-dimensional spaces (p < 0.01, n = 15 benchmarks). Third, pioneering cross-domain knowledge transfer through application-specific architectures: TFE-PINN for turbulent flows (5.12 ± 0.87% error in NASA hypersonic tests), ReconPINN for medical imaging (△SSIM = +0.18 ± 0.04 on multi-institutional MRI), and SeisPINN for seismic systems (0.52 ± 0.18 km localization accuracy). We further present a technological roadmap highlighting three critical directions for PINN 2.0: neuro-symbolic, federated physics learning, and quantum-accelerated optimization. This work provides methodological guidelines and theoretical foundations for next-generation scientific machine learning systems.",
     "graphical_abstract": null,
@@ -22199,7 +22200,7 @@
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 840,
