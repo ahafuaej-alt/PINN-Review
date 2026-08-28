@@ -22473,16 +22473,16 @@
   {
     "id": 851,
     "title": "Hydrogen jet and diffusion modeling by physics-informed graph neural network",
-    "citation": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G. Hydrogen jet and diffusion modeling by physics-informed graph neural network. Modeling by Physics-Informed Graph Neural Network. Renew. Sustain. Energy Rev 2025, 207, 114898.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Modeling by Physics-Informed Graph Neural Network. Renew. Sustain. Energy Rev.",
+    "citation": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G. Hydrogen jet and diffusion modeling by physics-informed graph neural network. Renewable and Sustainable Energy Reviews 2025, 207, 114898. https://doi.org/10.1016/j.rser.2024.114898.",
+    "doi": "10.1016/j.rser.2024.114898",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032124006245",
+    "venue": "Renewable and Sustainable Energy Reviews",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G",
-      "journal_abbreviation": "Modeling by Physics-Informed Graph Neural Network. Renew. Sustain. Energy Rev.",
+      "authors": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G.",
+      "journal_abbreviation": "Renewable and Sustainable Energy Reviews",
       "volume": "207",
-      "pages": "114898"
+      "article_number": "114898"
     },
     "abstract": "Renewable Power-to-Hydrogen (P2H2) system is an emerging decarbonization strategy for achieving global carbon neutrality. However, the propensity of hydrogen to leak and diffuse from the P2H2 facility poses great challenges to scaling up and safe applications. Accurate and efficient prediction of hydrogen jet and diffusion is critical to ensure the safety and efficacy of P2H2 system. Deep learning methods have shown promise in predicting gas jet and diffusion, but their generalization is limited, because of insufficient simulation data and excluding physical laws during the training process. This study develops a physics-informed graph neural network (Physics\\_GNN) for hydrogen jet and diffusion prediction using sparse sensor data. Graph network is applied to model the spatial dependency between sensor data and governing equations, so the hydrogen jet and diffusion is immediately solved at each graph node. The computed residuals are then applied to constrain the training process of the graph network. Experimental data of subsonic and under-expanded hydrogen jet and diffusion are applied to validate the model. Results demonstrated Physics\\_GNN exhibits 1000 times higher prediction accuracy compared to state-of-the-art physics-informed neural network and 100 times faster than CFD simulation. It enables accurate and rapid prediction of hydrogen jet and diffusion concentration and velocity, supporting safety design, operation management and rulemaking of P2H2 system in future.",
     "graphical_abstract": null,
@@ -22491,7 +22491,7 @@
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 852,
