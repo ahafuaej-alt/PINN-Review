@@ -8431,7 +8431,7 @@
   {
     "id": 315,
     "title": "Look-ahead Dispatch of Power Systems Based on Linear Alternating Current Optimal Power Flow Framework with Nonlinear Frequency Constraints Using Physics-informed Neural Networks",
-    "citation": "Sun, G.; Wang, Q.; Chen, S.; Wei, Z.; Zang, H. Look-ahead Dispatch of Power Systems Based on Linear Alternating Current Optimal Power Flow Framework with Nonlinear Frequency Constraints Using Physics-informed Neural Networks. Journal of Modern Power Systems and Clean Energy 2024, 13, 778-790. https://doi.org/10.35833/MPCE.2024.000452.",
+    "citation": "Sun, G.; Wang, Q.; Chen, S.; Wei, Z.; Zang, H. Look-ahead Dispatch of Power Systems Based on Linear Alternating Current Optimal Power Flow Framework with Nonlinear Frequency Constraints Using Physics-informed Neural Networks. Journal of Modern Power Systems and Clean Energy 2025, 13, 778-790. https://doi.org/10.35833/MPCE.2024.000452.",
     "doi": "10.35833/MPCE.2024.000452",
     "publisher_url": "https://ieeexplore.ieee.org/document/10640363",
     "venue": "Journal of Modern Power Systems and Clean Energy",
@@ -8447,12 +8447,12 @@
     },
     "abstract": "The increasing penetration of renewable energy resources degrades the frequency stability of power systems. The present work addresses this issue by proposing a look-ahead dispatch model of power systems based on a linear alternating current optimal power flow framework with nonlinear frequency constraints. Meanwhile, the poor efficiency for solving this formulation is addressed by introducing a physics-informed neural network (PINN) to predict key frequency-control parameter values accurately. The PINN ensures that the learned results are applicable to the original physical frequency dynamics model, and applying the predicted parameter values enables the resulting dispatch model to be solved quickly and efficiently using readily available commercial solvers. The feasibility and advantages of the proposed model are demonstrated by the results of numerical computations applied to a modified IEEE 118-bus test system.",
     "graphical_abstract": null,
-    "year": 2024,
+    "year": 2025,
     "access": "Subscription",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 316,
