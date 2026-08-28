@@ -22376,16 +22376,16 @@
   {
     "id": 847,
     "title": "Physics-informed explainable encoder-decoder deep learning for predictive estimation of building carbon emissions",
-    "citation": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y. Physics-informed explainable encoder-decoder deep learning for predictive estimation of building carbon emissions. Renew. Sustain. Energy Rev 2025, 213, 115478.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Renew. Sustain. Energy Rev.",
+    "citation": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y. Physics-informed explainable encoder-decoder deep learning for predictive estimation of building carbon emissions. Renewable and Sustainable Energy Reviews 2025, 213, 115478. https://doi.org/10.1016/j.rser.2025.115478.",
+    "doi": "10.1016/j.rser.2025.115478",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032125001510",
+    "venue": "Renewable and Sustainable Energy Reviews",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y",
+      "authors": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y.",
       "journal_abbreviation": "Renew. Sustain. Energy Rev.",
       "volume": "213",
-      "pages": "115478"
+      "article_number": "115478"
     },
     "abstract": "Building decarbonization is beneficial to improve energy efficiency and mitigate climate change worldwide, and it is necessary to accurately investigate building carbon emissions and identify the potential factors. A crucial challenge is that pioneer studies rarely explore the correlations between controllable parameters and building carbon emissions and are unable to estimate carbon emissions comprehensively. In this context, this work proposes a physics-informed encoder-decoder framework for predictive carbon emissions estimation. The input variables are transformed into sequences to extract essential features and time information in the encoder, where the decoder receives the sequence and makes a prediction. Simultaneously, the control-oriented physical laws are explored and integrated to update the conventional loss function. The proposed model has been applied to a high-rise commercial building in China. Results reveal that: (1) The model sees a significant prediction improvement by 9.24 % after considering physical laws and shows outstanding robustness under five dataset conditions; (2) The R2 for carbon emissions prediction is 0.963, while the accuracy for anomaly detection is 0.963; (3) Historical carbon emissions, supply water temperature and system operation status are the critical factors affecting carbon emissions. The proposed physics-informed deep learning model solves the performance dependencies on dataset size and can be directly used for control-oriented building modeling and decarbonization optimization.",
     "graphical_abstract": null,
@@ -22394,7 +22394,7 @@
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 848,
