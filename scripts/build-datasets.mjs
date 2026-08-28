@@ -33,7 +33,7 @@ export const generateDatasets = ({ check = false } = {}) => {
     countries: generated.realm.metadata.country_count,
     years: generated.realm.metadata.year_count,
     collaboration_pairs: generated.realm.metadata.collaboration_pair_count,
-    legacy_realm_year_overrides: validation.warnings.length,
+    publication_year_source: 'papers-master.json#paper.year',
     outputs: Object.values(outputs)
   };
 };

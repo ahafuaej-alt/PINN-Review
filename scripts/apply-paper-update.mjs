@@ -57,10 +57,6 @@ for (const [field, rawValue] of Object.entries(update.changes)) {
 }
 
 if ('doi' in update.changes && !('publisher_url' in update.changes) && paper.doi) paper.publisher_url = `https://doi.org/${paper.doi}`;
-if ('year' in update.changes && !update.options?.preserve_realm_year_override) {
-  if (paper.overrides) delete paper.overrides.realm_year;
-  if (paper.overrides && !Object.keys(paper.overrides).length) delete paper.overrides;
-}
 const citationDrivingFields = ['title', 'doi', 'publisher_url', 'venue', 'year', 'bibliographic'];
 if (citationMode === 'automatic' && !paper.bibliographic) paper.bibliographic = legacyBibliographic;
 const generatedAutomaticCitation = citationMode === 'automatic' ? formatMdpiCitation(paper) : '';
@@ -92,7 +88,6 @@ else if (citationMode === 'manual' && 'citation' in update.changes) paper.proven
 next.metadata.dataset_version = bumpPatchVersion(master.metadata.dataset_version);
 next.metadata.last_updated = today;
 next.metadata.record_count = next.papers.length;
-next.metadata.maintenance.legacy_realm_year_override_count = next.papers.filter((record) => record.overrides?.realm_year !== undefined).length;
 
 const masterValidation = validateMaster(next, mapping, worldMap);
 if (masterValidation.errors.length) throw new Error(masterValidation.errors.join('\n'));

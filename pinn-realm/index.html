@@ -28,7 +28,7 @@
       <h1>Where PINN research<br><span class="gradient">meets across borders.</span></h1>
       <p class="lede">Explore country-level publication patterns and international affiliation co-occurrence across the complete review bibliography. Every evidence ID links to its full reference record.</p>
       <div class="evidence-actions"><a class="button primary" href="#realm-workspace">Explore the map <span aria-hidden="true">↓</span></a><button class="button" type="button" data-open-methodology>Methodology</button><a class="button" href="../data/pinn-realm.json" download>Download realm data</a></div>
-      <div class="source-note"><strong>Evidence policy</strong><span>Country names and years reproduce the standardized <em>papers countries and year_2.md</em> source. Titles are joined from the Atlas References dataset by paper ID; no title is inferred.</span></div>
+      <div class="source-note"><strong>Evidence policy</strong><span>Country associations follow the standardized affiliation-country source. Publication year is generated directly from the canonical <code>paper.year</code> field in <code>papers-master.json</code>, the same source used by References; PINN Realm does not read or scrape rendered References HTML.</span></div>
     </div></section>
 
     <section class="realm-page" id="realm-workspace"><div class="container realm-container">
@@ -107,6 +107,7 @@
     <h2 id="methodology-title">How PINN Realm interprets country records</h2>
     <div class="method-grid">
       <div><strong>Country association</strong><p>A country association is derived from the countries reported for author affiliations in the standardized source dataset.</p></div>
+      <div><strong>Publication year</strong><p>Every Realm paper year comes directly from the canonical <code>paper.year</code> field in <code>papers-master.json</code>. This same value drives References, Realm filters, annual counts, country/year profiles, and cooperation analyses.</p></div>
       <div><strong>National paper</strong><p>A paper containing one unique country is classified as national. Country totals include both national and internationally coauthored papers.</p></div>
       <div><strong>International paper</strong><p>International cooperation is inferred when at least two countries occur in the same paper record. Every unique unordered country pair receives that paper once.</p></div>
       <div><strong>Interpretation limit</strong><p>Country co-occurrence in affiliations does not necessarily prove direct collaboration between specific institutions or every listed author.</p></div>

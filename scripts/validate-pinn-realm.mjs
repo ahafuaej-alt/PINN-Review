@@ -4,11 +4,15 @@ import process from 'node:process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const realm = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/pinn-realm.json'), 'utf8'));
+const master = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/papers-master.json'), 'utf8'));
+const referencesMetadata = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/references-metadata.json'), 'utf8'));
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/world-map.json'), 'utf8'));
 const references = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/references.json'), 'utf8'));
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
+const hasObsoleteYearMetadata = (value) => Object.keys(value || {}).some((key) => /legacy/i.test(key) && /year/i.test(key));
 const paperById = new Map(realm.papers.map((paper) => [paper.id, paper]));
+const masterById = new Map(master.papers.map((paper) => [paper.id, paper]));
 const referenceById = new Map(references.map((reference) => [reference.id, reference]));
 const countryByIso3 = new Map(realm.countries.map((country) => [country.iso3, country]));
 const mapIds = new Set(map.locations.map((location) => location.map_id));
@@ -43,11 +47,19 @@ check([...anchors.values()].every((anchor) => anchor && Number.isFinite(anchor.x
 check(anchors.get('250')?.x > 480 && anchors.get('250')?.y < 150, 'France collaboration anchor is not on metropolitan France');
 check(anchors.get('643')?.x > 600, 'Russia collaboration anchor is not on the main Eurasian landmass');
 
+check(master.papers.length === 853, `expected 853 master papers, found ${master.papers.length}`);
+check(masterById.size === 853, 'master paper IDs are not unique');
+check(master.papers.every((paper) => paper.overrides === undefined), 'obsolete master overrides remain active');
+check(!hasObsoleteYearMetadata(master.metadata.maintenance), 'obsolete master legacy-year metadata remains active');
+check(!hasObsoleteYearMetadata(realm.metadata), 'obsolete Realm legacy-year metadata remains active');
+check(!hasObsoleteYearMetadata(referencesMetadata), 'obsolete References legacy-year metadata remains active');
 check(realm.papers.length === 853, `expected 853 papers, found ${realm.papers.length}`);
 check(new Set(realm.papers.map((paper) => paper.id)).size === 853, 'paper IDs are not unique');
 check(realm.countries.length === 63, `expected 63 mapped countries, found ${realm.countries.length}`);
 check(realm.collaborations.length === realm.metadata.collaboration_pair_count, 'collaboration-pair metadata is inconsistent');
 check(realm.papers.every((paper) => referenceById.get(paper.id)?.title === paper.title), 'one or more paper titles do not match the References dataset');
+const publicationYearMismatches = realm.papers.filter((paper) => masterById.get(paper.id)?.year !== paper.year || referenceById.get(paper.id)?.year !== paper.year);
+check(publicationYearMismatches.length === 0, `publication years diverge from canonical master for IDs: ${publicationYearMismatches.map((paper) => paper.id).join(', ')}`);
 check(realm.countries.every((country) => mapIds.has(country.map_id)), 'one or more mapped countries lack world-map geometry');
 check(realm.collaborations.every((pair) => pair.a < pair.b && pair.a !== pair.b), 'collaboration pairs are not canonical unordered non-self pairs');
 
@@ -122,5 +134,9 @@ console.log(JSON.stringify({
   years_tested: realm.metadata.years.length + 1,
   collaboration_pairs: realm.collaborations.length,
   reference_titles_matched: realm.papers.length,
-  map_geometries: map.locations.length
+  map_geometries: map.locations.length,
+  publication_year_ids_checked: realm.papers.length,
+  publication_year_matches: realm.papers.length - publicationYearMismatches.length,
+  publication_year_mismatches: publicationYearMismatches.length,
+  active_year_overrides: 0
 }, null, 2));

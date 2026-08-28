@@ -2,6 +2,26 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "publication-year-source-2026-08-29",
+      "version": "2.3.0",
+      "date": "2026-08-29",
+      "paper_id": null,
+      "changed_fields": [
+        "publication year architecture"
+      ],
+      "reason": "Unified publication year on the canonical papers-master.json paper.year field for References, PINN Realm, and all Realm year-dependent analytics.",
+      "evidence": {
+        "url": null,
+        "note": "No canonical publication-year values were changed; obsolete Realm-specific year overrides were removed."
+      },
+      "impact": {
+        "canonical_year_values_changed": 0,
+        "obsolete_year_overrides_removed": 89,
+        "derived_realm_years_recomputed": 853,
+        "publication_year_source": "papers-master.json#paper.year"
+      }
+    },
+    {
       "change_id": "paper-799-2026-08-28-2.2.199",
       "version": "2.2.199",
       "date": "2026-08-28",

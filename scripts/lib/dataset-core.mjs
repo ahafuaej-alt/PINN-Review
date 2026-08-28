@@ -44,7 +44,6 @@ export const inferVenueType = (name = '') => {
   return 'journal';
 };
 
-export const effectiveRealmYear = (paper) => paper?.overrides?.realm_year ?? paper.year;
 
 const canonicalPair = (first, second) => [first, second].sort();
 
@@ -72,7 +71,7 @@ export const validateMaster = (master, countryMapping, worldMap = null) => {
     add(Number.isInteger(paper.id) && paper.id >= 1 && paper.id <= EXPECTED_RECORDS, `${label} has an invalid ID`);
     add(typeof paper.title === 'string' && paper.title.trim(), `${label} has no title`);
     add(typeof paper.citation === 'string' && paper.citation.trim(), `${label} has no citation`);
-    add(paper.year === null || (Number.isInteger(paper.year) && paper.year >= 1800 && paper.year <= 2100), `${label} has an invalid publication year`);
+    add(Number.isInteger(paper.year) && paper.year >= 1800 && paper.year <= 2100, `${label} has an invalid publication year`);
     add(typeof paper.venue?.name === 'string' && paper.venue.name.trim(), `${label} has no venue name`);
     add(VENUE_TYPES.includes(paper.venue?.type), `${label} has an invalid venue type`);
     add(ACCESS_VALUES.includes(paper.access), `${label} has an invalid access value`);
@@ -91,10 +90,7 @@ export const validateMaster = (master, countryMapping, worldMap = null) => {
       try { add(new URL(paper.publisher_url).protocol === 'https:', `${label} publisher URL must use HTTPS`); }
       catch { errors.push(`${label} has an invalid publisher URL`); }
     }
-    if (paper.overrides?.realm_year !== undefined) {
-      add(Number.isInteger(paper.overrides.realm_year) && paper.overrides.realm_year >= 1800 && paper.overrides.realm_year <= 2100, `${label} has an invalid Realm year override`);
-      warnings.push(`${label} retains legacy Realm year ${paper.overrides.realm_year} instead of bibliography year ${paper.year ?? 'unknown'}`);
-    }
+    add(paper.overrides === undefined, `${label} contains obsolete overrides; publication year must use paper.year`);
     if (paper.bibliographic !== undefined) {
       add(paper.bibliographic && typeof paper.bibliographic === 'object' && !Array.isArray(paper.bibliographic), `${label} bibliographic metadata must be an object`);
       if (paper.bibliographic && typeof paper.bibliographic === 'object') {
@@ -125,7 +121,6 @@ export const validateMaster = (master, countryMapping, worldMap = null) => {
       }
     }
     if (paper.provenance?.citation_mode === 'automatic') add(paper.citation === formatMdpiCitation(paper), `${label} automatic MDPI citation is stale`);
-    add(Number.isInteger(effectiveRealmYear(paper)), `${label} has no effective year for PINN Realm`);
   }
   return { errors, warnings };
 };
@@ -174,13 +169,13 @@ export const buildReferencesMetadata = (master, references) => {
     source_document: master.metadata.sources.bibliography,
     country_source: master.metadata.sources.countries,
     canonical_master: 'papers-master.json',
-    legacy_realm_year_overrides: master.papers.filter((paper) => paper.overrides?.realm_year !== undefined).length,
+    publication_year_source: 'papers-master.json#paper.year',
     display_style: 'MDPI ACS reference style',
     canonical_data_url: 'https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.json',
     reference_register_url: 'https://ahafuaej-alt.github.io/PINN-Review/references/',
     dataset_manager_url: 'https://ahafuaej-alt.github.io/PINN-Review/dataset-manager/',
     available_client_exports: ['BibTeX', 'RIS', 'EndNote', 'Zotero-compatible RIS', 'CSV'],
-    data_quality_policy: 'Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Public reference, geography, analytics, filter, and export datasets are generated from that master. Unresolved legacy year disagreements remain explicit overrides until a sourced correction resolves them.',
+    data_quality_policy: 'Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Publication year has one canonical authority: paper.year. References, PINN Realm, analytics, filters, and exports are generated sibling consumers of the canonical master dataset.',
     privacy: 'The static dataset does not contain reader data. Dataset Manager edits remain in the browser until the user explicitly opens and confirms a GitHub update request.'
   };
 };
@@ -189,7 +184,7 @@ export const buildRealm = (master, countryMapping) => {
   const papers = master.papers.map((paper) => ({
     id: paper.id,
     title: paper.title,
-    year: effectiveRealmYear(paper),
+    year: paper.year,
     countries: [...paper.countries],
     country_codes: paper.countries.map((country) => countryMapping[country].iso3)
   }));
@@ -245,9 +240,9 @@ export const buildRealm = (master, countryMapping) => {
       national_paper_count: nationalPaperCount,
       international_paper_count: internationalPaperCount,
       collaboration_pair_count: collaborationRecords.size,
-      legacy_year_override_count: master.papers.filter((paper) => paper.overrides?.realm_year !== undefined).length,
+      publication_year_source: 'papers-master.json#paper.year',
       reference_url_pattern: '../references/?q={id}#ref={id}',
-      methodology: 'Countries are taken from author-affiliation country records. A paper with one unique country is national; a paper with two or more unique countries is international. Every international paper contributes once to each unordered country pair. Publication years are generated from the master record, except for explicitly retained legacy overrides awaiting evidence resolution.'
+      methodology: 'Countries are taken from author-affiliation country records. A paper with one unique country is national; a paper with two or more unique countries is international. Every international paper contributes once to each unordered country pair. Publication year is generated directly from the canonical papers-master.json paper.year field, which is also the source used by References.'
     },
     country_name_mapping: Object.fromEntries(Object.entries(countryMapping).sort(([a], [b]) => a.localeCompare(b))),
     papers,
@@ -286,19 +281,18 @@ export const impactSummary = (beforeMaster, afterMaster, id, countryMapping) => 
   const afterPaper = afterMaster.papers.find((paper) => paper.id === id);
   const changedFields = ['title', 'citation', 'bibliographic', 'abstract', 'graphical_abstract', 'doi', 'publisher_url', 'venue', 'year', 'access', 'countries']
     .filter((field) => JSON.stringify(beforePaper[field]) !== JSON.stringify(afterPaper[field]));
-  if (beforePaper?.overrides?.realm_year !== afterPaper?.overrides?.realm_year) changedFields.push('realm_year_override');
   const before = buildAll(beforeMaster, countryMapping);
   const after = buildAll(afterMaster, countryMapping);
   const yearCounts = (papers) => Object.fromEntries([...new Set(papers.map((paper) => paper.year).filter(Number.isInteger))].sort().map((year) => [year, papers.filter((paper) => paper.year === year).length]));
   const changedCounts = (left, right) => [...new Set([...Object.keys(left), ...Object.keys(right)])].filter((key) => left[key] !== right[key]).map((key) => ({ year: Number(key), before: left[key] || 0, after: right[key] || 0 }));
   const affectedViews = ['Reference card, filters, details, search, analytics, and citation exports'];
-  if (changedFields.some((field) => ['title', 'year', 'countries', 'realm_year_override'].includes(field))) affectedViews.push('PINN Realm map, timelines, country profiles, and cooperation pairs');
+  if (changedFields.some((field) => ['title', 'year', 'countries'].includes(field))) affectedViews.push('PINN Realm map, timelines, country profiles, and cooperation pairs');
   affectedViews.push('Machine-readable metadata, provenance, and dataset version');
   return {
     paper_id: id,
     changed_fields: changedFields,
-    references_year_counts: changedCounts(yearCounts(before.references), yearCounts(after.references)),
-    realm_year_counts: changedCounts(yearCounts(before.realm.papers), yearCounts(after.realm.papers)),
+    reference_publication_counts: changedCounts(yearCounts(before.references), yearCounts(after.references)),
+    realm_publication_counts: changedCounts(yearCounts(before.realm.papers), yearCounts(after.realm.papers)),
     realm_country_count: { before: before.realm.metadata.country_count, after: after.realm.metadata.country_count },
     collaboration_pair_count: { before: before.realm.metadata.collaboration_pair_count, after: after.realm.metadata.collaboration_pair_count },
     affected_views: affectedViews
