@@ -12,46 +12,46 @@ Verification date: 2026-08-28
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 8 |
-| Expansion resources processed | 200 |
+| Expansion resources processed | 205 |
 | Expansion relationships verified | 163 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 144 |
+| Pending expansion resources | 139 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B008-C05 passed**. B008 is complete; the next controlled batch is B009 beginning at CR000213. No stop condition was triggered.
+Latest persistence checkpoint: **B009-C01 passed**. B009 is in progress and resumes at CR000218. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B009 (next) |
-| Last completed resource | CR000212 |
+| Current logical batch | B009 (in progress) |
+| Last completed resource | CR000217 |
 | Last completed logical batch | B008 |
-| Last persistence checkpoint | B008-C05 |
-| Next resource | CR000213 |
-| Completed Stage-1 resource count | 213 |
+| Last persistence checkpoint | B009-C01 |
+| Next resource | CR000218 |
+| Completed Stage-1 resource count | 218 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 144 |
-| Completed CR IDs/ranges | CR000001–CR000212; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000213–CR000220; CR000222–CR000357 |
+| Remaining Stage-1 resource count | 139 |
+| Completed CR IDs/ranges | CR000001–CR000217; CR000221; promoted CR000358 |
+| Pending CR IDs/ranges | CR000218–CR000220; CR000222–CR000357 |
 | Completed Stage-1 PRL assertions | 189 |
 | Pending Stage-1 PRL assertions | 142 |
 | Verified relationship records | 180 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B008 |
-| Current batch checkpoint | B008-C05 passed |
+| Current batch checkpoint | B009-C01 passed |
 | Pending full batches | B009–B014 |
-| Resources completed in last checkpoint | CR000208–CR000212 |
-| Resources remaining in current batch | 0 |
-| Current QA status | checkpoint passed; B008 complete |
+| Resources completed in last checkpoint | CR000213–CR000217 |
+| Resources remaining in current batch | 20 |
+| Current QA status | checkpoint passed; B009 in progress |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `b56fc18763953920f8395895e62656d19ac4a9b3` |
+| Last verification checkpoint commit | `acc913df848e7e21881b3bb0470e4e8e4c23ff82` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B008, and all B008 checkpoints 01–05 must not be reprocessed. Resume at CR000213 in B009. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoint 01 must not be reprocessed. Resume at CR000218 in B009. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -65,7 +65,7 @@ The pilot set, B001–B008, and all B008 checkpoints 01–05 must not be reproce
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
-| B009 | 25 | CR000213 | CR000238 | pending | pending |
+| B009 | 25 | CR000213 | CR000238 | in progress (5/25) | checkpoint 01 passed |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
@@ -283,6 +283,17 @@ The pilot set, B001–B008, and all B008 checkpoints 01–05 must not be reproce
 - VA000035 resolves the CR000212 transfer from `yuanming-hu/difftaichi` to `taichi-dev/difftaichi` by immutable repository ID 225531542 without changing CR identity. DiffTaichi has explicit citation metadata and `requirements.txt`, but no repository license or standalone research dataset is identified.
 - No third-party code was executed, no external dataset was downloaded, no archive was unpacked, and no Stage-3 normalization was performed. No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced.
 - B008 is complete and passed checkpoint QA. Resume Stage 2 with B009 at CR000213.
+
+## Batch 009 checkpoint 01 summary
+
+- Five resources were processed: CR000213 through CR000217. Three canonical GitHub repositories were pinned to exact default-branch commits, and the SciML and gradSim sites were verified with pinned official site-source evidence.
+- VA000036 resolves the CR000213 transfer from `google/jax-md` to `jax-md/jax-md` by immutable repository ID 186495365 without changing CR identity. JAX MD is an Apache-2.0 differentiable molecular-dynamics library with a formal `pyproject.toml`, documentation, citation/software-DOI metadata, and heterogeneous example/test/model assets.
+- CR000214 remains supporting software: TensorFlowFoam is an MIT-licensed TensorFlow 1.15/OpenFOAM 5.0 integration with citation metadata, `requirements.txt`, OpenFOAM cases, CSV training/validation values, TensorFlow graphs/models, logs, and archives. No archive or binary was executed.
+- CR000215 remains the aggregate SciML scientific-machine-learning ecosystem. Its official website source is MIT-licensed and provides component-specific citation guidance, but that site-build license and manifest are not propagated as one license/dependency value for all SciML packages.
+- CR000216 remains the gradSim project website. CC-BY-4.0 is verified for website content, while the directly linked code repository has no root license and receives no inferred SPDX value. Linked code provides citation/dependency evidence plus example meshes, images, plot data, and paper-support assets.
+- CR000217 remains supporting differentiable CFD software. Exact repository files establish GPL-3.0-only despite GitHub API `NOASSERTION`; the repository includes two framework-paper DOIs, package/documentation manifests, examples, reference curves, and sample HDF5 input.
+- None of the five resources has a Stage-1 Atlas-paper assertion, so no paper-resource relationship was invented. No third-party code was executed, no external dataset was downloaded, no archive was unpacked, and no Stage-3 normalization was performed.
+- No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B009 remains in progress and resumes at CR000218.
 
 ## Stop conditions
 

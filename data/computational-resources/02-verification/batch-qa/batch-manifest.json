@@ -457,11 +457,21 @@
       "resource_count": 25,
       "first_resource_id": "CR000213",
       "last_resource_id": "CR000238",
-      "status": "pending",
-      "verified_records": 0,
+      "status": "in_progress",
+      "verified_records": 5,
       "manual_review_records": 0,
       "relationship_records": 0,
-      "qa_status": "pending"
+      "qa_status": "checkpoint_01_passed",
+      "verified_relationship_records": 0,
+      "bounded_unverified_relationship_records": 0,
+      "last_checkpoint": "B009-C01",
+      "next_resource_id": "CR000218",
+      "notes": [
+        "Checkpoint 01 verifies CR000213 through CR000217.",
+        "VA000036 preserves CR000213 across the immutable-ID repository transfer from google/jax-md to jax-md/jax-md.",
+        "The SciML aggregate-ecosystem boundary and the gradSim website-versus-linked-code boundary are recorded without propagating component licenses or inventing resource identities.",
+        "No Stage-1 relationship, manual-review item, or stop condition was produced."
+      ]
     },
     {
       "batch_id": "B010",
@@ -656,19 +666,19 @@
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
   "completed_batch_count": 8,
-  "expansion_resources_verified": 200,
+  "expansion_resources_verified": 205,
   "expansion_relationships_verified": 163,
   "expansion_resources_requiring_manual_review": 10,
   "last_completed_batch": "B008",
   "updated_at": "2026-08-28",
   "checkpoint": {
-    "last_completed_resource_id": "CR000212",
+    "last_completed_resource_id": "CR000217",
     "last_completed_batch_id": "B008",
     "current_logical_batch_id": "B009",
-    "last_persistence_checkpoint": "B008-C05",
-    "next_resource_id": "CR000213",
-    "completed_expansion_resource_count": 200,
-    "pending_expansion_resource_count": 144,
+    "last_persistence_checkpoint": "B009-C01",
+    "next_resource_id": "CR000218",
+    "completed_expansion_resource_count": 205,
+    "pending_expansion_resource_count": 139,
     "completed_stage1_prl_assertion_count": 189,
     "pending_stage1_prl_assertion_count": 142,
     "verified_relationship_record_count": 180,
@@ -694,10 +704,10 @@
     "current_qa_status": "passed",
     "current_scientific_review_item_count": 2,
     "current_ordinary_manual_review_resource_count": 10,
-    "last_checkpoint_commit": "b56fc18763953920f8395895e62656d19ac4a9b3",
+    "last_checkpoint_commit": "acc913df848e7e21881b3bb0470e4e8e4c23ff82",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   },
   "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1,
   "current_batch": "B009",
-  "last_persistence_checkpoint": "B008-C05"
+  "last_persistence_checkpoint": "B009-C01"
 }
