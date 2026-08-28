@@ -22130,16 +22130,16 @@
   {
     "id": 837,
     "title": "Physics-informed residual learning with spatiotemporal local support for inverse ECG reconstruction",
-    "citation": "Zhu, L.; Bilchick, K.; Xie, J. Physics-informed residual learning with spatiotemporal local support for inverse ECG reconstruction. ECG reconstruction. Sci. Rep 2025, 15, 31747.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "ECG reconstruction. Sci. Rep.",
+    "citation": "Zhu, L.; Bilchick, K.; Xie, J. Physics-informed residual learning with spatiotemporal local support for inverse ECG reconstruction. scientific reports 2025, 15, 31747. https://doi.org/10.1038/s41598-025-15687-1.",
+    "doi": "10.1038/s41598-025-15687-1",
+    "publisher_url": "https://www.nature.com/articles/s41598-025-15687-1",
+    "venue": "scientific reports",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Zhu, L.; Bilchick, K.; Xie, J",
-      "journal_abbreviation": "ECG reconstruction. Sci. Rep.",
+      "authors": "Zhu, L.; Bilchick, K.; Xie, J.",
+      "journal_abbreviation": "Sci. Rep.",
       "volume": "15",
-      "pages": "31747"
+      "article_number": "31747"
     },
     "abstract": "Physics-informed neural networks (PINNs) have emerged as a powerful framework for modeling complex physical systems by embedding governing equations into the learning process. For example, PINNs offer a promising approach to solving the inverse electrocardiographic imaging (ECGI) problem, which aims to reconstruct heart-surface electrical activity from body-surface potential measurements. However, existing PINN-based ECGI models face several challenges, including overfitting to sparsely sampled collocation points, unstable training dynamics, and limited network scalability-particularly when applied to high-dimensional spatiotemporal data. In this study, we propose a novel learning framework, i.e., physics-informed residual learning with spatiotemporal local support, to address these limitations. The method introduces two key innovations: (1) a numerical differentiation scheme that approximates spatial and temporal derivatives using local neighborhood information, enabling coherent spatiotemporal constraint enforcement, and (2) an adaptive residual network architecture with trainable skip connections that stabilizes optimization and improves model expressiveness. Experimental results on simulated body-heart geometries show that our method substantially outperforms traditional regularization-based inverse ECG approaches and previous PINN models, achieving higher reconstruction accuracy and improved robustness to sensor noise. This work advances the methodological foundation of broader implications for data-constrained modeling in complex dynamical systems.",
     "graphical_abstract": null,
@@ -22148,7 +22148,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 838,
