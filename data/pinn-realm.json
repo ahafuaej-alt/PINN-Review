@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.175",
+    "version": "2.2.176",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-28",
     "source_file": "papers-countries-and-year.md",
@@ -4752,7 +4752,7 @@
     {
       "id": 381,
       "title": "Physics-informed deep-learning applications to experimental fluid mechanics",
-      "year": 2022,
+      "year": 2024,
       "countries": [
         "Germany",
         "Sweden"
@@ -11943,9 +11943,9 @@
           "international": 3
         },
         "2022": {
-          "total": 7,
+          "total": 6,
           "national": 1,
-          "international": 6
+          "international": 5
         },
         "2023": {
           "total": 9,
@@ -11953,9 +11953,9 @@
           "international": 5
         },
         "2024": {
-          "total": 12,
+          "total": 13,
           "national": 7,
-          "international": 5
+          "international": 6
         },
         "2025": {
           "total": 14,
@@ -13373,9 +13373,9 @@
           "international": 1
         },
         "2022": {
-          "total": 4,
+          "total": 3,
           "national": 0,
-          "international": 4
+          "international": 3
         },
         "2023": {
           "total": 2,
@@ -13383,9 +13383,9 @@
           "international": 1
         },
         "2024": {
-          "total": 2,
+          "total": 3,
           "national": 0,
-          "international": 2
+          "international": 3
         },
         "2025": {
           "total": 3,
@@ -15819,13 +15819,11 @@
         488
       ],
       "annual": {
-        "2022": [
-          381
-        ],
         "2023": [
           339
         ],
         "2024": [
+          381,
           488
         ],
         "2025": [

@@ -2,6 +2,66 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-381-2026-08-28-2.2.176",
+      "version": "2.2.176",
+      "date": "2026-08-28",
+      "paper_id": 381,
+      "changed_fields": [
+        "citation",
+        "year"
+      ],
+      "reason": "year 2024 change",
+      "evidence": {
+        "url": "https://doi.org/10.1088/1361-6501/ad3fd3",
+        "note": "year 2024 change"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 381,
+        "changed_fields": [
+          "citation",
+          "year"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2022,
+            "before": 86,
+            "after": 85
+          },
+          {
+            "year": 2024,
+            "before": 158,
+            "after": 159
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2022,
+            "before": 82,
+            "after": 81
+          },
+          {
+            "year": 2024,
+            "before": 160,
+            "after": 161
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-223-2026-08-28-2.2.175",
       "version": "2.2.175",
       "date": "2026-08-28",
