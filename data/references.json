@@ -22399,15 +22399,16 @@
   {
     "id": 848,
     "title": "dmPINNs An Integrated Data-Driven and Mechanism-Based Method for Endpoint Carbon Prediction in BOF",
-    "citation": "Xia, Y.; Wang, H.; Xu, A. dmPINNs An Integrated Data-Driven and Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals 2024, 14, 926.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals",
+    "citation": "Xia, Y.; Wang, H.; Xu, A. dmPINNs An Integrated Data-Driven and Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals 2024, 14, 926. https://doi.org/10.3390/met14080926.",
+    "doi": "10.3390/met14080926",
+    "publisher_url": "https://www.mdpi.com/2075-4701/14/8/926",
+    "venue": "Metals",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Xia, Y.; Wang, H.; Xu, A",
-      "journal_abbreviation": "Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals",
+      "authors": "Xia, Y.; Wang, H.; Xu, A.",
+      "journal_abbreviation": "Metals",
       "volume": "14",
+      "issue": "8",
       "pages": "926"
     },
     "abstract": "Accurate prediction of endpoint carbon at the dynamic control stage in the converter is crucial for achieving smelting targets. Currently, there are two main methods for converter endpoint prediction: the data-driven method and the mechanism-based method. Data-driven methods exhibit high accuracy but are vulnerable to data quality variations and lack interpretability. Mechanism-based methods provide great interpretability but face challenges in precisely identifying key parameters in the mechanism formula. Inspired by the design concept of physics-informed neural networks (PINNs), an integrated data-driven and mechanism-based method for endpoint carbon prediction in BOF (dmPINNs, data-driven and mechanism-based physics-informed neural networks) is proposed, which has four parts: feature extraction, mechanism-based calculation, data-driven prediction, and integrated prediction. We identify key parameters of the mechanism formula through the neural network to obtain the specified formula for each heat and supervise the training process of the neural network through the mechanism formula to ensure interpretability. Experimental results show that, within the ±0.012% error range, the hit rate of endpoint carbon content using dmPINNs improved by 5.23% compared with the traditional data-driven method and has greater robustness with the supervision of the mechanism formula.",
@@ -22417,7 +22418,7 @@
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 849,

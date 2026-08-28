@@ -2,6 +2,49 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-848-2026-08-28-2.2.188",
+      "version": "2.2.188",
+      "date": "2026-08-28",
+      "paper_id": 848,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://www.mdpi.com/2075-4701/14/8/926",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 848,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-847-2026-08-28-2.2.187",
       "version": "2.2.187",
       "date": "2026-08-28",
