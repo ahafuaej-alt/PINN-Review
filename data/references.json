@@ -6000,7 +6000,7 @@
   {
     "id": 223,
     "title": "OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics",
-    "citation": "Feng, J.; Xu, R.; Chu, X. OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics. International Journal of Heat and Fluid Flow 2025, 120, 1-12. https://doi.org/10.1016/j.ijheatfluidflow.2026.110399.",
+    "citation": "Feng, J.; Xu, R.; Chu, X. OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics. International Journal of Heat and Fluid Flow 2026, 120, 1-12. https://doi.org/10.1016/j.ijheatfluidflow.2026.110399.",
     "doi": "10.1016/j.ijheatfluidflow.2026.110399",
     "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0142727X26001657",
     "venue": "International Journal of Heat and Fluid Flow",
@@ -6016,13 +6016,13 @@
     },
     "abstract": "We propose the first multi-agent framework for computational fluid dynamics that enables fully automated, end-to-end simulations directly from natural-language queries. The approach integrates four specialized agents — Pre-processing, Prompt Generation, OpenFOAMGPT (simulator), and Post-processing — decomposing complex computational fluid dynamics workflows into collaborative components powered by large language models. Extensive validation through diverse case studies, including Poiseuille flows, single- and multi-phase porous media flows, and aerodynamic analyses, demonstrates 100% success and reproducibility rates across over 450 simulations on a predefined benchmark suite of well-posed prompts. Rigorous trustworthiness verification confirms that properly designed multi-agent systems can achieve the reliability standards necessary for zero-tolerance scientific computing applications while significantly lowering entry barriers. The framework establishes a foundation for conversation-driven simulation workflows in computational science, potentially accelerating discovery and innovation through more accessible tools for complex numerical simulations. Results reveal that multi-agent architectures, when properly specialized and orchestrated, can effectively handle the stringent requirements of computational physics while maintaining the intuitive interface of natural language interaction.",
     "graphical_abstract": null,
-    "year": 2025,
+    "year": 2026,
     "access": "Subscription",
     "countries": [
       "United Kingdom",
       "Germany"
     ],
-    "last_updated": "2026-08-06"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 224,
