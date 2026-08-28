@@ -1,8 +1,8 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "2.2.199",
+  "version": "2.3.0",
   "schema_version": "1.0.0",
-  "last_updated": "2026-08-28",
+  "last_updated": "2026-08-29",
   "record_count": 853,
   "reference_id_range": "1-853",
   "year_range": "1951-2026",
@@ -32,7 +32,7 @@
   "source_document": "38_1_10_references.docx",
   "country_source": "papers-countries-and-year.md",
   "canonical_master": "papers-master.json",
-  "legacy_realm_year_overrides": 89,
+  "publication_year_source": "papers-master.json#paper.year",
   "display_style": "MDPI ACS reference style",
   "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.json",
   "reference_register_url": "https://ahafuaej-alt.github.io/PINN-Review/references/",
@@ -44,6 +44,6 @@
     "Zotero-compatible RIS",
     "CSV"
   ],
-  "data_quality_policy": "Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Public reference, geography, analytics, filter, and export datasets are generated from that master. Unresolved legacy year disagreements remain explicit overrides until a sourced correction resolves them.",
+  "data_quality_policy": "Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Publication year has one canonical authority: paper.year. References, PINN Realm, analytics, filters, and exports are generated sibling consumers of the canonical master dataset.",
   "privacy": "The static dataset does not contain reader data. Dataset Manager edits remain in the browser until the user explicitly opens and confirms a GitHub update request."
 }

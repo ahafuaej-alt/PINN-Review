@@ -44,7 +44,6 @@ const graphicalStatus = document.querySelector('[data-graphical-status]');
 const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
 const normalize = (value) => String(value ?? '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('en');
 const equal = (left, right) => JSON.stringify(left) === JSON.stringify(right);
-const effectiveRealmYear = (paper) => paper?.overrides?.realm_year ?? paper?.year;
 const field = (name) => form.elements.namedItem(name);
 const typeWithoutRequiredAuthors = new Set(['standard', 'software', 'website']);
 const GRAPHICAL_SPEC = Object.freeze({ width: 3840, height: 2160, format: 'webp', color_space: 'sRGB' });
@@ -210,7 +209,6 @@ const validateDraft = () => {
   }
 
   if (!Object.keys(changes).length) warnings.push('No paper fields have changed.');
-  if ('year' in changes && state.selected.overrides?.realm_year !== undefined) warnings.push(`Publishing the new year will resolve the legacy Realm override (${state.selected.overrides.realm_year}) and use ${draft.year ?? 'an unknown year'} everywhere.`);
   return { errors, warnings, changes, draft };
 };
 
@@ -233,17 +231,12 @@ const renderImpact = (result) => {
   const draft = result.draft;
   const cards = [];
   if ('year' in result.changes) {
-    const refCounts = countByYear(state.master.papers, (paper) => paper.year);
-    const realmCounts = countByYear(state.master.papers, effectiveRealmYear);
-    const beforeReferenceYear = state.selected.year;
-    const beforeRealmYear = effectiveRealmYear(state.selected);
-    const referenceDeltas = [];
-    if (Number.isInteger(beforeReferenceYear)) referenceDeltas.push(`${beforeReferenceYear}: ${refCounts[beforeReferenceYear]} → ${refCounts[beforeReferenceYear] - (draft.year === beforeReferenceYear ? 0 : 1)}`);
-    if (Number.isInteger(draft.year)) referenceDeltas.push(`${draft.year}: ${refCounts[draft.year] || 0} → ${(refCounts[draft.year] || 0) + (draft.year === beforeReferenceYear ? 0 : 1)}`);
-    const realmDeltas = [];
-    if (Number.isInteger(beforeRealmYear)) realmDeltas.push(`${beforeRealmYear}: ${realmCounts[beforeRealmYear]} → ${realmCounts[beforeRealmYear] - (draft.year === beforeRealmYear ? 0 : 1)}`);
-    if (Number.isInteger(draft.year)) realmDeltas.push(`${draft.year}: ${realmCounts[draft.year] || 0} → ${(realmCounts[draft.year] || 0) + (draft.year === beforeRealmYear ? 0 : 1)}`);
-    cards.push({ title: 'Year analytics', body: `References ${referenceDeltas.join(' · ') || 'year becomes unknown'}. Realm ${realmDeltas.join(' · ') || 'year becomes unknown'}.` });
+    const canonicalCounts = countByYear(state.master.papers, (paper) => paper.year);
+    const beforeYear = state.selected.year;
+    const deltas = [];
+    if (Number.isInteger(beforeYear)) deltas.push(`${beforeYear}: ${canonicalCounts[beforeYear]} → ${canonicalCounts[beforeYear] - (draft.year === beforeYear ? 0 : 1)}`);
+    if (Number.isInteger(draft.year)) deltas.push(`${draft.year}: ${canonicalCounts[draft.year] || 0} → ${(canonicalCounts[draft.year] || 0) + (draft.year === beforeYear ? 0 : 1)}`);
+    cards.push({ title: 'Publication-year analytics', body: `Canonical year counts ${deltas.join(' · ') || 'year becomes unknown'}. The same change propagates to References, PINN Realm year filters, annual publication totals, country/year profiles, and cooperation analyses.` });
   }
   if ('countries' in result.changes) cards.push({ title: 'Geographic network', body: `${state.selected.countries.length} → ${draft.countries.length} country associations; this paper contributes ${pairCount(state.selected.countries)} → ${pairCount(draft.countries)} collaboration pairs.` });
   if (visibleFields.some((name) => ['abstract', 'graphical_abstract'].includes(name))) cards.push({ title: 'Reference evidence panels', body: 'The nested Abstract and Graphical abstract panels, accessibility text, caption, search data, version, and audit trail will be regenerated together.' });
@@ -403,11 +396,6 @@ const populateForm = (paper) => {
   document.querySelector('[data-editor-id]').textContent = `[${paper.id}]`;
   document.querySelector('[data-editor-title]').textContent = paper.title;
   document.querySelector('[data-open-reference]').href = `../references/?q=${paper.id}#ref=${paper.id}`;
-  const warning = document.querySelector('[data-legacy-warning]');
-  if (paper.overrides?.realm_year !== undefined) {
-    warning.hidden = false;
-    warning.innerHTML = `<strong>Legacy year conflict</strong><span>References currently use ${paper.year ?? 'an unidentified year'}, while PINN Realm preserves ${paper.overrides.realm_year} from the standardized country/year source. Editing the publication year resolves this override and applies the new value everywhere.</span>`;
-  } else warning.hidden = true;
   submissionHelp.classList.remove('is-opened');
   submissionHelp.innerHTML = '<strong>Nothing has been sent yet.</strong><span>After the form is valid, select <b>Submit update request</b>. GitHub will open with the update already filled in; select <b>Create new issue</b> there to send it and receive a trackable confirmation.</span>';
   renderTypeFields();
@@ -576,7 +564,7 @@ Promise.all([
   document.querySelector('[data-manager-stat="records"]').textContent = master.papers.length.toLocaleString();
   document.querySelector('[data-manager-stat="version"]').textContent = master.metadata.dataset_version;
   document.querySelector('[data-manager-stat="updated"]').textContent = formatDate(master.metadata.last_updated);
-  document.querySelector('[data-manager-stat="overrides"]').textContent = master.metadata.maintenance.legacy_realm_year_override_count.toLocaleString();
+  document.querySelector('[data-manager-stat="years"]').textContent = master.papers.filter((paper) => Number.isInteger(paper.year)).length.toLocaleString();
   document.querySelector('[data-footer-version]').textContent = master.metadata.dataset_version;
   document.querySelector('[data-country-options]').innerHTML = Object.keys(mapping).sort().map((country) => `<option value="${escapeHtml(country)}"></option>`).join('');
   renderResults();

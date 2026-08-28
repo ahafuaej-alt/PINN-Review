@@ -137,7 +137,7 @@ flowchart LR
     D --> Q["Mathematical Formulations"]
 ```
 
-The canonical paper register is [`data/papers-master.json`](data/papers-master.json). Derived datasets and public interfaces are rebuilt or validated against their authoritative sources so that corrections propagate consistently.
+The canonical paper register is [`data/papers-master.json`](data/papers-master.json). Derived datasets and public interfaces are rebuilt or validated against their authoritative sources so that corrections propagate consistently. Publication year has one source of truth: the canonical `paper.year` field. References and PINN Realm are sibling generated consumers of that field, so Realm year filters, annual publication totals, country/year profiles, and cooperation analyses cannot maintain a separate publication year.
 
 ### Evidence principles
 

@@ -3,8 +3,8 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.199",
-    "last_updated": "2026-08-28",
+    "dataset_version": "2.3.0",
+    "last_updated": "2026-08-29",
     "record_count": 853,
     "id_range": "1-853",
     "sources": {
@@ -17,7 +17,6 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 89,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -53,7 +52,8 @@
         "changed_records": 420,
         "unchanged_records": 0,
         "doi_mismatch_records": []
-      }
+      },
+      "publication_year_source": "paper.year"
     }
   },
   "papers": [
@@ -12354,9 +12354,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -12755,9 +12752,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -15112,9 +15106,6 @@
         "United States",
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -15369,9 +15360,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -17198,9 +17186,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -20073,9 +20058,6 @@
         "United States",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -24804,9 +24786,6 @@
         "United Arab Emirates",
         "France"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -25214,9 +25193,6 @@
       "countries": [
         "Belgium"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -28014,9 +27990,6 @@
         "Sweden",
         "Denmark"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -29035,9 +29008,6 @@
         "Thailand",
         "France"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31162,9 +31132,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31460,9 +31427,6 @@
       "countries": [
         "Denmark"
       ],
-      "overrides": {
-        "realm_year": 2018
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31530,9 +31494,6 @@
         "China",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31865,9 +31826,6 @@
         "Canada",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -34024,9 +33982,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2019
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -37559,9 +37514,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2017
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -37841,9 +37793,6 @@
       "countries": [
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2002
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38327,9 +38276,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2016
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38362,9 +38308,6 @@
       "countries": [
         "France"
       ],
-      "overrides": {
-        "realm_year": 2014
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38453,9 +38396,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38543,9 +38483,6 @@
         "Netherlands",
         "Canada"
       ],
-      "overrides": {
-        "realm_year": 2015
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38758,9 +38695,6 @@
         "Germany",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -39030,9 +38964,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -39131,9 +39062,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -39708,9 +39636,6 @@
         "Germany",
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -40114,9 +40039,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -40209,9 +40131,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -41422,9 +41341,6 @@
         "United States",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2019
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -41913,9 +41829,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -42501,9 +42414,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -42596,9 +42506,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -42957,9 +42864,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -43424,9 +43328,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -43598,9 +43499,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46063,9 +45961,6 @@
       "countries": [
         "Germany"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46237,9 +46132,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46594,9 +46486,6 @@
       "countries": [
         "Japan"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46911,9 +46800,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -47317,9 +47203,6 @@
       "countries": [
         "India"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -47353,9 +47236,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48429,9 +48309,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48630,9 +48507,6 @@
         "Germany",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48732,9 +48606,6 @@
       "countries": [
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48831,9 +48702,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -49017,9 +48885,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -50049,9 +49914,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -50541,9 +50403,6 @@
         "China",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -50890,9 +50749,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51080,9 +50936,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51363,9 +51216,6 @@
       "countries": [
         "South Africa"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51465,9 +51315,6 @@
       "countries": [
         "Switzerland"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51556,9 +51403,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52145,9 +51989,6 @@
         "China",
         "Singapore"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52319,9 +52160,6 @@
       "countries": [
         "Russian Federation"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52683,9 +52521,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52865,9 +52700,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52958,9 +52790,6 @@
       "countries": [
         "India"
       ],
-      "overrides": {
-        "realm_year": 2019
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52993,9 +52822,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -54680,9 +54506,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -54859,9 +54682,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -54960,9 +54780,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55332,9 +55149,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55519,9 +55333,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55775,9 +55586,6 @@
       "countries": [
         "France"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55904,9 +55712,6 @@
       "countries": [
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56025,9 +55830,6 @@
         "United States",
         "Germany"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56118,9 +55920,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56252,9 +56051,6 @@
       "countries": [
         "Canada"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56617,9 +56413,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -57043,9 +56836,6 @@
         "United States",
         "France"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -57658,9 +57448,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -58715,9 +58502,6 @@
       "countries": [
         "Switzerland"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -58808,9 +58592,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -59677,9 +59458,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -59813,9 +59591,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60143,9 +59918,6 @@
         "United States",
         "Saudi Arabia"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60414,9 +60186,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60666,9 +60435,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60764,9 +60530,6 @@
         "China",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -61069,9 +60832,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -61407,9 +61167,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -61498,9 +61255,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -63099,9 +62853,6 @@
       "countries": [
         "Saudi Arabia"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -63283,9 +63034,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -63568,9 +63316,6 @@
       "countries": [
         "Taiwan"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -64961,9 +64706,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -66342,9 +66084,6 @@
         "United States",
         "Chile"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -66681,9 +66420,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -66822,9 +66558,6 @@
         "United States",
         "Switzerland"
       ],
-      "overrides": {
-        "realm_year": 2026
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",

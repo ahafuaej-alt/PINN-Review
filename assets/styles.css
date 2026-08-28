@@ -783,8 +783,6 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
 .manager-editor-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding-bottom: .9rem; border-bottom: 1px solid var(--line); }
 .manager-editor-head h2 { max-width: 48rem; margin: 0; font-size: 1.15rem; line-height: 1.35; }
 .manager-editor-head .button { min-height: 38px; padding: .5rem .7rem; font-size: .68rem; white-space: nowrap; }
-.legacy-warning { display: grid; grid-template-columns: 10rem 1fr; gap: .8rem; margin: .9rem 0; padding: .75rem; border: 1px solid rgba(255,186,115,.35); border-radius: 10px; color: var(--warm); background: rgba(255,186,115,.055); font-size: .68rem; }
-.legacy-warning[hidden] { display: none; }
 .manager-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-top: .9rem; }
 .manager-form-grid label { min-width: 0; }
 .manager-form-grid label > span { display: block; margin: 0 0 .25rem .1rem; color: var(--faint); font-family: var(--mono); font-size: .59rem; letter-spacing: .035em; text-transform: uppercase; }
@@ -956,7 +954,7 @@ mark { padding: 0 .08em; color: inherit; background: rgba(255, 186, 115, .34); b
   .manager-pipeline, .manager-form-grid, .impact-grid, .manager-next-steps ol { grid-template-columns: 1fr; }
   .manager-form-grid .span-2 { grid-column: auto; }
   .manager-editor-head { flex-direction: column; }
-  .legacy-warning, .mdpi-note, .submission-help { grid-template-columns: 1fr; }
+  .mdpi-note, .submission-help { grid-template-columns: 1fr; }
   .manager-bibliographic summary, .citation-generator-head { align-items: flex-start; flex-direction: column; }
   .audit-list article { grid-template-columns: 1fr; }
 }

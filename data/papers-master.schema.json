@@ -92,14 +92,9 @@
             },
             "additionalProperties": false
           },
-          "year": { "type": ["integer", "null"], "minimum": 1800, "maximum": 2100 },
+          "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
           "access": { "enum": ["Open access", "Subscription", "Not verified"] },
           "countries": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
-          "overrides": {
-            "type": "object",
-            "properties": { "realm_year": { "type": "integer", "minimum": 1800, "maximum": 2100 } },
-            "additionalProperties": false
-          },
           "provenance": { "type": "object" },
           "last_updated": { "type": "string", "format": "date" }
         },
