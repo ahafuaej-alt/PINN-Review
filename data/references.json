@@ -20648,15 +20648,16 @@
   {
     "id": 780,
     "title": "Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder",
-    "citation": "Ang, E.H.W.; Wang, G.; Ng, B.F. Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder. Energies 2023, 16, 4558.",
-    "doi": null,
-    "publisher_url": null,
+    "citation": "Ang, E.H.W.; Wang, G.; Ng, B.F. Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder. Energies 2023, 16, 4558. https://doi.org/10.3390/en16124558.",
+    "doi": "10.3390/en16124558",
+    "publisher_url": "https://www.mdpi.com/1996-1073/16/12/4558",
     "venue": "Energies",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Ang, E.H.W.; Wang, G.; Ng, B.F",
+      "authors": "Ang, E.H.W.; Wang, G.; Ng, B.F.",
       "journal_abbreviation": "Energies",
       "volume": "16",
+      "issue": "12",
       "pages": "4558"
     },
     "abstract": "Physics-informed neural network (PINN) architectures are recent developments that can act as surrogate models for fluid dynamics in order to reduce computational costs. PINNs make use of deep neural networks, where the Navier-Stokes equation and freestream boundary conditions are used as losses of the neural network; hence, no simulation or experimental data in the training of the PINN is required. Here, the formulation of PINN for fluid dynamics is demonstrated and critical factors influencing the PINN design are discussed through a low Reynolds number flow over a cylinder. The PINN architecture showed the greatest improvement to the accuracy of results from the increase in the number of layers, followed by the increase in the number of points in the point cloud. Increasing the number of nodes per hidden layer brings about the smallest improvement in performance. In general, PINN is much more efficient than computational fluid dynamics (CFD) in terms of memory resource usage, with PINN requiring 5–10 times less memory. The tradeoff for this advantage is that it requires longer computational time, with PINN requiring approximately 3 times more than that of CFD. In essence, this paper demonstrates the direct formulation of PINN without the need for data, alongside hyperparameter design and comparison of computational requirements.",
@@ -20666,7 +20667,7 @@
     "countries": [
       "Singapore"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 781,
