@@ -1,0 +1,89 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B009",
+  "checkpoint_id": "B009-C04",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000228",
+    "CR000229",
+    "CR000230",
+    "CR000231",
+    "CR000232"
+  ],
+  "next_resource_id": "CR000233",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "github_repositories_pinned": 4,
+    "relationship_records": 6,
+    "verified_relationship_records": 6,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 2,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 3,
+    "verified_negative_license_findings": 1,
+    "not_applicable_alias_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000228 through CR000232 are the next five unprocessed Stage-1 resources after passed checkpoint B009-C03; all five are processed exactly once."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000040 repairs CR000229 from unavailable juanpedro/nangs to juansensio/nangs without changing CR identity. VA000041 resolves CR000232 to already canonical Elvet resource CR000063 without duplicating canonical metadata or reassigning PRL000088."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000084 through PRL000088 are verified from Atlas review paper 367. CR000231 also carries PRL000144 for Atlas review paper 495, which explicitly lists idrl-lab/idrlnet in Table II. Six Stage-1 relationship assertions are therefore verified in this checkpoint."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "CR000228, CR000229, CR000230, and CR000231 are pinned to exact default-branch commits. CR000232 is an unavailable Stage-1 alias whose canonical CR000063 metadata were already verified and are not reprocessed."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "ADCME remains broader supporting scientific-computing software rather than a PINN-specific framework. Nangs, TensorDiffEq, and IDRLnet are PINN frameworks/libraries. CR000232 is represented as a superseded alias to canonical Elvet CR000063."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "MIT is verified for ADCME, Apache-2.0 for Nangs and IDRLnet, and TensorDiffEq receives a verified-negative repository-license finding. CR000232 receives no propagated license because canonical license evidence remains on CR000063."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "Formal manifests are recorded for the four canonical repositories. IDRLnet's bundled Navier-Stokes example CSVs are represented as example/reference data. No code was executed, no external data were downloaded, no archive was unpacked, and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "internal_reference_rule",
+      "status": "passed",
+      "detail": "Paper-internal reference numbers from review papers 367 and 495 are preserved only as provenance and are not promoted to Atlas IDs."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The two URL/alias resolutions, six secondary-review relationships, license findings, and data/dependency boundaries fit the established schema. No new relationship type, stable-ID policy change, scientific-review item, manual-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 6,
+    "verified_link_ids": ["PRL000084", "PRL000085", "PRL000086", "PRL000087", "PRL000088", "PRL000144"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 checkpoint 04 passes. B009 remains in progress and Stage 2 resumes at CR000233."
+}
