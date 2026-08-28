@@ -12,46 +12,46 @@ Verification date: 2026-08-28
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 8 |
-| Expansion resources processed | 205 |
+| Expansion resources processed | 209 |
 | Expansion relationships verified | 163 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 139 |
+| Pending expansion resources | 135 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B009-C01 passed**. B009 is in progress and resumes at CR000218. No stop condition was triggered.
+Latest persistence checkpoint: **B009-C02 passed**. B009 is in progress and resumes at CR000223. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B009 (in progress) |
-| Last completed resource | CR000217 |
+| Last completed resource | CR000222 |
 | Last completed logical batch | B008 |
-| Last persistence checkpoint | B009-C01 |
-| Next resource | CR000218 |
-| Completed Stage-1 resource count | 218 |
+| Last persistence checkpoint | B009-C02 |
+| Next resource | CR000223 |
+| Completed Stage-1 resource count | 222 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 139 |
-| Completed CR IDs/ranges | CR000001–CR000217; CR000221; promoted CR000358 |
-| Pending CR IDs/ranges | CR000218–CR000220; CR000222–CR000357 |
+| Remaining Stage-1 resource count | 135 |
+| Completed CR IDs/ranges | CR000001–CR000222; promoted CR000358 |
+| Pending CR IDs/ranges | CR000223–CR000357 |
 | Completed Stage-1 PRL assertions | 189 |
 | Pending Stage-1 PRL assertions | 142 |
 | Verified relationship records | 180 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B008 |
-| Current batch checkpoint | B009-C01 passed |
+| Current batch checkpoint | B009-C02 passed |
 | Pending full batches | B009–B014 |
-| Resources completed in last checkpoint | CR000213–CR000217 |
-| Resources remaining in current batch | 20 |
+| Resources completed in last checkpoint | CR000218–CR000220; CR000222 (CR000221 already completed in the pilot) |
+| Resources remaining in current batch | 16 |
 | Current QA status | checkpoint passed; B009 in progress |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `acc913df848e7e21881b3bb0470e4e8e4c23ff82` |
+| Last verification checkpoint commit | `4b232074bb90b7f90ee512d66ba782698a77e0f9` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoint 01 must not be reprocessed. Resume at CR000218 in B009. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoints 01–02 must not be reprocessed. Resume at CR000223 in B009. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -65,7 +65,7 @@ The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoint 01
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
-| B009 | 25 | CR000213 | CR000238 | in progress (5/25) | checkpoint 01 passed |
+| B009 | 25 | CR000213 | CR000238 | in progress (9/25) | checkpoint 02 passed |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
@@ -294,6 +294,16 @@ The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoint 01
 - CR000217 remains supporting differentiable CFD software. Exact repository files establish GPL-3.0-only despite GitHub API `NOASSERTION`; the repository includes two framework-paper DOIs, package/documentation manifests, examples, reference curves, and sample HDF5 input.
 - None of the five resources has a Stage-1 Atlas-paper assertion, so no paper-resource relationship was invented. No third-party code was executed, no external dataset was downloaded, no archive was unpacked, and no Stage-3 normalization was performed.
 - No new ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B009 remains in progress and resumes at CR000218.
+
+## Batch 009 checkpoint 02 summary
+
+- Four new B009 resources were processed: CR000218, CR000219, CR000220, and CR000222. The checkpoint sequence spans CR000218 through CR000222; mandatory-pilot CR000221 was already accepted and was deliberately not duplicated.
+- CR000218 is resolved from `uncertain` to `paper_code_collection_or_tutorial`: its pinned repository is a compact landing/link collection for the *Physics-Based Deep Learning* digital book and arXiv:2109.05237, with README documentation and three illustrations but no repository license, formal dependency manifest, or research dataset.
+- CR000219 remains an archived machine-learning-for-CFD tutorial/example collection. MIT licensing, DOI `10.1002/ceat.201900044`, README dependency instructions, notebooks, CSV/PKL data, PyTorch model files, and OpenFOAM cases are verified; the repository's outdated-code warning is preserved.
+- CR000220 remains a curated PINN/PIML bibliography and project/tutorial index. Exact root files establish CC-BY-4.0 for repository content despite API `NOASSERTION`; the parser manifests are maintenance tooling, and external bibliography entries are not project self-citation metadata.
+- CR000222 is verified as the 2026 *Results in Engineering* research article with DOI `10.1016/j.rineng.2026.110582`. MRD000016 and PD000011 retain it as a related-paper candidate from the MULTIPINN context, not a current Atlas-paper relationship. The publisher labels it open access under a Creative Commons license, but the exact variant is not exposed in accessible metadata and remains `NOASSERTION`.
+- None of the four newly processed resources has a Stage-1 Atlas-paper assertion, so no PRL was invented. No third-party code was executed, no external dataset was downloaded, and no Stage-3 normalization was performed.
+- No new alias, ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B009 remains in progress and resumes at CR000223.
 
 ## Stop conditions
 
