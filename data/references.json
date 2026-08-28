@@ -21801,13 +21801,13 @@
   {
     "id": 824,
     "title": "Constrained neural network training and its application to hyperelastic material modeling",
-    "citation": "Weber, P.; Geiger, J.; Wagner, W. Constrained neural network training and its application to hyperelastic material modeling. Training and Its Application to Hyperelastic Material Modeling. Comput. Mech 2021, 68, 1179–1204.",
-    "doi": null,
-    "publisher_url": null,
-    "venue": "Training and Its Application to Hyperelastic Material Modeling. Comput. Mech.",
+    "citation": "Weber, P.; Geiger, J.; Wagner, W. Constrained neural network training and its application to hyperelastic material modeling. Computational Mechanics 2021, 68, 1179–1204. https://doi.org/10.1007/s00466-021-02064-8.",
+    "doi": "10.1007/s00466-021-02064-8",
+    "publisher_url": "https://link.springer.com/article/10.1007/s00466-021-02064-8",
+    "venue": "Computational Mechanics",
     "reference_type": "journal",
     "bibliographic": {
-      "authors": "Weber, P.; Geiger, J.; Wagner, W",
+      "authors": "Weber, P.; Geiger, J.; Wagner, W.",
       "journal_abbreviation": "Training and Its Application to Hyperelastic Material Modeling. Comput. Mech.",
       "volume": "68",
       "pages": "1179–1204"
@@ -21819,7 +21819,7 @@
     "countries": [
       "Germany"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 825,
