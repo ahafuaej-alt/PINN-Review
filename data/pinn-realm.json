@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.178",
+    "version": "2.2.179",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-28",
     "source_file": "papers-countries-and-year.md",
@@ -36,7 +36,7 @@
     "national_paper_count": 649,
     "international_paper_count": 204,
     "collaboration_pair_count": 172,
-    "legacy_year_override_count": 96,
+    "legacy_year_override_count": 95,
     "reference_url_pattern": "../references/?q={id}#ref={id}",
     "methodology": "Countries are taken from author-affiliation country records. A paper with one unique country is national; a paper with two or more unique countries is international. Every international paper contributes once to each unordered country pair. Publication years are generated from the master record, except for explicitly retained legacy overrides awaiting evidence resolution."
   },
@@ -8614,7 +8614,7 @@
     {
       "id": 715,
       "title": "2D and 3D Physics Informed Neural Networks to Model Pollution Spread with Obstructions",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "United States"
       ],
@@ -14411,13 +14411,13 @@
           "international": 11
         },
         "2023": {
-          "total": 45,
-          "national": 30,
+          "total": 44,
+          "national": 29,
           "international": 15
         },
         "2024": {
-          "total": 37,
-          "national": 23,
+          "total": 38,
+          "national": 24,
           "international": 14
         },
         "2025": {

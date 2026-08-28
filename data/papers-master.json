@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.178",
+    "dataset_version": "2.2.179",
     "last_updated": "2026-08-28",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 96,
+      "legacy_realm_year_override_count": 95,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -58126,19 +58126,16 @@
         "name": "IEEE/ACM International Conference on Big Data Computing, Applications and Technologies 10th",
         "type": "conference"
       },
-      "year": 2023,
+      "year": 2024,
       "access": "Subscription",
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://dl.acm.org/doi/10.1145/3632366.3632380",
-        "note": "name and abs",
+        "note": "2024 change year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1145%2F3632366.3632380",
@@ -58189,7 +58186,7 @@
         },
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-08-06",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Ranjith, Y.",
         "journal_abbreviation": "Proceedings of the IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies",

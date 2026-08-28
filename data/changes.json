@@ -2,6 +2,66 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-715-2026-08-28-2.2.179",
+      "version": "2.2.179",
+      "date": "2026-08-28",
+      "paper_id": 715,
+      "changed_fields": [
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "2024 change year",
+      "evidence": {
+        "url": "https://dl.acm.org/doi/10.1145/3632366.3632380",
+        "note": "2024 change year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 715,
+        "changed_fields": [
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2023,
+            "before": 134,
+            "after": 133
+          },
+          {
+            "year": 2024,
+            "before": 159,
+            "after": 160
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2023,
+            "before": 141,
+            "after": 140
+          },
+          {
+            "year": 2024,
+            "before": 161,
+            "after": 162
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-634-2026-08-28-2.2.178",
       "version": "2.2.178",
       "date": "2026-08-28",

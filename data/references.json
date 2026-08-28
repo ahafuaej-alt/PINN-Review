@@ -18975,12 +18975,12 @@
     },
     "abstract": "Pollution simulations rely on math models to solve Partial Differential Equations (PDEs). Although accurate, they are slow, as they sequentially compute one timestep at a time. Recent research advancements in Physics Informed Neural Networks (PINNs) like Neural Operators have solved PDEs but they are able to do so only in 2D environments without obstructions. This research creates a PINN that can jump directly to any timestep to simulate pollution spread for laminar flow by solving 2D and 3D advection-diffusion PDEs in an environment with obstructions. The PDEs are solved using the Finite Difference Method and Zero Flux Neumann boundaries are applied to obstruction surfaces. Then, the solution space is sampled, and the resulting colocation dataset is used to train the PINN via supervised learning. Results show that both 2D and 3D PINNs were over 1900 times faster than the math models with an MSE at or lower than 9E-5.",
     "graphical_abstract": null,
-    "year": 2023,
+    "year": 2024,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-08-06"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 716,
