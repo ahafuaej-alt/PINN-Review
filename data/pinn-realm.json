@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.190",
+    "version": "2.2.191",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-28",
     "source_file": "papers-countries-and-year.md",
@@ -9686,7 +9686,7 @@
     },
     {
       "id": 808,
-      "title": "NEURAL OPERATOR-BASED PROXY FOR RESERVOIR SIMULATIONS CONSIDERING VARYING WELL SETTINGS, LOCATIONS, AND PERMEABILITY FIELDS",
+      "title": "Neural operator-based proxy for reservoir simulations considering varying well settings, locations, and permeability fields",
       "year": 2023,
       "countries": [
         "United States"

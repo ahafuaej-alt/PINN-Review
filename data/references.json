@@ -21379,8 +21379,8 @@
   },
   {
     "id": 808,
-    "title": "NEURAL OPERATOR-BASED PROXY FOR RESERVOIR SIMULATIONS CONSIDERING VARYING WELL SETTINGS, LOCATIONS, AND PERMEABILITY FIELDS",
-    "citation": "Badawi, D.; Gildin, E. NEURAL OPERATOR-BASED PROXY FOR RESERVOIR SIMULATIONS CONSIDERING VARYING WELL SETTINGS, LOCATIONS, AND PERMEABILITY FIELDS. Computers & Geosciences 2025, 196, 105826. https://doi.org/10.1016/j.cageo.2024.105826.",
+    "title": "Neural operator-based proxy for reservoir simulations considering varying well settings, locations, and permeability fields",
+    "citation": "Badawi, D.; Gildin, E. Neural operator-based proxy for reservoir simulations considering varying well settings, locations, and permeability fields. Computers & Geosciences 2025, 196, 105826. https://doi.org/10.1016/j.cageo.2024.105826.",
     "doi": "10.1016/j.cageo.2024.105826",
     "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0098300424003091",
     "venue": "Computers & Geosciences",
@@ -21389,7 +21389,6 @@
       "authors": "Badawi, D.; Gildin, E.",
       "journal_abbreviation": "Computers & Geosciences",
       "volume": "196",
-      "pages": "105826",
       "article_number": "105826",
       "publisher": "Elsevier BV",
       "publication_date": "2025-02"
@@ -21401,7 +21400,7 @@
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 809,
