@@ -18154,7 +18154,7 @@
   {
     "id": 684,
     "title": "Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks",
-    "citation": "Huang, W., Ying, K., Yan, X., Ni, C. Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks. Journal of Physics: Conference Series 2024, 2966, 1-14. https://doi.org/10.1088/1742-6596/2966/1/012019.",
+    "citation": "Huang, W., Ying, K., Yan, X., Ni, C. Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks. Journal of Physics: Conference Series 2025, 2966, 1-14. https://doi.org/10.1088/1742-6596/2966/1/012019.",
     "doi": "10.1088/1742-6596/2966/1/012019",
     "publisher_url": "https://iopscience.iop.org/article/10.1088/1742-6596/2966/1/012019/meta",
     "venue": "Journal of Physics: Conference Series",
@@ -18168,12 +18168,12 @@
     },
     "abstract": "To address the issue of crack detection based on traditional laser ultrasonic results, conventional neural networks (CNNs) fail to utilize the physical information implicitly contained in the data. To overcome this problem, this paper adopts Physics-Informed Neural Networks (PINN), incorporating the wave equation as a physical constraint. By using finite element simulation, we obtain out-of-plane displacement data of the wave field containing surface cracks and train a PINN model capable of predicting the location and depth of surface cracks. The research results show that for samples with surface micro-cracks of different depths, the equivalent wave velocity can be effectively predicted; and accurate prediction results can be obtained with only 50% of the full wave field data for training, with an average relative error of approximately 1.24%. Furthermore, the results predicted by the PINN indicate that the equivalent wave velocity increases as the crack depth decreases, and the relative error compared to the SAW wave velocity of defect-free sample is only 1.06%. This demonstrates that the proposed PINN model can effectively predict crack depth. The content and results of this study provide theoretical and technical support for the application of neural network algorithms in the field of laser ultrasonic non-destructive testing.",
     "graphical_abstract": null,
-    "year": 2024,
+    "year": 2025,
     "access": "Open access",
     "countries": [
       "China"
     ],
-    "last_updated": "2026-07-29"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 685,

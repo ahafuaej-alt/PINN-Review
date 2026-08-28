@@ -2,6 +2,57 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-684-2026-08-28-2.2.197",
+      "version": "2.2.197",
+      "date": "2026-08-28",
+      "paper_id": 684,
+      "changed_fields": [
+        "citation",
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "yaer",
+      "evidence": {
+        "url": "https://iopscience.iop.org/article/10.1088/1742-6596/2966/1/012019/meta",
+        "note": "yaer"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 684,
+        "changed_fields": [
+          "citation",
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 160,
+            "after": 159
+          },
+          {
+            "year": 2025,
+            "before": 300,
+            "after": 301
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-609-2026-08-28-2.2.196",
       "version": "2.2.196",
       "date": "2026-08-28",
