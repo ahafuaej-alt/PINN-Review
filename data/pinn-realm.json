@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.177",
+    "version": "2.2.178",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-28",
     "source_file": "papers-countries-and-year.md",
@@ -7681,7 +7681,7 @@
     {
       "id": 634,
       "title": "HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks",
-      "year": 2021,
+      "year": 2022,
       "countries": [
         "United States"
       ],
@@ -14401,13 +14401,13 @@
           "international": 9
         },
         "2021": {
-          "total": 37,
-          "national": 33,
+          "total": 36,
+          "national": 32,
           "international": 4
         },
         "2022": {
-          "total": 28,
-          "national": 17,
+          "total": 29,
+          "national": 18,
           "international": 11
         },
         "2023": {

@@ -2,6 +2,66 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-634-2026-08-28-2.2.178",
+      "version": "2.2.178",
+      "date": "2026-08-28",
+      "paper_id": 634,
+      "changed_fields": [
+        "citation",
+        "year"
+      ],
+      "reason": "2022 change year",
+      "evidence": {
+        "url": "https://academic.oup.com/gji/article/228/1/698/6348094",
+        "note": "2022 change year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 634,
+        "changed_fields": [
+          "citation",
+          "year"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2021,
+            "before": 67,
+            "after": 66
+          },
+          {
+            "year": 2022,
+            "before": 85,
+            "after": 86
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2021,
+            "before": 63,
+            "after": 62
+          },
+          {
+            "year": 2022,
+            "before": 81,
+            "after": 82
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-510-2026-08-28-2.2.177",
       "version": "2.2.177",
       "date": "2026-08-28",

@@ -16833,7 +16833,7 @@
   {
     "id": 634,
     "title": "HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks",
-    "citation": "Smith, J.D.; Ross, Z.E.; Azizzadenesheli, K.; Muir, J.B. HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks. Geophysical Journal International 2021, 228, 698-710. https://doi.org/10.1093/gji/ggab309.",
+    "citation": "Smith, J.D.; Ross, Z.E.; Azizzadenesheli, K.; Muir, J.B. HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks. Geophysical Journal International 2022, 228, 698-710. https://doi.org/10.1093/gji/ggab309.",
     "doi": "10.1093/gji/ggab309",
     "publisher_url": "https://academic.oup.com/gji/article/228/1/698/6348094",
     "venue": "Geophysical Journal International",
@@ -16849,12 +16849,12 @@
     },
     "abstract": "We introduce a scheme for probabilistic hypocentre inversion with Stein variational inference. Our approach uses a differentiable forward model in the form of a physics informed neural network, which we train to solve the Eikonal equation. This allows for rapid approximation of the posterior by iteratively optimizing a collection of particles against a kernelized Stein discrepancy. We show that the method is well-equipped to handle highly multimodal posterior distributions, which are common in hypocentral inverse problems. A suite of experiments is performed to examine the influence of the various hyperparameters. Once trained, the method is valid for any seismic network geometry within the study area without the need to build traveltime tables. We show that the computational demands scale efficiently with the number of differential times, making it ideal for large-N sensing technologies like Distributed Acoustic Sensing. The techniques outlined in this manuscript have considerable implications beyond just ray tracing procedures, with the work flow applicable to other fields with computationally expensive inversion procedures such as full waveform inversion.",
     "graphical_abstract": null,
-    "year": 2021,
+    "year": 2022,
     "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 635,
