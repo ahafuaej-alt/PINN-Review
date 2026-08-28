@@ -11,47 +11,47 @@ Verification date: 2026-08-28
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 8 |
-| Expansion resources processed | 209 |
-| Expansion relationships verified | 163 |
+| Completed expansion batches | 9 |
+| Expansion resources processed | 225 |
+| Expansion relationships verified | 180 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 135 |
+| Pending expansion resources | 119 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B009-C02 passed**. B009 is in progress and resumes at CR000223. No stop condition was triggered.
+Latest persistence checkpoint: **B009-C06 passed**. B009 is complete; Stage 2 resumes with B010 at CR000239. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B009 (in progress) |
-| Last completed resource | CR000222 |
-| Last completed logical batch | B008 |
-| Last persistence checkpoint | B009-C02 |
-| Next resource | CR000223 |
-| Completed Stage-1 resource count | 222 |
+| Current logical batch | B010 (pending) |
+| Last completed resource | CR000238 |
+| Last completed logical batch | B009 |
+| Last persistence checkpoint | B009-C06 |
+| Next resource | CR000239 |
+| Completed Stage-1 resource count | 238 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 135 |
-| Completed CR IDs/ranges | CR000001–CR000222; promoted CR000358 |
-| Pending CR IDs/ranges | CR000223–CR000357 |
-| Completed Stage-1 PRL assertions | 189 |
-| Pending Stage-1 PRL assertions | 142 |
-| Verified relationship records | 180 |
+| Remaining Stage-1 resource count | 119 |
+| Completed CR IDs/ranges | CR000001–CR000238; promoted CR000358 |
+| Pending CR IDs/ranges | CR000239–CR000357 |
+| Completed Stage-1 PRL assertions | 206 |
+| Pending Stage-1 PRL assertions | 125 |
+| Verified relationship records | 197 |
 | Explicitly `not_verified` relationship records | 9 |
-| Completed batches | B001–B008 |
-| Current batch checkpoint | B009-C02 passed |
-| Pending full batches | B009–B014 |
-| Resources completed in last checkpoint | CR000218–CR000220; CR000222 (CR000221 already completed in the pilot) |
-| Resources remaining in current batch | 16 |
-| Current QA status | checkpoint passed; B009 in progress |
+| Completed batches | B001–B009 |
+| Current batch checkpoint | B009-C06 passed; B009 complete |
+| Pending full batches | B010–B014 |
+| Resources completed in last checkpoint | CR000238 |
+| Resources remaining in current batch | 25 |
+| Current QA status | B009 passed; B010 pending |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `4b232074bb90b7f90ee512d66ba782698a77e0f9` |
+| Last verification checkpoint commit | `11e6acdf448637ff5a3d31f84050a207a6923eb4` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoints 01–02 must not be reprocessed. Resume at CR000223 in B009. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B009, and all completed checkpoints through B009-C06 must not be reprocessed. Resume at CR000239 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -65,7 +65,7 @@ The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoints 0
 | B006 | 25 | CR000132 | CR000160 | completed | passed |
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
-| B009 | 25 | CR000213 | CR000238 | in progress (9/25) | checkpoint 02 passed |
+| B009 | 25 | CR000213 | CR000238 | completed | passed |
 | B010 | 25 | CR000239 | CR000263 | pending | pending |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
@@ -304,6 +304,38 @@ The pilot set, B001–B008, all B008 checkpoints 01–05, and B009 checkpoints 0
 - CR000222 is verified as the 2026 *Results in Engineering* research article with DOI `10.1016/j.rineng.2026.110582`. MRD000016 and PD000011 retain it as a related-paper candidate from the MULTIPINN context, not a current Atlas-paper relationship. The publisher labels it open access under a Creative Commons license, but the exact variant is not exposed in accessible metadata and remains `NOASSERTION`.
 - None of the four newly processed resources has a Stage-1 Atlas-paper assertion, so no PRL was invented. No third-party code was executed, no external dataset was downloaded, and no Stage-3 normalization was performed.
 - No new alias, ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B009 remains in progress and resumes at CR000223.
+
+## Batch 009 checkpoint 03 summary
+
+- Five resources were processed: CR000223 through CR000227. PhysicsNeMo and NeuralPDE.jl were pinned through official source repositories, while three historical project locations were resolved to existing canonical resources.
+- VA000037 preserves CR000223 across NVIDIA's official Modulus-to-PhysicsNeMo rename. VA000038 maps the SciANN pointer CR000224 to canonical CR000062, accepted VA000002 maps CR000225 to canonical NeuroDiffEq CR000137, and VA000039 maps CR000226 to canonical PyDEns CR000057.
+- PRL000079 through PRL000083 are verified from Atlas review paper 367. Paper-internal references remain provenance only and are not promoted to Atlas IDs.
+- CR000227 remains the distinct MIT-licensed NeuralPDE.jl framework with citation DOI `10.48550/arXiv.2107.09443`, Julia dependency declarations, documentation, examples, and tests.
+- No third-party code was executed, no external dataset was downloaded, and no Stage-3 normalization was performed. No new manual-review item or stop condition was produced.
+
+## Batch 009 checkpoint 04 summary
+
+- Five resources were processed: CR000228 through CR000232. CR000228–CR000231 were pinned to exact default-branch commits; CR000232 was resolved to canonical Elvet resource CR000063.
+- ADCME.jl remains broader supporting scientific-computing software. Nangs, TensorDiffEq, and IDRLnet remain PINN frameworks/libraries. VA000040 repairs the Nangs owner path, and VA000041 preserves the historical Elvet identity without duplicating canonical metadata.
+- Six Stage-1 assertions are verified: PRL000084–PRL000088 from Atlas paper 367 and PRL000144 for IDRLnet from Atlas paper 495.
+- MIT is verified for ADCME.jl, Apache-2.0 for Nangs and IDRLnet, and TensorDiffEq retains a verified-negative repository-license finding.
+- No code, archive, or external dataset was executed, unpacked, or downloaded. No new manual-review item or stop condition was produced.
+
+## Batch 009 checkpoint 05 summary
+
+- Five resources were processed: CR000233 through CR000237. GPyTorch and NeuralUQ were pinned to exact commits; CR000235 remains a TensorDiffEq organization-profile resource; CR000236 and CR000237 remain project-documentation resources.
+- VA000042 corrects the ADCME documentation hostname, and VA000043 corrects the DeepXDE documentation hostname, without changing CR identities.
+- PRL000089, PRL000145, PRL000146, PRL000097, and PRL000098 are verified from Atlas review papers 367, 495, and 401.
+- GPyTorch is MIT-licensed. NeuralUQ has a verified-negative repository-license finding. Canonical project metadata are not duplicated onto profile or documentation resources.
+- No code, archive, model asset, or external dataset was executed, unpacked, or downloaded. No new manual-review item or stop condition was produced.
+
+## Batch 009 checkpoint 06 and completion summary
+
+- CR000238 was processed as the sole remaining B009 resource and verified as the live GPyTorch project/documentation site associated with canonical repository CR000233.
+- PRL000099 is verified from Atlas review paper 401, which lists the exact GPyTorch URL. Repository-level metadata remain on CR000233 and are not duplicated onto the documentation resource.
+- Full B009 QA passed: all 25 planned expansion resources occur exactly once, all 17 Stage-1 relationship assertions are verified, evidence IDs S2E000406–S2E000430 are unique, eight new alias records plus accepted VA000002 preserve stable IDs, and no new manual-review item or stop condition was produced.
+- No third-party code was executed, no external dataset was downloaded, no archive was unpacked, and no Stage-3 normalization was performed.
+- B009 is complete. Resume Stage 2 with B010 at CR000239.
 
 ## Stop conditions
 

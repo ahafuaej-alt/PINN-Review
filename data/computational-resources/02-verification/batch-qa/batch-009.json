@@ -1,0 +1,145 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_logical_batch_qa",
+  "batch_id": "B009",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "planned_resource_ids": [
+    "CR000213",
+    "CR000214",
+    "CR000215",
+    "CR000216",
+    "CR000217",
+    "CR000218",
+    "CR000219",
+    "CR000220",
+    "CR000222",
+    "CR000223",
+    "CR000224",
+    "CR000225",
+    "CR000226",
+    "CR000227",
+    "CR000228",
+    "CR000229",
+    "CR000230",
+    "CR000231",
+    "CR000232",
+    "CR000233",
+    "CR000234",
+    "CR000235",
+    "CR000236",
+    "CR000237",
+    "CR000238"
+  ],
+  "processed_resource_range": "CR000213–CR000238 excluding accepted pilot CR000221",
+  "next_resource_id": "CR000239",
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repository_resource_snapshots_pinned": 14,
+    "linked_source_repositories_pinned": 1,
+    "web_resources_verified": 7,
+    "github_profiles_verified": 1,
+    "relationship_records": 17,
+    "verified_relationship_records": 17,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 25,
+    "new_alias_resolution_records": 8,
+    "accepted_alias_resolution_records_reused": 1,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 12,
+    "verified_negative_license_findings": 3,
+    "verified_qualified_license_findings": 1,
+    "not_applicable_license_findings": 9,
+    "bounded_unknown_snapshot_fields": 1
+  },
+  "checks": [
+    {
+      "check": "batch_membership_and_uniqueness",
+      "status": "passed",
+      "detail": "All 25 planned B009 expansion identities occur exactly once. Accepted mandatory-pilot resource CR000221 is deliberately excluded from the B009 expansion list and is not reprocessed."
+    },
+    {
+      "check": "checkpoint_coverage",
+      "status": "passed",
+      "detail": "B009-C01 through B009-C06 collectively cover CR000213 through CR000238 except accepted pilot CR000221, and all six checkpoint QA reports pass."
+    },
+    {
+      "check": "stable_identifier_and_alias_policy",
+      "status": "passed",
+      "detail": "Eight new alias records VA000036 through VA000043 and accepted pilot alias VA000002 preserve repository transfers, product renames, historical project locations, and source-URL repairs without renumbering Stage-1 CR identities."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 17 B009 Stage-1 paper-resource assertions are represented once, match their immutable Stage-1 resource and Atlas-reference pairs, and are verified from the applicable primary review papers and canonical project evidence."
+    },
+    {
+      "check": "snapshot_integrity",
+      "status": "passed",
+      "detail": "Fourteen GitHub resource records and one linked source repository are pinned to exact commits. Web, profile, publication, aggregate-ecosystem, and superseded-alias resources use explicit non-repository or delegated snapshot states."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "PINN frameworks, broader scientific-computing and uncertainty-quantification libraries, tutorial/collection resources, publication records, profiles, documentation sites, aggregate ecosystems, and superseded aliases remain distinct."
+    },
+    {
+      "check": "license_integrity",
+      "status": "passed",
+      "detail": "Twelve positive licenses, three verified-negative repository-license findings, one qualified article-license finding, and nine not-applicable delegated/profile/documentation findings are represented without inference or metadata propagation across resource boundaries."
+    },
+    {
+      "check": "citation_dependency_and_dataset_integrity",
+      "status": "passed",
+      "detail": "Project citation metadata, formal manifests, bundled examples/data/models/results, external resources, and aggregate or delegated-resource boundaries are recorded statically and remain separate from Stage-3 normalization."
+    },
+    {
+      "check": "evidence_identifier_uniqueness",
+      "status": "passed",
+      "detail": "Evidence IDs S2E000406 through S2E000430 are unique and resolve to the 25 B009 resource records."
+    },
+    {
+      "check": "manual_review_and_stop_conditions",
+      "status": "passed",
+      "detail": "B009 produces no new ordinary manual-review item, scientific-review item, schema issue, relationship type, stable-ID policy change, or stop condition."
+    },
+    {
+      "check": "stage1_and_scope_preservation",
+      "status": "passed",
+      "detail": "Accepted Stage-1 and pilot data are unchanged; B009 work remains confined to the Stage-2 computational-resources overlay and reports. No main-branch, live Atlas, deployment, or application file is modified."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code, notebook, binary, model, test suite, external dataset, or archive was executed or unpacked; Stage 3 has not begun."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 17,
+    "verified_link_ids": [
+      "PRL000079",
+      "PRL000080",
+      "PRL000081",
+      "PRL000082",
+      "PRL000083",
+      "PRL000084",
+      "PRL000085",
+      "PRL000086",
+      "PRL000087",
+      "PRL000088",
+      "PRL000089",
+      "PRL000097",
+      "PRL000098",
+      "PRL000099",
+      "PRL000144",
+      "PRL000145",
+      "PRL000146"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 passes full-batch QA. Resume Stage 2 at CR000239 in B010."
+}

@@ -1,6 +1,6 @@
 # Computational Resources Stage 2 Unresolved and Deferred Register
 
-Verification date: 2026-08-27
+Verification date: 2026-08-28
 
 ## Scientific-review items carried from pilot
 
@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B008 checkpoint 01 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete and added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -134,5 +134,18 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000219 | The archived machine-learning-for-CFD tutorial repository is MIT-licensed and supplies publication DOI, README dependency guidance, notebooks, CFD cases, data, and model artifacts; its README warns that most code is outdated. | Identity/license/citation/dependency/data boundary verified without execution; environment recreation, model inspection, and reproducibility testing remain Stage 3 work. |
 | CR000220 | awesome-pinns is a CC-BY-4.0 curated PINN/PIML project and bibliography index. Parser manifests support repository maintenance, while bibliography entries are not project self-citation metadata. | Collection role, scoped license, dependency, citation, and no-dataset boundaries verified; bibliography normalization and parser execution remain outside Stage 2. |
 | CR000222 | The exact PII resolves to a 2026 *Results in Engineering* article with DOI `10.1016/j.rineng.2026.110582`. The publisher identifies it as open access under a Creative Commons license but accessible metadata does not expose the exact variant; no separate code or dataset was established. | MRD000016 and PD000011 retain the article as a MULTIPINN-related candidate for possible future Atlas reference review, not a current Atlas relationship; SPDX remains `NOASSERTION` and direct automated retrieval restriction is bounded. |
+| CR000223 | The official NVIDIA Modulus URL now redirects to PhysicsNeMo and links the pinned `NVIDIA/physicsnemo` source repository. | Product continuity resolved via VA000037; component/example normalization, asset inspection, execution, and reproducibility testing remain Stage 3 work. |
+| CR000224, CR000225, CR000226 | Historical SciANN, NeuroDiffEq, and PyDEns locations resolve to already verified canonical resources CR000062, CR000137, and CR000057. | VA000038, accepted VA000002, and VA000039 preserve Stage-1 provenance; canonical metadata are not duplicated. |
+| CR000227 | NeuralPDE.jl is an MIT-licensed SciML PINN solver with formal Julia dependencies, citation metadata, documentation, examples, and tests but no bundled standalone research dataset. | Identity and PRL000083 are verified; dependency normalization and execution remain Stage 3 work. |
+| CR000228 | ADCME.jl is an MIT-licensed general automatic-differentiation/scientific-computing library with physics-constrained learning support. | Preserve `supporting_software_or_library`; Julia/TensorFlow/build dependency normalization and execution remain Stage 3 work. |
+| CR000229 | The Stage-1 Nangs owner path is unavailable; `juansensio/nangs` is the matching Apache-2.0 PyTorch neural-PDE/PINN project. | URL repaired via VA000040; dependency/example normalization and execution remain Stage 3 work. |
+| CR000230 | TensorDiffEq is a verified TensorFlow PINN framework with multiple environment manifests but no repository license at the pinned commit. | Preserve the verified-negative license finding; do not infer a license from README wording or secondary-review labels. |
+| CR000231 | IDRLnet is Apache-2.0 licensed with formal dependencies and bundled Navier-Stokes example/reference CSV files. | PRL000087 and PRL000144 are verified; dependency/data normalization and execution remain Stage 3 work. |
+| CR000232 | The unavailable historical Elvet GitHub location resolves to canonical CR000063 at GitLab. | VA000041 preserves the identity boundary; canonical license/citation/dependency metadata are not duplicated. |
+| CR000233 | GPyTorch is a general MIT-licensed Gaussian-process library with formal package metadata and example/test assets. | Preserve `supporting_software_or_library`; dependency and example-asset normalization and execution remain Stage 3 work. |
+| CR000234 | NeuralUQ is SciML uncertainty-quantification infrastructure with formal package metadata, benchmark MAT data, and pretrained model arrays but no repository license. | Preserve the verified-negative license finding; dependency/data/model normalization and execution remain Stage 3 work. |
+| CR000235 | The TensorDiffEq organization profile points to canonical repository CR000230. | Keep the profile as a distinct Stage-1 resource and do not duplicate repository metadata. |
+| CR000236, CR000237 | The Stage-1 ADCME and DeepXDE documentation hostnames contain transcription errors relative to the primary papers and live project documentation. | VA000042 and VA000043 repair the URLs without changing CR identities; canonical project metadata remain on CR000228 and CR000016. |
+| CR000238 | `https://gpytorch.ai` is the live GPyTorch project/documentation site associated with canonical repository CR000233. | PRL000099 is verified; repository license, citation, dependency, and example/test-asset metadata remain on CR000233. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
