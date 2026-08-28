@@ -12,46 +12,46 @@ Verification date: 2026-08-28
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 9 |
-| Expansion resources processed | 230 |
-| Expansion relationships verified | 185 |
+| Expansion resources processed | 235 |
+| Expansion relationships verified | 190 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 114 |
+| Pending expansion resources | 109 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B010-C01 passed**. B010 is in progress and resumes at CR000244. No stop condition was triggered.
+Latest persistence checkpoint: **B010-C02 passed**. B010 is in progress and resumes at CR000249. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
 | Current logical batch | B010 (in progress) |
-| Last completed resource | CR000243 |
+| Last completed resource | CR000248 |
 | Last completed logical batch | B009 |
-| Last persistence checkpoint | B010-C01 |
-| Next resource | CR000244 |
-| Completed Stage-1 resource count | 243 |
+| Last persistence checkpoint | B010-C02 |
+| Next resource | CR000249 |
+| Completed Stage-1 resource count | 248 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 114 |
-| Completed CR IDs/ranges | CR000001–CR000243; promoted CR000358 |
-| Pending CR IDs/ranges | CR000244–CR000357 |
-| Completed Stage-1 PRL assertions | 211 |
-| Pending Stage-1 PRL assertions | 120 |
-| Verified relationship records | 202 |
+| Remaining Stage-1 resource count | 109 |
+| Completed CR IDs/ranges | CR000001–CR000248; promoted CR000358 |
+| Pending CR IDs/ranges | CR000249–CR000357 |
+| Completed Stage-1 PRL assertions | 216 |
+| Pending Stage-1 PRL assertions | 115 |
+| Verified relationship records | 207 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B009 |
-| Current batch checkpoint | B010-C01 passed |
+| Current batch checkpoint | B010-C02 passed |
 | Pending full batches | B010–B014 |
-| Resources completed in last checkpoint | CR000239–CR000243 |
-| Resources remaining in current batch | 20 |
+| Resources completed in last checkpoint | CR000244–CR000248 |
+| Resources remaining in current batch | 15 |
 | Current QA status | checkpoint passed; B010 in progress |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `f3f5989bd6df525fdafb5e88b50e80964148a27e` |
+| Last verification checkpoint commit | `bdd1fd20f1da2f51ca0cf74a1a0c64e70f1f5379` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B009, and all completed checkpoints through B010-C01 must not be reprocessed. Resume at CR000244 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B009, and all completed checkpoints through B010-C02 must not be reprocessed. Resume at CR000249 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -66,7 +66,7 @@ The pilot set, B001–B009, and all completed checkpoints through B010-C01 must 
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
 | B009 | 25 | CR000213 | CR000238 | completed | passed |
-| B010 | 25 | CR000239 | CR000263 | in progress (5/25) | checkpoint 01 passed |
+| B010 | 25 | CR000239 | CR000263 | in progress (10/25) | checkpoint 02 passed |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
 | B013 | 25 | CR000314 | CR000338 | pending | pending |
@@ -346,6 +346,17 @@ The pilot set, B001–B009, and all completed checkpoints through B010-C01 must 
 - VA000047 corrects the Stage-1 plural NVIDIA developer hostname and resolves historical SimNet through the official redirect to PhysicsNeMo, represented canonically by CR000223.
 - No third-party code was executed, no external dataset was downloaded, no archive or model asset was unpacked, and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
 - B010 remains in progress and resumes at CR000244.
+
+## Batch 010 checkpoint 02 summary
+
+- Five resources were processed: CR000244 through CR000248. All five Stage-1 assertions—PRL000105, PRL000275, PRL000277, PRL000283, and PRL000284—are verified from the corresponding primary review/papers and current canonical project evidence.
+- CR000244 remains the TensorFlow project/documentation site. Atlas review paper 401 gives the exact URL; the site and exact pinned official source establish Apache-2.0 licensing, citation DOI `10.5281/zenodo.4724125`, build/dependency manifests, and the boundary between framework documentation and external dataset catalogs.
+- VA000048 preserves CR000245 across the transfer from `mgbellemare/Arcade-Learning-Environment` to `Farama-Foundation/Arcade-Learning-Environment` using immutable GitHub repository ID 5816654. The repository is pinned at `a9a043e26eba63e1c10debf52adfd469ee1721e1`; GPL-2.0-only, citation, dependency, ROM/test-asset, and documentation evidence are verified.
+- CR000246 remains the Darknet project site. The Mish paper names a CSP-DarkNet-53 benchmark, while its public code is a separate repository; the relationship is therefore verified as supporting software, not official paper code. The exact linked source snapshot establishes a custom public-domain dedication, Makefile build options, and bundled labels/sample/configuration assets.
+- CR000247 is the pinned Bolt Online Learning Toolbox repository. The open-access transfer-learning survey lists Bolt in its software-download appendix; BSD-3-Clause, `setup.py`, documentation, and the absence of a bundled research dataset are verified.
+- VA000049 records the official redirect of CR000248 to Yin Zhu's current HKUST profile. The survey cites the profile in its software-download appendix, and the live page identifies the Heterogeneous Transfer Learning paper and links `htl4ic.zip`. The archive was not downloaded or unpacked, so archive-internal license and dependency fields remain bounded unknowns.
+- No third-party code, ROM, binary, model, or test was executed; no archive was unpacked; no external dataset or weight was downloaded; and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B010 remains in progress and resumes at CR000249.
 
 ## Stop conditions
 

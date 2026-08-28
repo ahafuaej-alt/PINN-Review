@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete, and B010 checkpoint 01 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete, and B010 checkpoints 01–02 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -152,5 +152,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000241 | `pytorch.org` is the live project/documentation site associated with canonical PyTorch repository CR000049. | PRL000102 verified; canonical license, citation, dependency, and data/example evidence remain on CR000049. |
 | CR000242 | Stage-1 `www.sciam.com` resolves to Scientific American; Atlas paper 401 gives `www.sciann.com`, whose live documentation matches canonical SciANN CR000062. | VA000046 repairs the wrong-project URL and verifies PRL000103; CR000062 retains its canonical metadata and existing license-conflict review item. |
 | CR000243 | The Stage-1 SimNet URL uses a plural NVIDIA developer hostname; the paper-stated singular-host URL officially redirects to PhysicsNeMo. | VA000047 resolves the historical product alias to canonical CR000223 and verifies PRL000104; current product metadata remain on CR000223. |
+| CR000244 | TensorFlow is a project/documentation web resource that directly links its official source repository and external dataset/model ecosystem. | PRL000105 and the website are verified; exact source metadata are scoped to pinned `tensorflow/tensorflow`, while component dependencies and dataset loaders remain Stage 3 work. |
+| CR000245 | The Stage-1 Arcade Learning Environment repository moved from `mgbellemare` to `Farama-Foundation` under immutable GitHub repository ID 5816654. The pinned tree includes ROM/test binaries and documentation media. | VA000048 preserves CR identity and verifies PRL000275; dependency/asset normalization and execution remain Stage 3 work. |
+| CR000246 | The Mish paper evaluates CSP-DarkNet-53, but its public code is `digantamisra98/Mish`; the Darknet project site links `pjreddie/darknet`, whose exact root license is a custom public-domain dedication. | PRL000277 is verified as supporting software, not official paper code. No SPDX identifier is inferred for the custom license; build/asset normalization remains Stage 3 work. |
+| CR000247 | Bolt is a legacy Python 2/Cython online-learning toolbox last updated in 2011, with BSD-3-Clause licensing and no project self-citation metadata or bundled research dataset. | PRL000283 is verified from the primary survey's software-download appendix; compatibility and dependency normalization remain Stage 3 work. |
+| CR000248 | The historical HKUST author/profile URL redirects to a current host and exposes `htl4ic.zip` for the surveyed Heterogeneous Transfer Learning paper. | VA000049 and PRL000284 are verified. The archive was not downloaded or unpacked, so archive-internal license/dependency fields remain bounded unknowns deferred to Stage 3. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
