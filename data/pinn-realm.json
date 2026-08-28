@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.192",
+    "version": "2.2.193",
     "schema_version": "1.0.0",
     "last_updated": "2026-08-28",
     "source_file": "papers-countries-and-year.md",
@@ -5787,7 +5787,7 @@
     },
     {
       "id": 471,
-      "title": "ADAM A METHOD FOR STOCHASTIC OPTIMIZATION",
+      "title": "Adam: A Method for Stochastic Optimization",
       "year": 2015,
       "countries": [
         "Netherlands",
