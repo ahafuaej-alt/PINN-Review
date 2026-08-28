@@ -20760,29 +20760,32 @@
   {
     "id": 784,
     "title": "Evaluation of Machine Learning Methodologies Using Simple Physics Based Conceptual Models for Flow in Porous Media",
-    "citation": "Magzymov, D.; Ratnakar, R.R.; Dindoruk, B.; Johns, R.T. Evaluation of Machine Learning Methodologies Using Simple Physics Based Conceptual Models for Flow in Porous Media. In Proceedings of SPE Annual Technical Conference and Exhibition, Dubai, UAE, 2021-09-21–2021-09-23; https://doi.org/10.2118/206359-MS.",
-    "doi": "10.2118/206359-MS",
-    "publisher_url": "https://onepetro.org/SPEATCE/proceedings/21ATCE/21ATCE/D021S038R004/469630",
-    "venue": "in: SPE Annual Technical Conference and Exhibition, SPE, Dubai, UAE,",
-    "reference_type": "conference",
+    "citation": "Magzymov, D.; Ratnakar, R.R.; Dindoruk, B.; Johns, R.T. Evaluation of Machine Learning Methodologies Using Simple Physics Based Conceptual Models for Flow in Porous Media. Journal of Petroleum Science and Engineering 2022, 219, 1-24. https://doi.org/10.1016/j.petrol.2022.111056.",
+    "doi": "10.1016/j.petrol.2022.111056",
+    "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0920410522009081",
+    "venue": "Journal of Petroleum Science and Engineering",
+    "reference_type": "journal",
     "bibliographic": {
       "authors": "Magzymov, D.; Ratnakar, R.R.; Dindoruk, B.; Johns, R.T.",
-      "journal_abbreviation": "SPE Annual Technical Conference and Exhibition",
-      "article_number": "D021S038R004",
+      "journal_abbreviation": "Journal of Petroleum Science and Engineering",
+      "volume": "219",
+      "issue": "https://onepetro.org/SPEATCE/proceedings/21ATCE/21ATCE/D021S038R004/469630",
+      "pages": "1-24",
+      "article_number": "111056",
       "publisher": "SPE",
       "conference_name": "SPE Annual Technical Conference and Exhibition",
       "conference_location": "Dubai, UAE",
       "conference_date": "2021-09-21–2021-09-23",
       "publication_date": "2021-09-15"
     },
-    "abstract": null,
+    "abstract": "Machine learning (ML) techniques have drawn much attention in the engineering community due to recent advances in computational techniques and an enabling environment. However, often they are treated as black-box tools, which should be examined for their robustness and range of validity/applicability. This research presents an evaluation of their application to flow/transport in porous media, where exact solutions (obtained from physics-based models) are used to train ML algorithms to establish when and how these ML algorithms fail to predict the first order flow-physics. Exact solutions are used so as not to introduce artifacts from the numerical solutions.\nTo test, validate, and predict the physics of flow in porous media using ML algorithms, one needs a reliable set of data that may not be readily available and/or the data might not be in suitable form (i.e. incomplete/missing reporting, metadata, or other relevant peripheral information). To overcome this, we first generated structured datasets for flow in porous media using simple representative building blocks of flow physics such as Buckley-Leverett, convection-dispersion equations, and viscous fingering. Then, the outcomes from those equations are fed into ML algorithms to examine their robustness and predictive strength of the key features, such as breakthrough time, and saturation and component profiles. In this research, we show that a physics-informed ML algorithm can capture the physical behavior and effects of various physical parameters (even when shocks and sharp gradients are present) on the features of the flow. Furthermore the ML approach can be utilized to solve inverse problems to estimate various physical parameters. In this study, we have focused on capturing the dominant flow physics on selected processes constituting the outcome of the physics of flow in porous media using ML algorithms. We expect that capturing the physics per selected processes can help solving more complex problems by providing correlative physical proxies.",
     "graphical_abstract": null,
-    "year": 2021,
-    "access": "Open access",
+    "year": 2022,
+    "access": "Subscription",
     "countries": [
       "United States"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 785,

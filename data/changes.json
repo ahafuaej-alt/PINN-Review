@@ -2,6 +2,69 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-784-2026-08-28-2.2.198",
+      "version": "2.2.198",
+      "date": "2026-08-28",
+      "paper_id": 784,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "published in journal after coference",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0920410522009081",
+        "note": "published in journal after coference"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 784,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2021,
+            "before": 66,
+            "after": 65
+          },
+          {
+            "year": 2022,
+            "before": 86,
+            "after": 87
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-684-2026-08-28-2.2.197",
       "version": "2.2.197",
       "date": "2026-08-28",
