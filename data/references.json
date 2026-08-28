@@ -21154,7 +21154,7 @@
   {
     "id": 799,
     "title": "Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media",
-    "citation": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S. Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media. Mathematics 2023, 12, 63. https://doi.org/10.3390/math12010063.",
+    "citation": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S. Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media. Mathematics 2024, 12, 63. https://doi.org/10.3390/math12010063.",
     "doi": "10.3390/math12010063",
     "publisher_url": "https://www.mdpi.com/2227-7390/12/1/63",
     "venue": "Mathematics",
@@ -21171,13 +21171,13 @@
     },
     "abstract": "Simulating solute transport in heterogeneous porous media poses computational challenges due to the high-resolution meshing required for traditional solvers. To overcome these challenges, this study explores a mesh-free method based on deep learning to accelerate solute transport simulation. We employ Physics-informed Neural Networks (PiNN) with a periodic activation function to solve solute transport problems in both homogeneous and heterogeneous porous media governed by the advection-dispersion equation. Unlike traditional neural networks that rely on large training datasets, PiNNs use strong-form mathematical models to constrain the network in the training phase and simultaneously solve for multiple dependent or independent field variables, such as pressure and solute concentration fields. To demonstrate the effectiveness of using PiNNs with a periodic activation function to resolve solute transport in porous media, we construct PiNNs using two activation functions, sin and tanh, for seven case studies, including 1D and 2D scenarios. The accuracy of the PiNNs’ predictions is then evaluated using absolute point error and mean square error metrics and compared to the ground truth solutions obtained analytically or numerically. Our results demonstrate that the PiNN with sin activation function, compared to tanh activation function, is up to two orders of magnitude more accurate and up to two times faster to train, especially in heterogeneous porous media. Moreover, PiNN’s simultaneous predictions of pressure and concentration fields can reduce computational expenses in terms of inference time by three orders of magnitude compared to FEM simulations for two-dimensional cases.",
     "graphical_abstract": null,
-    "year": 2023,
+    "year": 2024,
     "access": "Open access",
     "countries": [
       "United States",
       "Iran"
     ],
-    "last_updated": "2026-07-24"
+    "last_updated": "2026-08-28"
   },
   {
     "id": 800,

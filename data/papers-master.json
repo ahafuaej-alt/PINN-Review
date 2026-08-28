@@ -3,7 +3,7 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.198",
+    "dataset_version": "2.2.199",
     "last_updated": "2026-08-28",
     "record_count": 853,
     "id_range": "1-853",
@@ -17,7 +17,7 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 90,
+      "legacy_realm_year_override_count": 89,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -64143,27 +64143,24 @@
     {
       "id": 799,
       "title": "Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media",
-      "citation": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S. Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media. Mathematics 2023, 12, 63. https://doi.org/10.3390/math12010063.",
+      "citation": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S. Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media. Mathematics 2024, 12, 63. https://doi.org/10.3390/math12010063.",
       "doi": "10.3390/math12010063",
       "publisher_url": "https://www.mdpi.com/2227-7390/12/1/63",
       "venue": {
         "name": "Mathematics",
         "type": "journal"
       },
-      "year": 2023,
+      "year": 2024,
       "access": "Open access",
       "countries": [
         "United States",
         "Iran"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.3390/math12010063",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://www.mdpi.com/2227-7390/12/1/63",
+        "note": "year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.3390%2Fmath12010063",
@@ -64211,7 +64208,7 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S.",
         "journal_abbreviation": "Mathematics",
