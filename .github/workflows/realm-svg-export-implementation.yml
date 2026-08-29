@@ -145,7 +145,7 @@ jobs:
           const downloadSvg = async (selector) => {
             const [download] = await Promise.all([
               page.waitForEvent('download'),
-              page.locator(selector).click()
+              page.locator(selector).first().click()
             ]);
             const path = await download.path();
             assert(path, `No download path for ${selector}`);
