@@ -9,9 +9,10 @@
   <script src="../assets/theme-init.js?v=ux-20260722"></script>
   <link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/styles.css?v=realm-20260722">
-  <link rel="stylesheet" href="../assets/realm.css?v=realm-20260722b">
+  <link rel="stylesheet" href="../assets/realm.css?v=realm-20260829-svg1">
   <script src="../assets/app.js?v=knowledge-20260826" defer></script>
   <script src="../assets/realm.js?v=realm-20260722b" defer></script>
+  <script src="../assets/realm-export.js?v=realm-20260829-svg1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#realm-workspace">Skip to PINN Realm</a>
@@ -81,7 +82,7 @@
 
       <div class="realm-layout">
         <section class="realm-map-card" aria-labelledby="map-title">
-          <div class="realm-map-head"><div><p class="eyebrow compact">Interactive world map</p><h2 id="map-title" data-map-title>Individual-country publications</h2></div><p data-map-caption>Color represents unique papers associated with each country.</p></div>
+          <div class="realm-map-head"><div><p class="eyebrow compact">Interactive world map</p><h2 id="map-title" data-map-title>Individual-country publications</h2></div><div class="realm-map-head-side"><p data-map-caption>Color represents unique papers associated with each country.</p><div class="figure-export-actions" role="group" aria-label="Map SVG export options"><span class="figure-export-label">Export SVG</span><button type="button" class="figure-export-button" data-export-figure="map" data-export-variant="current" title="Download an SVG matching the current Atlas theme and filters">Current view</button><button type="button" class="figure-export-button" data-export-figure="map" data-export-variant="publication" title="Download a clean white-background SVG prepared for publication">Publication</button></div></div></div>
           <div class="realm-map-wrap">
             <svg class="realm-map" data-realm-map role="img" aria-labelledby="map-title map-description" tabindex="0"></svg>
             <p class="visually-hidden" id="map-description">Interactive map of countries represented in the PINN review. Tab to a represented country and press Enter to select it.</p>
