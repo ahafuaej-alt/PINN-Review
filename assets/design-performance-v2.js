@@ -90,7 +90,7 @@
         <span><i class="dp-tradeoff-badge">↕</i>Explicit outcome-pair trade-off</span>
         <span class="dp-evidence-key"><i></i>Evidence coverage lens = documentation scope, not influence strength</span>
       </div>
-      <aside class="dp-scientific-notes"><b>Scientific interpretation</b><span>Qualitative synthesis, not effect-size estimation.</span><span>Dependency strength is problem-, formulation-, and implementation-dependent.</span><span>Verify performance claims with appropriate metrics and failure diagnostics.</span></aside>`;
+      <aside class="dp-scientific-notes"><b>Scientific interpretation</b><span>Qualitative synthesis, not effect-size estimation.</span><span>Dependency strength is problem-, formulation-, and implementation-dependent.</span><span>Outcome colors identify columns; marker fill—not marker color—encodes dependency strength.</span><span>Verify performance claims with appropriate metrics and failure diagnostics.</span></aside>`;
   }
 
   function renderOutcomeHeader(column, index) {
@@ -298,11 +298,12 @@
   }
 
   function exportNativeSvg(mode) {
-    const width = 2480, familyW = 170, designW = 500, colW = (width - familyW - designW - 80) / 7, margin = 40, headerY = 118, headerH = 180, rowH = 92, legendH = 190;
+    const width = 2480, familyW = 170, designW = 500, colW = (width - familyW - designW - 80) / 7, margin = 40, headerY = 118, headerH = 180, rowH = 92, legendH = 220;
     const height = headerY + headerH + state.data.rows.length * rowH + legendH + 70;
     const dark = mode === 'current' && document.documentElement.dataset.theme === 'dark';
     const bg = dark ? '#0b111c' : '#ffffff', ink = dark ? '#eef4ff' : '#10213d', muted = dark ? '#aebbd0' : '#54627a', line = dark ? '#344258' : '#cdd6e5';
     const colors = { accuracy: '#1747b8', fidelity: '#14763a', trainability: '#eb5a16', cost: '#5632aa', robustness: '#087a9c', identifiability: '#263dbe', scalability: '#b8125e', representation: '#1747b8', 'physics-numerics': '#14763a', training: '#eb5a16', extension: '#5632aa' };
+    const dependencyColor = dark ? '#d2d9e5' : '#344357';
     const pieces = [`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" data-export-mode="${mode}" data-native-vector="true"><rect width="100%" height="100%" fill="${bg}"/><style>text{font-family:Arial,Helvetica,sans-serif;fill:${ink}}.m{fill:${muted}}.b{font-weight:700}.s{font-size:18px}.xs{font-size:15px}</style>`];
     pieces.push(`<rect x="${margin + familyW}" y="28" width="${width - margin * 2 - familyW}" height="62" rx="18" fill="${bg}" stroke="#1747b8" stroke-width="2"/><text x="${width / 2}" y="68" text-anchor="middle" font-size="24" class="b">No design element controls a single outcome. Most PINN choices affect several performance dimensions simultaneously.</text>`);
     pieces.push(svgCell(margin, headerY, familyW, headerH, dark ? '#0d2b58' : '#edf4ff', line));
@@ -327,14 +328,14 @@
       pieces.push(svgCell(margin + familyW, y, designW, rowH, dark ? '#111926' : '#fbfcff', line));
       pieces.push(`<circle cx="${margin + familyW + 28}" cy="${y + rowH / 2}" r="15" fill="${groupColor}"/><text x="${margin + familyW + 28}" y="${y + rowH / 2 + 6}" text-anchor="middle" font-size="15" fill="#fff" class="b">${row.number}</text><text x="${margin + familyW + 55}" y="${y + 34}" font-size="18" class="b">${xml(row.title)}</text>${svgWrapped(row.detail, margin + familyW + 55, y + 56, 52, 13, muted, false, 'start')}`);
       row.cells.forEach((cell, colIndex) => {
-        const column = state.data.columns[colIndex], x = margin + familyW + designW + colIndex * colW, color = colors[column.id];
+        const column = state.data.columns[colIndex], x = margin + familyW + designW + colIndex * colW;
         const mutedCell = mode === 'current' && isCellMuted(row.id, column.id); const opacity = mutedCell ? .22 : 1;
-        pieces.push(`<g opacity="${opacity}">${svgCell(x, y, colW, rowH, dark ? '#0f1622' : '#ffffff', line)}${svgMarker(x + colW / 2, y + 29, cell.level, color)}${svgWrapped(labelFor(cell), x + colW / 2, y + 54, Math.floor(colW / 10), 14, muted, false)}${tradeoffsFor(row.id, column.id).length ? `<text x="${x + colW - 18}" y="${y + rowH / 2 + 6}" text-anchor="middle" font-size="22" fill="#c9322c" class="b">↕</text>` : ''}</g>`);
+        pieces.push(`<g opacity="${opacity}">${svgCell(x, y, colW, rowH, dark ? '#0f1622' : '#ffffff', line)}${svgMarker(x + colW / 2, y + 29, cell.level, dependencyColor)}${svgWrapped(labelFor(cell), x + colW / 2, y + 54, Math.floor(colW / 10), 14, muted, false)}${tradeoffsFor(row.id, column.id).length ? `<text x="${x + colW - 18}" y="${y + rowH / 2 + 6}" text-anchor="middle" font-size="22" fill="#c9322c" class="b">↕</text>` : ''}</g>`);
       });
       y += rowH;
     });
-    pieces.push(`<line x1="${margin}" y1="${y + 28}" x2="${width - margin}" y2="${y + 28}" stroke="${line}"/><text x="${margin}" y="${y + 66}" font-size="18" class="b">QUALITATIVE INFLUENCE LEVEL</text>${svgMarker(margin + 310, y + 60, 'major', '#1747b8')}<text x="${margin + 335}" y="${y + 66}" class="s">Direct / major</text>${svgMarker(margin + 570, y + 60, 'context', '#1747b8')}<text x="${margin + 595}" y="${y + 66}" class="s">Context-dependent</text>${svgMarker(margin + 900, y + 60, 'indirect', '#1747b8')}<text x="${margin + 925}" y="${y + 66}" class="s">Indirect / secondary</text><text x="${margin + 1240}" y="${y + 66}" font-size="24" fill="#c9322c" class="b">↕</text><text x="${margin + 1270}" y="${y + 66}" class="s">Explicit outcome-pair trade-off</text>`);
-    pieces.push(`<text x="${margin}" y="${y + 116}" class="xs m">NOTES · Qualitative synthesis, not effect-size estimation. Dependency strength varies by problem, formulation, and implementation.</text><text x="${margin}" y="${y + 144}" class="xs m">Evidence coverage distinguishes exact cell support from row-level synthesis; it is not an influence-strength scale.</text><text x="${margin}" y="${y + 172}" class="xs m">Verify design consequences using appropriate performance metrics and failure diagnostics.</text></svg>`);
+    pieces.push(`<line x1="${margin}" y1="${y + 28}" x2="${width - margin}" y2="${y + 28}" stroke="${line}"/><text x="${margin}" y="${y + 66}" font-size="18" class="b">QUALITATIVE INFLUENCE LEVEL</text>${svgMarker(margin + 310, y + 60, 'major', dependencyColor)}<text x="${margin + 335}" y="${y + 66}" class="s">Direct / major</text>${svgMarker(margin + 570, y + 60, 'context', dependencyColor)}<text x="${margin + 595}" y="${y + 66}" class="s">Context-dependent</text>${svgMarker(margin + 900, y + 60, 'indirect', dependencyColor)}<text x="${margin + 925}" y="${y + 66}" class="s">Indirect / secondary</text><text x="${margin + 1240}" y="${y + 66}" font-size="24" fill="#c9322c" class="b">↕</text><text x="${margin + 1270}" y="${y + 66}" class="s">Explicit outcome-pair trade-off</text>`);
+    pieces.push(`<text x="${margin}" y="${y + 116}" class="xs m">NOTES · Qualitative synthesis, not effect-size estimation. Dependency strength varies by problem, formulation, and implementation.</text><text x="${margin}" y="${y + 144}" class="xs m">Marker fill, not color, encodes dependency strength; outcome colors identify columns only.</text><text x="${margin}" y="${y + 172}" class="xs m">Evidence coverage distinguishes exact cell support from row-level synthesis; it is not an influence-strength scale.</text><text x="${margin}" y="${y + 200}" class="xs m">Verify design consequences using appropriate performance metrics and failure diagnostics.</text></svg>`);
     downloadSvg(pieces.join(''), `design-performance-${mode}-view.svg`);
   }
 
