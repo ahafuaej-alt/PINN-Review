@@ -31,4 +31,4 @@ The review report separates bounded scientific-review questions from verified li
 
 ## Expansion status
 
-Batches B001–B009 are complete and passed QA. B010 checkpoints 01–03 are complete and passed checkpoint QA; CR000253 is the last completed resource and CR000254 is next. Progress, unresolved/manual-review items, verification evidence, and batch accounting are cumulative in `reports/stage-2-progress.md`, checkpoint-specific Stage-2 progress reports, `reports/stage-2-unresolved.md`, checkpoint-specific deferred-finding reports where used, `verification-log/`, and `batch-qa/`.
+Batches B001–B009 are complete and passed QA. B010 checkpoints 01–04 are complete and passed checkpoint QA; CR000258 is the last completed resource and CR000259 is next. Progress, unresolved/manual-review items, verification evidence, and batch accounting are cumulative in `reports/stage-2-progress.md`, checkpoint-specific Stage-2 progress reports, `reports/stage-2-unresolved.md`, checkpoint-specific deferred-finding reports where used, `verification-log/`, and `batch-qa/`.

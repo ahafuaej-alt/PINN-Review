@@ -1,6 +1,6 @@
 # Computational Resources Stage 2 Unresolved and Deferred Register
 
-Verification date: 2026-08-28
+Verification date: 2026-08-29
 
 ## Scientific-review items carried from pilot
 
@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete, and B010 checkpoints 01–02 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete, and B010 checkpoints 01–04 added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -162,5 +162,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000251 | The exact HFA RAR archive identified by the primary survey and author paper redirects to a Google sign-in gate. | PRL000287 verified. No authentication was attempted and the archive was not downloaded or unpacked; internal metadata remain bounded unknowns. |
 | CR000252 | The live project page documents the Kulis ARC-t method, code links, citation, and externally linked Office benchmark dataset, but does not state a software license or expose dependency metadata directly. | PRL000288 verified. Linked code and dataset assets were not downloaded; license/dependency normalization and asset inspection remain Stage 3 work. |
 | CR000253 | The historical UCF publication/software index redirects to a `cecs.ucf.edu` Page Not Found response. | PRL000289 remains verified from the primary survey's exact mapping. The failed redirect target is not promoted as an alias; current page metadata remain bounded unknowns. |
+| CR000254 | The survey-linked Lixin Duan source-code section returns 502; a current official UESTC profile verifies the author identity but does not recover the SHFA artifact. | PRL000290 remains verified from the primary survey's exact mapping. No replacement code identity is inferred; artifact metadata remain bounded unknowns. |
+| CR000255 | The historical USC profile is unavailable, while Boqing Gong's current official homepage identifies the GFK publication and links `GFK.zip`. | VA000050 preserves CR000255 and PRL000291. The archive was not downloaded or unpacked; license, dependency, and internal data fields remain bounded unknowns. |
+| CR000256 | Stage 1 transcribed the Tsinghua hostname as `ths`; the primary survey and live official profile use `thss` and list both ARTL and JDA with code archives. | VA000051 repairs the hostname without changing CR000256 or duplicating its repeated PRL000292 mapping. Neither archive was downloaded or unpacked. |
+| CR000257 | The exact Oquab page is live with abstract, bibliography, BibTeX, and publication downloads, but no current code link. | PRL000293 is verified; classify the live resource as a publication page rather than executable software. |
+| CR000258 | The historical HKUST transfer-learning index redirects to a departmental Page Not Found response. | PRL000294 remains verified from the survey's exact mapping. The failed redirect target is not promoted as an alias; content metadata remain bounded unknowns. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
