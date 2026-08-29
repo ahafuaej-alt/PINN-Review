@@ -12,46 +12,46 @@ Verification date: 2026-08-29
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
 | Completed expansion batches | 10 |
-| Expansion resources processed | 250 |
-| Expansion relationships verified | 205 |
+| Expansion resources processed | 255 |
+| Expansion relationships verified | 210 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 94 |
+| Pending expansion resources | 89 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B010-C05 passed**. B010 is complete and Stage 2 resumes with B011 at CR000264. No stop condition was triggered.
+Latest persistence checkpoint: **B011-C01 passed**. B011 is in progress and resumes at CR000269. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B011 (next) |
-| Last completed resource | CR000263 |
+| Current logical batch | B011 (in progress) |
+| Last completed resource | CR000268 |
 | Last completed logical batch | B010 |
-| Last persistence checkpoint | B010-C05 |
-| Next resource | CR000264 |
-| Completed Stage-1 resource count | 263 |
+| Last persistence checkpoint | B011-C01 |
+| Next resource | CR000269 |
+| Completed Stage-1 resource count | 268 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 94 |
-| Completed CR IDs/ranges | CR000001–CR000263; promoted CR000358 |
-| Pending CR IDs/ranges | CR000264–CR000357 |
-| Completed Stage-1 PRL assertions | 231 |
-| Pending Stage-1 PRL assertions | 100 |
-| Verified relationship records | 222 |
+| Remaining Stage-1 resource count | 89 |
+| Completed CR IDs/ranges | CR000001–CR000268; promoted CR000358 |
+| Pending CR IDs/ranges | CR000269–CR000357 |
+| Completed Stage-1 PRL assertions | 236 |
+| Pending Stage-1 PRL assertions | 95 |
+| Verified relationship records | 227 |
 | Explicitly `not_verified` relationship records | 9 |
 | Completed batches | B001–B010 |
-| Current batch checkpoint | B010-C05 passed; B010 complete |
+| Current batch checkpoint | B011-C01 passed |
 | Pending full batches | B011–B014 |
-| Resources completed in last checkpoint | CR000259–CR000263 |
-| Resources remaining in next batch | 25 |
-| Current QA status | B010 passed; B011 pending |
+| Resources completed in last checkpoint | CR000264–CR000268 |
+| Resources remaining in current batch | 20 |
+| Current QA status | checkpoint passed; B011 in progress |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `93509f88c55a46c28ac15193c36398e58d610501` |
+| Last verification checkpoint commit | `3c51bb80fa160263711393a72de773aba1956702` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set and B001–B010, including all checkpoints through B010-C05, must not be reprocessed. Resume at CR000264 in B011. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set, B001–B010, and B011 checkpoint C01 must not be reprocessed. Resume at CR000269 in B011. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -67,7 +67,7 @@ The pilot set and B001–B010, including all checkpoints through B010-C05, must 
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
 | B009 | 25 | CR000213 | CR000238 | completed | passed |
 | B010 | 25 | CR000239 | CR000263 | completed | passed |
-| B011 | 25 | CR000264 | CR000288 | pending | pending |
+| B011 | 25 | CR000264 | CR000288 | in progress (5/25) | checkpoint 01 passed |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
 | B013 | 25 | CR000314 | CR000338 | pending | pending |
 | B014 | 19 | CR000339 | CR000357 | pending | pending |
@@ -391,6 +391,15 @@ The pilot set and B001–B010, including all checkpoints through B010-C05, must 
 - Full B010 QA passed: all 25 planned resources occur exactly once, all 25 Stage-1 relationship assertions are verified, evidence IDs S2E000431–S2E000455 are unique, and nine new aliases preserve stable identities.
 - No third-party code was executed; no slide deck, ZIP, TAR.GZ, dataset, or binary was downloaded or unpacked; no compilation was attempted; and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
 - B010 is complete. Resume Stage 2 with B011 at CR000264.
+
+## Batch 011 checkpoint 01 summary
+
+- Five resources were processed: CR000264 through CR000268. All five Stage-1 assertions—PRL000300, PRL000011 through PRL000013, and PRL000008—are verified from the primary transfer-learning survey or the two primary papers' exact Data Availability Statements.
+- CR000264 is the historical poster for the Duan CVPR 2012 Domain Selection Machine work. The file returns 502; the institutional publication index confirms the matching paper but does not expose an exact replacement poster, so no alias is created.
+- CR000265, CR000266, and CR000267 are live Copernicus data services for the paper-stated ERA5, Sentinel-1 wave-mode, and buoy inputs. Content-specific licensing, the Sentinel Data Legal Notice, and the Copernicus Marine product licence are recorded without assigning portal-wide SPDX software licenses.
+- CR000268 is the live Remote Sensing Systems SMAP SSS V6.0 directory. The primary paper, directory listings, and official product page establish its L2C/L3 product scope, documentation, product-specific DOIs, required citation, and data-use terms.
+- No poster, document, archive, dataset, or binary was downloaded or opened; no account was created, API retrieval was run, third-party code was executed, or Stage-3 normalization was performed.
+- No new alias, ordinary manual-review item, scientific-review item, schema issue, or stop condition was produced. B011 remains in progress and resumes at CR000269.
 
 ## Stop conditions
 

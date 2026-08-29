@@ -581,11 +581,21 @@
       "resource_count": 25,
       "first_resource_id": "CR000264",
       "last_resource_id": "CR000288",
-      "status": "pending",
-      "verified_records": 0,
+      "status": "in_progress",
+      "verified_records": 5,
       "manual_review_records": 0,
-      "relationship_records": 0,
-      "qa_status": "pending"
+      "relationship_records": 5,
+      "qa_status": "checkpoint_01_passed",
+      "verified_relationship_records": 5,
+      "bounded_unverified_relationship_records": 0,
+      "last_checkpoint": "B011-C01",
+      "next_resource_id": "CR000269",
+      "notes": [
+        "Checkpoint 01 verifies CR000264 through CR000268 and PRL000300, PRL000011 through PRL000013, and PRL000008 from the primary survey and two primary-paper Data Availability Statements.",
+        "CR000264 is an unavailable historical poster whose associated CVPR 2012 work is confirmed without promoting an inexact replacement URL or creating an alias.",
+        "CR000265 through CR000267 are live Copernicus data services with scoped content, Sentinel-data, and marine-product licence evidence; CR000268 is a live SMAP SSS V6.0 directory with official product, citation, and data-use metadata.",
+        "No document or dataset file was downloaded, no account or API retrieval was used, and no new manual-review item, scientific-review item, schema issue, or stop condition was produced."
+      ]
     },
     {
       "batch_id": "B012",
@@ -702,22 +712,22 @@
   "final_global_audit_status": "pending",
   "final_acceptance_status": "pending",
   "completed_batch_count": 10,
-  "expansion_resources_verified": 250,
-  "expansion_relationships_verified": 205,
+  "expansion_resources_verified": 255,
+  "expansion_relationships_verified": 210,
   "expansion_resources_requiring_manual_review": 10,
   "last_completed_batch": "B010",
   "updated_at": "2026-08-29",
   "checkpoint": {
-    "last_completed_resource_id": "CR000263",
+    "last_completed_resource_id": "CR000268",
     "last_completed_batch_id": "B010",
     "current_logical_batch_id": "B011",
-    "last_persistence_checkpoint": "B010-C05",
-    "next_resource_id": "CR000264",
-    "completed_expansion_resource_count": 250,
-    "pending_expansion_resource_count": 94,
-    "completed_stage1_prl_assertion_count": 231,
-    "pending_stage1_prl_assertion_count": 100,
-    "verified_relationship_record_count": 222,
+    "last_persistence_checkpoint": "B011-C01",
+    "next_resource_id": "CR000269",
+    "completed_expansion_resource_count": 255,
+    "pending_expansion_resource_count": 89,
+    "completed_stage1_prl_assertion_count": 236,
+    "pending_stage1_prl_assertion_count": 95,
+    "verified_relationship_record_count": 227,
     "not_verified_relationship_record_count": 9,
     "completed_batch_ids": [
       "B001",
@@ -740,10 +750,10 @@
     "current_qa_status": "passed",
     "current_scientific_review_item_count": 2,
     "current_ordinary_manual_review_resource_count": 10,
-    "last_checkpoint_commit": "93509f88c55a46c28ac15193c36398e58d610501",
+    "last_checkpoint_commit": "3c51bb80fa160263711393a72de773aba1956702",
     "authoritative_checkpoint_ref": "refs/heads/data/computational-resources-stage2"
   },
   "expansion_stage1_relationships_accounted_via_existing_canonical_links": 1,
   "current_batch": "B011",
-  "last_persistence_checkpoint": "B010-C05"
+  "last_persistence_checkpoint": "B011-C01"
 }
