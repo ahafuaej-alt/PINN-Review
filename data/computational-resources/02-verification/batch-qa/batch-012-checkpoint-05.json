@@ -1,0 +1,31 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B012",
+  "checkpoint_id":"B012-C05",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":false,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000301","CR000302","CR000303"],
+  "next_resource_id":"CR000304",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories; stable resource and relationship identifiers are unchanged",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":2,"relationship_records":3,"verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":3,"alias_records":0,"manual_review_records":1,"linked_github_releases_pinned":2,"verified_positive_license_findings":1,"bounded_unknown_license_findings":2,"classification_corrections":1},
+  "batch_totals":{"planned_resources":25,"processed_resources":15,"relationship_records":15,"verified_relationship_records":15,"bounded_unverified_relationship_records":0,"evidence_records":15,"new_alias_records":0,"manual_review_records":3},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000301, CR000302, and CR000303 are the next three unprocessed B012 resources and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000301-CR000303 and PRL000092, PRL000106, and PRL000115 are preserved. CR000302's hostname error is recorded without replacing its stable ID."},
+    {"check":"relationship_accounting","status":"passed","detail":"Atlas paper 390 identifies CReSIS RDS data, paper 406 provides the correct Yan group hostname and open-source statement, and paper 431 cites the exact HFM DOI. All three intended relationships are verified."},
+    {"check":"canonical_url_error_handling","status":"passed","detail":"CR000302's cce-versus-cee transcription error is bounded, the correct paper URL and supporting repository are evidenced, and formal correction is routed to ordinary manual review."},
+    {"check":"classification_integrity","status":"passed","detail":"CR000303 is corrected from dataset to the Zenodo-identified software release/source-and-input package. CR000301 remains a broad data portal and CR000302 remains a qualified code-and-data source."},
+    {"check":"release_pinning","status":"passed","detail":"CR000303's linked v1.0 tag is pinned to f55407bbdb54af20b191d715d2dcb6593e8d6833; CR000302's supporting repository is pinned to 25776531a1817a17091cdefac03931a60d8c5ea9."},
+    {"check":"license_verification","status":"passed","detail":"CR000303's archived LICENSE and linked release repository verify GPL-3.0-only. No license is inferred for CR000301 or CR000302."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No radar file, FEM data, Zenodo ZIP, source file, or other third-party content was downloaded, opened, built, installed, parsed, or executed."},
+    {"check":"internal_reference_rule","status":"passed","detail":"Paper-internal reference 19 in Atlas paper 431 is retained only as evidence for the exact Zenodo DOI and is not promoted to Atlas ID 19."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000304 was not processed in this checkpoint."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The URL correction, classification correction, and one ordinary manual-review resource fit the established schema; no scientific review, schema change, or pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000092","PRL000106","PRL000115"],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B012 checkpoint 05 passes. B012 remains in progress and Stage 2 resumes at CR000304."
+}
