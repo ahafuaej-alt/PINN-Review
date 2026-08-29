@@ -1,0 +1,32 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B012",
+  "checkpoint_id":"B012-C07",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":false,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000307","CR000308","CR000309"],
+  "next_resource_id":"CR000310",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories; stable CR and PRL identifiers are preserved, including explicit not_verified resolution of three Stage-1 parser-leakage links",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":3,"relationship_records":7,"verified_relationship_records":4,"explicit_not_verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":3,"alias_records":0,"manual_review_records":0,"github_repositories_pinned":1,"verified_positive_license_findings":2,"verified_custom_non_spdx_license_findings":1,"bounded_unknown_license_findings":1,"classification_corrections":0},
+  "batch_totals":{"planned_resources":25,"processed_resources":21,"relationship_records":25,"verified_relationship_records":22,"explicit_not_verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":21,"new_alias_records":0,"manual_review_records":4},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000307, CR000308, and CR000309 are the next three unprocessed B012 resources after B012-C06 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"Existing CR000307-CR000309 and all seven Stage-1 PRL IDs are preserved. No replacement CR or PRL identifier is created."},
+    {"check":"internal_reference_leakage_resolution","status":"passed","detail":"The primary NSFnets paper (Atlas 476) explicitly writes the JHTDB source as database [20], [21], [22]. Those are paper-internal bibliography citations, proving that PRL000001-PRL000003 are Stage-1 parser leakage rather than Atlas-paper relationships. They are retained but explicitly not_verified."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000137 (Atlas 476 -> JHTDB), PRL000224 (Atlas 692 -> JHTDB), PRL000149 (Atlas 511 -> Zenodo H2O data), and PRL000168 (Atlas 549 -> non-local Fokker-Planck repository) are independently verified. PRL000001-PRL000003 are explicitly not_verified."},
+    {"check":"repository_snapshot_pinning","status":"passed","detail":"CR000309 is pinned to public non-fork, non-archived repository sjiang23/senbaojiang.github.io, default branch main, commit 5e92879d6d8311bfecab50b605f9bbc142df0b94. The root tree, LICENSE, and CITATION.cff were inspected statically; notebooks were not opened."},
+    {"check":"classification_integrity","status":"passed","detail":"CR000307 remains a dataset/data portal, CR000308 remains a dataset archive record, and CR000309 remains a dataset/reproducibility repository. No Stage-3 normalization is performed."},
+    {"check":"license_verification","status":"passed","detail":"JHTDB explicitly uses Open Data Commons Attribution (ODC-By), preserved without an invented SPDX ID. CR000309 is MIT. CR000308's exact record-level license remains bounded unknown because no explicit value was independently visible in the verified record output."},
+    {"check":"citation_metadata","status":"passed","detail":"CR000307 has channel-flow DOI 10.7281/T10K26QW; CR000308 has DOI 10.5281/zenodo.2634098; CR000309's CITATION.cff has verified title/version/author metadata but DOI 10.5281/zenodo.1234 is rejected as placeholder/defective rather than promoted."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No JHTDB payload, Zenodo archive, README inside the archive, Jupyter notebook, generated dataset, model artifact, or third-party code was downloaded, opened, parsed, unpacked, installed, subsetted, or executed."},
+    {"check":"manual_review_routing","status":"passed","detail":"No new ordinary manual-review item is needed. The CR000309 citation-file DOI defect is bounded and explicitly rejected without affecting resource identity or the verified paper relationship."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000310 was not processed in this checkpoint."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The three parser-leakage PRLs are resolved using the existing explicit not_verified relationship status. No new relationship type, schema change, scientific-review item, or processing pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":7,"verified_link_ids":["PRL000137","PRL000149","PRL000168","PRL000224"],"explicit_not_verified_link_ids":["PRL000001","PRL000002","PRL000003"],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B012 checkpoint 07 passes. B012 remains in progress and Stage 2 resumes at CR000310."
+}
