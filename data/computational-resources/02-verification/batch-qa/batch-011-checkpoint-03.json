@@ -1,0 +1,52 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B011",
+  "checkpoint_id": "B011-C03",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000274", "CR000275", "CR000276"],
+  "next_resource_id": "CR000277",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 0,
+    "linked_supporting_github_repositories_pinned": 1,
+    "web_or_data_records_verified": 3,
+    "relationship_records": 1,
+    "verified_relationship_records": 1,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 2,
+    "verified_negative_license_findings": 0,
+    "verified_non_spdx_terms_findings": 1,
+    "bounded_unknown_license_findings": 0,
+    "bounded_unknown_snapshot_fields": 1
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000274, CR000275, and CR000276 are the next three unprocessed Stage-1 resources after B011-C02 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"All three existing CR IDs are preserved. No alias or duplicate resource identity is introduced. CR000276's missing paper-link record is repaired at the relationship layer rather than by changing its resource identity."},
+    {"check":"relationship_accounting","status":"passed","detail":"CR000274 and CR000275 carry no Stage-1 Atlas-paper assertion and none is invented. CR000276 already carries Atlas ID 128 in the Stage-1 resource record and source line 458 explicitly states the HYPERVIEW association; primary paper 128 independently gives the exact URL. PRL000333 records the recovered paper_dataset_mention relationship."},
+    {"check":"repository_snapshot_pinning","status":"passed","detail":"All three primary resources are web/data records, so repository commit SHAs are not applicable. The supporting AI4EO starter-pack repository linked by CR000276 is separately pinned at 207b46abbfce5d3bf0885cf8b75ae85a8b72644d without converting it into the primary resource identity."},
+    {"check":"classification_integrity","status":"passed","detail":"All three resources remain dataset_or_data_source resources. Experimental neural-network weights, WeatherBench benchmark data, and a challenge starter notebook do not convert these dataset records into PINN implementations."},
+    {"check":"license_verification","status":"passed","detail":"CR000274 is explicitly CC-BY-SA-4.0; CR000275 is explicitly CC-BY-4.0; CR000276 retains verified custom non-commercial research-use and citation terms without an inferred SPDX license."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"Primary resources are datasets and receive no invented software dependency manifests. Dataset contents and linked starter material were recorded statically; no archive, dataset file, notebook, model, or third-party code was downloaded, parsed, unpacked, installed, or executed."},
+    {"check":"bounded_uncertainty","status":"passed","detail":"CR000275's Stage-1 dataserv endpoint is verified through authoritative TUM metadata, while its direct transport/redirect/final-URL semantics remain explicit bounded unknowns rather than being converted to false or guessed."},
+    {"check":"internal_reference_rule","status":"passed","detail":"No paper-internal bibliography number was promoted to an Atlas ID. Atlas ID 128 comes from the Stage-1 resource record/source note and is independently confirmed by the primary paper."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The three dataset identities, one recovered relationship, explicit/custom license findings, and one bounded endpoint-transport field fit the established schema. No new relationship type, stable-ID policy change, scientific-review item, ordinary manual-review item, or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 0,
+    "stage2_reconciled_link_count": 1,
+    "verified_link_ids": ["PRL000333"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B011 checkpoint 03 passes. B011 remains in progress and Stage 2 resumes at CR000277."
+}
