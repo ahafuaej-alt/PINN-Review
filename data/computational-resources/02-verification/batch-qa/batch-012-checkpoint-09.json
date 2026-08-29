@@ -1,0 +1,32 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B012",
+  "checkpoint_id":"B012-C09",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":true,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000313"],
+  "next_resource_id":"CR000314",
+  "next_logical_batch":"B013",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories; this checkpoint intentionally stops at the B012 logical batch boundary",
+  "counts":{"expected_new_resources":1,"resource_records":1,"availability_records":1,"currently_available_resources":1,"relationship_records":1,"verified_relationship_records":1,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":1,"alias_records":0,"manual_review_records":0,"verified_non_spdx_terms_findings":1,"bounded_unknown_license_findings":0,"classification_corrections":0},
+  "batch_totals":{"planned_resources":25,"processed_resources":25,"relationship_records":29,"verified_relationship_records":26,"explicit_not_verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":25,"new_alias_records":1,"manual_review_records":4},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000313 is the sole remaining unprocessed resource in B012 and is processed exactly once. The checkpoint intentionally stops before CR000314 rather than crossing into B013."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000313 and PRL000176 are preserved without replacement, alias creation, or relationship renumbering."},
+    {"check":"relationship_accounting","status":"passed","detail":"Atlas paper 571 explicitly states that Sentinel-2 Level-1C imagery products are available at the exact EarthExplorer URL and describes downloading less-than-10-percent-cloud L1C imagery for the study. Current USGS documentation independently verifies EarthExplorer and Sentinel-2 Level-1C product access. PRL000176 is verified."},
+    {"check":"portal_and_product_scope","status":"passed","detail":"CR000313 is retained as the EarthExplorer data-access portal associated with the paper's Sentinel-2 L1C source. The portal is not misrepresented as a single static dataset deposit or individual scene DOI."},
+    {"check":"current_access_semantics","status":"passed","detail":"EarthExplorer currently exposes public search/browse/metadata functionality and requires an EROS Registration System account for download/order actions. This present-day login requirement does not contradict the paper's January 2024 access provenance."},
+    {"check":"license_verification","status":"passed","detail":"Sentinel-2 product reuse is governed by the Copernicus Sentinel Data Legal Notice, which provides free, full and open access and permits reproduction, distribution, communication, adaptation, modification and combination with required source notices. The custom legal notice is preserved without inventing an SPDX identifier or transferring a generic USGS website licence."},
+    {"check":"paper_source_wording","status":"passed","detail":"Paper Section 2.2 describes downloading L1C images from the USGS website and the Data Availability Statement gives EarthExplorer, while Section 3.2.2 also refers to the ESA website. These statements identify compatible access routes for Sentinel-2 rather than a Stage-2 identity conflict; exact scene provenance is deferred."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No Sentinel-2 scene, SAFE archive, JPEG2000 band, metadata package, atmospheric-correction output, model input, or other third-party payload was downloaded, opened, parsed, unpacked, installed, subsetted, or executed."},
+    {"check":"full_batch_completeness","status":"passed","detail":"B012 checkpoints C01 through C09 cover all 25 planned resources CR000289 through CR000313 exactly once. Their 29 Stage-1 relationship assertions are resolved as 26 verified and 3 explicit not_verified records, and evidence IDs S2E000481 through S2E000505 are unique."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000314 was not processed. Stage 2 resumes with B013 at CR000314."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The verified portal relationship, current login requirement and custom product-level legal notice fit the established schema. No scientific-review item, ordinary manual-review item, schema change, or processing pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":1,"verified_link_ids":["PRL000176"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B012 checkpoint 09 passes and completes B012. Stage 2 resumes with B013 at CR000314."
+}
