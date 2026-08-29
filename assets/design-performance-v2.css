@@ -10,6 +10,7 @@ body[data-framework="design-performance"] .framework-zoom-surface {
 .matrix-board-v2 {
   --dp-family-width: 150px;
   --dp-design-width: 470px;
+  --dp-influence-color: color-mix(in srgb, var(--ink) 72%, var(--muted));
   width: 100%;
   min-width: 0;
 }
@@ -472,7 +473,14 @@ body[data-framework="design-performance"] .framework-zoom-surface {
   height: 16px;
   flex-basis: 16px;
   border-width: 2px;
-  color: var(--cell-color);
+  color: var(--dp-influence-color);
+}
+
+/* Outcome colors identify columns only. Influence strength is encoded by marker fill. */
+.dependency-matrix.dependency-matrix-v2 td .influence-marker,
+.matrix-board-v2 .dp-mobile-view .influence-marker,
+.matrix-board-v2 .dp-matrix-legend .influence-marker {
+  color: var(--dp-influence-color);
 }
 
 .dp-tradeoff-badge {

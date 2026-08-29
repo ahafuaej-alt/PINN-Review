@@ -47,6 +47,11 @@ try {
   assert(contract.familySticky === 'sticky' && contract.designSticky === 'sticky' && contract.outcomeSticky === 'sticky', `Sticky matrix context failed: ${JSON.stringify(contract)}.`);
   assert(contract.workbench && contract.mobileView && contract.notes, 'Workbench, mobile representation, or scientific notes are missing.');
 
+  const markerColors = await page.evaluate(() => [...new Set([...document.querySelectorAll('.dependency-matrix-v2 tbody .influence-marker')].map((node) => getComputedStyle(node).color))]);
+  assert(markerColors.length === 1, `Dependency markers must use one neutral semantic color across outcome columns; found ${markerColors.join(', ')}.`);
+  const scientificNotes = (await page.locator('.dp-scientific-notes').innerText()).toLowerCase();
+  assert(scientificNotes.includes('marker fill') && scientificNotes.includes('outcome colors identify columns'), 'Scientific notes must explain that marker fill, not outcome color, encodes dependency strength.');
+
   await page.locator('[data-dp-lens="tradeoffs"]').click();
   const tradeoffLens = await page.evaluate(() => ({
     badges: document.querySelectorAll('.dp-tradeoff-badge').length,
@@ -113,6 +118,7 @@ try {
   assert(!svg.includes('<foreignObject'), 'Publication matrix SVG still contains foreignObject HTML serialization.');
   assert((svg.match(/<circle/g) || []).length >= 98, 'Publication SVG is missing qualitative influence markers.');
   assert(svg.includes('QUALITATIVE INFLUENCE LEVEL') && svg.includes('Explicit outcome-pair trade-off'), 'Publication SVG is missing integrated legend semantics.');
+  assert(svg.includes('Marker fill, not color, encodes dependency strength'), 'Publication SVG is missing neutral dependency-marker semantics.');
 
   await page.screenshot({ path: path.join(artifactRoot, 'design-performance-v2-wide.png'), fullPage: true });
 
