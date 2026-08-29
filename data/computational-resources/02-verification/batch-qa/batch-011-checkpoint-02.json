@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B011",
+  "checkpoint_id": "B011-C02",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000269", "CR000270", "CR000271", "CR000272", "CR000273"],
+  "next_resource_id": "CR000274",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "github_repositories_pinned": 2,
+    "web_or_data_records_verified": 3,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 1,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 1,
+    "verified_negative_license_findings": 1,
+    "verified_non_spdx_terms_findings": 1,
+    "bounded_unknown_license_findings": 2,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000269 through CR000273 are the next five unprocessed Stage-1 resources after B011-C01 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000272's Stage-1 GitHub path permanently moved to minjiechen/magnetchallenge-1 with the same immutable repository ID 635501712. VA000053 records the move without changing CR000272. The other four resources require no alias."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000009, PRL000015, PRL000021, PRL000022, and PRL000023 are all verified from their primary papers plus official/canonical dataset evidence."},
+    {"check":"repository_snapshot_pinning","status":"passed","detail":"CR000272 and CR000273 are pinned to exact default-branch commits. CR000269, CR000270, and CR000271 are web/data resources and do not receive repository commit SHAs."},
+    {"check":"classification_integrity","status":"passed","detail":"All five resources remain dataset/data-source resources; dataset associations do not convert general data repositories or challenge assets into PINN implementations."},
+    {"check":"license_verification","status":"passed","detail":"CR000272 is MIT licensed; CR000273 has a verified-negative repository-license finding; CR000269 has verified custom non-SPDX data-use terms; CR000270 and CR000271 retain bounded unknown license findings rather than inferred licenses."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"Dataset/service records have no software dependency manifests. CR000272 and CR000273 have no formal dependency manifests identified. External mirrors/archives and bundled data were recorded statically without download, unpacking, parsing, or execution."},
+    {"check":"internal_reference_rule","status":"passed","detail":"Paper-internal citation/reference numbers, where encountered, remain provenance only and are not promoted to Atlas IDs."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The repository move, five dataset relationships, custom/unknown license findings, and dataset boundaries fit the established schema. No new relationship type, stable-ID policy change, scientific-review item, manual-review item, or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": ["PRL000009", "PRL000015", "PRL000021", "PRL000022", "PRL000023"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B011 checkpoint 02 passes. B011 remains in progress and Stage 2 resumes at CR000274."
+}
