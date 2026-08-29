@@ -1,0 +1,62 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B013",
+  "checkpoint_id": "B013-C02",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000317", "CR000318", "CR000319"],
+  "next_resource_id": "CR000320",
+  "next_logical_batch": "B013",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under data/computational-resources/02-verification plus canonical/checkpoint reports under data/computational-resources/reports",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "currently_available_resources": 3,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "explicit_not_verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_non_spdx_terms_findings": 0,
+    "verified_spdx_license_findings": 1,
+    "bounded_unknown_license_findings": 2,
+    "classification_corrections": 0
+  },
+  "batch_totals": {
+    "planned_resources": 25,
+    "processed_resources": 6,
+    "relationship_records": 6,
+    "verified_relationship_records": 6,
+    "explicit_not_verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 6,
+    "new_alias_records": 0,
+    "manual_review_records": 0
+  },
+  "checks": [
+    {"check": "checkpoint_membership", "status": "passed", "detail": "CR000317, CR000318 and CR000319 are the next three unprocessed resources in B013 and are each processed exactly once."},
+    {"check": "stable_identifier_policy", "status": "passed", "detail": "CR000317-CR000319 and PRL000181, PRL000182 and PRL000191 are preserved without replacement or renumbering."},
+    {"check": "relationship_accounting", "status": "passed", "detail": "All three Stage-1 paper_dataset_mention assertions are verified independently from primary-paper provenance and current official/versioned resource metadata."},
+    {"check": "license_verification", "status": "passed", "detail": "Kaggle DSV 2645886 version 1 explicitly reports CC0; DTU 12245978 and Zenodo 5206676 remain bounded unknown because no deposit-level licence was independently verified. Publication licences were not transferred to datasets/archives."},
+    {"check": "bounded_uncertainty", "status": "passed", "detail": "Mutable Kaggle version drift, uninspected archive-internal dataset flags, and missing deposit-level licence metadata are recorded explicitly; unknown is not converted to false or inferred."},
+    {"check": "dataset_boundary", "status": "passed", "detail": "No Kaggle image payload, DTU HAWC2 payload, Zenodo ZIP, notebook, model, simulation result, archive, or third-party code was downloaded, opened, unpacked, installed, or executed."},
+    {"check": "stage3_boundary", "status": "passed", "detail": "No dependency versions, architecture/training normalization, preprocessing reconstruction, experiment reproduction or other Stage-3 extraction was performed."},
+    {"check": "repository_scope", "status": "passed", "detail": "Checkpoint changes are confined to data/computational-resources/. No live Atlas, public software/datasets pages, deployment, navigation, CSS, JavaScript, or main-branch content is modified."},
+    {"check": "next_resource_boundary", "status": "passed", "detail": "CR000320 is not processed. Stage 2 resumes at CR000320."},
+    {"check": "stop_condition_scan", "status": "passed", "detail": "No new scientific-review item, ordinary manual-review item, schema change, concurrent-writer conflict, or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": ["PRL000181", "PRL000182", "PRL000191"],
+    "explicit_not_verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B013 checkpoint 02 passes. B013 remains in progress and Stage 2 resumes at CR000320."
+}
