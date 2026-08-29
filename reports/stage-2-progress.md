@@ -11,47 +11,47 @@ Verification date: 2026-08-29
 | Promoted profile-derived resources | 1 |
 | Remaining Stage-1 resources assigned to expansion | 344 |
 | Planned controlled batches | 14 |
-| Completed expansion batches | 9 |
-| Expansion resources processed | 245 |
-| Expansion relationships verified | 200 |
+| Completed expansion batches | 10 |
+| Expansion resources processed | 250 |
+| Expansion relationships verified | 205 |
 | Expansion Stage-1 relationships accounted through existing canonical links | 1 |
 | Expansion resources requiring manual review | 10 |
-| Pending expansion resources | 99 |
+| Pending expansion resources | 94 |
 
 Pilot acceptance status: **passed; safe to scale**.
 
-Latest persistence checkpoint: **B010-C04 passed**. B010 is in progress and resumes at CR000259. No stop condition was triggered.
+Latest persistence checkpoint: **B010-C05 passed**. B010 is complete and Stage 2 resumes with B011 at CR000264. No stop condition was triggered.
 
 ## Resume checkpoint
 
 | Field | Value |
 |---|---|
-| Current logical batch | B010 (in progress) |
-| Last completed resource | CR000258 |
-| Last completed logical batch | B009 |
-| Last persistence checkpoint | B010-C04 |
-| Next resource | CR000259 |
-| Completed Stage-1 resource count | 258 |
+| Current logical batch | B011 (next) |
+| Last completed resource | CR000263 |
+| Last completed logical batch | B010 |
+| Last persistence checkpoint | B010-C05 |
+| Next resource | CR000264 |
+| Completed Stage-1 resource count | 263 |
 | Completed promoted-resource count | 1 (CR000358) |
-| Remaining Stage-1 resource count | 99 |
-| Completed CR IDs/ranges | CR000001–CR000258; promoted CR000358 |
-| Pending CR IDs/ranges | CR000259–CR000357 |
-| Completed Stage-1 PRL assertions | 226 |
-| Pending Stage-1 PRL assertions | 105 |
-| Verified relationship records | 217 |
+| Remaining Stage-1 resource count | 94 |
+| Completed CR IDs/ranges | CR000001–CR000263; promoted CR000358 |
+| Pending CR IDs/ranges | CR000264–CR000357 |
+| Completed Stage-1 PRL assertions | 231 |
+| Pending Stage-1 PRL assertions | 100 |
+| Verified relationship records | 222 |
 | Explicitly `not_verified` relationship records | 9 |
-| Completed batches | B001–B009 |
-| Current batch checkpoint | B010-C04 passed |
-| Pending full batches | B010–B014 |
-| Resources completed in last checkpoint | CR000254–CR000258 |
-| Resources remaining in current batch | 5 |
-| Current QA status | checkpoint passed; B010 in progress |
+| Completed batches | B001–B010 |
+| Current batch checkpoint | B010-C05 passed; B010 complete |
+| Pending full batches | B011–B014 |
+| Resources completed in last checkpoint | CR000259–CR000263 |
+| Resources remaining in next batch | 25 |
+| Current QA status | B010 passed; B011 pending |
 | Current scientific-review items | 2 |
 | Current ordinary manual-review resources | 10 |
-| Last verification checkpoint commit | `609a31a4a681c2d73c9b5f218a2ce497bc58421f` |
+| Last verification checkpoint commit | `93509f88c55a46c28ac15193c36398e58d610501` |
 | Authoritative checkpoint | branch head of `data/computational-resources-stage2` |
 
-The pilot set, B001–B009, and all completed checkpoints through B010-C04 must not be reprocessed. Resume at CR000259 in B010. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
+The pilot set and B001–B010, including all checkpoints through B010-C05, must not be reprocessed. Resume at CR000264 in B011. Checkpoint records are stored in checkpoint-specific JSONL files under the existing Stage-2 verification categories; their `2.0.0-pilot` record schemas and stable identifiers are unchanged.
 
 ## Batch register
 
@@ -66,7 +66,7 @@ The pilot set, B001–B009, and all completed checkpoints through B010-C04 must 
 | B007 | 25 | CR000161 | CR000187 | completed | passed |
 | B008 | 25 | CR000188 | CR000212 | completed | passed |
 | B009 | 25 | CR000213 | CR000238 | completed | passed |
-| B010 | 25 | CR000239 | CR000263 | in progress (20/25) | checkpoint 04 passed |
+| B010 | 25 | CR000239 | CR000263 | completed | passed |
 | B011 | 25 | CR000264 | CR000288 | pending | pending |
 | B012 | 25 | CR000289 | CR000313 | pending | pending |
 | B013 | 25 | CR000314 | CR000338 | pending | pending |
@@ -379,6 +379,18 @@ The pilot set, B001–B009, and all completed checkpoints through B010-C04 must 
 - CR000258 redirects to an HKUST Page Not Found response. The failed target is not promoted as an alias, while the primary survey verifies the historical transfer-learning-index relationship.
 - No third-party code was executed; no ZIP or publication file was downloaded or unpacked; no external dataset was downloaded; and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
 - B010 remains in progress and resumes at CR000259.
+
+## Batch 010 checkpoint 05 and completion summary
+
+- Five resources were processed: CR000259 through CR000263. The primary transfer-learning survey's useful-links appendix explicitly maps all five Stage-1 locations, verifying PRL000295 through PRL000299.
+- CR000259 resolves within SlideShare to a live 28-slide Heterogeneous Defect Prediction presentation identifying Jaechang Nam and Sunghun Kim's ESEC/FSE 2015 work. The page does not host the benchmark datasets discussed in the slides.
+- CR000260 is the live National Taiwan University LIBSVM site. Its linked official source is pinned at `6b907139084abf2da4d6d3cb10dc3b7eaffa2fbb`; BSD-3-Clause, the LIBSVM project citation, component-scoped build and Python dependency declarations, documentation, the bundled `heart_scale` example, and the external dataset-catalog boundary are verified.
+- VA000052 preserves CR000261 from its unavailable Berkeley path to Judy Hoffman's official Georgia Tech faculty host. The matching project page exposes method descriptions, code links, named dependencies, datasets, publications, and team attribution.
+- CR000262's Wix tutorial domain is disconnected. Francesco Orabona's current official page still identifies the ECCV 2014 Domain Adaptation and Transfer Learning tutorial with Tatiana Tommasi and links the same URL, but no exact replacement materials location is established.
+- CR000263's historical Illinois literature-survey page returns 502. The primary survey's exact mapping verifies the relationship, while no secondary index is promoted as an alias.
+- Full B010 QA passed: all 25 planned resources occur exactly once, all 25 Stage-1 relationship assertions are verified, evidence IDs S2E000431–S2E000455 are unique, and nine new aliases preserve stable identities.
+- No third-party code was executed; no slide deck, ZIP, TAR.GZ, dataset, or binary was downloaded or unpacked; no compilation was attempted; and no Stage-3 normalization was performed. No new manual-review item, scientific-review item, schema issue, or stop condition was produced.
+- B010 is complete. Resume Stage 2 with B011 at CR000264.
 
 ## Stop conditions
 

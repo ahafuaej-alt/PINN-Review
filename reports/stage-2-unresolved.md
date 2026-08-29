@@ -13,7 +13,7 @@ These are bounded scientific-review questions, not verification failures, and do
 
 ## Expansion scientific-review items
 
-No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B009 is complete, and B010 checkpoints 01–04 added no new scientific-review or ordinary manual-review item.
+No completed expansion batch has produced a scientifically consequential ambiguity requiring immediate review. B010 is complete and added no new scientific-review or ordinary manual-review item.
 
 ## Ordinary manual review
 
@@ -167,5 +167,10 @@ No completed expansion batch has produced a scientifically consequential ambigui
 | CR000256 | Stage 1 transcribed the Tsinghua hostname as `ths`; the primary survey and live official profile use `thss` and list both ARTL and JDA with code archives. | VA000051 repairs the hostname without changing CR000256 or duplicating its repeated PRL000292 mapping. Neither archive was downloaded or unpacked. |
 | CR000257 | The exact Oquab page is live with abstract, bibliography, BibTeX, and publication downloads, but no current code link. | PRL000293 is verified; classify the live resource as a publication page rather than executable software. |
 | CR000258 | The historical HKUST transfer-learning index redirects to a departmental Page Not Found response. | PRL000294 remains verified from the survey's exact mapping. The failed redirect target is not promoted as an alias; content metadata remain bounded unknowns. |
+| CR000259 | The historical SlideShare route resolves to a live 28-slide Heterogeneous Defect Prediction presentation with title and presenter attribution but no explicit reuse license. | PRL000295 verified. Benchmark datasets discussed in the slides are not treated as hosted datasets, and no presentation file was downloaded. |
+| CR000260 | The live NTU LIBSVM site links its official source repository, which includes component-specific build and Python metadata plus a bundled `heart_scale` example. | PRL000296 verified. BSD-3-Clause, citation, documentation, and exact commit metadata are recorded; component dependency and external dataset-catalog normalization remain Stage 3 work. |
+| CR000261 | The historical Berkeley Domain Adaptation Project URL redirects to an unavailable host, while Judy Hoffman's official Georgia Tech faculty host serves the same project content, code links, datasets, and references. | VA000052 and PRL000297 verified. Linked archives and datasets were not downloaded; archive-internal licensing and normalization remain Stage 3 work. |
+| CR000262 | The historical Wix tutorial site displays a domain-not-connected response. A current official co-presenter page still identifies the ECCV 2014 tutorial and links the same URL but supplies no exact replacement content location. | PRL000298 verified. No alias is created; tutorial materials and linked assets remain unavailable. |
+| CR000263 | The historical Illinois page for Jing Jiang's literature survey returns 502. | PRL000299 verified from the primary survey's exact useful-link mapping. No secondary index is promoted as an alias; page contents remain bounded unknowns. |
 
 A verified absence, a bounded unavailable resource, or a Stage-3 extraction boundary is not an unresolved Stage-2 failure.
