@@ -1,0 +1,51 @@
+name: Failure diagnostics validation
+
+on:
+  pull_request:
+    paths:
+      - 'frameworks/failure-diagnostics/**'
+      - 'assets/failure-diagnostics-*'
+      - 'data/frameworks/failure-diagnostics-v2.json'
+      - 'scripts/validate-failure-diagnostics.mjs'
+      - 'scripts/visual-qa-failure-diagnostics-v2.mjs'
+      - '.github/workflows/failure-diagnostics-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/failure-diagnostics-v2.js
+      - run: node --check scripts/validate-failure-diagnostics.mjs
+      - run: node --check scripts/visual-qa-failure-diagnostics-v2.mjs
+      - run: node scripts/validate-failure-diagnostics.mjs
+      - name: Locate Chromium
+        run: |
+          browser_path="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$browser_path"
+          echo "CHROME_BIN=$browser_path" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --prefix /tmp/pinn-failure-diagnostics-qa --no-save --package-lock=false playwright-core@1.55.0
+      - name: Run Failure Diagnostics browser QA
+        env:
+          PLAYWRIGHT_CORE_PATH: /tmp/pinn-failure-diagnostics-qa/node_modules/playwright-core/index.mjs
+          BASE_URL: http://127.0.0.1:4173
+        run: |
+          python3 -m http.server 4173 >/tmp/pinn-failure-diagnostics-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          node scripts/visual-qa-failure-diagnostics-v2.mjs
+      - name: Upload Failure Diagnostics QA renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-diagnostics-visual-qa
+          path: artifacts/frameworks/failure-diagnostics-v2-*.png
+          if-no-files-found: warn

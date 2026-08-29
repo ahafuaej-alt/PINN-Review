@@ -1,0 +1,453 @@
+{
+  "version": "2.0.0",
+  "framework_id": "failure-diagnostics",
+  "audit": {
+    "expected_categories": 4,
+    "expected_modes": 13,
+    "expected_components": 52,
+    "method": "Each maintained diagnostic pathway is separated into challenge, observable symptoms, methodological response, and targeted improvement. Symptom matching is qualitative differential diagnosis for hypothesis generation; it is not a probability, confidence score, or automatic prescription.",
+    "evidence_policy": "Evidence coverage describes documentation scope only. Exact component support means that at least one displayed pathway reference directly addresses the selected component; pathway-level synthesis means the displayed evidence supports the broader pathway but is not claimed as exact support for every subclaim in the component.",
+    "verification_policy": "Interventions are retained only after pathway-specific checks improve relevant Design–Performance outcomes. Lack of improvement triggers re-diagnosis rather than automatic escalation to a stronger method."
+  },
+  "workflow": [
+    "Observe",
+    "Hypothesize failure mode",
+    "Run discriminating checks",
+    "Intervene",
+    "Verify outcomes",
+    "Retain or re-diagnose"
+  ],
+  "verification_order": [
+    "accuracy",
+    "fidelity",
+    "trainability",
+    "cost",
+    "robustness",
+    "identifiability",
+    "scalability"
+  ],
+  "evidence_scope_labels": {
+    "exact": "Exact component support",
+    "pathway": "Pathway-level synthesis evidence",
+    "unverified": "Not yet independently verified"
+  },
+  "mode_profiles": {
+    "spectral-bias": {
+      "checks": [
+        "Compare error or residual energy across low- and high-frequency bands instead of relying only on a global norm.",
+        "Track learning curves by spatial or temporal frequency to test whether fine scales are learned systematically later.",
+        "Compare local error in oscillatory regions against smoother regions under the same training budget."
+      ],
+      "confirmation_metrics": [
+        "Frequency-resolved field error",
+        "High-frequency spectral energy mismatch",
+        "Local relative error in oscillatory regions",
+        "Convergence history by frequency band"
+      ],
+      "tradeoffs": [
+        "Richer Fourier, sinusoidal, or multiscale representations can improve high-frequency resolution while increasing parameter, evaluation, or tuning cost.",
+        "Frequency curricula may improve trainability but add scheduling choices and extra training stages."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["accuracy", "trainability", "cost"],
+        "metrics": ["frequency-resolved error", "local / relative field error", "convergence by frequency band", "wall-clock and evaluation cost"]
+      },
+      "cross_links": {
+        "stack": ["representation"],
+        "codesign": ["representation"],
+        "performance_rows": ["activation-features", "architecture-basis"],
+        "performance_outcomes": ["accuracy", "trainability", "cost"],
+        "atlas": [
+          {"label": "Activation Functions", "route": "activation-functions/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "discontinuities": {
+      "checks": [
+        "Inspect local error and oscillation immediately upstream and downstream of shocks, interfaces, or sharp fronts.",
+        "Check conservation, entropy, or other admissibility diagnostics rather than accepting a low global residual alone.",
+        "Compare strong-form and weak / conservative residual behavior near the discontinuity."
+      ],
+      "confirmation_metrics": [
+        "Localized front / shock error",
+        "Overshoot and undershoot amplitude",
+        "Conservation or flux-balance error",
+        "Admissibility / entropy-violation diagnostic"
+      ],
+      "tradeoffs": [
+        "Weak, variational, or conservative formulations can improve admissibility while adding quadrature, interface, or local-balance cost.",
+        "Interface-aware decomposition can localize sharp features but introduces transmission and continuity conditions that must also be verified."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["accuracy", "fidelity", "robustness", "cost"],
+        "metrics": ["localized shock / front error", "conservation / flux balance", "admissibility diagnostics", "cost of quadrature or interface enforcement"]
+      },
+      "cross_links": {
+        "stack": ["physical-problem", "physics-enforcement"],
+        "codesign": ["problem", "physics"],
+        "performance_rows": ["physics-enforcement", "decomposition"],
+        "performance_outcomes": ["accuracy", "fidelity", "robustness"],
+        "atlas": [
+          {"label": "Mathematical Formulations", "route": "mathematical-formulations/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "weak-boundaries": {
+      "checks": [
+        "Evaluate BC, IC, and interface violations separately from the interior PDE residual.",
+        "Plot spatially localized boundary or interface error and compare it with nearby interior error.",
+        "Repeat training across penalty weights to determine whether constraint satisfaction is weight-sensitive."
+      ],
+      "confirmation_metrics": [
+        "BC / IC violation norm",
+        "Interface continuity error",
+        "Boundary-localized solution error",
+        "Sensitivity to constraint weights"
+      ],
+      "tradeoffs": [
+        "Hard constraints can improve exact satisfaction but may complicate the trial space, geometry handling, or conditioning.",
+        "Augmented-Lagrangian or constrained formulations can reduce penalty sensitivity while adding auxiliary variables or update overhead."
+      ],
+      "evidence_scope": {"challenge": "pathway", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["fidelity", "accuracy", "trainability", "cost"],
+        "metrics": ["BC / IC satisfaction", "interface mismatch", "boundary-localized field error", "weight sensitivity and training overhead"]
+      },
+      "cross_links": {
+        "stack": ["physics-enforcement"],
+        "codesign": ["physics"],
+        "performance_rows": ["physics-constraints", "physics-enforcement"],
+        "performance_outcomes": ["fidelity", "accuracy", "trainability"],
+        "atlas": [
+          {"label": "Mathematical Formulations", "route": "mathematical-formulations/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "poor-conservation": {
+      "checks": [
+        "Compute integral mass, momentum, energy, or other conserved-quantity balance independently of pointwise field error.",
+        "Measure flux mismatch across interfaces, control-volume faces, or subdomain boundaries.",
+        "Inspect local balance residuals to identify regions where global cancellation hides conservation error."
+      ],
+      "confirmation_metrics": [
+        "Integral conservation error",
+        "Interface flux mismatch",
+        "Control-volume local balance residual",
+        "Pointwise-versus-balance error discrepancy"
+      ],
+      "tradeoffs": [
+        "Conservative or control-volume residuals can improve physical fidelity while adding quadrature, stencil, or interface-evaluation cost.",
+        "Stronger local balance enforcement can reshape loss conditioning and may require dedicated scaling or balancing."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["fidelity", "accuracy", "cost", "trainability"],
+        "metrics": ["integral mass / energy balance", "flux continuity", "local control-volume balance", "field error and residual-evaluation cost"]
+      },
+      "cross_links": {
+        "stack": ["physics-enforcement"],
+        "codesign": ["physics", "numerical"],
+        "performance_rows": ["physics-enforcement", "physics-constraints"],
+        "performance_outcomes": ["fidelity", "accuracy", "cost"],
+        "atlas": [
+          {"label": "Mathematical Formulations", "route": "mathematical-formulations/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "high-order-derivatives": {
+      "checks": [
+        "Profile derivative evaluation separately from the rest of the training step to identify graph-depth and memory bottlenecks.",
+        "Track memory, wall-clock time, and failure rate as derivative order or spatial dimension increases.",
+        "Compare residual consistency between automatic differentiation and an independent discrete or analytical operator check."
+      ],
+      "confirmation_metrics": [
+        "Peak memory during residual evaluation",
+        "Derivative / residual wall-clock cost",
+        "Training-step failure or instability rate",
+        "Independent operator-consistency error"
+      ],
+      "tradeoffs": [
+        "First-order or mixed reformulations reduce AD depth but add auxiliary variables and compatibility constraints.",
+        "Numerical or discrete differentiation may reduce graph cost while introducing discretization choices that require independent consistency checks."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["cost", "trainability", "fidelity", "accuracy"],
+        "metrics": ["peak memory", "wall-clock derivative cost", "optimization stability", "operator / residual consistency and field error"]
+      },
+      "cross_links": {
+        "stack": ["differentiation"],
+        "codesign": ["numerical"],
+        "performance_rows": ["differentiation"],
+        "performance_outcomes": ["cost", "trainability", "fidelity"],
+        "atlas": [
+          {"label": "PINN Ecosystem", "route": "pinn-ecosystem/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "imbalanced-loss": {
+      "checks": [
+        "Plot each objective term and its gradient norm rather than only the summed loss.",
+        "Measure gradient alignment or conflict between PDE, boundary, initial-condition, and data objectives.",
+        "Repeat training under modest changes in loss weights to test whether convergence is dominated by manual weighting."
+      ],
+      "confirmation_metrics": [
+        "Per-objective loss histories",
+        "Per-objective gradient norms",
+        "Gradient cosine similarity / conflict diagnostic",
+        "Sensitivity to objective weights"
+      ],
+      "tradeoffs": [
+        "Adaptive balancing can improve trainability while requiring extra gradient statistics, kernel information, or constrained updates.",
+        "Aggressively equalizing objective magnitudes does not guarantee that every objective has equal scientific importance."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "exact", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["trainability", "fidelity", "accuracy", "cost"],
+        "metrics": ["loss and gradient balance", "BC / IC and PDE errors separately", "convergence / failure rate", "balancing overhead"]
+      },
+      "cross_links": {
+        "stack": ["loss"],
+        "codesign": ["training"],
+        "performance_rows": ["loss-balancing", "loss-formulation"],
+        "performance_outcomes": ["trainability", "fidelity", "accuracy", "cost"],
+        "atlas": [
+          {"label": "Training", "route": "training/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "poor-sampling": {
+      "checks": [
+        "Evaluate error or residual on an independent held-out point set that is not reused for training.",
+        "Plot spatial or temporal coverage together with held-out error to identify missed layers, interfaces, or sparse regions.",
+        "Compare candidate resampling policies at a matched total residual-evaluation budget."
+      ],
+      "confirmation_metrics": [
+        "Held-out residual / field error",
+        "Spatial error heat map",
+        "Coverage of boundary layers and interfaces",
+        "Accuracy per collocation-point or residual-call budget"
+      ],
+      "tradeoffs": [
+        "Adaptive sampling can reduce localized error while adding search, resampling, or residual-evaluation cost.",
+        "Concentrating points in high-residual regions can reduce coverage elsewhere, so independent validation points remain necessary."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["accuracy", "trainability", "cost", "robustness"],
+        "metrics": ["held-out error maps", "coverage statistics", "convergence", "point count / residual-call cost and seed sensitivity"]
+      },
+      "cross_links": {
+        "stack": ["sampling"],
+        "codesign": ["numerical", "training"],
+        "performance_rows": ["sampling"],
+        "performance_outcomes": ["accuracy", "trainability", "cost", "robustness"],
+        "atlas": [
+          {"label": "Training", "route": "training/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "large-domain": {
+      "checks": [
+        "Map error by subregion, material, or scale to test whether failure is localized rather than global.",
+        "Measure interface continuity and flux errors when comparing monolithic and decomposed formulations.",
+        "Profile strong / weak scaling, communication, and synchronization overhead when parallel execution is claimed."
+      ],
+      "confirmation_metrics": [
+        "Subdomain-wise field error",
+        "Interface continuity / flux mismatch",
+        "Strong / weak scaling efficiency",
+        "Communication and multi-network overhead"
+      ],
+      "tradeoffs": [
+        "Domain decomposition can improve localization and parallel scaling while introducing interface constraints and multi-network coordination.",
+        "Parallel execution can reduce wall time without reducing total computational work and may add communication overhead."
+      ],
+      "evidence_scope": {"challenge": "pathway", "symptoms": "pathway", "response": "exact", "improvement": "exact"},
+      "verification": {
+        "outcomes": ["scalability", "accuracy", "fidelity", "cost"],
+        "metrics": ["strong / weak scaling", "subdomain error", "interface mismatch", "wall-clock, communication, and memory cost"]
+      },
+      "cross_links": {
+        "stack": ["representation", "sampling"],
+        "codesign": ["numerical", "representation"],
+        "performance_rows": ["decomposition"],
+        "performance_outcomes": ["scalability", "accuracy", "fidelity", "cost"],
+        "atlas": [
+          {"label": "Architectures", "route": "architectures/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "long-time": {
+      "checks": [
+        "Plot field error and phase error as functions of time rather than only at the final or aggregate level.",
+        "Compare early- and late-time residuals to test for causal imbalance or temporal forgetting.",
+        "Repeat with progressively longer horizons to identify the interval at which stability degrades."
+      ],
+      "confirmation_metrics": [
+        "Error-versus-time curve",
+        "Phase drift",
+        "Late-time residual / field error",
+        "Maximum stable prediction horizon"
+      ],
+      "tradeoffs": [
+        "Time marching or temporal decomposition can stabilize long horizons while introducing sequential dependence, window interfaces, or retraining overhead.",
+        "Causal curricula may improve optimization but require schedule and horizon choices that remain problem dependent."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "exact"},
+      "verification": {
+        "outcomes": ["accuracy", "robustness", "trainability", "cost"],
+        "metrics": ["error versus time", "phase drift", "late-time stability", "window / marching training cost"]
+      },
+      "cross_links": {
+        "stack": ["physical-problem", "optimization"],
+        "codesign": ["problem", "training"],
+        "performance_rows": ["training-strategy"],
+        "performance_outcomes": ["accuracy", "robustness", "trainability", "cost"],
+        "atlas": [
+          {"label": "Training", "route": "training/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "stagnation": {
+      "checks": [
+        "Inspect total and per-objective gradient norms together with optimizer step acceptance or line-search behavior.",
+        "Compare convergence across several random initializations before attributing a plateau to the architecture alone.",
+        "Evaluate the effect of non-dimensionalization or variable scaling before escalating optimizer complexity."
+      ],
+      "confirmation_metrics": [
+        "Loss and gradient histories",
+        "Multi-seed convergence spread",
+        "Divergence / line-search failure rate",
+        "Iterations and wall-clock to target error"
+      ],
+      "tradeoffs": [
+        "Second-order or quasi-Newton steps can reduce iteration count while increasing memory or per-step cost.",
+        "Staged optimizers and continuation can improve basin access while adding additional training phases and hyperparameters."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["trainability", "cost", "accuracy", "robustness"],
+        "metrics": ["convergence rate", "gradient norms", "multi-seed failure rate", "wall-clock and final field error"]
+      },
+      "cross_links": {
+        "stack": ["optimization"],
+        "codesign": ["training"],
+        "performance_rows": ["optimizer", "training-strategy"],
+        "performance_outcomes": ["trainability", "cost", "accuracy", "robustness"],
+        "atlas": [
+          {"label": "Optimizers", "route": "optimizers/"},
+          {"label": "Training", "route": "training/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "sparse-noisy-inverse": {
+      "checks": [
+        "Compare state error and parameter error separately; a good state fit does not establish correct parameter recovery.",
+        "Inspect parameter correlations or sensitivity to perturbations in observations to test practical identifiability.",
+        "Repeat inference under controlled noise and alternative observation layouts to test whether the recovered parameters are observation-dependent."
+      ],
+      "confirmation_metrics": [
+        "Parameter relative error",
+        "Parameter correlation / identifiability diagnostic",
+        "Noise sensitivity",
+        "State error versus parameter error"
+      ],
+      "tradeoffs": [
+        "Additional observations or stronger priors can improve identifiability while increasing data-acquisition requirements or prior dependence.",
+        "Bayesian inference can expose non-identifiability but substantially increases computational and convergence demands."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["identifiability", "robustness", "accuracy", "fidelity", "cost"],
+        "metrics": ["parameter error / correlation", "noise sensitivity", "state error", "physical residual / constraint satisfaction", "inference cost"]
+      },
+      "cross_links": {
+        "stack": ["computational-role", "inputs-outputs", "evaluation"],
+        "codesign": ["problem", "reliability"],
+        "performance_rows": ["inputs-outputs", "physics-constraints"],
+        "performance_outcomes": ["identifiability", "robustness", "accuracy"],
+        "atlas": [
+          {"label": "Performance Metrics", "route": "performance-metrics/"},
+          {"label": "PINN Ecosystem", "route": "pinn-ecosystem/"}
+        ]
+      }
+    },
+    "repeated-query": {
+      "checks": [
+        "Separate offline training cost from online inference cost and report the break-even point for repeated use.",
+        "Evaluate accuracy across held-out parameter sets rather than only configurations seen during training.",
+        "Measure transfer or operator-model degradation under extrapolation beyond the training parameter distribution."
+      ],
+      "confirmation_metrics": [
+        "Online inference time",
+        "Amortized cost per query",
+        "Held-out parameter-space error",
+        "OOD / extrapolation error"
+      ],
+      "tradeoffs": [
+        "Operator or meta-learning can sharply reduce online cost while requiring larger offline training sets and broader parameter-space coverage.",
+        "Amortized models may lose accuracy outside the training distribution, so reuse claims require held-out and extrapolation checks."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "exact", "response": "exact", "improvement": "exact"},
+      "verification": {
+        "outcomes": ["scalability", "cost", "accuracy", "robustness"],
+        "metrics": ["online and amortized cost", "break-even query count", "held-out parameter error", "OOD / transfer error"]
+      },
+      "cross_links": {
+        "stack": ["computational-role", "representation"],
+        "codesign": ["representation", "problem"],
+        "performance_rows": ["reuse-generalize", "architecture-basis"],
+        "performance_outcomes": ["scalability", "cost", "accuracy", "robustness"],
+        "atlas": [
+          {"label": "Architectures", "route": "architectures/"},
+          {"label": "Performance Metrics", "route": "performance-metrics/"}
+        ]
+      }
+    },
+    "uncertainty": {
+      "checks": [
+        "Evaluate interval or posterior coverage against held-out observations or known synthetic truth rather than inspecting uncertainty width alone.",
+        "Separate data / parameter uncertainty from approximation uncertainty where the method claims to distinguish them.",
+        "Test calibration under increasing noise and distribution shift instead of reporting only in-distribution point accuracy."
+      ],
+      "confirmation_metrics": [
+        "Coverage / reliability",
+        "Interval or posterior calibration",
+        "Uncertainty-width versus error relationship",
+        "Calibration under noise / OOD shift"
+      ],
+      "tradeoffs": [
+        "Bayesian, ensemble, or variational methods can improve uncertainty characterization while multiplying training, sampling, or inference cost.",
+        "Wider intervals can improve nominal coverage without improving decision usefulness; calibration and sharpness must be interpreted together."
+      ],
+      "evidence_scope": {"challenge": "exact", "symptoms": "pathway", "response": "exact", "improvement": "pathway"},
+      "verification": {
+        "outcomes": ["identifiability", "robustness", "accuracy", "cost"],
+        "metrics": ["coverage / reliability", "calibration under noise and OOD", "point error alongside uncertainty", "training / sampling / inference cost"]
+      },
+      "cross_links": {
+        "stack": ["computational-role", "evaluation"],
+        "codesign": ["reliability"],
+        "performance_rows": ["inputs-outputs", "reuse-generalize"],
+        "performance_outcomes": ["identifiability", "robustness", "accuracy", "cost"],
+        "atlas": [
+          {"label": "Performance Metrics", "route": "performance-metrics/"},
+          {"label": "PINN Ecosystem", "route": "pinn-ecosystem/"}
+        ]
+      }
+    }
+  }
+}

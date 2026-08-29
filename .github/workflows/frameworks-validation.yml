@@ -16,6 +16,7 @@ on:
       - 'assets/co-design-arrange.css'
       - 'assets/co-design-label-layout.js'
       - 'assets/design-performance-*'
+      - 'assets/failure-diagnostics-*'
       - 'data/frameworks/**'
       - 'assets/theme-init.js'
       - 'index.html'
@@ -23,11 +24,13 @@ on:
       - 'sitemap.xml'
       - 'scripts/validate-frameworks.mjs'
       - 'scripts/audit-design-performance.mjs'
+      - 'scripts/validate-failure-diagnostics.mjs'
       - 'scripts/visual-qa-frameworks-contract.mjs'
       - 'scripts/visual-qa-framework-runtime.mjs'
       - 'scripts/visual-qa-co-design-v2.mjs'
       - 'scripts/visual-qa-co-design-arrange.mjs'
       - 'scripts/visual-qa-design-performance-v2.mjs'
+      - 'scripts/visual-qa-failure-diagnostics-v2.mjs'
   workflow_dispatch:
 
 permissions:
@@ -49,14 +52,18 @@ jobs:
       - run: node --check assets/co-design-label-layout.js
       - run: node --check assets/design-performance-v2.js
       - run: node --check assets/design-performance-v2-layout.js
+      - run: node --check assets/failure-diagnostics-v2.js
       - run: node --check scripts/audit-design-performance.mjs
+      - run: node --check scripts/validate-failure-diagnostics.mjs
       - run: node --check scripts/visual-qa-frameworks-contract.mjs
       - run: node --check scripts/visual-qa-framework-runtime.mjs
       - run: node --check scripts/visual-qa-co-design-v2.mjs
       - run: node --check scripts/visual-qa-co-design-arrange.mjs
       - run: node --check scripts/visual-qa-design-performance-v2.mjs
+      - run: node --check scripts/visual-qa-failure-diagnostics-v2.mjs
       - run: node scripts/validate-frameworks.mjs
       - run: node scripts/audit-design-performance.mjs
+      - run: node scripts/validate-failure-diagnostics.mjs
       - run: node scripts/validate-navigation.mjs
       - run: node scripts/validate-readme.mjs
       - name: Locate Chromium
@@ -79,6 +86,7 @@ jobs:
           node scripts/visual-qa-co-design-v2.mjs
           node scripts/visual-qa-co-design-arrange.mjs
           node scripts/visual-qa-design-performance-v2.mjs
+          node scripts/visual-qa-failure-diagnostics-v2.mjs
       - name: Upload Frameworks QA renders
         if: always()
         uses: actions/upload-artifact@v4
