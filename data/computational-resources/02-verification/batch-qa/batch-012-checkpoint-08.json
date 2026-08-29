@@ -1,0 +1,33 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B012",
+  "checkpoint_id":"B012-C08",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":false,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000310","CR000311","CR000312"],
+  "next_resource_id":"CR000313",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories, including one high-confidence source-URL alias repair; stable CR and PRL identifiers are preserved",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_resolvable_resource_records":3,"active_or_public_dataset_portals":2,"historical_retired_version_records":1,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"alias_records":1,"manual_review_records":0,"verified_positive_license_findings":2,"bounded_unknown_license_findings":1,"classification_corrections":0},
+  "batch_totals":{"planned_resources":25,"processed_resources":24,"relationship_records":28,"verified_relationship_records":25,"explicit_not_verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":24,"new_alias_records":1,"manual_review_records":4},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000310, CR000311, and CR000312 are the next three unprocessed B012 resources after B012-C07 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000310-CR000312 and PRL000169, PRL000172, and PRL000175 are preserved. VA000055 repairs CR000310's malformed Stage-1 DOI without creating a replacement resource or relationship ID."},
+    {"check":"source_url_repair","status":"passed","detail":"The Stage-1 source note contains 10.17632/p2yrryg9k6z.1, while Atlas paper 555 and Mendeley Data independently establish 10.17632/p2yryg9k6z.1 as the intended Version 1 dataset DOI. VA000055 records the extra-r transcription error."},
+    {"check":"relationship_accounting","status":"passed","detail":"Atlas paper 555 uses the UNSW gear-wear run-to-failure dataset; Atlas paper 563 describes and links the LIAS induction-motor MCSA dataset; Atlas paper 571 directly uses ATL03 Version 5 and gives the NSIDC URL. PRL000169, PRL000172, and PRL000175 are verified."},
+    {"check":"version_semantics","status":"passed","detail":"CR000310 remains the paper-cited Mendeley Version 1 record even though Version 2 later reports an 11-second acquisition duration matching the paper's description. CR000312 remains ATL03 Version 5 even though NSIDC now marks that release retired. These temporal/version qualifications are preserved rather than silently normalized."},
+    {"check":"classification_integrity","status":"passed","detail":"All three resources remain dataset_or_data_source records: a gearbox vibration run-to-failure dataset, an induction-motor electrical-machine monitoring dataset, and an ICESat-2 geolocated-photon data release."},
+    {"check":"license_verification","status":"passed","detail":"CR000310 and CR000311 explicitly carry CC BY 4.0. CR000312's official page requires citation and acknowledgment but exposes no item-level reuse licence in the verified landing-page output, so no SPDX licence is inferred."},
+    {"check":"citation_metadata","status":"passed","detail":"CR000310 has corrected DOI 10.17632/p2yryg9k6z.1; CR000311 has dataset title/owner context and cites the associated Sensors article; CR000312 has official DOI 10.5067/ATLAS/ATL03.005 and complete NSIDC citation guidance."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No Mendeley file, LIAS archive, ICESat-2 HDF5 granule, Read me, model, notebook, source code, or other third-party data payload was downloaded, opened, parsed, unpacked, installed, subsetted, or executed."},
+    {"check":"manual_review_routing","status":"passed","detail":"The CR000310 typo is conclusively resolved by alias repair; CR000310's Version 1 versus paper-duration nuance and CR000312's retired-version status are bounded provenance facts, not unresolved identity or scientific-review issues."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000313 was not processed in this checkpoint."},
+    {"check":"stop_condition_scan","status":"passed","detail":"Three verified relationships, one source-URL repair, one retired historical release, two explicit CC BY 4.0 licences and one bounded licence field fit the established Stage-2 schema. No schema change, scientific-review item, ordinary manual-review item, or processing pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000169","PRL000172","PRL000175"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "alias_accounting":{"resolved_alias_ids":["VA000055"],"resource_ids":["CR000310"]},
+  "qa_conclusion":"B012 checkpoint 08 passes. B012 remains in progress with one resource remaining and Stage 2 resumes at CR000313."
+}
