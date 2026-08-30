@@ -1,0 +1,17 @@
+{
+  "schema_version":"2.0.0-pilot","report_type":"stage2_incremental_checkpoint_qa","batch_id":"B013","checkpoint_id":"B013-C08","verification_date":"2026-08-30","status":"passed","batch_completed":false,"stop_condition_triggered":false,"stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000335","CR000336","CR000337"],"next_resource_id":"CR000338","next_logical_batch":"B013",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":3,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"manual_review_records":0,"verified_non_spdx_terms_findings":2,"verified_spdx_license_findings":0,"bounded_unknown_license_findings":1,"canonical_url_corrections":0,"classification_corrections":0,"new_alias_records":0},
+  "batch_totals":{"planned_resources":25,"processed_resources":24,"relationship_records":24,"verified_relationship_records":23,"explicit_not_verified_relationship_records":1,"bounded_unverified_relationship_records":0,"evidence_records":24,"new_alias_records":1,"manual_review_records":0},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000335-CR000337 are the exact next three resources."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000244-PRL000246 are directly verified from paper 716 Data accessibility and authoritative/persistent resource evidence."},
+    {"check":"license_verification","status":"passed","detail":"PRISM custom terms and NTL CC-BY wording are recorded exactly; Zenodo deposit licence remains bounded unknown."},
+    {"check":"bounded_uncertainty","status":"passed","detail":"No NTL CC-BY version or Zenodo licence is guessed; catalogue-level resources are not converted into fabricated frozen package identities."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No climate grid, EDI package, SPCAM archive, service payload, notebook or code was downloaded or executed."},
+    {"check":"repository_scope","status":"passed","detail":"All changes are confined to data/computational-resources/."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000338 is not processed."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000244","PRL000245","PRL000246"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B013 checkpoint 08 passes. B013 has one resource remaining and resumes at CR000338."
+}

@@ -1,14 +1,11 @@
-# Computational Resources Stage 2 — B013 Checkpoint 07 Unresolved
+# Computational Resources Stage 2 — B013 Checkpoint 08 Unresolved
 
 Verification date: 2026-08-30
 
-No new scientific-review item or ordinary manual-review resource was created by B013-C07.
+No new scientific-review item or ordinary manual-review resource was created.
 
-## Bounded findings retained without escalation
+- CR000335 exact PRISM case-study variables/subset remain Stage 3.
+- CR000336 exact NTL package used by the case study and CC-BY version remain bounded at catalogue level.
+- CR000337 exact Zenodo deposit licence and archive internals remain bounded unknown.
 
-- **CR000332:** legacy Copernicus product identity and current DOI lineage are verified; exact historical file/timestamp selection remains Stage 3.
-- **CR000333 / CR000334:** both identify the same EDI high-frequency reservoir-profile dataset. VA000036 records this duplicate identity. Exact package-level reuse licence was not independently retrieved and remains bounded unknown.
-
-These findings do not require a processing pause.
-
-Next resource: **CR000335**. It has not been started.
+These findings do not require a processing pause. Next resource: **CR000338**.
