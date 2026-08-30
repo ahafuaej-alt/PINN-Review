@@ -1,0 +1,32 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B014",
+  "checkpoint_id": "B014-C06",
+  "verification_date": "2026-08-30",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000354", "CR000355", "CR000356"],
+  "next_resource_id": "CR000357",
+  "next_logical_batch": "B014",
+  "counts": {"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":3,"relationship_records":2,"verified_relationship_records":2,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"manual_review_records":0,"verified_non_spdx_terms_findings":0,"verified_spdx_license_findings":2,"bounded_unknown_license_findings":1,"canonical_url_corrections":1,"classification_corrections":3,"relationship_type_corrections":2,"new_alias_records":1},
+  "batch_totals": {"planned_resources":19,"processed_resources":18,"relationship_records":23,"verified_relationship_records":23,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":18,"new_alias_records":3,"manual_review_records":0},
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000354-CR000356 are the exact next three B014 resources and are each processed once."},
+    {"check":"relationship_accounting","status":"passed","detail":"Both Stage-1 PRL assertions in this checkpoint are verified: PRL000331 and PRL000253. CR000356 has no Stage-1 Atlas ID or PRL assertion."},
+    {"check":"canonical_url_policy","status":"passed","detail":"CR000354's Stage-1 owner typo Harishqbal88 is repaired to HarisIqbal88 with alias VA000039; the stable CR ID is preserved."},
+    {"check":"classification_policy","status":"passed","detail":"All three Stage-1 dataset classifications are corrected: PlotNeuralNet and NetworkX are software; Understanding LSTM Networks is an educational technical tutorial."},
+    {"check":"relationship_type_policy","status":"passed","detail":"PRL000331 and PRL000253 are corrected from paper_dataset_mention to paper_software_mention based on the primary papers."},
+    {"check":"license_verification","status":"passed","detail":"PlotNeuralNet MIT and NetworkX BSD-3-Clause are explicitly verified. CR000356 remains bounded unknown rather than receiving an inferred content licence."},
+    {"check":"bounded_uncertainty","status":"passed","detail":"Exact paper-specific software versions and CR000356 content licensing remain explicit bounded findings; unknown is not converted to false or guessed."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No repository was cloned, no package installed, no LaTeX or shell script executed, and no model/data payload was run."},
+    {"check":"stage3_boundary","status":"passed","detail":"Exact PlotNeuralNet revision/modifications and paper-722 NetworkX version/graph parameters are deferred to Stage 3."},
+    {"check":"repository_scope","status":"passed","detail":"All checkpoint changes are confined to data/computational-resources/. No live Atlas, deployment or main-branch content is modified."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000357 is not processed. Stage 2 resumes at CR000357."},
+    {"check":"stop_condition_scan","status":"passed","detail":"No concurrent-writer conflict, new scientific-review item, ordinary manual-review item or schema change requires a pause."}
+  ],
+  "relationship_accounting": {"stage1_link_count":2,"verified_link_ids":["PRL000331","PRL000253"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion": "B014 checkpoint 06 passes. B014 remains in progress and Stage 2 resumes at CR000357."
+}
