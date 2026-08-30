@@ -1,0 +1,18 @@
+{
+  "schema_version":"2.0.0-pilot","report_type":"stage2_incremental_checkpoint_qa","batch_id":"B014","checkpoint_id":"B014-C01","verification_date":"2026-08-30","status":"passed","batch_completed":false,"stop_condition_triggered":false,"stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000339","CR000340","CR000341"],"next_resource_id":"CR000342","next_logical_batch":"B014",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":3,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"manual_review_records":0,"verified_non_spdx_terms_findings":1,"verified_spdx_license_findings":1,"bounded_unknown_license_findings":1,"canonical_url_corrections":1,"classification_corrections":1,"relationship_type_corrections":2,"new_alias_records":1},
+  "batch_totals":{"planned_resources":19,"processed_resources":3,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"new_alias_records":1,"manual_review_records":0},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000339-CR000341 are the first three B014 resources."},
+    {"check":"relationship_accounting","status":"passed","detail":"All three relationships are verified; ImageNet/Gym are corrected to secondary_review_mention and the atrial atlas remains paper_dataset_mention."},
+    {"check":"classification_policy","status":"passed","detail":"Gym is corrected from dataset_or_data_source to software_library_or_framework; ImageNet and the atrial atlas remain datasets."},
+    {"check":"canonical_url_policy","status":"passed","detail":"Legacy gym.openai.com is preserved in provenance and mapped to archived canonical repository openai/gym via VA000037; Gymnasium remains distinct."},
+    {"check":"license_verification","status":"passed","detail":"ImageNet custom terms and Gym MIT licence are verified; atrial-atlas deposit licence remains bounded unknown."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No image, atrial archive, software install, environment execution or model run occurred."},
+    {"check":"repository_scope","status":"passed","detail":"All changes are confined to data/computational-resources/."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000342 is not processed."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000251","PRL000252","PRL000319"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B014 checkpoint 01 passes. B014 resumes at CR000342."
+}
