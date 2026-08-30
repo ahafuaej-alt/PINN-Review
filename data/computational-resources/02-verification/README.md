@@ -25,10 +25,23 @@ Fields retain typed values where verified. A companion `status` or `field_status
 - Every verified repository record is pinned to the default-branch commit observed on its Stage-2 verification date.
 - Expansion batches reuse the pilot schema and evidence-state rules. Batch-specific artifacts and QA records are cumulative.
 
+## Corrective-resolution overlays
+
+Historical batch records are immutable audit evidence. When later primary evidence resolves an earlier Stage-2 finding, a named corrective overlay may supersede selected fields for the same PRL or CR identifier without deleting the historical record.
+
+`stage-2-relationship-resolution-01` is the first such overlay. For the 13 historical relationship records previously marked `not_verified`, its relationship records are authoritative. Its resource records are field-level corrective overlays: only fields present in the corrective record supersede the corresponding earlier resource fields; omitted fields retain their prior verified state.
+
+The resolution distinguishes two final states:
+
+- `verified`: the relationship is positively supported.
+- `resolved_invalid_stage1_assertion`: the historical Stage-1 assertion is conclusively invalid and is closed rather than retained as unresolved.
+
+After Stage2-R01, the 331 Stage-1 PRL assertions have the authoritative disposition **325 verified, 6 resolved-invalid, 0 active unresolved**. Historical `not_verified` records remain present for auditability and must not be recounted as active unresolved assertions.
+
 ## Review categories
 
-The review report separates bounded scientific-review questions from verified limitations and Stage-3 deferred extraction. The latter do not block acceptance of the Stage 2 pilot methodology.
+The review report separates bounded scientific-review questions from verified limitations and Stage-3 deferred extraction. The latter do not block acceptance of the Stage 2 methodology.
 
 ## Expansion status
 
-Batches B001–B010 are complete and passed QA. B011 checkpoint 01 is complete and passed checkpoint QA; CR000268 is the last completed resource and CR000269 is next. Progress, unresolved/manual-review items, verification evidence, and batch accounting are cumulative in `reports/stage-2-progress.md`, checkpoint-specific Stage-2 progress reports, `reports/stage-2-unresolved.md`, checkpoint-specific deferred-finding reports where used, `verification-log/`, and `batch-qa/`.
+Batches B001–B014 are complete and passed QA. All Stage-1 resources `CR000001–CR000357` have been processed; promoted CR000358 remains separately accounted for. Stage2-R01 subsequently resolved all 13 historical `not_verified` relationship findings. Current authoritative progress and unresolved status are maintained in `reports/stage-2-progress.md` and `reports/stage-2-unresolved.md`.
