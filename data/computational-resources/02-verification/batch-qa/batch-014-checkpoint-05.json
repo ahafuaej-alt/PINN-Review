@@ -1,0 +1,128 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B014",
+  "checkpoint_id": "B014-C05",
+  "verification_date": "2026-08-30",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000351",
+    "CR000352",
+    "CR000353"
+  ],
+  "next_resource_id": "CR000354",
+  "next_logical_batch": "B014",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "currently_available_resources": 3,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "explicit_not_verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "manual_review_records": 0,
+    "verified_non_spdx_terms_findings": 1,
+    "verified_spdx_license_findings": 0,
+    "bounded_unknown_license_findings": 2,
+    "canonical_url_corrections": 1,
+    "classification_corrections": 1,
+    "relationship_type_corrections": 1,
+    "new_alias_records": 1
+  },
+  "batch_totals": {
+    "planned_resources": 19,
+    "processed_resources": 15,
+    "relationship_records": 21,
+    "verified_relationship_records": 21,
+    "explicit_not_verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 15,
+    "new_alias_records": 2,
+    "manual_review_records": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000351-CR000353 are the exact next three B014 resources and are each processed once."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All five Stage-1 PRL assertions are verified: PRL000271, PRL000274, PRL000279, PRL000280 and PRL000326."
+    },
+    {
+      "check": "multi_relationship_resource_policy",
+      "status": "passed",
+      "detail": "CR000351's three ImageNet links are verified separately against papers 761, 763 and 765 rather than inherited from a generic dataset-page check."
+    },
+    {
+      "check": "alias_resolution",
+      "status": "passed",
+      "detail": "CR000353 is retained with stable ID but resolved through VA000038 to canonical institutional resource CR000346; no resource is deleted or renumbered."
+    },
+    {
+      "check": "classification_policy",
+      "status": "passed",
+      "detail": "CR000351 and CR000352 remain datasets. CR000353 is corrected from dataset_or_data_source to institutional_research_data_source_alias because /FCLAB is not a separate dataset."
+    },
+    {
+      "check": "relationship_type_policy",
+      "status": "passed",
+      "detail": "PRL000326 is corrected from paper_dataset_mention to paper_resource_mention because paper 842 identifies FCLAB as the institution that collected/compiled data."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "ImageNet explicit access/reuse restrictions are recorded as non-SPDX terms. COCO and FCLAB do not receive inferred dataset/site licences."
+    },
+    {
+      "check": "bounded_uncertainty",
+      "status": "passed",
+      "detail": "COCO licensing granularity and paper-specific ImageNet/COCO preprocessing remain explicit bounded findings; unknown is not converted to false or guessed."
+    },
+    {
+      "check": "static_verification_boundary",
+      "status": "passed",
+      "detail": "No ImageNet/COCO image archive, annotation file, FCLAB data archive, software install or executable payload was downloaded or run."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No exact benchmark release/split, preprocessing, augmentation, training setup, dependency-version extraction or experiment reproduction was performed."
+    },
+    {
+      "check": "repository_scope",
+      "status": "passed",
+      "detail": "All checkpoint changes are confined to data/computational-resources/. No live Atlas, deployment or main-branch content is modified."
+    },
+    {
+      "check": "next_resource_boundary",
+      "status": "passed",
+      "detail": "CR000354 is not processed. Stage 2 resumes at CR000354."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "No concurrent-writer conflict, new scientific-review item, ordinary manual-review item or schema change requires a pause."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000271",
+      "PRL000274",
+      "PRL000279",
+      "PRL000280",
+      "PRL000326"
+    ],
+    "explicit_not_verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B014 checkpoint 05 passes. B014 remains in progress and Stage 2 resumes at CR000354."
+}
