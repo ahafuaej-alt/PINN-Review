@@ -1,0 +1,18 @@
+{
+  "schema_version":"2.0.0-pilot","report_type":"stage2_incremental_checkpoint_qa","batch_id":"B014","checkpoint_id":"B014-C02","verification_date":"2026-08-30","status":"passed","batch_completed":false,"stop_condition_triggered":false,"stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000342","CR000343","CR000344"],"next_resource_id":"CR000345","next_logical_batch":"B014",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":3,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"manual_review_records":0,"verified_non_spdx_terms_findings":0,"verified_spdx_license_findings":2,"bounded_unknown_license_findings":1,"canonical_url_corrections":1,"classification_corrections":1,"relationship_type_corrections":1,"new_alias_records":0},
+  "batch_totals":{"planned_resources":19,"processed_resources":6,"relationship_records":6,"verified_relationship_records":6,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":6,"new_alias_records":1,"manual_review_records":0},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000342-CR000344 are the exact next three B014 resources."},
+    {"check":"relationship_accounting","status":"passed","detail":"All three relationships are directly verified; CR000343 relationship type is corrected from dataset mention to resource mention."},
+    {"check":"classification_policy","status":"passed","detail":"CR000343 is corrected to publication_and_supporting_information_landing_page; CR000342 and CR000344 remain datasets."},
+    {"check":"canonical_url_policy","status":"passed","detail":"CR000344 preserves PhysioNet root in provenance and narrows canonical identity to the exact 2007 Challenge v1.0.0 resource."},
+    {"check":"license_verification","status":"passed","detail":"CR000342 CC-BY-4.0 and CR000344 ODC-By-1.0 are explicit; CR000343 SI licence remains bounded unknown rather than inferred."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No Zenodo archive, ACS SI PDF, PhysioNet ZIP/data file, software install or execution occurred."},
+    {"check":"repository_scope","status":"passed","detail":"All changes are confined to data/computational-resources/."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000345 is not processed."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000322","PRL000260","PRL000323"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B014 checkpoint 02 passes. B014 resumes at CR000345."
+}
