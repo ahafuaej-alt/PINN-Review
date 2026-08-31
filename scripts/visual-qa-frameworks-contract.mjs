@@ -51,6 +51,7 @@ try {
           viewportWidth: innerWidth,
           canvasClientWidth: canvas?.clientWidth || 0,
           canvasScrollWidth: canvas?.scrollWidth || 0,
+          diagnosticMapWidth: document.querySelector('.fd-map-shell')?.scrollWidth || 0,
           objectCount: document.querySelectorAll(route.objects[0]).length,
           relationCount: document.querySelectorAll(relationSelector).length,
           feedbackCount: document.querySelectorAll('.relation-feedback').length,
@@ -66,7 +67,7 @@ try {
           mobileMatrixDisplay: document.querySelector('.dp-mobile-view') ? getComputedStyle(document.querySelector('.dp-mobile-view')).display : null,
           mobileCardCount: document.querySelectorAll('.dp-mobile-card').length,
           categoryCount: document.querySelectorAll('.diagnostic-category').length,
-          verifyPresent: Boolean(document.querySelector('.diagnostic-verify')),
+          verifyPresent: Boolean(document.querySelector('.diagnostic-verify, [data-fd-verify]')),
           corePresent: Boolean(document.querySelector('.co-core')),
           coV2Ready: document.documentElement.dataset.coDesignV2 === 'ready',
           coV2RelationSemantics: route.id === 'co-design' ? {
@@ -92,11 +93,14 @@ try {
       assert(snapshot.supportBadges >= snapshot.evidenceCards && snapshot.locationTags >= snapshot.evidenceCards, `${route.id}/${viewport.name}: evidence cards lack support badges or framework-location tags.`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete.`);
 
-      if (viewport.width >= 1050 && !['co-design', 'design-performance'].includes(route.id)) {
+      if (viewport.width >= 1050 && !['co-design', 'design-performance', 'failure-diagnostics'].includes(route.id)) {
         assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: complete framework should fit its canvas at 100%.`);
       }
       if (viewport.width >= 1050 && route.id === 'co-design') {
         assert(snapshot.canvasScrollWidth >= 2400 && snapshot.canvasScrollWidth > snapshot.canvasClientWidth + 300, `${route.id}/${viewport.name}: oversized systems map is not preserved.`);
+      }
+      if (viewport.width >= 1050 && route.id === 'failure-diagnostics') {
+        assert(snapshot.diagnosticMapWidth >= 1900 && snapshot.canvasScrollWidth > snapshot.canvasClientWidth + 150, `${route.id}/${viewport.name}: oversized diagnostic map is not preserved (${snapshot.diagnosticMapWidth}px).`);
       }
       if (route.id === 'design-performance') {
         assert(snapshot.cellCount === 98 && snapshot.outcomeCount === 7 && snapshot.familyCount === 4, `${route.id}/${viewport.name}: matrix hierarchy is incomplete.`);
@@ -162,8 +166,7 @@ try {
   const inspectorCases = [
     ['design-stack', 'physical-problem'],
     ['co-design', 'representation'],
-    ['design-performance', 'architecture-basis'],
-    ['failure-diagnostics', 'spectral-bias']
+    ['design-performance', 'architecture-basis']
   ];
   for (const [frameworkId, objectId] of inspectorCases) {
     const page = await context.newPage();
@@ -178,6 +181,18 @@ try {
     assert(await page.locator('[data-detail] [data-concept-id]').count() > 0, `${frameworkId}: canonical concept controls are missing.`);
     await page.close();
   }
+
+  const diagnosticInspector = await context.newPage();
+  await diagnosticInspector.goto(`${baseUrl}/frameworks/failure-diagnostics/`, { waitUntil: 'networkidle' });
+  await diagnosticInspector.waitForSelector('[data-fd-component="spectral-bias:symptoms"]');
+  await diagnosticInspector.click('[data-fd-component="spectral-bias:symptoms"]');
+  const diagnosticDetail = diagnosticInspector.locator('[data-detail]:visible').first();
+  await diagnosticDetail.locator('.fd-cross-trace').waitFor({ state: 'visible', timeout: 3000 });
+  const diagnosticText = (await diagnosticDetail.innerText()).toLowerCase();
+  assert(diagnosticText.includes('discriminating checks') && diagnosticText.includes('trade-offs to verify') && diagnosticText.includes('cross-framework reasoning trace'), 'failure-diagnostics: v2 pathway inspector is incomplete.');
+  assert(await diagnosticDetail.locator('.evidence-support-badge').count() > 0, 'failure-diagnostics: inspector lacks support-type badges.');
+  assert(await diagnosticDetail.locator('[data-concept-id]').count() > 0, 'failure-diagnostics: canonical concept controls are missing.');
+  await diagnosticInspector.close();
 
   const diagnostics = await context.newPage();
   await diagnostics.goto(`${baseUrl}/frameworks/failure-diagnostics/#item=poor-conservation`, { waitUntil: 'networkidle' });
