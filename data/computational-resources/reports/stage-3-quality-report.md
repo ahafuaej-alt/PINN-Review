@@ -3,7 +3,7 @@
 Status date: 2026-08-31  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S002
+Latest scale-out checkpoint: Stage3-S003
 
 ## Pilot QA
 
@@ -96,6 +96,14 @@ Status: **PASS**
 `CR000004` was separated into an adaptive single-resource checkpoint because it contains three distinct workflows and consequential code-path defects. The TV-AR/TV-VAR method, two simulations, and bundled real-world application are represented without treating manually toggled scenario comments as additional configurations.
 
 The resource is R1. No environment or license is supplied; all application drivers import an absent comparator module; and both simulation drivers use invalid `range(list)` calls. These defects remain configuration-scoped and explicit. Cumulative totals are 13 resources, 27 experiments, 87 configurations, 156 technical-evidence records, 13 reproducibility assessments, 30 unresolved findings, and 6 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S003
+
+Status: **PASS**
+
+`CR000005` preserves the pinned paper-appendix repository and `PRL000016`, while accurately bounding the artifact as two mathematical PDFs plus a README. No executable source, environment, dataset, or configuration exists, so no experiment/configuration is manufactured and reproducibility is R1.
+
+The Stage-2 `supplementary_code` label versus the actual PDF-only artifact and the internally inconsistent Lipschitz condition in `Appendix.pdf` equation (1) remain explicit conflicting evidence. Cumulative totals are 14 resources, 27 experiments, 87 configurations, 162 technical-evidence records, 14 reproducibility assessments, 33 unresolved findings, and 8 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
