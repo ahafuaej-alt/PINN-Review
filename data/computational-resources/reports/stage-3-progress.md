@@ -5,66 +5,55 @@ Verification/extraction date: 2026-08-31
 | Field | Value |
 |---|---|
 | Stage-3 phase | Approved pilot extraction in progress |
-| Current batch | Pilot batch 003 |
-| Current checkpoint | Stage3-P03 |
-| Last completed resource | CR000059 |
-| Next resource | CR000163 |
-| Completed Stage-3 resource count | 6 |
-| Remaining Stage-3 registry resource count | 358 |
-| Approved pilot resources completed | 6 / 10 |
-| Approved pilot resources remaining | 4 |
-| Completed experiment count | 18 |
+| Current batch | Pilot batch 004 |
+| Current checkpoint | Stage3-P04 |
+| Last completed resource | CR000163 |
+| Next resource | CR000217 |
+| Completed Stage-3 resource count | 7 |
+| Remaining Stage-3 registry resource count | 357 |
+| Approved pilot resources completed | 7 / 10 |
+| Approved pilot resources remaining | 3 |
+| Completed experiment count | 21 |
 | Completed configuration count | 77 |
-| Technical evidence records | 82 |
-| Static reproducibility assessments | 6 |
+| Technical evidence records | 94 |
+| Static reproducibility assessments | 7 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 15 |
+| Current unresolved technical item count | 17 |
 | Current conflicting-evidence finding count | 2 |
-| Resources completed in this checkpoint | CR000010, CR000059 |
+| Resources completed in this checkpoint | CR000163 |
 | Last checkpoint commit | self — Git commit containing this report |
 
-## Stage3-P03 result
+## Stage3-P04 result
 
-The third pilot checkpoint extracted `CR000010` and `CR000059` using the Stage3-D01 methodology and the exact Stage-2 pinned repository snapshots.
+The fourth pilot checkpoint extracted `CR000163` using the exact Stage-2 pinned repository snapshot and revalidated the official Stage-2 paper relationship against the correct Atlas paper.
 
-### CR000010
+### CR000163
 
-- Profile: `pinn_implementation`
-- Pinned commit: `db2c2344cb6b70338ace88714a0d7ce77dbf8c04`
-- Primary paper DOI: `10.1016/j.enganabound.2025.106200`
-- Experiments: 5
-- Configurations: 6
-- Highest static reproducibility: `R4` for `CR000010-E003-C001` (validated B3 configuration)
-- The primary paper supports four core application classes: diffuse-interface motion, grain shrinkage with and without a driving force, and triple-junction evolution.
-- The upgraded repository additionally contains B2 as an explicit motivating single-network-limit comparison; it is retained as repository-only rather than promoted into the paper benchmark scope.
-- B6 is explicitly exploratory and is not promoted to a training experiment.
-- The repository supplies an exact dependency lock, Python 3.11 GPU-environment builder, float64 TensorFlow workflow, reference solvers, benchmark runners, expected metrics, and bundled benchmark/reference/checkpoint artifacts.
-- The repository states that its multiphase implementation is an upgrade of the published implementation: the shared physics and space–time decomposition are retained, while the repository uses a consolidated softmax-output worker architecture. The two implementation scopes remain source-separated.
-- The validated B3 runner has a direct documented from-scratch reproduction path with exact option, seed, decomposition, optimizer schedule, convergence gate, time windows, reference/evaluation procedure, and expected metrics. This satisfies the Stage-3 static R4 definition without execution.
-
-### CR000059
-
-- Profile: `supporting_scientific_ml_library`
-- Pinned commit: `c17e770bb74f1771da7be4a69fabfa68b6078960`
-- Package version: `0.6.6`
-- Experiments: 0
+- Profile: `non_pinn_research_code`
+- Artifact form: `source_repository`
+- Pinned commit: `17371f1fe10aa362a11a510de8909c192d505b29`
+- License: `CC0-1.0`
+- Experiments: 3
 - Configurations: 0
-- Static reproducibility: `R2`
-- Neural Tangents is retained as a supporting scientific-ML library, not relabeled as a PINN implementation.
-- Documented capabilities include NNGP/NTK kernels, empirical kernels, infinite-width inference, linearization/Taylor tools, JAX/XLA execution, examples, notebooks, and tests.
-- Installation is documented, but `setup.py` specifies lower-bound dependency constraints rather than one exact resolved environment.
-- Provider metadata marks the repository archived; that maintenance state is recorded separately from scientific role and reproducibility semantics.
+- Static reproducibility: `R1`
+- Atlas relationship: `PRL000007` → paper 44, *Time-of-Flow Distributions in Discrete Quantum Systems: From Operational Protocols to Quantum Speed Limits*, DOI `10.3390/e27100996`.
+- The primary paper's Data Availability Statement identifies the exact notebook `Codes_for_TF_discrete_paper_arxiv_org_abs_2504_09571.ipynb` as the programming code supporting the study. This mapping is represented as `CR000163-E001`.
+- Two other notebooks are retained as independent repository experiments: free-fall time-of-arrival calculations (`CR000163-E002`) and context-dependent time-energy uncertainty calculations for a driven three-level system (`CR000163-E003`). No Atlas-paper relationship is inferred for those two experiments.
+- The repository is correctly retained as non-PINN research code. The inspected methods are quantum-dynamics and timing-distribution calculations, not physics-informed neural-network training.
+- The pinned root contains three notebooks and `LICENSE`, with no README, CITATION file, formal dependency manifest, installation workflow, or bundled reusable research dataset.
+- Observed packages include NumPy, Matplotlib, SciPy, and QuTiP; no exact dependency versions are supplied. The time-energy-uncertainty notebook includes an inline `pip install qutip` command without a version.
+- Because usable source entrypoints exist but environment/install specification is insufficient, the resource is gated at `R1` rather than `R2`.
 
 ## Cumulative pilot state
 
-The first three checkpoints now cover six heterogeneous resources: three PINN implementations, one framework/library, one physics-informed operator-learning implementation, and one supporting scientific-ML library. The compact resource → experiment → configuration hierarchy continues to represent all cases without a new schema family.
+Seven heterogeneous resources are now complete. P04 exercises another core Stage3-D01 requirement: **resource identity is not equivalent to a paper relationship**. A repository may contain several research experiments while only one has evidence for a specific Atlas-paper relationship.
 
-`CR000010` also exercises the static R4 level for the first time: an end-to-end workflow can be sufficiently specified without claiming that it was independently executed. R5 remains prohibited.
+The experiment layer therefore remains necessary even for non-PINN research code. Conversely, no configuration objects were created merely because notebooks contain parameter values; Stage 3 requires a materially stable configuration identity before assigning `C###` records.
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain unchanged and read-only. No public Atlas/site file or `05-curated/` output was modified. No repository software, dependency, notebook, model, binary, training process, inference workflow, reference solver, container, or research dataset was executed.
+Stage 1 and Stage 2 remain unchanged and read-only. No public Atlas/site file or `05-curated/` output was modified. No notebook cell, dependency, quantum simulation, optimization, model, figure-generation workflow, container, or research dataset was executed.
 
 ## Next action
 
-Continue the approved pilot with `CR000163`, preserving the same small-checkpoint extraction and QA process. Do not scale beyond the ten-resource pilot until pilot acceptance is scientifically reviewed.
+Continue the approved pilot with `CR000217`, preserving the same small-checkpoint extraction and QA process. Do not scale beyond the ten-resource pilot until pilot acceptance is scientifically reviewed.

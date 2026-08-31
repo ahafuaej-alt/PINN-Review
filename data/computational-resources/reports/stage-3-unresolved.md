@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-P03  
+Checkpoint: Stage3-P04  
 Phase: approved pilot extraction
 
 ## Current unresolved items
@@ -23,19 +23,21 @@ Phase: approved pilot extraction
 | S3U-0013 | CR000087 | `license_unavailable` | medium | No repository license file was identified at the Stage-2 pinned commit. | License clarity is unavailable for the pinned snapshot. |
 | S3U-0014 | CR000087 | `entrypoint_static_inconsistency` | high | `poisson_separable_cnn.py` creates two PRNG keys and then unconditionally accesses `keys[2]`. | Blocks the repository-only Poisson entrypoint as written. |
 | S3U-0015 | CR000059 | `dependency_version_not_exact` | medium | `setup.py` declares minimum compatible dependency versions rather than an exact resolved environment. | Prevents an exact static environment reconstruction and keeps the library-level assessment at R2. |
+| S3U-0016 | CR000163 | `dependency_manifest_unavailable` | medium | The pinned repository has no requirements file, environment file, `pyproject.toml`, or equivalent manifest; notebook imports are unversioned and one notebook installs QuTiP without a version. | Prevents a verified environment specification and blocks R2. |
+| S3U-0017 | CR000163 | `installation_workflow_unavailable` | medium | The pinned repository has no README or repository-level installation/runtime workflow. | Usable notebooks exist, but reproducibility remains at R1. |
 
 ## Source-scope handling
 
-`CR000010` does not add a conflict finding merely because the upgraded repository implementation differs from the published architecture. The repository explicitly describes itself as an upgrade while retaining the same phase-field physics and space–time decomposition, so paper and repository details are stored side by side rather than treated as incompatible claims.
+`CR000010` continues to keep the upgraded repository implementation separate from the published architecture without treating the explicit upgrade as a conflict.
 
-B2 in `CR000010` is also kept as repository-only motivating evidence; it is not silently promoted into the primary paper's four core benchmark applications.
+For `CR000163`, `PRL000007` is verified specifically for `CR000163-E001`: Atlas paper 44 gives the exact supporting notebook in its Data Availability Statement. `CR000163-E002` and `CR000163-E003` remain repository-only experiments and are not silently assigned to paper 44.
 
 ## Conflict handling
 
-`S3U-0001` and `S3U-0002` remain the two explicit `conflicting_evidence` findings. No source was silently preferred or rewritten.
+`S3U-0001` and `S3U-0002` remain the two explicit `conflicting_evidence` findings. No new conflicting-evidence item was created in P04.
 
 ## Escalation state
 
-No Stage-2 resource identity or relationship defect was discovered in this checkpoint. Stage 2 remains closed and unchanged.
+No Stage-2 resource identity or relationship defect was discovered in this checkpoint. The initially ambiguous paper-44 lookup was resolved against the authoritative Stage-2 relationship record and the correct primary paper, confirming `PRL000007`. Stage 2 remains closed and unchanged.
 
 No current item requires execution to resolve within Stage 3. Items whose resolution would require running code remain bounded static reproducibility gaps.
