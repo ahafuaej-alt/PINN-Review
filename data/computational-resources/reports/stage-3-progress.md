@@ -5,55 +5,65 @@ Verification/extraction date: 2026-08-31
 | Field | Value |
 |---|---|
 | Stage-3 phase | Approved pilot extraction in progress |
-| Current batch | Pilot batch 004 |
-| Current checkpoint | Stage3-P04 |
-| Last completed resource | CR000163 |
-| Next resource | CR000217 |
-| Completed Stage-3 resource count | 7 |
-| Remaining Stage-3 registry resource count | 357 |
-| Approved pilot resources completed | 7 / 10 |
-| Approved pilot resources remaining | 3 |
-| Completed experiment count | 21 |
-| Completed configuration count | 77 |
-| Technical evidence records | 94 |
-| Static reproducibility assessments | 7 |
+| Current batch | Pilot batch 005 |
+| Current checkpoint | Stage3-P05 |
+| Last completed resource | CR000217 |
+| Next resource | CR000268 |
+| Completed Stage-3 resource count | 8 |
+| Remaining Stage-3 registry resource count | 356 |
+| Approved pilot resources completed | 8 / 10 |
+| Approved pilot resources remaining | 2 |
+| Completed experiment count | 22 |
+| Completed configuration count | 78 |
+| Technical evidence records | 106 |
+| Static reproducibility assessments | 8 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 17 |
+| Current unresolved technical item count | 19 |
 | Current conflicting-evidence finding count | 2 |
-| Resources completed in this checkpoint | CR000163 |
+| Resources completed in this checkpoint | CR000217 |
 | Last checkpoint commit | self — Git commit containing this report |
 
-## Stage3-P04 result
+## Stage3-P05 result
 
-The fourth pilot checkpoint extracted `CR000163` using the exact Stage-2 pinned repository snapshot and revalidated the official Stage-2 paper relationship against the correct Atlas paper.
+The fifth pilot checkpoint extracted `CR000217` from the exact Stage-2 pinned JAX-Fluids snapshot and exercised the `simulator_solver` profile without creating an Atlas-paper relationship.
 
-### CR000163
+### CR000217
 
-- Profile: `non_pinn_research_code`
+- Profile: `simulator_solver`
 - Artifact form: `source_repository`
-- Pinned commit: `17371f1fe10aa362a11a510de8909c192d505b29`
-- License: `CC0-1.0`
-- Experiments: 3
-- Configurations: 0
-- Static reproducibility: `R1`
-- Atlas relationship: `PRL000007` → paper 44, *Time-of-Flow Distributions in Discrete Quantum Systems: From Operational Protocols to Quantum Speed Limits*, DOI `10.3390/e27100996`.
-- The primary paper's Data Availability Statement identifies the exact notebook `Codes_for_TF_discrete_paper_arxiv_org_abs_2504_09571.ipynb` as the programming code supporting the study. This mapping is represented as `CR000163-E001`.
-- Two other notebooks are retained as independent repository experiments: free-fall time-of-arrival calculations (`CR000163-E002`) and context-dependent time-energy uncertainty calculations for a driven three-level system (`CR000163-E003`). No Atlas-paper relationship is inferred for those two experiments.
-- The repository is correctly retained as non-PINN research code. The inspected methods are quantum-dynamics and timing-distribution calculations, not physics-informed neural-network training.
-- The pinned root contains three notebooks and `LICENSE`, with no README, CITATION file, formal dependency manifest, installation workflow, or bundled reusable research dataset.
-- Observed packages include NumPy, Matplotlib, SciPy, and QuTiP; no exact dependency versions are supplied. The time-energy-uncertainty notebook includes an inline `pip install qutip` command without a version.
-- Because usable source entrypoints exist but environment/install specification is insufficient, the resource is gated at `R1` rather than `R2`.
+- Pinned commit: `819edcd2f496e1719d1f7db751d06b9fd9a1f3cc`
+- License: `GPL-3.0-only`
+- Package version at the pinned snapshot: `0.2.1`
+- Experiments: 1 representative bounded solver experiment
+- Configurations: 1 exact paired case/numerical configuration
+- Static reproducibility: `R3`
+- Atlas relationship: none; Stage 2 explicitly states that no Atlas relationship is present or inferred.
+- JAX-Fluids is documented as a fully differentiable JAX CFD solver for compressible single- and two-phase flows, using finite-volume discretization of the Navier–Stokes equations on Cartesian grids.
+- Repository-level capabilities include explicit Euler/RK2/RK3 integration, multiple WENO/TENO reconstructions, several approximate Riemann solvers, level-set and diffuse-interface multiphase methods, accelerator support, and end-to-end automatic differentiation.
+- The pinned package metadata requires Python `>=3.11` and names runtime dependencies, but those runtime dependencies are not exact-pinned.
+- Installation workflows for CPU and GPU/JAX environments are documented in the README.
+- The full repository example corpus spans 1D, 2D, and 3D cases. Stage 3 does not convert every example into a pilot experiment.
+
+### CR000217-E001 / CR000217-E001-C001
+
+The representative experiment is the pinned one-dimensional Sod shock-tube example. The exact artifact set consists of `run.py`, `sod.json`, and `numerical_setup.json`.
+
+The physical configuration uses a 200-cell unit interval, ideal-gas equation of state with specific-heat ratio 1.4, the standard left/right density and pressure discontinuity at `x=0.5`, zero initial velocity, end time 0.2, and density/velocity/pressure outputs.
+
+The paired numerical configuration uses RK3 with CFL 0.5, a Godunov convective solver, HLLC Riemann solver, Einfeldt signal speed, WENO5-Z characteristic-primitive reconstruction, five halo cells, and double-precision compute/output. The entrypoint constructs the JAX-Fluids managers, runs the simulation, reloads the output fields, and generates a 1D animation and figure.
+
+This case reaches **R3** because source, license, installation/environment guidance, case files, numerical configuration, and entrypoint are all statically present. **R4 is not assigned** because the inspected pinned sources do not establish quantified reference values, a regression artifact, or a validation tolerance for the representative Sod result. No textbook or externally computed solution is substituted.
 
 ## Cumulative pilot state
 
-Seven heterogeneous resources are now complete. P04 exercises another core Stage3-D01 requirement: **resource identity is not equivalent to a paper relationship**. A repository may contain several research experiments while only one has evidence for a specific Atlas-paper relationship.
+Eight heterogeneous resources are now complete. P05 confirms that Stage3-D01 can represent a differentiable numerical solver independently of PINN semantics and independently of Atlas-paper relationships.
 
-The experiment layer therefore remains necessary even for non-PINN research code. Conversely, no configuration objects were created merely because notebooks contain parameter values; Stage 3 requires a materially stable configuration identity before assigning `C###` records.
+The checkpoint also confirms that framework breadth and experiment identity should remain separate: JAX-Fluids exposes a large example corpus, but one well-evidenced representative solver case is sufficient for the pilot to test experiment/configuration and reproducibility semantics without artificial record proliferation.
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain unchanged and read-only. No public Atlas/site file or `05-curated/` output was modified. No notebook cell, dependency, quantum simulation, optimization, model, figure-generation workflow, container, or research dataset was executed.
+Stage 1 and Stage 2 remain unchanged and read-only. No public Atlas/site file or `05-curated/` output was modified. No CFD simulation, notebook cell, dependency installation, post-processing workflow, accelerator workload, or research dataset was executed.
 
 ## Next action
 
-Continue the approved pilot with `CR000217`, preserving the same small-checkpoint extraction and QA process. Do not scale beyond the ten-resource pilot until pilot acceptance is scientifically reviewed.
+Continue the approved pilot with `CR000268`, preserving the same small-checkpoint extraction and QA process. Do not scale beyond the ten-resource pilot until pilot acceptance is scientifically reviewed.
