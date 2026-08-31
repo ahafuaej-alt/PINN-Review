@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S008
+Checkpoint: Stage3-S009
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -64,6 +64,10 @@ Phase: controlled scale-out in progress
 | S3U-0054 | CR000014 | `license_unavailable` | medium | Neither the provider page nor the complete trial archive supplies software-license metadata. | Reuse terms for the executable and embedded checkpoints are unavailable. |
 | S3U-0055 | CR000014 | `source_and_build_metadata_unavailable` | high | The ZIP contains one PyInstaller-packaged Windows executable; no source, dependency manifest, build instructions, or training configuration is distributed. | The pretrained use workflow reaches R3, but independent build/training reconstruction and R4 are blocked. |
 | S3U-0056 | CR000014 | `expected_result_reference_unavailable` | medium | The page documents prediction steps and the bundle contains illustrative images, but no numerical reference outputs, metrics, or tolerances are supplied for either model range. | Static end-to-end result verification is unavailable and R4 is blocked. |
+| S3U-0057 | CR000015 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
+| S3U-0058 | CR000015 | `dependency_and_installation_metadata_unavailable` | high | The repository supplies no dependency/environment manifest, package versions, or installation workflow. | Hierarchical environment/install sufficiency is absent and R2 is blocked despite bundled source, data, and checkpoints. |
+| S3U-0059 | CR000015 | `torch_random_seed_unknown` | low | Dataloaders seed Python and NumPy with 2022, but no PyTorch initialization seed is established. | Exact deterministic retraining is not specified. |
+| S3U-0060 | CR000015 | `checkpoint_path_separator_conflict` | medium | CNN and LSTM construct `results\\...` checkpoint paths, while the pinned tree stores the files under `results/...`; BattNN uses a forward slash. | CNN/LSTM checkpoint loading is platform-sensitive and remains explicit conflicting evidence; BattNN is unaffected. |
 
 ## Source-scope handling
 
@@ -79,10 +83,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Fourteen explicit `conflicting_evidence` findings exist through Stage3-S008; S008 adds no new conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Fifteen explicit `conflicting_evidence` findings exist through Stage3-S009, including the new `S3U-0060` checkpoint-path conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S008, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S009, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

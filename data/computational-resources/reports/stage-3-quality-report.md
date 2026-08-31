@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S008
+Latest scale-out checkpoint: Stage3-S009
 
 ## Pilot QA
 
@@ -156,6 +156,16 @@ Status: **PASS**
 The one trial experiment has two provider-documented configurations: Model 1 covers 1–2 ps and 1.9–3.8 W, while Model 2 covers 0.4–0.8 ps and 12–24 W. Both use the page's fixed dispersion/Kerr parameters and soliton-number range. The use workflow is R3 because the entrypoint, checkpoints, inputs, valid ranges, and interaction steps are substantially available. R4 is withheld because source, license, complete build/training metadata, and numerical reference outputs are absent.
 
 Cumulative totals are 22 resources, 37 experiments, 101 configurations, 231 evidence records, 22 reproducibility assessments, 56 unresolved findings, and 14 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S009
+
+Status: **PASS**
+
+`CR000015` was isolated because its 342-file tree combines simulated, NASA randomized-usage, and XJTU laboratory battery experiments with BattNN, CNN, and LSTM configurations. The nine bounded configurations preserve explicit entrypoints, default hyperparameters, circuit parameters, architectures, 300 NPY sequences, four NASA MAT files, and nine trained checkpoints. Parameter sweeps and repeated-battery loops remain execution variants rather than artificial configurations.
+
+The static reproducibility level is R1. Source, inputs, evaluation metrics, and checkpoints are present, but no environment/dependency manifest, versions, or installation workflow exists, so hierarchical R2 sufficiency is not met. Python/NumPy seeds do not establish a PyTorch seed, and CNN/LSTM checkpoint paths use Windows backslashes while the pinned tree uses the `results/` directory; that platform-sensitive mismatch remains configuration-scoped conflicting evidence.
+
+Cumulative totals are 23 resources, 40 experiments, 110 configurations, 241 evidence records, 23 reproducibility assessments, 60 unresolved findings, and 15 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

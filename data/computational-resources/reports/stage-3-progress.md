@@ -8,23 +8,23 @@ Status date: 2026-09-01
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S008 |
-| Next scale-out checkpoint | Stage3-S009 |
-| Last completed resource | CR000014 |
-| Next resource | CR000015 |
-| Next planned checkpoint resources | CR000015, CR000016 |
+| Last completed scale-out checkpoint | Stage3-S009 |
+| Next scale-out checkpoint | Stage3-S010 |
+| Last completed resource | CR000015 |
+| Next resource | CR000016 |
+| Next planned checkpoint resources | CR000016 |
 | Current scale-out batch | SOB002 |
-| Completed Stage-3 resource count | 22 |
-| Remaining Stage-3 registry resource count | 342 |
+| Completed Stage-3 resource count | 23 |
+| Remaining Stage-3 registry resource count | 341 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 37 |
-| Completed configuration count | 101 |
-| Technical evidence records | 231 |
-| Static reproducibility assessments | 22 |
+| Completed experiment count | 40 |
+| Completed configuration count | 110 |
+| Technical evidence records | 241 |
+| Static reproducibility assessments | 23 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 56 |
-| Next unresolved ID | S3U-0057 |
-| Current conflicting-evidence finding count | 14 |
+| Current unresolved technical item count | 60 |
+| Next unresolved ID | S3U-0061 |
+| Current conflicting-evidence finding count | 15 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -61,7 +61,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0056` are preserved and the next ID is `S3U-0057`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0060` are preserved and the next ID is `S3U-0061`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -77,7 +77,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S006`: `CR000011`, `CR000012` — QA PASS; 2 resources, 2 experiments, 2 configurations, 16 evidence records, and 2 reproducibility assessments. Aggregate QA for ten-resource batch `SOB001` also passed.
 - `Stage3-S007`: `CR000013` — QA PASS; adaptive single-resource checkpoint with 2 experiments, 3 configurations, 10 evidence records, and 1 reproducibility assessment.
 - `Stage3-S008`: `CR000014` — QA PASS; adaptive single-resource checkpoint with 1 pretrained trial experiment, 2 configurations, 9 evidence records, and 1 reproducibility assessment.
+- `Stage3-S009`: `CR000015` — QA PASS; adaptive single-resource checkpoint with 3 dataset-family experiments, 9 model configurations, 10 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S009`** with **`CR000015`**, then `CR000016`, subject to adaptive checkpoint sizing.
+Start **`Stage3-S010`** with **`CR000016`** as an adaptive single-resource framework checkpoint.
