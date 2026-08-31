@@ -1,52 +1,63 @@
 # Computational Resources Stage 3 — Quality Report
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-D01
+Checkpoint: Stage3-P01
 
 ## Structural QA
 
 Status: **PASS**
 
-- Stage 3 is additive under `03-technical/`, `04-evidence/`, `schemas/`, and Stage-3 report paths.
-- Existing `CR######` and `PRL######` identity formats are preserved.
-- Experiment identifiers are constrained to `CR######-E###`.
-- Configuration identifiers are constrained to `CR######-E###-C###`.
-- Technical-evidence identifiers are constrained to `TE-CR######-####`.
-- JSON Schemas validate as Draft 2020-12 schemas.
-- Cross-schema references were exercised with representative design-only sample records.
-- `R5` is excluded from the reproducibility schema.
-- Field states distinguish `verified`, `documented`, `partially_verified`, `unknown`, `not_available`, `not_applicable`, and `conflicting_evidence`.
-- Inferred evidence must be labeled `inferred` / `inferred_from_evidence`.
-- Resource scientific role and artifact delivery form are represented separately.
-- The design can represent one resource with multiple experiments and one experiment with multiple configurations.
-- Technical facts support one or more evidence IDs.
-- Paper and repository claims can be recorded as separate source-scoped facts.
-- Dataset/resource boundaries are type-specific and do not classify arbitrary files as reusable datasets.
-- Supporting libraries and operator-learning resources have distinct profiles.
-- Static reproducibility is gated and evidence-based rather than an averaged score.
-- No Stage 1 or Stage 2 record was modified.
-- No public Atlas/site file, deployment workflow, or curated output was modified.
-- No repository software, notebook, model, container, binary, or research dataset was executed.
+- 2 resource records validated against `stage3-resource-technical.schema.json`.
+- 9 experiment records validated against `stage3-experiment.schema.json`.
+- 64 configuration records validated against `stage3-configuration.schema.json`.
+- 34 evidence records validated against `stage3-technical-evidence.schema.json`.
+- 2 static reproducibility assessments validated against `stage3-reproducibility.schema.json`.
+- All `CR######-E###`, `CR######-E###-C###`, and `TE-CR######-####` identifiers are unique.
+- Every fact-level evidence reference resolves to a technical-evidence record in this checkpoint.
+- Every resource experiment/configuration reference resolves to a committed checkpoint record.
+- Inferred evidence uses `inferred` / `inferred_from_evidence`; direct evidence does not.
+- Reproducibility levels remain restricted to R0–R4; no R5 value is present.
+- Stage-2 pinned commits are preserved for all repository implementation evidence.
+- No Stage 1 or Stage 2 path is modified.
+- No public Atlas/site or `05-curated/` path is modified.
+- No repository software or scientific workload was executed.
 
-## Pilot coverage QA
+## Scientific extraction QA
 
 Status: **PASS**
 
-The proposed pilot covers:
+### CR000003
 
-- conventional PINN implementation;
-- multi-experiment/sampling-focused PINN code;
-- reusable PINN framework/library;
-- physics-informed operator learning;
-- bundled benchmark data and trained artifacts;
-- supporting scientific-ML library;
-- non-PINN paper research code;
-- simulator/solver;
-- standalone research data product;
-- DOI/archive resource;
-- strong documentation cases;
-- weak/incomplete documentation.
+The resource demonstrates the required separation between repository implementation, repository documentation/configuration, and paper-reported settings. Two consequential documentation/runtime inconsistencies are retained explicitly rather than reconciled. The dynamic-fracture code path also demonstrates an evidence-supported missing-artifact finding. Static reproducibility is gated at **R2**.
 
-## Methodological concern
+### CR000056
 
-The chief design risk is uncontrolled schema proliferation if every scientific field is given its own storage tree. Stage3-D01 therefore uses a compact record hierarchy plus namespaced `technical_field` values and one evidence model. Domain-specific value constraints can be tightened after the pilot demonstrates which structures recur without losing scientifically important heterogeneity.
+The resource demonstrates one-resource-to-many-experiments and one-experiment-to-many-configurations:
+
+- 6 evidence-supported PDE experiment identities;
+- 10 distinct sampling configurations per experiment;
+- 60 configuration records in total.
+
+The sampling taxonomy follows the primary paper, while the entrypoint mapping is tied to the Stage-2 pinned repository tree. Bundled reference files are represented as experiment data rather than automatically classified as standalone datasets. Static reproducibility is gated at **R1** because the environment/install prerequisite is materially incomplete.
+
+## Pilot acceptance tests exercised
+
+| Acceptance test | Result |
+|---|---|
+| One resource → multiple experiments | PASS |
+| One experiment → multiple configurations | PASS |
+| One fact → one or more evidence records | PASS |
+| Paper reporting ≠ repository implementation | PASS |
+| Resource identity ≠ paper relationship | PASS |
+| Bundled files ≠ standalone reusable dataset automatically | PASS |
+| `unknown` ≠ `false` | PASS |
+| `not_available` ≠ `not_applicable` | PASS |
+| Pinned Stage-2 repository snapshots retained | PASS |
+| R5 cannot be assigned | PASS |
+| Consequential conflicting evidence preserved | PASS |
+
+## Current methodological observation
+
+The compact Stage3-D01 hierarchy is holding under the first high-heterogeneity extraction. `CR000056` can represent 60 sampling configurations without adding a new schema family, while `CR000003` can retain paper/repository/default-runtime disagreements as source-scoped evidence. No schema change is required at Stage3-P01.
+
+The bounded detail remaining for five `CR000056` adaptive-script sets is a depth-of-extraction issue, not an ontology failure.

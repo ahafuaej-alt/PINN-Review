@@ -1,0 +1,45 @@
+{
+  "schema_version": "3.0.0-pilot-qa",
+  "checkpoint": "Stage3-P01",
+  "date": "2026-08-31",
+  "resources": [
+    "CR000003",
+    "CR000056"
+  ],
+  "counts": {
+    "resources": 2,
+    "experiments": 9,
+    "configurations": 64,
+    "technical_evidence_records": 34,
+    "reproducibility_assessments": 2
+  },
+  "schema_validation": {
+    "stage3-resource-technical.schema.json": "pass",
+    "stage3-experiment.schema.json": "pass",
+    "stage3-configuration.schema.json": "pass",
+    "stage3-technical-evidence.schema.json": "pass",
+    "stage3-reproducibility.schema.json": "pass"
+  },
+  "cross_reference_validation": "pass",
+  "identifier_uniqueness": "pass",
+  "pinned_snapshot_check": "pass",
+  "r5_exclusion": "pass",
+  "stage1_stage2_write_check": "pass",
+  "public_atlas_write_check": "pass",
+  "execution_boundary_check": "pass",
+  "provenance_text_check": "pass",
+  "pilot_acceptance_tests": {
+    "one_resource_multiple_experiments": "pass",
+    "one_experiment_multiple_configurations": "pass",
+    "paper_reporting_separate_from_repository_implementation": "pass",
+    "bundled_files_not_promoted_to_standalone_dataset": "pass",
+    "unknown_false_not_available_not_applicable_distinct": "pass",
+    "conflicting_evidence_preserved": "pass"
+  },
+  "status": "pass",
+  "notes": [
+    "CR000003 exposes documentation/runtime and artifact-availability conflicts without silent reconciliation.",
+    "CR000056 demonstrates six experiments and ten sampling configurations per experiment.",
+    "CR000056 detailed adaptive hyperparameters are deeply inspected for diffusion; the remaining five adaptive-script sets are intentionally bounded in this checkpoint."
+  ]
+}
