@@ -1,7 +1,16 @@
 {
   "schema_version": "3.0.0-pilot-design",
-  "selection_status": "pilot_completed_waiting_scientific_acceptance",
+  "selection_status": "pilot_scientifically_accepted_for_controlled_scale_out",
   "selection_date": "2026-08-31",
+  "acceptance_date": "2026-08-31",
+  "scale_out_authorized": true,
+  "scale_out_status": "planning_required_before_extraction",
+  "acceptance_record": "reports/stage-3-pilot-acceptance.md",
+  "accepted_operational_interpretations": [
+    "Archive-equivalent repository releases may support static technical extraction when DOI/paper/release lineage is strong, while the DOI/archive remains authoritative and byte equivalence is not claimed without direct comparison.",
+    "An imported runtime dependency absent from the declared environment manifest is a critical reproducibility gap and blocks R4.",
+    "A configuration-specific paper/code conflict remains scoped to the affected configuration unless evidence shows broader propagation; it does not automatically lower unrelated configurations."
+  ],
   "selection_goal": "Stress-test the Stage 3 ontology across scientific role, artifact form, experiment multiplicity, evidence strength, data boundaries, and reproducibility semantics without reopening identity resolution.",
   "resources": [
     {
