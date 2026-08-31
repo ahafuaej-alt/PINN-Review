@@ -67,7 +67,7 @@ try {
           mobileMatrixDisplay: document.querySelector('.dp-mobile-view') ? getComputedStyle(document.querySelector('.dp-mobile-view')).display : null,
           mobileCardCount: document.querySelectorAll('.dp-mobile-card').length,
           categoryCount: document.querySelectorAll('.diagnostic-category').length,
-          verifyPresent: Boolean(document.querySelector('.diagnostic-verify')),
+          verifyPresent: Boolean(document.querySelector('.diagnostic-verify, [data-fd-verify]')),
           corePresent: Boolean(document.querySelector('.co-core')),
           coV2Ready: document.documentElement.dataset.coDesignV2 === 'ready',
           coV2RelationSemantics: route.id === 'co-design' ? {
