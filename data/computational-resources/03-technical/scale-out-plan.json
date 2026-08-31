@@ -1,0 +1,134 @@
+{
+  "schema_version": "3.0.0-scaleout-plan",
+  "plan_id": "Stage3-SO-D01",
+  "plan_date": "2026-08-31",
+  "status": "ready_for_controlled_extraction",
+  "accepted_methodology": "Stage3-D01",
+  "acceptance_record": "reports/stage-3-pilot-acceptance.md",
+  "plan_report": "reports/stage-3-scale-out-plan.md",
+  "registry_total_resources": 364,
+  "pilot_completed_resources": 10,
+  "remaining_resources": 354,
+  "ordering": {
+    "primary_rule": "ascending_numeric_resource_id",
+    "exclude_completed_pilot_resources": [
+      "CR000003",
+      "CR000010",
+      "CR000056",
+      "CR000059",
+      "CR000087",
+      "CR000091",
+      "CR000163",
+      "CR000217",
+      "CR000227",
+      "CR000268"
+    ],
+    "stage2_authority_rule": "Use the final authoritative Stage-2 state for each field. Explicit closure/reconciliation overlays that supersede earlier fields take precedence; pinned repository SHAs remain authoritative unless explicitly superseded. Historical records remain provenance.",
+    "profile_regrouping": false
+  },
+  "checkpoint_policy": {
+    "normal_target_resources": 2,
+    "hard_maximum_resources": 2,
+    "minimum_resources": 1,
+    "one_commit_per_checkpoint": true,
+    "adaptive_single_resource_conditions": [
+      "large framework or library scope",
+      "DOI archive or substantial static-data product",
+      "high experiment or configuration multiplicity",
+      "consequential source conflict",
+      "suspected Stage-2 identity or relationship contradiction",
+      "unusually large evidence set",
+      "pairing would reduce auditability or recoverability"
+    ]
+  },
+  "batch_policy": {
+    "nominal_resources_per_batch": 10,
+    "normal_checkpoints_per_batch": 5,
+    "aggregate_qa_required": true,
+    "final_batch_may_be_smaller": true
+  },
+  "naming": {
+    "checkpoint_prefix": "Stage3-S",
+    "batch_prefix": "SOB",
+    "checkpoint_commit_template": "data: record Stage 3 scale-out checkpoint S###",
+    "batch_summary_commit_template": "data: summarize Stage 3 scale-out batch SOB###"
+  },
+  "first_batch": {
+    "batch_id": "SOB001",
+    "resources": [
+      "CR000001",
+      "CR000002",
+      "CR000004",
+      "CR000005",
+      "CR000006",
+      "CR000007",
+      "CR000008",
+      "CR000009",
+      "CR000011",
+      "CR000012"
+    ],
+    "planned_checkpoints": [
+      {"checkpoint_id": "Stage3-S001", "resources": ["CR000001", "CR000002"]},
+      {"checkpoint_id": "Stage3-S002", "resources": ["CR000004", "CR000005"]},
+      {"checkpoint_id": "Stage3-S003", "resources": ["CR000006", "CR000007"]},
+      {"checkpoint_id": "Stage3-S004", "resources": ["CR000008", "CR000009"]},
+      {"checkpoint_id": "Stage3-S005", "resources": ["CR000011", "CR000012"]}
+    ]
+  },
+  "continuation_rules": [
+    "Read stage-3-progress.md, the scale-out plan, unresolved register, and latest checkpoint QA before work.",
+    "Verify the branch head before inspection and before publication.",
+    "Resume from the exact Next resource in the progress report.",
+    "Resolve the resource through final authoritative Stage-2 records and overlays before technical extraction.",
+    "Use exact Stage-2 pinned repository snapshots where available.",
+    "Retrieve primary papers only when needed for paper-specific claims, experiments, evaluation, or resource role.",
+    "Keep repository, provider, paper, archive, and inferred claims source-scoped.",
+    "Never repeat a completed resource without a concrete QA defect.",
+    "Update progress, unresolved findings, cumulative counts, and exact next resource before commit.",
+    "Commit only after checkpoint QA passes and verify the post-commit diff scope."
+  ],
+  "qa_gates": [
+    "all applicable Stage-3 schemas validate",
+    "new identifiers are cumulatively unique",
+    "all evidence and resource/experiment/configuration references resolve",
+    "inference semantics are valid",
+    "Stage-2 identity and source provenance are preserved",
+    "resource-role distinctions are preserved",
+    "missing-value semantics are preserved",
+    "consequential conflicts remain explicit",
+    "accepted operational interpretations are enforced",
+    "only R0-R4 are assigned and R4 critical gates are satisfied",
+    "no scientific workload is executed",
+    "no Stage-1, Stage-2, public Atlas/site, or 05-curated path is modified",
+    "public repository attribution scan passes",
+    "post-commit compare contains only intended Stage-3 paths"
+  ],
+  "unresolved_policy": {
+    "existing_range": "S3U-0001..S3U-0023",
+    "next_id": "S3U-0024",
+    "ids_are_never_reused": true,
+    "smallest_correct_scope_required": true,
+    "severity_levels": ["low", "medium", "high"],
+    "severity_alone_blocks_scaleout": false,
+    "normal_nonblocking_examples": [
+      "missing license",
+      "unpinned or omitted dependency",
+      "missing seed",
+      "missing checkpoint",
+      "incomplete installation workflow",
+      "missing expected result",
+      "bounded archive or data inspection",
+      "configuration-specific source conflict"
+    ],
+    "hard_stop_conditions": [
+      "accepted schemas cannot represent the resource without scientific distortion",
+      "Stage-2 identity or relationship is materially contradicted and prevents a defensible bounded Stage-3 record",
+      "cumulative identifier or reference integrity cannot be restored",
+      "a required QA gate cannot be satisfied without violating the static-only boundary"
+    ],
+    "resolved_items_are_retained_in_audit_history": true
+  },
+  "exact_next_resource": "CR000001",
+  "exact_next_checkpoint": "Stage3-S001",
+  "extraction_started_by_this_plan": false
+}
