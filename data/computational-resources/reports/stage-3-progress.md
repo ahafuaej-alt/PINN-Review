@@ -4,11 +4,15 @@ Status date: 2026-08-31
 
 | Field | Value |
 |---|---|
-| Stage-3 phase | Pilot scientifically accepted; controlled scale-out planning authorized |
-| Current checkpoint | Stage3-A01 |
+| Stage-3 phase | Controlled scale-out planned; ready for extraction |
+| Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
+| Pilot acceptance checkpoint | Stage3-A01 |
+| Next scale-out checkpoint | Stage3-S001 |
 | Last completed resource | CR000091 |
-| Next resource | None — define controlled scale-out plan before further extraction |
+| Next resource | CR000001 |
+| Next planned checkpoint resources | CR000001, CR000002 |
+| Current scale-out batch | SOB001 |
 | Completed Stage-3 resource count | 10 |
 | Remaining Stage-3 registry resource count | 354 |
 | Approved pilot resources completed | 10 / 10 |
@@ -18,32 +22,49 @@ Status date: 2026-08-31
 | Static reproducibility assessments | 10 |
 | Current QA status | PASS |
 | Current unresolved technical item count | 23 |
+| Next unresolved ID | S3U-0024 |
 | Current conflicting-evidence finding count | 3 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
+| Scale-out plan | `reports/stage-3-scale-out-plan.md` |
+| Machine-readable scale-out plan | `03-technical/scale-out-plan.json` |
 
-## Scientific acceptance
+## Scale-out operating state
 
-The ten-resource Stage3-D01 pilot has been scientifically accepted. The existing resource → experiment → configuration hierarchy, technical-evidence model, static reproducibility gates R0–R4, bounded-inspection rules, and current Stage-3 schemas are approved for controlled scale-out.
+The Stage3-D01 methodology and existing schemas are scientifically accepted. Controlled scale-out has now been fully planned and may begin from `CR000001`.
 
-The acceptance is based on the completed pilot QA and acceptance-test matrix. No schema family or ontology revision is required before scale-out.
+Resource ordering is deterministic ascending numeric `CR######` order after excluding the ten pilot-complete resources. Final authoritative Stage-2 overlays supersede older batch fields where explicitly recorded; historical Stage-2 records remain provenance.
 
-## Accepted operational interpretations
+The normal extraction unit is a checkpoint of **two resources maximum**. Complex resources become single-resource checkpoints. Ten resources form one scale-out batch for aggregate QA.
 
-1. **Archive-equivalent release evidence:** a repository release may support static technical extraction when DOI/paper/release lineage is strong, but the DOI/archive remains the authoritative CR identity and byte equivalence is not claimed without direct comparison.
-2. **Missing imported dependency:** a runtime dependency imported by the software but absent from the declared environment manifest is a critical reproducibility gap and blocks R4.
-3. **Configuration-scoped conflicts:** a paper/code conflict affecting one configuration remains scoped to that configuration unless evidence demonstrates broader propagation; unrelated configurations are assessed independently.
+## First scale-out batch
 
-## Completed pilot state
+`SOB001` contains:
 
-The accepted pilot covers ten heterogeneous resources spanning PINN implementations, a PINN framework/library, physics-informed operator learning, a supporting scientific-ML library, non-PINN research code, a differentiable simulator/solver, a scientific dataset, and a DOI-delivered software archive.
+`CR000001`, `CR000002`, `CR000004`, `CR000005`, `CR000006`, `CR000007`, `CR000008`, `CR000009`, `CR000011`, `CR000012`.
 
-The pilot demonstrated that the Stage3-D01 model can represent zero or multiple experiments, zero or multiple configurations, paper-supported and repository-only experiments, source conflicts, missing dependencies, dataset consumer relationships, archive-equivalent evidence, and differentiated R1–R4 reproducibility classifications without schema proliferation.
+Planned checkpoints:
+
+- `Stage3-S001`: `CR000001`, `CR000002`
+- `Stage3-S002`: `CR000004`, `CR000005`
+- `Stage3-S003`: `CR000006`, `CR000007`
+- `Stage3-S004`: `CR000008`, `CR000009`
+- `Stage3-S005`: `CR000011`, `CR000012`
+
+The resource order is fixed; checkpoint pairing may shrink to one resource if complexity requires it.
+
+## Continuation rule
+
+Every continuation must read the progress report, scale-out plan, unresolved register, and latest checkpoint QA; verify the current branch head; resume from the exact `Next resource`; resolve the final authoritative Stage-2 state first; use pinned Stage-2 repository snapshots where available; preserve source scope; perform no execution; validate all schemas/cross-references; update counts and the exact next resource; commit only after QA passes; and verify the post-commit diff before advancing.
+
+## Unresolved-register rule
+
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0023` are preserved and the next ID is `S3U-0024`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, environment, dependency, notebook, training process, inference workflow, solver, dataset payload, checkpoint, or model is executed. R5 remains prohibited.
 
-## Next action
+## Exact next action
 
-Define the **controlled Stage-3 scale-out plan** before extracting any additional resource. The plan must specify ordering, checkpoint/batch size, continuation rules, QA gates, and how the existing unresolved register will be maintained. After that plan is recorded, extraction may resume using the accepted Stage3-D01 methodology.
+Start **`Stage3-S001`** with **`CR000001`**, then `CR000002` if `CR000001` remains suitable for a paired checkpoint. No scale-out extraction has yet been performed after the pilot.

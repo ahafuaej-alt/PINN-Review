@@ -4,7 +4,11 @@
   "selection_date": "2026-08-31",
   "acceptance_date": "2026-08-31",
   "scale_out_authorized": true,
-  "scale_out_status": "planning_required_before_extraction",
+  "scale_out_status": "plan_recorded_ready_for_extraction",
+  "scale_out_plan": "03-technical/scale-out-plan.json",
+  "scale_out_report": "reports/stage-3-scale-out-plan.md",
+  "exact_next_resource": "CR000001",
+  "exact_next_checkpoint": "Stage3-S001",
   "acceptance_record": "reports/stage-3-pilot-acceptance.md",
   "accepted_operational_interpretations": [
     "Archive-equivalent repository releases may support static technical extraction when DOI/paper/release lineage is strong, while the DOI/archive remains authoritative and byte equivalence is not claimed without direct comparison.",
