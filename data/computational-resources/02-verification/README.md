@@ -1,47 +1,36 @@
 # Computational Resource Verification Overlay
 
-This directory is the Stage 2 verification overlay for the accepted pilot and controlled registry expansion. It does not replace or rewrite the accepted Stage 1 inventory.
+This directory is the Stage 2 verification overlay for the accepted pilot, controlled registry expansion, corrective relationship resolution, and user-report discovery reconciliation. It does not replace or rewrite the accepted Stage 1 inventory.
 
 ## Record-state rules
 
-Fields retain typed values where verified. A companion `status` or `field_status` records one of:
-
-- `verified`: supported by the cited primary paper, canonical repository, profile, or archive metadata.
-- `unavailable`: the field was checked and no value was identified.
-- `unknown`: the available evidence does not establish a value.
-- `not_applicable`: the field does not apply to the resource type.
-
-`null` is used only with an explicit companion state. A checked absence, such as no repository license at a pinned commit, is a verified negative finding rather than an unresolved verification failure.
+Fields retain typed values where verified. A companion `status` or `field_status` records one of `verified`, `unavailable`, `unknown`, or `not_applicable`. `null` is used only with an explicit companion state. Checked absence is a verified negative finding rather than an unresolved verification failure.
 
 ## Identity rules
 
 - The 13 mandatory pilot resources retain their Stage 1 CR identifiers.
-- CR000358 is the single profile-derived resource promoted during pilot closure. It represents `JeongsLee/PINN-for-ExtremeMechanics` as a verified `profile_level_discovery`.
-- CR000358 has no Atlas-paper relationship. PRL000303 remains the verified association between paper 778 and profile CR000145.
-- PRL000332 remains the single relationship added during the pilot, for paper 312 and canonical resource CR000184.
-- CR000024 is reused for `KTH-FlowAI/Enhancement-of-PIV-via-PINNs`; no duplicate identity is created.
-- Unpromoted profile discoveries retain PD identifiers and do not create Atlas resource identities.
-- Paper-internal reference numbers are provenance, not Atlas paper IDs.
-- Every verified repository record is pinned to the default-branch commit observed on its Stage-2 verification date.
-- Expansion batches reuse the pilot schema and evidence-state rules. Batch-specific artifacts and QA records are cumulative.
+- `CR000358` is the profile-derived pilot resource promoted during pilot closure (`JeongsLee/PINN-for-ExtremeMechanics`).
+- `PRL000332` is the verified pilot-added relationship for Atlas paper 312 and canonical resource `CR000184`.
+- `CR000359–CR000362` are additive identities discovered during `Stage2-URR01` after the Stage-1 expansion was complete.
+- `PRL000333` is the verified user-report reconciliation relationship between `CR000359` and Atlas paper 431.
+- Paper-internal reference numbers remain provenance and are never promoted to Atlas IDs without reconciliation.
+- Versioned archives, historical URL variants, profile/umbrella pages and exact duplicate identities are represented through alias/evidence records rather than duplicate CR identities.
+- Every verified GitHub repository record is pinned to the default-branch commit observed on its Stage-2 verification date.
 
-## Corrective-resolution overlays
+## Corrective and discovery overlays
 
-Historical batch records are immutable audit evidence. When later primary evidence resolves an earlier Stage-2 finding, a named corrective overlay may supersede selected fields for the same PRL or CR identifier without deleting the historical record.
+Historical batch records are immutable audit evidence. Later primary evidence may supersede selected fields through named overlays without deleting historical records.
 
-`stage-2-relationship-resolution-01` is the first such overlay. For the 13 historical relationship records previously marked `not_verified`, its relationship records are authoritative. Its resource records are field-level corrective overlays: only fields present in the corrective record supersede the corresponding earlier resource fields; omitted fields retain their prior verified state.
+`stage-2-relationship-resolution-01` is authoritative for the 13 historical Stage-2 relationship findings that were previously `not_verified`. Its final disposition is **325 verified Stage-1 PRL assertions, 6 resolved-invalid Stage-1 assertions, 0 active unresolved Stage-1 assertions**.
 
-The resolution distinguishes two final states:
-
-- `verified`: the relationship is positively supported.
-- `resolved_invalid_stage1_assertion`: the historical Stage-1 assertion is conclusively invalid and is closed rather than retained as unresolved.
-
-After Stage2-R01, the 331 Stage-1 PRL assertions have the authoritative disposition **325 verified, 6 resolved-invalid, 0 active unresolved**. Historical `not_verified` records remain present for auditability and must not be recounted as active unresolved assertions.
+`stage-2-user-report-reconciliation-01` is the additive discovery overlay for the user-supplied resource report. It accounts for 30 unique literal URLs plus four named repository candidates: 15 already registered, 4 aliases, 10 evidence-only, 4 legitimate new resources and 1 unsupported/malformed candidate. There are 0 unresolved user-report discovery candidates.
 
 ## Review categories
 
-The review report separates bounded scientific-review questions from verified limitations and Stage-3 deferred extraction. The latter do not block acceptance of the Stage 2 methodology.
+Bounded scientific-review questions, ordinary manual-review records, verified limitations and Stage-3 deferred extraction are kept separate. A retained review flag does not by itself invalidate the resource identity or relationship and does not automatically block Stage 3.
 
-## Expansion status
+## Expansion and closure status
 
-Batches B001–B014 are complete and passed QA. All Stage-1 resources `CR000001–CR000357` have been processed; promoted CR000358 remains separately accounted for. Stage2-R01 subsequently resolved all 13 historical `not_verified` relationship findings. Current authoritative progress and unresolved status are maintained in `reports/stage-2-progress.md` and `reports/stage-2-unresolved.md`.
+Batches `B001–B014` are complete and passed QA. All Stage-1 resources `CR000001–CR000357` have been processed. `CR000358` is separately accounted for as the promoted pilot discovery; `CR000359–CR000362` are separately accounted for as user-report discoveries. Stage2-R01 resolved all historical unresolved Stage-1 relationship assertions. Stage2-URR01 reconciled every user-report candidate and added only justified resource identities/relationships.
+
+Current authoritative state is maintained in `reports/stage-2-progress.md`, `reports/stage-2-unresolved.md`, the relevant named overlay reports, and their QA records.
