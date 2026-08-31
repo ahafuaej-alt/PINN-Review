@@ -3,7 +3,7 @@
 Status date: 2026-08-31  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S003
+Latest scale-out checkpoint: Stage3-S004
 
 ## Pilot QA
 
@@ -104,6 +104,14 @@ Status: **PASS**
 `CR000005` preserves the pinned paper-appendix repository and `PRL000016`, while accurately bounding the artifact as two mathematical PDFs plus a README. No executable source, environment, dataset, or configuration exists, so no experiment/configuration is manufactured and reproducibility is R1.
 
 The Stage-2 `supplementary_code` label versus the actual PDF-only artifact and the internally inconsistent Lipschitz condition in `Appendix.pdf` equation (1) remain explicit conflicting evidence. Cumulative totals are 14 resources, 27 experiments, 87 configurations, 162 technical-evidence records, 14 reproducibility assessments, 33 unresolved findings, and 8 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S004
+
+Status: **PASS**
+
+`CR000006` remains non-PINN classical control code with one benchmark experiment and PID/LQR/MPC configurations. It is R1 because no environment, input dataset, or expected results are supplied and its API, LQR, and MPC paths contain bounded static incompleteness.
+
+`CR000007` contributes separate numerical-validation and clinical pulmonary-artery PINN workflows. The clinical configuration is R3: notebooks, inputs, trained models, figures, physics formulation, training parameters, and a conda specification are present. R4 is withheld because package constraints are not exact and stochastic sampling/initialization are unseeded. Cumulative totals are 16 resources, 30 experiments, 92 configurations, 180 evidence records, 16 reproducibility assessments, 41 unresolved findings, and 11 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

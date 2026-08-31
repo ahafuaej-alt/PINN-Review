@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-S003
+Checkpoint: Stage3-S004
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -41,6 +41,14 @@ Phase: controlled scale-out in progress
 | S3U-0031 | CR000005 | `license_unavailable` | medium | No license file or repository license metadata is present at the pinned commit. | Reuse terms for the supplementary PDFs are unavailable. |
 | S3U-0032 | CR000005 | `relationship_artifact_scope_mismatch` | high | Stage 2 preserves the paper-cited repository as `supplementary_code`, but the complete pinned tree contains only `Appendix.pdf`, `output.pdf`, and `README.md`; there is no executable source or configuration. | The relationship identity remains verified, but Stage 3 classifies the artifact as a mathematical appendix and cannot create an executable experiment. |
 | S3U-0033 | CR000005 | `supplement_equation_inconsistency` | high | `Appendix.pdf` equation (1) displays `L||θ₁−θ₁||₂` in the Lipschitz-gradient condition while quantifying over `θ₁, θ₂`. | The right-hand side is identically zero as displayed; the apparent typographical defect is retained and not silently repaired. |
+| S3U-0034 | CR000006 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
+| S3U-0035 | CR000006 | `dependency_manifest_unavailable` | medium | No dependency/environment manifest or installation workflow is present. | The required control/numeric/web dependencies and versions cannot be reconstructed. |
+| S3U-0036 | CR000006 | `api_fragment_incomplete` | high | `api.py` references the router, schema, controller wrappers, predictions, database collection, timing state, and imports that are absent from the pinned file/tree. | The API workflow is not statically self-contained. |
+| S3U-0037 | CR000006 | `lqr_import_incomplete` | high | `lqr.py` constructs `pd.DataFrame` without importing pandas. | The LQR configuration is statically incomplete as written. |
+| S3U-0038 | CR000006 | `mpc_implementation_incomplete` | high | `mpc.py` references `MPCController_2`, `system_model_2`, `y_min`, and `y_max`, none of which are defined/imported. | The MPC configuration is statically incomplete as written. |
+| S3U-0039 | CR000007 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
+| S3U-0040 | CR000007 | `dependency_versions_not_exact` | medium | The conda environment uses lower-bound constraints rather than an exact resolved lock. | The workflows reach R3, but exact environment reconstruction and R4 are blocked. |
+| S3U-0041 | CR000007 | `random_seed_unknown` | low | No explicit seed was established for random collocation sampling or model initialization. | Exact deterministic reruns are not specified and R4 is blocked. |
 
 ## Source-scope handling
 
@@ -56,10 +64,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-`S3U-0001`, `S3U-0002`, `S3U-0023`, `S3U-0026`, `S3U-0029`, `S3U-0030`, `S3U-0032`, and `S3U-0033` are the eight explicit `conflicting_evidence` findings through Stage3-S003. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Eleven explicit `conflicting_evidence` findings exist through Stage3-S004: the eight previously recorded findings plus `S3U-0036`–`S3U-0038`. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot and scale-out checkpoints through Stage3-S003 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot and scale-out checkpoints through Stage3-S004 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
