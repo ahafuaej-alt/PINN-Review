@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
-Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-S006
+Verification/extraction date: 2026-09-01
+Checkpoint: Stage3-S007
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -57,6 +57,10 @@ Phase: controlled scale-out in progress
 | S3U-0047 | CR000012 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
 | S3U-0048 | CR000012 | `dependency_manifest_unavailable` | medium | The README names exact primary package versions, but the repository contains no machine-readable requirements, environment, package, or lock manifest. | The documented environment supports R3, but an installable exact environment and R4 are not established. |
 | S3U-0049 | CR000012 | `output_extension_conflict` | medium | The README says results are saved as `.m` files, while both Python workflows call `scipy.io.savemat` with `.mat` filenames. | The implemented `.mat` output is retained and the documentation mismatch remains explicit conflicting evidence. |
+| S3U-0050 | CR000013 | `dependency_versions_not_exact` | medium | The main `environment.yml` pins Python 3.10 but leaves all pip package versions unresolved. | The paper workflow reaches R3, but an exact main training environment and R4 are not established. |
+| S3U-0051 | CR000013 | `required_problem_data_external` | medium | `model_config.yaml` requires two CSV files under `data/`; the pinned tree does not contain them and instead links the processed training data and cross-validation results at Zenodo DOI `10.5281/zenodo.11474955`. | The documented external retrieval path supports R3, but direct payload inspection and R4 are deferred. |
+| S3U-0052 | CR000013 | `environment_filename_conflict` | low | The README names `environment_oggm.yaml`, while the pinned preprocessing manifest is `preprocessing/environment_oggm.yml`. | The actual pinned path is retained and the documentation mismatch remains explicit conflicting evidence. |
+| S3U-0053 | CR000013 | `synthetic_entrypoint_incomplete` | high | `Trainer_synthetic.py` hard-codes absent `config_1d_nophysics.yaml` instead of bundled `config_nophysics.yaml`; the configured synthetic CSV is absent, and the generator writes into parent directories it does not create. | The two synthetic configurations remain explicit, but the combined repository-only workflow is only partially verified as written. |
 
 ## Source-scope handling
 
@@ -72,10 +76,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Thirteen explicit `conflicting_evidence` findings exist through Stage3-S006, including the new `S3U-0049` output-extension conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Fourteen explicit `conflicting_evidence` findings exist through Stage3-S007, including the new `S3U-0052` environment-filename conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S006, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S007, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.

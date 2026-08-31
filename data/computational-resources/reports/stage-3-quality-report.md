@@ -1,9 +1,9 @@
 # Computational Resources Stage 3 — Quality Report
 
-Status date: 2026-08-31  
+Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S006
+Latest scale-out checkpoint: Stage3-S007
 
 ## Pilot QA
 
@@ -136,6 +136,16 @@ Cumulative totals are 20 resources, 34 experiments, 96 configurations, 212 evide
 Status: **PASS**
 
 The first controlled scale-out batch contains 10 resources across six checkpoints: 11 experiments, 13 configurations, 81 technical-evidence records, 10 reproducibility assessments, 26 newly recorded unresolved findings, and 10 newly recorded conflicting-evidence findings. All checkpoint and cumulative identifiers are unique, evidence and hierarchy references resolve, Stage-2 authority is preserved, missing-value and inferred-source semantics pass, R5 remains excluded, and no Stage-1, Stage-2, curated, or public Atlas/site files changed.
+
+## Scale-out checkpoint Stage3-S007
+
+Status: **PASS**
+
+`CR000013` was isolated as an adaptive checkpoint because it contains a seven-fold paper LOGO-CV workflow and a separate one-dimensional synthetic comparison with physics-aware and data-only configurations. The official Svalbard configuration records its PyTorch Lightning architecture, Fourier features, physics-aware losses, training parameters, seed, GPU selection, external processed-data DOI, and preprocessing chain. It is R3; R4 is withheld because the main pip environment is unpinned and the configured CSV/result payload remains external and uninspected.
+
+The synthetic configurations are retained without claiming a complete combined run. `Trainer_synthetic.py` hard-codes a nonexistent comparison-config filename, the expected CSV is absent, and its generator does not create the target parent directories. The README also names the preprocessing environment with `.yaml`, while the pinned file uses `.yml`; this remains explicit conflicting evidence.
+
+Cumulative totals are 21 resources, 36 experiments, 99 configurations, 222 evidence records, 21 reproducibility assessments, 53 unresolved findings, and 14 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
