@@ -51,6 +51,7 @@ try {
           viewportWidth: innerWidth,
           canvasClientWidth: canvas?.clientWidth || 0,
           canvasScrollWidth: canvas?.scrollWidth || 0,
+          diagnosticMapWidth: document.querySelector('.fd-map-shell')?.scrollWidth || 0,
           objectCount: document.querySelectorAll(route.objects[0]).length,
           relationCount: document.querySelectorAll(relationSelector).length,
           feedbackCount: document.querySelectorAll('.relation-feedback').length,
@@ -92,11 +93,14 @@ try {
       assert(snapshot.supportBadges >= snapshot.evidenceCards && snapshot.locationTags >= snapshot.evidenceCards, `${route.id}/${viewport.name}: evidence cards lack support badges or framework-location tags.`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete.`);
 
-      if (viewport.width >= 1050 && !['co-design', 'design-performance'].includes(route.id)) {
+      if (viewport.width >= 1050 && !['co-design', 'design-performance', 'failure-diagnostics'].includes(route.id)) {
         assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: complete framework should fit its canvas at 100%.`);
       }
       if (viewport.width >= 1050 && route.id === 'co-design') {
         assert(snapshot.canvasScrollWidth >= 2400 && snapshot.canvasScrollWidth > snapshot.canvasClientWidth + 300, `${route.id}/${viewport.name}: oversized systems map is not preserved.`);
+      }
+      if (viewport.width >= 1050 && route.id === 'failure-diagnostics') {
+        assert(snapshot.diagnosticMapWidth >= 1900 && snapshot.canvasScrollWidth > snapshot.canvasClientWidth + 150, `${route.id}/${viewport.name}: oversized diagnostic map is not preserved (${snapshot.diagnosticMapWidth}px).`);
       }
       if (route.id === 'design-performance') {
         assert(snapshot.cellCount === 98 && snapshot.outcomeCount === 7 && snapshot.familyCount === 4, `${route.id}/${viewport.name}: matrix hierarchy is incomplete.`);
