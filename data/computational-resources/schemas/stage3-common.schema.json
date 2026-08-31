@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stage3-common.schema.json",
+  "title": "Stage 3 common definitions",
+  "$defs": {
+    "resourceId": {"type": "string", "pattern": "^CR\\d{6}$"},
+    "experimentId": {"type": "string", "pattern": "^CR\\d{6}-E\\d{3}$"},
+    "configurationId": {"type": "string", "pattern": "^CR\\d{6}-E\\d{3}-C\\d{3}$"},
+    "evidenceId": {"type": "string", "pattern": "^TE-CR\\d{6}-\\d{4}$"},
+    "fieldStatus": {"enum": ["verified", "documented", "partially_verified", "unknown", "not_available", "not_applicable", "conflicting_evidence"]},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "evidenceType": {"enum": ["repository_implemented", "repository_documented", "source_code", "configuration_file", "environment_file", "notebook", "README", "formal_documentation", "primary_paper", "supplementary_material", "archive_metadata", "dataset_metadata", "citation_metadata", "inferred"]},
+    "sourceRelation": {"enum": ["implemented_in_code", "documented_in_repository", "reported_in_primary_paper", "reported_in_supplement", "documented_by_provider", "inferred_from_evidence", "not_applicable"]},
+    "resourceProfile": {"enum": ["pinn_implementation", "pinn_framework_library", "physics_informed_operator_learning", "supporting_scientific_ml_library", "dataset", "simulator_solver", "profile", "tutorial_educational", "non_pinn_research_code", "mixed_other"]},
+    "artifactForm": {"enum": ["source_repository", "documentation_site", "data_portal", "web_service", "static_data_directory", "doi_archive", "supplementary_archive", "profile_page", "mixed_web_artifact", "other"]},
+    "fact": {
+      "type": "object",
+      "required": ["technical_field", "value", "field_status", "confidence", "source_relation", "evidence_ids"],
+      "properties": {
+        "technical_field": {"type": "string", "minLength": 1},
+        "value": {},
+        "field_status": {"$ref": "#/$defs/fieldStatus"},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "source_relation": {"$ref": "#/$defs/sourceRelation"},
+        "evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/evidenceId"}, "uniqueItems": true},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

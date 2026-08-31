@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stage3-technical-evidence.schema.json",
+  "title": "Stage 3 technical evidence record",
+  "type": "object",
+  "required": ["schema_version", "evidence_id", "resource_id", "technical_field", "value", "field_status", "confidence", "evidence_type", "source_relation", "evidence_source", "repository_path_or_paper_section", "verified_commit_sha", "extraction_date"],
+  "properties": {
+    "schema_version": {"const": "3.0.0-pilot"},
+    "evidence_id": {"$ref": "stage3-common.schema.json#/$defs/evidenceId"},
+    "resource_id": {"$ref": "stage3-common.schema.json#/$defs/resourceId"},
+    "experiment_id": {"anyOf": [{"$ref": "stage3-common.schema.json#/$defs/experimentId"}, {"type": "null"}]},
+    "configuration_id": {"anyOf": [{"$ref": "stage3-common.schema.json#/$defs/configurationId"}, {"type": "null"}]},
+    "technical_field": {"type": "string", "minLength": 1},
+    "value": {},
+    "field_status": {"$ref": "stage3-common.schema.json#/$defs/fieldStatus"},
+    "confidence": {"$ref": "stage3-common.schema.json#/$defs/confidence"},
+    "evidence_type": {"$ref": "stage3-common.schema.json#/$defs/evidenceType"},
+    "source_relation": {"$ref": "stage3-common.schema.json#/$defs/sourceRelation"},
+    "evidence_source": {"type": "string", "minLength": 1},
+    "repository_path_or_paper_section": {"type": ["string", "null"]},
+    "verified_commit_sha": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+    "extraction_date": {"type": "string", "format": "date"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {"if": {"properties": {"evidence_type": {"const": "inferred"}}, "required": ["evidence_type"]}, "then": {"properties": {"source_relation": {"const": "inferred_from_evidence"}}}},
+    {"if": {"properties": {"evidence_type": {"not": {"const": "inferred"}}}, "required": ["evidence_type"]}, "then": {"properties": {"source_relation": {"not": {"const": "inferred_from_evidence"}}}}}
+  ]
+}

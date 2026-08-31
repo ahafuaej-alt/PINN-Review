@@ -1,0 +1,98 @@
+{
+  "schema_version": "3.0.0-pilot-design",
+  "selection_status": "proposed_waiting_scientific_review",
+  "selection_date": "2026-08-31",
+  "selection_goal": "Stress-test the Stage 3 ontology across scientific role, artifact form, experiment multiplicity, evidence strength, data boundaries, and reproducibility semantics without reopening identity resolution.",
+  "resources": [
+    {
+      "resource_id": "CR000003",
+      "resource_profile": "pinn_implementation",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [33],
+      "reason": "Conventional paper-associated PINN implementation with a Stage 2 pinned repository snapshot, documentation, and a dependency manifest; tests the core mathematical, architecture, loss, training, and entrypoint model.",
+      "expected_paper_retrieval": ["Atlas 33 likely required for complete mathematical formulation and paper-versus-code experiment comparison."],
+      "special_handling": []
+    },
+    {
+      "resource_id": "CR000056",
+      "resource_profile": "pinn_implementation",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [479],
+      "reason": "Sampling-focused PINN research repository with strong Stage 2 identity and documentation; selected to stress multiple experiment/configuration records and sampling/collocation fields.",
+      "expected_paper_retrieval": ["Atlas 479 likely required to map repository cases to reported sampling experiments and reported results."],
+      "special_handling": ["Do not collapse distinct equations, sampling strategies, or training variants into one configuration."]
+    },
+    {
+      "resource_id": "CR000227",
+      "resource_profile": "pinn_framework_library",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [367],
+      "reason": "NeuralPDE.jl provides framework-level PINN functionality in Julia with Project.toml manifests and extensive documentation; tests library capability/API/environment extraction without forcing a paper-code experiment schema.",
+      "expected_paper_retrieval": ["Atlas 367 is optional context/provenance if framework documentation is insufficient; repository evidence remains authoritative for implementation claims."],
+      "special_handling": ["Treat documentation examples and tests as framework-support material unless a distinct experiment is evidence-supported."]
+    },
+    {
+      "resource_id": "CR000087",
+      "resource_profile": "physics_informed_operator_learning",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [599],
+      "reason": "Separable physics-informed DeepONet implementation with a pinned repository and dependency manifest; tests operator-learning formulation, function-space inputs/outputs, branch/trunk structure, and separation from classical PINN semantics.",
+      "expected_paper_retrieval": ["Atlas 599 likely required for operator formulation, experiment definitions, and paper-reported evaluation details."],
+      "special_handling": ["Preserve operator-learning architecture and physics-enforcement fields without relabeling as a classical PINN."]
+    },
+    {
+      "resource_id": "CR000010",
+      "resource_profile": "pinn_implementation",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [143],
+      "reason": "PINN research implementation with a pinned snapshot, locked requirements, bundled benchmark data, and trained-weight artifacts; tests the boundary between reusable datasets, benchmark/reference data, and trained results.",
+      "expected_paper_retrieval": ["Atlas 143 likely required to map bundled artifacts to experiments and establish mathematical/validation details."],
+      "special_handling": ["Classify bundled benchmark data, reference data, weights, checkpoints, and results separately; do not label every file as a reusable dataset."]
+    },
+    {
+      "resource_id": "CR000059",
+      "resource_profile": "supporting_scientific_ml_library",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [367, 401, 509],
+      "reason": "Neural Tangents is a well-documented supporting scientific-ML library rather than a PINN implementation; tests capability/dependency extraction and prevents PINN relabeling.",
+      "expected_paper_retrieval": ["Atlas 367, 401, or 509 only if needed to clarify the Atlas-mentioned role; primary library documentation should support technical capability claims."],
+      "special_handling": ["Repository is archived at the Stage 2 snapshot; use the pinned commit and preserve archived status from Stage 2 without reopening provenance."]
+    },
+    {
+      "resource_id": "CR000163",
+      "resource_profile": "non_pinn_research_code",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [44],
+      "reason": "Paper-associated non-PINN research code with a pinned snapshot but deliberately weak documentation and no formal dependency manifest; tests non-PINN applicability and bounded missing-information semantics.",
+      "expected_paper_retrieval": ["Atlas 44 likely required to establish the scientific problem and paper-reported method because repository documentation is absent."],
+      "special_handling": ["PINN-specific fields should normally be not_applicable; missing README/dependency information must remain explicit rather than inferred from notebook imports alone."]
+    },
+    {
+      "resource_id": "CR000217",
+      "resource_profile": "simulator_solver",
+      "artifact_form": "source_repository",
+      "atlas_reference_ids": [],
+      "reason": "JAXFLUIDS is a differentiable compressible-flow CFD solver with strong documentation and dependency manifests; tests solver-specific equations, numerical methods, discretization, interfaces, and reproducibility without inventing an Atlas-paper relationship.",
+      "expected_paper_retrieval": [],
+      "special_handling": ["No Atlas-paper association is recorded; resource-level technical extraction proceeds independently of PRL provenance."]
+    },
+    {
+      "resource_id": "CR000268",
+      "resource_profile": "dataset",
+      "artifact_form": "static_data_directory",
+      "atlas_reference_ids": [50],
+      "reason": "Public SMAP sea-surface-salinity V6 product directory with provider documentation, product DOIs, formats, and paper-defined data role; tests dataset/product identity, access, licensing, file-manifest, variable/coverage, and paper-role fields.",
+      "expected_paper_retrieval": ["Atlas 50 likely required to confirm the exact Level 2C product use and any preprocessing/experimental role not exposed by provider metadata."],
+      "special_handling": ["Do not bulk-download NetCDF products. Prefer directory/product metadata and manifests; defer file-level binary inspection if substantial downloads are required."]
+    },
+    {
+      "resource_id": "CR000091",
+      "resource_profile": "pinn_implementation",
+      "artifact_form": "doi_archive",
+      "atlas_reference_ids": [605],
+      "reason": "Zenodo DOI code archive linked to a PINN paper; tests archive delivery, metadata-first extraction, paper/code distinction, and bounded archive-internal inspection.",
+      "expected_paper_retrieval": ["Atlas 605 likely required to map the archived code to the paper's mathematical formulation and experiments."],
+      "special_handling": ["Inspect archive metadata, manifest, documentation, and small safe text artifacts first. Record deep_archive_inspection_deferred if deeper inspection requires a substantial binary download."]
+    }
+  ]
+}
