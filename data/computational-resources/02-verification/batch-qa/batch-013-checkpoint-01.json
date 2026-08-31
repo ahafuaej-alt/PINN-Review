@@ -1,0 +1,28 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B013",
+  "checkpoint_id":"B013-C01",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":false,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000314","CR000315","CR000316"],
+  "next_resource_id":"CR000317",
+  "next_logical_batch":"B013",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":3,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"alias_records":0,"manual_review_records":0,"verified_non_spdx_terms_findings":1,"verified_spdx_license_findings":1,"bounded_unknown_license_findings":1,"classification_corrections":0},
+  "batch_totals":{"planned_resources":25,"processed_resources":3,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"new_alias_records":0,"manual_review_records":0},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000314, CR000315 and CR000316 are the first three unprocessed resources in B013 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000314-CR000316 and PRL000177-PRL000179 are preserved without replacement or renumbering."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000177, PRL000178 and PRL000179 are verified from primary-paper provenance plus current official resource metadata."},
+    {"check":"license_verification","status":"passed","detail":"CUDEM custom NOAA/NCEI public-domain/use constraints are preserved without invented SPDX; PHM2010 remains bounded unknown because no explicit licence appears on the official page; Mendeley version 1 is CC-BY-4.0."},
+    {"check":"dataset_boundary","status":"passed","detail":"No DEM raster, PHM cutter archive, CSV, bearing vibration file, or other third-party data payload was downloaded, opened, unpacked, parsed, subsetted, installed, or executed."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000317 was not processed. Stage 2 resumes at CR000317."},
+    {"check":"stop_condition_scan","status":"passed","detail":"No scientific-review item, ordinary manual-review item, schema change, or processing pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000177","PRL000178","PRL000179"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B013 checkpoint 01 passes. B013 remains in progress and Stage 2 resumes at CR000317."
+}

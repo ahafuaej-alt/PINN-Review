@@ -1,0 +1,47 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B009",
+  "checkpoint_id": "B009-C06",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": true,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000238"],
+  "next_resource_id": "CR000239",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 1,
+    "resource_records": 1,
+    "availability_records": 1,
+    "web_resources_verified": 1,
+    "github_repositories_pinned": 0,
+    "relationship_records": 1,
+    "verified_relationship_records": 1,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 1,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 0,
+    "verified_negative_license_findings": 0,
+    "not_applicable_documentation_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000238 was the sole previously unprocessed resource remaining in B009 after checkpoint 05. This tail checkpoint processes it exactly once, completes B009, and stops before B010/CR000239."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"The Stage-1 URL https://gpytorch.ai is live and matches the exact related link in Atlas paper 401. No alias or CR identity change is required; canonical software metadata remain on CR000233."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000099 is verified from Atlas paper 401, which lists the exact GPyTorch URL and discusses GPyTorch as a Gaussian-process/kernel-method toolkit relevant to physics-informed learning."},
+    {"check":"resource_identity_and_classification","status":"passed","detail":"CR000238 is a GPyTorch project/documentation web resource linked to canonical GPyTorch repository CR000233. It remains supporting software/library documentation rather than a PINN implementation."},
+    {"check":"license_citation_dependency_dataset_boundary","status":"passed","detail":"No repository-level license, citation, dependency, or dataset metadata are duplicated onto the documentation web resource; those canonical findings remain on CR000233."},
+    {"check":"internal_reference_rule","status":"passed","detail":"Paper-internal reference 161 is retained only as provenance and is not promoted to an Atlas reference identifier."},
+    {"check":"stage3_boundary","status":"passed","detail":"No third-party code was executed, no archive/model asset was unpacked, no external dataset was downloaded, and no Stage-3 normalization was performed."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The live documentation identity, canonical-resource delegation, and secondary-review relationship fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 1,
+    "verified_link_ids": ["PRL000099"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 checkpoint 06 passes. B009 is complete and Stage 2 resumes with B010 at CR000239."
+}

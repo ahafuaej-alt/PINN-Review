@@ -1,0 +1,156 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B006",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repositories_pinned": 21,
+    "gitlab_projects_pinned": 2,
+    "other_public_resources_verified": 1,
+    "unavailable_repositories": 1,
+    "relationship_records": 26,
+    "verified_relationship_records": 25,
+    "bounded_unverified_relationship_records": 1,
+    "stage1_relationships_accounted": 26,
+    "alias_records_created": 5,
+    "evidence_records": 51,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 15,
+    "verified_negative_license_findings": 9,
+    "bounded_unknown_license_findings": 1
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned resource IDs are present once and in batch order."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All batch JSONL records parse and contain required stable identifiers."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "Five source URL moves, corrections, or normalizations retain their existing CR identities; no new stable ID was required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 26 Stage-1 assertions are represented: 25 verified and PRL000309 explicitly not_verified."
+    },
+    {
+      "check": "unsupported_relationship_prevention",
+      "status": "passed",
+      "detail": "PRL000309 remains not_verified; it was not remapped to the distinct CR000151 identity."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "Twenty-one GitHub repositories and two GitLab projects are pinned to exact observed default-branch commits."
+    },
+    {
+      "check": "nondefault_branch_boundary",
+      "status": "passed",
+      "detail": "CR000153 is pinned on default branch main; its separately pinned master content is identified explicitly without replacing the default snapshot."
+    },
+    {
+      "check": "primary_paper_resource_evidence",
+      "status": "passed",
+      "detail": "Publisher statements, primary papers, canonical repositories, and the primary JOSS review verify the nine final-checkpoint relationships."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Nine repositories have verified negative findings and CR000150 retains a bounded unknown license because it is unavailable."
+    },
+    {
+      "check": "ordinary_manual_review_continuation",
+      "status": "passed",
+      "detail": "No new ordinary manual-review record was produced."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "CR000144 and CR000160 external archives were identified but not unpacked or technically extracted."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The existing model represents URL repairs, moved identities, non-default branch content, external data, unavailability, and a verified negative link; no stop condition was found."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 26,
+    "verified_link_ids": [
+      "PRL000257",
+      "PRL000258",
+      "PRL000259",
+      "PRL000260",
+      "PRL000261",
+      "PRL000262",
+      "PRL000263",
+      "PRL000264",
+      "PRL000299",
+      "PRL000281",
+      "PRL000300",
+      "PRL000301",
+      "PRL000302",
+      "PRL000304",
+      "PRL000305",
+      "PRL000306",
+      "PRL000308",
+      "PRL000310",
+      "PRL000311",
+      "PRL000312",
+      "PRL000314",
+      "PRL000315",
+      "PRL000316",
+      "PRL000317",
+      "PRL000318",
+      "PRL000320"
+    ],
+    "bounded_unverified_link_ids": [
+      "PRL000309"
+    ]
+  },
+  "manual_review": [],
+  "verified_limitations": {
+    "no_repository_license_identified": [
+      "CR000134",
+      "CR000138",
+      "CR000142",
+      "CR000143",
+      "CR000151",
+      "CR000153",
+      "CR000155",
+      "CR000157",
+      "CR000160"
+    ],
+    "unavailable_resources": [
+      "CR000150"
+    ],
+    "source_url_repairs": [
+      "CR000142",
+      "CR000147",
+      "CR000153",
+      "CR000156",
+      "CR000159"
+    ],
+    "nondefault_branch_content": [
+      "CR000153"
+    ],
+    "stage3_deferred_archives": [
+      "CR000144",
+      "CR000160"
+    ]
+  },
+  "integrity_result": "passed",
+  "safe_to_continue": true
+}

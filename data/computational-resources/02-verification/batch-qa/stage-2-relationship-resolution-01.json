@@ -1,0 +1,105 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_relationship_resolution_qa",
+  "resolution_id": "Stage2-R01",
+  "verification_date": "2026-08-31",
+  "status": "passed",
+  "stage2_resource_processing_complete": true,
+  "relationship_resolution_complete": true,
+  "counts": {
+    "historical_not_verified_relationship_records_reviewed": 13,
+    "promoted_to_verified": 7,
+    "resolved_invalid_stage1_assertions": 6,
+    "active_unresolved_stage1_relationship_assertions": 0,
+    "relationship_type_corrections": 5,
+    "canonical_url_corrections": 4,
+    "new_alias_records": 4,
+    "manual_review_resources_cleared": 8,
+    "ordinary_manual_review_resources_remaining": 7,
+    "scientific_review_items_remaining": 2,
+    "corrective_resource_overlay_records": 11,
+    "evidence_records": 13
+  },
+  "authoritative_stage1_relationship_totals": {
+    "completed_stage1_prl_assertions": 331,
+    "verified_stage1_relationships": 325,
+    "resolved_invalid_stage1_assertions": 6,
+    "active_unresolved_stage1_relationship_assertions": 0,
+    "historical_not_verified_records_preserved": 13
+  },
+  "resolved_verified_link_ids": [
+    "PRL000136",
+    "PRL000163",
+    "PRL000189",
+    "PRL000218",
+    "PRL000223",
+    "PRL000250",
+    "PRL000309"
+  ],
+  "resolved_invalid_link_ids": [
+    "PRL000114",
+    "PRL000167",
+    "PRL000001",
+    "PRL000002",
+    "PRL000003",
+    "PRL000225"
+  ],
+  "checks": [
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 13 historical not_verified assertions receive exactly one authoritative Stage2-R01 disposition: 7 verified and 6 resolved-invalid; no active unresolved relationship remains."
+    },
+    {
+      "check": "primary_paper_evidence",
+      "status": "passed",
+      "detail": "Positive resolutions are supported by direct primary-paper software/resource statements or, for NSFnets, an exact benchmark-level implementation match with repository authorship checked to avoid falsely labeling the repository official."
+    },
+    {
+      "check": "paper_internal_reference_rule",
+      "status": "passed",
+      "detail": "Paper 476 references [20]-[22] and paper 721 reference [118] are treated as paper-local bibliography numbers, not Atlas IDs. PRL000001-PRL000003 are closed as parser leakage."
+    },
+    {
+      "check": "canonical_repository_identity",
+      "status": "passed",
+      "detail": "Corrected live repositories were verified for CR000088, CR000111, CR000114 and CR000128, and existing alias VA000014 remains valid for CR000074."
+    },
+    {
+      "check": "paper_692_resource_separation",
+      "status": "passed",
+      "detail": "JHTDB remains the training/testing dataset, DG-PINN is the code/data repository, and the paper DOI is retained only as a publication record."
+    },
+    {
+      "check": "paper_810_repository_relationship",
+      "status": "passed",
+      "detail": "The attached conference paper directly prints the CR000146 repository on page 4, superseding the earlier negative PRL000309 conclusion."
+    },
+    {
+      "check": "historical_audit_preservation",
+      "status": "passed",
+      "detail": "Historical batch JSONL files are not rewritten; corrective overlay precedence is documented in 02-verification/README.md."
+    },
+    {
+      "check": "manual_review_reconciliation",
+      "status": "passed",
+      "detail": "Eight relationship-driven manual-review resources are cleared by positive or conclusive-invalid resolution, reducing the retained ordinary manual-review count from 15 to 7."
+    },
+    {
+      "check": "static_verification_boundary",
+      "status": "passed",
+      "detail": "No software, model, notebook or dataset payload was installed or executed; repository verification used metadata, README/source trees, and primary-paper evidence."
+    },
+    {
+      "check": "repository_scope",
+      "status": "passed",
+      "detail": "All changes are confined to data/computational-resources/ on the existing Stage-2 branch; no live Atlas or deployment files are modified."
+    },
+    {
+      "check": "public_provenance_scan",
+      "status": "passed",
+      "detail": "Branch name, proposed commit message, corrective reports and changed public files describe only the technical verification work and contain no development-tool authorship attribution."
+    }
+  ],
+  "qa_conclusion": "Stage2-R01 passes. All 13 historical not_verified relationship findings are resolved: 7 verified and 6 conclusively invalid Stage-1 assertions, leaving zero active unresolved Stage-1 relationships."
+}

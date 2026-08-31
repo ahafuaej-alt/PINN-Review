@@ -1,0 +1,63 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B013",
+  "checkpoint_id": "B013-C05",
+  "verification_date": "2026-08-30",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000326", "CR000327", "CR000328"],
+  "next_resource_id": "CR000329",
+  "next_logical_batch": "B013",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "currently_available_resources": 3,
+    "relationship_records": 3,
+    "verified_relationship_records": 2,
+    "explicit_not_verified_relationship_records": 1,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "manual_review_records": 0,
+    "verified_non_spdx_terms_findings": 1,
+    "verified_spdx_license_findings": 2,
+    "bounded_unknown_license_findings": 0,
+    "canonical_url_corrections": 0,
+    "classification_corrections": 1
+  },
+  "batch_totals": {
+    "planned_resources": 25,
+    "processed_resources": 15,
+    "relationship_records": 15,
+    "verified_relationship_records": 14,
+    "explicit_not_verified_relationship_records": 1,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 15,
+    "new_alias_records": 0,
+    "manual_review_records": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000326, CR000327 and CR000328 are the exact next three unprocessed resources and are each processed once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000326-CR000328 and PRL000222, PRL000225 and PRL000229 are preserved without deletion, replacement or renumbering."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000222 and PRL000229 are verified from primary-paper statements plus official resource metadata; PRL000225 is explicitly not_verified because CR000327 is paper 692's own DOI rather than a dataset."},
+    {"check":"classification_correction","status":"passed","detail":"CR000327 is corrected from Stage-1 dataset_or_data_source to publication_record_not_dataset. The correction is evidence-based and does not require manual review."},
+    {"check":"duplicate_identity_policy","status":"passed","detail":"CR000327 is not converted into JHTDB or the DG-PINN repository. The actual JHTDB relationship remains separately represented by CR000307/PRL000224, so no duplicate identity is introduced."},
+    {"check":"license_verification","status":"passed","detail":"CR000326 has verified CC-BY-4.0; CR000327's publication record has verified CC-BY-NC-ND-4.0 without treating it as a dataset licence; CR000328 is governed by verified non-SPDX Kaggle Competition Rules."},
+    {"check":"bounded_uncertainty","status":"passed","detail":"No unresolved relationship judgment is hidden: the CR000327 negative finding is explicit, while exact file/subset/preprocessing details for the two genuine datasets are deferred to Stage 3 rather than guessed."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No Kaggle payload, retinal image, turbulence array/archive, JHTDB data, DG-PINN code, notebook, dependency environment or third-party software was downloaded, installed or executed."},
+    {"check":"stage3_boundary","status":"passed","detail":"No architecture/training/dependency-version/preprocessing normalization or experiment reproduction was performed."},
+    {"check":"repository_scope","status":"passed","detail":"All checkpoint changes are confined to data/computational-resources/. No live Atlas, public software/datasets pages, deployment or main-branch content is modified."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000329 is not processed. Stage 2 resumes at CR000329."},
+    {"check":"stop_condition_scan","status":"passed","detail":"No concurrent-writer conflict, new scientific-review item, ordinary manual-review item, schema change or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": ["PRL000222", "PRL000229"],
+    "explicit_not_verified_link_ids": ["PRL000225"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B013 checkpoint 05 passes. B013 remains in progress and Stage 2 resumes at CR000329."
+}

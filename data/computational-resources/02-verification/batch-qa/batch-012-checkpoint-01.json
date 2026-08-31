@@ -1,0 +1,57 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B012",
+  "checkpoint_id": "B012-C01",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000289", "CR000290", "CR000291"],
+  "next_resource_id": "CR000292",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the established verification categories; stable resource and relationship identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 0,
+    "currently_available_data_records": 2,
+    "currently_unavailable_project_records": 1,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "alias_records": 0,
+    "manual_review_records": 1,
+    "verified_positive_license_findings": 2,
+    "bounded_unknown_license_findings": 1
+  },
+  "batch_totals": {
+    "planned_resources": 25,
+    "processed_resources": 3,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "new_alias_records": 0,
+    "manual_review_records": 1
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000289, CR000290, and CR000291 are the first three unprocessed resources assigned to B012 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000289-CR000291 and PRL000056-PRL000058 are preserved. The current Matrio project failure does not create a replacement identifier."},
+    {"check":"relationship_accounting","status":"passed","detail":"Atlas paper 299 explicitly identifies the exact TJU, HUST, and MIT dataset URLs and documents their use. PRL000056, PRL000057, and PRL000058 are verified."},
+    {"check":"current_access_semantics","status":"passed","detail":"The Zenodo and Mendeley item records are public. The exact Matrio project currently cannot be found while the platform root remains available; this produces one ordinary manual-review resource without invalidating the primary-paper relationship."},
+    {"check":"license_verification","status":"passed","detail":"CR000289 and CR000290 have item-level CC BY 4.0 metadata. CR000291's license remains bounded unknown because the exact current project record is unavailable; the paper license is not transferred."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No software dependency manifest is invented for any dataset. No archive, CSV, impedance file, battery record, or other dataset file was downloaded, opened, unpacked, parsed, installed, or executed."},
+    {"check":"internal_reference_rule","status":"passed","detail":"Atlas ID 299 and PRL IDs PRL000056-PRL000058 come from the authoritative Stage-1 registries. Paper-internal references are used only as evidence and are not promoted."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000292 was not processed in this checkpoint."},
+    {"check":"stop_condition_scan","status":"passed","detail":"Three verified paper-dataset relationships fit the established schema. CR000291's unavailable project is a bounded ordinary manual-review item and does not require scientific review, schema change, or a processing pause."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": ["PRL000056", "PRL000057", "PRL000058"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B012 checkpoint 01 passes. B012 remains in progress and Stage 2 resumes at CR000292."
+}

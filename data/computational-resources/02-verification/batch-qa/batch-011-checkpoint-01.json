@@ -1,0 +1,99 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B011",
+  "checkpoint_id": "B011-C01",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000264",
+    "CR000265",
+    "CR000266",
+    "CR000267",
+    "CR000268"
+  ],
+  "next_resource_id": "CR000269",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "web_resource_records": 5,
+    "available_or_resolved_web_resources": 4,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_or_qualified_license_findings": 4,
+    "bounded_unknown_resource_records": 1
+  },
+  "batch_totals": {
+    "planned_resources": 25,
+    "processed_resources": 5,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "new_alias_records": 0,
+    "manual_review_records": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000264 through CR000268 are the first five unprocessed resources assigned to B011 and are each processed exactly once. Stage 2 resumes at CR000269."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "No CR or PRL identifier is changed. The unavailable CR000264 poster is not assigned an inexact alias merely because the associated paper has a current institutional publication entry."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000300 is verified from the transfer-learning survey's exact useful-link and reference mapping. PRL000011 through PRL000013 and PRL000008 are verified from the two primary papers' exact Data Availability Statements."
+    },
+    {
+      "check": "resource_identity_and_classification",
+      "status": "passed",
+      "detail": "CR000264 is a historical conference-poster file, CR000265 a climate-data catalogue and access portal, CR000266 an Earth-observation data and analysis ecosystem, CR000267 a marine-data service portal, and CR000268 a versioned SMAP sea-surface-salinity dataset directory."
+    },
+    {
+      "check": "license_citation_dependency_dataset_boundary",
+      "status": "passed",
+      "detail": "CDS content-specific licensing, the Sentinel Data Legal Notice, the Copernicus Marine product licence, and Remote Sensing Systems data-use terms are recorded without assigning SPDX software licenses. Dataset-specific citation boundaries are preserved, and non-software resources receive no invented dependency manifests."
+    },
+    {
+      "check": "live_data_and_document_boundary",
+      "status": "passed",
+      "detail": "The Copernicus services and REMSS directory are live. Only public page content, directory names, and documentation filenames were inspected; no poster, document, archive, dataset, or binary was downloaded or opened."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code or data service was executed, no account was created, no API retrieval was run, no data or document file was downloaded, and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The unavailable historical poster and four live data services fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000300",
+      "PRL000011",
+      "PRL000012",
+      "PRL000013",
+      "PRL000008"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B011 checkpoint 01 passes. Stage 2 resumes at CR000269."
+}

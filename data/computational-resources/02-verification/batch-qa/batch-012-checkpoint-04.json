@@ -1,0 +1,29 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B012",
+  "checkpoint_id":"B012-C04",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":false,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000298","CR000299","CR000300"],
+  "next_resource_id":"CR000301",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories; stable resource and relationship identifiers are unchanged",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"github_repositories_pinned":0,"currently_available_resources":2,"relationship_records":3,"verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":3,"alias_records":0,"verified_duplicate_identity_findings":1,"manual_review_records":1,"verified_positive_license_findings":2,"bounded_unknown_license_findings":1,"classification_corrections":0},
+  "batch_totals":{"planned_resources":25,"processed_resources":12,"relationship_records":12,"verified_relationship_records":12,"bounded_unverified_relationship_records":0,"evidence_records":12,"new_alias_records":0,"manual_review_records":2},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000298, CR000299, and CR000300 are the next three unprocessed B012 resources and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000298-CR000300 and PRL000075, PRL000076, and PRL000090 are preserved. The two Figshare URLs remain distinct stable records despite verified shared item identity."},
+    {"check":"relationship_accounting","status":"passed","detail":"Atlas paper 363 links both Figshare identities, and Atlas paper 378 explicitly identifies CT data at the GIMIAS URL. All three relationships are verified."},
+    {"check":"duplicate_identity","status":"passed","detail":"CR000298 and CR000299 are verified as the versioned DOI and article URL for the same Figshare item; neither stable resource ID is replaced or removed."},
+    {"check":"availability_qualification","status":"passed","detail":"Fresh public Figshare metadata is available although checked direct browser requests returned 403. CR000300's original page is unavailable and is routed to ordinary manual review."},
+    {"check":"license_verification","status":"passed","detail":"The shared Figshare item explicitly carries CC BY 4.0, recorded on both stable resource records. No license is inferred for the unavailable GIMIAS item."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No Figshare file, medical image, archive, or other third-party content was downloaded, opened, unpacked, parsed, installed, or executed."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000301 was not processed in this checkpoint."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The duplicate identity and one ordinary manual-review resource fit the established schema; no scientific review, schema change, or pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000075","PRL000076","PRL000090"],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B012 checkpoint 04 passes. B012 remains in progress and Stage 2 resumes at CR000301."
+}

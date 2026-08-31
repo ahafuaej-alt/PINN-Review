@@ -1,0 +1,99 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B007",
+  "checkpoint_id": "B007-C04",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000170",
+    "CR000171",
+    "CR000172"
+  ],
+  "next_resource_id": "CR000173",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_checkpoint_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 3,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 6,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 1,
+    "verified_negative_license_findings": 2,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000170, CR000171, and CR000172 are the next three unprocessed Stage-1 resources after B007 checkpoint 03 and are represented exactly once in checkpoint 04 records."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "Existing CR000170-CR000172 and PRL000049, PRL000065, and PRL000164 identifiers are preserved; no alias or new stable identifier is required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All three Stage-1 assertions are independently verified from primary papers and canonical repositories: PRL000049 is official, while PRL000065 and PRL000164 are paper-software mentions."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All three public GitHub repositories are pinned to exact observed default-branch commits: CR000170 and CR000171 on master, CR000172 on main."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "All three resources remain non_pinn: SuperRes is 3D CNN MRI super-resolution code, CAD-Solid-Field is finite-element pre/post-processing software, and WGImplicit is a classical WG elastoplasticity implementation."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "CR000170 and CR000171 have verified negative repository-license findings; CR000172 has an independently verified MIT License. Article-level open-access terms are not propagated to repositories."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "CR000170 has environment.yml and external IXI/model resources; CR000171 has no formal dependency manifest and bundles geometry/simulation-support artifacts; CR000172 has no formal dependency manifest or bundled research dataset. No Stage-3 normalization or execution was performed."
+    },
+    {
+      "check": "internal_reference_rule",
+      "status": "passed",
+      "detail": "No paper-internal bibliography number was promoted to an Atlas ID; verified Atlas IDs are 282, 322, and 539."
+    },
+    {
+      "check": "checkpoint_storage_integrity",
+      "status": "passed",
+      "detail": "Checkpoint 04 uses checkpoint-specific JSONL files inside the existing Stage-2 verification categories to preserve append-only recoverability without rewriting prior B007 checkpoint records; the 2.0.0-pilot record schema is unchanged."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "No third-party code or binary was executed, no external dataset or model archive was unpacked, and no Stage-3 technical extraction was begun."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The resource roles, license findings, external-data boundary, and checkpoint-specific persistence are representable without a schema, relationship-type, stable-ID, scientific-review, or concurrency conflict."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": [
+      "PRL000049",
+      "PRL000065",
+      "PRL000164"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B007 checkpoint 04 passes. B007 remains in progress and resumes at CR000173."
+}

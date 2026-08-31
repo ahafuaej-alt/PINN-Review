@@ -1,0 +1,99 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B010",
+  "checkpoint_id": "B010-C05",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": true,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000259",
+    "CR000260",
+    "CR000261",
+    "CR000262",
+    "CR000263"
+  ],
+  "next_resource_id": "CR000264",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "web_resource_records": 5,
+    "available_or_resolved_web_resources": 3,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 1,
+    "manual_review_records": 0,
+    "verified_or_qualified_license_findings": 1,
+    "bounded_unknown_resource_records": 4
+  },
+  "batch_totals": {
+    "planned_resources": 25,
+    "processed_resources": 25,
+    "relationship_records": 25,
+    "verified_relationship_records": 25,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 25,
+    "new_alias_records": 9,
+    "manual_review_records": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000259 through CR000263 are the final five unprocessed resources assigned to B010 and are each processed exactly once. B010 is complete and Stage 2 resumes at CR000264 in B011."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000052 preserves CR000261 across the official Berkeley-to-Georgia-Tech project-page relocation. CR000259's same-platform redirect does not require an alias, and no inexact replacement is promoted for CR000262 or CR000263. No CR or PRL identifier is changed."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000295 through PRL000299 are verified from the primary survey's exact Table 6 useful-link mappings, supplemented by matching current primary project, presentation, or presenter evidence where available."
+    },
+    {
+      "check": "resource_identity_and_classification",
+      "status": "passed",
+      "detail": "CR000259 is a presentation page, CR000260 a software project site, CR000261 a domain-adaptation project page, CR000262 a tutorial page, and CR000263 a literature-survey page. Current platform errors do not convert tutorial or publication resources into software artifacts."
+    },
+    {
+      "check": "license_citation_dependency_dataset_boundary",
+      "status": "passed",
+      "detail": "BSD-3-Clause, citation, component-scoped dependency, documentation, and example/data boundaries are verified for LIBSVM at official-source commit 6b907139084abf2da4d6d3cb10dc3b7eaffa2fbb. CR000261's code archives and datasets remain uninspected; presentation benchmarks are not treated as hosted datasets; and unavailable tutorial/survey contents remain bounded."
+    },
+    {
+      "check": "full_batch_completeness",
+      "status": "passed",
+      "detail": "B010 checkpoints C01 through C05 cover all 25 planned resources CR000239 through CR000263 exactly once. Their 25 Stage-1 relationship assertions are verified, evidence IDs S2E000431 through S2E000455 are unique, and VA000044 through VA000052 preserve nine justified identity resolutions."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code was executed; no slide deck, ZIP, TAR.GZ, dataset, or binary was downloaded or unpacked; no compilation was attempted; and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The platform redirect, official project-page relocation, live project metadata, disconnected tutorial site, and unavailable literature-survey page fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000295",
+      "PRL000296",
+      "PRL000297",
+      "PRL000298",
+      "PRL000299"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B010 checkpoint 05 passes and completes B010. Stage 2 resumes with B011 at CR000264."
+}

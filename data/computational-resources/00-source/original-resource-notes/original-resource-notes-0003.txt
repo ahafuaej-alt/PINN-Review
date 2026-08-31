@@ -1,0 +1,170 @@
+    NVIDIA Modulus: https://developer.nvidia.com/modulus (referenced in [123]) from [367]
+    SciANN: https://github.com/sciann/sciann (referenced in [55]) from [367]
+    NeuroDiffEq: https://github.com/neurodiffeq/neurodiffeq (referenced in [28])  from [367]
+    PyDENS: https://github.com/analysis-bear/PyDEns (referenced in [84]) from [367]
+    NeuralPDE.jl: https://github.com/SciML/NeuralPDE.jl (referenced in [137]) from [367]
+    ADCME: https://github.com/kailaix/ADCME.jl (referenced in [187]) from [367]
+    Nangs: https://github.com/juanpedro/nangs (referenced in [131]) from [367]
+    TensorDiffEq: https://github.com/tensordiffeq/TensorDiffEq (referenced in [107])  from [367]
+    IDRLnet: https://github.com/idrl-lab/idrlnet (referenced in [132]) from [367]
+    Elvet: https://github.com/JacobYC-Araz/elvet (referenced in [7]) from [367]
+    Neural Tangents: https://github.com/google/neural-tangents (referenced in [122]) from [367]
+    GPyTorch: https://github.com/cornellius-gp/gpytorch (referenced in [49]) from [367]
+
+The paper [495] provides GitHub links for popular PINN training libraries in Table II:
+
+    DeepXDE: https://github.com/lululxvi/deepxde
+    SciANN: https://github.com/sciann/sciann-applications
+    IDRLnet: https://github.com/idrl-lab/idrlnet
+    NeuralUQ: https://github.com/Crunch-UQ4MI/neuraluq
+    TensorDiffEq: https://github.com/tensordiffeq
+
+GitHub links found in the paper [401]:
+
+    ADCME: https://kailai.github.io/ADCME.jl/latest
+    DeepXDE: https://deepxdf.readthedocs.io/ (The URL appears as "deepxdf" but library is "DeepXDE"; likely a typo)
+    GPyTorch: https://gpytorch.ai/
+    NeuroDiffEq: https://github.com/NeuroDiffCym/neurodiffeq
+    NeuralPDE: https://neuralpde.sciml.ai/dev/
+    Neural Tangents: https://github.com/google/neural-tangents
+    PyDEns: https://github.com/analysiscenter/pydens
+    PyTorch: https://pytorch.org
+    SciANN: https://www.sciam.com/
+    SimNet: https://developers.nvidia.com/simnet
+    TensorFlow: www.tensorflow.org
+
+
+Software/Libraries mentioned in [838]:
+
+DeepXDE: Deep learning library for solving differential equations [838]
+TensorFlow: Deep learning framework [838]
+PyTorch: Deep learning framework [838]
+TorchDyn: Neural differential equations library [838]
+Zygote: GPU-accelerated differentiable programming library in Julia [838]
+DiffEqFlux: Julia library for neural differential equations [838]
+FEniCS: Finite element package [838]
+Open-source computational mechanics packages mentioned for future integration:
+OpenFOAM: CFD package [838]
+LAMMPS: Molecular dynamics package [838]
+MOOSE: Multiphysics Object-Oriented Simulation Environment [838]
+
+
+Software mentioned in [840]:
+
+SciANN: TensorFlow-based framework for scientific computations and physics-informed deep learning [840]
+Flac3d: Finite difference method software used for validation [840]
+TensorFlow: Deep learning framework [840]
+DeepXDE: Deep learning library for solving differential equations (referenced in references) [840]
+
+
+
+
+Arcade Learning Environment: The paper [764] uses the Arcade Learning Environment (Bellemare et al., 2013) for Atari 2600 game simulation. The environment is available at https://github.com/mgbellemare/Arcade-Learning-Environment and provides a platform for evaluating reinforcement learning agents.
+
+
+DarkNet: The DarkNet framework, available at http://pjreddie.com/darknet/, is used for ImageNet-1k experiments. DarkNet is an open-source neural network framework written in C and CUDA. [765]
+
+
+
+
+The paper [768] contains an extensive appendix with software downloads and resources. Here are the relevant links:
+
+Software Downloads (Table 5):
+    Prettenhofer CLSCL: https://github.com/pprett/bolt [7] from [768]
+    Zhu HTLIC: http://www.cse.ust.hk/~yinz/ [139] from [768]
+    Dai TrAdaBoost: https://github.com/BoChen90/machine-learning-matlab/blob/master/TrAdaBoost.m [6] from [768]
+    Daume FAM: http://hal3.name/easyadapt.pl.gz [32] from [768]
+    Duan HFA: https://sites.google.com/site/xyzliwen/publications/HFA_release_0315.rar [49] from [768]
+    Kulis ARC-t: http://vision.cs.uml.edu/adaptation.html [18] from [768]
+    Qi TTI: http://www.eecs.ucf.edu/~gqi/publications.html [44] from [768]
+    Li SHFA: http://www.lxduan.info/#sourcecode_hfa [67] from [768]
+    Gong GFK: http://www-scf.usc.edu/~boqinggo/ [9] from [768]
+    Long ARTL: http://ise.ths.tsinghua.edu.cn/~mlong/ [75] from [768]
+    Oquab TCNN: http://leon.bottou.org/papers/oquab-2014 [88] from [768]
+    Long JDA: http://ise.ths.tsinghua.edu.cn/~mlong/ [75] from [768]
+    Other transfer learning code: http://www.cse.ust.hk/TL/ [115] from [768]
+
+Useful Links (Table 6):
+    Slides for Nam HDP: http://www.slideshare.net/hunkim/heterogeneous-defect-prediction-esecfse-2015 [48] from [768]
+    SVMLIB code: http://www.csie.ntu.edu.tw/~cjlin/libsvm [65] from [768]
+    Slides for Kulis ARC-t: https://www.eecs.berkeley.edu/~jhoffman/domainadapt/ [26] from [768]
+    Transfer learning tutorial 1: http://tommasit.wix.com/datl14tutorial [116] from [768]
+    Transfer learning tutorial 2: http://sifaka.cs.uiuc.edu/jiang4/domain_adaptation/survey/da_survey.html [1] from [768]
+    Poster for Duan DSM: http://lxduan.info/papers/DuanCVPR2012_poster.pdf [34] from [768]
+
+
+=============================================================================================================================
+
+
+
+
+
+
+Datasets
+https://dataspace.copernicus.eu/, https://cds.climate.copernicus.eu/, https://marine.copernicus.eu/    [60]
+https://github.com/xuesong-wu/PI-MPN   [27]
+https://data.remss.com/smap/SSS/V06.0/ and https://www.metoffice.gov.uk/hadobs/en4/     [50]
+https://biaowang.tech/xjtu-sy-bearing-datasets/ The XJTU‑SY bearing dataset(accessed on 31 August 2025). [73]
+https://github.com/PredictiveIntelligenceLab/1DBloodFlowPINNs    [95]
+https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset  [110]
+https://github.com/minjiechen/magnetchallenge [118]
+https://github.com/Tariku88/AM-dataset [119]
+
+
+
+https://radar.kit.edu/radar/en/dataset/mmnxkbqqeye8p5tx
+https://dataserv.ub.tum.de/index.php/s/m1524895
+
+https://platform.ai4eo.eu/seeing-beyond-the-visible/data Hyperview dataset is publicly available through the AI4EO platform   [128]
+https://www.kaggle.com/datasets/uciml/electric-power-consumption-data-set [144]
+https://citnet.tech.ec.europa.eu/CITnet/confluence/x/7RnBTg [146] e European Interconnection for Research Innovation & Entrepreneurship (EIRIE) Platform
+ https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description [153] the Copernicus Marine Environment Monitoring Service
+ https://doi.org/10.48670/moi-00215 [153] CMEMS sea level trend data for the Black Sea (OMI_CLIMATE_SL_BLKSEA_area_averaged_anomalies product)
+https://www.gtn-g-ch/data_catalogue_glathida/ Glacier Thickness Database (GLaThiDa) [156].
+https://www.glims.org/RGI/ Randolph Glacier Inventory (RGI) [156].
+ https://www.swisstopo.admin.ch/fr/geodata/height/alti3d.html SwissALTI3D DEM data [156].
+https://browser.dataspace.copernicus.eu/ Copernicus COPDEM [156]
+A123 dataset MICH dataset [159]
+https://data.openei.org/submissions/5773, Open Energy Data Initiative (OEDI) dataset for the IEEE 123-bus system [196]
+https://base.ustc.edu.cn/data/ASSISTment/  ASSIST2012 and ASSISTchall datasets from the ASSISTments platform [201]
+Randolph Glacier Inventory (RGI) Version 6.0 from [204]
+Surface velocity data from Millan et al. (2022) from [204]
+Glacier Thickness Database (GlaThiDa) Version 3.1.0 from [204]
+Copernicus DEM GLO-90 from [204]
+ASTER DEM differences from Hugonnet et al. (2021) from [204]
+Coastline data from Moholdt et al. (2021) from [204]
+battery dataset LFP dataset provided by MIT-Stanford [20] from [219]
+battery dataset NCA dataset tested by Tongji University [21] from [219]
+battery dataset LCO dataset provided by CALCE [22] from [219]
+MNIST dataset, Fresnel Institute database, and Manitoba Electromagnetic Imaging Laboratory database [237]
+the European Space Agency website (ESA), containing Sentinel-1 Interferometry Wide dataset with both SLC and GRHD images [253].
+The N-CMAPSS dataset is referenced as a publicly available dataset developed by NASA [258]
+https://doi.org/10.18154/RWTH-2022-02271 [30] from, 293]
+https://doi.org/10.5281/zenodo.10963339 Zenodo for XJTU dataset:[299]
+TJU dataset: https://zenodo.org/record/6405084 [299]
+HUST dataset: https://data.mendeley.com/datasets/nsc7hnsg4s/2 [299]
+MIT dataset: https://data.matrio.io/1/projects/5c48dd2bc625d700019f3204  [299]
+https://huggingface.co/collections/venkatesh-thiru/beyond-nyquist-a-comparative-analysis-of-3d-deep-learning-m-66c26c1dcb6aab077492fec3 [282]HuggingFace: Some of the weights are available as a collection on huggingface
+The publicly available IXI dataset can be downloaded from https://brain-development.org/ixi-dataset/ [282].
+Dataset of 3D simulated data of two phase flow in a porous media https://drive.google.com/drive/folders/1_Zs9txwZIVKy_QRwZL-D3O0R8Cl71tA- [302]
+https://github.com/gsof1/From-sparse-to-dense-representations-in-open-channel-flow-images-with-convolutional-neural-networks/tree/main/DNS_Data [305]
+https://www.cfd-benchmarks.com/ (CFD benchmarks, IEA Annex 20 experimental data) [328]
+https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository  NASA PCoE Data Repository (IGBT Accelerated Aging Data Set) from [332]
+NASA Ames Prognostics Center of Excellence (PCoE) battery dataset [50]: "Battery data set, NASA AMES prognostics data repository, (2007) [359]
+https://figshare.com/articles/dataset/TgCNN_for_two-phase_flow/16752064 [363]https://doi.org/10.6084/m9.figshare.16752064.v1
+http://www.gimias.org/index.php?option=com_content&view=article&id=26&Itemid=18 [378]
+The Open Access Series of Imaging Studies-3 (OASIS-3) dataset [27] from [389]
+http://data.cresis.ku.edu (CReSIS RDS database) [390]
+The Open Access Series of Imaging Studies-3 (OASIS-3) dataset [27]  from [390]
+All the data-sets and the PINN code will be made open-sourced in https://yan.cce.illinois.edu/  [406]
+standard deep learning benchmark datasets (CIFAR-10, CIFAR-100, SVHN, MNIST, KMNIST, Fashion-MNIST, Semeion) [428]
+https://doi.org/10.5281/zenodo.3567215 [431]
+https://figshare.com/articles/Left_Atrial_Segmentation_Challenge_2013_MRI_testing/1492989/1 [432]
+MICCAI Challenge Dataset: The left atrium mesh used for validation is from the MICCAI Challenge dataset [32] from [432]
+Johns Hopkins Turbulence Databases (JHTDB): Open-source simulation databases containing space-time histories of direct numerical simulations of several classical turbulent flow problems, including forced isotropic turbulence and turbulent channel flow [34-36] from [433]
+The dataset used consists of synthetic but realistic SST data generated by the NEMO (Nucleus for European Modeling of the Ocean) engine, which is a state-of-the-art modeling framework of ocean related engines [441]
+The NOAA weather satellite data is also mentioned as a source of high resolution SST data since 1982 [441].
+National Oceanic & Atmospheric Administration (NOAA) sea surface temperature data: http://www.esrl.noaa.gov/psd/ [451]
+http://www.iro.umontreal.ca/~lisa/twiki/bin/view.cgi/Public/DeepGradientsAISTATS2010 [474]
+ the turbulent channel flow database at http://turbulence.pha.jhu.edu as a reference dataset [20-22] [476]
+liquid water dataset for PINN https://zenodo.org/record/2634098 [511]

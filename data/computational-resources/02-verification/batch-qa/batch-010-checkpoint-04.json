@@ -1,0 +1,84 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B010",
+  "checkpoint_id": "B010-C04",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000254",
+    "CR000255",
+    "CR000256",
+    "CR000257",
+    "CR000258"
+  ],
+  "next_resource_id": "CR000259",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "web_resource_records": 5,
+    "available_or_resolved_web_resources": 3,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 2,
+    "manual_review_records": 0,
+    "verified_or_qualified_license_findings": 0,
+    "bounded_unknown_resource_records": 4
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000254 through CR000258 are the next five unprocessed Stage-1 resources after B010-C03 and are each processed exactly once."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000050 preserves CR000255 across its official-profile relocation. VA000051 repairs CR000256's ths hostname transcription to the primary-survey-stated live thss host. The failed CR000258 redirect is not promoted as an alias, and no CR or PRL identifier is changed."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000290 through PRL000294 are verified from the primary survey's exact software-download/resource mappings and, where available, matching current official profile or publication evidence. CR000256's two repeated survey method mappings remain one resource and one PRL record."
+    },
+    {
+      "check": "resource_identity_and_classification",
+      "status": "passed",
+      "detail": "CR000255 and CR000256 remain author profile/software indexes with linked archives. CR000257 is corrected to a live publication page because it exposes paper files and BibTeX but no code. Unavailable CR000254 and CR000258 retain their historical resource-index identities."
+    },
+    {
+      "check": "license_citation_dependency_dataset_boundary",
+      "status": "passed",
+      "detail": "No license or dependency metadata is inferred from unavailable or uninspected archives. Bibliographic attribution is verified for CR000255 through CR000257. GFK, ARTL, and JDA archives remain uninspected, and CR000257's discussed external benchmarks are not treated as hosted datasets."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code was executed; no ZIP archive or publication file was downloaded or unpacked; no external dataset was downloaded; and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The official-profile relocation, hostname repair, unavailable legacy pages, repeated-source mapping, and publication-page boundary fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000290",
+      "PRL000291",
+      "PRL000292",
+      "PRL000293",
+      "PRL000294"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B010 checkpoint 04 passes. B010 remains in progress and Stage 2 resumes at CR000259."
+}

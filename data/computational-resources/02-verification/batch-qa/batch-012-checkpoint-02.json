@@ -1,0 +1,29 @@
+{
+  "schema_version":"2.0.0-pilot",
+  "report_type":"stage2_incremental_checkpoint_qa",
+  "batch_id":"B012",
+  "checkpoint_id":"B012-C02",
+  "verification_date":"2026-08-29",
+  "status":"passed",
+  "batch_completed":false,
+  "stop_condition_triggered":false,
+  "stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000292","CR000293","CR000294"],
+  "next_resource_id":"CR000295",
+  "record_storage":"checkpoint-specific Stage-2 JSONL files under the established verification categories; stable resource and relationship identifiers are unchanged",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"github_repositories_pinned":0,"currently_available_resources":3,"relationship_records":3,"verified_relationship_records":3,"bounded_unverified_relationship_records":0,"evidence_records":3,"alias_records":0,"manual_review_records":0,"verified_positive_license_findings":1,"bounded_unknown_license_findings":2,"classification_corrections":1},
+  "batch_totals":{"planned_resources":25,"processed_resources":6,"relationship_records":6,"verified_relationship_records":6,"bounded_unverified_relationship_records":0,"evidence_records":6,"new_alias_records":0,"manual_review_records":1},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000292, CR000293, and CR000294 are the next three unprocessed B012 resources and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000292-CR000294 and PRL000050, PRL000051, and PRL000060 are preserved; URL redirects and classification correction do not create replacement IDs."},
+    {"check":"relationship_accounting","status":"passed","detail":"The model collection and IXI dataset are explicitly connected to Atlas paper 282; Atlas paper 302 describes the porous-media dataset and cites the exact Google Drive URL. All three relationships are verified."},
+    {"check":"classification_integrity","status":"passed","detail":"CR000292 is corrected from dataset to pretrained model/checkpoint collection. CR000293 and CR000294 remain dataset/data-source records."},
+    {"check":"license_verification","status":"passed","detail":"CR000293 has item-level CC BY-SA 3.0. No collection-level license is inferred for CR000292 and no item-level license is inferred from CR000294's public sharing."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"No model weight, MRI image, NIFTI archive, spreadsheet, HDF5 file, or other third-party content was downloaded, opened, unpacked, parsed, installed, or executed."},
+    {"check":"internal_reference_rule","status":"passed","detail":"Paper-internal reference [17] in Atlas paper 302 is used only as evidence for the exact Stage-1 URL and is not promoted to Atlas ID 17."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000295 was not processed in this checkpoint."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The three verified relationships and one bounded classification correction fit the established schema; no scientific review, manual review, schema change, or pause is required."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000050","PRL000051","PRL000060"],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B012 checkpoint 02 passes. B012 remains in progress and Stage 2 resumes at CR000295."
+}

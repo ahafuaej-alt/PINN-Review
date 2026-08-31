@@ -1,0 +1,92 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B009",
+  "checkpoint_id": "B009-C01",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000213",
+    "CR000214",
+    "CR000215",
+    "CR000216",
+    "CR000217"
+  ],
+  "next_resource_id": "CR000218",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "github_repositories_pinned": 3,
+    "web_resources_verified": 2,
+    "website_source_repositories_inspected": 2,
+    "linked_code_repositories_inspected": 1,
+    "relationship_records": 0,
+    "verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 1,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 4,
+    "verified_negative_license_findings": 0,
+    "not_applicable_aggregate_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "The first five B009 resources are CR000213 through CR000217; all five are processed exactly once. B009 remains in progress."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000036 resolves the CR000213 transfer from google/jax-md to jax-md/jax-md using immutable repository ID 186495365 without changing CR identity. No new resource identity is created for component or linked-code repositories."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "CR000213 through CR000217 have no Stage-1 Atlas-paper assertions, so no paper-resource relationship is created. Repository and project-site citations are not promoted to Atlas IDs."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "Three canonical public GitHub repositories are pinned to exact default-branch commits. The two web resources are verified live; their official website-source repositories and gradSim's directly linked code repository are separately pinned as supporting evidence."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "All five remain supporting software/library resources: differentiable molecular dynamics, TensorFlow/OpenFOAM integration, the aggregate SciML ecosystem, gradSim differentiable simulation/rendering, and differentiable CFD. None is misclassified as a PINN implementation."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "Apache-2.0, MIT, CC-BY-4.0 website-content licensing, and GPL-3.0-only are verified for CR000213, CR000214, CR000216, and CR000217 respectively. CR000215 receives no inferred ecosystem-wide SPDX value; the MIT website-source license is not propagated to SciML component packages. gradSim website licensing is not propagated to its separately linked code repository."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "Formal package or requirements evidence is present for the three canonical repositories and the linked gradSim code. SciML is an aggregate ecosystem without one component manifest. Bundled examples, cases, reference/sample data, models, archives, and paper assets are classified without execution, archive unpacking, or Stage-3 normalization."
+    },
+    {
+      "check": "primary_paper_and_internal_reference_rule",
+      "status": "passed",
+      "detail": "No Stage-1 Atlas-paper assertion is assigned to this checkpoint. Project citation metadata and publication lists remain resource metadata and are not converted into Atlas-paper relationships."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The repository transfer, aggregate-ecosystem boundary, website-versus-linked-code license boundary, and bundled-artifact classifications are representable within the established schema and require no new relationship type, stable-ID policy change, scientific-review item, or processing pause."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 0,
+    "verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 checkpoint 01 passes. B009 remains in progress and Stage 2 resumes at CR000218."
+}

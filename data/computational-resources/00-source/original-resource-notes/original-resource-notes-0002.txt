@@ -1,0 +1,170 @@
+Fast Iterative Method Python package: https://github.com/ThomasGrandits/fim_py (cited as Grandits, 2021) [835]
+https://gitlab.com/heartkor/scripts-2d-deformation-pinn [836]
+https://github.com/ignvenad/PINNs-for-IEEE-systems [843]
+https://gitlab.qdatalabs.com/open_source/applied_research_papers/pinns_astrophysical_shocks [852]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### NOT PINN
+
+
+https://github.com/mathieubeau/TF_Quantum/blob/main/Codes_for_TF_discrete_paper_arxiv_org_abs_2504_09571.ipynb  (Quantum Physics) [44]
+https://github.com/hse-scila/dif_equations_fine_tune/tree/main  [59]
+https://github.com/zhixuan1994/Time-Varying-Autoregressive-Model.git [135] not pinn but future work in pinn (finance)
+https://github.com/MaggieLieu/interpretable_ML_examples.git [151] not pinn but future work in pinn (Astronomy)
+https://github.com/SynodicMonth/ChebyKAN [262] not pinn
+https://github.com/utvone/airfoilVAEGAN [273] not pinn
+https://github.com/DLR-RM/TendonDrivenContinuum [300] not pinn but future work in pinn
+https://github.com/venkatesh-thiru/SuperRes [282] not pinn
+https://github.com/miljanmilos/CAD-Solid-Field [322] not pinn
+https://github.com/meghbali/WGImplicit [539] not pinn
+https://github.com/meghbali/ANNElastoplasticity [539] not pinn
+
+
+
+
+
+
+https://github.com/google/neural-tangents [509]
+https://github.com/Aalto-QuML/ClimODE [717]
+https://github.com/DLR-RM/TendonDrivenContinuum
+https://github.com/HamidrezaEiv
+
+https://github.com/JinshuaiBai/energy\_PIsNN\_Contact,
+https://github.com/KTH-FlowAI/Enhancement-of-PIV-via-PINNs
+https://github.com/KomorebiTso/MTA-UNet
+https://github.com/MaggieLieu/interpretable\_ML\_examples.git
+https://github.com/Parallel-in-Time/pyParareal
+https://github.com/SFETNI/PINNs\_MPF
+https://github.com/YUANLei2021/A-PINN
+https://github.com/aqibrahimbt?tab=repositories,
+https://github.com/bawalla2/JMLR-2024
+https://github.com/dyelax/Adversarial\_Video\_Generation,
+https://github.com/fastai/fastai/blob/master/fastai/callbacks/one\_cycle.py,
+https://github.com/fchollet/keras
+https://github.com/frank1010111/pywaterflood,
+https://github.com/fsahli/Delta-PINNs
+https://github.com/google-research/google-research/tree/master/jax\_dft
+https://github.com/google/jax-cfd
+https://github.com/heimy2000/GTS\_Forecaster
+https://github.com/imcs-compsim/pinns\_for\_comp\_mech
+https://github.com/miljanmilos/CAD-Solid-Field,
+https://github.com/ms140429/PIML\_Converter
+https://github.com/scikit-fmm/scikit-fmm
+https://github.com/viola1593/glacier\_pinn
+https://github.com/wang-fujin/BattNN,
+https://github.com/wanghui589/FENet
+https://github.com/xuesong-wu/PI-MPN
+https://github.com/xzhao399/DEM_TO.git.
+https://github.com/AdityaJoglekar/DMF-TONN
+https://github.com/jzhange/AAF-for-PINNs
+https://github.com/Steph-Yhf/NSFnets
+https://github.com/Scien42/NSFnet
+https://github.com/Steph-Yhf/PINNpapers     codes and Paper List
+https://github.com/Event-AHU/PINN_Paper_List    codes and Paper List
+https://github.com/idrl-lab/PINNpapers?tab=readme-ov-file#pinnpapers codes and Paper List
+https://github.com/maziarraissi/DeepHPMs
+https://github.com/fperiago/pinn_deeponet_for_beginners
+https://github.com/RishikeshRanade/modulus           PhysicsNeMo
+https://github.com/PredictiveIntelligenceLab/CausalPINNs
+https://github.com/PredictiveIntelligenceLab/MultiscalePINNs
+https://github.com/PredictiveIntelligenceLab/USNCCM15-Short-Course-Recent-Advances-in-Physics-Informed-Deep-Learning
+https://github.com/jdtoscano94/NABLA-SciML
+https://github.com/jdtoscano94/Instant-AIVT
+https://github.com/maximbeekenkamp/Physics-informed-DeepONets   Physics-informed-DeepONet
+https://github.com/lmandl/separable-PI-DeepONet       Separable Physics-Informed DeepONet: Breaking the Curse of Dimensionality in PINN
+https://github.com/maximbeekenkamp/SPINNs               Separable Physics Informed Neural Networks (SPINNs)
+https://github.com/maximbeekenkamp/PI-DeepONet         Separable Self-Adaptives PI-DeepONets
+https://github.com/lmandl/PITI-DeepONet   Physics-informed time-integrated DeepONet: Temporal tangent space operator learning for high-accuracy inference
+https://github.com/maryamTolou/Learning-Python-Physics-Informed-Machine-Learning-PINNs-DeepONets        Physics Informed Machine Learning Tutorials (Pytorch and Jax)
+https://github.com/hl4220/Extended-Physics-Informed-Neural-Operator     Extended-Physics-Informed-Deep-Neural-Operator
+https://github.com/Sunan-zhao/LESnets
+https://github.com/lu-group/pinn-thrombus-mri
+
+
+
+
+
+
+
+
+
+
+
+
+Software/Libraries mentioned:
+
+DeepXDE: Deep learning library for solving differential equations [839]
+SymPINN: Open-source library for neuro-symbolic integration [839]
+IBM Qiskit: Quantum computing framework for quantum-PINN prototypes [839]
+Open-source/computational tools mentioned:
+ANSYS Fluent: Used for LES data generation (72h) [839]
+
+
+
+
+
+
+Other Software/Libraries [836]:
+
+Ithildin library: finite difference time-stepper for reaction-diffusion problems (mentioned, no specific repository link provided) [836]
+FEniCS: finite element package for solving the Navier-Cauchy equations (https://fenicsproject.org/)[836] [752]
+
+
+
+Simulation and Deep Learning Frameworks
+
+PhiFlow: https://github.com/tum-pbs/phiflow
+
+Diff-Taichi: https://github.com/yuanming-hu/difftaichi
+
+Jax-Md: https://github.com/google/jax-md
+
+TensorFlow-Foam: https://github.com/argonne-lcf/TensorFlowFoam
+
+Julia-Sciml: https://sciml.ai
+
+GradSim: https://gradsim.github.io
+
+Jax-Cfd: https://github.com/google/jax-cfd
+
+Jax-Fluids: https://github.com/tumaer/JAXFLUIDS
+
+
+
+
+
+other:
+https://github.com/thunil/Physics-Based-Deep-Learning
+https://github.com/Event-AHU/PINN_Paper_List
+https://github.com/AndreWeiner/machine-learning-applied-to-cfd/blob/master/literature.md
+https://github.com/AI-in-Transportation-Lab/awesome-pinns/blob/main/readme.md
+https://github.com/labadt/multipinn
+What MULTIPINN provides:
+    Fully-connected, residual, Fourier-feature, dense, factorized and other neural-network architectures
+    PINN conditions for PDE residuals, boundary conditions and extra data
+    Static and adaptive point generators
+    Hydra-based experiment configuration
+    Training loops for standard, gradual and multi-GPU workflows
+    Built-in callbacks for logging, checkpoints and visualization
+    Support for mesh- and graph-based workflows
+https://www.sciencedirect.com/science/article/pii/S2590123026016178
+
+
+NeuroDiffEq in [510]
+TensorDiffEq in [541]
+
+The paper [367] references the following software repositories:
+
+    DeepXDE: https://github.com/lululxvi/deepxde (referenced in [100]) from [367]

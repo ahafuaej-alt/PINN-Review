@@ -1,0 +1,20 @@
+{
+  "format": "table-v1-sharded",
+  "record_type": "computational_resource_stage1",
+  "columns": [
+    "resource_id","canonical_url","host","resource_type","owner","repository","preliminary_classification","classification_candidates","atlas_reference_ids","source_sections","source_lines","verification_status","ready_for_publication"
+  ],
+  "total_records": 357,
+  "shard_size": 40,
+  "shards": [
+    {"file":"resources-0001.json","records":40,"first_row":1,"last_row":40},
+    {"file":"resources-0002.json","records":40,"first_row":41,"last_row":80},
+    {"file":"resources-0003.json","records":40,"first_row":81,"last_row":120},
+    {"file":"resources-0004.json","records":40,"first_row":121,"last_row":160},
+    {"file":"resources-0005.json","records":40,"first_row":161,"last_row":200},
+    {"file":"resources-0006.json","records":40,"first_row":201,"last_row":240},
+    {"file":"resources-0007.json","records":40,"first_row":241,"last_row":280},
+    {"file":"resources-0008.json","records":40,"first_row":281,"last_row":320},
+    {"file":"resources-0009.json","records":37,"first_row":321,"last_row":357}
+  ]
+}

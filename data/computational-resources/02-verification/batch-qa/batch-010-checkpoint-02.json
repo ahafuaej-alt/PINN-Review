@@ -1,0 +1,91 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B010",
+  "checkpoint_id": "B010-C02",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000244",
+    "CR000245",
+    "CR000246",
+    "CR000247",
+    "CR000248"
+  ],
+  "next_resource_id": "CR000249",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "web_resources_verified": 3,
+    "github_repository_records": 2,
+    "direct_repository_snapshots_pinned": 2,
+    "linked_official_repository_snapshots_pinned": 2,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 2,
+    "manual_review_records": 0,
+    "verified_or_qualified_license_findings": 4,
+    "bounded_unknown_snapshot_fields": 2
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000244 through CR000248 are the next five unprocessed Stage-1 resources after B010-C01 and are each processed exactly once."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000048 preserves CR000245 across the Arcade Learning Environment repository transfer using immutable GitHub repository ID 5816654. VA000049 retains CR000248 across the official HKUST profile-host redirect. No CR or PRL identifier was changed."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000105, PRL000275, PRL000277, PRL000283, and PRL000284 are verified from their primary review/paper evidence and current canonical project or repository evidence."
+    },
+    {
+      "check": "resource_identity_and_classification",
+      "status": "passed",
+      "detail": "TensorFlow, Arcade Learning Environment, Darknet, Bolt, and Yin Zhu's software-download/profile index remain supporting or secondary-source resources. Darknet is explicitly bounded as supporting framework software rather than the Mish paper's official code repository."
+    },
+    {
+      "check": "snapshot_and_metadata_integrity",
+      "status": "passed",
+      "detail": "Arcade Learning Environment and Bolt are pinned directly to exact default-branch commits. TensorFlow and Darknet web resources use exact pinned snapshots of their directly linked official source repositories, with repository-scoped metadata labeled accordingly."
+    },
+    {
+      "check": "license_citation_dependency_dataset_boundary",
+      "status": "passed",
+      "detail": "Apache-2.0, GPL-2.0-only, a custom public-domain dedication, and BSD-3-Clause are supported by exact official source files. CR000248's linked ZIP was not unpacked, so its archive-internal license and dependency fields remain explicit bounded unknowns. Runtime/test/sample assets are not misclassified as standalone research datasets."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code, ROM, binary, model, or test was executed; no archive was unpacked; no external dataset or weight was downloaded; and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The repository transfers, project-site/source boundaries, supporting-software relationship, and uninspected archive boundary fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000105",
+      "PRL000275",
+      "PRL000277",
+      "PRL000283",
+      "PRL000284"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B010 checkpoint 02 passes. B010 remains in progress and Stage 2 resumes at CR000249."
+}

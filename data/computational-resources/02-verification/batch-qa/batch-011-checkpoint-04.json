@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B011",
+  "checkpoint_id": "B011-C04",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000277",
+    "CR000278",
+    "CR000279"
+  ],
+  "next_resource_id": "CR000280",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "github_repositories_pinned": 0,
+    "linked_supporting_github_repositories_pinned": 0,
+    "web_or_data_records_verified": 3,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "alias_records": 0,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 1,
+    "verified_negative_license_findings": 0,
+    "verified_non_spdx_terms_findings": 1,
+    "bounded_unknown_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 1
+  },
+  "checks": [
+    {"check": "checkpoint_membership", "status": "passed", "detail": "CR000277, CR000278, and CR000279 are the next three unprocessed Stage-1 resources after B011-C03 and are each processed exactly once."},
+    {"check": "stable_identifier_policy", "status": "passed", "detail": "Existing resource IDs CR000277-CR000279 and authoritative Stage-1 relationship IDs PRL000028, PRL000029, and PRL000031 are preserved. No alias, replacement CR identity, or new relationship ID is introduced."},
+    {"check": "relationship_accounting", "status": "passed", "detail": "Primary papers 144, 146, and 153 independently state the exact Stage-1 data locations for CR000277, CR000278, and CR000279 respectively. Existing Stage-1 relationships PRL000028, PRL000029, and PRL000031 are all verified."},
+    {"check": "repository_snapshot_pinning", "status": "passed", "detail": "All three primary resources are dataset/web records rather than version-control repositories; repository branch and commit pinning fields are therefore not applicable."},
+    {"check": "classification_integrity", "status": "passed", "detail": "All three resources remain dataset_or_data_source records. Upstream dataset metadata, platform identity, product documentation, and paper-data relationships do not convert them into PINN implementations or software resources."},
+    {"check": "license_verification", "status": "passed", "detail": "CR000277 has a verified CC-BY-4.0 license at the authoritative upstream UCI dataset, explicitly scoped so the Kaggle mirror's item-level license is not overclaimed. CR000278 has no independently verified item-level dataset license and remains bounded unknown. CR000279 is governed by verified Copernicus Marine Service terms preserved as non-SPDX."},
+    {"check": "dependency_and_dataset_boundary", "status": "passed", "detail": "No software dependency manifest is invented for any dataset resource. No external dataset, data file, model, notebook, archive, or third-party code was downloaded, opened, parsed, unpacked, installed, subsetted, or executed."},
+    {"check": "bounded_uncertainty", "status": "passed", "detail": "CR000278's exact EIRIE item URL is verified from the primary paper, while direct endpoint transport/current item-level access semantics, standalone dataset citation, and item-level license remain explicit bounded unknowns rather than guessed values. CR000277's mirror-vs-upstream license scope is also explicit."},
+    {"check": "internal_reference_rule", "status": "passed", "detail": "Atlas IDs 144, 146, and 153 and PRL IDs PRL000028, PRL000029, and PRL000031 come from the authoritative Stage-1 registries. No paper-internal bibliography number is promoted to an Atlas ID."},
+    {"check": "next_resource_boundary", "status": "passed", "detail": "CR000280, the separate Copernicus Marine Black Sea sea-level indicator DOI 10.48670/moi-00215 linked to Atlas paper 153, was not processed in this checkpoint."},
+    {"check": "stop_condition_scan", "status": "passed", "detail": "Three verified dataset identities/locations, three existing verified paper-dataset relationships, one scoped upstream SPDX license, one bounded-unknown item license, and one custom service-terms finding fit the established Stage-2 schema. No new relationship type, stable-ID policy issue, scientific-review item, ordinary manual-review item, or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": ["PRL000028", "PRL000029", "PRL000031"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B011 checkpoint 04 passes. B011 remains in progress and Stage 2 resumes at CR000280."
+}

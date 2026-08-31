@@ -1,0 +1,20 @@
+{
+  "schema_version":"2.0.0-pilot","report_type":"stage2_incremental_checkpoint_qa","batch_id":"B014","checkpoint_id":"B014-C03","verification_date":"2026-08-30","status":"passed","batch_completed":false,"stop_condition_triggered":false,"stop_condition_reason":null,
+  "checkpoint_resource_ids":["CR000345","CR000346","CR000347"],"next_resource_id":"CR000348","next_logical_batch":"B014",
+  "counts":{"expected_new_resources":3,"resource_records":3,"availability_records":3,"currently_available_resources":2,"historical_or_bounded_current_availability_resources":1,"relationship_records":3,"verified_relationship_records":3,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":3,"manual_review_records":0,"verified_non_spdx_terms_findings":0,"verified_spdx_license_findings":1,"bounded_unknown_license_findings":2,"canonical_url_corrections":1,"classification_corrections":2,"relationship_type_corrections":2,"new_alias_records":0},
+  "batch_totals":{"planned_resources":19,"processed_resources":9,"relationship_records":9,"verified_relationship_records":9,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":9,"new_alias_records":1,"manual_review_records":0},
+  "checks":[
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000345-CR000347 are the exact next three B014 resources after reconstructing the advanced B014-C02 checkpoint."},
+    {"check":"relationship_accounting","status":"passed","detail":"All three paper-resource relationships are directly verified; PRL000325 and PRL000329 have evidence-based relationship-type corrections."},
+    {"check":"classification_policy","status":"passed","detail":"CR000346 is an institutional research/data source and CR000347 is scientific software; neither is retained as a dataset merely because Stage 1 placed it in the dataset section."},
+    {"check":"canonical_url_policy","status":"passed","detail":"CR000346 is normalized from fclab.fr to the current official https://www.fclab.fr/ host; Stage-1 identity remains in provenance."},
+    {"check":"license_verification","status":"passed","detail":"WSClean GPL-3.0-only is explicit. CR000345 and CR000346 remain bounded unknown for resource-level reuse terms; open/public status is not treated as licensing."},
+    {"check":"availability_boundary","status":"passed","detail":"CR000345 historical identity is verified but exact current legacy landing retrieval remains bounded; CR000346 and CR000347 are currently public."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No challenge archive, fuel-cell data file, repository clone, build, installation or software execution occurred."},
+    {"check":"stage3_boundary","status":"passed","detail":"No exact data-field/preprocessing, dependency-version, WSClean-option or experiment-reproduction extraction was performed."},
+    {"check":"repository_scope","status":"passed","detail":"All checkpoint changes are confined to data/computational-resources/."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000348 is not processed."}
+  ],
+  "relationship_accounting":{"stage1_link_count":3,"verified_link_ids":["PRL000324","PRL000325","PRL000329"],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion":"B014 checkpoint 03 passes. B014 resumes at CR000348."
+}

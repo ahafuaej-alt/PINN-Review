@@ -1,0 +1,89 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B010",
+  "checkpoint_id": "B010-C01",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000239",
+    "CR000240",
+    "CR000241",
+    "CR000242",
+    "CR000243"
+  ],
+  "next_resource_id": "CR000244",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "web_resources_verified": 4,
+    "superseded_alias_resource_records": 2,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 4,
+    "manual_review_records": 0,
+    "not_applicable_delegated_license_findings": 5,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000239 through CR000243 are the next five unprocessed Stage-1 resources after completed B009 and are each processed exactly once."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000044 resolves the NeuroDiffCym owner typo to canonical CR000137, VA000045 records the NeuralPDE documentation move, VA000046 corrects the wrong-project SciANN URL, and VA000047 resolves the SimNet hostname typo and official product rename without changing accepted CR identities."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000100 through PRL000104 are verified from Atlas review paper 401 Related Links plus current official project/documentation evidence and existing canonical resource records."
+    },
+    {
+      "check": "resource_identity_and_classification",
+      "status": "passed",
+      "detail": "CR000239 and CR000243 are superseded aliases. CR000240 and CR000242 are PINN-framework documentation resources, while CR000241 is supporting deep-learning-framework documentation. Canonical technical metadata remain on CR000137, CR000227, CR000049, CR000062, and CR000223."
+    },
+    {
+      "check": "source_url_correction_integrity",
+      "status": "passed",
+      "detail": "The Stage-1 SciANN URL resolves to Scientific American and is corrected from the primary paper. The Stage-1 SimNet hostname is plural while the paper gives the singular NVIDIA developer hostname, whose official URL redirects to PhysicsNeMo. Both observations are encoded without inference beyond official evidence."
+    },
+    {
+      "check": "license_citation_dependency_dataset_boundary",
+      "status": "passed",
+      "detail": "No repository-level license, citation, dependency, dataset, or example metadata are duplicated onto alias or documentation resources; canonical findings remain on the established repository/project resources."
+    },
+    {
+      "check": "stage3_boundary",
+      "status": "passed",
+      "detail": "No third-party code was executed, no archive or model asset was unpacked, no external dataset was downloaded, and no Stage-3 normalization was performed."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The four URL/identity resolutions and five secondary-review relationships fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000100",
+      "PRL000101",
+      "PRL000102",
+      "PRL000103",
+      "PRL000104"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B010 checkpoint 01 passes. B010 remains in progress and Stage 2 resumes at CR000244."
+}

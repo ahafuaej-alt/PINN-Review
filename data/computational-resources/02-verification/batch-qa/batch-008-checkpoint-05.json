@@ -1,0 +1,90 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B008",
+  "checkpoint_id": "B008-C05",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": true,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000208",
+    "CR000209",
+    "CR000210",
+    "CR000211",
+    "CR000212"
+  ],
+  "next_resource_id": "CR000213",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "github_repositories_pinned": 4,
+    "web_resources_verified": 1,
+    "relationship_records": 2,
+    "verified_relationship_records": 2,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 2,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 1,
+    "verified_negative_license_findings": 3,
+    "not_applicable_aggregate_license_findings": 1,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "The five remaining B008 resources are CR000208 through CR000212; all five are processed exactly once and B008 is now complete."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "CR000208 remains distinct from upstream CR000202 because GitHub immutable repository IDs differ; VA000034 records the fork distinction. VA000035 resolves the CR000212 repository transfer to taichi-dev/difftaichi without changing CR identity."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "Both Stage-1 assertions for CR000210 are verified from the correct primary papers: PRL000268 for Atlas paper 752 and PRL000321 for Atlas paper 836. CR000208, CR000209, CR000211, and CR000212 have no Stage-1 Atlas-paper assertions."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "Four public GitHub repositories are pinned to exact observed default-branch commits. CR000210 is a public project website and has no repository commit field."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "CR000208 remains a tutorial/code collection; CR000209 remains physics-informed operator learning; CR000210, CR000211, and CR000212 remain supporting software/libraries. No PINN classification is inferred for general differentiable-simulation or finite-element software."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "CR000211 has a verified MIT License. CR000208, CR000209, and CR000212 have verified-negative repository-license findings. CR000210 is an aggregate FEniCS/FEniCSx project website, so no single site-level SPDX license is inferred across its component projects."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "CR000208 and CR000209 have no formal manifests; CR000210 is an aggregate component platform; CR000211 has setup.py and a PhiML submodule; CR000212 has requirements.txt. Bundled tutorial/example data and external dataset links are recorded without execution, archive unpacking, external downloads, or Stage-3 normalization."
+    },
+    {
+      "check": "primary_paper_and_internal_reference_rule",
+      "status": "passed",
+      "detail": "Paper 752 directly compares PINN results with FEniCS finite-element solutions, and paper 836 explicitly states that FEniCSx solved the Navier-Cauchy equations. No paper-internal reference is promoted to an Atlas ID."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "Fork identity, repository transfer, aggregate-project licensing, both software-mention relationships, and dependency/data boundaries are representable within the established schema and require no new relationship type, stable-ID policy change, scientific-review item, or processing pause."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 2,
+    "verified_link_ids": ["PRL000268", "PRL000321"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B008 checkpoint 05 passes. B008 is complete and Stage 2 resumes with B009 at CR000213."
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B009",
+  "checkpoint_id": "B009-C03",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": [
+    "CR000223",
+    "CR000224",
+    "CR000225",
+    "CR000226",
+    "CR000227"
+  ],
+  "next_resource_id": "CR000228",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "canonical_github_repositories_pinned": 1,
+    "web_resources_verified": 1,
+    "linked_source_repositories_pinned": 1,
+    "superseded_or_alias_resource_records": 3,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "new_alias_records": 3,
+    "accepted_alias_records_reused": 1,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 2,
+    "not_applicable_alias_license_findings": 3,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {
+      "check": "checkpoint_membership",
+      "status": "passed",
+      "detail": "CR000223 through CR000227 are processed exactly once. B009 remains in progress."
+    },
+    {
+      "check": "stable_identifier_policy",
+      "status": "passed",
+      "detail": "VA000037 retains CR000223 across the official Modulus-to-PhysicsNeMo product rename. VA000038 maps pointer CR000224 to canonical SciANN CR000062; accepted VA000002 maps CR000225 to canonical NeuroDiffEq CR000137; VA000039 maps CR000226 to canonical PyDEns CR000057. CR000227 remains distinct. No canonical metadata are duplicated."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "PRL000079 through PRL000083 are all verified from Atlas review paper 367's software overview and dedicated subsections for Modulus, SciANN, NeuroDiffEq, PyDEns, and NeuralPDE.jl. Link IDs and Stage-1 resource IDs are preserved, with canonical-resource provenance on alias records."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "Canonical NeuralPDE.jl is pinned to its exact master commit. The official PhysicsNeMo page is live and its directly linked source repository is pinned. The SciANN pointer is pinned to its sole README commit; the NeuroDiffEq and PyDEns alias paths are bounded 404s resolved to already verified canonical resources."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "CR000223 and CR000227 remain PINN-capable framework/library resources. CR000224, CR000225, and CR000226 are provenance-preserving superseded aliases rather than duplicate software identities."
+    },
+    {
+      "check": "license_verification",
+      "status": "passed",
+      "detail": "Apache-2.0 is verified for the current PhysicsNeMo source and MIT for NeuralPDE.jl from exact text despite API NOASSERTION. Alias/pointer records receive no propagated license; canonical license evidence remains on CR000062, CR000137, and CR000057."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "PhysicsNeMo has core and example-specific manifests plus extensive heterogeneous framework-support assets and external-data workflows. NeuralPDE.jl has Julia package/docs/QA manifests, documentation examples, and tests without a bundled research dataset. Alias records delegate technical metadata to canonical resources. Nothing was executed or downloaded."
+    },
+    {
+      "check": "primary_paper_and_internal_reference_rule",
+      "status": "passed",
+      "detail": "Atlas paper 367 itself supplies the five software descriptions. Its internal references 123, 55, 28, 84, and 137 are retained only as source provenance and are not promoted to Atlas IDs."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The official product rename, pointer/alias identities, five secondary-review relationships, scoped licenses, and static artifact boundaries fit the established schema. No stable-ID policy change, new relationship type, scientific-review item, ordinary manual-review item, or processing pause is required."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": [
+      "PRL000079",
+      "PRL000080",
+      "PRL000081",
+      "PRL000082",
+      "PRL000083"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 checkpoint 03 passes. B009 remains in progress and Stage 2 resumes at CR000228."
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B001",
+  "verification_date": "2026-08-26",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records_created": 24,
+    "availability_records_reused_from_pilot": 1,
+    "github_repositories_pinned": 20,
+    "new_relationship_records": 23,
+    "stage1_relationships_accounted": 24,
+    "alias_records_created": 5,
+    "evidence_records": 48,
+    "manual_review_records": 1,
+    "verified_negative_license_findings": 11
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned resource IDs are present once and in batch order."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All batch JSONL records parse and contain their required stable subject identifiers."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "No new CR ID was required; moved or renamed repositories retain their existing CR identity."
+    },
+    {
+      "check": "relationship_type_coverage",
+      "status": "passed",
+      "detail": "All verified links use existing relationship types: official, supplementary_code, paper_dataset_mention, or paper_software_mention."
+    },
+    {
+      "check": "unsupported_relationship_prevention",
+      "status": "passed",
+      "detail": "No relationship was promoted beyond the direct paper/repository evidence. The CR000021 alias does not create a duplicate PRL."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All 20 live GitHub repositories are pinned to the observed default-branch commit."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Eleven repositories have a verified negative license finding; no license was inferred."
+    },
+    {
+      "check": "archive_stage_boundary",
+      "status": "passed",
+      "detail": "CR000022 and CR000023 archive internals remain deferred to Stage 3."
+    },
+    {
+      "check": "ordinary_manual_review_continuation",
+      "status": "passed",
+      "detail": "CR000001 is marked requires_manual_review=true without blocking the batch."
+    },
+    {
+      "check": "identity_alias_integrity",
+      "status": "passed",
+      "detail": "Five URL normalizations are recorded as aliases without creating duplicate resource identities."
+    },
+    {
+      "check": "pilot_evidence_id_format_repair",
+      "status": "passed",
+      "detail": "The malformed pilot evidence token S2E2000035 is mechanically corrected to S2E000035; no subject identity or scientific assertion changes."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 24,
+    "new_verified_link_ids": [
+      "PRL000006",
+      "PRL000014",
+      "PRL000016",
+      "PRL000017",
+      "PRL000018",
+      "PRL000020",
+      "PRL000025",
+      "PRL000027",
+      "PRL000037",
+      "PRL000038",
+      "PRL000041",
+      "PRL000042",
+      "PRL000043",
+      "PRL000045",
+      "PRL000046",
+      "PRL000053",
+      "PRL000054",
+      "PRL000063",
+      "PRL000066",
+      "PRL000070",
+      "PRL000071",
+      "PRL000072",
+      "PRL000073"
+    ],
+    "canonical_existing_links": [
+      {
+        "stage1_link_id": "PRL000062",
+        "stage1_resource_id": "CR000021",
+        "canonical_resource_id": "CR000184",
+        "canonical_link_id": "PRL000332",
+        "alias_id": "VA000001"
+      }
+    ]
+  },
+  "manual_review": [
+    {
+      "resource_id": "CR000001",
+      "reason": "The Stage-1 PINA documentation fragment returns 404; the live project remains available and the canonical URL normalization choice is non-urgent.",
+      "scientific_consequence": "none; no Atlas-paper relationship is attached",
+      "continue_processing": true
+    }
+  ],
+  "qa_conclusion": "Batch 001 passes. No schema, relationship-type, stable-ID-policy, or unrepresentable-evidence stop condition was found."
+}

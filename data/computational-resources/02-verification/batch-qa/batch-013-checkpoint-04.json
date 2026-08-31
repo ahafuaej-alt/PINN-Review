@@ -1,0 +1,63 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B013",
+  "checkpoint_id": "B013-C04",
+  "verification_date": "2026-08-29",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000323", "CR000324", "CR000325"],
+  "next_resource_id": "CR000326",
+  "next_logical_batch": "B013",
+  "counts": {
+    "expected_new_resources": 3,
+    "resource_records": 3,
+    "availability_records": 3,
+    "currently_available_resources": 3,
+    "relationship_records": 3,
+    "verified_relationship_records": 3,
+    "explicit_not_verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 3,
+    "manual_review_records": 0,
+    "verified_non_spdx_terms_findings": 0,
+    "verified_spdx_license_findings": 1,
+    "bounded_unknown_license_findings": 2,
+    "canonical_url_corrections": 1,
+    "classification_corrections": 0
+  },
+  "batch_totals": {
+    "planned_resources": 25,
+    "processed_resources": 12,
+    "relationship_records": 12,
+    "verified_relationship_records": 12,
+    "explicit_not_verified_relationship_records": 0,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 12,
+    "new_alias_records": 0,
+    "manual_review_records": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000323, CR000324 and CR000325 are the exact next three unprocessed resources and are each processed once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"CR000323-CR000325 and PRL000211, PRL000215 and PRL000221 are preserved without renumbering."},
+    {"check":"canonical_url_policy","status":"passed","detail":"CR000324 Stage-1 DOI 10.4224/PhysRevA.96.042113 is retained in provenance while canonical identity is corrected to the primary-paper data DOI 10.4224/PhysRevA.96.042113.data."},
+    {"check":"relationship_accounting","status":"passed","detail":"All three paper_dataset_mention assertions are independently verified from primary-paper statements/citations and official or persistent resource evidence."},
+    {"check":"license_verification","status":"passed","detail":"CR000325 has repository-verified CC-BY-NC-SA-4.0; CR000323 and CR000324 retain bounded-unknown dataset/collection licences. No publication licence is transferred by inference."},
+    {"check":"bounded_uncertainty","status":"passed","detail":"Figshare collection landing metadata access limitation, CR000324 current resolver target/file inventory and the two unverified dataset licences remain explicit bounded unknowns; unknown is not converted to false."},
+    {"check":"resource_separation","status":"passed","detail":"CR000323 is the Figshare data collection and is not conflated with the separate defect-design GitHub code repository mentioned by the paper."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No Figshare/NRC/Cambridge dataset payload, archive, HDF5/MAT file, MATLAB code, notebook or third-party software was downloaded, installed or executed."},
+    {"check":"stage3_boundary","status":"passed","detail":"No architecture, dependency-version, preprocessing, numerical-generation or training normalization and no experiment reproduction was performed."},
+    {"check":"repository_scope","status":"passed","detail":"All checkpoint changes are confined to data/computational-resources/. No live Atlas, public software/datasets pages, deployment or main-branch content is modified."},
+    {"check":"next_resource_boundary","status":"passed","detail":"CR000326 is not processed. Stage 2 resumes at CR000326."},
+    {"check":"stop_condition_scan","status":"passed","detail":"No concurrent-writer conflict, new scientific-review item, ordinary manual-review item, schema change or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 3,
+    "verified_link_ids": ["PRL000211", "PRL000215", "PRL000221"],
+    "explicit_not_verified_link_ids": [],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B013 checkpoint 04 passes. B013 remains in progress and Stage 2 resumes at CR000326."
+}

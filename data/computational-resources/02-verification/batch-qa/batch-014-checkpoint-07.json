@@ -1,0 +1,33 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B014",
+  "checkpoint_id": "B014-C07",
+  "verification_date": "2026-08-30",
+  "status": "passed",
+  "batch_completed": true,
+  "stage2_resource_processing_complete": true,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000357"],
+  "next_resource_id": null,
+  "next_logical_batch": null,
+  "counts": {"expected_new_resources":1,"resource_records":1,"availability_records":1,"currently_available_resources":1,"relationship_records":0,"verified_relationship_records":0,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":1,"manual_review_records":0,"verified_non_spdx_terms_findings":0,"verified_spdx_license_findings":0,"bounded_unknown_license_findings":1,"canonical_url_corrections":0,"classification_corrections":1,"relationship_type_corrections":0,"new_alias_records":0},
+  "batch_totals": {"planned_resources":19,"processed_resources":19,"relationship_records":23,"verified_relationship_records":23,"explicit_not_verified_relationship_records":0,"bounded_unverified_relationship_records":0,"evidence_records":19,"new_alias_records":3,"manual_review_records":0},
+  "stage2_completion_totals": {"completed_stage1_resources":357,"remaining_stage1_resources":0,"completed_stage1_prl_assertions":331,"pending_stage1_prl_assertions":0,"verified_relationship_records":318,"explicit_not_verified_relationship_records":13,"completed_expansion_batches":14,"expansion_resources_processed":344,"pending_expansion_resources":0,"expansion_relationships_verified":301,"promoted_resource_ids":["CR000358"],"scientific_review_items_retained":2,"ordinary_manual_review_resources_retained":15},
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000357 is the single exact remaining Stage-1 resource and is processed once."},
+    {"check":"relationship_accounting","status":"passed","detail":"CR000357 has no Stage-1 Atlas ID or PRL assertion; zero relationship records is therefore the correct accounting and no relationship is invented."},
+    {"check":"classification_policy","status":"passed","detail":"CR000357 is corrected from dataset_or_data_source to educational_technical_tutorial based on the canonical resource content."},
+    {"check":"license_verification","status":"passed","detail":"No explicit reusable-content/SPDX licence is verified for the post; licensing remains bounded unknown rather than inferred from public availability."},
+    {"check":"bounded_uncertainty","status":"passed","detail":"Unknown content licensing remains explicit and does not block completion of static resource verification."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No software, repository, model, dataset or executable payload was downloaded, installed or run."},
+    {"check":"repository_scope","status":"passed","detail":"All checkpoint changes are confined to data/computational-resources/. No live Atlas, deployment or main-branch content is modified."},
+    {"check":"stage1_resource_completion","status":"passed","detail":"All Stage-1 resources CR000001-CR000357 have now been processed; promoted CR000358 remains separately accounted for."},
+    {"check":"stage1_relationship_completion","status":"passed","detail":"All 331 Stage-1 PRL assertions are accounted for: 318 verified and 13 explicitly not_verified."},
+    {"check":"retained_review_registers","status":"passed","detail":"Two scientific-review items and 15 ordinary manual-review resources remain explicitly retained in their existing registers; Stage-2 resource processing completion does not falsely resolve them."},
+    {"check":"stop_condition_scan","status":"passed","detail":"No concurrent-writer conflict, new scientific-review item, ordinary manual-review item or schema change requires a pause."}
+  ],
+  "relationship_accounting": {"stage1_link_count":0,"verified_link_ids":[],"explicit_not_verified_link_ids":[],"bounded_unverified_link_ids":[]},
+  "qa_conclusion": "B014 checkpoint 07 passes. B014 is complete and all Stage-1 computational resources have been processed in Stage 2 static verification."
+}

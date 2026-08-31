@@ -1,0 +1,47 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_incremental_checkpoint_qa",
+  "batch_id": "B009",
+  "checkpoint_id": "B009-C05",
+  "verification_date": "2026-08-28",
+  "status": "passed",
+  "batch_completed": false,
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "checkpoint_resource_ids": ["CR000233", "CR000234", "CR000235", "CR000236", "CR000237"],
+  "next_resource_id": "CR000238",
+  "record_storage": "checkpoint-specific Stage-2 JSONL files under the existing verification categories; record schemas and stable identifiers are unchanged",
+  "counts": {
+    "expected_new_resources": 5,
+    "resource_records": 5,
+    "availability_records": 5,
+    "github_repositories_pinned": 2,
+    "relationship_records": 5,
+    "verified_relationship_records": 5,
+    "bounded_unverified_relationship_records": 0,
+    "evidence_records": 5,
+    "alias_records": 2,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 1,
+    "verified_negative_license_findings": 1,
+    "not_applicable_profile_or_alias_license_findings": 3,
+    "bounded_unknown_snapshot_fields": 0
+  },
+  "checks": [
+    {"check":"checkpoint_membership","status":"passed","detail":"CR000233 through CR000237 are the next five unprocessed Stage-1 resources after B009-C04 and are each processed exactly once."},
+    {"check":"stable_identifier_policy","status":"passed","detail":"VA000042 corrects the ADCME documentation hostname and VA000043 corrects the DeepXDE documentation hostname without changing CR identity. CR000235 remains a distinct profile resource pointing to canonical CR000230."},
+    {"check":"relationship_accounting","status":"passed","detail":"PRL000089, PRL000145, PRL000146, PRL000097, and PRL000098 are all verified from the applicable primary review papers and canonical project evidence."},
+    {"check":"repository_snapshot_pinning","status":"passed","detail":"CR000233 and CR000234 are pinned to exact default-branch commits. CR000235 is a profile resource; CR000236 and CR000237 are documentation resources and therefore do not receive repository commit SHAs."},
+    {"check":"classification_integrity","status":"passed","detail":"GPyTorch and NeuralUQ remain supporting libraries rather than standalone PINN solvers; the TensorDiffEq profile remains a profile resource; ADCME and DeepXDE documentation resources retain their canonical project links."},
+    {"check":"license_verification","status":"passed","detail":"MIT is verified for GPyTorch. NeuralUQ receives a verified-negative repository-license finding. Profile/documentation resources receive no duplicated or inferred project-license values."},
+    {"check":"dependency_and_dataset_boundary","status":"passed","detail":"Formal package metadata are recorded for GPyTorch and NeuralUQ. Bundled example datasets, pretrained models, archives, and test assets are recorded statically; none was executed, downloaded, or unpacked."},
+    {"check":"internal_reference_rule","status":"passed","detail":"Internal reference numbers from papers 367, 495, and 401 are retained only as provenance and are not promoted to Atlas IDs."},
+    {"check":"stop_condition_scan","status":"passed","detail":"The two source-URL corrections, one profile-to-canonical pointer, five secondary-review relationships, and license/data/dependency findings fit the established schema. No new relationship type, stable-ID policy change, manual-review item, scientific-review item, or processing pause is required."}
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 5,
+    "verified_link_ids": ["PRL000089", "PRL000145", "PRL000146", "PRL000097", "PRL000098"],
+    "bounded_unverified_link_ids": []
+  },
+  "qa_conclusion": "B009 checkpoint 05 passes. B009 remains in progress and Stage 2 resumes at CR000238."
+}

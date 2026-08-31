@@ -1,0 +1,88 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "manifest_type": "stage2_authoritative_closure",
+  "verification_date": "2026-08-31",
+  "historical_planning_manifest": "02-verification/batch-qa/batch-manifest.json",
+  "historical_planning_manifest_status": "retained_for_audit_not_authoritative_for_current_completion_state",
+  "batch_count": 14,
+  "completed_batches": [
+    "B001",
+    "B002",
+    "B003",
+    "B004",
+    "B005",
+    "B006",
+    "B007",
+    "B008",
+    "B009",
+    "B010",
+    "B011",
+    "B012",
+    "B013",
+    "B014"
+  ],
+  "all_batch_qa_passed": true,
+  "stage1": {
+    "resource_count": 357,
+    "processed_resource_count": 357,
+    "remaining_resource_count": 0,
+    "prl_assertion_count": 331,
+    "verified_relationship_count": 325,
+    "resolved_invalid_assertion_count": 6,
+    "active_unresolved_relationship_count": 0
+  },
+  "post_stage1_discoveries": {
+    "promoted_pilot_resource_ids": [
+      "CR000358"
+    ],
+    "user_report_resource_ids": [
+      "CR000359",
+      "CR000360",
+      "CR000361",
+      "CR000362"
+    ],
+    "review_closure_resource_ids": [
+      "CR000363",
+      "CR000364"
+    ],
+    "pilot_added_relationship_ids": [
+      "PRL000332"
+    ],
+    "user_report_added_relationship_ids": [
+      "PRL000333"
+    ],
+    "review_closure_added_relationship_ids": []
+  },
+  "overlays": [
+    {
+      "id": "Stage2-R01",
+      "status": "passed",
+      "purpose": "historical relationship resolution"
+    },
+    {
+      "id": "Stage2-URR01",
+      "status": "passed",
+      "purpose": "user-report resource discovery reconciliation"
+    },
+    {
+      "id": "Stage2-RC01",
+      "status": "passed",
+      "purpose": "scientific and manual review closure"
+    }
+  ],
+  "current_resource_registry": {
+    "resource_count": 364,
+    "resource_id_range": "CR000001–CR000364"
+  },
+  "remaining_review_registers": {
+    "scientific_review_items": 0,
+    "ordinary_manual_review_resources": 0,
+    "status": "closed",
+    "automatic_stage3_blocker": false
+  },
+  "stage2_resource_processing_complete": true,
+  "stage2_user_report_reconciliation_complete": true,
+  "stage2_review_closure_complete": true,
+  "next_stage_handoff_ready": true,
+  "authoritative_checkpoint": "Stage2-RC01"
+}

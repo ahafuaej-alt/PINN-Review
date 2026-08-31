@@ -1,0 +1,148 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B003",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repositories_pinned": 23,
+    "gitlab_resources_verified": 1,
+    "unavailable_repositories": 1,
+    "relationship_records": 31,
+    "verified_relationship_records": 29,
+    "bounded_unverified_relationship_records": 2,
+    "stage1_relationships_accounted": 31,
+    "alias_records_created": 4,
+    "evidence_records": 56,
+    "manual_review_records": 3,
+    "verified_positive_license_findings": 14,
+    "verified_negative_license_findings": 10,
+    "bounded_unknown_license_findings": 1,
+    "conflicting_license_documentation_records": 1
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned resource IDs are present once and in batch order."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All batch JSONL records parse and contain required stable identifiers."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "Four URL corrections retain their existing CR identities; no new stable ID was required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 31 Stage-1 assertions are represented: 29 verified and two explicitly not_verified."
+    },
+    {
+      "check": "unsupported_relationship_prevention",
+      "status": "passed",
+      "detail": "PRL000163 and PRL000167 remain not_verified with manual-review flags."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "All 23 live GitHub repositories are pinned to observed default-branch commits."
+    },
+    {
+      "check": "gitlab_bounded_snapshot",
+      "status": "passed",
+      "detail": "CR000063 project identity, README, master branch, and paper program summary are verified; commit SHA remains an explicit unknown."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Ten repositories have verified negative findings and CR000076 remains unknown because the repository is unavailable."
+    },
+    {
+      "check": "conflicting_license_evidence",
+      "status": "passed",
+      "detail": "CR000062 exact MIT license text and conflicting Apache-2.0 README badge are both represented; MIT is taken from the authoritative license file."
+    },
+    {
+      "check": "ordinary_manual_review_continuation",
+      "status": "passed",
+      "detail": "CR000062, CR000074, and CR000076 are flagged without blocking continuation."
+    },
+    {
+      "check": "stage_boundary",
+      "status": "passed",
+      "detail": "External datasets were identified but not unpacked or technically extracted."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "The existing model represents the evidence conflict and bounded uncertainties; no stop condition was found."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 31,
+    "verified_link_ids": [
+      "PRL000069",
+      "PRL000078",
+      "PRL000095",
+      "PRL000096",
+      "PRL000138",
+      "PRL000139",
+      "PRL000140",
+      "PRL000141",
+      "PRL000143",
+      "PRL000147",
+      "PRL000148",
+      "PRL000150",
+      "PRL000151",
+      "PRL000152",
+      "PRL000153",
+      "PRL000154",
+      "PRL000155",
+      "PRL000156",
+      "PRL000157",
+      "PRL000159",
+      "PRL000160",
+      "PRL000161",
+      "PRL000162",
+      "PRL000166",
+      "PRL000170",
+      "PRL000171",
+      "PRL000173",
+      "PRL000174",
+      "PRL000263"
+    ],
+    "bounded_unverified_link_ids": [
+      "PRL000163",
+      "PRL000167"
+    ]
+  },
+  "manual_review": [
+    {
+      "resource_id": "CR000062",
+      "reason": "Exact MIT license text conflicts with the README's Apache-2.0 badge.",
+      "scientific_consequence": "None for paper linkage; license evidence remains qualified.",
+      "continue_processing": true
+    },
+    {
+      "resource_id": "CR000074",
+      "reason": "Paper 536 does not identify hamiltorch or the corrected repository URL.",
+      "scientific_consequence": "PRL000163 remains not_verified.",
+      "continue_processing": true
+    },
+    {
+      "resource_id": "CR000076",
+      "reason": "Paper 549 points to the author's profile while the specific repository is unavailable.",
+      "scientific_consequence": "PRL000167 remains not_verified.",
+      "continue_processing": true
+    }
+  ],
+  "qa_conclusion": "Batch 003 passes. Evidence conflict and ordinary ambiguity are represented without changing schema or relationship policy."
+}

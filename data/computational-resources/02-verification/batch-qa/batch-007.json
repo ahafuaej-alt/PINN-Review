@@ -1,0 +1,134 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "batch_id": "B007",
+  "verification_date": "2026-08-27",
+  "status": "passed",
+  "stop_condition_triggered": false,
+  "stop_condition_reason": null,
+  "counts": {
+    "expected_resources": 25,
+    "resource_records": 25,
+    "availability_records": 25,
+    "github_repositories_pinned": 23,
+    "gitlab_projects_verified": 1,
+    "github_profiles_verified": 1,
+    "relationship_records": 14,
+    "verified_relationship_records": 14,
+    "bounded_unverified_relationship_records": 0,
+    "stage1_relationships_accounted": 14,
+    "alias_records_created": 3,
+    "evidence_records": 39,
+    "manual_review_records": 0,
+    "verified_positive_license_findings": 13,
+    "verified_negative_license_findings": 11,
+    "not_applicable_license_findings": 1
+  },
+  "checks": [
+    {
+      "check": "resource_batch_membership",
+      "status": "passed",
+      "detail": "All 25 planned B007 expansion resource IDs are present exactly once across checkpoint resource tables. Precompleted pilot resources CR000174 and CR000184 were skipped and not duplicated."
+    },
+    {
+      "check": "jsonl_parse_and_required_ids",
+      "status": "passed",
+      "detail": "All B007 JSONL records parse and contain required stable identifiers; evidence IDs are unique."
+    },
+    {
+      "check": "stable_resource_id_policy",
+      "status": "passed",
+      "detail": "Three source URL corrections or repository transfers retain existing CR identities through VA000027, VA000028, and VA000029; no new stable ID was required."
+    },
+    {
+      "check": "relationship_accounting",
+      "status": "passed",
+      "detail": "All 14 Stage-1 paper-resource assertions belonging to B007 resources are represented as verified relationships; resources with no Stage-1 assertion received no invented PRL."
+    },
+    {
+      "check": "repository_snapshot_pinning",
+      "status": "passed",
+      "detail": "Twenty-three GitHub repositories are pinned to exact observed default-branch commits. The QDataLabs GitLab project and aqibrahimbt profile retain explicitly qualified snapshot states."
+    },
+    {
+      "check": "classification_integrity",
+      "status": "passed",
+      "detail": "Direct paper association remains separate from PINN classification; non-PINN, supporting-library, profile, adjacent-physics-informed, and PINN implementation roles are preserved explicitly."
+    },
+    {
+      "check": "license_non_inference",
+      "status": "passed",
+      "detail": "Thirteen positive repository-license findings, eleven checked absences, and one profile not-applicable state are represented separately; article licenses and open-source wording were not propagated to repository content."
+    },
+    {
+      "check": "dependency_and_dataset_boundary",
+      "status": "passed",
+      "detail": "Formal manifests, inline version evidence, bundled data, generated data, external datasets/models, and checked absences are distinguished without Stage-3 normalization or execution."
+    },
+    {
+      "check": "internal_reference_rule",
+      "status": "passed",
+      "detail": "No paper-internal bibliography number was promoted to an Atlas ID."
+    },
+    {
+      "check": "stage1_provenance_and_scope",
+      "status": "passed",
+      "detail": "The Stage-1 source snapshot and inventory remain unchanged; B007 changes are confined to the Stage-2 verification overlay and Stage-2 reports."
+    },
+    {
+      "check": "stop_condition_scan",
+      "status": "passed",
+      "detail": "No unrepresentable schema conflict, relationship type, stable-ID change, or scientifically consequential ambiguity was found."
+    }
+  ],
+  "relationship_accounting": {
+    "stage1_link_count": 14,
+    "verified_link_ids": [
+      "PRL000007",
+      "PRL000010",
+      "PRL000026",
+      "PRL000030",
+      "PRL000047",
+      "PRL000048",
+      "PRL000049",
+      "PRL000059",
+      "PRL000064",
+      "PRL000065",
+      "PRL000164",
+      "PRL000165",
+      "PRL000327",
+      "PRL000328"
+    ],
+    "bounded_unverified_link_ids": []
+  },
+  "manual_review": [],
+  "verified_limitations": {
+    "no_repository_license_identified": [
+      "CR000164",
+      "CR000165",
+      "CR000166",
+      "CR000167",
+      "CR000168",
+      "CR000169",
+      "CR000170",
+      "CR000171",
+      "CR000175",
+      "CR000177",
+      "CR000179"
+    ],
+    "source_url_repairs": [
+      "CR000168",
+      "CR000175",
+      "CR000182"
+    ],
+    "qualified_snapshot_or_metadata": [
+      "CR000162",
+      "CR000164",
+      "CR000168",
+      "CR000178",
+      "CR000186",
+      "CR000187"
+    ]
+  },
+  "integrity_result": "passed",
+  "safe_to_continue": true
+}

@@ -1,0 +1,31 @@
+{
+  "source_lines": 648,
+  "url_observations": 394,
+  "unique_resources": 357,
+  "paper_resource_links": 331,
+  "resources_with_repeated_mentions": 32,
+  "possible_alias_groups": 13,
+  "unresolved_items": 163,
+  "unique_atlas_reference_ids_mapped": 212,
+  "github_repository_identities": 218,
+  "unresolved_status_counts": {
+    "needs_stage2_live_verification": 97,
+    "needs_stage2_identity_resolution": 66
+  },
+  "schema_validation": "passed_against_final_table_rows",
+  "source_snapshot_sha256": "72a168a3c57e07afcdcd8f513fbb54d34851095ea46eeb9618a996fbf769ee8e",
+  "relationship_semantics": [
+    "paper_resource_mention",
+    "paper_dataset_mention",
+    "paper_non_pinn_resource_mention",
+    "secondary_review_mention",
+    "paper_software_mention",
+    "manual_or_unclassified_mention"
+  ],
+  "stage2_gate": {
+    "structural_integrity": "pass",
+    "source_provenance": "pass",
+    "live_resource_verification": "not_started",
+    "safe_to_begin_stage2": true
+  }
+}

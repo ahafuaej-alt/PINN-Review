@@ -1,0 +1,40 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_user_report_reconciliation_qa",
+  "reconciliation_id": "Stage2-URR01",
+  "verification_date": "2026-08-31",
+  "status": "passed",
+  "stage2_resource_processing_complete": true,
+  "user_report_reconciliation_complete": true,
+  "counts": {
+    "unique_literal_urls_reviewed": 30,
+    "additional_repository_slug_candidates_reviewed": 4,
+    "total_candidates_reviewed": 34,
+    "already_registered": 15,
+    "aliases": 4,
+    "evidence_only": 10,
+    "legitimate_new_resources": 4,
+    "unsupported": 1,
+    "new_resource_records": 4,
+    "new_relationship_records": 1,
+    "new_alias_records": 4,
+    "new_manual_review_items": 0,
+    "new_scientific_review_items": 0
+  },
+  "new_resource_ids": ["CR000359","CR000360","CR000361","CR000362"],
+  "new_relationship_ids": ["PRL000333"],
+  "new_alias_ids": ["VA000044","VA000045","VA000046","VA000047"],
+  "checks": [
+    {"check":"complete_url_accounting","status":"passed","detail":"All 30 unique literal URL strings in the user report plus four named repository candidates without literal URLs receive exactly one reconciliation disposition."},
+    {"check":"duplicate_identity_control","status":"passed","detail":"Versioned Zenodo releases, historical HTTP URLs, umbrella profiles/sites and duplicate forks are not promoted as duplicate CR identities."},
+    {"check":"paper_431_missing_resource_recovery","status":"passed","detail":"A. Yazdani's HFM synthetic-data-generator resource from paper 431 reference 19 is added as CR000359 with verified PRL000333; M. Raissi's ref. 18 release is preserved as VA000044 for existing CR000036."},
+    {"check":"nsfnets_fork_control","status":"passed","detail":"Steph-Yhf/NSFnets and zhouzhouwen/PINN-for-turbulence are retained as fork/discovery evidence; Scien42/NSFnet is a distinct independent resource and is added without inventing a paper relationship."},
+    {"check":"power_grid_lib_scope","status":"passed","detail":"PGLib-OPF remains the only paper-721 benchmark relationship. Distinct pglib-opf-hvdc and pglib-uc repositories are added without false paper attribution."},
+    {"check":"licence_verification","status":"passed","detail":"CR000359 and CR000360 have verified GPL-3.0 repository licenses; CR000361 and CR000362 preserve mixed data CC-BY-4.0/software MIT terms without collapsing them to a single SPDX value."},
+    {"check":"historical_url_aliases","status":"passed","detail":"Historical ImageNet and JHTDB HTTP URLs are preserved as aliases to their existing HTTPS canonical resources."},
+    {"check":"static_verification_boundary","status":"passed","detail":"No repository code, model, notebook, archive or dataset payload was installed or executed; no dataset archive was downloaded or unpacked."},
+    {"check":"repository_scope","status":"passed","detail":"All changes are confined to data/computational-resources/ on the Stage-2 branch."},
+    {"check":"public_provenance_scan","status":"passed","detail":"Changed repository artifacts describe only the technical/scientific work and contain no development-tool authorship attribution."}
+  ],
+  "qa_conclusion": "Stage2-URR01 passes. Every user-report URL/candidate is reconciled, four legitimate missing resources are registered, one missing paper relationship is added, and no unsupported relationship is promoted."
+}
