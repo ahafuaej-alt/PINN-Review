@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "PINN Realm country and international-cooperation dataset",
-    "version": "2.2.174",
+    "version": "2.3.0",
     "schema_version": "1.0.0",
-    "last_updated": "2026-08-09",
+    "last_updated": "2026-08-29",
     "source_file": "papers-countries-and-year.md",
     "reference_source": "papers-master.json",
     "paper_count": 853,
@@ -16,7 +16,7 @@
       1989,
       1995,
       1998,
-      2002,
+      2004,
       2010,
       2011,
       2014,
@@ -36,9 +36,9 @@
     "national_paper_count": 649,
     "international_paper_count": 204,
     "collaboration_pair_count": 172,
-    "legacy_year_override_count": 97,
+    "publication_year_source": "papers-master.json#paper.year",
     "reference_url_pattern": "../references/?q={id}#ref={id}",
-    "methodology": "Countries are taken from author-affiliation country records. A paper with one unique country is national; a paper with two or more unique countries is international. Every international paper contributes once to each unordered country pair. Publication years are generated from the master record, except for explicitly retained legacy overrides awaiting evidence resolution."
+    "methodology": "Countries are taken from author-affiliation country records. A paper with one unique country is national; a paper with two or more unique countries is international. Every international paper contributes once to each unordered country pair. Publication year is generated directly from the canonical papers-master.json paper.year field, which is also the source used by References."
   },
   "country_name_mapping": {
     "Australia": {
@@ -2093,7 +2093,7 @@
     {
       "id": 154,
       "title": "Physics-Informed Neural Network-Based Inverse Framework for Time-Fractional Differential Equations for Rheology",
-      "year": 2024,
+      "year": 2025,
       "countries": [
         "United States"
       ],
@@ -2148,7 +2148,7 @@
     {
       "id": 159,
       "title": "Managing Battery Performance Degradation Using Physics-Informed Learning Scheme for Multiple Health Indicators",
-      "year": 2023,
+      "year": 2025,
       "countries": [
         "China"
       ],
@@ -2489,7 +2489,7 @@
     {
       "id": 188,
       "title": "Recent Progress in Computational and Data Sciences for Additive Manufacturing",
-      "year": 2024,
+      "year": 2025,
       "countries": [
         "United States",
         "China"
@@ -2528,7 +2528,7 @@
     {
       "id": 191,
       "title": "Modeling of Permanent Magnet Eddy-Current Coupler Based on Unsupervised Physics-Informed Radial-Based Function Neural Networks",
-      "year": 2024,
+      "year": 2025,
       "countries": [
         "China"
       ],
@@ -2775,7 +2775,7 @@
     {
       "id": 212,
       "title": "Physics-Informed Reinforcement Learning for Real-Time Optimal Power Flow With Renewable Energy Resources",
-      "year": 2024,
+      "year": 2025,
       "countries": [
         "China"
       ],
@@ -2900,7 +2900,7 @@
     {
       "id": 223,
       "title": "OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics",
-      "year": 2025,
+      "year": 2026,
       "countries": [
         "United Kingdom",
         "Germany"
@@ -3158,7 +3158,7 @@
     {
       "id": 245,
       "title": "Data science in engineering vol. 10",
-      "year": 2024,
+      "year": 2025,
       "countries": [
         "United States",
         "United Kingdom"
@@ -3823,7 +3823,7 @@
     {
       "id": 302,
       "title": "Knowledge-Based Convolutional Neural Network for the Simulation and Prediction of Two-Phase Darcy Flows",
-      "year": 2022,
+      "year": 2024,
       "countries": [
         "United Arab Emirates",
         "France"
@@ -3882,7 +3882,7 @@
     {
       "id": 307,
       "title": "Parallel-in-time multiple shooting for optimal control problems governed by the Navier–Stokes equations",
-      "year": 2025,
+      "year": 2024,
       "countries": [
         "Belgium"
       ],
@@ -4272,7 +4272,7 @@
     {
       "id": 341,
       "title": "Physics-Informed Neural Network Based Online Impedance Identification of Voltage Source Converters",
-      "year": 2022,
+      "year": 2023,
       "countries": [
         "Sweden",
         "Denmark"
@@ -4421,7 +4421,7 @@
     {
       "id": 354,
       "title": "A novel temperature prediction method without using energy equation based on physics-informed neural network (PINN): A case study on plate- circular/square pin-fin heat sinks",
-      "year": 2023,
+      "year": 2022,
       "countries": [
         "Thailand",
         "France"
@@ -4724,7 +4724,7 @@
     {
       "id": 379,
       "title": "Physics-informed graph neural Galerkin networks A unified framework for solving PDE-governed forward and inverse problems",
-      "year": 2021,
+      "year": 2022,
       "countries": [
         "United States"
       ],
@@ -4752,7 +4752,7 @@
     {
       "id": 381,
       "title": "Physics-informed deep-learning applications to experimental fluid mechanics",
-      "year": 2022,
+      "year": 2024,
       "countries": [
         "Germany",
         "Sweden"
@@ -4776,7 +4776,7 @@
     {
       "id": 383,
       "title": "AutoPINN: When AutoML Meets Physics-Informed Neural Networks",
-      "year": 2018,
+      "year": 2022,
       "countries": [
         "Denmark"
       ],
@@ -4787,7 +4787,7 @@
     {
       "id": 384,
       "title": "Physics-informed neural networks (PINNs) for fluid mechanics A review",
-      "year": 2020,
+      "year": 2021,
       "countries": [
         "China",
         "United States"
@@ -4835,7 +4835,7 @@
     {
       "id": 388,
       "title": "Physics-Informed Neural Network for Modelling the Thermochemical Curing Process of Composite-Tool Systems During Manufacture",
-      "year": 2022,
+      "year": 2021,
       "countries": [
         "Canada",
         "United States"
@@ -5122,7 +5122,7 @@
     {
       "id": 413,
       "title": "PPINN Parareal physics-informed neural network for time-dependent PDEs",
-      "year": 2019,
+      "year": 2020,
       "countries": [
         "United States"
       ],
@@ -5617,7 +5617,7 @@
     {
       "id": 456,
       "title": "Predicting contaminant dispersion using modified turbulent Schmidt numbers from different vortex structures",
-      "year": 2017,
+      "year": 2018,
       "countries": [
         "China"
       ],
@@ -5661,7 +5661,7 @@
     {
       "id": 460,
       "title": "Neural network-based software tool for predicting magnetic performance of strip-wound magnetic cores at medium to high frequency",
-      "year": 2002,
+      "year": 2004,
       "countries": [
         "United Kingdom"
       ],
@@ -5755,7 +5755,7 @@
     {
       "id": 468,
       "title": "Ian Goodfellow, Yoshua Bengio, and Aaron Courville: Deep learning",
-      "year": 2016,
+      "year": 2018,
       "countries": [
         "United States"
       ],
@@ -5766,7 +5766,7 @@
     {
       "id": 469,
       "title": "Multiscale Modeling of Complex Dynamic Problems An Overview and Recent Developments",
-      "year": 2014,
+      "year": 2016,
       "countries": [
         "France"
       ],
@@ -5777,7 +5777,7 @@
     {
       "id": 470,
       "title": "fPINNs Fractional Physics-Informed Neural Networks",
-      "year": 2020,
+      "year": 2019,
       "countries": [
         "United States"
       ],
@@ -5787,8 +5787,8 @@
     },
     {
       "id": 471,
-      "title": "ADAM A METHOD FOR STOCHASTIC OPTIMIZATION",
-      "year": 2015,
+      "title": "Adam: A Method for Stochastic Optimization",
+      "year": 2014,
       "countries": [
         "Netherlands",
         "Canada"
@@ -5834,7 +5834,7 @@
     {
       "id": 475,
       "title": "PINNs4Drops Video-conditioned physics-informed neural networks for two-phase flow reconstruction",
-      "year": 2025,
+      "year": 2024,
       "countries": [
         "Germany",
         "United States"
@@ -6424,7 +6424,7 @@
     {
       "id": 525,
       "title": "Understanding and Mitigating Gradient Flow Pathologies in Physics-Informed Neural Networks",
-      "year": 2020,
+      "year": 2021,
       "countries": [
         "United States"
       ],
@@ -6549,7 +6549,7 @@
     {
       "id": 536,
       "title": "Flow field tomography with uncertainty quantification using a Bayesian physics-informed neural network",
-      "year": 2024,
+      "year": 2022,
       "countries": [
         "United States"
       ],
@@ -6908,7 +6908,7 @@
     {
       "id": 567,
       "title": "Automotive LiDAR Based Precipitation State Estimation Using Physics Informed Spatio-Temporal 3D Convolutional Neural Networks (PIST-CNN)",
-      "year": 2024,
+      "year": 2023,
       "countries": [
         "Germany"
       ],
@@ -6930,7 +6930,7 @@
     {
       "id": 569,
       "title": "Physics-informed deep 1D CNN compiled in extended state space fusion for seismic response modeling",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "China"
       ],
@@ -6976,7 +6976,7 @@
     {
       "id": 573,
       "title": "Physics-Informed CNN for the Design of Acoustic Equipment",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "Japan"
       ],
@@ -7020,7 +7020,7 @@
     {
       "id": 577,
       "title": "A Physics Informed Fusion CNN for Bearing Fault Diagnosis under Variable Rotation Speed",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "China"
       ],
@@ -7090,7 +7090,7 @@
     {
       "id": 583,
       "title": "Transfer learning based multi-fidelity physics informed deep neural network",
-      "year": 2020,
+      "year": 2021,
       "countries": [
         "India"
       ],
@@ -7637,7 +7637,7 @@
     {
       "id": 630,
       "title": "Application of a mixed variable physics-informed neural network to solve the incompressible steady-state and transient mass, momentum, and energy conservation equations for flow over in-line heated tubes",
-      "year": 2021,
+      "year": 2022,
       "countries": [
         "South Africa"
       ],
@@ -7648,7 +7648,7 @@
     {
       "id": 631,
       "title": "wPINNs Weak physics informed neural networks for approximating entropy solutions of hyperbolic conservation laws",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "Switzerland"
       ],
@@ -7681,7 +7681,7 @@
     {
       "id": 634,
       "title": "HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks",
-      "year": 2021,
+      "year": 2022,
       "countries": [
         "United States"
       ],
@@ -7806,7 +7806,7 @@
     {
       "id": 645,
       "title": "Stacked networks improve physics-informed training applications to neural networks and deep operator networks",
-      "year": 2023,
+      "year": 2025,
       "countries": [
         "United States"
       ],
@@ -7839,7 +7839,7 @@
     {
       "id": 648,
       "title": "Distributed learning machines for solving forward and inverse problems in partial differential equations",
-      "year": 2019,
+      "year": 2021,
       "countries": [
         "India"
       ],
@@ -8200,7 +8200,7 @@
     {
       "id": 679,
       "title": "Magnetic flux leakage defect size estimation method based on physics-informed neural network",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "China"
       ],
@@ -8266,7 +8266,7 @@
     {
       "id": 685,
       "title": "Rotor dynamics informed deep learning for detection, identification, and localization of shaft crack and unbalance defects",
-      "year": 2024,
+      "year": 2023,
       "countries": [
         "France"
       ],
@@ -8345,7 +8345,7 @@
     {
       "id": 692,
       "title": "Simulation of 3D turbulent flows using a discretized generative model physics-informed neural networks",
-      "year": 2024,
+      "year": 2025,
       "countries": [
         "Canada"
       ],
@@ -8457,7 +8457,7 @@
     {
       "id": 702,
       "title": "Physics-Informed Neural Networks for the safety analysis of nuclear reactors",
-      "year": 2023,
+      "year": 2025,
       "countries": [
         "Italy",
         "United States",
@@ -8614,7 +8614,7 @@
     {
       "id": 715,
       "title": "2D and 3D Physics Informed Neural Networks to Model Pollution Spread with Obstructions",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "United States"
       ],
@@ -8706,7 +8706,7 @@
     {
       "id": 723,
       "title": "Estimates on the generalization error of physics-informed neural networks for approximating PDEs",
-      "year": 2021,
+      "year": 2023,
       "countries": [
         "Switzerland"
       ],
@@ -8868,7 +8868,7 @@
     {
       "id": 737,
       "title": "Mitigating Propagation Failures in Physics-informed Neural Networks using Retain-Resample-Release (R3) Sampling",
-      "year": 2024,
+      "year": 2023,
       "countries": [
         "United States"
       ],
@@ -8962,7 +8962,7 @@
     {
       "id": 745,
       "title": "Recent Advances of NeuroDiffEq -- An Open-Source Library for Physics-Informed Neural Networks",
-      "year": 2023,
+      "year": 2025,
       "countries": [
         "United States"
       ],
@@ -9006,7 +9006,7 @@
     {
       "id": 749,
       "title": "BINet: Learning to Solve Partial Differential Equations with Boundary Integral Networks",
-      "year": 2023,
+      "year": 2021,
       "countries": [
         "China",
         "United Kingdom"
@@ -9056,7 +9056,7 @@
     {
       "id": 753,
       "title": "Physics-Informed Neural Networks For the Solution of Electromagnetic Scattering by Integral Equations",
-      "year": 2023,
+      "year": 2022,
       "countries": [
         "China"
       ],
@@ -9100,7 +9100,7 @@
     {
       "id": 757,
       "title": "Solving Combined Field Integral Equations With Physics-Informed Graph Residual Learning for EM Scattering of 3-D PEC Targets",
-      "year": 2023,
+      "year": 2024,
       "countries": [
         "China"
       ],
@@ -9111,7 +9111,7 @@
     {
       "id": 758,
       "title": "Physics-Informed Deep Neural Network for Inhomogeneous Magnetized Plasma Parameter Inversion",
-      "year": 2023,
+      "year": 2022,
       "countries": [
         "China"
       ],
@@ -9488,7 +9488,7 @@
     {
       "id": 791,
       "title": "Conservative Physics-Informed Neural Networks for Non-Conservative Hyperbolic Conservation Laws Near Critical States",
-      "year": 2022,
+      "year": 2023,
       "countries": [
         "Taiwan"
       ],
@@ -9686,8 +9686,8 @@
     },
     {
       "id": 808,
-      "title": "NEURAL OPERATOR-BASED PROXY FOR RESERVOIR SIMULATIONS CONSIDERING VARYING WELL SETTINGS, LOCATIONS, AND PERMEABILITY FIELDS",
-      "year": 2023,
+      "title": "Neural operator-based proxy for reservoir simulations considering varying well settings, locations, and permeability fields",
+      "year": 2025,
       "countries": [
         "United States"
       ],
@@ -9878,7 +9878,7 @@
     {
       "id": 825,
       "title": "Data-driven tissue mechanics with polyconvex neural ordinary differential equations",
-      "year": 2023,
+      "year": 2022,
       "countries": [
         "United States",
         "Chile"
@@ -9957,7 +9957,7 @@
     {
       "id": 832,
       "title": "JAX-FEM: A differentiable GPU-accelerated 3D finite element solver for automatic inverse design and mechanistic data science",
-      "year": 2024,
+      "year": 2023,
       "countries": [
         "United States"
       ],
@@ -10000,7 +10000,7 @@
     {
       "id": 835,
       "title": "Physics-informed neural networks to learn cardiac fiber orientation from multiple electroanatomical maps",
-      "year": 2026,
+      "year": 2022,
       "countries": [
         "Chile",
         "Austria",
@@ -10337,16 +10337,11 @@
           "international": 2
         },
         "2022": {
-          "total": 1,
+          "total": 2,
           "national": 0,
-          "international": 1
+          "international": 2
         },
         "2025": {
-          "total": 1,
-          "national": 0,
-          "international": 1
-        },
-        "2026": {
           "total": 1,
           "national": 0,
           "international": 1
@@ -10415,13 +10410,13 @@
           "international": 0
         },
         "2024": {
-          "total": 1,
-          "national": 1,
+          "total": 2,
+          "national": 2,
           "international": 0
         },
         "2025": {
-          "total": 3,
-          "national": 3,
+          "total": 2,
+          "national": 2,
           "international": 0
         },
         "2026": {
@@ -10605,7 +10600,7 @@
           "national": 2,
           "international": 0
         },
-        "2015": {
+        "2014": {
           "total": 1,
           "national": 0,
           "international": 1
@@ -10630,10 +10625,15 @@
           "national": 0,
           "international": 1
         },
+        "2021": {
+          "total": 1,
+          "national": 0,
+          "international": 1
+        },
         "2022": {
-          "total": 5,
+          "total": 4,
           "national": 2,
-          "international": 3
+          "international": 2
         },
         "2023": {
           "total": 6,
@@ -10641,13 +10641,13 @@
           "international": 2
         },
         "2024": {
-          "total": 6,
-          "national": 5,
+          "total": 5,
+          "national": 4,
           "international": 1
         },
         "2025": {
-          "total": 8,
-          "national": 2,
+          "total": 9,
+          "national": 3,
           "international": 6
         }
       }
@@ -10691,10 +10691,10 @@
           "national": 0,
           "international": 1
         },
-        "2023": {
-          "total": 1,
+        "2022": {
+          "total": 2,
           "national": 0,
-          "international": 1
+          "international": 2
         },
         "2024": {
           "total": 2,
@@ -10704,11 +10704,6 @@
         "2025": {
           "total": 3,
           "national": 2,
-          "international": 1
-        },
-        "2026": {
-          "total": 1,
-          "national": 0,
           "international": 1
         }
       }
@@ -11390,14 +11385,9 @@
         850
       ],
       "annual": {
-        "2017": {
-          "total": 1,
-          "national": 1,
-          "international": 0
-        },
         "2018": {
-          "total": 2,
-          "national": 2,
+          "total": 3,
+          "national": 3,
           "international": 0
         },
         "2019": {
@@ -11406,34 +11396,34 @@
           "international": 2
         },
         "2020": {
-          "total": 7,
+          "total": 6,
           "national": 2,
-          "international": 5
-        },
-        "2021": {
-          "total": 7,
-          "national": 3,
           "international": 4
         },
+        "2021": {
+          "total": 9,
+          "national": 3,
+          "international": 6
+        },
         "2022": {
-          "total": 29,
-          "national": 19,
+          "total": 31,
+          "national": 21,
           "international": 10
         },
         "2023": {
-          "total": 59,
-          "national": 43,
-          "international": 16
+          "total": 51,
+          "national": 36,
+          "international": 15
         },
         "2024": {
-          "total": 53,
-          "national": 41,
-          "international": 12
+          "total": 54,
+          "national": 43,
+          "international": 11
         },
         "2025": {
-          "total": 169,
-          "national": 133,
-          "international": 36
+          "total": 173,
+          "national": 136,
+          "international": 37
         },
         "2026": {
           "total": 3,
@@ -11579,11 +11569,6 @@
         730
       ],
       "annual": {
-        "2018": {
-          "total": 1,
-          "national": 1,
-          "international": 0
-        },
         "2020": {
           "total": 1,
           "national": 1,
@@ -11596,13 +11581,13 @@
         },
         "2022": {
           "total": 4,
-          "national": 1,
-          "international": 3
+          "national": 2,
+          "international": 2
         },
         "2023": {
-          "total": 1,
+          "total": 2,
           "national": 0,
-          "international": 1
+          "international": 2
         },
         "2024": {
           "total": 2,
@@ -11750,7 +11735,7 @@
         704
       ],
       "annual": {
-        "2014": {
+        "2016": {
           "total": 1,
           "national": 1,
           "international": 0
@@ -11776,19 +11761,19 @@
           "international": 1
         },
         "2023": {
-          "total": 3,
-          "national": 0,
-          "international": 3
+          "total": 2,
+          "national": 1,
+          "international": 1
         },
         "2024": {
           "total": 5,
-          "national": 2,
-          "international": 3
+          "national": 1,
+          "international": 4
         },
         "2025": {
-          "total": 8,
+          "total": 9,
           "national": 1,
-          "international": 7
+          "international": 8
         },
         "2026": {
           "total": 1,
@@ -11943,29 +11928,29 @@
           "international": 3
         },
         "2022": {
-          "total": 7,
+          "total": 6,
           "national": 1,
-          "international": 6
+          "international": 5
         },
         "2023": {
-          "total": 9,
-          "national": 4,
+          "total": 10,
+          "national": 5,
           "international": 5
         },
         "2024": {
-          "total": 12,
-          "national": 7,
-          "international": 5
+          "total": 13,
+          "national": 6,
+          "international": 7
         },
         "2025": {
-          "total": 15,
+          "total": 13,
           "national": 3,
-          "international": 12
+          "international": 10
         },
         "2026": {
-          "total": 2,
+          "total": 3,
           "national": 1,
-          "international": 1
+          "international": 2
         }
       }
     },
@@ -12091,12 +12076,12 @@
         797
       ],
       "annual": {
-        "2019": {
+        "2020": {
           "total": 1,
           "national": 1,
           "international": 0
         },
-        "2020": {
+        "2021": {
           "total": 2,
           "national": 2,
           "international": 0
@@ -12331,9 +12316,9 @@
           "international": 2
         },
         "2023": {
-          "total": 5,
+          "total": 4,
           "national": 2,
-          "international": 3
+          "international": 2
         },
         "2024": {
           "total": 8,
@@ -12341,9 +12326,9 @@
           "international": 4
         },
         "2025": {
-          "total": 10,
+          "total": 11,
           "national": 5,
-          "international": 5
+          "international": 6
         },
         "2026": {
           "total": 1,
@@ -12414,13 +12399,13 @@
           "international": 1
         },
         "2023": {
-          "total": 3,
-          "national": 2,
+          "total": 2,
+          "national": 1,
           "international": 1
         },
         "2024": {
-          "total": 5,
-          "national": 4,
+          "total": 6,
+          "national": 5,
           "international": 1
         },
         "2025": {
@@ -12587,7 +12572,7 @@
         849
       ],
       "annual": {
-        "2015": {
+        "2014": {
           "total": 1,
           "national": 0,
           "international": 1
@@ -13195,8 +13180,13 @@
       "international_paper_ids": [],
       "annual": {
         "2021": {
-          "total": 2,
-          "national": 2,
+          "total": 1,
+          "national": 1,
+          "international": 0
+        },
+        "2022": {
+          "total": 1,
+          "national": 1,
           "international": 0
         },
         "2025": {
@@ -13373,19 +13363,19 @@
           "international": 1
         },
         "2022": {
-          "total": 4,
-          "national": 0,
-          "international": 4
-        },
-        "2023": {
-          "total": 2,
-          "national": 1,
-          "international": 1
-        },
-        "2024": {
           "total": 2,
           "national": 0,
           "international": 2
+        },
+        "2023": {
+          "total": 3,
+          "national": 1,
+          "international": 2
+        },
+        "2024": {
+          "total": 3,
+          "national": 0,
+          "international": 3
         },
         "2025": {
           "total": 3,
@@ -13440,14 +13430,14 @@
           "international": 1
         },
         "2021": {
-          "total": 2,
-          "national": 1,
-          "international": 1
-        },
-        "2022": {
           "total": 1,
           "national": 0,
           "international": 1
+        },
+        "2022": {
+          "total": 2,
+          "national": 0,
+          "international": 2
         },
         "2023": {
           "total": 1,
@@ -13455,19 +13445,14 @@
           "international": 0
         },
         "2024": {
-          "total": 2,
-          "national": 0,
+          "total": 3,
+          "national": 1,
           "international": 2
         },
         "2025": {
           "total": 2,
           "national": 0,
           "international": 2
-        },
-        "2026": {
-          "total": 1,
-          "national": 0,
-          "international": 1
         }
       }
     },
@@ -13497,7 +13482,7 @@
           "national": 0,
           "international": 1
         },
-        "2022": {
+        "2023": {
           "total": 1,
           "national": 1,
           "international": 0
@@ -13547,7 +13532,7 @@
         354
       ],
       "annual": {
-        "2023": {
+        "2022": {
           "total": 1,
           "national": 0,
           "international": 1
@@ -13663,8 +13648,13 @@
           "international": 0
         },
         "2022": {
-          "total": 2,
+          "total": 1,
           "national": 1,
+          "international": 0
+        },
+        "2024": {
+          "total": 1,
+          "national": 0,
           "international": 1
         },
         "2025": {
@@ -13785,7 +13775,7 @@
         834
       ],
       "annual": {
-        "2002": {
+        "2004": {
           "total": 1,
           "national": 1,
           "international": 0
@@ -13811,9 +13801,9 @@
           "international": 2
         },
         "2021": {
-          "total": 2,
+          "total": 3,
           "national": 1,
-          "international": 1
+          "international": 2
         },
         "2022": {
           "total": 5,
@@ -13821,19 +13811,24 @@
           "international": 5
         },
         "2023": {
-          "total": 9,
+          "total": 8,
           "national": 4,
-          "international": 5
+          "international": 4
         },
         "2024": {
-          "total": 11,
+          "total": 10,
           "national": 6,
-          "international": 5
+          "international": 4
         },
         "2025": {
           "total": 15,
           "national": 8,
           "international": 7
+        },
+        "2026": {
+          "total": 1,
+          "national": 0,
+          "international": 1
         }
       }
     },
@@ -14371,8 +14366,8 @@
           "international": 0
         },
         "2016": {
-          "total": 4,
-          "national": 4,
+          "total": 3,
+          "national": 3,
           "international": 0
         },
         "2017": {
@@ -14381,8 +14376,8 @@
           "international": 0
         },
         "2018": {
-          "total": 4,
-          "national": 1,
+          "total": 5,
+          "national": 2,
           "international": 3
         },
         "2019": {
@@ -14391,39 +14386,39 @@
           "international": 5
         },
         "2020": {
-          "total": 37,
-          "national": 28,
-          "international": 9
+          "total": 35,
+          "national": 27,
+          "international": 8
         },
         "2021": {
-          "total": 37,
-          "national": 33,
-          "international": 4
+          "total": 38,
+          "national": 32,
+          "international": 6
         },
         "2022": {
-          "total": 28,
-          "national": 17,
-          "international": 11
+          "total": 32,
+          "national": 20,
+          "international": 12
         },
         "2023": {
-          "total": 45,
-          "national": 30,
-          "international": 15
+          "total": 41,
+          "national": 28,
+          "international": 13
         },
         "2024": {
-          "total": 37,
-          "national": 23,
-          "international": 14
+          "total": 33,
+          "national": 20,
+          "international": 13
         },
         "2025": {
-          "total": 37,
-          "national": 16,
-          "international": 21
+          "total": 43,
+          "national": 20,
+          "international": 23
         },
         "2026": {
-          "total": 3,
+          "total": 2,
           "national": 2,
-          "international": 1
+          "international": 0
         }
       }
     },
@@ -14467,7 +14462,7 @@
         302
       ],
       "annual": {
-        "2022": [
+        "2024": [
           302
         ]
       }
@@ -14603,7 +14598,7 @@
         "2021": [
           833
         ],
-        "2026": [
+        "2022": [
           835
         ]
       }
@@ -14619,7 +14614,7 @@
         "2021": [
           833
         ],
-        "2026": [
+        "2022": [
           835
         ]
       }
@@ -14683,7 +14678,7 @@
         "2021": [
           833
         ],
-        "2026": [
+        "2022": [
           835
         ]
       }
@@ -14891,7 +14886,7 @@
         471
       ],
       "annual": {
-        "2015": [
+        "2014": [
           471
         ]
       }
@@ -14929,9 +14924,11 @@
         "2020": [
           426
         ],
-        "2022": [
-          374,
+        "2021": [
           388
+        ],
+        "2022": [
+          374
         ],
         "2024": [
           608
@@ -14965,7 +14962,7 @@
         "2021": [
           833
         ],
-        "2026": [
+        "2022": [
           835
         ]
       }
@@ -15070,15 +15067,15 @@
         "2021": [
           833
         ],
+        "2022": [
+          835
+        ],
         "2024": [
           246,
           711
         ],
         "2025": [
           199
-        ],
-        "2026": [
-          835
         ]
       }
     },
@@ -15112,15 +15109,13 @@
         "2021": [
           833
         ],
-        "2023": [
-          825
+        "2022": [
+          825,
+          835
         ],
         "2024": [
           312,
           731
-        ],
-        "2026": [
-          835
         ]
       }
     },
@@ -15251,14 +15246,14 @@
           511
         ],
         "2021": [
-          523
+          523,
+          749
         ],
         "2022": [
           373,
           621
         ],
         "2023": [
-          749,
           759
         ],
         "2024": [
@@ -15539,12 +15534,12 @@
           507
         ],
         "2020": [
-          384,
           510,
           511,
           662
         ],
         "2021": [
+          384,
           476
         ],
         "2022": [
@@ -15560,7 +15555,6 @@
           812
         ],
         "2024": [
-          188,
           272,
           711
         ],
@@ -15568,6 +15562,7 @@
           70,
           74,
           76,
+          188,
           197,
           699,
           820,
@@ -15713,7 +15708,9 @@
           300
         ],
         "2025": [
-          204,
+          204
+        ],
+        "2026": [
           223
         ]
       }
@@ -15812,13 +15809,11 @@
         488
       ],
       "annual": {
-        "2022": [
-          381
-        ],
         "2023": [
           339
         ],
         "2024": [
+          381,
           488
         ],
         "2025": [
@@ -15876,14 +15871,14 @@
           618
         ],
         "2024": [
-          281
+          281,
+          475
         ],
         "2025": [
           61,
           65,
           83,
           84,
-          475,
           599
         ]
       }
@@ -15959,7 +15954,7 @@
         341
       ],
       "annual": {
-        "2022": [
+        "2023": [
           341
         ]
       }
@@ -16124,11 +16119,11 @@
         704
       ],
       "annual": {
-        "2023": [
-          702
-        ],
         "2024": [
           704
+        ],
+        "2025": [
+          702
         ]
       }
     },
@@ -16203,7 +16198,7 @@
         354
       ],
       "annual": {
-        "2023": [
+        "2022": [
           354
         ]
       }
@@ -16218,11 +16213,11 @@
       ],
       "annual": {
         "2023": [
-          618,
-          702
+          618
         ],
         "2025": [
-          200
+          200,
+          702
         ]
       }
     },
@@ -16404,11 +16399,11 @@
           465
         ],
         "2024": [
-          245,
           246
         ],
         "2025": [
-          161
+          161,
+          245
         ]
       }
     },
@@ -16648,15 +16643,15 @@
           371
         ],
         "2023": [
-          637,
-          702
+          637
         ],
         "2024": [
           281,
           312
         ],
         "2025": [
-          117
+          117,
+          702
         ]
       }
     },

@@ -8,7 +8,6 @@ const date = '2026-07-22';
 const papers = references.map((reference) => {
   const realmPaper = realmPaperById.get(reference.id);
   if (!realmPaper) throw new Error(`Reference ${reference.id} has no PINN Realm record`);
-  const realmYearDiffers = realmPaper.year !== reference.year;
   return {
     id: reference.id,
     title: reference.title,
@@ -22,12 +21,11 @@ const papers = references.map((reference) => {
     year: reference.year,
     access: reference.access || 'Not verified',
     countries: [...realmPaper.countries],
-    ...(realmYearDiffers ? { overrides: { realm_year: realmPaper.year } } : {}),
     provenance: {
       bibliography_source: '38_1_10_references.docx',
       geography_source: 'papers-countries-and-year.md',
       evidence_url: reference.publisher_url,
-      note: realmYearDiffers ? 'Legacy bibliography and country/year sources disagree; preserved without choosing between them.' : null
+      note: 'Publication year is canonical from References; country associations are migrated from PINN Realm.'
     },
     last_updated: date
   };
@@ -52,7 +50,7 @@ const master = {
       generator: 'scripts/build-datasets.mjs',
       validator: 'scripts/validate-dataset.mjs',
       update_command: 'node scripts/apply-paper-update.mjs update.json',
-      legacy_realm_year_override_count: papers.filter((paper) => paper.overrides?.realm_year !== undefined).length
+      publication_year_source: 'paper.year'
     }
   },
   papers
@@ -61,7 +59,7 @@ const master = {
 const countryMapping = realm.country_name_mapping;
 const generated = buildAll(master, countryMapping);
 if (JSON.stringify(generated.references) !== JSON.stringify(references)) throw new Error('Migration would alter the published References dataset');
-if (JSON.stringify(generated.realm.papers) !== JSON.stringify(realm.papers)) throw new Error('Migration would alter published PINN Realm paper records');
+if (!generated.realm.papers.every((paper) => paper.year === papers.find((record) => record.id === paper.id).year)) throw new Error('Migration did not preserve canonical publication years in PINN Realm');
 
 writeJsonAtomic('data/country-mapping.json', countryMapping);
 writeJsonAtomic('data/papers-master.json', master);
@@ -78,7 +76,7 @@ writeJsonAtomic('data/changes.json', {
     impact: {
       references_changed: 0,
       realm_papers_changed: 0,
-      legacy_year_overrides_preserved: papers.filter((paper) => paper.overrides?.realm_year !== undefined).length
+      canonical_publication_years: papers.length
     }
   }]
 });
@@ -87,7 +85,7 @@ console.log(JSON.stringify({
   status: 'created',
   records: papers.length,
   country_names: Object.keys(countryMapping).length,
-  legacy_realm_year_overrides: papers.filter((paper) => paper.overrides?.realm_year !== undefined).length,
+  canonical_publication_years: papers.length,
   references_preserved: true,
-  realm_papers_preserved: true
+  realm_countries_preserved: true
 }, null, 2));

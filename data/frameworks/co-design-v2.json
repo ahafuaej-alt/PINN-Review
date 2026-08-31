@@ -1,0 +1,316 @@
+{
+  "version": "2.0.0",
+  "updated": "2026-08-27",
+  "principle": "Every relationship is represented as a directed scientific influence unless the reverse direction is independently supported. Reciprocal pairs are rendered as two distinct directional relations rather than one generic bidirectional arrow. Verification feedback is shown separately from forward design influence.",
+  "relation_semantics": {
+    "influence": "Directional design influence: the source changes the requirements, formulation, information, conditioning, or attainable behavior of the target.",
+    "reciprocal": "Reciprocal pair: two independently supported directional influences connect the same objects in opposite directions.",
+    "verification": "Verification dependency: the co-designed model is assessed against complementary numerical, physical, robustness, uncertainty, identifiability, and efficiency criteria.",
+    "feedback": "Verification feedback: an observed failure or deficit motivates targeted upstream redesign."
+  },
+  "relations": [
+    {
+      "id": "problem-representation",
+      "semantic": "influence",
+      "pair": "problem-representation-pair",
+      "label": "regularity · scale · geometry · data",
+      "mechanism": "Problem regularity, scale separation, geometry and available data determine the approximation demands placed on the representation.",
+      "consequence": "Representation capacity and inductive bias must be chosen against the actual physical state family rather than in isolation.",
+      "color_domain": "problem",
+      "lane": 0,
+      "label_dx": -32,
+      "label_dy": -34
+    },
+    {
+      "id": "representation-problem",
+      "semantic": "influence",
+      "pair": "problem-representation-pair",
+      "label": "state variables & solution regularity",
+      "mechanism": "The chosen state parameterization and latent representation determine which physical states, coefficients and regularity classes the model can express.",
+      "consequence": "Representation choices can force a reformulation of the physical state description or computational role.",
+      "color_domain": "representation",
+      "lane": 1,
+      "label_dx": 24,
+      "label_dy": 34
+    },
+    {
+      "id": "problem-physics",
+      "semantic": "influence",
+      "label": "governing structure & objectives",
+      "mechanism": "The governing laws, conditions, admissibility requirements and scientific objective determine what physical knowledge must be enforced.",
+      "consequence": "Constraint content follows from the problem definition rather than from a universal PINN recipe.",
+      "color_domain": "problem",
+      "lane": 0,
+      "label_dx": 42,
+      "label_dy": -34
+    },
+    {
+      "id": "problem-core",
+      "semantic": "influence",
+      "label": "operator order · scales · boundary information",
+      "mechanism": "Operator order, scale structure and boundary information determine derivative demands, residual structure and conditioning in the coupled formulation.",
+      "consequence": "The same neural architecture can behave very differently under different operators and physical scales.",
+      "color_domain": "problem",
+      "lane": 0,
+      "label_dx": 10,
+      "label_dy": -26
+    },
+    {
+      "id": "representation-core",
+      "semantic": "influence",
+      "pair": "representation-core-pair",
+      "label": "ansatz affects constraint form",
+      "mechanism": "The approximation ansatz can embed boundary structure, auxiliary variables or latent parameters and thereby alter how constraints enter training.",
+      "consequence": "Representation and physical enforcement cannot be optimized independently.",
+      "color_domain": "representation",
+      "lane": 0,
+      "label_dx": -34,
+      "label_dy": -18
+    },
+    {
+      "id": "core-representation",
+      "semantic": "influence",
+      "pair": "representation-core-pair",
+      "label": "operator spectrum exposes representation bias",
+      "mechanism": "The coupled operator, residual and training objective expose spectral bias, conditioning and approximation-capacity limits of the representation.",
+      "consequence": "Observed approximation failure can require architecture, basis or feature-space redesign.",
+      "color_domain": "core",
+      "lane": 1,
+      "label_dx": -16,
+      "label_dy": 24
+    },
+    {
+      "id": "physics-core",
+      "semantic": "influence",
+      "pair": "physics-core-pair",
+      "label": "physics determines residual form",
+      "mechanism": "Strong, weak, integral, exact and conservative enforcement choices produce different residual or constraint formulations.",
+      "consequence": "Physics enforcement changes both the mathematical training objective and the numerical machinery required to evaluate it.",
+      "color_domain": "physics",
+      "lane": 0,
+      "label_dx": 28,
+      "label_dy": -16
+    },
+    {
+      "id": "core-physics",
+      "semantic": "influence",
+      "pair": "physics-core-pair",
+      "label": "optimization formulation changes enforcement",
+      "mechanism": "Penalty, constrained and multi-objective optimization formulations determine whether physical requirements are traded, balanced or imposed explicitly.",
+      "consequence": "Training formulation changes the effective physical-enforcement mechanism even when the governing equations are unchanged.",
+      "color_domain": "core",
+      "lane": 1,
+      "label_dx": 20,
+      "label_dy": 24
+    },
+    {
+      "id": "physics-numerical",
+      "semantic": "influence",
+      "label": "derivative order · continuity · conservation",
+      "mechanism": "Derivative order, weak-form integration, conservation and interface requirements determine differentiation, quadrature, discretization and decomposition choices.",
+      "consequence": "Numerical realization must be compatible with the form of the physics being enforced.",
+      "color_domain": "physics",
+      "lane": 0,
+      "label_dx": 34,
+      "label_dy": 0
+    },
+    {
+      "id": "numerical-core",
+      "semantic": "influence",
+      "pair": "numerical-core-pair",
+      "label": "sampling controls gradient information",
+      "mechanism": "Differentiation, residual evaluation and collocation determine which local physical errors contribute information to the optimization problem.",
+      "consequence": "Sampling and operator evaluation can change both the optimization trajectory and final solution error.",
+      "color_domain": "numerical",
+      "lane": 0,
+      "label_dx": 30,
+      "label_dy": 6
+    },
+    {
+      "id": "core-numerical",
+      "semantic": "influence",
+      "pair": "numerical-core-pair",
+      "label": "residual structure drives cost · memory · stability",
+      "mechanism": "The coupled residual and operator structure determine derivative order, memory pressure, sparsity, numerical support and stability requirements.",
+      "consequence": "A numerically expensive or unstable realization can require reformulating the PINN rather than merely changing hardware.",
+      "color_domain": "core",
+      "lane": 1,
+      "label_dx": 6,
+      "label_dy": 28
+    },
+    {
+      "id": "training-core",
+      "semantic": "influence",
+      "pair": "training-core-pair",
+      "label": "objective couples physics & data",
+      "mechanism": "Physics, data, boundary, interface, conservation and regularization terms jointly define the trainable objective.",
+      "consequence": "Loss construction determines which competing scientific requirements dominate optimization.",
+      "color_domain": "training",
+      "lane": 0,
+      "label_dx": -34,
+      "label_dy": 8
+    },
+    {
+      "id": "core-training",
+      "semantic": "influence",
+      "pair": "training-core-pair",
+      "label": "conditioning governs optimizer behavior",
+      "mechanism": "Residual stiffness, loss imbalance, sampling and curvature determine whether first-order, hybrid or curvature-aware optimization is effective.",
+      "consequence": "Optimizer performance is conditional on the formulation and information geometry, not an isolated algorithm ranking.",
+      "color_domain": "core",
+      "lane": 1,
+      "label_dx": -12,
+      "label_dy": 32
+    },
+    {
+      "id": "representation-training",
+      "semantic": "influence",
+      "label": "architecture affects conditioning",
+      "mechanism": "Activation, parameterization and architectural structure change gradient propagation, stiffness and loss-landscape conditioning.",
+      "consequence": "Representation changes can alter training difficulty even when the loss definition is unchanged.",
+      "color_domain": "representation",
+      "lane": 0,
+      "label_dx": -38,
+      "label_dy": 0
+    },
+    {
+      "id": "core-reliability",
+      "semantic": "verification",
+      "label": "verify every co-design outcome",
+      "mechanism": "The resulting PINN must be assessed with complementary numerical, physical, robustness, uncertainty, identifiability and efficiency criteria.",
+      "consequence": "Residual reduction or one prediction metric alone cannot establish reliability.",
+      "color_domain": "reliability",
+      "lane": 0,
+      "label_dx": 0,
+      "label_dy": -8
+    },
+    {
+      "id": "reliability-problem",
+      "semantic": "feedback",
+      "label": "task or repeated-query mismatch → reconsider role",
+      "mechanism": "Verification can reveal that a single-state PINN is the wrong computational abstraction for the intended workload.",
+      "consequence": "Reframe the computational role, for example from repeated single solves to operator learning when justified.",
+      "trigger": "Task definition, repeated-query cost or identifiability does not match the chosen computational role.",
+      "action": "Reconsider the physical problem statement, outputs or computational role before tuning downstream components.",
+      "feedback_side": "right",
+      "color_domain": "reliability",
+      "lane": 4,
+      "label_dx": 0,
+      "label_dy": -4
+    },
+    {
+      "id": "reliability-representation",
+      "semantic": "feedback",
+      "label": "spectral / local approximation failure → revise representation",
+      "mechanism": "Local, multiscale or spectral error can reveal insufficient approximation capacity or an unsuitable basis even when optimization appears converged.",
+      "consequence": "Revise architecture, basis functions, feature mapping, state parameterization or network structure.",
+      "trigger": "Persistent local or spectral error indicates representation bias or insufficient approximation capacity.",
+      "action": "Change the representation rather than treating the symptom only through more iterations or larger loss weights.",
+      "feedback_side": "left",
+      "color_domain": "reliability",
+      "lane": 2,
+      "label_dx": 0,
+      "label_dy": -2
+    },
+    {
+      "id": "reliability-physics",
+      "semantic": "feedback",
+      "label": "constraint / conservation failure → reformulate enforcement",
+      "mechanism": "Boundary, conservation, flux or admissibility errors identify a failure of physical enforcement rather than merely predictive fit.",
+      "consequence": "Change the enforcement mechanism, constraint representation or conservative formulation.",
+      "trigger": "Boundary, interface, conservation or admissibility criteria fail despite acceptable aggregate prediction error.",
+      "action": "Reformulate physical enforcement using exact, weak, conservative or explicitly constrained mechanisms as appropriate.",
+      "feedback_side": "right",
+      "color_domain": "reliability",
+      "lane": 2,
+      "label_dx": 0,
+      "label_dy": 2
+    },
+    {
+      "id": "reliability-numerical",
+      "semantic": "feedback",
+      "label": "poor local accuracy / coverage → revise numerical realization",
+      "mechanism": "Error localization, residual coverage, derivative instability or excessive computational cost can identify numerical-realization failure.",
+      "consequence": "Adapt sampling, differentiation, residual evaluation or decomposition rather than only changing the network.",
+      "trigger": "Localized error, poor physical coverage, derivative instability or excessive numerical cost is observed.",
+      "action": "Revise collocation, derivative evaluation, discretization support or decomposition strategy.",
+      "feedback_side": "right",
+      "color_domain": "reliability",
+      "lane": 0,
+      "label_dx": 0,
+      "label_dy": 4
+    },
+    {
+      "id": "reliability-training",
+      "semantic": "feedback",
+      "label": "stagnation / loss imbalance / instability → revise training",
+      "mechanism": "Unequal loss progress, ill-conditioning and unstable optimization identify training-pathology rather than representation error alone.",
+      "consequence": "Rebalance losses, change optimizer strategy, learning schedule, initialization or continuation strategy.",
+      "trigger": "Optimization stagnates, objectives progress unequally, or training is unstable.",
+      "action": "Revise loss balancing and optimization strategy, escalating to hybrid or curvature-aware methods when justified.",
+      "feedback_side": "left",
+      "color_domain": "reliability",
+      "lane": 0,
+      "label_dx": 0,
+      "label_dy": 4
+    }
+  ],
+  "concept_items": {
+    "Fourier features": { "id": "architecture:fourier-features", "label": "Fourier features", "trace": "representation" },
+    "SIREN (sinusoidal)": { "id": "architecture:siren", "label": "SIREN", "trace": "representation" },
+    "Weak form": { "id": "formulation:weak-form", "label": "Weak form", "trace": "physics" },
+    "Variational form": { "id": "formulation:variational-form", "label": "Variational form", "trace": "physics" },
+    "Automatic differentiation": { "id": "method:automatic-differentiation", "label": "Automatic differentiation", "trace": "numerical" },
+    "Sobol sampling": { "id": "sampling:sobol", "label": "Sobol sampling", "trace": "numerical" },
+    "Adam": { "id": "optimizer:adam", "label": "Adam", "trace": "training" },
+    "L-BFGS": { "id": "optimizer:lbfgs", "label": "L-BFGS", "trace": "training" },
+    "RMSE": { "id": "metric:rmse", "label": "RMSE", "trace": "reliability" },
+    "MAE": { "id": "metric:mae", "label": "MAE", "trace": "reliability" },
+    "Relative L2 error": { "id": "metric:relative-l2", "label": "Relative L2 error", "trace": "reliability" }
+  },
+  "panel_overrides": {
+    "physics": {
+      "Enforcement mechanisms": [
+        "Strong-form (pointwise)",
+        "Weak form",
+        "Variational form",
+        "Integral / energy form",
+        "Soft penalty (residual)",
+        "Hard constraints",
+        "Distance-function / trial-solution",
+        "Conservative / discrete"
+      ]
+    },
+    "numerical": {
+      "Sampling / collocation": [
+        "Interior points",
+        "Boundary points",
+        "Initial-condition points",
+        "Interface points",
+        "Observation points",
+        "Uniform / random",
+        "Latin hypercube sampling (LHS)",
+        "Sobol sampling",
+        "Adaptive / residual-based",
+        "Geometry-aware"
+      ]
+    },
+    "reliability": {
+      "Numerical accuracy": [
+        "Relative L2 error",
+        "Relative Linf error",
+        "RMSE",
+        "MAE",
+        "Local / pointwise error",
+        "Parameter error"
+      ]
+    }
+  },
+  "trace_paths": {
+    "representation": ["problem-representation", "representation-problem", "representation-core", "core-representation", "representation-training", "core-reliability", "reliability-representation"],
+    "physics": ["problem-physics", "physics-core", "core-physics", "physics-numerical", "core-reliability", "reliability-physics"],
+    "numerical": ["physics-numerical", "numerical-core", "core-numerical", "core-reliability", "reliability-numerical"],
+    "training": ["representation-training", "training-core", "core-training", "core-reliability", "reliability-training"],
+    "reliability": ["core-reliability", "reliability-problem", "reliability-representation", "reliability-physics", "reliability-numerical", "reliability-training"]
+  }
+}

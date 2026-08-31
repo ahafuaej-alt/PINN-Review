@@ -3,8 +3,8 @@
   "metadata": {
     "title": "PINN Review Atlas canonical paper dataset",
     "schema_version": "1.0.0",
-    "dataset_version": "2.2.174",
-    "last_updated": "2026-08-09",
+    "dataset_version": "2.3.0",
+    "last_updated": "2026-08-29",
     "record_count": 853,
     "id_range": "1-853",
     "sources": {
@@ -17,7 +17,6 @@
       "generator": "scripts/build-datasets.mjs",
       "validator": "scripts/validate-dataset.mjs",
       "update_command": "node scripts/apply-paper-update.mjs update.json",
-      "legacy_realm_year_override_count": 97,
       "publisher_enrichment": {
         "date": "2026-07-23",
         "eligible_records": 791,
@@ -53,7 +52,8 @@
         "changed_records": 420,
         "unchanged_records": 0,
         "doi_mismatch_records": []
-      }
+      },
+      "publication_year_source": "paper.year"
     }
   },
   "papers": [
@@ -12354,9 +12354,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -12755,9 +12752,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -15112,9 +15106,6 @@
         "United States",
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -15369,9 +15360,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -17198,9 +17186,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -18160,14 +18145,14 @@
     {
       "id": 223,
       "title": "OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics",
-      "citation": "Feng, J.; Xu, R.; Chu, X. OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics. International Journal of Heat and Fluid Flow 2025, 120, 1-12. https://doi.org/10.1016/j.ijheatfluidflow.2026.110399.",
+      "citation": "Feng, J.; Xu, R.; Chu, X. OpenFOAMGPT 2.0: End-to-end, trustworthy automation for computational fluid dynamics. International Journal of Heat and Fluid Flow 2026, 120, 1-12. https://doi.org/10.1016/j.ijheatfluidflow.2026.110399.",
       "doi": "10.1016/j.ijheatfluidflow.2026.110399",
       "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0142727X26001657",
       "venue": {
         "name": "International Journal of Heat and Fluid Flow",
         "type": "journal"
       },
-      "year": 2025,
+      "year": 2026,
       "access": "Subscription",
       "countries": [
         "United Kingdom",
@@ -18177,7 +18162,7 @@
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0142727X26001657",
-        "note": "all",
+        "note": "2026 change year",
         "publisher_enrichment": {
           "source": "DOI content negotiation",
           "source_url": "https://doi.org/10.48550/ARXIV.2504.19338",
@@ -18212,7 +18197,7 @@
         },
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-08-06",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Feng, J.; Xu, R.; Chu, X.",
         "journal_abbreviation": "International Journal of Heat and Fluid Flow",
@@ -20073,9 +20058,6 @@
         "United States",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -24804,9 +24786,6 @@
         "United Arab Emirates",
         "France"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -25214,9 +25193,6 @@
       "countries": [
         "Belgium"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -25835,26 +25811,23 @@
     {
       "id": 315,
       "title": "Look-ahead Dispatch of Power Systems Based on Linear Alternating Current Optimal Power Flow Framework with Nonlinear Frequency Constraints Using Physics-informed Neural Networks",
-      "citation": "Sun, G.; Wang, Q.; Chen, S.; Wei, Z.; Zang, H. Look-ahead Dispatch of Power Systems Based on Linear Alternating Current Optimal Power Flow Framework with Nonlinear Frequency Constraints Using Physics-informed Neural Networks. Journal of Modern Power Systems and Clean Energy 2024, 13, 778-790. https://doi.org/10.35833/MPCE.2024.000452.",
+      "citation": "Sun, G.; Wang, Q.; Chen, S.; Wei, Z.; Zang, H. Look-ahead Dispatch of Power Systems Based on Linear Alternating Current Optimal Power Flow Framework with Nonlinear Frequency Constraints Using Physics-informed Neural Networks. Journal of Modern Power Systems and Clean Energy 2025, 13, 778-790. https://doi.org/10.35833/MPCE.2024.000452.",
       "doi": "10.35833/MPCE.2024.000452",
       "publisher_url": "https://ieeexplore.ieee.org/document/10640363",
       "venue": {
         "name": "Journal of Modern Power Systems and Clean Energy",
         "type": "journal"
       },
-      "year": 2024,
+      "year": 2025,
       "access": "Subscription",
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.35833/MPCE.2024.000452",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://ieeexplore.ieee.org/document/10640363",
+        "note": "year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.35833%2FMPCE.2024.000452",
@@ -25908,7 +25881,7 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Sun, G.; Wang, Q.; Chen, S.; Wei, Z.; Zang, H.",
         "journal_abbreviation": "Journal of Modern Power Systems and Clean Energy",
@@ -28017,9 +27990,6 @@
         "Sweden",
         "Denmark"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -29038,9 +29008,6 @@
         "Thailand",
         "France"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31165,9 +31132,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31332,14 +31296,14 @@
     {
       "id": 381,
       "title": "Physics-informed deep-learning applications to experimental fluid mechanics",
-      "citation": "Eivazi, H.; Wang, Y.; Vinuesa, R. Physics-informed deep-learning applications to experimental fluid mechanics. IOP Science Measurement Science and Technology 2022, 35, 075303. https://doi.org/10.1088/1361-6501/ad3fd3.",
+      "citation": "Eivazi, H.; Wang, Y.; Vinuesa, R. Physics-informed deep-learning applications to experimental fluid mechanics. IOP Science Measurement Science and Technology 2024, 35, 075303. https://doi.org/10.1088/1361-6501/ad3fd3.",
       "doi": "10.1088/1361-6501/ad3fd3",
       "publisher_url": "https://doi.org/10.1088/1361-6501/ad3fd3",
       "venue": {
         "name": "IOP Science Measurement Science and Technology",
         "type": "journal"
       },
-      "year": 2022,
+      "year": 2024,
       "access": "Open access",
       "countries": [
         "Germany",
@@ -31348,12 +31312,12 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://iopscience.iop.org/article/10.1088/1361-6501/ad3fd3/meta",
-        "note": "update info",
+        "evidence_url": "https://doi.org/10.1088/1361-6501/ad3fd3",
+        "note": "year 2024 change",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-28",
       "abstract": "High-resolution reconstruction of flow-field data from low-resolution and noisy measurements is of interest due to the prevalence of such problems in experimental fluid mechanics, where the measurement data are in general sparse, incomplete and noisy. Deep-learning approaches have been shown suitable for such super-resolution tasks. However, a high number of high-resolution examples is needed, which may not be available for many cases. Moreover, the obtained predictions may lack in complying with the physical principles, e.g. mass and momentum conservation. Physics-informed deep learning provides frameworks for integrating data and physical laws for learning. In this study, we apply physics-informed neural networks (PINNs) for super-resolution of flow-field data both in time and space from a limited set of noisy measurements without having any high-resolution reference data. Our objective is to obtain a continuous solution of the problem, providing a physically-consistent prediction at any point in the solution domain. We demonstrate the applicability of PINNs for the super-resolution of flow-field data in time and space through three canonical cases: Burgers’ equation, two-dimensional vortex shedding behind a circular cylinder and the minimal turbulent channel flow. The robustness of the models is also investigated by adding synthetic Gaussian noise. Furthermore, we show the capabilities of PINNs to improve the resolution and reduce the noise in a real experimental dataset consisting of hot-wire-anemometry measurements. Our results show the adequate capabilities of PINNs in the context of data augmentation for experiments in fluid mechanics.",
       "bibliographic": {
         "authors": "Eivazi, H.; Wang, Y.; Vinuesa, R.",
@@ -31463,9 +31427,6 @@
       "countries": [
         "Denmark"
       ],
-      "overrides": {
-        "realm_year": 2018
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31533,9 +31494,6 @@
         "China",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -31868,9 +31826,6 @@
         "Canada",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -34027,9 +33982,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2019
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -37562,9 +37514,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2017
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -37844,9 +37793,6 @@
       "countries": [
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2002
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38330,9 +38276,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2016
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38365,9 +38308,6 @@
       "countries": [
         "France"
       ],
-      "overrides": {
-        "realm_year": 2014
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38456,9 +38396,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -38532,13 +38469,13 @@
     },
     {
       "id": 471,
-      "title": "ADAM A METHOD FOR STOCHASTIC OPTIMIZATION",
-      "citation": "Kingma, Diederik P.; Ba, Jimmy. ADAM A METHOD FOR STOCHASTIC OPTIMIZATION. Venue not identified 2014. https://arxiv.org/abs/1412.6980.",
-      "doi": null,
-      "publisher_url": "https://arxiv.org/abs/1412.6980",
+      "title": "Adam: A Method for Stochastic Optimization",
+      "citation": "Kingma, P.D.; Ba, J. Adam: A Method for Stochastic Optimization. arXiv [Computer Science. Machine Learning] 2014, 1412, 1-15. https://doi.org/10.48550/arXiv.1412.6980.",
+      "doi": "10.48550/arXiv.1412.6980",
+      "publisher_url": "https://doi.org/10.48550/arXiv.1412.6980",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "arXiv [Computer Science. Machine Learning]",
+        "type": "preprint"
       },
       "year": 2014,
       "access": "Open access",
@@ -38546,14 +38483,11 @@
         "Netherlands",
         "Canada"
       ],
-      "overrides": {
-        "realm_year": 2015
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://arxiv.org/abs/1412.6980",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "note": "all",
         "publisher_enrichment": {
           "source": "Publisher HTML citation metadata",
           "source_url": "https://arxiv.org/abs/1412.6980",
@@ -38582,13 +38516,20 @@
           ],
           "conflict_count": 2,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Kingma, Diederik P.; Ba, Jimmy",
+        "authors": "Kingma, P.D.; Ba, J.",
+        "journal_abbreviation": "[cs.LG]",
+        "volume": "1412",
+        "issue": "arXiv:1412.6980",
+        "pages": "1-15",
+        "article_number": "6980",
         "publication_date": "2014/12/22"
-      }
+      },
+      "abstract": "We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss AdaMax, a variant of Adam based on the infinity norm."
     },
     {
       "id": 472,
@@ -38754,9 +38695,6 @@
         "Germany",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -39026,9 +38964,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -39127,9 +39062,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -39536,26 +39468,23 @@
     {
       "id": 486,
       "title": "Physics-informed neural networks for hidden boundary detection and flow field reconstruction",
-      "citation": "Zhu, Yongzheng; Chen, Weizheng; Deng, Jian; Bian, Xin. Physics-informed neural networks for hidden boundary detection and flow field reconstruction. Venue not identified 2025. https://arxiv.org/abs/2503.24074.",
-      "doi": null,
-      "publisher_url": "https://arxiv.org/abs/2503.24074",
+      "citation": "Zhu, Y., Chen, W., Deng, J.; Bian, X. Physics-informed neural networks for hidden boundary detection and flow field reconstruction. Acta Mechanica Sinica 2026, 42, 1-19. https://doi.org/10.1007/s10409-025-25273-x.",
+      "doi": "10.1007/s10409-025-25273-x",
+      "publisher_url": "https://link.springer.com/article/10.1007/s10409-025-25273-x",
       "venue": {
-        "name": "Venue not identified",
-        "type": "unknown"
+        "name": "Acta Mechanica Sinica",
+        "type": "journal"
       },
-      "year": 2025,
-      "access": "Open access",
+      "year": 2026,
+      "access": "Subscription",
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2026
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://arxiv.org/abs/2503.24074",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://link.springer.com/article/10.1007/s10409-025-25273-x",
+        "note": "all/ paper is published in journal",
         "publisher_enrichment": {
           "source": "Publisher HTML citation metadata",
           "source_url": "https://arxiv.org/abs/2503.24074",
@@ -39583,13 +39512,19 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Zhu, Yongzheng; Chen, Weizheng; Deng, Jian; Bian, Xin",
+        "authors": "Zhu, Y., Chen, W., Deng, J.; Bian, X.",
+        "journal_abbreviation": "Acta Mech. Sin.",
+        "volume": "42",
+        "pages": "1-19",
+        "article_number": "725273",
         "publication_date": "2025/03/31"
-      }
+      },
+      "abstract": "Simultaneously detecting hidden solid boundaries and reconstructing flow fields from sparse observations poses a significant inverse challenge in fluid mechanics. This study presents a physics-informed neural network framework designed to infer the presence, shape, and motion of static or moving solid boundaries within a flow field. By integrating a body fraction parameter into the governing equations, the model enforces no-slip/no-penetration boundary conditions in solid regions while preserving conservation laws of fluid dynamics. Using partial flow field data, the method simultaneously reconstructs the unknown flow field and infers the body fraction distribution, thereby revealing solid boundaries. The framework is validated across diverse scenarios, including incompressible Navier-Stokes and compressible Euler flows, such as steady flow past a fixed cylinder, an inline oscillating cylinder, and subsonic flow over an airfoil. The results demonstrate accurate detection of hidden boundaries, reconstruction of missing flow data, and estimation of trajectories and velocities of a moving body. Further analysis examines the effects of data sparsity, velocity-only measurements, and noise on inference accuracy. The proposed method exhibits robustness and versatility, highlighting its potential for applications when only limited experimental or numerical data are available."
     },
     {
       "id": 487,
@@ -39701,9 +39636,6 @@
         "Germany",
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -40107,9 +40039,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -40202,9 +40131,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -41415,9 +41341,6 @@
         "United States",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2019
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -41487,31 +41410,28 @@
     {
       "id": 510,
       "title": "NeuroDiffEq: A Python package for solving differential equations with neural networks",
-      "citation": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M. NeuroDiffEq: A Python package for solving differential equations with neural networks. Journal of open source software 1931, 5, 46. https://doi.org/10.21105/joss.01931.",
+      "citation": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M. NeuroDiffEq: A Python package for solving differential equations with neural networks. Journal of open source software 2020, 5, 46. https://doi.org/10.21105/joss.01931.",
       "doi": "10.21105/joss.01931",
       "publisher_url": "https://doi.org/10.21105/joss.01931",
       "venue": {
         "name": "Journal of open source software",
         "type": "journal"
       },
-      "year": 1931,
+      "year": 2020,
       "access": "Open access",
       "countries": [
         "United States",
         "China",
         "Italy"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://joss.theoj.org/papers/10.21105/joss.01931",
-        "note": "info",
+        "evidence_url": "https://doi.org/10.21105/joss.01931",
+        "note": "2020 change year",
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-28",
+      "last_updated": "2026-08-28",
       "abstract": "Differential equations underpin modeling in many areas of science and engineering, yet most problems of practical interest do not admit closed-form solutions and are traditionally treated with numerical time–space discretization schemes such as FDM, FVM, FEM, and spectral methods. These classical approaches are efficient and well-studied, but their expressivity is constrained by the underlying function representation, motivating the use of artificial neural networks as universal function approximators for solving ordinary and partial differential equations. We present NeuroDiffEq, a Python package built on PyTorch that formulates differential equation solution as an optimization problem in which the residual of the governing equations is minimized over the parameters of a neural network ansatz. The software supports systems of nonlinear ODEs and canonical PDEs, including the heat and Poisson equations in Cartesian domains with up to two spatial dimensions, and enforces initial and boundary conditions exactly via trial-function transformations of the neural network output. NeuroDiffEq has already been applied to investigate convergence properties of neural-network solvers and to tackle differential equations arising in general relativity, and is being actively extended to handle three-dimensional domains and more complex geometrie",
       "bibliographic": {
         "authors": "Chen, F., Sondak, D., Protopapas, P., Mattheakis, M., Liu, S., Agarwal, D., Di Giovanni, M.",
@@ -41909,9 +41829,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -42497,14 +42414,11 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1137/20M1318043",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://epubs.siam.org/doi/10.1137/20M1318043",
+        "note": "meta",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1137%2F20M1318043",
@@ -42564,14 +42478,14 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Wang, S.; Teng, Y.; Perdikaris, P.",
         "journal_abbreviation": "SIAM J. Sci. Comput.",
         "volume": "43",
         "issue": "5",
         "pages": "A3055-A3081",
-        "article_number": "A3055-A3081",
+        "article_number": "5",
         "publisher": "Society for Industrial & Applied Mathematics (SIAM)",
         "publication_date": "2021-01"
       },
@@ -42592,9 +42506,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -42953,9 +42864,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -43420,9 +43328,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -43594,9 +43499,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46059,9 +45961,6 @@
       "countries": [
         "Germany"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46233,9 +46132,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46590,9 +46486,6 @@
       "countries": [
         "Japan"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -46907,9 +46800,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -47313,9 +47203,6 @@
       "countries": [
         "India"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -47349,9 +47236,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48425,9 +48309,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48626,9 +48507,6 @@
         "Germany",
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48728,9 +48606,6 @@
       "countries": [
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -48827,9 +48702,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -49013,9 +48885,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -49484,26 +49353,23 @@
     {
       "id": 609,
       "title": "A Hard-Constraint Wide-Body Physics-Informed Neural Network Model for Solving Multiple Cases in Forward Problems for Partial Differential Equations",
-      "citation": "Chen, S.; Liu, Z.; Zhang, W.; Yang, J. A Hard-Constraint Wide-Body Physics-Informed Neural Network Model for Solving Multiple Cases in Forward Problems for Partial Differential Equations. Applied Sciences 2023, 14, 189. https://doi.org/10.3390/app14010189.",
+      "citation": "Chen, S.; Liu, Z.; Zhang, W.; Yang, J. A Hard-Constraint Wide-Body Physics-Informed Neural Network Model for Solving Multiple Cases in Forward Problems for Partial Differential Equations. Applied Sciences 2024, 14, 189. https://doi.org/10.3390/app14010189.",
       "doi": "10.3390/app14010189",
       "publisher_url": "https://www.mdpi.com/2076-3417/14/1/189",
       "venue": {
         "name": "Applied Sciences",
         "type": "journal"
       },
-      "year": 2023,
+      "year": 2024,
       "access": "Open access",
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.3390/app14010189",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://www.mdpi.com/2076-3417/14/1/189",
+        "note": "year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.3390%2Fapp14010189",
@@ -49557,7 +49423,7 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Chen, S.; Liu, Z.; Zhang, W.; Yang, J.",
         "journal_abbreviation": "Applied Sciences",
@@ -50048,9 +49914,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -50540,9 +50403,6 @@
         "China",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -50889,9 +50749,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51079,9 +50936,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51362,9 +51216,6 @@
       "countries": [
         "South Africa"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51464,9 +51315,6 @@
       "countries": [
         "Switzerland"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51555,9 +51403,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -51670,14 +51515,14 @@
     {
       "id": 634,
       "title": "HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks",
-      "citation": "Smith, J.D.; Ross, Z.E.; Azizzadenesheli, K.; Muir, J.B. HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks. Geophysical Journal International 2021, 228, 698-710. https://doi.org/10.1093/gji/ggab309.",
+      "citation": "Smith, J.D.; Ross, Z.E.; Azizzadenesheli, K.; Muir, J.B. HypoSVI Hypocentre inversion with Stein variational inference and physics informed neural networks. Geophysical Journal International 2022, 228, 698-710. https://doi.org/10.1093/gji/ggab309.",
       "doi": "10.1093/gji/ggab309",
       "publisher_url": "https://academic.oup.com/gji/article/228/1/698/6348094",
       "venue": {
         "name": "Geophysical Journal International",
         "type": "journal"
       },
-      "year": 2021,
+      "year": 2022,
       "access": "Subscription",
       "countries": [
         "United States"
@@ -51685,8 +51530,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1093/gji/ggab309",
-        "note": null,
+        "evidence_url": "https://academic.oup.com/gji/article/228/1/698/6348094",
+        "note": "2022 change year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1093%2Fgji%2Fggab309",
@@ -51743,7 +51588,7 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Smith, J.D.; Ross, Z.E.; Azizzadenesheli, K.; Muir, J.B.",
         "journal_abbreviation": "Geophysical Journal International",
@@ -52144,9 +51989,6 @@
         "China",
         "Singapore"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52318,9 +52160,6 @@
       "countries": [
         "Russian Federation"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52682,9 +52521,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52864,9 +52700,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52957,9 +52790,6 @@
       "countries": [
         "India"
       ],
-      "overrides": {
-        "realm_year": 2019
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -52992,9 +52822,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -54679,9 +54506,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -54858,9 +54682,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -54959,9 +54780,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55331,9 +55149,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55518,9 +55333,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55730,29 +55542,26 @@
     {
       "id": 684,
       "title": "Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks",
-      "citation": "Huang, W., Ying, K., Yan, X., Ni, C. Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks. Journal of Physics: Conference Series 2024, 2966, 1-14. https://doi.org/10.1088/1742-6596/2966/1/012019.",
+      "citation": "Huang, W., Ying, K., Yan, X., Ni, C. Research on Laser Ultrasonic Surface MicroCrack DResearch on Laser Ultrasonic Surface Micro-Crack Detection Based on Physics-Informed Neural Networksetection Based on Physics-Informed Neural Networks. Journal of Physics: Conference Series 2025, 2966, 1-14. https://doi.org/10.1088/1742-6596/2966/1/012019.",
       "doi": "10.1088/1742-6596/2966/1/012019",
       "publisher_url": "https://iopscience.iop.org/article/10.1088/1742-6596/2966/1/012019/meta",
       "venue": {
         "name": "Journal of Physics: Conference Series",
         "type": "conference_journal"
       },
-      "year": 2024,
+      "year": 2025,
       "access": "Open access",
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2025
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://iopscience.iop.org/article/10.1088/1742-6596/2966/1/012019/meta",
-        "note": "all",
+        "note": "yaer",
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-29",
+      "last_updated": "2026-08-28",
       "abstract": "To address the issue of crack detection based on traditional laser ultrasonic results, conventional neural networks (CNNs) fail to utilize the physical information implicitly contained in the data. To overcome this problem, this paper adopts Physics-Informed Neural Networks (PINN), incorporating the wave equation as a physical constraint. By using finite element simulation, we obtain out-of-plane displacement data of the wave field containing surface cracks and train a PINN model capable of predicting the location and depth of surface cracks. The research results show that for samples with surface micro-cracks of different depths, the equivalent wave velocity can be effectively predicted; and accurate prediction results can be obtained with only 50% of the full wave field data for training, with an average relative error of approximately 1.24%. Furthermore, the results predicted by the PINN indicate that the equivalent wave velocity increases as the crack depth decreases, and the relative error compared to the SAW wave velocity of defect-free sample is only 1.06%. This demonstrates that the proposed PINN model can effectively predict crack depth. The content and results of this study provide theoretical and technical support for the application of neural network algorithms in the field of laser ultrasonic non-destructive testing.",
       "bibliographic": {
         "authors": "Huang, W., Ying, K., Yan, X., Ni, C.",
@@ -55777,9 +55586,6 @@
       "countries": [
         "France"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -55906,9 +55712,6 @@
       "countries": [
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56027,9 +55830,6 @@
         "United States",
         "Germany"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56120,9 +55920,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56254,9 +56051,6 @@
       "countries": [
         "Canada"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -56619,9 +56413,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -57045,9 +56836,6 @@
         "United States",
         "France"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -57660,9 +57448,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -58129,19 +57914,16 @@
         "name": "IEEE/ACM International Conference on Big Data Computing, Applications and Technologies 10th",
         "type": "conference"
       },
-      "year": 2023,
+      "year": 2024,
       "access": "Subscription",
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://dl.acm.org/doi/10.1145/3632366.3632380",
-        "note": "name and abs",
+        "note": "2024 change year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1145%2F3632366.3632380",
@@ -58192,7 +57974,7 @@
         },
         "citation_mode": "automatic"
       },
-      "last_updated": "2026-08-06",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Ranjith, Y.",
         "journal_abbreviation": "Proceedings of the IEEE/ACM 10th International Conference on Big Data Computing, Applications and Technologies",
@@ -58720,9 +58502,6 @@
       "countries": [
         "Switzerland"
       ],
-      "overrides": {
-        "realm_year": 2021
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -58813,9 +58592,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -59682,9 +59458,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -59818,9 +59591,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60148,9 +59918,6 @@
         "United States",
         "Saudi Arabia"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60419,9 +60186,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60671,9 +60435,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -60769,9 +60530,6 @@
         "China",
         "United Kingdom"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -61074,9 +60832,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -61412,9 +61167,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -61503,9 +61255,6 @@
       "countries": [
         "China"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -62452,9 +62201,9 @@
     {
       "id": 774,
       "title": "An Adaptive Weight Physics-Informed Neural Network for Vortex-Induced Vibration Problems",
-      "citation": "Zhu, P.; Liu, Z.; Xu, Z.; Lv, J. An Adaptive Weight Physics-Informed Neural Network for Vortex-Induced Vibration Problems. Buildings 2025, 15, 1533.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Zhu, P.; Liu, Z.; Xu, Z.; Lv, J. An Adaptive Weight Physics-Informed Neural Network for Vortex-Induced Vibration Problems. Buildings 2025, 15, 1533. https://doi.org/10.3390/buildings15091533.",
+      "doi": "10.3390/buildings15091533",
+      "publisher_url": "https://www.mdpi.com/2075-5309/15/9/1533",
       "venue": {
         "name": "Buildings",
         "type": "journal"
@@ -62467,8 +62216,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.mdpi.com/2075-5309/15/9/1533",
+        "note": "Doi",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -62481,11 +62230,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Zhu, P.; Liu, Z.; Xu, Z.; Lv, J",
+        "authors": "Zhu, P.; Liu, Z.; Xu, Z.; Lv, J.",
         "journal_abbreviation": "Buildings",
         "volume": "15",
+        "issue": "9",
         "pages": "1533"
       },
       "abstract": "Vortex-induced vibration (VIV) is a common fluid–structure interaction phenomenon in practical engineering with significant research value. Traditional methods to solve VIV issues include experimental studies and numerical simulations. However, experimental studies are costly and time-consuming, while numerical simulations are constrained by low Reynolds numbers and simplified models. Deep learning (DL) can successfully capture VIV patterns and generate accurate predictions by using a large amount of training data. The Physics-Informed Neural Network (PINN), a subfield of DL, introduces physics equations into the loss function to reduce the need for large data. Nevertheless, PINN loss functions often include multiple loss terms, which may interact with each other, causing imbalanced training speeds and a potentially inferior overall performance. To address this issue, this study proposes an Adaptive Weight Physics-Informed Neural Network (AW-PINN) algorithm built upon a gradient normalization method (GradNorm) from multi-task learning. The AW-PINN regulates the weights of each loss term by computing the gradient norms on the network weights, ensuring the norms of the loss terms match predefined target values. This ensures balanced training speeds for each loss term and improves both the prediction precision and robustness of the network model. In this study, a VIV dataset of a cylindrical body with different degrees of freedom is used to compare the performance of the PINN and three PINN optimization algorithms. The findings suggest that, compared to a standard PINN, the AW-PINN lowers the mean squared error (MSE) on the test set by 50%, significantly improving the prediction accuracy. The AW-PINN also demonstrates an enhanced stability across different datasets, confirming its robustness and reliability for VIV modeling. Compared with existing methods in the literature, the AW-PINN achieves a comparable lift prediction accuracy using merely 1% of the training data, while simultaneously improving the prediction accuracy of the peak lift."
@@ -62697,9 +62447,9 @@
     {
       "id": 780,
       "title": "Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder",
-      "citation": "Ang, E.H.W.; Wang, G.; Ng, B.F. Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder. Energies 2023, 16, 4558.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Ang, E.H.W.; Wang, G.; Ng, B.F. Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder. Energies 2023, 16, 4558. https://doi.org/10.3390/en16124558.",
+      "doi": "10.3390/en16124558",
+      "publisher_url": "https://www.mdpi.com/1996-1073/16/12/4558",
       "venue": {
         "name": "Energies",
         "type": "journal"
@@ -62712,8 +62462,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.mdpi.com/1996-1073/16/12/4558",
+        "note": "Doi",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -62726,11 +62476,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Ang, E.H.W.; Wang, G.; Ng, B.F",
+        "authors": "Ang, E.H.W.; Wang, G.; Ng, B.F.",
         "journal_abbreviation": "Energies",
         "volume": "16",
+        "issue": "12",
         "pages": "4558"
       },
       "abstract": "Physics-informed neural network (PINN) architectures are recent developments that can act as surrogate models for fluid dynamics in order to reduce computational costs. PINNs make use of deep neural networks, where the Navier-Stokes equation and freestream boundary conditions are used as losses of the neural network; hence, no simulation or experimental data in the training of the PINN is required. Here, the formulation of PINN for fluid dynamics is demonstrated and critical factors influencing the PINN design are discussed through a low Reynolds number flow over a cylinder. The PINN architecture showed the greatest improvement to the accuracy of results from the increase in the number of layers, followed by the increase in the number of points in the point cloud. Increasing the number of nodes per hidden layer brings about the smallest improvement in performance. In general, PINN is much more efficient than computational fluid dynamics (CFD) in terms of memory resource usage, with PINN requiring 5–10 times less memory. The tradeoff for this advantage is that it requires longer computational time, with PINN requiring approximately 3 times more than that of CFD. In essence, this paper demonstrates the direct formulation of PINN without the need for data, alongside hyperparameter design and comparison of computational requirements."
@@ -63010,26 +62761,23 @@
     {
       "id": 784,
       "title": "Evaluation of Machine Learning Methodologies Using Simple Physics Based Conceptual Models for Flow in Porous Media",
-      "citation": "Magzymov, D.; Ratnakar, R.R.; Dindoruk, B.; Johns, R.T. Evaluation of Machine Learning Methodologies Using Simple Physics Based Conceptual Models for Flow in Porous Media. In Proceedings of SPE Annual Technical Conference and Exhibition, Dubai, UAE, 2021-09-21–2021-09-23; https://doi.org/10.2118/206359-MS.",
-      "doi": "10.2118/206359-MS",
-      "publisher_url": "https://onepetro.org/SPEATCE/proceedings/21ATCE/21ATCE/D021S038R004/469630",
+      "citation": "Magzymov, D.; Ratnakar, R.R.; Dindoruk, B.; Johns, R.T. Evaluation of Machine Learning Methodologies Using Simple Physics Based Conceptual Models for Flow in Porous Media. Journal of Petroleum Science and Engineering 2022, 219, 1-24. https://doi.org/10.1016/j.petrol.2022.111056.",
+      "doi": "10.1016/j.petrol.2022.111056",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0920410522009081",
       "venue": {
-        "name": "in: SPE Annual Technical Conference and Exhibition, SPE, Dubai, UAE,",
-        "type": "conference"
+        "name": "Journal of Petroleum Science and Engineering",
+        "type": "journal"
       },
-      "year": 2021,
-      "access": "Open access",
+      "year": 2022,
+      "access": "Subscription",
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.2118/206359-MS",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0920410522009081",
+        "note": "published in journal after coference",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.2118%2F206359-MS",
@@ -63071,19 +62819,24 @@
           ],
           "conflict_count": 1,
           "published_version": null
-        }
+        },
+        "citation_mode": "automatic"
       },
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Magzymov, D.; Ratnakar, R.R.; Dindoruk, B.; Johns, R.T.",
-        "journal_abbreviation": "SPE Annual Technical Conference and Exhibition",
-        "article_number": "D021S038R004",
+        "journal_abbreviation": "Journal of Petroleum Science and Engineering",
+        "volume": "219",
+        "issue": "https://onepetro.org/SPEATCE/proceedings/21ATCE/21ATCE/D021S038R004/469630",
+        "pages": "1-24",
+        "article_number": "111056",
         "publisher": "SPE",
         "conference_name": "SPE Annual Technical Conference and Exhibition",
         "conference_location": "Dubai, UAE",
         "conference_date": "2021-09-21–2021-09-23",
         "publication_date": "2021-09-15"
-      }
+      },
+      "abstract": "Machine learning (ML) techniques have drawn much attention in the engineering community due to recent advances in computational techniques and an enabling environment. However, often they are treated as black-box tools, which should be examined for their robustness and range of validity/applicability. This research presents an evaluation of their application to flow/transport in porous media, where exact solutions (obtained from physics-based models) are used to train ML algorithms to establish when and how these ML algorithms fail to predict the first order flow-physics. Exact solutions are used so as not to introduce artifacts from the numerical solutions.\nTo test, validate, and predict the physics of flow in porous media using ML algorithms, one needs a reliable set of data that may not be readily available and/or the data might not be in suitable form (i.e. incomplete/missing reporting, metadata, or other relevant peripheral information). To overcome this, we first generated structured datasets for flow in porous media using simple representative building blocks of flow physics such as Buckley-Leverett, convection-dispersion equations, and viscous fingering. Then, the outcomes from those equations are fed into ML algorithms to examine their robustness and predictive strength of the key features, such as breakthrough time, and saturation and component profiles. In this research, we show that a physics-informed ML algorithm can capture the physical behavior and effects of various physical parameters (even when shocks and sharp gradients are present) on the features of the flow. Furthermore the ML approach can be utilized to solve inverse problems to estimate various physical parameters. In this study, we have focused on capturing the dominant flow physics on selected processes constituting the outcome of the physics of flow in porous media using ML algorithms. We expect that capturing the physics per selected processes can help solving more complex problems by providing correlative physical proxies."
     },
     {
       "id": 785,
@@ -63100,9 +62853,6 @@
       "countries": [
         "Saudi Arabia"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -63284,9 +63034,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2020
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -63569,9 +63316,6 @@
       "countries": [
         "Taiwan"
       ],
-      "overrides": {
-        "realm_year": 2022
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -64144,27 +63888,24 @@
     {
       "id": 799,
       "title": "Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media",
-      "citation": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S. Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media. Mathematics 2023, 12, 63. https://doi.org/10.3390/math12010063.",
+      "citation": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S. Physics-Informed Neural Networks with Periodic Activation Functions for Solute Transport in Heterogeneous Porous Media. Mathematics 2024, 12, 63. https://doi.org/10.3390/math12010063.",
       "doi": "10.3390/math12010063",
       "publisher_url": "https://www.mdpi.com/2227-7390/12/1/63",
       "venue": {
         "name": "Mathematics",
         "type": "journal"
       },
-      "year": 2023,
+      "year": 2024,
       "access": "Open access",
       "countries": [
         "United States",
         "Iran"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.3390/math12010063",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://www.mdpi.com/2227-7390/12/1/63",
+        "note": "year",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.3390%2Fmath12010063",
@@ -64212,7 +63953,7 @@
         "citation_mode": "automatic",
         "citation_name_source": "venue.name"
       },
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Faroughi, S.A.; Soltanmohammadi, R.; Datta, P.; Mahjour, S.K.; Faroughi, S.",
         "journal_abbreviation": "Mathematics",
@@ -64952,8 +64693,8 @@
     },
     {
       "id": 808,
-      "title": "NEURAL OPERATOR-BASED PROXY FOR RESERVOIR SIMULATIONS CONSIDERING VARYING WELL SETTINGS, LOCATIONS, AND PERMEABILITY FIELDS",
-      "citation": "Badawi, D.; Gildin, E. NEURAL OPERATOR-BASED PROXY FOR RESERVOIR SIMULATIONS CONSIDERING VARYING WELL SETTINGS, LOCATIONS, AND PERMEABILITY FIELDS. Computers & Geosciences 2025, 196, 105826. https://doi.org/10.1016/j.cageo.2024.105826.",
+      "title": "Neural operator-based proxy for reservoir simulations considering varying well settings, locations, and permeability fields",
+      "citation": "Badawi, D.; Gildin, E. Neural operator-based proxy for reservoir simulations considering varying well settings, locations, and permeability fields. Computers & Geosciences 2025, 196, 105826. https://doi.org/10.1016/j.cageo.2024.105826.",
       "doi": "10.1016/j.cageo.2024.105826",
       "publisher_url": "https://linkinghub.elsevier.com/retrieve/pii/S0098300424003091",
       "venue": {
@@ -64965,14 +64706,11 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": "https://doi.org/10.1016/j.cageo.2024.105826",
-        "note": "Legacy bibliography and country/year sources disagree; preserved without choosing between them.",
+        "evidence_url": "https://linkinghub.elsevier.com/retrieve/pii/S0098300424003091",
+        "note": "title style",
         "publisher_enrichment": {
           "source": "Crossref REST API",
           "source_url": "https://api.crossref.org/works/10.1016%2Fj.cageo.2024.105826",
@@ -65037,12 +64775,11 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Badawi, D.; Gildin, E.",
         "journal_abbreviation": "Computers & Geosciences",
         "volume": "196",
-        "pages": "105826",
         "article_number": "105826",
         "publisher": "Elsevier BV",
         "publication_date": "2025-02"
@@ -66293,11 +66030,11 @@
     {
       "id": 824,
       "title": "Constrained neural network training and its application to hyperelastic material modeling",
-      "citation": "Weber, P.; Geiger, J.; Wagner, W. Constrained neural network training and its application to hyperelastic material modeling. Training and Its Application to Hyperelastic Material Modeling. Comput. Mech 2021, 68, 1179–1204.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Weber, P.; Geiger, J.; Wagner, W. Constrained neural network training and its application to hyperelastic material modeling. Computational Mechanics 2021, 68, 1179–1204. https://doi.org/10.1007/s00466-021-02064-8.",
+      "doi": "10.1007/s00466-021-02064-8",
+      "publisher_url": "https://link.springer.com/article/10.1007/s00466-021-02064-8",
       "venue": {
-        "name": "Training and Its Application to Hyperelastic Material Modeling. Comput. Mech.",
+        "name": "Computational Mechanics",
         "type": "journal"
       },
       "year": 2021,
@@ -66308,8 +66045,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://link.springer.com/article/10.1007/s00466-021-02064-8",
+        "note": "Doi",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66322,9 +66059,9 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Weber, P.; Geiger, J.; Wagner, W",
+        "authors": "Weber, P.; Geiger, J.; Wagner, W.",
         "journal_abbreviation": "Training and Its Application to Hyperelastic Material Modeling. Comput. Mech.",
         "volume": "68",
         "pages": "1179–1204"
@@ -66336,7 +66073,7 @@
       "title": "Data-driven tissue mechanics with polyconvex neural ordinary differential equations",
       "citation": "Tac, V.; Sahli Costabal, F.; Tepole, A.B. Data-driven tissue mechanics with polyconvex neural ordinary differential equations. Computer Methods in Applied Mechanics and Engineering 2022, 398, 1-31. https://doi.org/10.1016/j.cma.2022.115248.",
       "doi": "10.1016/j.cma.2022.115248",
-      "publisher_url": "https://https://www.sciencedirect.com/science/article/abs/pii/S0045782522003838doi.org/10.1016/j.cma.2022.115248",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S0045782522003838",
       "venue": {
         "name": "Computer Methods in Applied Mechanics and Engineering",
         "type": "journal"
@@ -66347,14 +66084,11 @@
         "United States",
         "Chile"
       ],
-      "overrides": {
-        "realm_year": 2023
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
         "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S0045782522003838",
-        "note": "asll",
+        "note": "doi",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66367,7 +66101,7 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-29",
+      "last_updated": "2026-08-28",
       "bibliographic": {
         "authors": "Tac, V.; Sahli Costabal, F.; Tepole, A.B.",
         "journal_abbreviation": "Computer Methods in Applied Mechanics and Engineering",
@@ -66686,9 +66420,6 @@
       "countries": [
         "United States"
       ],
-      "overrides": {
-        "realm_year": 2024
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -66827,9 +66558,6 @@
         "United States",
         "Switzerland"
       ],
-      "overrides": {
-        "realm_year": 2026
-      },
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
@@ -66850,11 +66578,11 @@
     {
       "id": 836,
       "title": "Reconstruction of excitation waves from mechanical deformation using physics-informed neural networks",
-      "citation": "Dermul, N.; Dierckx, H. Reconstruction of excitation waves from mechanical deformation using physics-informed neural networks. Sci. Rep 2024, 14, 16975.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Dermul, N.; Dierckx, H. Reconstruction of excitation waves from mechanical deformation using physics-informed neural networks. scientific reports 2024, 14, 16975. https://doi.org/10.1038/s41598-024-67597-3.",
+      "doi": "10.1038/s41598-024-67597-3",
+      "publisher_url": "https://www.nature.com/articles/s41598-024-67597-3",
       "venue": {
-        "name": "Sci. Rep.",
+        "name": "scientific reports",
         "type": "journal"
       },
       "year": 2024,
@@ -66865,8 +66593,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.nature.com/articles/s41598-024-67597-3",
+        "note": "links",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66879,23 +66607,23 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Dermul, N.; Dierckx, H",
+        "authors": "Dermul, N.; Dierckx, H.",
         "journal_abbreviation": "Sci. Rep.",
         "volume": "14",
-        "pages": "16975"
+        "article_number": "16975"
       },
       "abstract": "Non-invasive assessment of the electrical activation pattern can significantly contribute to the diagnosis and treatment of cardiac arrhythmias, due to faster and safer diagnosis, improved surgical planning and easier follow-up. One promising path is to measure the mechanical contraction via echocardiography and utilize this as an indirect way of measuring the original activation pattern. To solve this demanding inversion task, we make use of physics-informed neural networks, an upcoming methodology to solve forward and inverse physical problems governed by partial differential equations. In this study, synthetic data sets were created, consisting of 2D excitation waves coupled to an isotropic and linearly deforming elastic medium. We show that for both focal and spiral patterns, the underlying excitation waves can be reconstructed accurately. We test the robustness of the method against Gaussian noise, reduced spatial resolution and projected tri-planar data. In situations where the data quality is heavily reduced, we show how to improve the reconstruction by additional regularization on the wave speed. Our findings suggest that physics-informed neural networks hold the potential to solve sparse and noisy bio-mechanical inversion problems and may offer a pathway to non-invasive assessment of certain cardiac arrhythmias."
     },
     {
       "id": 837,
       "title": "Physics-informed residual learning with spatiotemporal local support for inverse ECG reconstruction",
-      "citation": "Zhu, L.; Bilchick, K.; Xie, J. Physics-informed residual learning with spatiotemporal local support for inverse ECG reconstruction. ECG reconstruction. Sci. Rep 2025, 15, 31747.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Zhu, L.; Bilchick, K.; Xie, J. Physics-informed residual learning with spatiotemporal local support for inverse ECG reconstruction. scientific reports 2025, 15, 31747. https://doi.org/10.1038/s41598-025-15687-1.",
+      "doi": "10.1038/s41598-025-15687-1",
+      "publisher_url": "https://www.nature.com/articles/s41598-025-15687-1",
       "venue": {
-        "name": "ECG reconstruction. Sci. Rep.",
+        "name": "scientific reports",
         "type": "journal"
       },
       "year": 2025,
@@ -66906,8 +66634,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.nature.com/articles/s41598-025-15687-1",
+        "note": "links",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -66920,12 +66648,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Zhu, L.; Bilchick, K.; Xie, J",
-        "journal_abbreviation": "ECG reconstruction. Sci. Rep.",
+        "authors": "Zhu, L.; Bilchick, K.; Xie, J.",
+        "journal_abbreviation": "Sci. Rep.",
         "volume": "15",
-        "pages": "31747"
+        "article_number": "31747"
       },
       "abstract": "Physics-informed neural networks (PINNs) have emerged as a powerful framework for modeling complex physical systems by embedding governing equations into the learning process. For example, PINNs offer a promising approach to solving the inverse electrocardiographic imaging (ECGI) problem, which aims to reconstruct heart-surface electrical activity from body-surface potential measurements. However, existing PINN-based ECGI models face several challenges, including overfitting to sparsely sampled collocation points, unstable training dynamics, and limited network scalability-particularly when applied to high-dimensional spatiotemporal data. In this study, we propose a novel learning framework, i.e., physics-informed residual learning with spatiotemporal local support, to address these limitations. The method introduces two key innovations: (1) a numerical differentiation scheme that approximates spatial and temporal derivatives using local neighborhood information, enabling coherent spatiotemporal constraint enforcement, and (2) an adaptive residual network architecture with trainable skip connections that stabilizes optimization and improves model expressiveness. Experimental results on simulated body-heart geometries show that our method substantially outperforms traditional regularization-based inverse ECG approaches and previous PINN models, achieving higher reconstruction accuracy and improved robustness to sensor noise. This work advances the methodological foundation of broader implications for data-constrained modeling in complex dynamical systems."
     },
@@ -66978,11 +66706,11 @@
     {
       "id": 839,
       "title": "Physics-Informed Neural Networks A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing",
-      "citation": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q. Physics-Informed Neural Networks A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing. Frontiers Toward Next-Generation Scientific Computing. Appl. Sci 2025, 15, 92.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q. Physics-Informed Neural Networks A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing. Applied Sciences 2025, 15, 8092. https://doi.org/10.3390/app15148092.",
+      "doi": "10.3390/app15148092",
+      "publisher_url": "https://www.mdpi.com/2076-3417/15/14/8092",
       "venue": {
-        "name": "Frontiers Toward Next-Generation Scientific Computing. Appl. Sci.",
+        "name": "Applied Sciences",
         "type": "journal"
       },
       "year": 2025,
@@ -66993,8 +66721,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.mdpi.com/2076-3417/15/14/8092",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67007,12 +66735,13 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q",
+        "authors": "Ren, Z.; Zhou, S.; Liu, D.; Liu, Q.",
         "journal_abbreviation": "Frontiers Toward Next-Generation Scientific Computing. Appl. Sci.",
         "volume": "15",
-        "pages": "92"
+        "issue": "14",
+        "pages": "8092"
       },
       "abstract": "Physics-informed neural networks (PINNs) have emerged as a transformative methodology integrating deep learning with scientific computing. This review establishes a threedimensional analytical framework to systematically decode PINNs’ development through methodological innovation, theoretical breakthroughs, and cross-disciplinary convergence. The contributions include threefold: First, identifying the co-evolutionary path of algorithmic architectures from adaptive optimization (neural tangent kernel-guided weighting achieving 230% convergence acceleration in Navier-Stokes solutions) to hybrid numericaldeep learning integration (5× speedup via domain decomposition) and second, constructing bidirectional theory-application mappings where convergence analysis (operator approximation theory) and generalization guarantees (Bayesian-physical hybrid frameworks) directly inform engineering implementations, as validated by 72% cost reduction compared to FEM in high-dimensional spaces (p < 0.01, n = 15 benchmarks). Third, pioneering cross-domain knowledge transfer through application-specific architectures: TFE-PINN for turbulent flows (5.12 ± 0.87% error in NASA hypersonic tests), ReconPINN for medical imaging (△SSIM = +0.18 ± 0.04 on multi-institutional MRI), and SeisPINN for seismic systems (0.52 ± 0.18 km localization accuracy). We further present a technological roadmap highlighting three critical directions for PINN 2.0: neuro-symbolic, federated physics learning, and quantum-accelerated optimization. This work provides methodological guidelines and theoretical foundations for next-generation scientific machine learning systems."
     },
@@ -67306,11 +67035,11 @@
     {
       "id": 847,
       "title": "Physics-informed explainable encoder-decoder deep learning for predictive estimation of building carbon emissions",
-      "citation": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y. Physics-informed explainable encoder-decoder deep learning for predictive estimation of building carbon emissions. Renew. Sustain. Energy Rev 2025, 213, 115478.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y. Physics-informed explainable encoder-decoder deep learning for predictive estimation of building carbon emissions. Renewable and Sustainable Energy Reviews 2025, 213, 115478. https://doi.org/10.1016/j.rser.2025.115478.",
+      "doi": "10.1016/j.rser.2025.115478",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032125001510",
       "venue": {
-        "name": "Renew. Sustain. Energy Rev.",
+        "name": "Renewable and Sustainable Energy Reviews",
         "type": "journal"
       },
       "year": 2025,
@@ -67321,8 +67050,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032125001510",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67335,23 +67064,23 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y",
+        "authors": "Chen, C.; Zhang, L.; Zhou, C.; Luo, Y.",
         "journal_abbreviation": "Renew. Sustain. Energy Rev.",
         "volume": "213",
-        "pages": "115478"
+        "article_number": "115478"
       },
       "abstract": "Building decarbonization is beneficial to improve energy efficiency and mitigate climate change worldwide, and it is necessary to accurately investigate building carbon emissions and identify the potential factors. A crucial challenge is that pioneer studies rarely explore the correlations between controllable parameters and building carbon emissions and are unable to estimate carbon emissions comprehensively. In this context, this work proposes a physics-informed encoder-decoder framework for predictive carbon emissions estimation. The input variables are transformed into sequences to extract essential features and time information in the encoder, where the decoder receives the sequence and makes a prediction. Simultaneously, the control-oriented physical laws are explored and integrated to update the conventional loss function. The proposed model has been applied to a high-rise commercial building in China. Results reveal that: (1) The model sees a significant prediction improvement by 9.24 % after considering physical laws and shows outstanding robustness under five dataset conditions; (2) The R2 for carbon emissions prediction is 0.963, while the accuracy for anomaly detection is 0.963; (3) Historical carbon emissions, supply water temperature and system operation status are the critical factors affecting carbon emissions. The proposed physics-informed deep learning model solves the performance dependencies on dataset size and can be directly used for control-oriented building modeling and decarbonization optimization."
     },
     {
       "id": 848,
       "title": "dmPINNs An Integrated Data-Driven and Mechanism-Based Method for Endpoint Carbon Prediction in BOF",
-      "citation": "Xia, Y.; Wang, H.; Xu, A. dmPINNs An Integrated Data-Driven and Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals 2024, 14, 926.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Xia, Y.; Wang, H.; Xu, A. dmPINNs An Integrated Data-Driven and Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals 2024, 14, 926. https://doi.org/10.3390/met14080926.",
+      "doi": "10.3390/met14080926",
+      "publisher_url": "https://www.mdpi.com/2075-4701/14/8/926",
       "venue": {
-        "name": "Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals",
+        "name": "Metals",
         "type": "journal"
       },
       "year": 2024,
@@ -67362,8 +67091,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.mdpi.com/2075-4701/14/8/926",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67376,11 +67105,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Xia, Y.; Wang, H.; Xu, A",
-        "journal_abbreviation": "Mechanism-Based Method for Endpoint Carbon Prediction in BOF. Metals",
+        "authors": "Xia, Y.; Wang, H.; Xu, A.",
+        "journal_abbreviation": "Metals",
         "volume": "14",
+        "issue": "8",
         "pages": "926"
       },
       "abstract": "Accurate prediction of endpoint carbon at the dynamic control stage in the converter is crucial for achieving smelting targets. Currently, there are two main methods for converter endpoint prediction: the data-driven method and the mechanism-based method. Data-driven methods exhibit high accuracy but are vulnerable to data quality variations and lack interpretability. Mechanism-based methods provide great interpretability but face challenges in precisely identifying key parameters in the mechanism formula. Inspired by the design concept of physics-informed neural networks (PINNs), an integrated data-driven and mechanism-based method for endpoint carbon prediction in BOF (dmPINNs, data-driven and mechanism-based physics-informed neural networks) is proposed, which has four parts: feature extraction, mechanism-based calculation, data-driven prediction, and integrated prediction. We identify key parameters of the mechanism formula through the neural network to obtain the specified formula for each heat and supervise the training process of the neural network through the mechanism formula to ensure interpretability. Experimental results show that, within the ±0.012% error range, the hit rate of endpoint carbon content using dmPINNs improved by 5.23% compared with the traditional data-driven method and has greater robustness with the supervision of the mechanism formula."
@@ -67474,11 +67204,11 @@
     {
       "id": 851,
       "title": "Hydrogen jet and diffusion modeling by physics-informed graph neural network",
-      "citation": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G. Hydrogen jet and diffusion modeling by physics-informed graph neural network. Modeling by Physics-Informed Graph Neural Network. Renew. Sustain. Energy Rev 2025, 207, 114898.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G. Hydrogen jet and diffusion modeling by physics-informed graph neural network. Renewable and Sustainable Energy Reviews 2025, 207, 114898. https://doi.org/10.1016/j.rser.2024.114898.",
+      "doi": "10.1016/j.rser.2024.114898",
+      "publisher_url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032124006245",
       "venue": {
-        "name": "Modeling by Physics-Informed Graph Neural Network. Renew. Sustain. Energy Rev.",
+        "name": "Renewable and Sustainable Energy Reviews",
         "type": "journal"
       },
       "year": 2025,
@@ -67489,8 +67219,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032124006245",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67503,23 +67233,23 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G",
-        "journal_abbreviation": "Modeling by Physics-Informed Graph Neural Network. Renew. Sustain. Energy Rev.",
+        "authors": "Zhang, X.; Shi, J.; Li, J.; Huang, X.; Xiao, F.; Wang, Q.; Usmani, A.S.; Chen, G.",
+        "journal_abbreviation": "Renewable and Sustainable Energy Reviews",
         "volume": "207",
-        "pages": "114898"
+        "article_number": "114898"
       },
       "abstract": "Renewable Power-to-Hydrogen (P2H2) system is an emerging decarbonization strategy for achieving global carbon neutrality. However, the propensity of hydrogen to leak and diffuse from the P2H2 facility poses great challenges to scaling up and safe applications. Accurate and efficient prediction of hydrogen jet and diffusion is critical to ensure the safety and efficacy of P2H2 system. Deep learning methods have shown promise in predicting gas jet and diffusion, but their generalization is limited, because of insufficient simulation data and excluding physical laws during the training process. This study develops a physics-informed graph neural network (Physics\\_GNN) for hydrogen jet and diffusion prediction using sparse sensor data. Graph network is applied to model the spatial dependency between sensor data and governing equations, so the hydrogen jet and diffusion is immediately solved at each graph node. The computed residuals are then applied to constrain the training process of the graph network. Experimental data of subsonic and under-expanded hydrogen jet and diffusion are applied to validate the model. Results demonstrated Physics\\_GNN exhibits 1000 times higher prediction accuracy compared to state-of-the-art physics-informed neural network and 100 times faster than CFD simulation. It enables accurate and rapid prediction of hydrogen jet and diffusion concentration and velocity, supporting safety design, operation management and rulemaking of P2H2 system in future."
     },
     {
       "id": 852,
       "title": "Physics-informed neural networks for modeling astrophysical shocks",
-      "citation": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N. Physics-informed neural networks for modeling astrophysical shocks. Mach. Learn. Sci. Technol 2023, 4, 035032.",
-      "doi": null,
-      "publisher_url": null,
+      "citation": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N. Physics-informed neural networks for modeling astrophysical shocks. Machine Learning: Science and Technology 2023, 4, 035032. https://doi.org/10.1088/2632-2153/acf116.",
+      "doi": "10.1088/2632-2153/acf116",
+      "publisher_url": "https://iopscience.iop.org/article/10.1088/2632-2153/acf116/meta",
       "venue": {
-        "name": "Mach. Learn. Sci. Technol.",
+        "name": "Machine Learning: Science and Technology",
         "type": "journal"
       },
       "year": 2023,
@@ -67531,8 +67261,8 @@
       "provenance": {
         "bibliography_source": "38_1_10_references.docx",
         "geography_source": "papers-countries-and-year.md",
-        "evidence_url": null,
-        "note": null,
+        "evidence_url": "https://iopscience.iop.org/article/10.1088/2632-2153/acf116/meta",
+        "note": "all",
         "citation_mode": "automatic",
         "citation_name_source": "venue.name",
         "abstract_source": {
@@ -67545,12 +67275,12 @@
           "doi_match": true
         }
       },
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-28",
       "bibliographic": {
-        "authors": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N",
+        "authors": "Moschou, S.; Hicks, E.; Parekh, R.; Mathew, D.; Majumdar, S.; Vlahakis, N.",
         "journal_abbreviation": "Mach. Learn. Sci. Technol.",
         "volume": "4",
-        "pages": "035032"
+        "article_number": "035032"
       },
       "abstract": "Physics-informed neural networks (PINNs) are machine learning models that integrate data-based learning with partial differential equations (PDEs). In this work, for the first time we extend PINNs to model the numerically challenging case of astrophysical shock waves in the presence of a stellar gravitational field. Notably, PINNs suffer from competing losses during gradient descent that can lead to poor performance especially in physical setups involving multiple scales, which is the case for shocks in the gravitationally stratified solar atmosphere. We applied PINNs in three different setups ranging from modeling astrophysical shocks in cases with no or little data to data-intensive cases. Namely, we used PINNs (a) to determine the effective polytropic index controlling the heating mechanism of the space plasma within 1% error, (b) to quantitatively show that data assimilation is seamless in PINNs and small amounts of data can significantly increase the model’s accuracy, and (c) to solve the forward time-dependent problem for different temporal horizons. We addressed the poor performance of PINNs through an effective normalization approach by reformulating the fluid dynamics PDE system to absorb the gravity-caused variability. This led to a huge improvement in the overall model performance with the density accuracy improving between 2 and 16 times. Finally, we present a detailed critique on the strengths and drawbacks of PINNs in tackling realistic physical problems in astrophysics and conclude that PINNs can be a powerful complimentary modeling approach to classical fluid dynamics solvers."
     },

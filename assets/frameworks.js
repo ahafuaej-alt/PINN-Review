@@ -22,6 +22,13 @@
     feedback: { label: 'Feedback / redesign', description: 'Evidence-driven return from an observed outcome to an upstream design cause.' },
     selected: { label: 'Selected relationship', description: 'The relationship currently pinned in the inspector.' }
   };
+  const designStackRelationshipMeta = {
+    flow: { label: 'Main design flow', description: 'Dominant typical reading path from Stage 1 to Stage 10.' },
+    coupling: { label: 'Strong interdependence', description: 'Specific stage choices that mutually constrain one another.' },
+    feedback: { label: 'Feedback / redesign', description: 'Evaluation-guided return to the earliest plausible upstream cause.' },
+    selected: relationshipMeta.selected
+  };
+  const relationshipInfo = (type) => root === 'design-stack' ? (designStackRelationshipMeta[type] || relationshipMeta[type]) : relationshipMeta[type];
 
   function frameworkIcon(id, label = '') {
     return `<svg class="framework-icon" viewBox="0 0 24 24" role="img"${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><use href="${prefix}assets/framework-icons.svg#icon-${esc(id)}"></use></svg>`;
@@ -45,7 +52,7 @@
 
   function relationLegend(types) {
     return `<div class="legend-items relationship-legend">${types.map((type) => {
-      const meta = relationshipMeta[type];
+      const meta = relationshipInfo(type);
       return `<article><span class="relation-swatch" data-type="${type}" aria-hidden="true"><i></i></span><div><b>${esc(meta.label)}</b><p>${esc(meta.description)}</p></div></article>`;
     }).join('')}</div>`;
   }
@@ -135,7 +142,7 @@
 
   function defaultInspectorText() {
     return ({
-      'design-stack': 'Select a phase, design stage, forward dependency, or evaluation feedback loop.',
+      'design-stack': 'Select a phase, stage, individual design element, main-flow dependency, strong interdependence, or evaluation feedback loop.',
       'co-design': 'Select the central formulation, a co-design domain, or a labelled coupling.',
       'design-performance': 'Select a design row or any of the 98 dependency cells.',
       'failure-diagnostics': 'Select a category, failure mode, or the verification loop.'
@@ -173,33 +180,35 @@
     return renderDiagnostics(page);
   }
 
+  function compactDesignStackLegend() {
+    return ['flow', 'coupling', 'feedback', 'selected'].map((type) => `<span><i class="relation-swatch" data-type="${type}"><i></i></i>${esc(relationshipInfo(type).label)}</span>`).join('');
+  }
+
   function renderDesignStack(page) {
     const phases = page.phases.map((phase) => {
       const stages = phase.stage_ids.map((id) => page.stages.find((stage) => stage.id === id));
       return `<section class="stack-phase" data-filter-key="${phase.id}" data-search="${esc(flatten({ phase, stages }))}">
-        <button class="stack-phase-rail" type="button" data-inspect-id="phase:${phase.id}"><b>${phase.roman}</b><span>${esc(phase.title)}</span><small>${esc(phase.summary)}</small><i aria-hidden="true">↕</i></button>
+        <button class="stack-phase-rail" type="button" data-inspect-id="phase:${phase.id}"><b>${phase.roman}</b><span>${esc(phase.title)}</span><small>${esc(phase.summary)}</small></button>
         <div class="stack-stage-list">${stages.map((stage) => renderStackStage(stage)).join('')}</div>
       </section>`;
     }).join('');
+    const feedback = page.relationships.filter((relation) => relation.type === 'feedback');
     return `<div class="stack-board relation-board" data-relation-board>
-      <svg class="relation-layer" data-relation-layer aria-label="Design flow and feedback relationships"></svg>
+      <svg class="relation-layer" data-relation-layer aria-label="Main design flow, strong interdependence, and evaluation-guided redesign relationships"></svg>
       <div class="stack-content">${phases}</div>
-      <aside class="stack-feedback-notes" aria-label="Evaluation feedback families">
-        <strong>Evaluation-guided redesign</strong>
-        <span data-targets="physical-problem,computational-role">Redefine the problem or role</span>
-        <span data-targets="inputs-outputs,representation">Change outputs or architecture</span>
-        <span data-targets="physics-enforcement,differentiation">Reformulate physics or differentiation</span>
-        <span data-targets="sampling,loss">Resample or rebalance the loss</span>
-        <span data-targets="optimization">Adjust optimizer, LR, initialization, or strategy</span>
+      <aside class="stack-feedback-notes" aria-label="Evaluation-specific redesign signals">
+        <strong>Evaluation-guided redesign</strong><small>Return to the earliest plausible cause.</small>
+        ${feedback.map((relation) => `<button type="button" data-inspect-id="${relation.id}" title="${esc(relation.trigger)}"><span>${esc(relation.message)}</span><i>Open →</i></button>`).join('')}
       </aside>
-      <div class="stack-bottom-legend"><span><i class="flow-line"></i>Main design flow</span><span><i class="coupling-line"></i>Strong interdependence</span><span><i class="feedback-line"></i>Feedback / redesign loops</span></div>
+      <div class="stack-bottom-legend" aria-label="Design Stack relationship legend">${compactDesignStackLegend()}</div>
     </div>`;
   }
 
   function renderStackStage(stage) {
+    const interactive = new Map((stage.interactive_items || []).map((item) => [item.label, item]));
     return `<article class="stack-stage framework-object" tabindex="0" data-node-id="${stage.id}" data-inspect-id="${stage.id}" data-search="${esc(flatten(stage))}">
       <header><span>${stage.number}</span><div><h3>${esc(stage.title)}</h3><p>${esc(stage.subtitle)}</p></div></header>
-      <div class="stack-stage-columns">${stage.columns.map((column) => `<section><b>${esc(column.title)}</b><ul>${column.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>`).join('')}</div>
+      <div class="stack-stage-columns">${stage.columns.map((column) => `<section><b>${esc(column.title)}</b><ul>${column.items.map((label) => { const item = interactive.get(label); return `<li>${item ? `<button class="stack-stage-item" type="button" data-inspect-id="${item.id}" title="Inspect ${esc(label)}">${esc(label)}<i aria-hidden="true">↗</i></button>` : esc(label)}</li>`; }).join('')}</ul></section>`).join('')}</div>
     </article>`;
   }
 
@@ -262,7 +271,10 @@
     state.objects.clear();
     if (root === 'design-stack') {
       page.phases.forEach((phase) => state.objects.set(`phase:${phase.id}`, { ...phase, kind: 'phase' }));
-      page.stages.forEach((item) => state.objects.set(item.id, { ...item, kind: 'stage' }));
+      page.stages.forEach((item) => {
+        state.objects.set(item.id, { ...item, kind: 'stage' });
+        (item.interactive_items || []).forEach((child) => state.objects.set(child.id, { ...child, kind: 'stage-item', parentStage: item.id, phase: item.phase }));
+      });
       page.relationships.forEach((item) => state.objects.set(item.id, { ...item, kind: 'relationship' }));
     } else if (root === 'co-design') {
       state.objects.set('core', { ...page.core, kind: 'core' });
@@ -411,13 +423,30 @@
     const evidence = item.kind === 'matrix-cell' && !item.evidence?.length ? (item.row?.evidence || []) : (item.evidence || []);
     const concepts = item.concepts || item.row?.concepts || [];
     const related = item.related_frameworks || item.row?.related_frameworks || [];
-    return `<div class="framework-inspector-head">${frameworkIcon(iconForItem(item))}<div><p class="eyebrow">${esc(kindLabel(item.kind))}</p><h2>${esc(title)}</h2></div></div>
+    return `<div class="framework-inspector-head">${frameworkIcon(iconForItem(item))}<div><p class="eyebrow">${esc(kindLabel(item.kind))}</p><h2>${esc(title)}</h2>${renderDesignStackPhaseFingerprint(item)}</div></div>
       <section class="framework-inspector-section" data-inspector-section="meaning"><h3>Scientific meaning</h3>${renderScientificMeaning(item)}</section>
       <section class="framework-inspector-section" data-inspector-section="relationships"><h3>Relationships</h3>${renderRelationshipSection(item)}</section>
       ${renderEvidence(evidence, item)}
       ${renderConceptLinks(concepts)}
       ${renderRelatedLinks(related)}
       <div class="detail-actions"><a class="button" href="${issueUrl('Suggest a framework correction', title)}" target="_blank" rel="noopener">Suggest correction ↗</a>${root === 'failure-diagnostics' && item.kind === 'failure-mode' ? `<a class="button" href="${issueUrl('Propose a missing response', title)}" target="_blank" rel="noopener">Missing response ↗</a>` : ''}</div>`;
+  }
+
+  function designStackPhaseIds(item) {
+    if (root !== 'design-stack') return [];
+    if (item.kind === 'phase') return [item.id];
+    if (item.kind === 'stage' || item.kind === 'stage-item') return [item.phase];
+    if (item.kind === 'relationship') {
+      const from = state.objects.get(item.from), to = state.objects.get(item.to);
+      return [...new Set([from?.phase, to?.phase].filter(Boolean))];
+    }
+    return [];
+  }
+
+  function renderDesignStackPhaseFingerprint(item) {
+    const phaseIds = designStackPhaseIds(item);
+    if (!phaseIds.length) return '';
+    return `<div class="design-stack-phase-fingerprints">${phaseIds.map((id) => { const phase = state.page.phases.find((entry) => entry.id === id); return phase ? `<span data-phase="${phase.id}">${phase.roman} · ${esc(phase.title)}</span>` : ''; }).join('')}</div>`;
   }
 
   function renderScientificMeaning(item) {
@@ -432,7 +461,8 @@
   }
 
   function renderRelationshipSection(item) {
-    if (item.kind === 'relationship') return `<div class="relationship-route"><span>${esc(objectTitle(item.from))}</span><i>→</i><span>${esc(objectTitle(item.to))}</span></div><p>${esc(item.summary || item.detail || '')}</p>`;
+    if (item.kind === 'relationship') { const arrow = item.type === 'coupling' ? '↔' : '→'; return `<div class="relationship-route"><span>${esc(objectTitle(item.from))}</span><i>${arrow}</i><span>${esc(objectTitle(item.to))}</span></div><p>${esc(item.summary || item.detail || '')}</p>${item.type === 'feedback' ? `<div class="design-stack-feedback-detail"><b>Observed signal</b><p>${esc(item.trigger || '')}</p><b>Targeted redesign</b><p>${esc(item.action || '')}</p></div>` : ''}`; }
+    if (item.kind === 'stage-item') return `<div class="framework-relationship-list"><button type="button" data-inspect-id="${item.parentStage}"><span>Parent stage</span><b>${esc(objectTitle(item.parentStage))}</b><small>${esc(item.column || '')}</small></button></div>`;
     if (item.kind === 'matrix-row') return `<div class="framework-relationship-list">${item.cells.map((cell, index) => `<button type="button" data-inspect-id="${cell.id}"><span>${esc(state.page.columns[index].title)}</span><b>${esc(cell.label)}</b><small>${esc(levelLabel(cell.level))}</small></button>`).join('')}</div>`;
     if (item.kind === 'matrix-cell') return `<div class="relationship-route"><span>${esc(item.row.title)}</span><i>→</i><span>${esc(item.column.title)}</span></div>`;
     if (item.kind === 'failure-mode') return `<div class="diagnostic-mini-path"><span>Challenge</span><i>→</i><span>Symptoms</span><i>→</i><span>Response</span><i>→</i><span>Improvement</span><i>↻</i><span>Verify</span></div>`;
@@ -447,13 +477,13 @@
     }
     const relationships = (state.page.relationships || []).filter((relation) => relation.from === item.id || relation.to === item.id);
     if (!relationships.length) return '<p class="framework-detail-empty">No explicit relationship object is registered for this item.</p>';
-    return `<div class="framework-relationship-list">${relationships.map((relation) => `<button type="button" data-inspect-id="${relation.id}"><span>${esc(relationshipMeta[relation.type]?.label || relation.type)}</span><b>${esc(relation.label)}</b><small>${esc(objectTitle(relation.from))} → ${esc(objectTitle(relation.to))}</small></button>`).join('')}</div>`;
+    return `<div class="framework-relationship-list">${relationships.map((relation) => `<button type="button" data-inspect-id="${relation.id}"><span>${esc(relationshipInfo(relation.type)?.label || relation.type)}</span><b>${esc(relation.label)}</b><small>${esc(objectTitle(relation.from))} → ${esc(objectTitle(relation.to))}</small></button>`).join('')}</div>`;
   }
 
   function renderColumnDetails(columns = []) { return `<div class="detail-columns">${columns.map((column) => `<section><h4>${esc(column.title)}</h4>${renderList(column.items)}</section>`).join('')}</div>`; }
   function renderPanelDetails(panels = []) { return `<div class="detail-columns">${panels.map((panel) => `<section><h4>${esc(panel.title)}</h4>${renderList(panel.items)}</section>`).join('')}</div>`; }
   function renderList(items = []) { return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`; }
-  function kindLabel(kind) { return ({ phase: 'Design phase', stage: 'Design stage', relationship: 'Scientific relationship', core: 'Central co-design formulation', domain: 'Co-design domain', 'matrix-row': 'Design dimension', 'matrix-cell': 'Design–performance dependency', 'diagnostic-category': 'Diagnostic category', 'failure-mode': 'Failure-mode pathway', verification: 'Verification loop' })[kind] || 'Framework object'; }
+  function kindLabel(kind) { return ({ phase: 'Design phase', stage: 'Design stage', 'stage-item': 'Design Stack element', relationship: 'Scientific relationship', core: 'Central co-design formulation', domain: 'Co-design domain', 'matrix-row': 'Design dimension', 'matrix-cell': 'Design–performance dependency', 'diagnostic-category': 'Diagnostic category', 'failure-mode': 'Failure-mode pathway', verification: 'Verification loop' })[kind] || 'Framework object'; }
   function levelLabel(level) { return ({ major: 'Direct / major dependency', context: 'Context-dependent dependency', indirect: 'Indirect / secondary dependency' })[level] || level; }
   function objectTitle(id) { const item = state.objects.get(id); return item?.title || id; }
 
@@ -462,7 +492,8 @@
     if (root === 'design-stack') {
       if (item.kind === 'phase') return `${item.roman} · ${item.title}`;
       if (item.kind === 'stage') { const phase = state.page.phases.find((entry) => entry.id === item.phase); return `${phase?.roman || ''} · ${item.number} · ${item.title}`.replace(/^ · /, ''); }
-      if (item.kind === 'relationship') return `Relationship · ${objectTitle(item.from)} → ${objectTitle(item.to)}`;
+      if (item.kind === 'stage-item') { const stage = state.objects.get(item.parentStage); const phase = state.page.phases.find((entry) => entry.id === item.phase); return `${phase?.roman || ''} · ${stage?.number || ''} · ${stage?.title || item.parentStage} · ${item.column} · ${item.title}`.replace(/^ · /, ''); }
+      if (item.kind === 'relationship') return `Relationship · ${objectTitle(item.from)} ${item.type === 'coupling' ? '↔' : '→'} ${objectTitle(item.to)}`;
     }
     if (root === 'co-design') {
       if (item.kind === 'core') return `Core · ${item.title}`;
@@ -582,12 +613,19 @@
 
   function relationPath(source, target, relation, width, index) {
     if (root === 'design-stack') {
+      const lane = Number.isFinite(Number(relation.lane)) ? Number(relation.lane) : index % 4;
       if (relation.type === 'flow') {
-        const sx = source.left + source.width / 2, sy = source.bottom, tx = target.left + target.width / 2, ty = target.top;
+        const sx = source.left + source.width / 2, sy = source.bottom + 1, tx = target.left + target.width / 2, ty = target.top - 1;
         const middle = (sy + ty) / 2; return `M ${sx} ${sy} C ${sx} ${middle}, ${tx} ${middle}, ${tx} ${ty}`;
       }
+      if (relation.type === 'coupling') {
+        const sx = source.left, sy = source.top + source.height / 2, tx = target.left, ty = target.top + target.height / 2;
+        const rail = Math.max(146, Math.min(source.left, target.left) - 12 - lane * 5);
+        return `M ${sx} ${sy} C ${rail} ${sy}, ${rail} ${ty}, ${tx} ${ty}`;
+      }
       const sx = source.right, sy = source.top + source.height / 2, tx = target.right, ty = target.top + target.height / 2;
-      const rail = width - 18 - (index % 3) * 8; return `M ${sx} ${sy} C ${rail} ${sy}, ${rail} ${ty}, ${tx} ${ty}`;
+      const rail = Math.min(width - 184, Math.max(source.right, target.right) + 18 + lane * 6);
+      return `M ${sx} ${sy} C ${rail} ${sy}, ${rail} ${ty}, ${tx} ${ty}`;
     }
     const scx = source.left + source.width / 2, scy = source.top + source.height / 2, tcx = target.left + target.width / 2, tcy = target.top + target.height / 2;
     const dx = tcx - scx, dy = tcy - scy;
@@ -622,7 +660,7 @@
     if (root === 'design-performance') return `<div class="framework-export-legend">${state.page.legend.map((item) => `<span><i class="influence-marker" data-level="${item.id}"></i>${esc(item.label)}</span>`).join('')}<span><i class="tradeoff-symbol">↕</i>Potential trade-off</span></div>`;
     if (root === 'failure-diagnostics') return `<div class="framework-export-legend"><span><span class="relation-swatch" data-type="flow"><i></i></span>${relationshipMeta.flow.label}</span><span><span class="relation-swatch" data-type="feedback"><i></i></span>${relationshipMeta.feedback.label}</span></div>`;
     const types = root === 'design-stack' ? ['flow', 'coupling', 'feedback'] : ['coupling', 'feedback'];
-    return `<div class="framework-export-legend">${types.map((type) => `<span><span class="relation-swatch" data-type="${type}"><i></i></span>${relationshipMeta[type].label}</span>`).join('')}</div>`;
+    return `<div class="framework-export-legend">${types.map((type) => `<span><span class="relation-swatch" data-type="${type}"><i></i></span>${relationshipInfo(type).label}</span>`).join('')}</div>`;
   }
 
   function downloadFrameworkSvg(mode = 'current') {

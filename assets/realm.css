@@ -208,7 +208,14 @@
 .realm-map-card { min-width: 0; padding: 1.1rem; overflow: hidden; }
 .realm-map-head { display: flex; justify-content: space-between; gap: 1.5rem; align-items: end; margin-bottom: .8rem; }
 .realm-map-head h2 { margin: 0; font-size: 1.05rem; }
-.realm-map-head > p { max-width: 480px; margin: 0; color: var(--faint); font-size: .72rem; text-align: right; }
+.realm-map-head-side { max-width: 540px; display: grid; gap: .48rem; justify-items: end; }
+.realm-map-head-side > p { margin: 0; color: var(--faint); font-size: .72rem; text-align: right; }
+.figure-export-actions { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; justify-content: flex-end; }
+.figure-export-label { color: var(--faint); font-family: var(--mono); font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.figure-export-button { min-height: 30px; padding: .28rem .52rem; border: 1px solid var(--line-strong); border-radius: 7px; color: var(--muted); background: var(--field); font-family: var(--mono); font-size: .58rem; font-weight: 750; cursor: pointer; }
+.figure-export-button:hover { color: var(--ink); border-color: var(--mint); background: var(--surface-hover); }
+.figure-export-button:focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
+.figure-export-button[data-export-variant="publication"] { color: var(--mint); }
 .realm-map-wrap {
   position: relative;
   min-height: 420px;
@@ -348,6 +355,7 @@
 .overview-chart { margin-top: 0; }
 .overview-chart h2 { margin: 0 0 .45rem; font-size: 1.05rem; line-height: 1.25; }
 .overview-chart > p:not(.eyebrow):not(.annual-chart-note) { margin: 0 0 .5rem; color: var(--faint); font-size: .7rem; }
+.chart-export-actions { justify-content: flex-start; margin: .15rem 0 .45rem; }
 .annual-chart-scroll {
   width: 100%;
   padding: .2rem .15rem .45rem;
@@ -493,7 +501,9 @@
   .year-stepper [data-year-play] { grid-column: 1 / -1; }
   .realm-map-card { padding: .75rem; }
   .realm-map-head { display: block; }
-  .realm-map-head > p { margin-top: .25rem; text-align: left; }
+  .realm-map-head-side { margin-top: .35rem; justify-items: start; }
+  .realm-map-head-side > p { text-align: left; }
+  .realm-map-head-side .figure-export-actions { justify-content: flex-start; }
   .realm-map-wrap { min-height: 300px; }
   .realm-map { min-height: 290px; max-height: none; }
   .map-instruction span:nth-child(-n+3) { display: none; }

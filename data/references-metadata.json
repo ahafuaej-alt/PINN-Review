@@ -1,38 +1,38 @@
 {
   "title": "PINN Review Atlas Master Bibliography",
-  "version": "2.2.174",
+  "version": "2.3.0",
   "schema_version": "1.0.0",
-  "last_updated": "2026-08-09",
+  "last_updated": "2026-08-29",
   "record_count": 853,
   "reference_id_range": "1-853",
-  "year_range": "1931-2026",
-  "doi_fields": 825,
-  "publisher_or_doi_links": 843,
+  "year_range": "1951-2026",
+  "doi_fields": 837,
+  "publisher_or_doi_links": 853,
   "accessibility": {
-    "open_access": 401,
-    "subscription": 452,
+    "open_access": 399,
+    "subscription": 454,
     "not_verified": 0
   },
   "reference_types": {
-    "journal": 739,
-    "preprint": 37,
+    "journal": 741,
+    "preprint": 38,
     "conference_journal": 4,
-    "conference": 51,
+    "conference": 50,
     "conference_book": 5,
     "book": 1,
     "chapter": 7,
     "thesis": 4,
     "other": 1,
-    "unknown": 4
+    "unknown": 2
   },
   "content_availability": {
-    "abstracts": 831,
+    "abstracts": 834,
     "graphical_abstracts": 0
   },
   "source_document": "38_1_10_references.docx",
   "country_source": "papers-countries-and-year.md",
   "canonical_master": "papers-master.json",
-  "legacy_realm_year_overrides": 97,
+  "publication_year_source": "papers-master.json#paper.year",
   "display_style": "MDPI ACS reference style",
   "canonical_data_url": "https://ahafuaej-alt.github.io/PINN-Review/data/papers-master.json",
   "reference_register_url": "https://ahafuaej-alt.github.io/PINN-Review/references/",
@@ -44,6 +44,6 @@
     "Zotero-compatible RIS",
     "CSV"
   ],
-  "data_quality_policy": "Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Public reference, geography, analytics, filter, and export datasets are generated from that master. Unresolved legacy year disagreements remain explicit overrides until a sourced correction resolves them.",
+  "data_quality_policy": "Paper ID is the stable primary key. Editable bibliographic and geographic fields live in papers-master.json. Publication year has one canonical authority: paper.year. References, PINN Realm, analytics, filters, and exports are generated sibling consumers of the canonical master dataset.",
   "privacy": "The static dataset does not contain reader data. Dataset Manager edits remain in the browser until the user explicitly opens and confirms a GitHub update request."
 }

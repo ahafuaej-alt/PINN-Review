@@ -15,7 +15,7 @@ const artifactDir = path.resolve(process.env.FRAMEWORK_QA_ARTIFACTS || 'artifact
 await fs.mkdir(artifactDir, { recursive: true });
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 const routes = [
-  { id: 'design-stack', path: 'frameworks/design-stack/', selector: '.stack-board', objects: ['.stack-stage', 10], relations: 18 },
+  { id: 'design-stack', path: 'frameworks/design-stack/', selector: '.stack-board', objects: ['.stack-stage', 10], relations: 24 },
   { id: 'co-design', path: 'frameworks/co-design/', selector: '.co-board', objects: ['.co-domain', 6], relations: 20 },
   { id: 'design-performance', path: 'frameworks/design-performance/', selector: '.matrix-board', objects: ['.matrix-row', 14], cells: 98 },
   { id: 'failure-diagnostics', path: 'frameworks/failure-diagnostics/', selector: '.diagnostic-board', objects: ['.diagnostic-row', 13], categories: 4 }
@@ -37,8 +37,10 @@ try {
       page.on('pageerror', (error) => errors.push(error.message));
       await page.goto(`${baseUrl}/${route.path}`, { waitUntil: 'networkidle' });
       await page.waitForSelector(route.selector);
+      if (route.id === 'co-design') await page.waitForFunction(() => document.documentElement.dataset.coDesignV2 === 'ready');
       const snapshot = await page.evaluate(({ route, viewport }) => {
         const canvas = document.querySelector('[data-canvas]');
+        const relationSelector = route.id === 'co-design' ? '.co-v2-path' : '.relation-path';
         const markerSizes = [...document.querySelectorAll('.dependency-matrix .influence-marker')].map((node) => {
           const box = node.getBoundingClientRect(); return [Math.round(box.width * 10) / 10, Math.round(box.height * 10) / 10];
         });
@@ -48,13 +50,22 @@ try {
           canvasClientWidth: canvas?.clientWidth || 0,
           canvasScrollWidth: canvas?.scrollWidth || 0,
           objectCount: document.querySelectorAll(route.objects[0]).length,
-          relationCount: document.querySelectorAll('.relation-path').length,
+          relationCount: document.querySelectorAll(relationSelector).length,
           feedbackCount: document.querySelectorAll('.relation-feedback').length,
+          couplingCount: document.querySelectorAll('.relation-coupling').length,
+          stackItemCount: document.querySelectorAll('.stack-stage-item').length,
+          phaseRailSymbols: document.querySelectorAll('.stack-phase-rail i').length,
           cellCount: document.querySelectorAll('.matrix-cell').length,
           columnCount: document.querySelectorAll('.dependency-matrix thead th').length - 1,
           categoryCount: document.querySelectorAll('.diagnostic-category').length,
           verifyPresent: Boolean(document.querySelector('.diagnostic-verify')),
           corePresent: Boolean(document.querySelector('.co-core')),
+          coV2Ready: document.documentElement.dataset.coDesignV2 === 'ready',
+          coV2RelationSemantics: route.id === 'co-design' ? {
+            influence: document.querySelectorAll('.co-v2-path[data-semantic="influence"]').length,
+            verification: document.querySelectorAll('.co-v2-path[data-semantic="verification"]').length,
+            feedback: document.querySelectorAll('.co-v2-path[data-semantic="feedback"]').length
+          } : null,
           markerSizes,
           evidenceCards: document.querySelectorAll('.evidence-paper-card').length,
           supportBadges: document.querySelectorAll('.evidence-paper-grid .evidence-support-badge').length,
@@ -71,10 +82,23 @@ try {
       assert(snapshot.evidenceCards >= 20, `${route.id}/${viewport.name}: claim-level evidence summary is incomplete (${snapshot.evidenceCards} verified papers).`);
       assert(snapshot.supportBadges >= snapshot.evidenceCards && snapshot.locationTags >= snapshot.evidenceCards, `${route.id}/${viewport.name}: evidence cards lack shared support badges or framework-location tags.`);
       assert(snapshot.zoomText === '100%' && snapshot.filterOptions >= 5, `${route.id}/${viewport.name}: toolbar state is incomplete (zoom ${snapshot.zoomText || 'missing'}, ${snapshot.filterOptions} filter options).`);
-      if (viewport.width >= 1050) assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
+      if (viewport.width >= 1050 && route.id !== 'co-design') {
+        assert(snapshot.canvasScrollWidth <= snapshot.canvasClientWidth + 2, `${route.id}/${viewport.name}: the complete framework does not fit at 100% (${snapshot.canvasScrollWidth} > ${snapshot.canvasClientWidth}).`);
+      }
+      if (viewport.width >= 1050 && route.id === 'co-design') {
+        assert(snapshot.canvasScrollWidth >= 2400 && snapshot.canvasScrollWidth > snapshot.canvasClientWidth + 300, `${route.id}/${viewport.name}: the intentionally oversized systems map is not preserved (${snapshot.canvasScrollWidth} scroll width, ${snapshot.canvasClientWidth} viewport width).`);
+      }
       if (route.relations) assert(snapshot.relationCount === route.relations, `${route.id}/${viewport.name}: expected ${route.relations} relationships, found ${snapshot.relationCount}.`);
-      if (route.id === 'design-stack') assert(snapshot.feedbackCount === 9, `${route.id}/${viewport.name}: nine redesign loops are not rendered.`);
-      if (route.id === 'co-design') assert(snapshot.corePresent, `${route.id}/${viewport.name}: central co-design core is missing.`);
+      if (route.id === 'design-stack') {
+        assert(snapshot.feedbackCount === 9 && snapshot.couplingCount === 6, `${route.id}/${viewport.name}: audited relation set is incomplete (${snapshot.feedbackCount} feedback, ${snapshot.couplingCount} coupling).`);
+        assert(snapshot.stackItemCount >= 70, `${route.id}/${viewport.name}: internal Stage 1–10 contents are not individually interactive (${snapshot.stackItemCount}).`);
+        assert(snapshot.phaseRailSymbols === 0, `${route.id}/${viewport.name}: unexplained phase-rail symbol remains.`);
+      }
+      if (route.id === 'co-design') {
+        assert(snapshot.corePresent && snapshot.coV2Ready, `${route.id}/${viewport.name}: Co-Design v2 core/runtime is missing.`);
+        const s = snapshot.coV2RelationSemantics;
+        assert(s.influence === 14 && s.verification === 1 && s.feedback === 5, `${route.id}/${viewport.name}: audited relation semantics are incomplete (${JSON.stringify(s)}).`);
+      }
       if (route.cells) {
         assert(snapshot.cellCount === route.cells && snapshot.columnCount === 7, `${route.id}/${viewport.name}: matrix is not 14 × 7.`);
         const sizes = new Set(snapshot.markerSizes.map((size) => size.join('×')));
@@ -89,6 +113,49 @@ try {
   }
 
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce', acceptDownloads: true });
+  const stackPage = await context.newPage();
+  await stackPage.goto(`${baseUrl}/frameworks/design-stack/`, { waitUntil: 'networkidle' });
+  await stackPage.waitForSelector('.stack-stage-item');
+  const stackGeometry = await stackPage.evaluate(() => {
+    const stages = [...document.querySelectorAll('.stack-stage')].map((node) => { const box = node.getBoundingClientRect(); return { top: box.top, bottom: box.bottom }; });
+    const phases = [...document.querySelectorAll('.stack-phase')].map((node) => { const box = node.getBoundingClientRect(); return { top: box.top, bottom: box.bottom }; });
+    return {
+      stageGaps: stages.slice(1).map((box, index) => box.top - stages[index].bottom),
+      phaseGaps: phases.slice(1).map((box, index) => box.top - phases[index].bottom),
+      order: stages.every((box, index) => index === 0 || box.top > stages[index - 1].top),
+      flow: document.querySelectorAll('.relation-flow').length,
+      coupling: document.querySelectorAll('.relation-coupling').length,
+      feedback: document.querySelectorAll('.relation-feedback').length,
+      feedbackNotes: document.querySelectorAll('.stack-feedback-notes button').length,
+      compactLegend: [...document.querySelectorAll('.stack-bottom-legend > span')].map((node) => node.textContent.trim())
+    };
+  });
+  assert(stackGeometry.order && stackGeometry.flow === 9 && stackGeometry.coupling === 6 && stackGeometry.feedback === 9, 'Design Stack does not preserve the dominant 1→10 path plus audited coupling/feedback relations.');
+  assert(Math.min(...stackGeometry.stageGaps) >= 10, `Design Stack stage spacing is too compressed (${Math.min(...stackGeometry.stageGaps)}px minimum).`);
+  assert(Math.min(...stackGeometry.phaseGaps) >= 18, `Design Stack phase separation is too compressed (${Math.min(...stackGeometry.phaseGaps)}px minimum).`);
+  assert(stackGeometry.feedbackNotes === 9, 'Evaluation feedback ledger does not expose all nine targeted redesign messages.');
+  const firstCouplingMarkers = await stackPage.locator('.relation-coupling').first().evaluate((node) => ({ start: node.getAttribute('marker-start'), end: node.getAttribute('marker-end') }));
+  assert(firstCouplingMarkers.start?.includes('framework-arrow-coupling') && firstCouplingMarkers.end?.includes('framework-arrow-coupling'), 'Strong interdependence must render bidirectionally.');
+  await stackPage.click('[data-legend]');
+  const expandedLegend = await stackPage.locator('[data-legend-panel] .legend-items article b').evaluateAll((nodes) => nodes.map((node) => node.textContent.trim()));
+  assert(stackGeometry.compactLegend.length === 4 && stackGeometry.compactLegend.every((label) => expandedLegend.includes(label)), 'Compact and expanded Design Stack relationship legends are inconsistent.');
+  const clickItem = async (label, conceptId, phaseId) => {
+    const button = stackPage.locator('.stack-stage-item', { hasText: label }).first();
+    await button.click();
+    assert(await stackPage.locator(`[data-detail] [data-concept-id="${conceptId}"]`).count() > 0, `${label} does not resolve to ${conceptId}.`);
+    assert(await stackPage.locator(`[data-detail] .design-stack-phase-fingerprints span[data-phase="${phaseId}"]`).count() > 0, `${label} inspector lacks the ${phaseId} phase fingerprint.`);
+  };
+  await clickItem('Adam', 'optimizer:adam', 'training');
+  await clickItem('L-BFGS', 'optimizer:lbfgs', 'training');
+  await clickItem('Weak form', 'formulation:weak-form', 'formulation');
+  await clickItem('Variational form', 'formulation:variational-form', 'formulation');
+  await clickItem('Root mean squared error (RMSE)', 'metric:rmse', 'reliability');
+  assert(await stackPage.locator('[data-detail] [data-concept-id="metric:mse"]').count() === 0, 'RMSE inspector incorrectly merges RMSE with MSE.');
+  await stackPage.click('.stack-feedback-notes [data-inspect-id="feedback-10-7"]');
+  const feedbackText = await stackPage.locator('[data-detail]').textContent();
+  assert(feedbackText.includes('Localized error') && feedbackText.includes('Resample collocation'), 'Sampling feedback does not expose its evaluation-specific signal and redesign action.');
+  await stackPage.close();
+
   const matrix = await context.newPage();
   await matrix.goto(`${baseUrl}/frameworks/design-performance/`, { waitUntil: 'networkidle' });
   await matrix.waitForSelector('.matrix-cell');
@@ -113,20 +180,18 @@ try {
   const downloadPromise = matrix.waitForEvent('download');
   await matrix.click('[data-svg]');
   const download = await downloadPromise;
-  const downloadPath = await download.path();
-  const svg = await fs.readFile(downloadPath, 'utf8');
-  assert(svg.includes('<foreignObject') && svg.includes('dependency-matrix') && svg.includes('gradient flow') && svg.includes('framework-export-header') && svg.includes('data-export-mode=\"current\"'), 'Current-state SVG export does not contain the focused matrix state and standardized export header.');
+  const svg = await fs.readFile(await download.path(), 'utf8');
+  assert(svg.includes('<foreignObject') && svg.includes('dependency-matrix') && svg.includes('gradient flow') && svg.includes('framework-export-header') && svg.includes('data-export-mode="current"'), 'Current-state SVG export does not contain the focused matrix state and standardized export header.');
   if (!(await matrix.locator('.toolbar-export').evaluate((node) => node.open))) await matrix.click('.toolbar-export summary');
   const publicationPromise = matrix.waitForEvent('download');
   await matrix.click('[data-svg-publication]');
   const publication = await publicationPromise;
   const publicationSvg = await fs.readFile(await publication.path(), 'utf8');
-  const publicationHasTransientClasses = /class=\"[^\"]*(?:is-filter-muted|is-search-muted|is-active|is-related|is-muted)[^\"]*\"/.test(publicationSvg);
-  assert(publicationSvg.includes('data-export-mode=\"publication\"') && publicationSvg.includes('Clean publication view') && !publicationHasTransientClasses, 'Publication SVG does not remove transient focus/search state.');
+  const publicationHasTransientClasses = /class="[^"]*(?:is-filter-muted|is-search-muted|is-active|is-related|is-muted)[^"]*"/.test(publicationSvg);
+  assert(publicationSvg.includes('data-export-mode="publication"') && publicationSvg.includes('Clean publication view') && !publicationHasTransientClasses, 'Publication SVG does not remove transient focus/search state.');
   await matrix.click('[data-reset]');
   assert((await matrix.locator('.matrix-row.is-filter-muted').count()) === 0 && (await matrix.locator('.framework-search').inputValue()) === '', 'Reset did not restore the complete matrix context.');
   await matrix.close();
-
 
   const inspectorCases = [
     ['design-stack', 'physical-problem'],
@@ -138,7 +203,8 @@ try {
     const page = await context.newPage();
     await page.goto(`${baseUrl}/frameworks/${frameworkId}/`, { waitUntil: 'networkidle' });
     await page.waitForSelector(`[data-inspect-id="${objectId}"]`);
-    await page.click(`[data-inspect-id="${objectId}"]`);
+    if (frameworkId === 'co-design') await page.waitForFunction(() => document.documentElement.dataset.coDesignV2 === 'ready');
+    await page.click(frameworkId === 'design-stack' ? `[data-inspect-id="${objectId}"] > header` : `[data-inspect-id="${objectId}"]`);
     const sections = await page.locator('[data-detail] [data-inspector-section]').evaluateAll((nodes) => nodes.map((node) => node.dataset.inspectorSection));
     assert(['meaning', 'relationships', 'evidence', 'concepts', 'related'].every((name) => sections.includes(name)), `${frameworkId}: inspector does not use the shared five-section architecture (${sections.join(', ')}).`);
     assert(await page.locator('[data-detail] .evidence-support-badge').count() > 0, `${frameworkId}: inspector lacks standardized support-type badges.`);
@@ -149,9 +215,19 @@ try {
 
   const relations = await context.newPage();
   await relations.goto(`${baseUrl}/frameworks/co-design/`, { waitUntil: 'networkidle' });
-  await relations.waitForSelector('.relation-coupling');
-  const couplingMarkers = await relations.locator('.relation-coupling').first().evaluate((node) => ({ start: node.getAttribute('marker-start'), end: node.getAttribute('marker-end') }));
-  assert(couplingMarkers.start?.includes('framework-arrow-coupling') && couplingMarkers.end?.includes('framework-arrow-coupling'), 'Co-Design coupling does not use the shared bidirectional marker contract.');
+  await relations.waitForFunction(() => document.documentElement.dataset.coDesignV2 === 'ready');
+  await relations.waitForSelector('.co-v2-path');
+  const coRelationContract = await relations.evaluate(() => ({
+    total: document.querySelectorAll('.co-v2-path').length,
+    influence: document.querySelectorAll('.co-v2-path[data-semantic="influence"]').length,
+    verification: document.querySelectorAll('.co-v2-path[data-semantic="verification"]').length,
+    feedback: document.querySelectorAll('.co-v2-path[data-semantic="feedback"]').length,
+    unexpectedBidirectional: [...document.querySelectorAll('.co-v2-path')].filter((node) => node.hasAttribute('marker-start')).length,
+    geometry: document.querySelector('.co-relation-layer')?.dataset.coDesignGeometry
+  }));
+  assert(coRelationContract.total === 20 && coRelationContract.influence === 14 && coRelationContract.verification === 1 && coRelationContract.feedback === 5, `Co-Design v2 relation contract is incomplete: ${JSON.stringify(coRelationContract)}.`);
+  assert(coRelationContract.unexpectedBidirectional === 0, 'Co-Design reciprocal relationships must remain separately evidenced directional arrows, not generic bidirectional markers.');
+  assert(coRelationContract.geometry === 'audited-directional-v2', 'Co-Design relation layer does not expose the audited directional geometry contract.');
   await relations.close();
 
   const diagnostics = await context.newPage();
@@ -170,4 +246,4 @@ try {
   await browser.close();
 }
 
-console.log('Framework visual QA passed: 4 source-faithful views · shared inspector/evidence/relationship/filter contracts · deep links · current + publication SVG export.');
+console.log('Framework visual QA passed: 4 source-faithful views · shared inspector/evidence/filter contracts · audited relationship semantics · deep links · current + publication SVG export.');

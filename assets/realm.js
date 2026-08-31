@@ -47,7 +47,7 @@
   const paperIdsForYear = (ids) => ids.filter((id) => yearMatches(index.paperById.get(id)));
   const activePapers = () => state.data.papers.filter(yearMatches);
   const papersInYear = (year) => state.data.papers.filter((paper) => Number(paper.year) === Number(year));
-  const chartYears = () => state.year === 'all' ? state.data.metadata.years : [Number(state.year)];
+  const chartYears = () => state.year === 'all' ? [...state.data.metadata.years].sort((a, b) => b - a) : [Number(state.year)];
   const mapCountryName = (mapId) => index.countryByMapId.get(mapId)?.name || index.mapById.get(mapId)?.name || 'Country not identified';
 
   const index = {
@@ -361,7 +361,7 @@
       const height = entry.value ? Math.max(7, entry.value / maximum * 100) : 2;
       const description = `${entry.year}: ${number(entry.value)} paper${entry.value === 1 ? '' : 's'}, ${entry.share} ${percentageMeaning}`;
       return `<button class="annual-bar" type="button" data-chart-year="${entry.year}" aria-label="${escapeHtml(description)}" title="${escapeHtml(description)}" ${String(state.year) === String(entry.year) ? 'aria-current="true"' : ''}><span class="annual-bar-value">${number(entry.value)}</span><span class="annual-bar-track" aria-hidden="true"><span class="annual-bar-fill" style="--bar-height:${height}%"></span></span><span class="annual-bar-year">${entry.year}</span><span class="annual-bar-share">${entry.share}</span></button>`;
-    }).join('')}</div></div><p class="annual-chart-note"><strong>Amount</strong> above each bar · <strong>percentage</strong> below each year. ${escapeHtml(percentageMeaning)}.</p>`;
+    }).join('')}</div></div><p class="annual-chart-note"><strong>Amount</strong> above each bar · <strong>percentage</strong> below each year. ${escapeHtml(percentageMeaning)}. <strong>Newest years are shown first</strong>; scroll horizontally to explore older years.</p>`;
   };
 
   const countryAnnualChart = (mapId, type = 'total') => {

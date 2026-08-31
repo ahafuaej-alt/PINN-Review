@@ -2,6 +2,1231 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "publication-year-source-2026-08-29",
+      "version": "2.3.0",
+      "date": "2026-08-29",
+      "paper_id": null,
+      "changed_fields": [
+        "publication year architecture"
+      ],
+      "reason": "Unified publication year on the canonical papers-master.json paper.year field for References, PINN Realm, and all Realm year-dependent analytics.",
+      "evidence": {
+        "url": null,
+        "note": "No canonical publication-year values were changed; obsolete Realm-specific year overrides were removed."
+      },
+      "impact": {
+        "canonical_year_values_changed": 0,
+        "obsolete_year_overrides_removed": 89,
+        "derived_realm_years_recomputed": 853,
+        "publication_year_source": "papers-master.json#paper.year"
+      }
+    },
+    {
+      "change_id": "paper-799-2026-08-28-2.2.199",
+      "version": "2.2.199",
+      "date": "2026-08-28",
+      "paper_id": 799,
+      "changed_fields": [
+        "citation",
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "year",
+      "evidence": {
+        "url": "https://www.mdpi.com/2227-7390/12/1/63",
+        "note": "year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 799,
+        "changed_fields": [
+          "citation",
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2023,
+            "before": 132,
+            "after": 131
+          },
+          {
+            "year": 2024,
+            "before": 159,
+            "after": 160
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-784-2026-08-28-2.2.198",
+      "version": "2.2.198",
+      "date": "2026-08-28",
+      "paper_id": 784,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "published in journal after coference",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0920410522009081",
+        "note": "published in journal after coference"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 784,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2021,
+            "before": 66,
+            "after": 65
+          },
+          {
+            "year": 2022,
+            "before": 86,
+            "after": 87
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-684-2026-08-28-2.2.197",
+      "version": "2.2.197",
+      "date": "2026-08-28",
+      "paper_id": 684,
+      "changed_fields": [
+        "citation",
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "yaer",
+      "evidence": {
+        "url": "https://iopscience.iop.org/article/10.1088/1742-6596/2966/1/012019/meta",
+        "note": "yaer"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 684,
+        "changed_fields": [
+          "citation",
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 160,
+            "after": 159
+          },
+          {
+            "year": 2025,
+            "before": 300,
+            "after": 301
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-609-2026-08-28-2.2.196",
+      "version": "2.2.196",
+      "date": "2026-08-28",
+      "paper_id": 609,
+      "changed_fields": [
+        "citation",
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "year",
+      "evidence": {
+        "url": "https://www.mdpi.com/2076-3417/14/1/189",
+        "note": "year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 609,
+        "changed_fields": [
+          "citation",
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2023,
+            "before": 133,
+            "after": 132
+          },
+          {
+            "year": 2024,
+            "before": 159,
+            "after": 160
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-525-2026-08-28-2.2.195",
+      "version": "2.2.195",
+      "date": "2026-08-28",
+      "paper_id": 525,
+      "changed_fields": [
+        "bibliographic"
+      ],
+      "reason": "meta",
+      "evidence": {
+        "url": "https://epubs.siam.org/doi/10.1137/20M1318043",
+        "note": "meta"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 525,
+        "changed_fields": [
+          "bibliographic"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-486-2026-08-28-2.2.194",
+      "version": "2.2.194",
+      "date": "2026-08-28",
+      "paper_id": 486,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue",
+        "year",
+        "access",
+        "realm_year_override"
+      ],
+      "reason": "all/ paper is published in journal",
+      "evidence": {
+        "url": "https://link.springer.com/article/10.1007/s10409-025-25273-x",
+        "note": "all/ paper is published in journal"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 486,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue",
+          "year",
+          "access",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2025,
+            "before": 301,
+            "after": 300
+          },
+          {
+            "year": 2026,
+            "before": 11,
+            "after": 12
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-471-2026-08-28-2.2.193",
+      "version": "2.2.193",
+      "date": "2026-08-28",
+      "paper_id": 471,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic",
+        "abstract",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://arxiv.org/abs/1412.6980",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 471,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic",
+          "abstract",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-315-2026-08-28-2.2.192",
+      "version": "2.2.192",
+      "date": "2026-08-28",
+      "paper_id": 315,
+      "changed_fields": [
+        "citation",
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "year",
+      "evidence": {
+        "url": "https://ieeexplore.ieee.org/document/10640363",
+        "note": "year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 315,
+        "changed_fields": [
+          "citation",
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2024,
+            "before": 160,
+            "after": 159
+          },
+          {
+            "year": 2025,
+            "before": 300,
+            "after": 301
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-808-2026-08-28-2.2.191",
+      "version": "2.2.191",
+      "date": "2026-08-28",
+      "paper_id": 808,
+      "changed_fields": [
+        "title",
+        "citation",
+        "bibliographic"
+      ],
+      "reason": "title style",
+      "evidence": {
+        "url": "https://linkinghub.elsevier.com/retrieve/pii/S0098300424003091",
+        "note": "title style"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 808,
+        "changed_fields": [
+          "title",
+          "citation",
+          "bibliographic"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-852-2026-08-28-2.2.190",
+      "version": "2.2.190",
+      "date": "2026-08-28",
+      "paper_id": 852,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://iopscience.iop.org/article/10.1088/2632-2153/acf116/meta",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 852,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-851-2026-08-28-2.2.189",
+      "version": "2.2.189",
+      "date": "2026-08-28",
+      "paper_id": 851,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032124006245",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 851,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-848-2026-08-28-2.2.188",
+      "version": "2.2.188",
+      "date": "2026-08-28",
+      "paper_id": 848,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://www.mdpi.com/2075-4701/14/8/926",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 848,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-847-2026-08-28-2.2.187",
+      "version": "2.2.187",
+      "date": "2026-08-28",
+      "paper_id": 847,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1364032125001510",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 847,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-839-2026-08-28-2.2.186",
+      "version": "2.2.186",
+      "date": "2026-08-28",
+      "paper_id": 839,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "all",
+      "evidence": {
+        "url": "https://www.mdpi.com/2076-3417/15/14/8092",
+        "note": "all"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 839,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-837-2026-08-28-2.2.185",
+      "version": "2.2.185",
+      "date": "2026-08-28",
+      "paper_id": 837,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "links",
+      "evidence": {
+        "url": "https://www.nature.com/articles/s41598-025-15687-1",
+        "note": "links"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 837,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-836-2026-08-28-2.2.184",
+      "version": "2.2.184",
+      "date": "2026-08-28",
+      "paper_id": 836,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "links",
+      "evidence": {
+        "url": "https://www.nature.com/articles/s41598-024-67597-3",
+        "note": "links"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 836,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-825-2026-08-28-2.2.183",
+      "version": "2.2.183",
+      "date": "2026-08-28",
+      "paper_id": 825,
+      "changed_fields": [
+        "publisher_url"
+      ],
+      "reason": "doi",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0045782522003838",
+        "note": "doi"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 825,
+        "changed_fields": [
+          "publisher_url"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-824-2026-08-28-2.2.182",
+      "version": "2.2.182",
+      "date": "2026-08-28",
+      "paper_id": 824,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url",
+        "venue"
+      ],
+      "reason": "Doi",
+      "evidence": {
+        "url": "https://link.springer.com/article/10.1007/s00466-021-02064-8",
+        "note": "Doi"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 824,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url",
+          "venue"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-780-2026-08-28-2.2.181",
+      "version": "2.2.181",
+      "date": "2026-08-28",
+      "paper_id": 780,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url"
+      ],
+      "reason": "Doi",
+      "evidence": {
+        "url": "https://www.mdpi.com/1996-1073/16/12/4558",
+        "note": "Doi"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 780,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-774-2026-08-28-2.2.180",
+      "version": "2.2.180",
+      "date": "2026-08-28",
+      "paper_id": 774,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "doi",
+        "publisher_url"
+      ],
+      "reason": "Doi",
+      "evidence": {
+        "url": "https://www.mdpi.com/2075-5309/15/9/1533",
+        "note": "Doi"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 774,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "doi",
+          "publisher_url"
+        ],
+        "references_year_counts": [],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-715-2026-08-28-2.2.179",
+      "version": "2.2.179",
+      "date": "2026-08-28",
+      "paper_id": 715,
+      "changed_fields": [
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "2024 change year",
+      "evidence": {
+        "url": "https://dl.acm.org/doi/10.1145/3632366.3632380",
+        "note": "2024 change year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 715,
+        "changed_fields": [
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2023,
+            "before": 134,
+            "after": 133
+          },
+          {
+            "year": 2024,
+            "before": 159,
+            "after": 160
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2023,
+            "before": 141,
+            "after": 140
+          },
+          {
+            "year": 2024,
+            "before": 161,
+            "after": 162
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-634-2026-08-28-2.2.178",
+      "version": "2.2.178",
+      "date": "2026-08-28",
+      "paper_id": 634,
+      "changed_fields": [
+        "citation",
+        "year"
+      ],
+      "reason": "2022 change year",
+      "evidence": {
+        "url": "https://academic.oup.com/gji/article/228/1/698/6348094",
+        "note": "2022 change year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 634,
+        "changed_fields": [
+          "citation",
+          "year"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2021,
+            "before": 67,
+            "after": 66
+          },
+          {
+            "year": 2022,
+            "before": 85,
+            "after": 86
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2021,
+            "before": 63,
+            "after": 62
+          },
+          {
+            "year": 2022,
+            "before": 81,
+            "after": 82
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-510-2026-08-28-2.2.177",
+      "version": "2.2.177",
+      "date": "2026-08-28",
+      "paper_id": 510,
+      "changed_fields": [
+        "citation",
+        "year",
+        "realm_year_override"
+      ],
+      "reason": "2020 change year",
+      "evidence": {
+        "url": "https://doi.org/10.21105/joss.01931",
+        "note": "2020 change year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 510,
+        "changed_fields": [
+          "citation",
+          "year",
+          "realm_year_override"
+        ],
+        "references_year_counts": [
+          {
+            "year": 1931,
+            "before": 1,
+            "after": 0
+          },
+          {
+            "year": 2020,
+            "before": 45,
+            "after": 46
+          }
+        ],
+        "realm_year_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-381-2026-08-28-2.2.176",
+      "version": "2.2.176",
+      "date": "2026-08-28",
+      "paper_id": 381,
+      "changed_fields": [
+        "citation",
+        "year"
+      ],
+      "reason": "year 2024 change",
+      "evidence": {
+        "url": "https://doi.org/10.1088/1361-6501/ad3fd3",
+        "note": "year 2024 change"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 381,
+        "changed_fields": [
+          "citation",
+          "year"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2022,
+            "before": 86,
+            "after": 85
+          },
+          {
+            "year": 2024,
+            "before": 158,
+            "after": 159
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2022,
+            "before": 82,
+            "after": 81
+          },
+          {
+            "year": 2024,
+            "before": 160,
+            "after": 161
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
+      "change_id": "paper-223-2026-08-28-2.2.175",
+      "version": "2.2.175",
+      "date": "2026-08-28",
+      "paper_id": 223,
+      "changed_fields": [
+        "citation",
+        "year"
+      ],
+      "reason": "2026 change year",
+      "evidence": {
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0142727X26001657",
+        "note": "2026 change year"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 223,
+        "changed_fields": [
+          "citation",
+          "year"
+        ],
+        "references_year_counts": [
+          {
+            "year": 2025,
+            "before": 301,
+            "after": 300
+          },
+          {
+            "year": 2026,
+            "before": 10,
+            "after": 11
+          }
+        ],
+        "realm_year_counts": [
+          {
+            "year": 2025,
+            "before": 293,
+            "after": 292
+          },
+          {
+            "year": 2026,
+            "before": 12,
+            "after": 13
+          }
+        ],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "PINN Realm map, timelines, country profiles, and cooperation pairs",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "paper-293-2026-08-09-2.2.174",
       "version": "2.2.174",
       "date": "2026-08-09",
