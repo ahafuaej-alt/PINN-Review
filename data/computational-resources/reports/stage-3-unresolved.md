@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-S001
+Checkpoint: Stage3-S002
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -34,6 +34,10 @@ Phase: controlled scale-out in progress
 | S3U-0024 | CR000001 | `immutable_snapshot_unavailable` | low | The corrected official solver documentation is available, but Stage 2 did not pin a repository commit for this documentation resource. | The current project snapshot is supporting evidence only; CR000001 remains R1 and no executable example is promoted to an experiment. |
 | S3U-0025 | CR000002 | `required_problem_data_external` | medium | The PI-MPN workflow requires `dataset/xc-lpr/od.npy`; the pinned repository bundles adjacency and POI files but directs users to an external download for the OD-flow payload. | The configuration reaches R3 from the documented retrieval path but direct data availability is only partially verified and R4 is blocked. |
 | S3U-0026 | CR000002 | `evaluation_reference_assignment_inconsistent` | high | `Exp_Main.test()` assigns observed `batch_y` to `pred` and model `outputs` to `true` before calling metric functions whose signatures expect prediction then reference. | MAE/MSE/RMSE remain symmetric, but MAPE and R2 are direction-sensitive; archived direction-sensitive values are not accepted as verified numerical targets and R4 is blocked. |
+| S3U-0027 | CR000004 | `license_unavailable` | medium | No license file or repository license metadata is present at the pinned commit. | Reuse terms are unavailable and the static assessment cannot establish license clarity. |
+| S3U-0028 | CR000004 | `dependency_manifest_unavailable` | medium | The pinned repository contains no requirements, environment, package, or lock manifest. | Exact dependencies and versions cannot be reconstructed; R2 is blocked. |
+| S3U-0029 | CR000004 | `required_module_unavailable` | high | All three application drivers import `Time_Varying_Vector_Autoregressive`, but that module is absent from the pinned repository tree. | Comparator workflows and all documented application entrypoints are incomplete as distributed. |
+| S3U-0030 | CR000004 | `entrypoint_static_inconsistency` | high | The univariate and multivariate simulation drivers call `range([1,2])` and `range([1,2,3])`, respectively. | Both simulation batches are statically invalid as written; the defect is scoped to `CR000004-E001-C001` and `CR000004-E002-C001`. |
 
 ## Source-scope handling
 
@@ -49,10 +53,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-`S3U-0001`, `S3U-0002`, `S3U-0023`, and `S3U-0026` are the four explicit `conflicting_evidence` findings through Stage3-S001. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+`S3U-0001`, `S3U-0002`, `S3U-0023`, `S3U-0026`, `S3U-0029`, and `S3U-0030` are the six explicit `conflicting_evidence` findings through Stage3-S002. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot and scale-out checkpoint Stage3-S001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot and scale-out checkpoints through Stage3-S002 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
