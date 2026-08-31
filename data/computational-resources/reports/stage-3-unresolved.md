@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-P05  
+Checkpoint: Stage3-P06  
 Phase: approved pilot extraction
 
 ## Current unresolved items
@@ -27,6 +27,7 @@ Phase: approved pilot extraction
 | S3U-0017 | CR000163 | `installation_workflow_unavailable` | medium | The pinned repository has no README or repository-level installation/runtime workflow. | Usable notebooks exist, but reproducibility remains at R1. |
 | S3U-0018 | CR000217 | `dependency_version_not_exact` | medium | `setup.py` names the JAX-Fluids runtime dependencies without exact version constraints; the build metadata only lower-bounds setuptools. | The representative workflow can reach R3, but one exact resolved software environment cannot be reconstructed from the pinned source alone. |
 | S3U-0019 | CR000217 | `expected_result_reference_unavailable` | low | The representative Sod workflow defines output fields and visualizations, but no quantified pinned reference values, regression artifact, or validation tolerance were established in the bounded static inspection. | Blocks R4 for `CR000217-E001-C001`; no external or textbook solution is substituted. |
+| S3U-0020 | CR000268 | `deep_archive_inspection_deferred` | medium | The RSS V6 directory and authoritative provider/catalogue metadata were inspected, but no NetCDF payload was downloaded/opened, no checksums were captured, and the complete file inventory was not normalized. | Product-level extraction reaches R3, but file-level end-to-end validation is deliberately insufficient for R4. |
 
 ## Source-scope handling
 
@@ -36,12 +37,14 @@ For `CR000163`, `PRL000007` is verified specifically for `CR000163-E001`: Atlas 
 
 For `CR000217`, the two framework-paper DOIs documented by the repository are citation metadata for JAX-Fluids itself; they are not converted into Atlas relationships. Stage 2 explicitly records no Atlas relationship, and Stage 3 preserves that state. The broader example corpus is also not automatically converted into dozens of experiment/configuration records; P05 materializes only the representative pinned Sod workflow needed to test the simulator/solver profile.
 
+For `CR000268`, the RSS provider metadata define the global V6 product, while Atlas paper 50 defines one Pacific-region use/preprocessing pipeline. Its April 2015–December 2022 temporal selection, EN4.2.2 co-location, polarization/look-angle handling, and quality-control rules remain `reported_in_primary_paper` facts and are not generalized to the provider dataset. The three official product-family DOIs remain citation metadata under one `CR000268` identity.
+
 ## Conflict handling
 
-`S3U-0001` and `S3U-0002` remain the two explicit `conflicting_evidence` findings. No new conflicting-evidence item was created in P05.
+`S3U-0001` and `S3U-0002` remain the two explicit `conflicting_evidence` findings. No new conflicting-evidence item was created in P06.
 
 ## Escalation state
 
-No Stage-2 resource identity or relationship defect was discovered in this checkpoint. Stage 2 remains closed and unchanged.
+No Stage-2 resource identity or relationship defect was discovered in this checkpoint. `PRL000008` remains verified and Stage 2 remains closed and unchanged.
 
-No current item requires execution to resolve within Stage 3. Items whose resolution would require running code remain bounded static reproducibility gaps.
+No current item requires scientific workload execution to resolve within Stage 3. File-level payload inspection for `CR000268` is intentionally deferred under the bounded dataset rule rather than being treated as a Stage-2 defect.
