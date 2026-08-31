@@ -8,23 +8,23 @@ Status date: 2026-08-31
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S004 |
-| Next scale-out checkpoint | Stage3-S005 |
-| Last completed resource | CR000007 |
-| Next resource | CR000008 |
-| Next planned checkpoint resources | CR000008, CR000009 |
+| Last completed scale-out checkpoint | Stage3-S005 |
+| Next scale-out checkpoint | Stage3-S006 |
+| Last completed resource | CR000009 |
+| Next resource | CR000011 |
+| Next planned checkpoint resources | CR000011, CR000012 |
 | Current scale-out batch | SOB001 |
-| Completed Stage-3 resource count | 16 |
-| Remaining Stage-3 registry resource count | 348 |
+| Completed Stage-3 resource count | 18 |
+| Remaining Stage-3 registry resource count | 346 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 30 |
-| Completed configuration count | 92 |
-| Technical evidence records | 180 |
-| Static reproducibility assessments | 16 |
+| Completed experiment count | 32 |
+| Completed configuration count | 94 |
+| Technical evidence records | 196 |
+| Static reproducibility assessments | 18 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 41 |
-| Next unresolved ID | S3U-0042 |
-| Current conflicting-evidence finding count | 11 |
+| Current unresolved technical item count | 45 |
+| Next unresolved ID | S3U-0046 |
+| Current conflicting-evidence finding count | 12 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -72,7 +72,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S002`: `CR000004` — QA PASS; adaptive single-resource checkpoint with 3 experiments, 3 configurations, 10 evidence records, and 1 reproducibility assessment.
 - `Stage3-S003`: `CR000005` — QA PASS; 1 appendix resource, no artificial experiments/configurations, 6 evidence records, and 1 reproducibility assessment.
 - `Stage3-S004`: `CR000006`, `CR000007` — QA PASS; 2 resources, 3 experiments, 5 configurations, 18 evidence records, and 2 reproducibility assessments.
+- `Stage3-S005`: `CR000008`, `CR000009` — QA PASS; 2 resources, 2 experiments, 2 configurations, 16 evidence records, and 2 reproducibility assessments.
 
 ## Exact next action
 
-Start **`Stage3-S005`** with **`CR000008`**, then `CR000009` if `CR000008` remains suitable for a paired checkpoint.
+Start **`Stage3-S006`** with **`CR000011`**, then `CR000012`. After both complete, perform aggregate QA for batch `SOB001`.

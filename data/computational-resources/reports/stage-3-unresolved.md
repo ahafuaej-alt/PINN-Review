@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-S004
+Checkpoint: Stage3-S005
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -49,6 +49,10 @@ Phase: controlled scale-out in progress
 | S3U-0039 | CR000007 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
 | S3U-0040 | CR000007 | `dependency_versions_not_exact` | medium | The conda environment uses lower-bound constraints rather than an exact resolved lock. | The workflows reach R3, but exact environment reconstruction and R4 are blocked. |
 | S3U-0041 | CR000007 | `random_seed_unknown` | low | No explicit seed was established for random collocation sampling or model initialization. | Exact deterministic reruns are not specified and R4 is blocked. |
+| S3U-0042 | CR000008 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
+| S3U-0043 | CR000008 | `paper_configuration_mapping_partial` | medium | The repository implements GRU-KAN and contains extensive outputs, but the exact paper dataset path, complete run command, and result artifact are not uniquely identified. | The paper-linked configuration remains partially verified and the resource is R2. |
+| S3U-0044 | CR000009 | `dependency_manifest_unavailable` | medium | No dependency/environment manifest or installation workflow is present. | Exact executable environment reconstruction is unavailable and R3 is blocked for the DNN workflow. |
+| S3U-0045 | CR000009 | `dataset_filename_conflict` | medium | README names `Final_Artificial_Data.csv`, while the pinned repository root contains `Data.csv`. | File equivalence is not assumed; the actual pinned filename is retained as conflicting evidence. |
 
 ## Source-scope handling
 
@@ -64,10 +68,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Eleven explicit `conflicting_evidence` findings exist through Stage3-S004: the eight previously recorded findings plus `S3U-0036`–`S3U-0038`. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Twelve explicit `conflicting_evidence` findings exist through Stage3-S005, including the new `S3U-0045` dataset-filename conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot and scale-out checkpoints through Stage3-S004 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot and scale-out checkpoints through Stage3-S005 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
