@@ -8,23 +8,23 @@ Status date: 2026-08-31
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S005 |
-| Next scale-out checkpoint | Stage3-S006 |
-| Last completed resource | CR000009 |
-| Next resource | CR000011 |
-| Next planned checkpoint resources | CR000011, CR000012 |
-| Current scale-out batch | SOB001 |
-| Completed Stage-3 resource count | 18 |
-| Remaining Stage-3 registry resource count | 346 |
+| Last completed scale-out checkpoint | Stage3-S006 |
+| Next scale-out checkpoint | Stage3-S007 |
+| Last completed resource | CR000012 |
+| Next resource | CR000013 |
+| Next planned checkpoint resources | CR000013, CR000014 |
+| Current scale-out batch | SOB002 |
+| Completed Stage-3 resource count | 20 |
+| Remaining Stage-3 registry resource count | 344 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 32 |
-| Completed configuration count | 94 |
-| Technical evidence records | 196 |
-| Static reproducibility assessments | 18 |
+| Completed experiment count | 34 |
+| Completed configuration count | 96 |
+| Technical evidence records | 212 |
+| Static reproducibility assessments | 20 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 45 |
-| Next unresolved ID | S3U-0046 |
-| Current conflicting-evidence finding count | 12 |
+| Current unresolved technical item count | 49 |
+| Next unresolved ID | S3U-0050 |
+| Current conflicting-evidence finding count | 13 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -44,15 +44,16 @@ The normal extraction unit is a checkpoint of **two resources maximum**. Complex
 
 `CR000001`, `CR000002`, `CR000004`, `CR000005`, `CR000006`, `CR000007`, `CR000008`, `CR000009`, `CR000011`, `CR000012`.
 
-Planned checkpoints:
+Completed checkpoints:
 
 - `Stage3-S001`: `CR000001`, `CR000002`
-- `Stage3-S002`: `CR000004`, `CR000005`
-- `Stage3-S003`: `CR000006`, `CR000007`
-- `Stage3-S004`: `CR000008`, `CR000009`
-- `Stage3-S005`: `CR000011`, `CR000012`
+- `Stage3-S002`: `CR000004`
+- `Stage3-S003`: `CR000005`
+- `Stage3-S004`: `CR000006`, `CR000007`
+- `Stage3-S005`: `CR000008`, `CR000009`
+- `Stage3-S006`: `CR000011`, `CR000012`
 
-The resource order is fixed; checkpoint pairing may shrink to one resource if complexity requires it.
+The resource order remained fixed; adaptive checkpoint sizing produced six checkpoints. Aggregate QA for `SOB001` is complete and passed.
 
 ## Continuation rule
 
@@ -60,7 +61,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0023` are preserved and the next ID is `S3U-0024`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0049` are preserved and the next ID is `S3U-0050`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -73,7 +74,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S003`: `CR000005` — QA PASS; 1 appendix resource, no artificial experiments/configurations, 6 evidence records, and 1 reproducibility assessment.
 - `Stage3-S004`: `CR000006`, `CR000007` — QA PASS; 2 resources, 3 experiments, 5 configurations, 18 evidence records, and 2 reproducibility assessments.
 - `Stage3-S005`: `CR000008`, `CR000009` — QA PASS; 2 resources, 2 experiments, 2 configurations, 16 evidence records, and 2 reproducibility assessments.
+- `Stage3-S006`: `CR000011`, `CR000012` — QA PASS; 2 resources, 2 experiments, 2 configurations, 16 evidence records, and 2 reproducibility assessments. Aggregate QA for ten-resource batch `SOB001` also passed.
 
 ## Exact next action
 
-Start **`Stage3-S006`** with **`CR000011`**, then `CR000012`. After both complete, perform aggregate QA for batch `SOB001`.
+Start **`Stage3-S007`** with **`CR000013`**, then `CR000014`, as the first checkpoint in batch `SOB002`.

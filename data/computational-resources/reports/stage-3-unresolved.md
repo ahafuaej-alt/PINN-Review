@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-S005
+Checkpoint: Stage3-S006
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -53,6 +53,10 @@ Phase: controlled scale-out in progress
 | S3U-0043 | CR000008 | `paper_configuration_mapping_partial` | medium | The repository implements GRU-KAN and contains extensive outputs, but the exact paper dataset path, complete run command, and result artifact are not uniquely identified. | The paper-linked configuration remains partially verified and the resource is R2. |
 | S3U-0044 | CR000009 | `dependency_manifest_unavailable` | medium | No dependency/environment manifest or installation workflow is present. | Exact executable environment reconstruction is unavailable and R3 is blocked for the DNN workflow. |
 | S3U-0045 | CR000009 | `dataset_filename_conflict` | medium | README names `Final_Artificial_Data.csv`, while the pinned repository root contains `Data.csv`. | File equivalence is not assumed; the actual pinned filename is retained as conflicting evidence. |
+| S3U-0046 | CR000011 | `dependency_versions_partial` | medium | The Python requirements mix unversioned packages with two exact pins, while the documented Xyce/OpenMPI backends remain separately installed external dependencies. | A partially specified environment supports R3, but exact environment reconstruction and R4 are blocked. |
+| S3U-0047 | CR000012 | `license_unavailable` | medium | No license is present at the pinned commit. | Reuse terms are unavailable. |
+| S3U-0048 | CR000012 | `dependency_manifest_unavailable` | medium | The README names exact primary package versions, but the repository contains no machine-readable requirements, environment, package, or lock manifest. | The documented environment supports R3, but an installable exact environment and R4 are not established. |
+| S3U-0049 | CR000012 | `output_extension_conflict` | medium | The README says results are saved as `.m` files, while both Python workflows call `scipy.io.savemat` with `.mat` filenames. | The implemented `.mat` output is retained and the documentation mismatch remains explicit conflicting evidence. |
 
 ## Source-scope handling
 
@@ -68,10 +72,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Twelve explicit `conflicting_evidence` findings exist through Stage3-S005, including the new `S3U-0045` dataset-filename conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Thirteen explicit `conflicting_evidence` findings exist through Stage3-S006, including the new `S3U-0049` output-extension conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot and scale-out checkpoints through Stage3-S005 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S006, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.

@@ -3,7 +3,7 @@
 Status date: 2026-08-31  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S005
+Latest scale-out checkpoint: Stage3-S006
 
 ## Pilot QA
 
@@ -120,6 +120,22 @@ Status: **PASS**
 `CR000008` was bounded despite its 5,512-file forecasting tree. One paper-linked GRU-KAN/SST experiment is represented at R2; exact paper-run inputs, hyperparameters, and output mapping remain incomplete. `CR000009` remains dataset-primary, with its bundled DNN notebook represented separately from Atlas paper 130's use of the dataset. The DNN workflow is R2 because no executable environment is supplied and the README dataset filename conflicts with the pinned tree.
 
 Cumulative totals are 18 resources, 32 experiments, 94 configurations, 196 evidence records, 18 reproducibility assessments, 45 unresolved findings, and 12 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S006
+
+Status: **PASS**
+
+`CR000011` remains a supporting thermal simulator and paper-used power-map source; its repository examples were not promoted into artificial PINN experiments. The GPL-licensed PACT snapshot documents steady and transient thermal analyses, exact external Xyce/OpenMPI versions, a Docker workflow, and bundled example inputs, but its Python requirements are only partially pinned. It is R3.
+
+`CR000012` contributes two deep-energy PINN contact workflows, each with a bounded configuration. Exact primary environment versions, bundled geometries, network structure, energy formulation, deterministic Python seed, relaxation, and incremental loading are documented or implemented. It is R3 because the exact environment lacks a machine-readable manifest, no license is present, and the README's `.m` output statement conflicts with implemented `.mat` writes.
+
+Cumulative totals are 20 resources, 34 experiments, 96 configurations, 212 evidence records, 20 reproducibility assessments, 49 unresolved findings, and 13 explicit conflicting-evidence findings.
+
+## Scale-out batch SOB001 aggregate QA
+
+Status: **PASS**
+
+The first controlled scale-out batch contains 10 resources across six checkpoints: 11 experiments, 13 configurations, 81 technical-evidence records, 10 reproducibility assessments, 26 newly recorded unresolved findings, and 10 newly recorded conflicting-evidence findings. All checkpoint and cumulative identifiers are unique, evidence and hierarchy references resolve, Stage-2 authority is preserved, missing-value and inferred-source semantics pass, R5 remains excluded, and no Stage-1, Stage-2, curated, or public Atlas/site files changed.
 
 ## Stage boundaries
 
