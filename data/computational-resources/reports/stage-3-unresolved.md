@@ -1,8 +1,8 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-P07  
-Phase: pilot extraction complete; waiting scientific acceptance
+Checkpoint: Stage3-S001
+Phase: controlled scale-out in progress
 
 ## Current unresolved items
 
@@ -31,6 +31,9 @@ Phase: pilot extraction complete; waiting scientific acceptance
 | S3U-0021 | CR000091 | `archive_payload_direct_inspection_deferred` | medium | The Zenodo DOI is the authoritative CR identity, but its payload was not directly unpacked or byte-compared with the `accepted_version` GitHub release used as archive-equivalent technical evidence. | Software identity and paper relationship remain verified, but exact byte-level archive equivalence is not claimed. |
 | S3U-0022 | CR000091 | `dependency_manifest_incomplete` | high | `ModalPINN_VortexShedding.py` imports `GPUtil`, while the accepted-release `requirements.txt` does not declare GPUtil. | The declared installation manifest is incomplete and blocks R4 for the representative dense workflow. |
 | S3U-0023 | CR000091 | `repository_paper_conflict` | high | Paper 605 reports successful asynchronous-sensor resynchronisation, but the accepted-release `DesyncSparseData` branch references undefined `Delta_t_np_pitot` and then uses `Delta_phi_tf_pitot` although it is assigned only in the opposite branch. | `CR000091-E001-C005` is retained as `conflicting_evidence`; Stage 3 does not repair or reconcile the source. |
+| S3U-0024 | CR000001 | `immutable_snapshot_unavailable` | low | The corrected official solver documentation is available, but Stage 2 did not pin a repository commit for this documentation resource. | The current project snapshot is supporting evidence only; CR000001 remains R1 and no executable example is promoted to an experiment. |
+| S3U-0025 | CR000002 | `required_problem_data_external` | medium | The PI-MPN workflow requires `dataset/xc-lpr/od.npy`; the pinned repository bundles adjacency and POI files but directs users to an external download for the OD-flow payload. | The configuration reaches R3 from the documented retrieval path but direct data availability is only partially verified and R4 is blocked. |
+| S3U-0026 | CR000002 | `evaluation_reference_assignment_inconsistent` | high | `Exp_Main.test()` assigns observed `batch_y` to `pred` and model `outputs` to `true` before calling metric functions whose signatures expect prediction then reference. | MAE/MSE/RMSE remain symmetric, but MAPE and R2 are direction-sensitive; archived direction-sensitive values are not accepted as verified numerical targets and R4 is blocked. |
 
 ## Source-scope handling
 
@@ -46,10 +49,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-`S3U-0001`, `S3U-0002`, and `S3U-0023` are the three explicit `conflicting_evidence` findings after pilot completion. Each retains both authoritative observations instead of choosing or rewriting one source.
+`S3U-0001`, `S3U-0002`, `S3U-0023`, and `S3U-0026` are the four explicit `conflicting_evidence` findings through Stage3-S001. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot is complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, direct archive payload comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot and scale-out checkpoint Stage3-S001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.

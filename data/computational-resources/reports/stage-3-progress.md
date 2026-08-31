@@ -4,26 +4,27 @@ Status date: 2026-08-31
 
 | Field | Value |
 |---|---|
-| Stage-3 phase | Controlled scale-out planned; ready for extraction |
+| Stage-3 phase | Controlled scale-out in progress |
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Next scale-out checkpoint | Stage3-S001 |
-| Last completed resource | CR000091 |
-| Next resource | CR000001 |
-| Next planned checkpoint resources | CR000001, CR000002 |
+| Last completed scale-out checkpoint | Stage3-S001 |
+| Next scale-out checkpoint | Stage3-S002 |
+| Last completed resource | CR000002 |
+| Next resource | CR000004 |
+| Next planned checkpoint resources | CR000004, CR000005 |
 | Current scale-out batch | SOB001 |
-| Completed Stage-3 resource count | 10 |
-| Remaining Stage-3 registry resource count | 354 |
+| Completed Stage-3 resource count | 12 |
+| Remaining Stage-3 registry resource count | 352 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 23 |
-| Completed configuration count | 83 |
-| Technical evidence records | 131 |
-| Static reproducibility assessments | 10 |
+| Completed experiment count | 24 |
+| Completed configuration count | 84 |
+| Technical evidence records | 146 |
+| Static reproducibility assessments | 12 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 23 |
-| Next unresolved ID | S3U-0024 |
-| Current conflicting-evidence finding count | 3 |
+| Current unresolved technical item count | 26 |
+| Next unresolved ID | S3U-0027 |
+| Current conflicting-evidence finding count | 4 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -31,7 +32,7 @@ Status date: 2026-08-31
 
 ## Scale-out operating state
 
-The Stage3-D01 methodology and existing schemas are scientifically accepted. Controlled scale-out has now been fully planned and may begin from `CR000001`.
+The Stage3-D01 methodology and existing schemas are scientifically accepted. Controlled scale-out began with QA-passed checkpoint `Stage3-S001`, covering `CR000001` and `CR000002`.
 
 Resource ordering is deterministic ascending numeric `CR######` order after excluding the ten pilot-complete resources. Final authoritative Stage-2 overlays supersede older batch fields where explicitly recorded; historical Stage-2 records remain provenance.
 
@@ -65,6 +66,10 @@ The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0023`
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, environment, dependency, notebook, training process, inference workflow, solver, dataset payload, checkpoint, or model is executed. R5 remains prohibited.
 
+## Completed scale-out checkpoints
+
+- `Stage3-S001`: `CR000001`, `CR000002` — QA PASS; 2 resources, 1 experiment, 1 configuration, 15 evidence records, and 2 reproducibility assessments.
+
 ## Exact next action
 
-Start **`Stage3-S001`** with **`CR000001`**, then `CR000002` if `CR000001` remains suitable for a paired checkpoint. No scale-out extraction has yet been performed after the pilot.
+Start **`Stage3-S002`** with **`CR000004`**, then `CR000005` if `CR000004` remains suitable for a paired checkpoint.

@@ -3,6 +3,7 @@
 Status date: 2026-08-31  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
+Latest scale-out checkpoint: Stage3-S001
 
 ## Pilot QA
 
@@ -75,6 +76,18 @@ The static reproducibility gates also behaved as intended: the pilot produced di
 The methodology is ready for controlled scale-out. Before further extraction, the scale-out plan must define resource ordering, small checkpoint/batch size, restart/continuation semantics, QA requirements, unresolved-register maintenance, and commit boundaries.
 
 No schema change is required before that planning step.
+
+## Scale-out checkpoint Stage3-S001
+
+Status: **PASS**
+
+`CR000001` and `CR000002` were extracted without schema or methodology change. Cumulative Stage-3 totals are 12 resources, 24 experiments, 84 configurations, 146 technical-evidence records, 12 reproducibility assessments, 26 unresolved findings, and 4 explicit conflicting-evidence findings.
+
+`CR000001` remains the corrected official PINA solver-documentation identity established by Stage2-RC01. The current project repository was used only as dated supporting evidence and was not substituted as an authoritative Stage-2 pin. The framework documentation was not forced into artificial experiment records; its bounded static classification is R1.
+
+`CR000002` preserves the Stage-2 pinned PI-MPN snapshot and its two verified paper relationships. One repository-supported XC forecasting experiment/configuration is recorded at R3. R4 is withheld because the required `od.npy` payload remains external, the dependency manifest is unpinned, and the evaluation routine reverses prediction/reference assignments before direction-sensitive MAPE and R2 calculations.
+
+All schemas validate; identifiers and evidence references are unique and resolved; no Stage-1, Stage-2, `05-curated/`, or public Atlas/site file changed; and no scientific workload was executed.
 
 ## Stage boundaries
 
