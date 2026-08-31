@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S007
+Checkpoint: Stage3-S008
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -61,6 +61,9 @@ Phase: controlled scale-out in progress
 | S3U-0051 | CR000013 | `required_problem_data_external` | medium | `model_config.yaml` requires two CSV files under `data/`; the pinned tree does not contain them and instead links the processed training data and cross-validation results at Zenodo DOI `10.5281/zenodo.11474955`. | The documented external retrieval path supports R3, but direct payload inspection and R4 are deferred. |
 | S3U-0052 | CR000013 | `environment_filename_conflict` | low | The README names `environment_oggm.yaml`, while the pinned preprocessing manifest is `preprocessing/environment_oggm.yml`. | The actual pinned path is retained and the documentation mismatch remains explicit conflicting evidence. |
 | S3U-0053 | CR000013 | `synthetic_entrypoint_incomplete` | high | `Trainer_synthetic.py` hard-codes absent `config_1d_nophysics.yaml` instead of bundled `config_nophysics.yaml`; the configured synthetic CSV is absent, and the generator writes into parent directories it does not create. | The two synthetic configurations remain explicit, but the combined repository-only workflow is only partially verified as written. |
+| S3U-0054 | CR000014 | `license_unavailable` | medium | Neither the provider page nor the complete trial archive supplies software-license metadata. | Reuse terms for the executable and embedded checkpoints are unavailable. |
+| S3U-0055 | CR000014 | `source_and_build_metadata_unavailable` | high | The ZIP contains one PyInstaller-packaged Windows executable; no source, dependency manifest, build instructions, or training configuration is distributed. | The pretrained use workflow reaches R3, but independent build/training reconstruction and R4 are blocked. |
+| S3U-0056 | CR000014 | `expected_result_reference_unavailable` | medium | The page documents prediction steps and the bundle contains illustrative images, but no numerical reference outputs, metrics, or tolerances are supplied for either model range. | Static end-to-end result verification is unavailable and R4 is blocked. |
 
 ## Source-scope handling
 
@@ -76,10 +79,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Fourteen explicit `conflicting_evidence` findings exist through Stage3-S007, including the new `S3U-0052` environment-filename conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Fourteen explicit `conflicting_evidence` findings exist through Stage3-S008; S008 adds no new conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S007, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S008, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

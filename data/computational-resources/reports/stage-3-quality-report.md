@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S007
+Latest scale-out checkpoint: Stage3-S008
 
 ## Pilot QA
 
@@ -146,6 +146,16 @@ Status: **PASS**
 The synthetic configurations are retained without claiming a complete combined run. `Trainer_synthetic.py` hard-codes a nonexistent comparison-config filename, the expected CSV is absent, and its generator does not create the target parent directories. The README also names the preprocessing environment with `.yaml`, while the pinned file uses `.yml`; this remains explicit conflicting evidence.
 
 Cumulative totals are 21 resources, 36 experiments, 99 configurations, 222 evidence records, 21 reproducibility assessments, 53 unresolved findings, and 14 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S008
+
+Status: **PASS**
+
+`CR000014` preserves the corrected provider-page identity, the resolved `/Info/` → `/lnfo/` alias, and paper relationship `PRL000042`. The provider-linked 146,645,296-byte ZIP passed integrity checks and was checksummed; its sole top-level payload is a 148,109,224-byte Windows x86-64 GUI executable. Static PyInstaller inspection established Python 3.7, PyTorch 1.2.0 CPU, two pretrained checkpoints, and matching state-dictionary architectures with five 100-unit hidden linear layers between four inputs and two outputs. Neither the executable nor a checkpoint was run or deserialized.
+
+The one trial experiment has two provider-documented configurations: Model 1 covers 1–2 ps and 1.9–3.8 W, while Model 2 covers 0.4–0.8 ps and 12–24 W. Both use the page's fixed dispersion/Kerr parameters and soliton-number range. The use workflow is R3 because the entrypoint, checkpoints, inputs, valid ranges, and interaction steps are substantially available. R4 is withheld because source, license, complete build/training metadata, and numerical reference outputs are absent.
+
+Cumulative totals are 22 resources, 37 experiments, 101 configurations, 231 evidence records, 22 reproducibility assessments, 56 unresolved findings, and 14 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
