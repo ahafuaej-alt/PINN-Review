@@ -184,11 +184,12 @@ try {
 
   const diagnosticInspector = await context.newPage();
   await diagnosticInspector.goto(`${baseUrl}/frameworks/failure-diagnostics/`, { waitUntil: 'networkidle' });
-  await diagnosticInspector.waitForSelector('[data-fd-component="spectral-bias:challenge"]');
-  await diagnosticInspector.click('[data-fd-component="spectral-bias:challenge"]');
+  await diagnosticInspector.waitForSelector('[data-fd-component="spectral-bias:symptoms"]');
+  await diagnosticInspector.click('[data-fd-component="spectral-bias:symptoms"]');
   const diagnosticDetail = diagnosticInspector.locator('[data-detail]:visible').first();
-  const diagnosticText = await diagnosticDetail.innerText();
-  assert(diagnosticText.includes('Discriminating checks') && diagnosticText.includes('Trade-offs to verify') && diagnosticText.includes('Cross-framework reasoning trace'), 'failure-diagnostics: v2 pathway inspector is incomplete.');
+  await diagnosticDetail.locator('.fd-cross-trace').waitFor({ state: 'visible', timeout: 3000 });
+  const diagnosticText = (await diagnosticDetail.innerText()).toLowerCase();
+  assert(diagnosticText.includes('discriminating checks') && diagnosticText.includes('trade-offs to verify') && diagnosticText.includes('cross-framework reasoning trace'), 'failure-diagnostics: v2 pathway inspector is incomplete.');
   assert(await diagnosticDetail.locator('.evidence-support-badge').count() > 0, 'failure-diagnostics: inspector lacks support-type badges.');
   assert(await diagnosticDetail.locator('[data-concept-id]').count() > 0, 'failure-diagnostics: canonical concept controls are missing.');
   await diagnosticInspector.close();
