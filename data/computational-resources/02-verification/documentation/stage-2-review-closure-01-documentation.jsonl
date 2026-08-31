@@ -1,0 +1,5 @@
+{"schema_version":"2.0.0-pilot","resource_id":"CR000001","documentation_status":"verified","locations":["https://pina-org.github.io/PINA/_rst/_code.html#solvers"],"verified_at":"2026-08-31"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000062","documentation_status":"verified_with_license_badge_conflict","locations":["README.md","docs/"],"verified_at":"2026-08-31"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000302","documentation_status":"verified_qualified","locations":["https://yan.cee.illinois.edu/","https://github.com/QimingZhu1992/PINN-AM"],"verified_at":"2026-08-31"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000363","documentation_status":"verified","locations":["README.md"],"verified_at":"2026-08-31"}
+{"schema_version":"2.0.0-pilot","resource_id":"CR000364","documentation_status":"verified","locations":["README.md","examples/"],"verified_at":"2026-08-31"}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "2.0.0-pilot",
+  "report_type": "stage2_review_closure_qa",
+  "closure_id": "Stage2-RC01",
+  "verification_date": "2026-08-31",
+  "status": "passed",
+  "stage2_resource_processing_complete": true,
+  "review_closure_complete": true,
+  "counts": {
+    "scientific_review_items_reviewed": 2,
+    "scientific_review_items_closed": 2,
+    "ordinary_manual_review_resources_reviewed": 7,
+    "ordinary_manual_review_resources_cleared": 7,
+    "active_scientific_review_items": 0,
+    "active_ordinary_manual_review_resources": 0,
+    "profile_discoveries_disposed": 8,
+    "new_resource_records": 2,
+    "corrective_resource_overlay_records": 10,
+    "relationship_overlay_records": 4,
+    "new_alias_records": 2,
+    "evidence_records": 17
+  },
+  "new_resource_ids": [
+    "CR000363",
+    "CR000364"
+  ],
+  "new_alias_ids": [
+    "VA000056",
+    "VA000057"
+  ],
+  "no_new_relationship_ids": true,
+  "final_resource_id_range": "CR000001–CR000364",
+  "checks": [
+    {
+      "check": "review_item_accounting",
+      "status": "passed",
+      "detail": "Both scientific-review questions and all seven ordinary manual-review resources receive exactly one explicit final disposition; no review flag remains active."
+    },
+    {
+      "check": "paper_778_profile_scope",
+      "status": "passed",
+      "detail": "PRL000303 remains profile-level. CR000358 is preserved as a standalone discovery without inventing a paper-778 repository relationship."
+    },
+    {
+      "check": "profile_discovery_scope",
+      "status": "passed",
+      "detail": "All seven deferred CR000174 discoveries are disposed under a stated inclusion rule: two promoted, one reused, two unavailable and two outside direct registry scope."
+    },
+    {
+      "check": "manual_url_corrections",
+      "status": "passed",
+      "detail": "CR000001 and CR000302 are corrected to current official/live hosts with VA000056–VA000057 preserving the historical strings."
+    },
+    {
+      "check": "license_disambiguation",
+      "status": "passed",
+      "detail": "CR000062 is normalized to MIT from its exact pinned LICENSE; the conflicting README Apache-2.0 badge remains a verified limitation."
+    },
+    {
+      "check": "historical_unavailable_resources",
+      "status": "passed",
+      "detail": "CR000287, CR000291, CR000300 and CR000306 retain verified historical identities/relationships while current payload, metadata and license fields are finalized as unavailable or bounded unknown."
+    },
+    {
+      "check": "relationship_flag_clearance",
+      "status": "passed",
+      "detail": "PRL000090, PRL000106 and PRL000133 remain verified and no longer require manual review; PRL000303 remains author-associated at profile scope."
+    },
+    {
+      "check": "stable_identity_control",
+      "status": "passed",
+      "detail": "CR000363–CR000364 are new live in-scope repository identities; CR000024 is reused and no unavailable or adjacent discovery receives a duplicate ID."
+    },
+    {
+      "check": "identifier_continuity",
+      "status": "passed",
+      "detail": "New IDs begin after the observed maxima: CR000363–CR000364, VA000056–VA000057 and S2E000512–S2E000528."
+    },
+    {
+      "check": "static_verification_boundary",
+      "status": "passed",
+      "detail": "No repository code, model, notebook, generator, archive, dataset payload or executable artifact was installed or executed."
+    },
+    {
+      "check": "checkpoint_authority",
+      "status": "passed",
+      "detail": "Authoritative reports identify Stage2-RC01 as the final checkpoint; legacy root report paths are compatibility pointers and contain no stale resume instruction."
+    },
+    {
+      "check": "public_provenance_scan",
+      "status": "passed",
+      "detail": "Changed repository artifacts describe only technical and scientific verification work and contain no development-tool authorship attribution."
+    }
+  ],
+  "qa_conclusion": "Stage2-RC01 passes. The two scientific-review items and seven ordinary manual-review resources are closed, two justified discoveries are registered, and no active Stage-2 review checkpoint remains."
+}
