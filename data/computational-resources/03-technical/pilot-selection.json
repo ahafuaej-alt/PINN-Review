@@ -1,6 +1,6 @@
 {
   "schema_version": "3.0.0-pilot-design",
-  "selection_status": "proposed_waiting_scientific_review",
+  "selection_status": "pilot_completed_waiting_scientific_acceptance",
   "selection_date": "2026-08-31",
   "selection_goal": "Stress-test the Stage 3 ontology across scientific role, artifact form, experiment multiplicity, evidence strength, data boundaries, and reproducibility semantics without reopening identity resolution.",
   "resources": [

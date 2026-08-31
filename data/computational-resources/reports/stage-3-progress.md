@@ -4,77 +4,100 @@ Verification/extraction date: 2026-08-31
 
 | Field | Value |
 |---|---|
-| Stage-3 phase | Approved pilot extraction in progress |
-| Current batch | Pilot batch 006 |
-| Current checkpoint | Stage3-P06 |
-| Last completed resource | CR000268 |
-| Next resource | CR000091 |
-| Completed Stage-3 resource count | 9 |
-| Remaining Stage-3 registry resource count | 355 |
-| Approved pilot resources completed | 9 / 10 |
-| Approved pilot resources remaining | 1 |
-| Completed experiment count | 22 |
-| Completed configuration count | 78 |
-| Technical evidence records | 116 |
-| Static reproducibility assessments | 9 |
+| Stage-3 phase | Pilot extraction complete; waiting scientific acceptance |
+| Current batch | Pilot batch 007 |
+| Current checkpoint | Stage3-P07 |
+| Last completed resource | CR000091 |
+| Next resource | None — pilot acceptance review required before scale-out |
+| Completed Stage-3 resource count | 10 |
+| Remaining Stage-3 registry resource count | 354 |
+| Approved pilot resources completed | 10 / 10 |
+| Approved pilot resources remaining | 0 |
+| Completed experiment count | 23 |
+| Completed configuration count | 83 |
+| Technical evidence records | 131 |
+| Static reproducibility assessments | 10 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 20 |
-| Current conflicting-evidence finding count | 2 |
-| Resources completed in this checkpoint | CR000268 |
+| Current unresolved technical item count | 23 |
+| Current conflicting-evidence finding count | 3 |
+| Resources completed in this checkpoint | CR000091 |
 | Last checkpoint commit | self — Git commit containing this report |
 
-## Stage3-P06 result
+## Stage3-P07 result
 
-The sixth pilot checkpoint extracted `CR000268` as a versioned scientific dataset from the verified Stage-2 identity, the live RSS V6 directory and product metadata, NASA PO.DAAC metadata, and Atlas paper 50.
+The seventh pilot checkpoint extracted `CR000091`, completing the full ten-resource Stage3-D01 pilot.
 
-### CR000268
+### CR000091
 
-- Profile: `dataset`
-- Artifact form: `static_data_directory`
-- Canonical directory: `https://data.remss.com/smap/SSS/V06.0/`
-- Provider: Remote Sensing Systems (RSS)
-- Product: Remote Sensing Systems SMAP Ocean Surface Salinities, Version 6.0 validated release
-- Product release date in PO.DAAC metadata: 26 March 2024
-- Experiments: 0
-- Configurations: 0
-- Static reproducibility: `R3`
-- Atlas relationship: `PRL000008` → paper 50, *Bias Correction of SMAP L2 Sea Surface Salinity Based on Physics-Informed Neural Network*, DOI `10.3390/rs17183226`.
-- The root directory exposes `documents/`, `FINAL/`, and `NRT/`; `FINAL/` contains L2C and L3 branches.
-- RSS documents three V6 product families: Level 2C swath data, Level 3 8-day running averages, and Level 3 monthly averages.
-- Product files are documented as netCDF-4 and CF/ACDD compliant.
-- Product-specific citation DOIs are `10.5067/SMP60-2SOCS` (L2C), `10.5067/SMP60-3SPCS` (L3 8-day), and `10.5067/SMP60-3SMCS` (L3 monthly).
-- RSS data use is governed by custom product-specific terms rather than an SPDX software licence; research/publication use is permitted with the applicable product statement.
+- Profile: `pinn_implementation`
+- Artifact form: `doi_archive`
+- Authoritative resource identity: Zenodo DOI `10.5281/zenodo.6519560`
+- Atlas relationship: `PRL000193` → paper 605, *ModalPINN: An extension of physics-informed Neural Networks with enforced truncated Fourier decomposition for periodic flow reconstruction using a limited number of imperfect sensors*, DOI `10.1016/j.jcp.2022.111271`
+- Experiments: 1
+- Configurations: 5
+- Static reproducibility: `R3` for the archived dense ModalPINN configuration `CR000091-E001-C001`
 
-### L2C product metadata
+The primary paper directly cites the Zenodo DOI as the ModalPINN Python code. A public repository by the same author provides an `accepted_version` release named **Official code with accepted paper** and states that this version corresponds to the paper release. That tag resolves to immutable commit `752f14c8560e7a832ac6710bf018b472dc661862`.
 
-The provider/NASA product metadata describe the validated L2C stream as beginning on 1 April 2015 and continuing to the present, with global ocean coverage. Each file covers approximately one 98-minute orbit, about 15 files are produced per day, and global coverage is achieved in roughly three days with an 8-day repeat cycle.
+Stage 3 therefore uses that tag as an **archive-equivalent technical snapshot**, while preserving the Zenodo DOI as the CR identity. Exact byte equivalence is not claimed because the Zenodo payload itself was not unpacked or byte-compared.
 
-The L2C product is represented on a 0.25° fixed Earth grid. It includes the native approximately 40-km `sss_smap_40km` field and the standard smoothed approximately 70-km `sss_smap` field, formal uncertainty products, geolocation/time variables, ancillary sea-surface temperature and wind, quality flags, and radiometric/intermediate retrieval quantities. The Stage-3 record stores a representative variable subset rather than pretending that a bounded catalogue read is a complete payload-level inventory.
+The accepted release documents and contains:
 
-### Paper-50 use
+- `ModalPINN_VortexShedding.py` for ModalPINN reconstruction;
+- `ClassicPINN_VortexShedding.py` for the classical-PINN comparator;
+- helper code for neural-network operations and data preparation;
+- a documented Compute Canada / Python 3.7.4 workflow;
+- exact pins for most Python dependencies;
+- external training-data DOI `10.5281/zenodo.5039610`;
+- archived trained ModalPINN results, convergence histories, mode-shape products, console logs, and model-weight pickles.
 
-Paper 50 identifies the exact RSS V06.0 directory as the source of its SMAP L2C SSS data. Its use is represented separately from provider metadata.
+### Experiment/configuration model
 
-The paper-specific workflow uses the Pacific Ocean domain (60°S–60°N, 110°E–80°W) for April 2015–December 2022. SMAP L2C observations were co-located with EN4.2.2 in-situ salinity profiles using spatial separation below 50 km and a ±24 h temporal window, prioritizing the minimum spatial-distance match. The paper reports 1,628,851 initial co-located points before its stated quality-control filters.
+`CR000091-E001` represents one scientific case: periodic laminar vortex shedding around a fixed circular cylinder at `Re=100`, reconstructed through ModalPINN.
 
-Its preprocessing includes four polarizations and two look angles and applies missing-value removal, SSS range 10–40 PSU, SURTEP range 273–308 K, and removal of points with `|SSS_smap-SSS_EN| > 3 PSU`. These are stored explicitly as **paper-use facts**, not as intrinsic RSS dataset preprocessing rules.
+Five materially distinct configurations are retained:
+
+1. `CR000091-E001-C001` — archived dense ModalPINN run with four Fourier modes;
+2. `CR000091-E001-C002` — dense classical-PINN comparator;
+3. `CR000091-E001-C003` — sparse/asymmetric sensor reconstruction;
+4. `CR000091-E001-C004` — Gaussian-noise robustness configuration family;
+5. `CR000091-E001-C005` — asynchronous-sensor resynchronisation configuration.
+
+The archived dense run records `Nmodes=4`, `Nmes=5000`, `Nint=10000`, multigrid with five grids, a 100-iteration grid-turn period, zero added noise, width parameter 20, L-BFGS-B limits of 50,000 iterations/function evaluations, Adam learning rate `1e-5`, uniform equation-point sampling, and a visible Tesla T4 GPU. Its archived result folder contains the trained model `DNN2_80_80_4_tanh.pickle`, convergence history, mode-shape data, figures, copied source files, and console output.
 
 ### Reproducibility boundary
 
-`CR000268` reaches **R3** because the versioned product identity, public access path, data-use terms, product families, format, coverage, representative variable semantics, citation metadata, and a verified downstream use path are statically documented.
+The dense configuration is gated at **R3**, not R4.
 
-**R4 is withheld** because no NetCDF payload was downloaded or opened, no checksums were captured, and the complete file inventory was not normalized. The Stage3-D01 bounded dataset rule is therefore exercised directly: provider/catalogue metadata support substantial static extraction without pretending that file-level binary validation occurred.
+The accepted release has unusually strong static reproducibility evidence: documented platform, exact pins for most dependencies, installation instructions, external data DOI and readers, exact run arguments, training settings, archived outputs, and trained weights. However, the main ModalPINN entrypoint imports `GPUtil` while `requirements.txt` does not declare that package. Under the gated Stage3-D01 model, an incomplete runtime dependency specification is a critical environment gap, so R4 is withheld.
 
-## Cumulative pilot state
+A second provenance limitation is retained: the Zenodo payload itself was not directly unpacked or byte-compared with the accepted GitHub release. This does not invalidate the software identity or official paper relationship, but it prevents Stage 3 from claiming byte-level archive equivalence.
 
-Nine heterogeneous resources are now complete. P06 confirms that dataset semantics can remain at resource level with zero experiments/configurations, while a paper relationship describes an evidence-scoped consumer/use case rather than turning the dataset into a paper experiment.
+### New conflicting evidence
 
-The checkpoint also confirms that a single versioned dataset resource can legitimately expose multiple product families and product-specific DOIs without generating duplicate `CR` identities.
+Paper 605 reports successful asynchronous-sensor resynchronisation experiments. In the accepted-release source, the `DesyncSparseData` branch references `Delta_t_np_pitot` without a definition and subsequently references `Delta_phi_tf_pitot` although that variable is assigned only in the opposite branch. The paper result and accepted-release execution path are therefore preserved as a third explicit conflicting-evidence finding; Stage 3 does not repair or reconcile the source.
+
+## Completed pilot state
+
+The ten approved pilot resources now span:
+
+- PINN implementations;
+- a PINN framework/library;
+- physics-informed operator learning;
+- a supporting scientific-ML library;
+- non-PINN research code;
+- a differentiable numerical solver;
+- a versioned scientific dataset;
+- and a DOI-delivered software archive.
+
+Across those resources the Stage3-D01 hierarchy has successfully represented resources with zero or many experiments, zero or many configurations, repository-only versus paper-supported experiments, dataset consumer relationships, archive-equivalent snapshots, source conflicts, missing dependencies, and static reproducibility levels from R1 through R4 without introducing a second ontology family.
+
+No schema change is required as a consequence of the pilot.
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain unchanged and read-only. No public Atlas/site file or `05-curated/` output was modified. No NetCDF file, dataset payload, API workflow, analysis notebook, model, or scientific computation was downloaded or executed.
+Stage 1 and Stage 2 remain unchanged and read-only. No public Atlas/site file or `05-curated/` output was modified. No archive payload, software environment, dependency, notebook, training process, inference workflow, solver, dataset payload, checkpoint, or model was executed.
 
 ## Next action
 
-Continue the approved pilot with the final resource, `CR000091`, preserving the same small-checkpoint extraction and QA process. After `CR000091`, stop for pilot-level scientific acceptance review before any wider Stage-3 scale-out.
+**Stop Stage-3 extraction here and perform the ten-resource pilot scientific acceptance review.** No additional registry resource should be extracted until the pilot methodology, evidence discipline, reproducibility gates, and bounded-inspection rules are explicitly accepted for scale-out.

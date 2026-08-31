@@ -1,8 +1,8 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-P06  
-Phase: approved pilot extraction
+Checkpoint: Stage3-P07  
+Phase: pilot extraction complete; waiting scientific acceptance
 
 ## Current unresolved items
 
@@ -28,6 +28,9 @@ Phase: approved pilot extraction
 | S3U-0018 | CR000217 | `dependency_version_not_exact` | medium | `setup.py` names the JAX-Fluids runtime dependencies without exact version constraints; the build metadata only lower-bounds setuptools. | The representative workflow can reach R3, but one exact resolved software environment cannot be reconstructed from the pinned source alone. |
 | S3U-0019 | CR000217 | `expected_result_reference_unavailable` | low | The representative Sod workflow defines output fields and visualizations, but no quantified pinned reference values, regression artifact, or validation tolerance were established in the bounded static inspection. | Blocks R4 for `CR000217-E001-C001`; no external or textbook solution is substituted. |
 | S3U-0020 | CR000268 | `deep_archive_inspection_deferred` | medium | The RSS V6 directory and authoritative provider/catalogue metadata were inspected, but no NetCDF payload was downloaded/opened, no checksums were captured, and the complete file inventory was not normalized. | Product-level extraction reaches R3, but file-level end-to-end validation is deliberately insufficient for R4. |
+| S3U-0021 | CR000091 | `archive_payload_direct_inspection_deferred` | medium | The Zenodo DOI is the authoritative CR identity, but its payload was not directly unpacked or byte-compared with the `accepted_version` GitHub release used as archive-equivalent technical evidence. | Software identity and paper relationship remain verified, but exact byte-level archive equivalence is not claimed. |
+| S3U-0022 | CR000091 | `dependency_manifest_incomplete` | high | `ModalPINN_VortexShedding.py` imports `GPUtil`, while the accepted-release `requirements.txt` does not declare GPUtil. | The declared installation manifest is incomplete and blocks R4 for the representative dense workflow. |
+| S3U-0023 | CR000091 | `repository_paper_conflict` | high | Paper 605 reports successful asynchronous-sensor resynchronisation, but the accepted-release `DesyncSparseData` branch references undefined `Delta_t_np_pitot` and then uses `Delta_phi_tf_pitot` although it is assigned only in the opposite branch. | `CR000091-E001-C005` is retained as `conflicting_evidence`; Stage 3 does not repair or reconcile the source. |
 
 ## Source-scope handling
 
@@ -39,12 +42,14 @@ For `CR000217`, the two framework-paper DOIs documented by the repository are ci
 
 For `CR000268`, the RSS provider metadata define the global V6 product, while Atlas paper 50 defines one Pacific-region use/preprocessing pipeline. Its April 2015–December 2022 temporal selection, EN4.2.2 co-location, polarization/look-angle handling, and quality-control rules remain `reported_in_primary_paper` facts and are not generalized to the provider dataset. The three official product-family DOIs remain citation metadata under one `CR000268` identity.
 
+For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `GRaynaud/ModalPINN_Python_code` `accepted_version` tag is used only as archive-equivalent technical evidence because the paper cites the Zenodo software DOI and the tagged release states that it corresponds to the paper release. The GitHub release is not silently substituted as a new CR identity, and byte-level equivalence is not claimed.
+
 ## Conflict handling
 
-`S3U-0001` and `S3U-0002` remain the two explicit `conflicting_evidence` findings. No new conflicting-evidence item was created in P06.
+`S3U-0001`, `S3U-0002`, and `S3U-0023` are the three explicit `conflicting_evidence` findings after pilot completion. Each retains both authoritative observations instead of choosing or rewriting one source.
 
 ## Escalation state
 
-No Stage-2 resource identity or relationship defect was discovered in this checkpoint. `PRL000008` remains verified and Stage 2 remains closed and unchanged.
+No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-No current item requires scientific workload execution to resolve within Stage 3. File-level payload inspection for `CR000268` is intentionally deferred under the bounded dataset rule rather than being treated as a Stage-2 defect.
+The ten-resource pilot is complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, direct archive payload comparison, or binary dataset inspection remain explicit bounded limitations for later stages.
