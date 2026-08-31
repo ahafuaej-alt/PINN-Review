@@ -1,44 +1,41 @@
 # Computational Resources Stage 3 — Quality Report
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-P01
+Checkpoint: Stage3-P02
 
 ## Structural QA
 
 Status: **PASS**
 
-- 2 resource records validated against `stage3-resource-technical.schema.json`.
-- 9 experiment records validated against `stage3-experiment.schema.json`.
-- 64 configuration records validated against `stage3-configuration.schema.json`.
-- 34 evidence records validated against `stage3-technical-evidence.schema.json`.
-- 2 static reproducibility assessments validated against `stage3-reproducibility.schema.json`.
-- All `CR######-E###`, `CR######-E###-C###`, and `TE-CR######-####` identifiers are unique.
-- Every fact-level evidence reference resolves to a technical-evidence record in this checkpoint.
-- Every resource experiment/configuration reference resolves to a committed checkpoint record.
+- 4 cumulative resource records are present across pilot checkpoints; 2 new resource records were validated for P02.
+- 13 cumulative experiment records are present; P02 adds 4 experiment records for `CR000087` and deliberately adds none for framework-level `CR000227`.
+- 71 cumulative configuration records are present; P02 adds 7 configuration records.
+- 58 cumulative technical-evidence records are present; P02 adds 24 evidence records.
+- 4 cumulative static reproducibility assessments are present; P02 adds 2.
+- All new `CR######-E###`, `CR######-E###-C###`, and `TE-CR######-####` identifiers are unique.
+- Every P02 fact-level evidence reference resolves to a P02 technical-evidence record.
+- Every P02 resource experiment/configuration reference resolves to a P02 record.
 - Inferred evidence uses `inferred` / `inferred_from_evidence`; direct evidence does not.
 - Reproducibility levels remain restricted to R0–R4; no R5 value is present.
 - Stage-2 pinned commits are preserved for all repository implementation evidence.
 - No Stage 1 or Stage 2 path is modified.
 - No public Atlas/site or `05-curated/` path is modified.
 - No repository software or scientific workload was executed.
+- Public repository text was checked for prohibited authorship/tool attribution.
 
 ## Scientific extraction QA
 
 Status: **PASS**
 
-### CR000003
+### CR000227
 
-The resource demonstrates the required separation between repository implementation, repository documentation/configuration, and paper-reported settings. Two consequential documentation/runtime inconsistencies are retained explicitly rather than reconciled. The dynamic-fracture code path also demonstrates an evidence-supported missing-artifact finding. Static reproducibility is gated at **R2**.
+The framework/library profile is preserved without forcing a paper-style experiment hierarchy. Repository documentation and package metadata support the solver scope, symbolic PDE interface, training strategies, installation method, package version, dependency compatibility constraints, license, and citation. Documentation examples/tests remain framework-support evidence. Static reproducibility is gated at **R2** because the package is installable and substantially specified but no complete root environment lock or canonical experiment reproduction target is asserted.
 
-### CR000056
+### CR000087
 
-The resource demonstrates one-resource-to-many-experiments and one-experiment-to-many-configurations:
+The operator-learning profile remains distinct from classical PINN semantics. The primary paper supports three solution-operator benchmarks, while the pinned repository supports those paired conventional/separable entrypoints plus a fourth repository-only Poisson/CNN-branch example. The separable architecture is implemented with factorized coordinate trunk subnetworks, rank-wise contraction, and forward-mode derivative computation.
 
-- 6 evidence-supported PDE experiment identities;
-- 10 distinct sampling configurations per experiment;
-- 60 configuration records in total.
-
-The sampling taxonomy follows the primary paper, while the entrypoint mapping is tied to the Stage-2 pinned repository tree. Bundled reference files are represented as experiment data rather than automatically classified as standalone datasets. Static reproducibility is gated at **R1** because the environment/install prerequisite is materially incomplete.
+The environment is exactly pinned in `requirements.txt`, but required problem data are absent from the pinned tree, blocking R3. A static PRNG-key index defect in the Poisson entrypoint is recorded rather than hidden. Static reproducibility is gated at **R2**.
 
 ## Pilot acceptance tests exercised
 
@@ -49,15 +46,18 @@ The sampling taxonomy follows the primary paper, while the entrypoint mapping is
 | One fact → one or more evidence records | PASS |
 | Paper reporting ≠ repository implementation | PASS |
 | Resource identity ≠ paper relationship | PASS |
-| Bundled files ≠ standalone reusable dataset automatically | PASS |
+| Bundled/required files ≠ standalone reusable dataset automatically | PASS |
+| Framework/library ≠ forced experiment collection | PASS |
+| Operator learning ≠ classical PINN | PASS |
+| Repository-only experiment ≠ paper-reported experiment | PASS |
 | `unknown` ≠ `false` | PASS |
 | `not_available` ≠ `not_applicable` | PASS |
 | Pinned Stage-2 repository snapshots retained | PASS |
 | R5 cannot be assigned | PASS |
-| Consequential conflicting evidence preserved | PASS |
+| Consequential static defects preserved | PASS |
 
 ## Current methodological observation
 
-The compact Stage3-D01 hierarchy is holding under the first high-heterogeneity extraction. `CR000056` can represent 60 sampling configurations without adding a new schema family, while `CR000003` can retain paper/repository/default-runtime disagreements as source-scoped evidence. No schema change is required at Stage3-P01.
+Stage3-D01 continues to hold without schema proliferation. `CR000227` demonstrates that a framework can be represented richly with zero experiment/configuration records, while `CR000087` demonstrates source-scoped operator-learning experiments and configurations, including a repository-only extension beyond the paper.
 
-The bounded detail remaining for five `CR000056` adaptive-script sets is a depth-of-extraction issue, not an ontology failure.
+No schema change is required at Stage3-P02.

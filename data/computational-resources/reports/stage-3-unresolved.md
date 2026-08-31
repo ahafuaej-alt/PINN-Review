@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-08-31  
-Checkpoint: Stage3-P01  
+Checkpoint: Stage3-P02  
 Phase: approved pilot extraction
 
 ## Current unresolved items
@@ -18,10 +18,14 @@ Phase: approved pilot extraction
 | S3U-0008 | CR000056 | `installation_workflow_unavailable` | medium | README supplies paper/code links but no installation command or complete setup workflow. | Blocks R2. |
 | S3U-0009 | CR000056 | `random_seed_unknown` | low | Explicit random seeds were not established in inspected static sources. | Retained as a reproducibility gap. |
 | S3U-0010 | CR000056 | `configuration_detail_partial` | low | Adaptive-script internals were deeply inspected for diffusion; equivalent problem-specific adaptive hyperparameters for the other five experiments remain bounded. | Does not invalidate the 6 × 10 configuration ontology mapping; detailed values remain for refinement. |
+| S3U-0011 | CR000227 | `environment_lock_unavailable` | low | `Project.toml` provides package compatibility ranges, but no root `Manifest.toml` locks a complete resolved environment at the pinned snapshot. | Exact dependency resolution is not statically reproducible; R2 is retained. |
+| S3U-0012 | CR000087 | `license_unavailable` | medium | No repository license file was identified at the Stage-2 pinned commit. | License clarity remains unavailable. |
+| S3U-0013 | CR000087 | `required_data_unavailable` | high | All four inspected experiment entrypoints reference files under `data/`, but the pinned repository tree contains no `data/` directory. | Blocks R3 end-to-end static reproducibility. |
+| S3U-0014 | CR000087 | `entrypoint_static_defect` | high | `poisson_separable_cnn.py` creates two PRNG keys with `jax.random.split(key, 2)` and then unconditionally accesses `keys[2]`. | Repository-only Poisson entrypoint is statically inconsistent as written. |
 
 ## Conflict handling
 
-`S3U-0001` and `S3U-0002` are stored as explicit `conflicting_evidence` findings. No source was silently preferred or rewritten.
+`S3U-0001` and `S3U-0002` remain explicit `conflicting_evidence` findings. P02 introduces no new paper-versus-repository conflict: the repository-only Poisson example is source-scoped rather than falsely assigned to the primary paper.
 
 The paper and repository can legitimately describe different experiment/configuration scopes. A difference is treated as a conflict only when the sources purport to define the same interface/default; otherwise source-specific facts are retained side by side.
 
@@ -29,4 +33,4 @@ The paper and repository can legitimately describe different experiment/configur
 
 No Stage-2 resource identity or relationship defect was discovered in this checkpoint. Stage 2 remains closed and unchanged.
 
-No item requires execution to resolve within Stage 3. Items whose resolution would require running code remain bounded static reproducibility gaps.
+No item requires execution to be recorded accurately in Stage 3. Findings whose resolution would require running software or obtaining external experiment data remain bounded static reproducibility gaps.
