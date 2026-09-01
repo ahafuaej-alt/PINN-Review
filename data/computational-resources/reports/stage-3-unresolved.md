@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S023
+Checkpoint: Stage3-S024
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -151,6 +151,15 @@ Phase: controlled scale-out in progress
 | S3U-0141 | CR000030 | `binary_payload_inspection_deferred` | medium | The 284 FEM MATLAB files, seven pickle checkpoints, four GIFs, four PDFs, and one PNG were inventoried from Git metadata but remained unopened. | Internal arrays, checkpoint tensors, image content, and direct numeric alignment with paper outputs remain unverified. |
 | S3U-0142 | CR000030 | `entrypoint_workflow_partial` | medium | Three workflows open interactive Matplotlib windows before optimization; all assume execution from case-specific directories and use explicit GPU device scopes. | Non-interactive headless invocation and portable path/device behavior are not documented. |
 | S3U-0143 | CR000030 | `checkpoint_run_provenance_partial` | medium | Checkpoint filenames align with active loaders, but no run logs, external checksums, exact source-to-paper run IDs, or evaluation tolerances are deposited. | Bundled models/results are strong artifacts but do not establish an exact traceable paper run. |
+| S3U-0144 | CR000031 | `license_unavailable` | medium | No software license file or repository license metadata is present at the Stage-2-pinned snapshot. | Reuse terms are unavailable and license clarity cannot support a higher reproducibility level. |
+| S3U-0145 | CR000031 | `dependency_environment_incomplete` | high | The repository supplies no dependency manifest, Python version, package versions, or lockfile; README installation names PyTorch generically and only gives `pip install vtk`. | One substantially specified and reconstructable environment is unavailable, so R2 is blocked. |
+| S3U-0146 | CR000031 | `author_local_input_paths` | high | The four flow-training entrypoints use hard-coded `/scratch/aa3878/PINN/...` input roots rather than the bundled `Data/` paths and expose no CLI or configuration override. | The pinned flow workflows require manual source/path edits before bundled inputs can be consumed. |
+| S3U-0147 | CR000031-E004-C001 | `external_3d_data_unpinned` | high | The pinned tree contains only a Google Drive folder pointer for the required 3D mesh, boundary, and velocity files; it supplies no file inventory, version, checksums, or bundled payload. | Exact 3D inputs and their source-to-paper provenance cannot be reconstructed from the repository snapshot. |
+| S3U-0148 | CR000031 | `checkpoint_and_output_artifacts_unavailable` | high | No `Results/` directory, trained `.pt` checkpoint, saved prediction, log, or result table is tracked, although all training scripts save there and all three Torch2VTK helpers load checkpoints from it. | Post-processing is incomplete as distributed, and static paper-result traceability is unavailable. |
+| S3U-0149 | CR000031 | `random_seed_unknown` | medium | No NumPy, PyTorch, CUDA, or deterministic-backend seed is established despite random Kaiming initialization, shuffled DataLoaders, and random viscosity initialization. | Exact deterministic retraining and viscosity trajectories are not specified. |
+| S3U-0150 | CR000031 | `entrypoint_workflow_partial` | medium | No portable run command, CLI, input mapping, output-directory creation step, or end-to-end workflow order is documented for the five training and three post-processing scripts. | Users must infer invocation order and repair path/output assumptions; portable reconstruction remains partial. |
+| S3U-0151 | CR000031 | `numeric_result_reference_unavailable` | medium | The paper reports qualitative agreement and a viscosity target, but the repository contains no archived numeric metrics, tolerances, checkpoints, loss histories, or paper-run identifiers. | Static evaluation mapping is documented, but R4 and exact result verification are unavailable. |
+| S3U-0152 | CR000031-E004-C001 | `three_dimensional_WSS_postprocessing_conflict` | high | `torch2vtk_ia_3D.py` declares three-input networks but its optional `WSS(x,y)` function concatenates only `x` and `y`; `Flag_plot=False` also disables that branch and the default VTK output contains velocity and pressure but no WSS. | The supplied helper does not materialize the paper's 3D WSS evaluation path as written; the 3D configuration remains explicit conflicting evidence. |
 
 ## Source-scope handling
 
@@ -180,12 +189,14 @@ For `CR000029`, `PRL000091` remains an official relationship to Atlas paper 379.
 
 For `CR000030`, `PRL000093` remains an official relationship to Atlas paper 391. Four experiment/configuration pairs correspond to the repository's four source folders. The paper's static plate convergence sweep and appendix soft-versus-hard comparison have no separate source entrypoints and are retained only as paper-scoped evidence rather than additional configurations. Repository and paper parameterizations remain separate where they conflict.
 
+For `CR000031`, `PRL000094` remains an official relationship to Atlas paper 393. Five experiment/configuration pairs correspond exactly to the five paper cases materialized by training entrypoints. The three Torch2VTK scripts remain supporting post-processing evidence rather than additional experiments, and the paper's reduced-sensor comparison remains paper-scoped because no separate source entrypoint or run artifact materializes it.
+
 ## Conflict handling
 
-Forty explicit `conflicting_evidence` findings exist through Stage3-S023. The two new findings preserve CR000030's cross-case paper/source parameter divergence and the active L-BFGS-B-only checkpoint-continuation paths relative to the paper's staged Adam-to-L-BFGS-B protocols. They do not alter the verified official paper relationship.
+Forty-one explicit `conflicting_evidence` findings exist through Stage3-S024. CR000031 adds one scoped conflict: the 3D WSS helper passes a two-coordinate input to three-input networks and omits WSS on its default path, so it cannot be accepted as the paper's 3D WSS evaluation workflow as written. Training architecture and parameter alignment remain verified.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S023, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000031. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S024, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000032. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

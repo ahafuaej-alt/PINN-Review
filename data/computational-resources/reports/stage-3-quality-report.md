@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S023
+Latest scale-out checkpoint: Stage3-S024
 
 ## Pilot QA
 
@@ -340,6 +340,18 @@ All four sources implement strong-form mixed displacement-stress elastodynamics 
 The static reproducibility level is R1. Although extensive FEM references, checkpoints, source, and result media are present, no license, dependency manifest, Python version, installation command, or complete package-version set is supplied, so the hierarchical R2 gate is not met. Two conflict classes remain explicit. First, active source parameters diverge from the paper: the plate general network is 8×70 rather than 8×80, all four sampling plans differ, and the infinite source extends the 16-second paper case to 20 seconds. Second, all active entrypoints comment out Adam and call L-BFGS-B directly, whereas the paper documents staged Adam followed by L-BFGS-B; the three wave paths also preload checkpoints. Binary data, checkpoints, and result media remained unopened, and no code, environment, model, solver, training, inference, evaluation, plot, or visualization was executed.
 
 Cumulative totals are 37 resources, 64 experiments, 167 configurations, 439 evidence records, 37 reproducibility assessments, 143 unresolved findings, and 40 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S024
+
+Status: **PASS**
+
+`CR000031` preserves the Stage-2-pinned `amir-cardiolab/PINN-wss` repository and official `PRL000094` relationship to Atlas paper 393. The complete 28-blob snapshot totals 9,954,339 bytes and contains eight Python files with 6,387 source lines, four VTK files, four VTU files, one README, and one 3D-data pointer. Five experiment/configuration pairs correspond exactly to source-materialized paper cases: 1D advection-diffusion, 2D stenosis, 2D aneurysm, 3D aneurysm, and inverse viscosity identification. The three Torch2VTK scripts remain post-processing evidence rather than separate experiments.
+
+The 1D source uses a 10×100 Swish network, 100 uniform collocation points, three measurements, no BC loss, and 5,000 Adam epochs. Each 2D case uses separate 9×128 Swish networks for two velocity components and pressure, five velocity sensors, batch size 256, and 5,500 Adam epochs. The 3D case uses four 9×200 networks, every-200th-node sensor subsampling, batch size 512, and 8,500 epochs. The inverse case adds a learnable positive scalar viscosity with one-tenth the network learning rate. These training configurations align with the primary-paper descriptions.
+
+The static reproducibility level is R1. The README gives only generic PyTorch installation plus `pip install vtk`; no dependency manifest, Python/package versions, or license is supplied. The flow scripts use author-local absolute input roots instead of the bundled 2D data, the required 3D payload is only an unversioned Google Drive pointer, and no Results directory, checkpoint, log, saved prediction, or numeric target is tracked. Random initialization and shuffled batches are unseeded. One scoped conflict also remains explicit: the optional 3D WSS helper concatenates only `x` and `y` before calling three-input networks, while its default path disables WSS and writes only velocity and pressure. The four VTK and four VTU payloads and external 3D data remained unopened, and no code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plot, or visualization was executed.
+
+Cumulative totals are 38 resources, 69 experiments, 172 configurations, 457 evidence records, 38 reproducibility assessments, 152 unresolved findings, and 41 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
