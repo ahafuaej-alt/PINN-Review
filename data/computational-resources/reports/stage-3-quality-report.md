@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S017
+Latest scale-out checkpoint: Stage3-S018
 
 ## Pilot QA
 
@@ -268,6 +268,18 @@ Two bounded experiment records separate the direct DNS workflow from the five bu
 The static reproducibility level is R1. No license, dependency manifest, Python/package versions, installation command, run command, seed, checkpoint, saved prediction, archived log, or numerical target is supplied. A consequential paper/code conflict also remains explicit: the paper specifies staircase exponential decay from 0.01 by 0.1 every 5,000 Adam epochs, while `training.py` constructs that schedule but passes the fixed scalar 0.01 to Adam. No source, environment, MATLAB payload, training, inference, evaluation, model, or plot was executed.
 
 Cumulative totals are 31 resources, 51 experiments, 148 configurations, 358 evidence records, 31 reproducibility assessments, 104 unresolved findings, and 29 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S018
+
+Status: **PASS**
+
+`CR000025` preserves the MIT-licensed Stage-2-pinned `NS-equation` branch and relationship `PRL000071`. That relationship remains strictly a dataset mention: Atlas paper 340 identifies the bundled high-fidelity data as reference, boundary, and initial data; the repository's own NS-equation implementation is not silently reassigned as the paper's second-order/gPINN algorithm. README-described RANS variants live on other branches and are likewise not imported into the authoritative pinned snapshot.
+
+The complete 14-blob tree totals 54,366,218 bytes and contains five Python files, one 24,161,192-byte MATLAB reference dataset, six qualitative GIFs, a README, and the MIT license. One repository-native experiment/configuration represents two-dimensional unsteady cylinder-wake reconstruction at Reynolds number 3900. The source implements a 3-input, ten-hidden-layer, width-100 tanh network with streamfunction and pressure outputs; velocity is differentiated from the streamfunction so continuity is implicit. Training uses all reference data, 1,000,000 Latin-hypercube equation points, Adam for 3,000 epochs, a 0.5% batch fraction, and warmup/cosine-restart scheduling with decaying maximum learning rate.
+
+The static reproducibility level is R1. No dependency manifest, Python/package versions, installation/run instructions, seed, compatible checkpoint, numeric target, or tolerance is supplied. Three conflicts remain explicit: a non-empty remainder batch uses shifted and out-of-range tensor columns; the plotting script requires an absent differently named MAT file and checkpoint and constructs a five-output network instead of the training model's two outputs; and a training comment says pressure reference data are excluded while the invoked loss includes pressure MSE. The MATLAB payload and GIF frames were not opened, and no source, environment, training, inference, evaluation, checkpoint, or plot was executed.
+
+Cumulative totals are 32 resources, 52 experiments, 149 configurations, 372 evidence records, 32 reproducibility assessments, 110 unresolved findings, and 32 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

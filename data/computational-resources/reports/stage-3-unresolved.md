@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S017
+Checkpoint: Stage3-S018
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -112,6 +112,12 @@ Phase: controlled scale-out in progress
 | S3U-0102 | CR000024 | `random_seed_unknown` | medium | No seed is established for TensorFlow model initialization or optimization. | Exact deterministic retraining is not specified. |
 | S3U-0103 | CR000024 | `expected_results_and_checkpoints_unavailable` | medium | The entrypoint retains loss history and elapsed time only in process memory and saves no checkpoint, prediction, log, table, target, or tolerance. | Static paper-result comparison and higher reproducibility levels are unavailable. |
 | S3U-0104 | CR000024-E001-C001 | `paper_code_learning_rate_conflict` | high | The paper specifies staircase exponential decay from 0.01 by a factor of 0.1 every 5,000 Adam epochs, but `training.py` constructs the schedule and then passes the fixed scalar `initial_learning_rate` to Adam. | Running the pinned entrypoint does not implement the published Adam schedule; the DNS configuration remains explicit conflicting evidence. |
+| S3U-0105 | CR000025 | `dependency_environment_and_installation_unavailable` | high | No dependency/environment manifest, Python version, package versions, installation instructions, or run command is supplied despite imports including PyTorch, SciPy, pyDOE, pandas, Matplotlib, and imageio. | One reconstructable environment is unavailable and R2 is blocked. |
+| S3U-0106 | CR000025 | `random_seed_unknown` | medium | Latin-hypercube sampling, NumPy permutations, data shuffling, and Xavier model initialization are stochastic, but no seed is established. | Exact deterministic retraining is not specified. |
+| S3U-0107 | CR000025-E001-C001 | `remainder_batch_indexing_conflict` | high | The final non-empty remainder branch reads six-column `X_random` at columns 0, 1, 3, 4, 5, and 7 and three-column `Eqa_points` at columns 0, 1, and 3, shifting semantic fields and using two out-of-range indices. | Training fails or misassigns fields when a remainder is present; the configuration remains explicit conflicting evidence. |
+| S3U-0108 | CR000025-E001-C001 | `plotting_workflow_conflict` | high | `plot_dimensionless.py` requires absent `2d_cylinder_Re3900_100x100.mat` and `data/exp1/1_1/NS_model_train.pt`, and instantiates a five-output network while `train_uv_modify.py` trains a two-output streamfunction-pressure network. | The pinned plotting/evaluation path is not compatible with the bundled data and implemented training configuration. |
+| S3U-0109 | CR000025-E001-C001 | `pressure_supervision_comment_conflict` | medium | The training comment states that reference pressure is not introduced, but `data_mse_psi` is called with `p` and adds `MSE(p_predict,p)`. | The implemented objective uses pressure supervision; the contradictory source comment cannot define the configuration. |
+| S3U-0110 | CR000025 | `numeric_result_reference_unavailable` | medium | Six qualitative prediction/difference GIFs are bundled, but no numerical metrics, compatible checkpoint, target values, or tolerances are supplied. | Static result comparison and higher reproducibility levels are unavailable. |
 
 ## Source-scope handling
 
@@ -129,12 +135,14 @@ For `CR000023`, the Zenodo DOI remains the authoritative archive identity. The p
 
 For `CR000024`, the Stage-2 pin remains authoritative. The direct DNS 1% uniform-blowing workflow and the five root PIV data blobs are separated: filenames support paper-condition mapping, but the PIV files have no consumer source. The paper's three additional DNS conditions and NACA4412 study remain paper-scoped facts and are not promoted into repository configurations without artifacts.
 
+For `CR000025`, `PRL000071` remains a dataset-use relationship to Atlas paper 340. The pinned `NS-equation` source is represented as one repository-native experiment and is not relabeled as the paper's second-order/gPINN software. RANS variants described as living on other branches are not promoted from the Stage-2-pinned snapshot.
+
 ## Conflict handling
 
-Twenty-nine explicit `conflicting_evidence` findings exist through Stage3-S017. The new finding preserves CR000024's paper/code learning-rate schedule mismatch. It remains scoped to the implemented DNS configuration and does not negate the verified formulation, architecture, or dataset inventory.
+Thirty-two explicit `conflicting_evidence` findings exist through Stage3-S018. The three new findings preserve CR000025's remainder-batch indexing defect, incompatible plotting workflow, and pressure-supervision comment/code mismatch. They remain scoped to the repository-native NS configuration and do not alter the verified dataset-only paper relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S017, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000025. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S018, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000026. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
