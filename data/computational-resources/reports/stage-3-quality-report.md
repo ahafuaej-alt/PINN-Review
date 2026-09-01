@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S021
+Latest scale-out checkpoint: Stage3-S022
 
 ## Pilot QA
 
@@ -316,6 +316,18 @@ Three paper-reported comparison experiments and six configurations preserve the 
 The static reproducibility level is R1. The primary paper supplies substantial formulation, architecture, objective, training, and numeric-result evidence, but source-level verification is impossible. Dataset-generation artifacts, complete environment and installation details, learning rate, epochs, stopping rule, seeds, hardware, fixed loss coefficients, exact trial mapping, checkpoints, and logs are absent. The printed optimizer name `AdamDelda` is retained alongside its Adadelta citation without silently correcting the source. No code, notebook, environment, data, training, inference, model, checkpoint, solver, or plot was executed.
 
 Cumulative totals are 35 resources, 57 experiments, 157 configurations, 408 evidence records, 35 reproducibility assessments, 129 unresolved findings, and 35 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S022
+
+Status: **PASS**
+
+`CR000029` preserves the GPL-3.0 Stage-2 pin and official `PRL000091` relationship to Atlas paper 379. The complete 69-blob snapshot contains 64 Python files, six demonstration entrypoints, an embedded finite-element support library, one notched-domain MATLAB mesh, and 19 Navier-Stokes observation indices. Three experiment records group the source into Poisson, linear-elasticity, and steady incompressible Navier-Stokes families; each has one forward and one hard-assimilation inverse configuration.
+
+All six configurations use Galerkin residuals assembled from finite-element trial/test functions and Chebyshev graph convolutions with order 10 and hidden widths 32–64–128–256–128–64–32. The shared optimizer is Adam at learning rate 0.001 and batch size one. Paper-reported forward and inverse targets remain paper-scoped because the tree contains no trained checkpoint, archived log, or result table.
+
+The static reproducibility level is R1. No dependency manifest, Python version, or package versions are supplied, and README setup is limited to adding the embedded pyCaMOtk folder to `PYTHONPATH`. Three source conflicts remain explicit: element-based connectivity groups nodes by repeated local-row position across elements instead of within-element adjacency; both Navier-Stokes drivers build self-loop-only subgraphs; and nominal CPU device selection is contradicted by 32 hard-coded CUDA transfers. Seeds cover only the two Poisson configurations, the circular driver ends in an active debugger, and all workflows assume execution from their own directory. No code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, debugger, or plot was executed, and the MATLAB payload remained unopened.
+
+Cumulative totals are 36 resources, 60 experiments, 163 configurations, 423 evidence records, 36 reproducibility assessments, 136 unresolved findings, and 38 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
