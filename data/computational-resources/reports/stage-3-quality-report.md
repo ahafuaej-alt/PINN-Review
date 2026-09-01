@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S012
+Latest scale-out checkpoint: Stage3-S013
 
 ## Pilot QA
 
@@ -202,6 +202,18 @@ The 494-file tree includes 88 tutorial notebooks, 67 generated RST documents, an
 The library-level reproducibility assessment is R2. Installation routes, exact versions for eight dependencies, source, license, quickstart, documentation, hardware guidance, and tutorial outputs are available. Exact environment reconstruction remains incomplete because two requirements are unversioned, README requires Python 3.9.7+ while `setup.py` declares 3.6+, and package metadata omit `install_requires` despite documenting direct PyPI/Git installation.
 
 Cumulative totals are 26 resources, 41 experiments, 115 configurations, 273 evidence records, 26 reproducibility assessments, 71 unresolved findings, and 20 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S013
+
+Status: **PASS**
+
+`CR000019` preserves the current Stage-2 pin as the resource identity while following the pinned README's explicit statement that paper results were obtained at historical commit `c79d3f24023e36341385f10d728e5a93c925fad3`. The two snapshots are not conflated: the current 163-file tree supplies the modernized CompSim_PINNs 2026.0.0 framework source and bundled Hertzian FEM data, whereas the designated 213-file paper snapshot supplies the original source layout and 59 trained-model blobs.
+
+Three experiments follow the paper's numerical benchmarks. The Lamé experiment contains the reported standard and large-parameter configurations, retained as partially verified because the historical source architectures and parameter literals do not uniquely identify their source/checkpoint families. The elastic-block experiment contains the sign, Sigmoid, and Fischer-Burmeister contact formulations. The Hertzian experiment contains pure and data-enhanced forward configurations, three inverse-pressure initial guesses, and one- and five-chunk pressure-surrogate configurations. Training stages, restore scripts, and result files remain evidence rather than artificial experiments.
+
+The static reproducibility level is R3. Source, MIT license, installation routes, contact formulation, bundled FEM data, training settings, paper targets, and paper checkpoint families are substantially available. R4 is withheld because neither snapshot has a fully locked environment, model/sampling seeds are incomplete, the inverse source directly exposes only the 0.1 initial guess, and the current restore-only surrogate notebook points to an absent `pretrained_models/` tree whose matching checkpoints exist only in the explicitly linked historical snapshot.
+
+Cumulative totals are 27 resources, 44 experiments, 127 configurations, 292 evidence records, 27 reproducibility assessments, 77 unresolved findings, and 21 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
