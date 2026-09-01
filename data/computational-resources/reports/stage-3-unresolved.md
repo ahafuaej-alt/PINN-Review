@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S024
+Checkpoint: Stage3-S025
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -160,6 +160,15 @@ Phase: controlled scale-out in progress
 | S3U-0150 | CR000031 | `entrypoint_workflow_partial` | medium | No portable run command, CLI, input mapping, output-directory creation step, or end-to-end workflow order is documented for the five training and three post-processing scripts. | Users must infer invocation order and repair path/output assumptions; portable reconstruction remains partial. |
 | S3U-0151 | CR000031 | `numeric_result_reference_unavailable` | medium | The paper reports qualitative agreement and a viscosity target, but the repository contains no archived numeric metrics, tolerances, checkpoints, loss histories, or paper-run identifiers. | Static evaluation mapping is documented, but R4 and exact result verification are unavailable. |
 | S3U-0152 | CR000031-E004-C001 | `three_dimensional_WSS_postprocessing_conflict` | high | `torch2vtk_ia_3D.py` declares three-input networks but its optional `WSS(x,y)` function concatenates only `x` and `y`; `Flag_plot=False` also disables that branch and the default VTK output contains velocity and pressure but no WSS. | The supplied helper does not materialize the paper's 3D WSS evaluation path as written; the 3D configuration remains explicit conflicting evidence. |
+| S3U-0153 | CR000032 | `dependency_environment_unavailable` | high | No dependency manifest, Python version, package versions, installation command, or compatible legacy TensorFlow/Keras/CuDNN workflow is supplied. | One reconstructable environment is unavailable and R2 is blocked. |
+| S3U-0154 | CR000032 | `data_path_placeholder` | high | Both entrypoints set `dataDir = ".../"` and expose no CLI or configuration override. | Neither script locates the bundled data without source editing. |
+| S3U-0155 | CR000032-E001-C002 | `required_dataset_unavailable` | high | PhyLSTM3 requests `data_boucwen_GM.mat`, while the only bundled payload is `data_boucwen.mat`. | The triple-LSTM configuration cannot start from the pinned snapshot. |
+| S3U-0156 | CR000032 | `save_path_undefined` | high | Both main blocks pass undefined `save_path` when constructing the model. | Model construction fails after preprocessing even if data paths are repaired. |
+| S3U-0157 | CR000032 | `post_training_variables_undefined` | high | PhyLSTM2 assigns `train_loss = Loss1`; PhyLSTM3 assigns undefined `Loss_val` and `best_loss` instead of its suffixed return variables. | Both active evaluation/export paths fail after training returns. |
+| S3U-0158 | CR000032 | `result_artifacts_unavailable` | medium | No results directory, checkpoint, log, saved MAT result, numeric target, or tolerance is deposited. | Paper-run traceability and R4 are unavailable. |
+| S3U-0159 | CR000032 | `random_seed_unknown` | medium | Training reshuffles the 80/20 split every epoch and initializes models without any Python, NumPy, TensorFlow, or CUDA seed. | Exact training membership and deterministic reruns are not specified. |
+| S3U-0160 | CR000032 | `paper_example_coverage_partial` | medium | The paper evaluates a 3-story MRF and a Bouc-Wen system, but the tree contains one Bouc-Wen MAT payload and no dedicated MRF data/driver. | The MRF study remains paper-scoped and cannot be promoted to a repository experiment. |
+| S3U-0161 | CR000032-E001-C002 | `paper_source_architecture_conflict` | high | The paper describes three LSTM and two fully connected layers per component, while all three PhyLSTM3 `Dense(100)` statements are commented out and only the output Dense layers remain active. | The deposited PhyLSTM3 architecture is not identical to the published architecture description. |
 
 ## Source-scope handling
 
@@ -191,12 +200,14 @@ For `CR000030`, `PRL000093` remains an official relationship to Atlas paper 391.
 
 For `CR000031`, `PRL000094` remains an official relationship to Atlas paper 393. Five experiment/configuration pairs correspond exactly to the five paper cases materialized by training entrypoints. The three Torch2VTK scripts remain supporting post-processing evidence rather than additional experiments, and the paper's reduced-sensor comparison remains paper-scoped because no separate source entrypoint or run artifact materializes it.
 
+For `CR000032`, `PRL000108` remains an official relationship to Atlas paper 416. One repository experiment contains PhyLSTM2 and PhyLSTM3 configurations; the paper's separate MRF validation remains paper-scoped because the pinned tree deposits no dedicated MRF artifact.
+
 ## Conflict handling
 
-Forty-one explicit `conflicting_evidence` findings exist through Stage3-S024. CR000031 adds one scoped conflict: the 3D WSS helper passes a two-coordinate input to three-input networks and omits WSS on its default path, so it cannot be accepted as the paper's 3D WSS evaluation workflow as written. Training architecture and parameter alignment remain verified.
+Forty-five explicit `conflicting_evidence` findings exist through Stage3-S025. Four new evidence records scope CR000032's PhyLSTM3 dataset mismatch, shared path/input limitations, post-training variable failures, and paper-to-source architecture difference without changing the official relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S024, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000032. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S025, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000033. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

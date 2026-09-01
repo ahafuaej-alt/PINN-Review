@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S024
+Latest scale-out checkpoint: Stage3-S025
 
 ## Pilot QA
 
@@ -352,6 +352,18 @@ The 1D source uses a 10×100 Swish network, 100 uniform collocation points, thre
 The static reproducibility level is R1. The README gives only generic PyTorch installation plus `pip install vtk`; no dependency manifest, Python/package versions, or license is supplied. The flow scripts use author-local absolute input roots instead of the bundled 2D data, the required 3D payload is only an unversioned Google Drive pointer, and no Results directory, checkpoint, log, saved prediction, or numeric target is tracked. Random initialization and shuffled batches are unseeded. One scoped conflict also remains explicit: the optional 3D WSS helper concatenates only `x` and `y` before calling three-input networks, while its default path disables WSS and writes only velocity and pressure. The four VTK and four VTU payloads and external 3D data remained unopened, and no code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plot, or visualization was executed.
 
 Cumulative totals are 38 resources, 69 experiments, 172 configurations, 457 evidence records, 38 reproducibility assessments, 152 unresolved findings, and 41 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S025
+
+Status: **PASS**
+
+`CR000032` preserves the Stage-2-pinned `zhry10/PhyLSTM` snapshot, MIT license, and official `PRL000108` relationship to Atlas paper 416. The complete five-blob tree totals 4,510,103 bytes and contains two Python files with 982 source lines, one README, one license, and one 4,467,420-byte Bouc-Wen MATLAB payload. One experiment with two configurations represents the deposited PhyLSTM2 and PhyLSTM3 source; the paper's separate three-story MRF validation remains paper-scoped because no dedicated MRF data or driver is deposited.
+
+Both configurations use legacy TensorFlow/Keras CuDNNLSTM stacks, finite-difference tensor operators, Adam for 5,000 epochs at learning rate 0.001, and an 80/20 split reshuffled each epoch without a seed. PhyLSTM2 defines two networks with three 100-unit LSTM layers and two Dense layers in each network. PhyLSTM3 defines three such recurrent components, but its hidden `Dense(100)` statement is commented out in every component, leaving only the output Dense layer; this differs from the paper's description of two fully connected layers per component and remains explicit conflicting evidence.
+
+The static reproducibility level is R1. No dependency manifest, versioned environment, installation workflow, portable run command, checkpoint, log, result file, or numeric tolerance is supplied. Both scripts use a placeholder data directory and undefined `save_path`; PhyLSTM3 requests an absent dataset; and both post-training blocks reference undefined loss variables. The MATLAB payload remained unopened, and no code, environment, dependency, data, model, training, inference, evaluation, plot, or result workflow was executed.
+
+Cumulative totals are 39 resources, 70 experiments, 174 configurations, 471 evidence records, 39 reproducibility assessments, 161 unresolved findings, and 45 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
