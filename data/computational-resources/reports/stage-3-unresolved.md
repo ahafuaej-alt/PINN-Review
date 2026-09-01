@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S016
+Checkpoint: Stage3-S017
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -106,6 +106,12 @@ Phase: controlled scale-out in progress
 | S3U-0096 | CR000023 | `random_seed_unknown` | medium | Dataset loaders randomly shuffle points and training DataLoaders shuffle cases, but no NumPy or PyTorch seed is established. | Sample selection, order, and model initialization are not deterministic. |
 | S3U-0097 | CR000023-E001 | `paper_trial_mapping_partial` | medium | Four archive directories align with the four model families, but no deposited metadata maps the paper's four datasets, four partitions, or sixteen controlled groups to source invocations, checkpoints, logs, or tables. | Family-level mapping is retained, but run-level paper reproduction and target verification remain unavailable. |
 | S3U-0098 | CR000023-E001-C004 | `pointnet_plus_plus_pinn_evaluator_conflict` | high | `pointnet++_pinn/model_test.py` converts `y` to a NumPy array, appends it to `real_y`, and then calls `torch.cat(real_y)`. | The deposited PointNet++-PINN evaluation path is statically inconsistent and remains explicit conflicting evidence. |
+| S3U-0099 | CR000024 | `license_unavailable` | medium | No software license file or repository license metadata is present at the Stage-2-pinned snapshot. | Reuse terms are unavailable and license clarity cannot support a higher reproducibility level. |
+| S3U-0100 | CR000024 | `dependency_environment_and_installation_unavailable` | high | The repository contains no dependency/environment manifest, Python version, package versions, installation instructions, or run command despite importing TensorFlow, NumPy, and SciPy. | One reconstructable environment is unavailable and R2 is blocked. |
+| S3U-0101 | CR000024 | `paper_workflow_coverage_partial` | high | The only entrypoint is hard-coded to the bundled DNS 1% uniform-blowing file; the other three paper DNS conditions, all five bundled PIV files, and the paper's NACA4412 study have no corresponding repository consumer or input as applicable. | The repository supports one direct DNS configuration; broader paper-to-repository reproduction remains partial. |
+| S3U-0102 | CR000024 | `random_seed_unknown` | medium | No seed is established for TensorFlow model initialization or optimization. | Exact deterministic retraining is not specified. |
+| S3U-0103 | CR000024 | `expected_results_and_checkpoints_unavailable` | medium | The entrypoint retains loss history and elapsed time only in process memory and saves no checkpoint, prediction, log, table, target, or tolerance. | Static paper-result comparison and higher reproducibility levels are unavailable. |
+| S3U-0104 | CR000024-E001-C001 | `paper_code_learning_rate_conflict` | high | The paper specifies staircase exponential decay from 0.01 by a factor of 0.1 every 5,000 Adam epochs, but `training.py` constructs the schedule and then passes the fixed scalar `initial_learning_rate` to Adam. | Running the pinned entrypoint does not implement the published Adam schedule; the DNS configuration remains explicit conflicting evidence. |
 
 ## Source-scope handling
 
@@ -121,12 +127,14 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 For `CR000023`, the Zenodo DOI remains the authoritative archive identity. The provider's CC BY 4.0 record license resolves a Stage-2-deferred field without changing the closed Stage-2 record. Four source directories support only family-level mapping to paper 326; absent data, partitions, checkpoints, and results prevent silent promotion to sixteen independently reproduced trials.
 
+For `CR000024`, the Stage-2 pin remains authoritative. The direct DNS 1% uniform-blowing workflow and the five root PIV data blobs are separated: filenames support paper-condition mapping, but the PIV files have no consumer source. The paper's three additional DNS conditions and NACA4412 study remain paper-scoped facts and are not promoted into repository configurations without artifacts.
+
 ## Conflict handling
 
-Twenty-eight explicit `conflicting_evidence` findings exist through Stage3-S016. The new finding preserves CR000023's PointNet++-PINN evaluator type inconsistency. It remains scoped to that configuration and does not negate the verified archive identity or the other three source families.
+Twenty-nine explicit `conflicting_evidence` findings exist through Stage3-S017. The new finding preserves CR000024's paper/code learning-rate schedule mismatch. It remains scoped to the implemented DNS configuration and does not negate the verified formulation, architecture, or dataset inventory.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S016, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is ready to begin at CR000024. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S017, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000025. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

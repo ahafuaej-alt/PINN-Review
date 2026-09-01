@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S016
+Latest scale-out checkpoint: Stage3-S017
 
 ## Pilot QA
 
@@ -256,6 +256,18 @@ Cumulative totals are 30 resources, 49 experiments, 142 configurations, 341 evid
 Status: **PASS**
 
 The second controlled scale-out batch contains 10 resources across ten adaptive single-resource checkpoints: 15 experiments, 46 configurations, 129 technical-evidence records, 10 reproducibility assessments, 49 newly recorded unresolved findings, and 15 newly recorded conflicting-evidence findings. All cumulative identifiers remain unique; evidence and hierarchy references resolve; Stage-2 authority and source scopes remain preserved; missing-value and inference semantics pass; R5 remains excluded; and no Stage-1, Stage-2, curated, or public Atlas/site file changed.
+
+## Scale-out checkpoint Stage3-S017
+
+Status: **PASS**
+
+`CR000024` preserves the Stage-2-pinned `KTH-FlowAI/Enhancement-of-PIV-via-PINNs` snapshot and official relationship `PRL000070` to Atlas paper 339. The complete pinned tree has 10 blobs totaling 60,415,482 bytes: three Python files, one README, one 35,161,052-byte DNS MATLAB file, and five approximately 5 MB PIV MATLAB files. No MATLAB payload was opened.
+
+Two bounded experiment records separate the direct DNS workflow from the five bundled PIV conditions. The DNS configuration maps the hard-coded `data_ub1.mat` entrypoint to the paper's 1% uniform-blowing case and preserves the implemented 2-20-20-20-20-5 tanh MLP, two momentum residuals, continuity residual, four supervised quantities, unobserved wall-normal velocity, 17,000 collocation points, and 188 boundary points. The PIV experiment preserves the smooth-wall, perforated-wall/no-blowing, 1%, 3%, and 6% files as five data configurations without claiming a runnable workflow: none of the three source files references a root PIV blob. The paper's three other DNS cases and NACA4412 study remain paper-scope facts because the pinned repository has no corresponding workflow/input.
+
+The static reproducibility level is R1. No license, dependency manifest, Python/package versions, installation command, run command, seed, checkpoint, saved prediction, archived log, or numerical target is supplied. A consequential paper/code conflict also remains explicit: the paper specifies staircase exponential decay from 0.01 by 0.1 every 5,000 Adam epochs, while `training.py` constructs that schedule but passes the fixed scalar 0.01 to Adam. No source, environment, MATLAB payload, training, inference, evaluation, model, or plot was executed.
+
+Cumulative totals are 31 resources, 51 experiments, 148 configurations, 358 evidence records, 31 reproducibility assessments, 104 unresolved findings, and 29 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
