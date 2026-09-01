@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S019
+Latest scale-out checkpoint: Stage3-S020
 
 ## Pilot QA
 
@@ -292,6 +292,18 @@ The complete 90-blob snapshot documents a Julia 0.1.0 library for invariant-mani
 The static reproducibility level is R2. One scoped conflict remains explicit: the duplicate `build/` tree has seven changed counterparts relative to active `src/`, omits two active files, and uses an older differently cased module/export surface. Julia's package path identifies `src/` as active, so verified active-source facts are retained without treating the duplicate build as equivalent. No Julia package, dependency, test, example, finite-element analysis, input data, MATLAB, COMSOL, MatCont, or generated-documentation workflow was executed.
 
 Cumulative totals are 33 resources, 52 experiments, 149 configurations, 383 evidence records, 33 reproducibility assessments, 116 unresolved findings, and 33 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S020
+
+Status: **PASS**
+
+`CR000027` preserves the Stage-2 pin and official `PRL000073` relationship to Atlas paper 349. Two repository-native workflows are represented: a pump-12 steady forward head model and a five-pumping-event inverse conductivity model. The exact-duplicate transient-named notebook and the standalone transient class are not promoted into a third experiment because they provide no distinct runnable workflow.
+
+The complete 37-blob snapshot contains 25 hydraulic-head fields and one conductivity field on a 64 × 64 grid, 61 conductivity-measurement indices, 25 pumping-well indices, two substantive notebooks, one duplicate notebook, a transient class, and pump-12 forward coefficients. Both configurations use six 20-unit hidden tanh layers. The forward notebook uses one pumping event; the inverse notebook jointly trains five head networks and one conductivity network.
+
+The static reproducibility level is R1. No license, dependency manifest, package versions, or random seeds are supplied. Saved training cells terminate with `KeyboardInterrupt`, and inverse output metadata also include a later `NameError` and non-monotonic execution state. Two source conflicts remain explicit: both notebooks assign `optimizer.lt` instead of changing Adam parameter-group learning rates, and the bundled forward hyperparameter file records Dirichlet weight 1,000 while the current notebook uses 5,000. No notebook, Python environment, data-generation process, training, inference, model, or plot was executed.
+
+Cumulative totals are 34 resources, 54 experiments, 151 configurations, 395 evidence records, 34 reproducibility assessments, 123 unresolved findings, and 35 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S019
+Checkpoint: Stage3-S020
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -124,6 +124,13 @@ Phase: controlled scale-out in progress
 | S3U-0114 | CR000026 | `test_coverage_placeholder` | medium | `test/runtests.jl` imports the package and opens a testset but contains only the comment “Write your tests here” and no assertions. | The deposited test target cannot statically establish functional behavior. |
 | S3U-0115 | CR000026 | `expected_results_unavailable` | medium | No in-repository numeric targets, tolerances, archived analysis outputs, or complete end-to-end example invocation is supplied. | Static result comparison and experiment-level reproducibility assessment are unavailable. |
 | S3U-0116 | CR000026 | `duplicate_build_source_conflict` | medium | Relative to active `src/`, the checked-in `build/` tree has seven differing paired files, omits `nl_static.jl` and `postprocess_integrator.jl`, and exposes the older `MorfeInvariantManifold` module/export surface. | Julia's standard package path keeps `src/` authoritative, while the duplicate build artifact remains explicit conflicting evidence and must not be treated as equivalent source. |
+| S3U-0117 | CR000027 | `license_unavailable` | medium | No repository license file or license metadata is present at the Stage-2-pinned snapshot. | Reuse terms are unavailable and license clarity cannot support a higher reproducibility level. |
+| S3U-0118 | CR000027 | `dependency_environment_incomplete` | high | The notebooks record a Python 3.7.9 conda-kernel label and import PyTorch, NumPy, and Matplotlib, but no dependency manifest, package versions, or environment setup is supplied. | One reconstructable environment is unavailable and R2 is blocked. |
+| S3U-0119 | CR000027 | `random_seed_unknown` | medium | Both workflows use Xavier-normal initialization without establishing PyTorch or NumPy seeds. | Exact deterministic retraining is not specified. |
+| S3U-0120 | CR000027-E001-C001; CR000027-E002-C001 | `adam_learning_rate_update_conflict` | high | Both notebooks describe learning-rate reductions to 1e-4 and 1e-5 but assign `optimizer.lt`; Adam reads learning rates from its parameter groups. | Later phases retain the initial 1e-3 learning rate, so the implemented schedules do not match their documented intent. |
+| S3U-0121 | CR000027-E001-C001 | `forward_hyperparameter_artifact_conflict` | high | The current forward notebook uses Dirichlet loss weight 5,000, while `model_coeff/hyper_parameters.txt` records 1,000. | The bundled coefficient artifact cannot be assigned the current notebook configuration without qualification. |
+| S3U-0122 | CR000027 | `notebook_execution_provenance_partial` | medium | Saved training outputs terminate with `KeyboardInterrupt`; inverse outputs also contain a later `NameError` and non-monotonic execution state. | Archived outputs show partial prior execution but do not establish a clean top-to-bottom run. |
+| S3U-0123 | CR000027 | `model_and_result_mapping_partial` | medium | Only pump-12 forward coefficients are bundled; inverse coefficients, exact paper-run checkpoints, numeric acceptance targets, and tolerances are absent. | Static paper-result comparison and higher reproducibility levels remain unavailable. |
 
 ## Source-scope handling
 
@@ -145,12 +152,14 @@ For `CR000025`, `PRL000071` remains a dataset-use relationship to Atlas paper 34
 
 For `CR000026`, `PRL000072` remains a software mention from Atlas paper 343. The paper's own deep-learning code and data are request-only, so MORFEInvariantManifold.jl remains supporting model-reduction software rather than official paper code. The active Julia package path is `src/`; the divergent duplicate `build/` tree is retained only as scoped conflicting evidence.
 
+For `CR000027`, `PRL000073` remains an official relationship to Atlas paper 349. The two substantive notebook workflows are kept distinct, while the transient-named notebook is an exact blob duplicate of the steady forward notebook and is not promoted into a separate experiment. Saved outputs remain repository evidence rather than claims of Stage-3 execution.
+
 ## Conflict handling
 
-Thirty-three explicit `conflicting_evidence` findings exist through Stage3-S019. The new finding preserves CR000026's divergence between the active `src/` package and the older duplicate `build/` tree. It is scoped to that duplicate artifact and does not alter the verified active API or the software-mention relationship.
+Thirty-five explicit `conflicting_evidence` findings exist through Stage3-S020. The two new findings preserve CR000027's ineffective Adam learning-rate assignments and the forward Dirichlet-weight mismatch between the current notebook and bundled hyperparameter file. They remain scoped to the affected configurations and do not alter the official paper relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S019, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000027. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S020, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000028. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
