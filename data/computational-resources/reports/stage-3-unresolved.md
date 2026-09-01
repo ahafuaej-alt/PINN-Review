@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S012
+Checkpoint: Stage3-S015
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -91,6 +91,14 @@ Phase: controlled scale-out in progress
 | S3U-0081 | CR000020-E001-C001 | `archived_loss_weight_conflict` | high | Current source beta defaults are XJTU 0.2, TJU 0.05, HUST 0.2, and MIT 0.02, while representative bundled regular-run logs record 20, 50, 80, and 50 respectively. | Running the pinned defaults does not reproduce the archived paper-run objective weights; regular PINN mapping remains conflicting evidence. |
 | S3U-0082 | CR000020-E001-C001; CR000020-E002-C001 | `monotonicity_loss_formulation_conflict` | high | Paper equation (8) displays the sum of `ReLU(u_hat[k+1]-u_hat[k])`; pinned regular and adaptation source instead use `ReLU((u2-u1)*(y1-y2)).sum()`. | The implemented constraint incorporates observed capacity-change sign and magnitude and is not the displayed paper objective; affected PINN configurations remain conflicting evidence. |
 | S3U-0083 | CR000020 | `entrypoint_workflow_partial` | medium | README names absent `main_comparison.py` while the tree has `main_comparision.py`; only `main_XJTU.py` directly calls its regular workflow, and other regular/small-sample/fine-tuning calls are commented or guarded by `pass`, with comparator selection hard-coded. | The workflows are callable from source but require manual invocation or edits; direct documented end-to-end entrypoint coverage is partial. |
+| S3U-0084 | CR000022 | `license_unavailable` | medium | Neither the Zenodo record nor the complete deposited archive supplies software-license metadata. | Reuse terms are unavailable and license clarity cannot support a higher reproducibility level. |
+| S3U-0085 | CR000022 | `dependency_and_installation_metadata_incomplete` | high | `pararealML/requirements.txt` uses compatible-release constraints, omits imported runtime packages used elsewhere in the archive, and supplies neither a Python version nor a complete installation workflow. | One reconstructable environment is unavailable and R2 is blocked. |
+| S3U-0086 | CR000022-E001; CR000022-E001-C003 | `paper_archive_pde_conflict` | high | The paper solves a correlated two-asset Black-Scholes PDE, while the deposited multidimensional equation omits derivative and cross-correlation terms and the Dask path implements a different one-dimensional callable. | The archived numerical implementation cannot be accepted as a static reconstruction of the published PDE or numerical-coarse configuration. |
+| S3U-0087 | CR000022-E001-C001 | `documented_entrypoint_incomplete` | high | README identifies `pararealML/blackscholes_ml.py`, but its active path references undefined `FNO2D`; training, saving, solving, Parareal, and plotting sections are commented. | The documented example is not a complete paper workflow as deposited. |
+| S3U-0088 | CR000022-E001-C001 | `paper_archive_pino_configuration_conflict` | high | The paper reports 12 modes, 2,500 epochs, 25,000 sampled conditions, learning rate 0.001, and decay 0.96; the deposited commented example uses 16 modes, 20 epochs, 1,200 sampled conditions, learning rate 0.002, and decay 0.98, while library defaults use four modes. | No deposited PINO configuration statically maps to the published training configuration. |
+| S3U-0089 | CR000022-E001; CR000022-E001-C001 | `ml_scaling_workflow_conflict` | high | Both deposited scaling scripts label a second timing loop as ML but load no neural model, reuse the same numerical coarse class, and add synthetic sleep delays. | Archived timing tables and plots are not statically traceable to the paper's measured PINO-Parareal workflow. |
+| S3U-0090 | CR000022 | `notebook_integrity_and_path_incomplete` | medium | One of two notebooks is invalid/truncated JSON; the valid notebook references absent `parareal/` paths instead of the deposited `parareal_dask_numerics/` tree. | Notebook-based reconstruction is incomplete without repair or path remapping. |
+| S3U-0091 | CR000022-E001-C001 | `paper_training_parameter_conflict` | high | The paper's main setup reports training volatilities 0.3 and 0.3, while its parameter-generalization figure caption and ratio discussion report 0.2 and 0.3. | The exact source-scoped PINO training point is internally inconsistent and remains unresolved. |
 
 ## Source-scope handling
 
@@ -106,10 +114,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Twenty-three explicit `conflicting_evidence` findings exist through Stage3-S014. The two new findings preserve CR000020's current-source versus archived-log loss-weight differences and the paper versus source monotonicity-loss formulation difference. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Twenty-seven explicit `conflicting_evidence` findings exist through Stage3-S015. The four new findings preserve CR000022's paper-versus-archive PDE difference, paper-versus-archive PINO configuration difference, ML-labelled scaling-path mismatch, and internally inconsistent paper training volatilities. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S014, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S015, and aggregate QA for scale-out batch SOB001 are complete. Scale-out batch SOB002 remains in progress. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

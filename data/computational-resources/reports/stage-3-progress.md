@@ -8,23 +8,23 @@ Status date: 2026-09-01
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S014 |
-| Next scale-out checkpoint | Stage3-S015 |
-| Last completed resource | CR000020 |
-| Next resource | CR000022 |
-| Next planned checkpoint resources | CR000022 |
+| Last completed scale-out checkpoint | Stage3-S015 |
+| Next scale-out checkpoint | Stage3-S016 |
+| Last completed resource | CR000022 |
+| Next resource | CR000023 |
+| Next planned checkpoint resources | CR000023 |
 | Current scale-out batch | SOB002 |
-| Completed Stage-3 resource count | 28 |
-| Remaining Stage-3 registry resource count | 336 |
+| Completed Stage-3 resource count | 29 |
+| Remaining Stage-3 registry resource count | 335 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 47 |
-| Completed configuration count | 134 |
-| Technical evidence records | 310 |
-| Static reproducibility assessments | 28 |
+| Completed experiment count | 48 |
+| Completed configuration count | 138 |
+| Technical evidence records | 326 |
+| Static reproducibility assessments | 29 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 83 |
-| Next unresolved ID | S3U-0084 |
-| Current conflicting-evidence finding count | 23 |
+| Current unresolved technical item count | 91 |
+| Next unresolved ID | S3U-0092 |
+| Current conflicting-evidence finding count | 27 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -61,7 +61,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0083` are preserved and the next ID is `S3U-0084`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0091` are preserved and the next ID is `S3U-0092`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -83,7 +83,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S012`: `CR000018` — QA PASS; adaptive single-resource supporting-library checkpoint with no artificial experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 - `Stage3-S013`: `CR000019` — QA PASS; adaptive single-resource paper-implementation checkpoint with 3 benchmark experiments, 12 configurations, 19 evidence records, and 1 reproducibility assessment.
 - `Stage3-S014`: `CR000020` — QA PASS; adaptive single-resource paper-implementation checkpoint with 3 experiment families, 7 configurations, 18 evidence records, and 1 reproducibility assessment.
+- `Stage3-S015`: `CR000022` — QA PASS; adaptive single-resource DOI-archive checkpoint with 1 integrated experiment, 4 configurations, 16 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S015`** with **`CR000022`**; `CR000021` remains excluded because it is pilot-complete.
+Start **`Stage3-S016`** with **`CR000023`**; `CR000021` remains excluded because it is pilot-complete.

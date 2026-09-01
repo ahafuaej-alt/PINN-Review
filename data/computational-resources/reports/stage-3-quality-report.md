@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S014
+Latest scale-out checkpoint: Stage3-S015
 
 ## Pilot QA
 
@@ -226,6 +226,18 @@ Three experiment records and seven configurations represent the paper's scientif
 The static reproducibility level is R3. Exact core Python/package versions, installation commands, source, complete preprocessed data, checkpoints, archived logs/results, model equations, and paper targets are substantially available. R4 is withheld because the repository has no license or dependency manifest, current source beta defaults differ sharply from archived regular-run logs, the displayed paper monotonicity loss differs from the implemented expression, random seeds and filesystem ordering are incomplete, several workflows are not direct entrypoints, and only processed transfer workbooks—not raw fine-tuning run directories—are bundled.
 
 Cumulative totals are 28 resources, 47 experiments, 134 configurations, 310 evidence records, 28 reproducibility assessments, 83 unresolved findings, and 23 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S015
+
+Status: **PASS**
+
+`CR000022` preserves the Stage-2 concept DOI `10.5281/zenodo.14334803`, official relationship `PRL000063`, and paper DOI `10.1145/3732775.3733574`. The sole deposited version is `10.5281/zenodo.14334804` (`v.001`). Its 2,553,284-byte `space_time_pino-main.zip` passed the provider MD5 check and an independently recorded SHA-256 check. Static ZIP inspection identified 211 members, including 53 Python source files, 92 bytecode files, two notebooks, one five-file TensorFlow SavedModel, runtime tables, and plot PDFs. No executable or model payload was run or deserialized.
+
+One integrated experiment and four configurations preserve the paper's PINO, PINN-P, numerical-coarse, and space-parallel-fine comparison families without multiplying processor counts, Parareal iterations, or parameter sweeps into artificial records. The paper-reported two-asset Black-Scholes formulation, training design, accuracy, runtimes, convergence, scaling, resolution generalization, parameter generalization, and hardware remain source-scoped documented claims.
+
+The static reproducibility level is R1. The deposited multidimensional equation and numerical source do not encode the paper's correlated two-asset PDE; the commented PINO example differs from the paper's architecture and training settings and references undefined `FNO2D`; and the ML-labelled scaling loops load no neural model, reuse the numerical coarse propagator, and add synthetic delays. Environment coverage is also incomplete, one notebook is truncated JSON, the valid notebook references absent paths, seeds are not wired into the assessed workflows, no license is supplied, and the paper itself reports conflicting PINO training volatilities. These limitations preserve the verified supplementary-code relationship while preventing a static claim that the archive reconstructs the published execution path.
+
+Cumulative totals are 29 resources, 48 experiments, 138 configurations, 326 evidence records, 29 reproducibility assessments, 91 unresolved findings, and 27 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
