@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S013
+Latest scale-out checkpoint: Stage3-S014
 
 ## Pilot QA
 
@@ -214,6 +214,18 @@ Three experiments follow the paper's numerical benchmarks. The Lamé experiment 
 The static reproducibility level is R3. Source, MIT license, installation routes, contact formulation, bundled FEM data, training settings, paper targets, and paper checkpoint families are substantially available. R4 is withheld because neither snapshot has a fully locked environment, model/sampling seeds are incomplete, the inverse source directly exposes only the 0.1 initial guess, and the current restore-only surrogate notebook points to an absent `pretrained_models/` tree whose matching checkpoints exist only in the explicitly linked historical snapshot.
 
 Cumulative totals are 27 resources, 44 experiments, 127 configurations, 292 evidence records, 27 reproducibility assessments, 77 unresolved findings, and 21 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S014
+
+Status: **PASS**
+
+`CR000020` preserves the Stage-2-pinned PINN4SOH repository and its official relationship to Atlas paper 299. The 498-file tree bundles all 387 preprocessed battery CSVs reported across XJTU, TJU, MIT, and HUST, eleven pretrained source-model checkpoints, six result archives, 48 processed workbooks, and the source for regular SOH estimation, small-sample comparisons, and twelve ordered cross-dataset transfer pairs.
+
+Three experiment records and seven configurations represent the paper's scientific design without multiplying dataset strata or ten repeated runs into artificial records. The regular and small-sample experiments each compare PINN, MLP, and CNN configurations; the transfer experiment preserves one common fine-tuning configuration across all twelve ordered source-target pairs. The paper's four-dataset mean PINN MAPE is 0.87%, and the small-sample Table 3 targets are retained without recomputation.
+
+The static reproducibility level is R3. Exact core Python/package versions, installation commands, source, complete preprocessed data, checkpoints, archived logs/results, model equations, and paper targets are substantially available. R4 is withheld because the repository has no license or dependency manifest, current source beta defaults differ sharply from archived regular-run logs, the displayed paper monotonicity loss differs from the implemented expression, random seeds and filesystem ordering are incomplete, several workflows are not direct entrypoints, and only processed transfer workbooks—not raw fine-tuning run directories—are bundled.
+
+Cumulative totals are 28 resources, 47 experiments, 134 configurations, 310 evidence records, 28 reproducibility assessments, 83 unresolved findings, and 23 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
