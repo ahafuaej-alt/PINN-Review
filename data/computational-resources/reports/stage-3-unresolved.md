@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S009
+Checkpoint: Stage3-S010
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -68,6 +68,8 @@ Phase: controlled scale-out in progress
 | S3U-0058 | CR000015 | `dependency_and_installation_metadata_unavailable` | high | The repository supplies no dependency/environment manifest, package versions, or installation workflow. | Hierarchical environment/install sufficiency is absent and R2 is blocked despite bundled source, data, and checkpoints. |
 | S3U-0059 | CR000015 | `torch_random_seed_unknown` | low | Dataloaders seed Python and NumPy with 2022, but no PyTorch initialization seed is established. | Exact deterministic retraining is not specified. |
 | S3U-0060 | CR000015 | `checkpoint_path_separator_conflict` | medium | CNN and LSTM construct `results\\...` checkpoint paths, while the pinned tree stores the files under `results/...`; BattNN uses a forward slash. | CNN/LSTM checkpoint loading is platform-sensitive and remains explicit conflicting evidence; BattNN is unaffected. |
+| S3U-0061 | CR000016 | `dependency_versions_not_exact` | medium | Core and backend manifests mix unversioned requirements, lower bounds, and selected documentation-image pins; no lockfile establishes one complete resolved cross-backend environment. | Framework installation is documented and supports R2, but exact environment reconstruction and higher experiment-level claims are unavailable. |
+| S3U-0062 | CR000016 | `stage2_dependency_inventory_conflict` | low | The final Stage-2 CR000016 record lists `setup.py`, while the exact pinned tree contains `pyproject.toml` and no `setup.py`. | The pinned tree remains authoritative implementation evidence; the closed Stage-2 record is preserved and the inventory mismatch remains explicit conflicting evidence. |
 
 ## Source-scope handling
 
@@ -83,10 +85,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Fifteen explicit `conflicting_evidence` findings exist through Stage3-S009, including the new `S3U-0060` checkpoint-path conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Sixteen explicit `conflicting_evidence` findings exist through Stage3-S010, including the new `S3U-0062` Stage-2 manifest-inventory conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S009, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S010, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

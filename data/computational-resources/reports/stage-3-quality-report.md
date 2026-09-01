@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S009
+Latest scale-out checkpoint: Stage3-S010
 
 ## Pilot QA
 
@@ -166,6 +166,18 @@ Status: **PASS**
 The static reproducibility level is R1. Source, inputs, evaluation metrics, and checkpoints are present, but no environment/dependency manifest, versions, or installation workflow exists, so hierarchical R2 sufficiency is not met. Python/NumPy seeds do not establish a PyTorch seed, and CNN/LSTM checkpoint paths use Windows backslashes while the pinned tree uses the `results/` directory; that platform-sensitive mismatch remains configuration-scoped conflicting evidence.
 
 Cumulative totals are 23 resources, 40 experiments, 110 configurations, 241 evidence records, 23 reproducibility assessments, 60 unresolved findings, and 15 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S010
+
+Status: **PASS**
+
+`CR000016` preserves the pinned DeepXDE framework identity, LGPL-2.1 license, three verified Atlas relationships, and canonical citation DOI. The snapshot is twelve commits after tag `v1.15.0`; paper 234's explicit DeepXDE 1.13.1 statement remains scoped to supporting-dependency relationship `PRL000044` and is not misassigned to the later repository snapshot.
+
+The framework supports TensorFlow 1.x compatibility, TensorFlow 2.x, PyTorch, JAX, and PaddlePaddle backends; forward/inverse differential equations, fractional and stochastic problems, operator learning, multifidelity learning, multiple automatic-differentiation modes, boundary-condition families, geometries, and sampling strategies are bounded as framework capabilities. Its 71 Python examples, 12 bundled dataset files, and 46 documented demo pages remain capability evidence rather than artificial paper-specific experiments or configurations.
+
+The framework-level reproducibility assessment is R2. Source, license, package metadata, installation workflows, backend selection, documentation, examples, and citation metadata are available, but manifests do not lock one exact resolved cross-backend environment and no single canonical research reproduction target is invented. The final Stage-2 record lists `setup.py`; the pinned tree contains `pyproject.toml` and no `setup.py`, so the mismatch remains explicit conflicting evidence without modifying Stage 2.
+
+Cumulative totals are 24 resources, 40 experiments, 110 configurations, 251 evidence records, 24 reproducibility assessments, 62 unresolved findings, and 16 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
