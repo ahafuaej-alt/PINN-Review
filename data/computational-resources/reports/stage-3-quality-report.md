@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S015
+Latest scale-out checkpoint: Stage3-S016
 
 ## Pilot QA
 
@@ -238,6 +238,24 @@ One integrated experiment and four configurations preserve the paper's PINO, PIN
 The static reproducibility level is R1. The deposited multidimensional equation and numerical source do not encode the paper's correlated two-asset PDE; the commented PINO example differs from the paper's architecture and training settings and references undefined `FNO2D`; and the ML-labelled scaling loops load no neural model, reuse the numerical coarse propagator, and add synthetic delays. Environment coverage is also incomplete, one notebook is truncated JSON, the valid notebook references absent paths, seeds are not wired into the assessed workflows, no license is supplied, and the paper itself reports conflicting PINO training volatilities. These limitations preserve the verified supplementary-code relationship while preventing a static claim that the archive reconstructs the published execution path.
 
 Cumulative totals are 29 resources, 48 experiments, 138 configurations, 326 evidence records, 29 reproducibility assessments, 91 unresolved findings, and 27 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S016
+
+Status: **PASS**
+
+`CR000023` preserves the Stage-2 Zenodo DOI and verified supplementary-code relationship `PRL000066` to Atlas paper 326. Current provider metadata resolves the previously deferred license as CC BY 4.0. The sole 34,099-byte `Deep Learning Network Code.zip` passed its provider MD5 and an independently recorded SHA-256 check. Its 27 members comprise four directories and 23 Python files totaling 93,494 uncompressed bytes and 2,540 source lines; no documentation, environment, data, checkpoint, log, or result file is deposited.
+
+One integrated experiment and four configurations preserve the paper's PointNet, PointNet-PINN, PointNet++, and PointNet++-PINN comparison without multiplying four datasets, four randomized partitions, or sixteen controlled groups into artificial experiments. The source implements four-input time/coordinate mappings to pressure and three velocity components. Both PINN families implement three dimensionless Navier-Stokes momentum residuals plus continuity at Reynolds number 300, but use different data/physics weights and training schedules.
+
+The static reproducibility level is R1. All entrypoints require absent point-cloud data, CSV indices, metadata pickles, weight directories, and checkpoints; they mix relative paths with author-local Windows paths. No package manifest, Python version, install guide, seed, dataset/partition mapping, or archived numeric result is supplied, and the paper's patient data are available only by request subject to restrictions. The PointNet++-PINN evaluator also converts reference data to NumPy before passing its collection to `torch.cat`, so that evaluation path remains explicit conflicting evidence. No code, data, model, training, inference, evaluation, or visualization path was executed.
+
+Cumulative totals are 30 resources, 49 experiments, 142 configurations, 341 evidence records, 30 reproducibility assessments, 98 unresolved findings, and 28 explicit conflicting-evidence findings.
+
+## Scale-out batch SOB002 aggregate QA
+
+Status: **PASS**
+
+The second controlled scale-out batch contains 10 resources across ten adaptive single-resource checkpoints: 15 experiments, 46 configurations, 129 technical-evidence records, 10 reproducibility assessments, 49 newly recorded unresolved findings, and 15 newly recorded conflicting-evidence findings. All cumulative identifiers remain unique; evidence and hierarchy references resolve; Stage-2 authority and source scopes remain preserved; missing-value and inference semantics pass; R5 remains excluded; and no Stage-1, Stage-2, curated, or public Atlas/site file changed.
 
 ## Stage boundaries
 

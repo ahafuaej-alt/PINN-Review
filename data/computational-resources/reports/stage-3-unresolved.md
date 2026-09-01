@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S015
+Checkpoint: Stage3-S016
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -99,6 +99,13 @@ Phase: controlled scale-out in progress
 | S3U-0089 | CR000022-E001; CR000022-E001-C001 | `ml_scaling_workflow_conflict` | high | Both deposited scaling scripts label a second timing loop as ML but load no neural model, reuse the same numerical coarse class, and add synthetic sleep delays. | Archived timing tables and plots are not statically traceable to the paper's measured PINO-Parareal workflow. |
 | S3U-0090 | CR000022 | `notebook_integrity_and_path_incomplete` | medium | One of two notebooks is invalid/truncated JSON; the valid notebook references absent `parareal/` paths instead of the deposited `parareal_dask_numerics/` tree. | Notebook-based reconstruction is incomplete without repair or path remapping. |
 | S3U-0091 | CR000022-E001-C001 | `paper_training_parameter_conflict` | high | The paper's main setup reports training volatilities 0.3 and 0.3, while its parameter-generalization figure caption and ratio discussion report 0.2 and 0.3. | The exact source-scoped PINO training point is internally inconsistent and remains unresolved. |
+| S3U-0092 | CR000023 | `dependency_environment_unavailable` | high | The complete archive contains no requirements, environment, package, lock, Python-version, or package-version record despite importing PyTorch, NumPy, pandas, Matplotlib, scikit-learn, and Tornado. | One reconstructable environment and R2 are unavailable. |
+| S3U-0093 | CR000023 | `required_data_and_checkpoints_unavailable` | high | All workflows require absent point-cloud directories, CSV indices, metadata pickles, weight directories, and referenced checkpoints; the paper makes patient data available only by request subject to restrictions. | No deposited training or evaluation workflow is end-to-end complete. |
+| S3U-0094 | CR000023 | `documentation_and_installation_unavailable` | medium | Zenodo's description is only “the original code,” and the archive contains no README, installation guide, usage guide, or run command. | Users must infer setup and invocation from source; R2 is blocked. |
+| S3U-0095 | CR000023 | `entrypoint_path_and_output_incomplete` | high | Training and testing scripts mix relative inputs with hard-coded author-local `D:` paths and save checkpoints under absent `weight/` directories without creating them. | Entrypoints require manual path edits and directory creation before their first checkpoint/result operation. |
+| S3U-0096 | CR000023 | `random_seed_unknown` | medium | Dataset loaders randomly shuffle points and training DataLoaders shuffle cases, but no NumPy or PyTorch seed is established. | Sample selection, order, and model initialization are not deterministic. |
+| S3U-0097 | CR000023-E001 | `paper_trial_mapping_partial` | medium | Four archive directories align with the four model families, but no deposited metadata maps the paper's four datasets, four partitions, or sixteen controlled groups to source invocations, checkpoints, logs, or tables. | Family-level mapping is retained, but run-level paper reproduction and target verification remain unavailable. |
+| S3U-0098 | CR000023-E001-C004 | `pointnet_plus_plus_pinn_evaluator_conflict` | high | `pointnet++_pinn/model_test.py` converts `y` to a NumPy array, appends it to `real_y`, and then calls `torch.cat(real_y)`. | The deposited PointNet++-PINN evaluation path is statically inconsistent and remains explicit conflicting evidence. |
 
 ## Source-scope handling
 
@@ -112,12 +119,14 @@ For `CR000268`, the RSS provider metadata define the global V6 product, while At
 
 For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `GRaynaud/ModalPINN_Python_code` `accepted_version` tag is used only as archive-equivalent technical evidence because the paper cites the Zenodo software DOI and the tagged release states that it corresponds to the paper release. The GitHub release is not silently substituted as a new CR identity, and byte-level equivalence is not claimed.
 
+For `CR000023`, the Zenodo DOI remains the authoritative archive identity. The provider's CC BY 4.0 record license resolves a Stage-2-deferred field without changing the closed Stage-2 record. Four source directories support only family-level mapping to paper 326; absent data, partitions, checkpoints, and results prevent silent promotion to sixteen independently reproduced trials.
+
 ## Conflict handling
 
-Twenty-seven explicit `conflicting_evidence` findings exist through Stage3-S015. The four new findings preserve CR000022's paper-versus-archive PDE difference, paper-versus-archive PINO configuration difference, ML-labelled scaling-path mismatch, and internally inconsistent paper training volatilities. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Twenty-eight explicit `conflicting_evidence` findings exist through Stage3-S016. The new finding preserves CR000023's PointNet++-PINN evaluator type inconsistency. It remains scoped to that configuration and does not negate the verified archive identity or the other three source families.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S015, and aggregate QA for scale-out batch SOB001 are complete. Scale-out batch SOB002 remains in progress. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S016, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is ready to begin at CR000024. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
