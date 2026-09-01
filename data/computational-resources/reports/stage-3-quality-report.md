@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S018
+Latest scale-out checkpoint: Stage3-S019
 
 ## Pilot QA
 
@@ -280,6 +280,18 @@ The complete 14-blob tree totals 54,366,218 bytes and contains five Python files
 The static reproducibility level is R1. No dependency manifest, Python/package versions, installation/run instructions, seed, compatible checkpoint, numeric target, or tolerance is supplied. Three conflicts remain explicit: a non-empty remainder batch uses shifted and out-of-range tensor columns; the plotting script requires an absent differently named MAT file and checkpoint and constructs a five-output network instead of the training model's two outputs; and a training comment says pressure reference data are excluded while the invoked loss includes pressure MSE. The MATLAB payload and GIF frames were not opened, and no source, environment, training, inference, evaluation, checkpoint, or plot was executed.
 
 Cumulative totals are 32 resources, 52 experiments, 149 configurations, 372 evidence records, 32 reproducibility assessments, 110 unresolved findings, and 32 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S019
+
+Status: **PASS**
+
+`CR000026` preserves the MIT-licensed Stage-2 pin and verified `PRL000072` software-mention relationship. Atlas paper 343 cites MORFEInvariantManifold.jl as software but separately makes its own deep-learning code and data request-only, so the package is not relabeled as official paper code and no paper experiment or configuration is manufactured.
+
+The complete 90-blob snapshot documents a Julia 0.1.0 library for invariant-manifold model reduction of geometrically nonlinear resonant structures. Its active `src/` module exposes material, autonomous/non-autonomous reduction, backbone, and forced-response APIs; Project.toml and the legacy Manifest.toml describe and substantially pin the Julia dependency environment; the README documents installation of the unregistered package; and generated documentation is bundled. The repository has no research dataset or in-repository runnable example. Its one test file is a placeholder, the example/mesh corpus is external and unpinned, an exact Julia runtime and external MATLAB/COMSOL requirements are not specified, and no numeric targets or tolerances are supplied.
+
+The static reproducibility level is R2. One scoped conflict remains explicit: the duplicate `build/` tree has seven changed counterparts relative to active `src/`, omits two active files, and uses an older differently cased module/export surface. Julia's package path identifies `src/` as active, so verified active-source facts are retained without treating the duplicate build as equivalent. No Julia package, dependency, test, example, finite-element analysis, input data, MATLAB, COMSOL, MatCont, or generated-documentation workflow was executed.
+
+Cumulative totals are 33 resources, 52 experiments, 149 configurations, 383 evidence records, 33 reproducibility assessments, 116 unresolved findings, and 33 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

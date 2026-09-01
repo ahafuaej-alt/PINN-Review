@@ -8,23 +8,23 @@ Status date: 2026-09-01
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S018 |
-| Next scale-out checkpoint | Stage3-S019 |
-| Last completed resource | CR000025 |
-| Next resource | CR000026 |
-| Next planned checkpoint resources | CR000026 |
+| Last completed scale-out checkpoint | Stage3-S019 |
+| Next scale-out checkpoint | Stage3-S020 |
+| Last completed resource | CR000026 |
+| Next resource | CR000027 |
+| Next planned checkpoint resources | CR000027 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 32 |
-| Remaining Stage-3 registry resource count | 332 |
+| Completed Stage-3 resource count | 33 |
+| Remaining Stage-3 registry resource count | 331 |
 | Approved pilot resources completed | 10 / 10 |
 | Completed experiment count | 52 |
 | Completed configuration count | 149 |
-| Technical evidence records | 372 |
-| Static reproducibility assessments | 32 |
+| Technical evidence records | 383 |
+| Static reproducibility assessments | 33 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 110 |
-| Next unresolved ID | S3U-0111 |
-| Current conflicting-evidence finding count | 32 |
+| Current unresolved technical item count | 116 |
+| Next unresolved ID | S3U-0117 |
+| Current conflicting-evidence finding count | 33 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -84,8 +84,9 @@ Completed checkpoints:
 
 - `Stage3-S017`: `CR000024`
 - `Stage3-S018`: `CR000025`
+- `Stage3-S019`: `CR000026`
 
-The batch remains open; the exact next resource is `CR000026`.
+The batch remains open; the exact next resource is `CR000027`.
 
 ## Continuation rule
 
@@ -93,7 +94,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0110` are preserved and the next ID is `S3U-0111`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0116` are preserved and the next ID is `S3U-0117`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -119,7 +120,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S016`: `CR000023` — QA PASS; adaptive single-resource DOI-archive checkpoint with 1 integrated experiment, 4 configurations, 15 evidence records, and 1 reproducibility assessment. Aggregate QA for ten-resource batch `SOB002` also passed.
 - `Stage3-S017`: `CR000024` — QA PASS; adaptive single-resource paper-implementation checkpoint with 2 experiment groups, 6 configurations, 17 evidence records, and 1 reproducibility assessment.
 - `Stage3-S018`: `CR000025` — QA PASS; adaptive single-resource repository-implementation checkpoint with 1 experiment, 1 configuration, 14 evidence records, and 1 reproducibility assessment.
+- `Stage3-S019`: `CR000026` — QA PASS; adaptive single-resource supporting-library checkpoint with no artificial experiments/configurations, 11 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S019`** with **`CR000026`**.
+Start **`Stage3-S020`** with **`CR000027`**.

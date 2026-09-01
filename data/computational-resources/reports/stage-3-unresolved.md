@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S018
+Checkpoint: Stage3-S019
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -118,6 +118,12 @@ Phase: controlled scale-out in progress
 | S3U-0108 | CR000025-E001-C001 | `plotting_workflow_conflict` | high | `plot_dimensionless.py` requires absent `2d_cylinder_Re3900_100x100.mat` and `data/exp1/1_1/NS_model_train.pt`, and instantiates a five-output network while `train_uv_modify.py` trains a two-output streamfunction-pressure network. | The pinned plotting/evaluation path is not compatible with the bundled data and implemented training configuration. |
 | S3U-0109 | CR000025-E001-C001 | `pressure_supervision_comment_conflict` | medium | The training comment states that reference pressure is not introduced, but `data_mse_psi` is called with `p` and adds `MSE(p_predict,p)`. | The implemented objective uses pressure supervision; the contradictory source comment cannot define the configuration. |
 | S3U-0110 | CR000025 | `numeric_result_reference_unavailable` | medium | Six qualitative prediction/difference GIFs are bundled, but no numerical metrics, compatible checkpoint, target values, or tolerances are supplied. | Static result comparison and higher reproducibility levels are unavailable. |
+| S3U-0111 | CR000026 | `exact_julia_runtime_unavailable` | medium | Project.toml allows Julia 1 broadly, while the legacy Manifest.toml has no `julia_version` header. | Package versions are substantially pinned, but one exact Julia runtime is unavailable. |
+| S3U-0112 | CR000026 | `external_runtime_prerequisites_partial` | high | The active module imports MATLAB.jl unconditionally and the supported-format documentation names only COMSOL `.mphtxt`, but no compatible MATLAB or COMSOL version/setup is supplied. | A complete runtime and input-production workflow cannot be reconstructed from the pinned repository alone. |
+| S3U-0113 | CR000026 | `external_examples_unpinned` | medium | README and tutorial documentation link a separate examples repository, but the Stage-2 pin contains no runnable mesh/example corpus and does not pin that external repository by commit. | Example-level reconstruction is outside the authoritative snapshot and no experiment/configuration is promoted. |
+| S3U-0114 | CR000026 | `test_coverage_placeholder` | medium | `test/runtests.jl` imports the package and opens a testset but contains only the comment “Write your tests here” and no assertions. | The deposited test target cannot statically establish functional behavior. |
+| S3U-0115 | CR000026 | `expected_results_unavailable` | medium | No in-repository numeric targets, tolerances, archived analysis outputs, or complete end-to-end example invocation is supplied. | Static result comparison and experiment-level reproducibility assessment are unavailable. |
+| S3U-0116 | CR000026 | `duplicate_build_source_conflict` | medium | Relative to active `src/`, the checked-in `build/` tree has seven differing paired files, omits `nl_static.jl` and `postprocess_integrator.jl`, and exposes the older `MorfeInvariantManifold` module/export surface. | Julia's standard package path keeps `src/` authoritative, while the duplicate build artifact remains explicit conflicting evidence and must not be treated as equivalent source. |
 
 ## Source-scope handling
 
@@ -137,12 +143,14 @@ For `CR000024`, the Stage-2 pin remains authoritative. The direct DNS 1% uniform
 
 For `CR000025`, `PRL000071` remains a dataset-use relationship to Atlas paper 340. The pinned `NS-equation` source is represented as one repository-native experiment and is not relabeled as the paper's second-order/gPINN software. RANS variants described as living on other branches are not promoted from the Stage-2-pinned snapshot.
 
+For `CR000026`, `PRL000072` remains a software mention from Atlas paper 343. The paper's own deep-learning code and data are request-only, so MORFEInvariantManifold.jl remains supporting model-reduction software rather than official paper code. The active Julia package path is `src/`; the divergent duplicate `build/` tree is retained only as scoped conflicting evidence.
+
 ## Conflict handling
 
-Thirty-two explicit `conflicting_evidence` findings exist through Stage3-S018. The three new findings preserve CR000025's remainder-batch indexing defect, incompatible plotting workflow, and pressure-supervision comment/code mismatch. They remain scoped to the repository-native NS configuration and do not alter the verified dataset-only paper relationship.
+Thirty-three explicit `conflicting_evidence` findings exist through Stage3-S019. The new finding preserves CR000026's divergence between the active `src/` package and the older duplicate `build/` tree. It is scoped to that duplicate artifact and does not alter the verified active API or the software-mention relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S018, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000026. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S019, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000027. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
