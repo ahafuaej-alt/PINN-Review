@@ -8,23 +8,23 @@ Status date: 2026-09-01
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S011 |
-| Next scale-out checkpoint | Stage3-S012 |
-| Last completed resource | CR000017 |
-| Next resource | CR000018 |
-| Next planned checkpoint resources | CR000018 |
+| Last completed scale-out checkpoint | Stage3-S012 |
+| Next scale-out checkpoint | Stage3-S013 |
+| Last completed resource | CR000018 |
+| Next resource | CR000019 |
+| Next planned checkpoint resources | CR000019 |
 | Current scale-out batch | SOB002 |
-| Completed Stage-3 resource count | 25 |
-| Remaining Stage-3 registry resource count | 339 |
+| Completed Stage-3 resource count | 26 |
+| Remaining Stage-3 registry resource count | 338 |
 | Approved pilot resources completed | 10 / 10 |
 | Completed experiment count | 41 |
 | Completed configuration count | 115 |
-| Technical evidence records | 263 |
-| Static reproducibility assessments | 25 |
+| Technical evidence records | 273 |
+| Static reproducibility assessments | 26 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 68 |
-| Next unresolved ID | S3U-0069 |
-| Current conflicting-evidence finding count | 18 |
+| Current unresolved technical item count | 71 |
+| Next unresolved ID | S3U-0072 |
+| Current conflicting-evidence finding count | 20 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -61,7 +61,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0068` are preserved and the next ID is `S3U-0069`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0071` are preserved and the next ID is `S3U-0072`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -80,7 +80,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S009`: `CR000015` — QA PASS; adaptive single-resource checkpoint with 3 dataset-family experiments, 9 model configurations, 10 evidence records, and 1 reproducibility assessment.
 - `Stage3-S010`: `CR000016` — QA PASS; adaptive single-resource framework checkpoint with no artificial experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 - `Stage3-S011`: `CR000017` — QA PASS; adaptive single-resource checkpoint with 1 UIEB experiment, 5 model configurations, 12 evidence records, and 1 reproducibility assessment.
+- `Stage3-S012`: `CR000018` — QA PASS; adaptive single-resource supporting-library checkpoint with no artificial experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S012`** with **`CR000018`**. Apply adaptive checkpoint sizing after resolving the final authoritative Stage-2 resource state.
+Start **`Stage3-S013`** with **`CR000019`** as an adaptive single-resource paper-implementation checkpoint.

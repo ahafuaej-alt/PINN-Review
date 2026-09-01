@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S011
+Checkpoint: Stage3-S012
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -76,6 +76,9 @@ Phase: controlled scale-out in progress
 | S3U-0066 | CR000017 | `nonhybrid_entrypoint_incomplete` | medium | Ablation and comparator classes/checkpoints are bundled, but `test.py` and `test.ipynb` instantiate and load only the hybrid pair; `--model` uses `type=object` and the checkpoint path is hard-coded. | Four non-hybrid configurations require source-level changes and remain partially verified. |
 | S3U-0067 | CR000017 | `training_provenance_partial` | medium | Training defaults to one epoch while all bundled checkpoints are labeled epoch 50; no final training command or random seeds are supplied. | Exact checkpoint retraining and deterministic reruns are not specified. |
 | S3U-0068 | CR000017 | `expected_result_reference_unavailable` | medium | The test workflow computes MSE, PSNR, and SSIM, but no pinned numeric targets, archived logs, or tolerances are provided. | Static result comparison and R4 are unavailable. |
+| S3U-0069 | CR000018 | `dependency_versions_partial` | low | Eight requirements are exactly pinned, but `seaborn` and `pyyaml` are unversioned and no resolved lockfile is supplied. | Library installation supports R2, but an exact environment is unavailable. |
+| S3U-0070 | CR000018 | `python_compatibility_conflict` | medium | README states Python 3.9.7 or higher, while `setup.py` declares `python_requires>=3.6`. | The actual supported lower Python boundary remains explicit conflicting evidence. |
+| S3U-0071 | CR000018 | `package_dependency_metadata_conflict` | medium | README documents direct PyPI/Git installation, but `setup.py` contains no `install_requires`; dependencies are only listed in the separately installed `requirements.txt`. | A direct package install cannot be assumed to establish the documented runtime dependencies. |
 
 ## Source-scope handling
 
@@ -91,10 +94,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Eighteen explicit `conflicting_evidence` findings exist through Stage3-S011, including the new `S3U-0064` dependency-manifest and `S3U-0065` validation-data-flow conflicts. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Twenty explicit `conflicting_evidence` findings exist through Stage3-S012, including the new `S3U-0070` Python-compatibility and `S3U-0071` package-dependency metadata conflicts. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S011, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S012, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

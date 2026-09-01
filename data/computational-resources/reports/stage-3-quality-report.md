@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S011
+Latest scale-out checkpoint: Stage3-S012
 
 ## Pilot QA
 
@@ -190,6 +190,18 @@ One UIEB paired-image experiment contains five configurations: the hybrid HUWIE-
 The hybrid pretrained-use workflow is R3 because the exact checkpoint, external dataset retrieval path, 800/90/90 split, preprocessing, entrypoint, and MSE/PSNR/SSIM evaluation are substantially available. R4 and complete retraining are withheld: no license or numeric result targets are supplied, the documented requirements file is not installable in its mixed pip/conda-table form, the final epoch-50 command and seeds are absent, and the validation loop evaluates `tdata` from training instead of the enumerated `vdata` validation batch.
 
 Cumulative totals are 25 resources, 41 experiments, 115 configurations, 263 evidence records, 25 reproducibility assessments, 68 unresolved findings, and 18 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S012
+
+Status: **PASS**
+
+`CR000018` preserves pykan as a supporting KAN library cited by Atlas paper 262, not as that paper's official PIKAN implementation. The pinned MIT-licensed version 0.2.8 provides KAN, symbolic-KAN, MultKAN, MLP, and LBFGS components together with grid refinement, pruning, attribution, symbolic fitting, and visualization capabilities.
+
+The 494-file tree includes 88 tutorial notebooks, 67 generated RST documents, and 13 tutorial cache/config/state bundles. These remain library capability evidence with zero paper-specific experiments/configurations. In particular, the repository explicitly states that its community physics-informed KAN/Navier–Stokes notebook was uploaded by a GitHub user and was neither written nor proofread by the KAN authors; Stage 3 does not map it to paper 262.
+
+The library-level reproducibility assessment is R2. Installation routes, exact versions for eight dependencies, source, license, quickstart, documentation, hardware guidance, and tutorial outputs are available. Exact environment reconstruction remains incomplete because two requirements are unversioned, README requires Python 3.9.7+ while `setup.py` declares 3.6+, and package metadata omit `install_requires` despite documenting direct PyPI/Git installation.
+
+Cumulative totals are 26 resources, 41 experiments, 115 configurations, 273 evidence records, 26 reproducibility assessments, 71 unresolved findings, and 20 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
