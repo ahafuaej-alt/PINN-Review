@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S010
+Checkpoint: Stage3-S011
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -70,6 +70,12 @@ Phase: controlled scale-out in progress
 | S3U-0060 | CR000015 | `checkpoint_path_separator_conflict` | medium | CNN and LSTM construct `results\\...` checkpoint paths, while the pinned tree stores the files under `results/...`; BattNN uses a forward slash. | CNN/LSTM checkpoint loading is platform-sensitive and remains explicit conflicting evidence; BattNN is unaffected. |
 | S3U-0061 | CR000016 | `dependency_versions_not_exact` | medium | Core and backend manifests mix unversioned requirements, lower bounds, and selected documentation-image pins; no lockfile establishes one complete resolved cross-backend environment. | Framework installation is documented and supports R2, but exact environment reconstruction and higher experiment-level claims are unavailable. |
 | S3U-0062 | CR000016 | `stage2_dependency_inventory_conflict` | low | The final Stage-2 CR000016 record lists `setup.py`, while the exact pinned tree contains `pyproject.toml` and no `setup.py`. | The pinned tree remains authoritative implementation evidence; the closed Stage-2 record is preserved and the inventory mismatch remains explicit conflicting evidence. |
+| S3U-0063 | CR000017 | `license_unavailable` | medium | No license file or repository license metadata is present at the pinned commit. | Reuse terms are unavailable. |
+| S3U-0064 | CR000017 | `dependency_manifest_format_conflict` | high | README directs users to install from `requirements.txt`, but its 536 lines combine invalid pip package names such as `python`, `pytorch`, and `opencv` with a multi-column `conda list` table; `train.py` also rewrites this file with loaded module names. | The documented exact environment is informative but not directly installable as claimed; environment/install coverage remains partial. |
+| S3U-0065 | CR000017 | `validation_batch_source_conflict` | high | The validation loop enumerates `vdata` but constructs validation inputs and labels from `tdata`, then logs training index `i`. | Each nominal validation iteration reuses the final training batch, so recorded validation losses cannot be accepted as validation-split evidence. |
+| S3U-0066 | CR000017 | `nonhybrid_entrypoint_incomplete` | medium | Ablation and comparator classes/checkpoints are bundled, but `test.py` and `test.ipynb` instantiate and load only the hybrid pair; `--model` uses `type=object` and the checkpoint path is hard-coded. | Four non-hybrid configurations require source-level changes and remain partially verified. |
+| S3U-0067 | CR000017 | `training_provenance_partial` | medium | Training defaults to one epoch while all bundled checkpoints are labeled epoch 50; no final training command or random seeds are supplied. | Exact checkpoint retraining and deterministic reruns are not specified. |
+| S3U-0068 | CR000017 | `expected_result_reference_unavailable` | medium | The test workflow computes MSE, PSNR, and SSIM, but no pinned numeric targets, archived logs, or tolerances are provided. | Static result comparison and R4 are unavailable. |
 
 ## Source-scope handling
 
@@ -85,10 +91,10 @@ For `CR000091`, the Zenodo DOI remains the authoritative archive identity. The `
 
 ## Conflict handling
 
-Sixteen explicit `conflicting_evidence` findings exist through Stage3-S010, including the new `S3U-0062` Stage-2 manifest-inventory conflict. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
+Eighteen explicit `conflicting_evidence` findings exist through Stage3-S011, including the new `S3U-0064` dependency-manifest and `S3U-0065` validation-data-flow conflicts. Each retains the bounded observations instead of rewriting a source or accepting an affected claim without qualification.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S010, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S011, and aggregate QA for scale-out batch SOB001 are complete. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

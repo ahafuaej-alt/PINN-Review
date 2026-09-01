@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S010
+Latest scale-out checkpoint: Stage3-S011
 
 ## Pilot QA
 
@@ -178,6 +178,18 @@ The framework supports TensorFlow 1.x compatibility, TensorFlow 2.x, PyTorch, JA
 The framework-level reproducibility assessment is R2. Source, license, package metadata, installation workflows, backend selection, documentation, examples, and citation metadata are available, but manifests do not lock one exact resolved cross-backend environment and no single canonical research reproduction target is invented. The final Stage-2 record lists `setup.py`; the pinned tree contains `pyproject.toml` and no `setup.py`, so the mismatch remains explicit conflicting evidence without modifying Stage 2.
 
 Cumulative totals are 24 resources, 40 experiments, 110 configurations, 251 evidence records, 24 reproducibility assessments, 62 unresolved findings, and 16 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S011
+
+Status: **PASS**
+
+`CR000017` preserves the official HUWIE-Net relationship to Atlas paper 259 while retaining Stage 2's adjacent physics-informed classification. The code does not enforce a differential-equation residual: its physical channel learns a transmission-like map, estimates atmospheric light from a blue/green dark channel, applies an underwater image-formation inversion, and fuses that result with a supervised image-to-image branch. It is therefore recorded as non-PINN research code rather than silently relabeled as a classical PINN.
+
+One UIEB paired-image experiment contains five configurations: the hybrid HUWIE-Net, image-only and physical-only ablations, and UIEC2-Net/UWCNN comparators. All five model classes and epoch-50 checkpoints are bundled and checksummed. The hybrid pair alone is directly wired into `test.py` and `test.ipynb`; the other four require source-level model/checkpoint changes and remain partially verified.
+
+The hybrid pretrained-use workflow is R3 because the exact checkpoint, external dataset retrieval path, 800/90/90 split, preprocessing, entrypoint, and MSE/PSNR/SSIM evaluation are substantially available. R4 and complete retraining are withheld: no license or numeric result targets are supplied, the documented requirements file is not installable in its mixed pip/conda-table form, the final epoch-50 command and seeds are absent, and the validation loop evaluates `tdata` from training instead of the enumerated `vdata` validation batch.
+
+Cumulative totals are 25 resources, 41 experiments, 115 configurations, 263 evidence records, 25 reproducibility assessments, 68 unresolved findings, and 18 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
