@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S022
+Latest scale-out checkpoint: Stage3-S023
 
 ## Pilot QA
 
@@ -328,6 +328,18 @@ All six configurations use Galerkin residuals assembled from finite-element tria
 The static reproducibility level is R1. No dependency manifest, Python version, or package versions are supplied, and README setup is limited to adding the embedded pyCaMOtk folder to `PYTHONPATH`. Three source conflicts remain explicit: element-based connectivity groups nodes by repeated local-row position across elements instead of within-element adjacency; both Navier-Stokes drivers build self-loop-only subgraphs; and nominal CPU device selection is contradicted by 32 hard-coded CUDA transfers. Seeds cover only the two Poisson configurations, the circular driver ends in an active debugger, and all workflows assume execution from their own directory. No code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, debugger, or plot was executed, and the MATLAB payload remained unopened.
 
 Cumulative totals are 36 resources, 60 experiments, 163 configurations, 423 evidence records, 36 reproducibility assessments, 136 unresolved findings, and 38 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S023
+
+Status: **PASS**
+
+`CR000030` preserves the Stage-2-pinned `Raocp/PINN-elastodynamics` repository and official `PRL000093` relationship to Atlas paper 391. The complete 305-blob snapshot totals 764,345,121 bytes and contains four Python entrypoints, 284 FEM-reference MATLAB files, seven pickle checkpoints, four result GIFs, four result PDFs, one PNG, and one README. Four experiment/configuration pairs correspond exactly to the source folders: cyclic loading of a quarter plate with a hole and elastic-wave propagation in confined, infinite, and semi-infinite domains. Paper-only static convergence and appendix comparisons are not promoted into artificial source configurations.
+
+All four sources implement strong-form mixed displacement-stress elastodynamics with automatic differentiation, tanh networks, Xavier initialization, and deterministic NumPy/TensorFlow seeds of 1111. The two complex-boundary cases use composite particular, distance, and general networks for hard I/BC enforcement; the infinite and semi-infinite cases use soft enforcement. README records GPU TensorFlow 1.10.0, while the source additionally exposes unversioned NumPy, pyDOE, Matplotlib, pandas, and SciPy dependencies.
+
+The static reproducibility level is R1. Although extensive FEM references, checkpoints, source, and result media are present, no license, dependency manifest, Python version, installation command, or complete package-version set is supplied, so the hierarchical R2 gate is not met. Two conflict classes remain explicit. First, active source parameters diverge from the paper: the plate general network is 8×70 rather than 8×80, all four sampling plans differ, and the infinite source extends the 16-second paper case to 20 seconds. Second, all active entrypoints comment out Adam and call L-BFGS-B directly, whereas the paper documents staged Adam followed by L-BFGS-B; the three wave paths also preload checkpoints. Binary data, checkpoints, and result media remained unopened, and no code, environment, model, solver, training, inference, evaluation, plot, or visualization was executed.
+
+Cumulative totals are 37 resources, 64 experiments, 167 configurations, 439 evidence records, 37 reproducibility assessments, 143 unresolved findings, and 40 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

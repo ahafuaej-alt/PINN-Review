@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S022
+Checkpoint: Stage3-S023
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -144,6 +144,13 @@ Phase: controlled scale-out in progress
 | S3U-0134 | CR000029 | `random_seed_coverage_partial` | medium | The two Poisson drivers call `torch.manual_seed(0)`, but the square-elasticity seed is commented and the other three configurations establish no seed. | Four configurations lack deterministic model-initialization provenance. |
 | S3U-0135 | CR000029 | `checkpoint_and_result_artifacts_unavailable` | medium | The pinned tree contains no trained checkpoint, archived training log, numeric result table, tolerance file, or machine-readable paper target. | Paper errors cannot be traced to a deposited run, and higher reproducibility levels remain unavailable. |
 | S3U-0136 | CR000029 | `entrypoint_workflow_partial` | medium | All six drivers rely on execution from their own directory plus manual source/PYTHONPATH setup, and the circular forward driver enters an active debugger after saving outputs. | Non-interactive end-to-end invocation is undocumented and one entrypoint does not terminate normally without debugger interaction. |
+| S3U-0137 | CR000030 | `license_unavailable` | high | No license file or repository license metadata exists at the Stage-2-pinned commit. | Reuse and redistribution rights remain undefined. |
+| S3U-0138 | CR000030 | `dependency_environment_incomplete` | high | README identifies GPU TensorFlow 1.10.0, but no dependency manifest, Python version, package-version set, installation command, CUDA/cuDNN version, or complete environment workflow is supplied. | The hierarchical R2 environment/install gate is not satisfied. |
+| S3U-0139 | CR000030 | `paper_source_configuration_conflict` | high | The source plate network is 8×70 rather than the paper's 8×80, sampling counts differ in all four cases, and the infinite source uses 20 seconds rather than the paper's 16 seconds. | Repository configurations cannot be treated as exact paper-run parameterizations. |
+| S3U-0140 | CR000030 | `active_training_path_conflict` | high | All active entrypoints comment out Adam and call L-BFGS-B directly; the paper specifies staged Adam then L-BFGS-B, and the three wave paths preload checkpoints. | Current main-block control flow is a continuation/fine-tuning workflow rather than the documented paper training-from-scratch protocol. |
+| S3U-0141 | CR000030 | `binary_payload_inspection_deferred` | medium | The 284 FEM MATLAB files, seven pickle checkpoints, four GIFs, four PDFs, and one PNG were inventoried from Git metadata but remained unopened. | Internal arrays, checkpoint tensors, image content, and direct numeric alignment with paper outputs remain unverified. |
+| S3U-0142 | CR000030 | `entrypoint_workflow_partial` | medium | Three workflows open interactive Matplotlib windows before optimization; all assume execution from case-specific directories and use explicit GPU device scopes. | Non-interactive headless invocation and portable path/device behavior are not documented. |
+| S3U-0143 | CR000030 | `checkpoint_run_provenance_partial` | medium | Checkpoint filenames align with active loaders, but no run logs, external checksums, exact source-to-paper run IDs, or evaluation tolerances are deposited. | Bundled models/results are strong artifacts but do not establish an exact traceable paper run. |
 
 ## Source-scope handling
 
@@ -171,12 +178,14 @@ For `CR000028`, `PRL000074` remains a verified supplementary-code relationship t
 
 For `CR000029`, `PRL000091` remains an official relationship to Atlas paper 379. Six source entrypoints are grouped into three forward/inverse PDE families; paper-only penalty comparators, square-Poisson, notched-forward, three-dimensional-elasticity, and cavity-flow cases are not manufactured as repository configurations. Paper targets remain source-scoped and the small MATLAB mesh remains unopened.
 
+For `CR000030`, `PRL000093` remains an official relationship to Atlas paper 391. Four experiment/configuration pairs correspond to the repository's four source folders. The paper's static plate convergence sweep and appendix soft-versus-hard comparison have no separate source entrypoints and are retained only as paper-scoped evidence rather than additional configurations. Repository and paper parameterizations remain separate where they conflict.
+
 ## Conflict handling
 
-Thirty-eight explicit `conflicting_evidence` findings exist through Stage3-S022. The three new findings preserve CR000029's element-connectivity mismatch, self-loop-only Navier-Stokes graphs, and nonfunctional CPU fallback. They remain scoped to architecture/device implementation and do not alter the verified official paper relationship.
+Forty explicit `conflicting_evidence` findings exist through Stage3-S023. The two new findings preserve CR000030's cross-case paper/source parameter divergence and the active L-BFGS-B-only checkpoint-continuation paths relative to the paper's staged Adam-to-L-BFGS-B protocols. They do not alter the verified official paper relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S022, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000030. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S023, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000031. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
