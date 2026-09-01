@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S020
+Latest scale-out checkpoint: Stage3-S021
 
 ## Pilot QA
 
@@ -304,6 +304,18 @@ The complete 37-blob snapshot contains 25 hydraulic-head fields and one conducti
 The static reproducibility level is R1. No license, dependency manifest, package versions, or random seeds are supplied. Saved training cells terminate with `KeyboardInterrupt`, and inverse output metadata also include a later `NameError` and non-monotonic execution state. Two source conflicts remain explicit: both notebooks assign `optimizer.lt` instead of changing Adam parameter-group learning rates, and the bundled forward hyperparameter file records Dirichlet weight 1,000 while the current notebook uses 5,000. No notebook, Python environment, data-generation process, training, inference, model, or plot was executed.
 
 Cumulative totals are 34 resources, 54 experiments, 151 configurations, 395 evidence records, 34 reproducibility assessments, 123 unresolved findings, and 35 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S021
+
+Status: **PASS**
+
+`CR000028` preserves the verified `PRL000074` supplementary-code relationship to Atlas paper 360 while recording the exact paper-cited MTA-UNet repository as unavailable. The canonical URL still returns 404, no Stage-2 pin or source snapshot exists, and no verified replacement repository was identified. Repository source, documentation, license, dependency manifests, data, checkpoints, and result artifacts therefore remain unavailable and no mirror is substituted.
+
+Three paper-reported comparison experiments and six configurations preserve the published scientific design without presenting paper facts as repository implementation. The loss-balancing experiment compares fixed coefficients with homoscedastic-uncertainty weighting; the architecture experiment compares U-Net and MTA-UNet on 10,000 training and 500 test samples; and the sample-size experiment compares data-only and physics-informed MTA-UNet at 100–5,000 training samples. The paper documents a shared-encoder, three-decoder attention U-Net, finite-difference thermoelastic residuals, five output fields, PyTorch 1.8, batch size 16, and MAE/MRE targets.
+
+The static reproducibility level is R1. The primary paper supplies substantial formulation, architecture, objective, training, and numeric-result evidence, but source-level verification is impossible. Dataset-generation artifacts, complete environment and installation details, learning rate, epochs, stopping rule, seeds, hardware, fixed loss coefficients, exact trial mapping, checkpoints, and logs are absent. The printed optimizer name `AdamDelda` is retained alongside its Adadelta citation without silently correcting the source. No code, notebook, environment, data, training, inference, model, checkpoint, solver, or plot was executed.
+
+Cumulative totals are 35 resources, 57 experiments, 157 configurations, 408 evidence records, 35 reproducibility assessments, 129 unresolved findings, and 35 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

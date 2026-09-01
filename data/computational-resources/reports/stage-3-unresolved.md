@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S020
+Checkpoint: Stage3-S021
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -131,6 +131,12 @@ Phase: controlled scale-out in progress
 | S3U-0121 | CR000027-E001-C001 | `forward_hyperparameter_artifact_conflict` | high | The current forward notebook uses Dirichlet loss weight 5,000, while `model_coeff/hyper_parameters.txt` records 1,000. | The bundled coefficient artifact cannot be assigned the current notebook configuration without qualification. |
 | S3U-0122 | CR000027 | `notebook_execution_provenance_partial` | medium | Saved training outputs terminate with `KeyboardInterrupt`; inverse outputs also contain a later `NameError` and non-monotonic execution state. | Archived outputs show partial prior execution but do not establish a clean top-to-bottom run. |
 | S3U-0123 | CR000027 | `model_and_result_mapping_partial` | medium | Only pump-12 forward coefficients are bundled; inverse coefficients, exact paper-run checkpoints, numeric acceptance targets, and tolerances are absent. | Static paper-result comparison and higher reproducibility levels remain unavailable. |
+| S3U-0124 | CR000028 | `repository_source_unavailable` | high | The exact paper-cited repository returns 404, has no verified commit pin, and no verified replacement repository was identified. | Source, entrypoint, documentation, and installation inspection are unavailable; all technical configurations remain paper-scoped. |
+| S3U-0125 | CR000028 | `license_dependency_environment_unknown` | high | Repository unavailability prevents license and dependency-manifest inspection; the paper reports only PyTorch 1.8, batch size 16, and an optimizer printed as `AdamDelda` while citing Adadelta. | One reconstructable environment and license clarity are unavailable, blocking R2. |
+| S3U-0126 | CR000028 | `dataset_generation_artifacts_unavailable` | high | The paper reports OpenFOAM-generated outputs and Gaussian-random-field temperature inputs, but supplies no data payload, generator source, GRF parameters, preprocessing artifact, or exact split manifest. | Dataset and preprocessing reconstruction cannot be verified statically. |
+| S3U-0127 | CR000028 | `training_protocol_incomplete` | high | Learning rate, epochs, stopping rule, random seeds, hardware, and fixed loss-balancing coefficients are not reported. | Exact retraining and interpretation of the fixed-weight comparison remain unavailable. |
+| S3U-0128 | CR000028 | `checkpoint_and_result_artifacts_unavailable` | high | No inspectable checkpoint, training log, prediction, result table, numerical tolerance, or hardware-timed run survives at the cited resource. | Paper-reported MAE, MRE, and runtime targets cannot be traced to execution artifacts. |
+| S3U-0129 | CR000028 | `paper_run_mapping_partial` | medium | The paper groups six model/strategy families and multiple sample sizes but does not identify exact trial counts, seeds, checkpoints, or per-run provenance. | Family-level comparison records are defensible, but run-level reproduction and aggregation provenance remain unavailable. |
 
 ## Source-scope handling
 
@@ -154,12 +160,14 @@ For `CR000026`, `PRL000072` remains a software mention from Atlas paper 343. The
 
 For `CR000027`, `PRL000073` remains an official relationship to Atlas paper 349. The two substantive notebook workflows are kept distinct, while the transient-named notebook is an exact blob duplicate of the steady forward notebook and is not promoted into a separate experiment. Saved outputs remain repository evidence rather than claims of Stage-3 execution.
 
+For `CR000028`, `PRL000074` remains a verified supplementary-code relationship to Atlas paper 360 even though the exact cited repository is unavailable. Three experiments and six configurations represent only comparison families explicitly reported in the primary paper; they are not treated as inspected implementation, and no mirror or successor repository is substituted.
+
 ## Conflict handling
 
-Thirty-five explicit `conflicting_evidence` findings exist through Stage3-S020. The two new findings preserve CR000027's ineffective Adam learning-rate assignments and the forward Dirichlet-weight mismatch between the current notebook and bundled hyperparameter file. They remain scoped to the affected configurations and do not alter the official paper relationship.
+Thirty-five explicit `conflicting_evidence` findings exist through Stage3-S021. Stage3-S021 adds no new conflict: the paper's printed optimizer name is retained with its cited method as partial documentation, while absent source and run provenance remain unresolved gaps rather than asserted contradictions.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S020, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000028. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S021, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000029. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
