@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S043
+Checkpoint: Stage3-S044
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -376,12 +376,24 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0322 | CR000051 | paper_result_bundle_not_applicable | low | The supporting library relationship does not deposit an Atlas-paper dataset, checkpoint or paper-specific generated result bundle. | The relationship remains software context rather than reproduced paper results. |
 
 
+| S3U-0323 | CR000052 | required_problem_data_external | high | README directs users to external KITopen processed images, labels and flow-case inputs that are not bundled in the pinned repository. | Repository-only reconstruction is blocked. |
+| S3U-0324 | CR000052 | checkpoint_lineage_external | high | Trained weights are directed to external KITopen retrieval and no checksum or exact paper-run mapping was established. | R4 restore/result verification is blocked. |
+| S3U-0325 | CR000052 | platform_environment_specific | medium | requirements.txt is a Linux-64 conda export centered on Python 3.7, PyTorch 1.11 and CUDA 11.3 rather than a portable multi-platform environment. | Cross-platform reproduction is not established. |
+| S3U-0326 | CR000052 | entrypoint_import_inconsistency | high | IcPINNs/apps/train_shape_CH.py imports HGPIFuNet_CH, but IcPINNs/lib/model/HGPIFuNet_CH.py defines HGPIFuNet_CH2. | The IcPINNs CH entrypoint is not self-consistent as written. |
+| S3U-0327 | CR000052 | documentation_path_conflict | medium | README refers to lib/options, lib/train_util and lib/plotting directories, while the pinned tree provides corresponding .py files. | Documented navigation requires manual correction. |
+| S3U-0328 | CR000052 | author_local_path_adaptation | medium | README and options require users to adapt data, rendering, checkpoint and output paths for local datasets and weights. | A portable paper-run command is not fixed by the repository alone. |
+| S3U-0329 | CR000052 | random_seed_scope_partial | low | No single deterministic seed contract was established across the inspected training entrypoints and augmentation paths. | Exact stochastic reruns remain unspecified. |
+| S3U-0330 | CR000052 | result_lineage_unverified | medium | OBJ/VTK outputs are documented but no generated-result checksum or one-to-one paper figure/table lineage was verified. | Numerical result reproduction remains unverified. |
+| S3U-0331 | CR000052 | workflow_execution_unverified | low | Training, evaluation, rendering and data-generation entrypoints were inspected but not executed. | Runtime behavior remains unverified. |
+| S3U-0332 | CR000052 | binary_payload_inspection_deferred | medium | Python bytecode and image assets are present but were not opened or used to infer executable behavior. | Binary-derived behavior remains outside the bounded extraction. |
+
+
 ## Conflict handling
 
-Seventy-three explicit `conflicting_evidence` findings exist through Stage3-S043. No new conflict finding was required for DiffSharp; the closed Stage-2 identity and relationship remain unchanged.
+Seventy-five explicit `conflicting_evidence` findings exist through Stage3-S044. Two new conflicts were recorded for CR000052: an IcPINNs CH import/symbol mismatch and README path references that do not match the pinned file layout.
 
 ## Escalation state
 
-No Stage-2 resource identity or relationship defect was discovered in S043. Stage 2 remains closed and unchanged.
+No Stage-2 resource identity or relationship defect was discovered in S044. Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S043, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000052. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S044, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000053. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.

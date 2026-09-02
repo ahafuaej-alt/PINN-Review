@@ -593,6 +593,18 @@ The static reproducibility level is R2. Project files declare the .NET target fr
 
 Cumulative totals are 57 resources, 103 experiments, 237 configurations, 754 evidence records, 57 reproducibility assessments, 322 unresolved findings, and 73 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S044
+
+Status: **PASS**
+
+CR000052 preserves the official MaxDreisbach/PINNs4Drops repository at the Stage-2-pinned commit 4dc1bfd5bb6172ec5a9567bf21ae8318d04393b3 and relationship PRL000132 to Atlas paper 475. The pinned tree contains 455 entries and 423 blobs totaling 3,087,501 bytes, with image/video-conditioned PINN source, an MIT license and a Linux/Python/CUDA conda export. Required processed images, labels and trained weights are linked externally through KITopen and are not bundled.
+
+Two source-backed experiment families and six configurations are recorded: image-conditioned and video/time-step-conditioned reconstruction, each with baseline phase-advection/Navier–Stokes, Cahn–Hilliard and predicted-chemical-potential CH2 variants. Two explicit conflicts remain scoped: the IcPINNs Cahn–Hilliard import/symbol mismatch and README directory references that do not match the pinned file layout.
+
+The static reproducibility level is R3 for the documented source/environment/workflow boundary. R4 is withheld because external payloads and result lineage were not byte-verified, the IcPINNs CH entrypoint is statically inconsistent, documentation paths conflict with the tree, and no workflow was executed. No source, environment, dependency, data, weight, notebook, training, inference, evaluation, plotting or scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 58 resources, 105 experiments, 243 configurations, 770 evidence records, 58 reproducibility assessments, 332 unresolved findings, and 75 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

@@ -8,23 +8,23 @@ Status date: 2026-09-02
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S043 |
-| Next scale-out checkpoint | Stage3-S044 |
-| Last completed resource | CR000051 |
-| Next resource | CR000052 |
-| Next planned checkpoint resources | CR000052 |
+| Last completed scale-out checkpoint | Stage3-S044 |
+| Next scale-out checkpoint | Stage3-S045 |
+| Last completed resource | CR000052 |
+| Next resource | CR000053 |
+| Next planned checkpoint resources | CR000053 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 57 |
-| Remaining Stage-3 registry resource count | 315 |
+| Completed Stage-3 resource count | 58 |
+| Remaining Stage-3 registry resource count | 314 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 103 |
-| Completed configuration count | 237 |
-| Technical evidence records | 754 |
-| Static reproducibility assessments | 57 |
+| Completed experiment count | 105 |
+| Completed configuration count | 243 |
+| Technical evidence records | 770 |
+| Static reproducibility assessments | 58 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 322 |
-| Next unresolved ID | S3U-0323 |
-| Current conflicting-evidence finding count | 73 |
+| Current unresolved technical item count | 332 |
+| Next unresolved ID | S3U-0333 |
+| Current conflicting-evidence finding count | 75 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -108,9 +108,9 @@ Completed checkpoints:
 - Stage3-S040: CR000047
 - Stage3-S041: CR000048
 - Stage3-S042: CR000050
-- Stage3-S043: CR000051
+- Stage3-S045: CR000052
 
-The batch remains open; the exact next resource is CR000052.
+The batch remains open; the exact next resource is CR000053.
 
 ## Continuation rule
 
@@ -168,8 +168,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - Stage3-S040: CR000047 — QA PASS; adaptive single-resource supporting autograd framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 - Stage3-S041: CR000048 — QA PASS; adaptive single-resource supporting Chainer framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 - Stage3-S042: CR000050 — QA PASS; adaptive single-resource supporting Tangent framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
-- Stage3-S043: CR000051 — QA PASS; adaptive single-resource supporting DiffSharp framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
+- Stage3-S045: CR000052 — QA PASS; adaptive single-resource supporting DiffSharp framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S044`** with **`CR000052`**.
+Start **`Stage3-S045`** with **`CR000053`**.
