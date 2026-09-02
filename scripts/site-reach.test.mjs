@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildSnapshot, getCurrentSite, normalizeCountries } from './update-site-reach.mjs';
+import { buildSnapshot, getReachStatistics, normalizeCountries } from './update-site-reach.mjs';
 
 const locations = [
   { id: 'SE', name: 'Sweden', count: 17 },
@@ -50,39 +50,72 @@ test('rejects invalid counts and site codes', () => {
   }), /unsupported characters/);
 });
 
-test('checks site access with GoatCounter-required request headers', async () => {
+test('retrieves reach statistics through documented stats endpoints', async () => {
   const originalFetch = globalThis.fetch;
+  const requestedPaths = [];
   try {
     globalThis.fetch = async (url, options) => {
-      assert.equal(url.pathname, '/api/v0/sites');
+      requestedPaths.push(url.pathname);
       assert.equal(options.headers.Accept, 'application/json');
       assert.equal(options.headers['Content-Type'], 'application/json');
       assert.equal(options.headers.Authorization, 'Bearer protected-test-token');
-      return new Response(JSON.stringify({
-        sites: [{ code: 'pinn-review-atlas', received_data: false }]
-      }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+
+      if (url.pathname === '/api/v0/stats/total') {
+        return new Response(JSON.stringify({ total: 12 }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      if (url.pathname === '/api/v0/stats/locations') {
+        assert.equal(url.searchParams.get('limit'), '100');
+        assert.equal(url.searchParams.get('offset'), '0');
+        return new Response(JSON.stringify({ stats: locations.slice(0, 2), more: false }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      throw new Error(`Unexpected endpoint ${url.pathname}`);
     };
-    const site = await getCurrentSite(
+
+    const result = await getReachStatistics(
       'https://pinn-review-atlas.goatcounter.com/api/v0',
       'protected-test-token',
-      'PINN-Review-Atlas'
+      new Date('2026-08-12T00:00:00.000Z'),
+      new Date('2026-08-15T00:00:00.000Z'),
+      new Date('2026-09-02T08:00:00.000Z')
     );
-    assert.deepEqual(site, { code: 'pinn-review-atlas', receivedData: false });
+
+    assert.equal(result.total, 12);
+    assert.equal(result.last30Days, 12);
+    assert.deepEqual(result.locations, locations.slice(0, 2));
+    assert.equal(requestedPaths.filter((value) => value === '/api/v0/stats/total').length, 2);
+    assert.equal(requestedPaths.filter((value) => value === '/api/v0/stats/locations').length, 1);
+    assert.equal(requestedPaths.includes('/api/v0/sites'), false);
   } finally {
     globalThis.fetch = originalFetch;
   }
 });
 
-test('rejects a token that cannot access the configured site', async () => {
+test('skips location statistics when GoatCounter reports zero visits', async () => {
   const originalFetch = globalThis.fetch;
   try {
-    globalThis.fetch = async () => new Response(JSON.stringify({
-      sites: [{ code: 'another-site', received_data: true }]
-    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-    await assert.rejects(
-      getCurrentSite('https://pinn-review-atlas.goatcounter.com/api/v0', 'token', 'pinn-review-atlas'),
-      /cannot access GoatCounter site/
+    globalThis.fetch = async (url) => {
+      assert.equal(url.pathname, '/api/v0/stats/total');
+      return new Response(JSON.stringify({ total: 0 }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    };
+
+    const result = await getReachStatistics(
+      'https://pinn-review-atlas.goatcounter.com/api/v0',
+      'token',
+      new Date('2026-08-12T00:00:00.000Z'),
+      new Date('2026-08-15T00:00:00.000Z'),
+      new Date('2026-09-02T08:00:00.000Z')
     );
+
+    assert.deepEqual(result, { total: 0, last30Days: 0, locations: [] });
   } finally {
     globalThis.fetch = originalFetch;
   }
