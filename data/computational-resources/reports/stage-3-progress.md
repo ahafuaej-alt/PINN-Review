@@ -8,22 +8,22 @@ Status date: 2026-09-02
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S046 |
-| Next scale-out checkpoint | Stage3-S047 |
-| Last completed resource | CR000054 |
-| Next resource | CR000055 |
-| Next planned checkpoint resources | CR000055 |
+| Last completed scale-out checkpoint | Stage3-S047 |
+| Next scale-out checkpoint | Stage3-S048 |
+| Last completed resource | CR000055 |
+| Next resource | CR000056 |
+| Next planned checkpoint resources | CR000056 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 60 |
-| Remaining Stage-3 registry resource count | 312 |
+| Completed Stage-3 resource count | 61 |
+| Remaining Stage-3 registry resource count | 311 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 111 |
-| Completed configuration count | 253 |
-| Technical evidence records | 806 |
-| Static reproducibility assessments | 60 |
+| Completed experiment count | 112 |
+| Completed configuration count | 254 |
+| Technical evidence records | 826 |
+| Static reproducibility assessments | 61 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 354 |
-| Next unresolved ID | S3U-0355 |
+| Current unresolved technical item count | 362 |
+| Next unresolved ID | S3U-0363 |
 | Current conflicting-evidence finding count | 81 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
@@ -111,7 +111,7 @@ Completed checkpoints:
 - Stage3-S043: CR000051
 - Stage3-S044: CR000052
 
-The batch remains open; the exact next resource is CR000055.
+The batch remains open; the exact next resource is CR000056.
 
 ## Continuation rule
 
@@ -176,6 +176,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 
 - Stage3-S046: CR000054 — QA PASS; adaptive single-resource NSFnets checkpoint with 4 experiments, 5 configurations, 16 evidence records, and 1 reproducibility assessment.
 
+- Stage3-S047: CR000055 — QA PASS; adaptive single-resource official twophasePINN rising-bubble checkpoint with 1 experiment, 1 configuration, 20 evidence records, and 1 reproducibility assessment.
+
 ## Exact next action
 
-Start **`Stage3-S047`** with **`CR000055`**.
+Start **`Stage3-S048`** with **`CR000056`**.

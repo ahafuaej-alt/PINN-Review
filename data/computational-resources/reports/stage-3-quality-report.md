@@ -629,6 +629,18 @@ Two explicit conflicts remain scoped. Four source drivers reference undefined up
 
 Cumulative totals are 60 resources, 111 experiments, 253 configurations, 806 evidence records, 60 reproducibility assessments, 354 unresolved findings, and 81 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S047
+
+Status: **PASS**
+
+CR000055 preserves the official twophasePINN repository at the Stage-2-pinned commit cfff1252d1a1c6f204509ab63b913c8fc012c9f2 and relationship PRL000132 to Atlas paper 478. The pinned tree contains 15 entries and 11 blobs totaling 11,864,839 bytes, with the rising-bubble PINN source, readable architecture metadata, a trained-model binary payload and no dependency manifest or license file. The required CFD h5 file is external.
+
+One paper-specific rising-bubble experiment and one bundled Keras dense-network configuration are recorded. The source constructs data and PDE losses for incompressible two-phase flow, uses a 3-input dense network with 350-unit hidden layers and u/v/p/a outputs, and documents deterministic NumPy/TensorFlow seeds. The architecture JSON and source were inspected; MAT/H5 payloads and all workflows remained unopened/unexecuted.
+
+The static reproducibility level is R2. README package versions, source entrypoints, model metadata, license metadata and external-data instructions are present, but no machine-readable manifest, exact result lineage or byte-verified CFD/model payload is available. No source, environment, data, model, checkpoint, training, inference, evaluation or plotting workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 61 resources, 112 experiments, 254 configurations, 826 evidence records, 61 reproducibility assessments, 362 unresolved findings, and 81 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

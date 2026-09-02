@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S046
+Checkpoint: Stage3-S047
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -414,12 +414,22 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0354 | CR000054 | workflow_execution_unverified | low | TensorFlow graphs, Adam/SciPy optimizers, notebooks and source workflows were inspected but not executed. | Runtime behavior remains unverified. |
 
 
+| S3U-0355 | CR000055 | dependency_manifest_unavailable | medium | README lists exact package versions but the pinned repository contains no machine-readable dependency manifest. | Exact installation reconstruction remains manual. |
+| S3U-0356 | CR000055 | license_file_unavailable | medium | Stage-2 metadata detects MIT licensing, but no license file is present in the pinned tree. | Snapshot-local license verification is incomplete. |
+| S3U-0357 | CR000055 | required_cfd_data_external | high | Training and evaluation require external rising_bubble.h5 data from a provider URL. | Repository-only end-to-end reproduction is blocked. |
+| S3U-0358 | CR000055 | trained_model_payload_unverified | high | The bundled restore workflow requires binary weights and MAT metadata that were not opened or byte-verified. | Exact checkpoint restoration and result lineage remain unverified. |
+| S3U-0359 | CR000055 | paper_result_lineage_partial | medium | No one-to-one generated-result checksum or paper figure/table mapping was established. | Numerical paper-result reproduction remains unverified. |
+| S3U-0360 | CR000055 | keras_tensorflow_compatibility_partial | medium | README pins TensorFlow 1.15 while architecture metadata reports Keras 2.2.4-tf, but one complete runtime installation is not frozen. | Runtime compatibility is only partially reconstructable. |
+| S3U-0361 | CR000055 | binary_payload_inspection_deferred | medium | MAT and external H5 payloads were intentionally not opened under the static-only boundary. | Payload schemas and optimizer state remain unverified. |
+| S3U-0362 | CR000055 | workflow_execution_unverified | low | Training, point generation, model restoration and animated evaluation were inspected but not executed. | Runtime behavior remains unverified. |
+
+
 ## Conflict handling
 
-Eighty-one explicit `conflicting_evidence` findings exist through Stage3-S046. Two new conflicts were recorded for CR000054: undefined bound-array names in four drivers and README entrypoint names/paths that do not match the pinned source.
+Eighty-one explicit `conflicting_evidence` findings exist through Stage3-S047. No new conflict finding was required for twophasePINN; the external-data, manifest, payload and license limitations are recorded as unresolved technical gaps.
 
 ## Escalation state
 
-No Stage-2 resource identity defect was discovered in S046, but the relationship to paper 476 remains unverified as recorded by Stage 2. Stage 2 remains closed and unchanged.
+No Stage-2 resource identity or relationship defect was discovered in S047. Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S046, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000055. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S047, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000056. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.
