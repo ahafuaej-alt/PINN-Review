@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S040
+Checkpoint: Stage3-S041
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -348,12 +348,21 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0297 | CR000047 | test_execution_unverified | low | Tests and coverage configuration are present but the suite was not run. | Runtime regression status remains unverified. |
 | S3U-0298 | CR000047 | paper_result_bundle_not_applicable | low | No Atlas-paper dataset, checkpoint or generated result bundle is deposited in the supporting library. | The relationship remains software context rather than reproduced paper results. |
 
+| S3U-0299 | CR000048 | transitive_dependency_lock_unavailable | medium | setup.py and dependency declarations do not provide a complete transitive lock for the legacy framework. | Exact environment reconstruction remains incomplete. |
+| S3U-0300 | CR000048 | python_compatibility_matrix_partial | medium | setup.py declares Python >=3.5 but no complete supported-version matrix is pinned for this snapshot. | Cross-version compatibility remains unverified. |
+| S3U-0301 | CR000048 | cuda_cupy_pairing_unknown | high | CUDA support depends on an externally matched CuPy installation, with no pinned CUDA/CuPy matrix in the repository. | GPU execution cannot be reconstructed exactly. |
+| S3U-0302 | CR000048 | license_filename_documentation_conflict | medium | README refers to a LICENSE file while the pinned tree contains license.txt. | The documented license path does not resolve verbatim. |
+| S3U-0303 | CR000048 | cuda_install_contract_partial | medium | README's pip install command omits the separate CuPy installation required for CUDA support. | The GPU installation workflow is incomplete without external guidance. |
+| S3U-0304 | CR000048 | example_execution_unverified | low | Examples and datasets are present but were not executed under the static-only boundary. | Example runtime behavior remains unverified. |
+| S3U-0305 | CR000048 | test_execution_unverified | low | The test suite and CI configuration were inspected but not run. | Runtime regression status remains unverified. |
+| S3U-0306 | CR000048 | paper_result_bundle_not_applicable | low | No Atlas-paper dataset, checkpoint or generated result bundle is deposited in the supporting framework snapshot. | The relationship remains software context rather than reproduced paper results. |
+
 ## Conflict handling
 
-Seventy-one explicit `conflicting_evidence` findings exist through Stage3-S040. No new conflict finding was required for the supporting Autograd library; the closed Stage-2 identity and relationship remain unchanged.
+Seventy-three explicit `conflicting_evidence` findings exist through Stage3-S041. Two new source/documentation findings cover the license filename and the incomplete CUDA/CuPy installation contract; the closed Stage-2 identity and relationship remain unchanged.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000048. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000049. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

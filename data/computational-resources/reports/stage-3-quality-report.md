@@ -557,6 +557,18 @@ The static reproducibility level is R2. The package supplies a versioned project
 
 Cumulative totals are 54 resources, 103 experiments, 237 configurations, 724 evidence records, 54 reproducibility assessments, 298 unresolved findings, and 71 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S041
+
+Status: **PASS**
+
+CR000048 preserves the supporting Chainer framework at the Stage-2-pinned commit a8e15cbe55a90854a3918b8b5a976abbbff9ec94 and relationship PRL000129 to Atlas paper 467. The pinned tree contains 1,804 blobs, a MIT license, setup.py/setup.cfg packaging, a broad define-by-run autodiff and neural-network API, CUDA/CuPy integration, datasets, tests and examples.
+
+This is a framework-level record with zero paper-specific experiments or configurations. Official examples, datasets and fixtures remain capability evidence; no Atlas-paper experiment is manufactured from them.
+
+The static reproducibility level is R2. README installation guidance, Python packaging metadata, source, tests and license are present, but exact dependency resolution, supported interpreter matrix, CUDA/CuPy pairing, result lineage and runtime regression status remain incomplete. Two source/documentation conflicts are retained: README names LICENSE while the pinned tree provides license.txt, and README advertises simple pip installation while CUDA support requires a separate CuPy installation contract. No source, environment, dependency, example, test, training, inference, evaluation or scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 55 resources, 103 experiments, 237 configurations, 734 evidence records, 55 reproducibility assessments, 306 unresolved findings, and 73 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.
