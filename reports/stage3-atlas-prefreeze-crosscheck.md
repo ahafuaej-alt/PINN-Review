@@ -1,88 +1,144 @@
-# Stage-3 Atlas Pre-Freeze Cross-Check
+# Stage-3 Atlas Pre-Freeze Cross-Check — REOPENED
 
 **Date:** 2026-09-02  
-**Stage-3 scientific schema authority:** `v0.6-pilot-passB`  
+**Stage-3 scientific schema authority under review:** `v0.6-pilot-passB`  
 **Atlas comparison source:** `ahafuaej-alt/PINN-Review` default/live `main` knowledge system  
-**Purpose:** answer one narrow question: **Can the finalized Stage-3 schema represent every major scientific dimension already present in the Atlas knowledge system?**
+**Current audit status:** **FREEZE SUSPENDED — deeper structural cross-check required**
 
-> **Scope boundary:** this is not a new ontology-design phase and not an Atlas re-analysis. The separate `data/computational-resources-stage3` branch and all computational-resources work are explicitly excluded from this audit.
+> **Scope boundary:** the separate `data/computational-resources-stage3` branch and all computational-resources work are explicitly excluded from this audit. No conclusion in this report is based on that branch.
 
-## Preconditions verified
+## Correction to the earlier audit
 
-- Pass B is complete: 8/8 adversarial papers verified.
-- `v0.6-pilot-passB` passed global regression QA across the 36-paper tested corpus.
-- Adopted Pass-B decisions are present in the authoritative schema/ontology documents, including:
-  - evidence-level `support_status` separated from `verification_status`;
-  - `fidelity_source_role[]`;
-  - `derived_output_method[]` as the sole post-inference scientific derivation field;
-  - optional v0.6 scheme-detail enrichment of `differentiation_method[]`;
-  - R-C20 exact-by-construction hard-constraint semantics;
-  - R-C21 dedicated parameter/coefficient-network relation.
-- Rejected/deferred structures remain rejected/deferred: no `solution_postprocessing[]`, no mandatory `study_component_id`, no `physical_knowledge_representation[]`; structured domain-decomposition enrichment remains deferred.
+The first version of this report used an expressibility criterion that was too permissive: a dimension was treated as represented when it could be retained somewhere in generic evidence, contribution prose, or typed relationships. That is insufficient for a pre-freeze schema audit. A scientific dimension is considered structurally represented only when the schema can preserve its identity, role, cardinality and scientifically important internal structure without forcing it into unrelated fields or unstructured evidence text.
 
-## Structural cross-check
+After inspecting the actual structured Atlas datasets behind the frameworks and PINN Ecosystem, the previous freeze verdict is withdrawn.
 
-| Atlas knowledge area / major structural dimension | Stage-3 representation | Status | Action |
-| --- | --- | --- | --- |
-| Physical problem, governing equations, BC/IC, computational role, forward/inverse/discovery/assimilation | `PAPER_PROBLEMS`, computational-task vocabulary, scientific objective | **Covered** | none |
-| Application domain → subdomain → concrete use → physical system | `PAPER_APPLICATIONS` hierarchy plus problem links | **Covered** | none |
-| Representation / architecture families, hybrids, operator learning, reduced/parameterized models | `PINN_architecture[]`, contribution fields, task/method terms, taxonomy and typed relationships | **Covered** | none |
-| Physics integration and enforcement | `physics_integration_mode[]`, `physics_enforcement[]`, governing/constraint fields, R-C20 and related relations | **Covered** | none |
-| Strong, weak, variational, energy, conservative, integral, nonlocal and discrete formulations | governing-equation/formulation terms + enforcement/integration + differentiation/numerical realization + evidence/relations | **Covered indirectly** | no new field |
-| Differentiation and numerical operator realization, including composite/stencil schemes | structured `differentiation_method[]` with v0.6 optional scheme detail | **Covered** | none |
-| Transformations, normalization, nondimensionalization, coordinate/input encoding and dependent-variable transforms | role-aware `transformation_method[]` | **Covered** | none |
-| Mixed/auxiliary-variable and dedicated parameter/coefficient-network formulations | architecture/method records + contribution/evidence relations; R-C21 where applicable | **Covered indirectly** | no new entity |
-| Spatial, space-time and temporal decomposition / sequential continuation | `domain_decomposition_method[]`, transfer/method terms and typed relations such as R-C14; detailed decomposition substructure remains evidence-bound | **Covered indirectly** | monitor recurrence only |
-| Loss construction, adaptive weighting, sampling and adaptive sampling | `loss_components[]`, `adaptive_weighting[]`, `sampling_strategy[]`, method relationships | **Covered** | none |
-| Optimizers and optimizer families | `optimizer[]`, taxonomy/aliases, evidence records | **Covered** | none |
-| Sequential, multiple or hybrid optimizer use; learning-rate schedules, initialization and stopping protocol | multi-valued optimizer/method evidence, contribution/solution-mechanism fields, reproducibility context and typed relations where scientifically needed | **Covered indirectly** | retain protocol detail in evidence; no pre-freeze field |
-| Activation / approximation-basis strategies | `activation_function[]`, architecture/method taxonomy, transformations kept semantically separate | **Covered** | none |
-| Multi-fidelity scientific source semantics | `fidelity_source_role[]` with fidelity level, source type, workflow role and evidence locator | **Covered** | none |
-| Derived scientific quantities after inference | `derived_output_method[]`; explicitly distinct from model-internal transformations | **Covered** | none |
-| Uncertainty methods, uncertainty propagation and probabilistic formulations | `uncertainty_method[]`, validation/evaluation structures and relationships such as R-C15 | **Covered** | none |
-| Performance metrics: accuracy, physics satisfaction, robustness, efficiency, uncertainty and comparison results | `EVALUATION_RESULTS`, `PAPER_VALIDATION`, outcomes and evidence | **Covered** | none |
-| Metric comparability context: test case, reference solution, baseline, conditions, normalization/data-regime context | test-case/conditions/reference-solution/comparator fields plus immutable evidence | **Covered indirectly** | no new metric entity |
-| Failure modes, challenges, symptoms, limitations, negative results, mitigations and verification loops | PINN challenge fields, `PAPER_OUTCOMES.reported_failure_cases[]`, `LIMITATIONS`, validation, contributions and typed relationships | **Covered indirectly** | no dedicated failure-map entity needed |
-| Atlas framework couplings, design dependencies and feedback/redesign relationships | `RELATIONSHIP_REGISTRY` + evidence-linked relations; underlying problem/representation/physics/numerics/training/reliability dimensions are explicit | **Covered indirectly** | framework visualization itself is synthesis, not extraction schema |
-| PINN type / ecosystem hierarchy, aliases, overlap and method relationships | `TAXONOMY_TERM_REGISTRY`, alias metadata, architecture/method dimensions, `RELATIONSHIP_REGISTRY` | **Covered** | none |
-| Software/framework use reported by papers | `software_framework[]`, contribution type, reproducibility fields and evidence | **Covered indirectly** | standalone software catalogue metadata is **Out of Stage-3 scope** |
-| Datasets and benchmark use reported by papers | validation data source, benchmark type, problem/equation/geometry, evaluation results, data availability/URL and evidence | **Covered indirectly** | standalone dataset-resource catalogue metadata is **Out of Stage-3 scope** |
-| Evidence provenance, verification, semantic support, mismatches and conflicts | immutable `EVIDENCE`, `evidence_source_role`, `verification_status`, `support_status` | **Covered** | none |
-| Cross-paper Atlas gaps/opportunities and synthesis | `ATLAS_RESEARCH_GAPS`, `ATLAS_RESEARCH_OPPORTUNITIES`; verified evidence only may feed synthesis | **Covered** | none |
+## Atlas structures that require explicit consideration
 
-## Candidate-omission adjudication
+### PINN Ecosystem
 
-The Atlas comparison exposed three areas that could superficially look like schema omissions, but none survives the existing-field expressibility test as a major missing dimension:
+The maintained Ecosystem is not just a visualization. Its generated data contract contains:
 
-1. **Training-protocol granularity** — learning-rate schedules, initialization, early stopping and optimizer sequencing are important protocol variables, but the Atlas itself treats several of these as training-method/protocol concepts rather than distinct PINN mathematical formulations. Stage 3 can preserve them through method/contribution records, optimizer multiplicity, reproducibility context, typed relations and immutable evidence. No information must be discarded, and no new mandatory field is justified before corpus extraction.
-2. **Framework graph structure** — the Design Stack, Co-Design map, Design–Performance matrix and Failure-Mode Diagnostics are Atlas synthesis/views. Their scientific primitives and relationships are representable; reproducing the visual graph/matrix as paper-level extraction fields would mix synthesis with primary extraction.
-3. **Standalone software/dataset resource profiles** — richer catalogue attributes such as software capability matrices or independent dataset-resource metadata belong to specialized Atlas resource layers. Stage 3 already captures scientifically reported software/dataset use, availability, benchmark context and provenance at paper level. A separate resource-catalogue schema is not required for the 853-paper scientific extraction.
+- 9 ordered design layers;
+- 35 normalized method groups;
+- 848 item occurrences / 795 unique item names in the current dataset;
+- 73 explicit directional relationships;
+- a seven-stage PINN Design Studio with **31 distinct configuration fields**.
 
-Because no candidate remained genuinely absent after this test, **no primary-paper omission adjudication was triggered**. Primary-paper checking remains the mandatory next step only if corpus extraction later reveals irreducible information loss rather than a preference for finer query granularity.
+The builder fields explicitly separate, among other dimensions:
 
-## Decision
+- governing physics;
+- problem characteristics;
+- computational role;
+- data regime;
+- model inputs;
+- model outputs;
+- architecture;
+- activation;
+- physics enforcement;
+- physical constraints;
+- objective/loss;
+- loss balancing;
+- differentiation;
+- sampling;
+- optimizer;
+- learning-rate strategy;
+- initialization;
+- scaling/normalization;
+- stabilization;
+- training strategy;
+- decomposition;
+- operator learning;
+- reduced-order/basis methods;
+- numerical hybrids;
+- uncertainty;
+- reuse/generalization;
+- parallel execution;
+- evaluation;
+- validation/benchmarking;
+- software/infrastructure;
+- reproducibility.
 
-> **Atlas pre-freeze cross-check passed. No major scientific dimension requires further schema modification. Stage-3 schema `v0.6-pilot-passB` is frozen for corpus extraction.**
+This stricter crosswalk exposes several Stage-3 dimensions that are not currently first-class or dimension-preserving in `v0.6-pilot-passB`. They must be adjudicated before freeze rather than dismissed merely because verbatim evidence could store the text.
 
-This freeze applies to the **scientific paper-extraction schema and ontology authority**. It does not freeze Atlas presentation/UI work, specialized software/dataset resource schemas, or the separately managed computational-resources work.
+### Framework data models
 
-## Audit sources
+The four maintained frameworks are backed by structured JSON scientific datasets, not only rendered graphs.
 
-### Authoritative Stage-3 scientific authority (Google Drive)
-- `01_Canonical_Schema_Field_Dictionary — v0.6-pilot-passB`
-- `02_Controlled_Vocabularies — v0.6-pilot-passB`
-- `04_Relationship_Registry — v0.6-pilot-passB`
-- `03_v0.6_Pass-B_Closure_QA_and_Regression_Report — PASSED`
+#### Design Stack & Feedback Loops
 
-### Atlas `main` structural sources inspected
-- `data/frameworks/frameworks.json` and framework runtime/data structure
-- `mathematical-formulations/` and `data/mathematical-formulations/manifest.json`
-- `performance-metrics/`
-- `architectures/` and shared section definitions
-- `training/` and shared section definitions
-- `optimizers/`
-- `pinn-types/`
-- `pinn-ecosystem/`
-- `applications/` and shared section definitions
-- `software/` and shared section definitions
-- `datasets/` and shared section definitions
+The dataset stores phases, stages, stage elements, forward dependencies, strong interdependencies, and evaluation-to-upstream redesign feedback. Feedback records include source/target stages, diagnostic labels, scientific summaries, and supporting evidence.
+
+#### Co-Design Framework
+
+The v2 dataset explicitly distinguishes directional scientific influence, independently supported reciprocal influence, verification dependence, and feedback. Relations may carry mechanisms, consequences, triggers and corrective actions. These semantics are richer than a generic unqualified relation edge.
+
+#### Design–Performance Dependency Matrix
+
+The maintained model is a 14 × 7 = 98-cell qualitative dependency structure. The v2 audit requires each cell to preserve a qualitative influence level, mechanism label, unique row–outcome identity, evidence scope, and explicit trade-off registration where applicable. It also stores outcome definitions/cautions/typical metrics and named cross-outcome trade-offs.
+
+#### Failure-Mode Diagnostics
+
+The maintained framework contains 13 diagnostic pathways. The base dataset separates each pathway into challenge/failure mode, observable symptoms, methodological responses, targeted improvement and evidence. The v2 diagnostic layer additionally stores:
+
+- discriminating checks;
+- confirmation metrics;
+- intervention trade-offs;
+- component-level evidence scope (`exact`, `pathway`, `unverified`);
+- verification outcomes and metrics;
+- cross-links to Design Stack, Co-Design, Design–Performance and Atlas concepts;
+- an explicit observe → hypothesize → check → intervene → verify → retain/re-diagnose workflow.
+
+These properties cannot be faithfully reconstructed from `PINN_challenge_addressed[]`, `reported_failure_cases[]`, `LIMITATIONS`, `PAPER_VALIDATION` and generic relationships alone without losing pathway identity and component-level diagnostic semantics.
+
+## Candidate structural gaps requiring adjudication
+
+The following are now **real pre-freeze candidates**, not automatically adopted fields yet:
+
+1. `problem_characteristics[]` or equivalent multi-valued problem-characterization structure.
+2. Structured `data_regime` representation for amount/sparsity, quality/noise and related regime attributes; this is distinct from multi-fidelity source role.
+3. Explicit model input representation.
+4. Explicit model output/state representation.
+5. Network configuration / hyperparameter detail beyond a boolean `hyperparameters_reported` flag.
+6. Explicit physical-constraint representation distinct from enforcement mechanism and loss terms.
+7. General loss-weighting/balancing representation broader than `adaptive_weighting[]` alone.
+8. Training-protocol structure covering learning-rate strategy, initialization, stabilization/regularization and staged/batch/curriculum/continuation strategy.
+9. Parallel/distributed execution strategy distinct from hardware reporting.
+10. A diagnostic-pathway representation capable of preserving failure mode → symptoms → discriminating checks → response → targeted improvement → verification, together with trade-offs and component-level evidence scope.
+11. Framework-level synthesis semantics for directional influence, feedback, qualitative design–performance dependency and trade-off structure must be explicitly adjudicated against the existing Relationship Registry rather than assumed representable.
+
+Some of these may be consolidated into carefully structured records rather than one field per Atlas UI control. The purpose of the next adjudication is to avoid both schema inflation and information loss.
+
+## Current decision
+
+> **The previous statement that the Atlas pre-freeze cross-check had passed is withdrawn. `v0.6-pilot-passB` is NOT yet frozen for the 853-paper corpus extraction.**
+
+Pass B itself remains scientifically completed and its v0.6 decisions remain valid. What is reopened is the **Atlas pre-freeze coverage check**, because the first audit did not inspect the framework and Ecosystem data contracts at sufficient structural depth.
+
+No mutation of the authoritative Google Drive schema/ontology has been made by this correction. Candidate additions must first be adjudicated against the v0.6 owner documents and, where necessary, checked against primary-paper evidence.
+
+## Sources inspected in the corrected audit
+
+- `data/pinn-ecosystem/README.md`
+- `data/pinn-ecosystem/pinn-ecosystem.json`
+- `data/pinn-ecosystem/reference-pinn-ecosystem-source.md`
+- `scripts/build-pinn-ecosystem.mjs`
+- `scripts/validate-pinn-ecosystem.mjs`
+- `data/frameworks/design-stack.json`
+- `data/frameworks/co-design.json`
+- `data/frameworks/co-design-v2.json`
+- `data/frameworks/design-performance.json`
+- `data/frameworks/design-performance-v2.json`
+- `data/frameworks/failure-diagnostics.json`
+- `data/frameworks/failure-diagnostics-v2.json`
+
+## Next audit gate
+
+Perform a strict field-by-field crosswalk from the Ecosystem 31-field design contract and the four framework scientific data models to the five v0.6 ontology owner documents. Classify each dimension as:
+
+- directly represented;
+- represented by a scientifically equivalent structured field;
+- synthesis-only and intentionally external to paper extraction;
+- genuine structured omission requiring schema change.
+
+Only after all genuine omissions are resolved and regression-tested may the Stage-3 corpus schema be frozen.
