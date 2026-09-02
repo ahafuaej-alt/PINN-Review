@@ -531,6 +531,20 @@ CR000045 preserves the redirected official neuraloperator/neuraloperator reposit
 
 Cumulative totals are 52 resources, 100 experiments, 225 configurations, 694 evidence records, 52 reproducibility assessments, 281 unresolved findings, and 69 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S039
+
+Status: **PASS**
+
+CR000046 preserves the redirected supplementary graph-pde repository at the Stage-2-pinned commit c28220a6558554a193303975adb60d8857d48c0c and relationship PRL000127 to Atlas paper 465. The pinned tree contains 27 blobs, MIT licensing, simple GKN/MGKN Python scripts, README documentation and no dependency manifest or bundled data directory.
+
+Three source-backed experiment families and twelve configurations are recorded: GKN Darcy full-resolution/equation variants; GKN resolution, equation-sample, sample-generalization, radius and evaluation variants; and GKN/MGKN Darcy and Burgers scripts. The paper relationship is supplementary code, and scripts, utilities and external MAT datasets are kept within their demonstrated scope.
+
+Two source conflicts remain explicit. The README calls the scripts stand-alone/directly runnable, while entrypoints require external MAT files and hard-code CUDA. The MGKN README instructs users to run multigraph1.py/multigraph2.py, but those filenames are absent from the pinned tree and the available scripts use different names.
+
+The static reproducibility level is R1. README-level PyTorch/PyG requirements, source entrypoints and dataset links are present, but no installable dependency manifest, exact versions, bundled data, portable CPU path, seeds or result lineage is available. No source, environment, data, model, training, inference, evaluation, plotting or solver workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 53 resources, 103 experiments, 237 configurations, 714 evidence records, 53 reproducibility assessments, 291 unresolved findings, and 71 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

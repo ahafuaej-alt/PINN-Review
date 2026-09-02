@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S038
+Checkpoint: Stage3-S039
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -329,12 +329,23 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0280 | CR000045 | alternate_model_scope_bounded | low | Many model modules lack separate paper-scoped run contracts. | They remain capability evidence. |
 | S3U-0281 | CR000045 | hardware_matrix_partial | low | CPU is explicit in the gallery while larger drivers support distributed/GPU execution without one matrix. | Cross-hardware reproducibility remains open. |
 
+| S3U-0282 | CR000046 | dependency_manifest_unavailable | high | The pinned graph-pde tree has no requirements, environment or packaging manifest. | Exact runtime reconstruction is unavailable. |
+| S3U-0283 | CR000046 | external_dataset_unopened | high | GKN and MGKN scripts reference external MAT files and a Google Drive dataset, none of which is bundled or opened. | Training/test arrays and schemas remain unverified. |
+| S3U-0284 | CR000046 | pytorch_geometric_version_unknown | medium | README names PyTorch and PyTorch Geometric without versions. | Graph-convolution compatibility remains release-sensitive. |
+| S3U-0285 | CR000046 | cuda_hard_coded | high | Multiple entrypoints construct cuda devices and call .cuda() directly. | The advertised scripts lack a verified portable CPU execution path. |
+| S3U-0286 | CR000046 | standalone_claim_source_conflict | high | README calls scripts stand-alone/directly runnable, but they require external MAT files and hard-coded local data paths. | The documented run contract is incomplete. |
+| S3U-0287 | CR000046 | mgkn_filename_documentation_conflict | medium | MGKN README instructs multigraph1.py and multigraph2.py, but those filenames are absent from the pinned tree. | The documented MGKN launch commands do not resolve to pinned files. |
+| S3U-0288 | CR000046 | random_seed_partial | low | Only some MGKN scripts set torch and NumPy seeds; most GKN variants do not show an explicit seed. | Reproducibility differs across configurations. |
+| S3U-0289 | CR000046 | binary_dataset_unopened | high | Referenced MATLAB datasets remained unopened under the static-only boundary. | Exact sample membership, fields and values remain unknown. |
+| S3U-0290 | CR000046 | result_lineage_unavailable | medium | Scripts save models/results but the pinned tree has no generated run record or verified result bundle. | Published numeric claims cannot be linked to a pinned execution. |
+| S3U-0291 | CR000046 | paper_mapping_variant_scope | low | The resource serves both the GKN supplementary code and MGKN companion code while PRL000127 is scoped to paper 465 supplementary code. | MGKN records remain source-backed but are not silently treated as paper-465 official results. |
+
 ## Conflict handling
 
-Sixty-nine explicit `conflicting_evidence` findings exist through Stage3-S038. Two new source findings cover the omitted PyTorch dependency and the Navier-Stokes default data path; neither alters the closed Stage-2 identity or relationship.
+Seventy-one explicit `conflicting_evidence` findings exist through Stage3-S039. Two new source findings cover the stand-alone/data-path claim and the MGKN README filenames; neither alters the closed Stage-2 identity or relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000046. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000047. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
