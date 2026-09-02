@@ -8,22 +8,22 @@ Status date: 2026-09-02
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S039 |
-| Next scale-out checkpoint | Stage3-S039 |
-| Last completed resource | CR000047 |
-| Next resource | CR000047 |
-| Next planned checkpoint resources | CR000047 |
+| Last completed scale-out checkpoint | Stage3-S040 |
+| Next scale-out checkpoint | Stage3-S040 |
+| Last completed resource | CR000048 |
+| Next resource | CR000048 |
+| Next planned checkpoint resources | CR000048 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 53 |
+| Completed Stage-3 resource count | 54 |
 | Remaining Stage-3 registry resource count | 316 |
 | Approved pilot resources completed | 10 / 10 |
 | Completed experiment count | 103 |
 | Completed configuration count | 237 |
-| Technical evidence records | 714 |
-| Static reproducibility assessments | 53 |
+| Technical evidence records | 724 |
+| Static reproducibility assessments | 54 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 291 |
-| Next unresolved ID | S3U-0292 |
+| Current unresolved technical item count | 298 |
+| Next unresolved ID | S3U-0299 |
 | Current conflicting-evidence finding count | 71 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
@@ -102,9 +102,9 @@ Completed checkpoints:
 - `Stage3-S034`: `CR000041`
 - `Stage3-S035`: `CR000042`
 - `Stage3-S036`: `CR000043`
-- `Stage3-S039`: `CR000047`
+- `Stage3-S040`: `CR000048`
 
-The batch remains open; the exact next resource is `CR000047`.
+The batch remains open; the exact next resource is `CR000048`.
 
 ## Continuation rule
 
@@ -156,8 +156,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S034`: `CR000041` — QA PASS; adaptive single-resource official adversarial-UQ PINN checkpoint with 3 experiment families, 5 configurations, 20 evidence records, and 1 reproducibility assessment.
 - `Stage3-S035`: `CR000042` — QA PASS; adaptive single-resource official physics-constrained surrogate checkpoint with 3 experiment families, 9 configurations, 24 evidence records, and 1 reproducibility assessment.
 - `Stage3-S036`: `CR000043` — QA PASS; adaptive single-resource supporting torchdiffeq framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
-- `Stage3-S039`: `CR000047` — QA PASS; adaptive single-resource accepted non-PINN CNN sample-code checkpoint with 1 experiment, 1 configuration, 12 evidence records, and 1 reproducibility assessment.
+- `Stage3-S040`: `CR000048` — QA PASS; adaptive single-resource accepted non-PINN CNN sample-code checkpoint with 1 experiment, 1 configuration, 12 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S039`** with **`CR000047`**.
+Start **`Stage3-S040`** with **`CR000048`**.

@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S039
+Checkpoint: Stage3-S040
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -340,12 +340,20 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0290 | CR000046 | result_lineage_unavailable | medium | Scripts save models/results but the pinned tree has no generated run record or verified result bundle. | Published numeric claims cannot be linked to a pinned execution. |
 | S3U-0291 | CR000046 | paper_mapping_variant_scope | low | The resource serves both the GKN supplementary code and MGKN companion code while PRL000127 is scoped to paper 465 supplementary code. | MGKN records remain source-backed but are not silently treated as paper-465 official results. |
 
+| S3U-0292 | CR000047 | transitive_dependency_lock_unavailable | low | pyproject.toml declares NumPy bounds but no complete transitive lock for every supported interpreter. | Exact environment resolution remains variable. |
+| S3U-0293 | CR000047 | application_contract_not_applicable | low | The supporting autodiff library does not define one paper-specific solver, dataset or hardware contract. | Downstream scientific reproducibility requires caller-specific settings. |
+| S3U-0294 | CR000047 | scipy_optional_path | medium | SciPy integration is optional while several examples and wrappers use SciPy-backed functionality. | Those paths require the optional extra to be installed. |
+| S3U-0295 | CR000047 | seed_not_applicable_framework | low | No framework-level random seed contract applies to the generic differentiation library. | Application-level stochastic reproducibility remains the caller's responsibility. |
+| S3U-0296 | CR000047 | example_execution_unverified | low | Examples are present but were not executed under the static-only boundary. | Example runtime behavior remains unverified. |
+| S3U-0297 | CR000047 | test_execution_unverified | low | Tests and coverage configuration are present but the suite was not run. | Runtime regression status remains unverified. |
+| S3U-0298 | CR000047 | paper_result_bundle_not_applicable | low | No Atlas-paper dataset, checkpoint or generated result bundle is deposited in the supporting library. | The relationship remains software context rather than reproduced paper results. |
+
 ## Conflict handling
 
-Seventy-one explicit `conflicting_evidence` findings exist through Stage3-S039. Two new source findings cover the stand-alone/data-path claim and the MGKN README filenames; neither alters the closed Stage-2 identity or relationship.
+Seventy-one explicit `conflicting_evidence` findings exist through Stage3-S040. No new conflict finding was required for the supporting Autograd library; the closed Stage-2 identity and relationship remain unchanged.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000047. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000048. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

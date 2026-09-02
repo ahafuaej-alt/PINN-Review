@@ -545,6 +545,18 @@ The static reproducibility level is R1. README-level PyTorch/PyG requirements, s
 
 Cumulative totals are 53 resources, 103 experiments, 237 configurations, 714 evidence records, 53 reproducibility assessments, 291 unresolved findings, and 71 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S040
+
+Status: **PASS**
+
+CR000047 preserves the supporting HIPS/autograd library at the Stage-2-pinned commit 66c591a040e5c3b93a9169b9c7ded74c021f1ff6 and relationship PRL000128 to Atlas paper 467. The pinned tree contains 138 blobs, a MIT license, pyproject packaging metadata, reverse- and forward-mode differentiation APIs, NumPy/SciPy wrappers, tests and general examples.
+
+This is a framework-level record with zero paper-specific experiments and configurations. Examples such as Bayesian neural networks, ODE fitting and regression remain capability evidence; no scientific workload is promoted into the Atlas hierarchy.
+
+The static reproducibility level is R2. The package supplies a versioned project declaration, Python requirement, NumPy dependency, optional SciPy dependency, installation instructions and license. Exact transitive resolution and application-specific numerical contracts remain open. No source, environment, dependency, example, test, differentiation, ODE, optimization or scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 54 resources, 103 experiments, 237 configurations, 724 evidence records, 54 reproducibility assessments, 298 unresolved findings, and 71 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.
