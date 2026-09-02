@@ -417,6 +417,20 @@ The static reproducibility level is R1. No dependency manifest, Python version, 
 
 Cumulative totals are 43 resources, 83 experiments, 195 configurations, 551 evidence records, 43 reproducibility assessments, 204 unresolved findings, and 57 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S030
+
+Status: **PASS**
+
+`CR000037` preserves the Stage-2-pinned `mcekwonu/Hidden-Fluid-Mechanics-Pytorch` snapshot at `6bebe205d938e1e3bac6a9ea4edf7394af1a9940`, its MIT license, and the verified `PRL000113` paper-resource mention to Atlas paper 431. The complete tree contains 18 entries and 13 blobs: one PyTorch source workflow, its network/utilities modules, a bundled cylinder-wake MAT dataset, one checkpoint, four animations, two figures, a README, and no dependency manifest.
+
+One repository-native cylinder-wake experiment/configuration is recorded. The source uses 5% of velocity-field data, one million Latin-hypercube equation points, a 3→10×20→3 network, sine activation, Xavier initialization, Adam with ReduceLROnPlateau, 10,000 epochs, a 10⁻⁴ learning rate, and Re=100. It predicts pressure and vorticity and produces selected-time comparisons, error plots, animations, and drag/lift outputs. The README advertises vanilla, resnet, and DenseResNet options; only the main `resnet` route is retained as the selected configuration, while unselected branches remain capability evidence.
+
+Two scoped conflicts remain explicit. The paper infers hidden velocity and pressure from passive-scalar visualizations, whereas this supporting reimplementation trains on velocity fields and predicts pressure/vorticity. In addition, the main block passes `nn_type="resnet"` but the constructor dispatches that label to `Neural_Net`, despite a distinct `ResNet` class being defined.
+
+The static reproducibility level is R1. No dependency manifest, Python/package versions, installation command, or lockfile is supplied; `pyDOE` is imported but undeclared. Although a MAT dataset, checkpoint, figures, and animations are present, their payloads remained unopened, so schemas, tensors, metrics, and source-to-result lineage were not independently verified. The entrypoint requires an interactive resume/new prompt and uses plotting/show calls, with no documented headless workflow. No code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plotting, or animation workflow was executed.
+
+Cumulative totals are 44 resources, 84 experiments, 196 configurations, 564 evidence records, 44 reproducibility assessments, 212 unresolved findings, and 59 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

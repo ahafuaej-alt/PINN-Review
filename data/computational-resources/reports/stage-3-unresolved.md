@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S029
+Checkpoint: Stage3-S030
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -212,6 +212,14 @@ Phase: controlled scale-out in progress
 | S3U-0202 | CR000036-E002-C002 | `systematic_sweep_completion_unknown` | medium | Flower systematic launchers enumerate many time-snapshot/spatial-point combinations, but no completion logs or per-run result mapping is deposited. | The sweep definition is known, but completed-trial coverage is not. |
 | S3U-0203 | CR000036-E002-C003 | `noise_sweep_determinism_unknown` | medium | Noise is supplied as a command-line scalar and multiplied by a random Gaussian field; no seed or completed output lineage is recorded. | Exact noisy observations and robustness results cannot be reproduced from source metadata alone. |
 | S3U-0204 | CR000036-E005-C002 | `aneurysm_shear_reference_unavailable` | high | `Aneurysm3D_Wall_Stresses.py` requires `real_aneurysm_shear.mat` with surface coordinates, normals, and reference stresses, but it is external and remained unopened. | Wall-shear result verification and exact post-processing reconstruction are unavailable. |
+| S3U-0205 | CR000037 | `dependency_manifest_unavailable` | high | The pinned PyTorch reimplementation contains no requirements file, environment file, package lock, Python version, or installation command; `pyDOE` is imported but undeclared. | Exact environment reconstruction and R2 installation sufficiency are unavailable. |
+| S3U-0206 | CR000037 | `installation_sequence_unavailable` | medium | README describes model families and data but supplies no dependency-install, working-directory, or command sequence. | Portable end-to-end execution is not documented. |
+| S3U-0207 | CR000037 | `paper_observable_mapping_conflict` | high | Paper 431 uses passive-scalar observations to infer hidden velocity/pressure, while the reimplementation trains on velocity fields and predicts pressure/vorticity. | The supporting source is not an exact static reconstruction of the official HFM input/output workflow. |
+| S3U-0208 | CR000037-E001-C001 | `resnet_dispatch_conflict` | high | The main block selects `nn_type="resnet"`, but the constructor dispatches that case to `Neural_Net`; a separate `ResNet` class is defined but not selected. | The selected model label does not identify the class actually instantiated by the active main route. |
+| S3U-0209 | CR000037 | `binary_artifact_lineage_partial` | medium | The MAT dataset, PTH checkpoint, PNG figures, and GIF animations are deposited without run IDs, checksums connecting them to source execution, or numeric acceptance targets. | Artifact availability does not establish exact training/result provenance. |
+| S3U-0210 | CR000037 | `binary_payloads_unopened` | medium | The bundled MAT and PTH payloads and archived figure/animation files remained unopened under the static-only boundary. | Array schemas, checkpoint tensors, plotted values, and metrics remain unverified. |
+| S3U-0211 | CR000037 | `interactive_headless_workflow_partial` | medium | The source asks interactively whether to resume or start new training and invokes `plt.show()` in plotting paths; no headless option is documented. | Portable unattended execution requires inferred interaction/backend settings. |
+| S3U-0212 | CR000037-E001-C001 | `unselected_model_branch_coverage_partial` | medium | The repository defines vanilla, resnet, and DenseResNet branches, but the main block selects only the resnet label and no per-branch run artifacts or logs are deposited. | Completed-trial coverage for the advertised alternatives cannot be established. |
 
 ## Source-scope handling
 
@@ -253,10 +261,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Fifty-seven explicit `conflicting_evidence` findings exist through Stage3-S029. Four new evidence records scope CR000036's activation/width mismatch, auxiliary-output mismatch, training-schedule mismatch, and extra repository-variant scope without changing the official relationship.
+Fifty-nine explicit `conflicting_evidence` findings exist through Stage3-S030. Two new evidence records scope CR000037's passive-scalar versus velocity-observation boundary and the resnet-label dispatch mismatch without changing the paper-resource relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S029, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000037. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S030, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000038. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
