@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S034
+Latest scale-out checkpoint: Stage3-S035
 
 ## Pilot QA
 
@@ -482,6 +482,20 @@ One source-scoped conflict remains explicit. The noisy Burgers driver comment ca
 The static reproducibility level is R1. Source entrypoints, model structures, benchmark filenames, sampling sizes, training iterations, and uncertainty outputs are visible, but exact dependencies, runtime versions, license, portable installation sequence, checkpoint/result lineage, and binary payload schemas are unavailable or incomplete. MAT, NPZ, PNG, PYC, and notebook payloads remained unopened, and no source, environment, dependency, notebook, data, model, training, inference, evaluation, plotting, or solver workflow was executed; R5 remains prohibited.
 
 Cumulative totals are 48 resources, 93 experiments, 208 configurations, 628 evidence records, 48 reproducibility assessments, 246 unresolved findings, and 64 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S035
+
+Status: **PASS**
+
+`CR000042` preserves the official `cics-nd/pde-surrogate` repository at the Stage-2-pinned commit `b39c8d3caec59fe7253f5cf7171558d83835a8a3` and official relationship `PRL000120` to Atlas paper 445. The pinned tree contains source modules, an MIT license, `requirements.txt`, dataset/checkpoint download scripts, and supporting post-processing utilities. External HDF5 datasets and downloaded probabilistic checkpoints are not part of the pinned payload.
+
+Three source families are represented by nine configurations: deterministic DenseED encoder-decoder surrogates with physics-constrained mixed residual or labeled maximum-likelihood training, conditional Glow reverse-KL probabilistic surrogates at KLE100/32×32 and KLE512/64×64, and direct Darcy solvers using ConvNet linear/nonlinear branches and a fully connected mixed-residual branch. The README-defined warped-GRF and channelized options remain bounded to source selectors where no separate entrypoint or result bundle warrants additional records.
+
+Two source-scoped conflicts remain explicit. The mixed-residual test function prints `loss_train` although that name is defined in the outer training loop rather than the test scope. The conditional Glow test function uses `log_likeihood` for entropy reporting without a visible local assignment. These defects are recorded as evaluation-path limitations and are not source-repaired.
+
+The static reproducibility level is R2. The repository supplies an MIT license, dependency declaration, dataset/checkpoint download scripts, README commands, source entrypoints, and documented architecture/training settings. Exact dependency resolution remains incomplete because requirements are range-based and include `python=3.6` and `json` entries that are not a clean pip lock; external HDF5/checkpoint payloads and generated results remained unopened. No source, environment, dependency, notebook, data, model, checkpoint, solver, training, inference, evaluation, plotting, or FEniCS workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 49 resources, 96 experiments, 217 configurations, 652 evidence records, 49 reproducibility assessments, 256 unresolved findings, and 66 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

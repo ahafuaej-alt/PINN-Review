@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S034
+Checkpoint: Stage3-S035
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -254,6 +254,16 @@ Phase: controlled scale-out in progress
 | S3U-0244 | CR000041-E001-C002 | `noisy_burgers_annotation_implementation_conflict` | high | The noisy Burgers source comment says the noise-free case is zero while `err_var=0.1` and a noisy initial-condition transform are implemented. | The annotation cannot be used to characterize the selected configuration without favoring one source statement. |
 | S3U-0245 | CR000041 | `tutorial_scope_not_promoted` | low | The repository tutorial is not tied to a separate paper experiment beyond shared UQPINN capability. | Tutorial content remains supporting evidence rather than an additional configuration. |
 | S3U-0246 | CR000041 | `paper_result_mapping_partial` | medium | The pinned source exposes benchmark drivers and reference filenames, but unopened payloads and absent result lineage prevent exact paper-result reconstruction. | Paper-level reported metrics remain bounded source/paper evidence, not reproduced results. |
+| S3U-0247 | CR000042 | `requirements_manifest_imprecision` | high | `requirements.txt` uses lower bounds and includes `python=3.6` and `json` entries that do not form a clean pip-installable lock. | Exact dependency reconstruction and portable installation remain incomplete. |
+| S3U-0248 | CR000042 | `runtime_version_partial` | medium | PyTorch, torchvision and plotting dependencies are not frozen to exact compatible versions. | Cross-version behavior and model serialization compatibility remain uncertain. |
+| S3U-0249 | CR000042 | `external_dataset_payloads` | high | Required HDF5 benchmark datasets are downloaded by shell scripts and are absent from the pinned source tree. | Dataset bytes, schemas and exact split membership are not independently verified. |
+| S3U-0250 | CR000042 | `external_checkpoint_payloads` | medium | Probabilistic checkpoints are acquired by a download script and are not part of the pinned tree. | Pretrained model identity and result lineage are unavailable from the snapshot alone. |
+| S3U-0251 | CR000042 | `fenics_reference_dependency` | high | The nonlinear ConvNet solver delegates reference generation to FEniCS 2018.1.0, with no verified local runtime or platform contract. | The nonlinear reference path cannot be reconstructed within the static snapshot. |
+| S3U-0252 | CR000042 | `generated_result_artifacts_absent` | medium | Training and solver scripts write experiment outputs, but no complete generated result bundle is tracked at the pinned commit. | Reported metrics cannot be independently linked to source execution. |
+| S3U-0253 | CR000042 | `labeled_comparison_scope` | low | The maximum-likelihood codec path requires output labels and is a comparison family alongside the paper's input-only method. | It remains a source-defined baseline, not evidence that the paper's no-label claim uses labels. |
+| S3U-0254 | CR000042-E001-C001 | `mixed_residual_test_variable_conflict` | high | The mixed-residual test function prints `loss_train` although that variable is outside the function's local scope. | The documented evaluation path is not source-complete without repair. |
+| S3U-0255 | CR000042-E002-C001 | `cglow_test_variable_conflict` | high | The conditional Glow test function uses `log_likeihood` for entropy reporting without a visible local assignment. | The entropy/evaluation path is not source-complete without repair. |
+| S3U-0256 | CR000042 | `cuda_working_directory_contract_partial` | medium | Entry points expose explicit CUDA indices and repository-relative dataset/output paths but do not define a portable CPU/headless contract. | Cross-machine execution setup remains environment-sensitive. |
 
 ## Source-scope handling
 
@@ -295,10 +305,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Sixty-four explicit `conflicting_evidence` findings exist through Stage3-S034. One new configuration-scoped finding covers the noisy Burgers annotation versus implementation; it does not alter the closed Stage-2 identity or relationship.
+Sixty-six explicit `conflicting_evidence` findings exist through Stage3-S035. Two new configuration-scoped findings cover undefined evaluation-path variables in the mixed-residual and conditional Glow tests; they do not alter the closed Stage-2 identity or relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S034, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000042. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S035, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000043. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
