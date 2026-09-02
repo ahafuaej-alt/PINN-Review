@@ -108,7 +108,8 @@ Completed checkpoints:
 - Stage3-S040: CR000047
 - Stage3-S041: CR000048
 - Stage3-S042: CR000050
-- Stage3-S045: CR000052
+- Stage3-S043: CR000051
+- Stage3-S044: CR000052
 
 The batch remains open; the exact next resource is CR000053.
 
