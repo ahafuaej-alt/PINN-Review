@@ -52,18 +52,6 @@ async function requestJson(url, token) {
   return response.json();
 }
 
-export async function getCurrentSite(apiBase, token, siteCode) {
-  const response = await requestJson(new URL(`${apiBase}/sites`), token);
-  assert(Array.isArray(response.sites), 'GoatCounter sites response must contain a sites array.');
-  const normalizedCode = String(siteCode || '').trim().toLowerCase();
-  const site = response.sites.find((candidate) => String(candidate?.code || '').trim().toLowerCase() === normalizedCode);
-  assert(site, `The API token cannot access GoatCounter site ${normalizedCode}.`);
-  return {
-    code: normalizedCode,
-    receivedData: site.received_data === true
-  };
-}
-
 async function getTotal(apiBase, token, start, end) {
   const url = new URL(`${apiBase}/stats/total`);
   url.searchParams.set('start', start.toISOString());
@@ -88,6 +76,20 @@ async function getLocations(apiBase, token, start, end) {
     await wait(275);
   }
   return rows;
+}
+
+export async function getReachStatistics(apiBase, token, allTimeStart, recentStart, end) {
+  const [total, last30Days] = await Promise.all([
+    getTotal(apiBase, token, allTimeStart, end),
+    getTotal(apiBase, token, recentStart, end)
+  ]);
+
+  if (total === 0) {
+    return { total, last30Days, locations: [] };
+  }
+
+  const locations = await getLocations(apiBase, token, allTimeStart, end);
+  return { total, last30Days, locations };
 }
 
 export function normalizeCountries(rows) {
@@ -155,19 +157,17 @@ export async function updateSiteReach() {
   const recentStart = new Date(now.getTime() - (30 * 24 * 60 * 60 * 1000));
   const apiBase = `https://${siteCode.toLowerCase()}.goatcounter.com/api/v0`;
 
-  const site = await getCurrentSite(apiBase, token, siteCode);
-  let total = 0;
-  let last30Days = 0;
-  let locations = [];
-  if (site.receivedData) {
-    [total, last30Days, locations] = await Promise.all([
-      getTotal(apiBase, token, allTimeStart, now),
-      getTotal(apiBase, token, recentStart, now),
-      getLocations(apiBase, token, allTimeStart, now)
-    ]);
-  } else {
-    console.log('GoatCounter has no pageviews yet; publishing an active zero-count snapshot to begin collection.');
+  const { total, last30Days, locations } = await getReachStatistics(
+    apiBase,
+    token,
+    allTimeStart,
+    recentStart,
+    now
+  );
+  if (total === 0) {
+    console.log('GoatCounter reports zero visits; skipping location statistics until traffic exists.');
   }
+
   const snapshot = buildSnapshot({ siteCode, trackingStartedAt, updatedAt: now, total, last30Days, locations });
   const temporaryPath = `${outputPath}.tmp`;
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
