@@ -389,6 +389,20 @@ The static reproducibility level is R3. README names Python 3, PyTorch >=0.4, Te
 
 Cumulative totals are 41 resources, 75 experiments, 179 configurations, 506 evidence records, 41 reproducibility assessments, 179 unresolved findings, and 50 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S028
+
+Status: **PASS**
+
+`CR000035` preserves the Stage-2-pinned `Raocp/PINN-laminar-flow` snapshot at `d34fc037f16a8e79dd8c01a0e3dd6389297634ee` and the official `PRL000111` relationship to Atlas paper 427. The complete tree contains eight blobs totaling 6,573,908 bytes: two Python sources, one Fluent MAT reference file, two pickle checkpoints, one PNG, one GIF, and one README; no repository license is present. Two experiment/configuration pairs represent the materialized steady and transient circular-cylinder workflows.
+
+Both sources use the mixed-variable formulation: a neural network predicts stream function, pressure, and stress components; automatic differentiation forms momentum and constitutive residuals; and the stream function enforces two-dimensional incompressibility. The steady source uses an 8×40 tanh network with five outputs, 40,000 LHS candidates plus 10,000 near-cylinder refinement candidates, a 2-weighted boundary loss, and a 10,000-step Adam continuation at 5×10⁻⁴ followed by L-BFGS-B. The transient source uses a 7×50 tanh network with affine input scaling, 80,000 base plus 21,000 refinement candidates, a quiescent initial condition, 0.5 s duration, Umax=0.5 m/s and T=1.0 s, and 5,000 Adam steps at 5×10⁻⁴ followed by L-BFGS-B. Both sources set Python, NumPy, and TensorFlow seeds to 1234.
+
+Three scoped conflicts remain explicit. The steady source starts from approximately 50,000 interior/refined candidates and appends boundary arrays, rather than reproducing the paper's stated 50,000-point inclusive accounting. The transient source's constructed candidate/boundary counts and explicit wall/inlet weights of 5 differ from the paper's 120,000-point, 9,600/3,200/3,500 partition and β=2 description. Finally, the source-visible transient evaluation traces only P1 and does not call its Fluent reference loader, whereas the paper reports three probe histories compared with ANSYS Fluent.
+
+The static reproducibility level is R1. The README identifies GPU TensorFlow 1.10.0, but no dependency manifest, installation command, or portable run sequence exists; source comments refer to TensorFlow v1.9 and use legacy `tf.contrib`. Checkpoints and result media are present, but their payloads and the Fluent MAT reference remained unopened, so numeric values and source-to-result lineage were not independently verified. Hard-coded GPU identifiers and interactive plotting further limit portability. No code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plotting, or result workflow was executed.
+
+Cumulative totals are 42 resources, 77 experiments, 181 configurations, 524 evidence records, 42 reproducibility assessments, 189 unresolved findings, and 53 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

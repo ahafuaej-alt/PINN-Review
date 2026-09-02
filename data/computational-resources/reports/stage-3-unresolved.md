@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S027
+Checkpoint: Stage3-S028
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -187,6 +187,16 @@ Phase: controlled scale-out in progress
 | S3U-0177 | CR000034 | `binary_artifact_lineage_partial` | medium | Twenty-three NPZ files, six PT checkpoints, 11 PNGs, three PYC files, and 71 members of the nested OpenFOAM ZIP were inventoried statically but remained unopened; no run IDs or checksums map them to exact paper trials. | Numeric arrays, model tensors, plotted values, and exact source-to-paper lineage remain unverified, blocking R4. |
 | S3U-0178 | CR000034-E001-C001 | `saved_notebook_execution_error` | medium | The checkpoint notebook retains a saved `AttributeError` stating that `tensorflow_core.compat.v1` has no `contrib`; the primary notebook has no saved outputs and the producing environment is unspecified. | A historical incompatible execution is preserved, but it does not establish behavior under the README-specified TensorFlow 1.15 environment. |
 | S3U-0179 | CR000034-E002-C001 | `headless_workflow_partial` | medium | `main.py` opens an interactive Matplotlib window before invoking training, and no non-interactive or headless option is documented. | Portable unattended execution requires an inferred backend or source change. |
+| S3U-0180 | CR000035 | `dependency_manifest_unavailable` | medium | The repository contains no requirements file, environment file, setup metadata, or installation command; dependencies must be inferred from imports and the README. | Exact environment reconstruction and a portable installation remain unavailable. |
+| S3U-0181 | CR000035 | `legacy_tensorflow_version_conflict` | medium | README states GPU TensorFlow 1.10.0 while both source headers refer to TensorFlow v1.9 and the code uses legacy `tf.contrib` APIs. | A compatible legacy TensorFlow environment cannot be selected from the repository alone. |
+| S3U-0182 | CR000035 | `portable_run_sequence_unavailable` | medium | README identifies folders and results but supplies no clone, dependency-install, working-directory, or command sequence for either Python entrypoint. | Reproduction requires inferred setup and invocation steps. |
+| S3U-0183 | CR000035-E001-C001 | `steady_collocation_accounting_conflict` | high | The paper states 50000 total collocation points including 1200 Dirichlet and 200 Neumann points, while the source generates 40000 plus 10000 candidate/refinement points and appends explicit boundary arrays after cylinder deletion. | The source construction is not accepted as an exact reconstruction of the paper's inclusive point budget. |
+| S3U-0184 | CR000035-E002-C001 | `transient_collocation_accounting_conflict` | high | The paper states 120000 total points with 9600 Dirichlet, 3200 Neumann, and 3500 initial points; the source constructs 101000 LHS candidates plus separate grids whose post-deletion final accounting is not reported. | Exact source-to-paper sampling equivalence remains unresolved without execution or additional provenance. |
+| S3U-0185 | CR000035-E002-C001 | `transient_boundary_weight_conflict` | high | The paper reports β=2 for the transient case, while the source loss uses weights 5 for wall and inlet terms and 1 for outlet and initial terms. | The deposited transient optimization objective differs from the paper's stated weighting description. |
+| S3U-0186 | CR000035-E002-C001 | `transient_probe_reference_coverage_partial` | high | The paper reports pressure histories at P1, P2, and P3 against ANSYS Fluent; the source-visible transient main block traces only P1 and does not call its Fluent reference loader. | The repository does not statically reconstruct the complete reported evaluation comparison. |
+| S3U-0187 | CR000035 | `checkpoint_result_lineage_partial` | medium | Two pickle checkpoints and PNG/GIF result media are deposited, but no run identifier, training log, checksum map, or source-to-result provenance is supplied. | The artifacts establish availability, not exact paper-trial lineage or numerical acceptance. |
+| S3U-0188 | CR000035 | `binary_payloads_unopened` | medium | The Fluent MAT reference, both pickle checkpoints, PNG, and GIF were inventoried but remained unopened under the static-only boundary. | Array schemas, tensors, plotted values, and numerical results remain unverified. |
+| S3U-0189 | CR000035 | `hard_coded_gpu_and_interactive_workflow` | medium | The two scripts select GPU 0 and GPU 1 separately and call interactive plotting functions; no CPU or headless option is documented. | Portable unattended execution is not established. |
 
 ## Source-scope handling
 
@@ -224,12 +234,14 @@ For `CR000033`, `PRL000109` remains an official relationship to Atlas paper 419.
 
 For `CR000034`, `PRL000110` remains an official relationship to Atlas paper 425. Two experiment/configuration pairs correspond to the source-materialized pipe-viscosity and aneurysm-geometry workflows. The paper's stenosis and fixed-geometry viscosity studies remain paper-scoped, and the pipe implementation is retained as explicit source-scoped conflicting evidence rather than silently overwritten by the paper-wide architecture and optimizer settings.
 
+For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427. Two experiment/configuration pairs correspond to the deposited steady and transient circular-cylinder sources. Paper-reported three-probe Fluent comparison claims remain paper-scoped where the transient source does not materialize the complete evaluation path, and source point construction/weighting differences remain explicit conflicting evidence.
+
 ## Conflict handling
 
-Fifty explicit `conflicting_evidence` findings exist through Stage3-S027. Three new evidence records scope CR000034's pipe paper-to-source configuration divergence, Python/notebook epoch divergence, and aneurysm post-training undefined-`toc` path without changing the official relationship.
+Fifty-three explicit `conflicting_evidence` findings exist through Stage3-S028. Three new evidence records scope CR000035's steady point accounting, transient sampling/loss weighting, and transient evaluation coverage without changing the official relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S027, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000035. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S028, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000036. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
