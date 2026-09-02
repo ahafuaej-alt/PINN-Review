@@ -569,6 +569,18 @@ The static reproducibility level is R2. README installation guidance, Python pac
 
 Cumulative totals are 55 resources, 103 experiments, 237 configurations, 734 evidence records, 55 reproducibility assessments, 306 unresolved findings, and 73 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S042
+
+Status: **PASS**
+
+CR000050 preserves the supporting Google Tangent autodiff library at the Stage-2-pinned commit 6533e83af09de7345d1b438512679992f080dcc9 and relationship PRL000131 to Atlas paper 467. The pinned tree contains 68 blobs, Apache licensing, environment.yml/requirements.txt/setup.py metadata, AST transformation code for reverse and forward automatic differentiation, optimization helpers, tests and examples.
+
+This is a framework-level record with zero paper-specific experiments or configurations. Tangent's NumPy/TensorFlow-compatible source transformation, examples and tests remain capability evidence only.
+
+The static reproducibility level is R1. Installation and dependency declarations are present, but the library is explicitly experimental/deprecated in its README, versions are mostly unpinned, the Python/TF/gast compatibility matrix is incomplete, and no paper-specific result lineage applies. No source, environment, dependency, example, test, autodiff, optimization or scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 56 resources, 103 experiments, 237 configurations, 744 evidence records, 56 reproducibility assessments, 314 unresolved findings, and 73 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

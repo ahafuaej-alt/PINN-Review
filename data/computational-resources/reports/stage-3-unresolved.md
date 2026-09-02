@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S041
+Checkpoint: Stage3-S042
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -357,12 +357,21 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0305 | CR000048 | test_execution_unverified | low | The test suite and CI configuration were inspected but not run. | Runtime regression status remains unverified. |
 | S3U-0306 | CR000048 | paper_result_bundle_not_applicable | low | No Atlas-paper dataset, checkpoint or generated result bundle is deposited in the supporting framework snapshot. | The relationship remains software context rather than reproduced paper results. |
 
+| S3U-0307 | CR000050 | dependency_versions_unpinned | medium | environment.yml and requirements.txt name dependencies without exact versions. | Exact environment reconstruction remains incomplete. |
+| S3U-0308 | CR000050 | legacy_compatibility_matrix_partial | high | The source depends on legacy AST/gast/TensorFlow/NumPy behavior without a complete supported-version matrix. | Runtime compatibility is not established for a modern environment. |
+| S3U-0309 | CR000050 | deprecated_library_status | medium | README describes Tangent as experimental and the repository is no longer an actively maintained general autodiff baseline. | Maintenance and compatibility risk remains material. |
+| S3U-0310 | CR000050 | tensorflow_runtime_contract_partial | medium | TensorFlow compatibility is documented conceptually but no exact TensorFlow/CUDA/Python combination is pinned. | TensorFlow-backed paths cannot be reconstructed exactly. |
+| S3U-0311 | CR000050 | example_execution_unverified | low | Examples were inspected but not executed under the static-only boundary. | Example runtime behavior remains unverified. |
+| S3U-0312 | CR000050 | test_execution_unverified | low | The test suite was inspected but not run. | Runtime regression status remains unverified. |
+| S3U-0313 | CR000050 | paper_result_bundle_not_applicable | low | No Atlas-paper dataset, checkpoint or generated result bundle is deposited. | The relationship remains software context rather than reproduced paper results. |
+| S3U-0314 | CR000050 | application_contract_not_applicable | low | The supporting autodiff library does not define one paper-specific solver, dataset or hardware contract. | Downstream scientific reproducibility requires caller-specific settings. |
+
 ## Conflict handling
 
-Seventy-three explicit `conflicting_evidence` findings exist through Stage3-S041. Two new source/documentation findings cover the license filename and the incomplete CUDA/CuPy installation contract; the closed Stage-2 identity and relationship remain unchanged.
+Seventy-three explicit `conflicting_evidence` findings exist through Stage3-S042. No new conflict finding was required for Tangent; the closed Stage-2 identity and relationship remain unchanged.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000049. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000051. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
