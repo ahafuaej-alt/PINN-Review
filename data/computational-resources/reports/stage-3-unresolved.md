@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S032
+Checkpoint: Stage3-S033
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -232,6 +232,18 @@ Phase: controlled scale-out in progress
 | S3U-0222 | CR000039 | `notebook_result_lineage_unavailable` | medium | The notebook contains rendered output metadata, but no run log, checkpoint, numeric artifact, or source-to-output lineage is deposited. | Notebook outputs are not accepted as independently reproduced results. |
 | S3U-0223 | CR000039-E001-C002 | `randomized_prior_layer_wiring_conflict` | high | `Eikonal2DnetCV2RPF` initializes the fixed CV prior with `layers` rather than `CVlayers` before adding it to the CV path. | The randomized-prior configuration retains conflicting source evidence and is not source-repaired. |
 | S3U-0224 | CR000039-E001-C002 | `active_learning_result_artifacts_absent` | medium | The active-learning source names `results/AL_NNpara_*.pdf`, but no results directory or generated artifact is present in the pinned tree. | Source-defined active-learning evaluation cannot be linked to deposited results. |
+| S3U-0225 | CR000040 | `dependency_manifest_unavailable` | high | The pinned tree contains no requirements, environment, setup, or lock manifest; dependencies are only described in README/imports. | Exact environment reconstruction and R2 installation sufficiency are unavailable. |
+| S3U-0226 | CR000040 | `license_unavailable` | medium | No repository license file was identified at the pinned commit. | Reuse terms for source and bundled artifacts remain unavailable. |
+| S3U-0227 | CR000040 | `runtime_version_unknown` | high | README names TensorFlow and scientific Python dependencies but gives no exact Python, TensorFlow, Theano, SciPy, or NumPy versions. | A compatible exact environment cannot be reconstructed. |
+| S3U-0228 | CR000040 | `installation_sequence_unavailable` | medium | README describes dependencies and examples but gives no complete install, working-directory, or execution sequence for the five source workflows. | Portable end-to-end execution is not documented. |
+| S3U-0229 | CR000040 | `binary_artifact_lineage_partial` | medium | NPY arrays, TensorFlow checkpoint parts, event logs, generated arrays and PDF are present without run IDs or source-to-result checksums. | Artifact presence does not establish exact training/result provenance. |
+| S3U-0230 | CR000040 | `binary_payloads_unopened` | medium | All NPY, checkpoint, event-log and PDF payloads remained unopened under the static-only boundary. | Array schemas, tensors, metrics and logged values remain unverified. |
+| S3U-0231 | CR000040 | `random_seed_unknown` | medium | The five source workflows use NumPy random residual sampling but no reproducible seed protocol is established. | Exact collocation samples and rerun behavior are unspecified. |
+| S3U-0232 | CR000040 | `real_case_aorta3_measurement_scope_conflict` | high | The real driver loads Aorta3 area/velocity arrays but supplies only synthetic initial-condition arrays to the Aorta3 training path and uses the loaded arrays for comparison. | The Aorta3 held-out/training boundary is source-defined but conflicts with treating all loaded arrays as measurements. |
+| S3U-0233 | CR000040 | `real_case_result_lineage_partial` | medium | The real driver writes result figures/arrays, but no run log or numeric target links those outputs to a completed pinned execution. | Clinical-case result reproducibility remains bounded at source level. |
+| S3U-0234 | CR000040 | `systematic_sweep_completion_unknown` | medium | The systematic Y-shaped driver loops over 50 repetitions but deposits no per-repetition completion log or normalized output mapping. | The study definition is known, but completed-trial coverage is not. |
+| S3U-0235 | CR000040 | `pelvic_reverse_tree_plot_mapping_conflict` | high | `ploter_tree_reverse.py` assigns the seventh reference pressure from vessel 6 while plotting it as vessel 7. | The affected post-processing comparison cannot be treated as vessel-correct without source repair. |
+| S3U-0236 | CR000040-E005-C001 | `rcr_input_payload_unopened` | high | RCR identification loads `Find_RCR/results_real.npy`, but the saved pressure/flow arrays remained unopened. | Windkessel parameter-search inputs and outputs cannot be independently verified. |
 
 ## Source-scope handling
 
@@ -273,10 +285,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Fifty-nine explicit `conflicting_evidence` findings exist through Stage3-S031. No new conflicting-evidence record was added for CR000038 because the profile contents were unavailable.
+Sixty-three explicit `conflicting_evidence` findings exist through Stage3-S033. Two new source-scoped findings cover the Aorta3 training/held-out boundary and the pelvic reverse-tree pressure mapping; they do not alter the closed Stage-2 identity or relationships.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S031, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000039. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S033, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000041. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

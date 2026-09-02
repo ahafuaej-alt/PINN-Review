@@ -8,23 +8,23 @@ Status date: 2026-09-02
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S032 |
-| Next scale-out checkpoint | Stage3-S033 |
-| Last completed resource | CR000039 |
-| Next resource | CR000040 |
-| Next planned checkpoint resources | CR000040 |
+| Last completed scale-out checkpoint | Stage3-S033 |
+| Next scale-out checkpoint | Stage3-S034 |
+| Last completed resource | CR000040 |
+| Next resource | CR000041 |
+| Next planned checkpoint resources | CR000041 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 46 |
-| Remaining Stage-3 registry resource count | 321 |
+| Completed Stage-3 resource count | 47 |
+| Remaining Stage-3 registry resource count | 320 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 85 |
-| Completed configuration count | 198 |
-| Technical evidence records | 586 |
-| Static reproducibility assessments | 46 |
+| Completed experiment count | 90 |
+| Completed configuration count | 203 |
+| Technical evidence records | 608 |
+| Static reproducibility assessments | 47 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 224 |
-| Next unresolved ID | S3U-0225 |
-| Current conflicting-evidence finding count | 61 |
+| Current unresolved technical item count | 236 |
+| Next unresolved ID | S3U-0237 |
+| Current conflicting-evidence finding count | 63 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
 | Scale-out plan | `reports/stage-3-scale-out-plan.md` |
@@ -98,8 +98,9 @@ Completed checkpoints:
 - `Stage3-S030`: `CR000037`
 - `Stage3-S031`: `CR000038`
 - `Stage3-S032`: `CR000039`
+- `Stage3-S033`: `CR000040`
 
-The batch remains open; the exact next resource is `CR000040`.
+The batch remains open; the exact next resource is `CR000041`.
 
 ## Continuation rule
 
@@ -107,7 +108,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0224` are preserved and the next ID is `S3U-0225`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0236` are preserved and the next ID is `S3U-0237`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -147,7 +148,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S030`: `CR000037` — QA PASS; adaptive single-resource supporting PyTorch HFM reimplementation checkpoint with 1 experiment, 1 configuration, 13 evidence records, and 1 reproducibility assessment.
 - `Stage3-S031`: `CR000038` — QA PASS; adaptive single-resource unavailable gist-profile checkpoint with no experiments/configurations, 6 evidence records, and 1 reproducibility assessment.
 - `Stage3-S032`: `CR000039` — QA PASS; adaptive single-resource official EikonalNet checkpoint with 1 synthetic 2D experiment, 2 configurations, 16 evidence records, and 1 reproducibility assessment.
+- `Stage3-S033`: `CR000040` — QA PASS; adaptive single-resource official 1D blood-flow checkpoint with 5 source workflows, 5 configurations, 22 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S033`** with **`CR000040`**.
+Start **`Stage3-S034`** with **`CR000041`**.

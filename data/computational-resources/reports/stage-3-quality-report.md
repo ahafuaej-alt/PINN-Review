@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S032
+Latest scale-out checkpoint: Stage3-S033
 
 ## Pilot QA
 
@@ -454,6 +454,20 @@ Two scoped conflicts remain explicit. The README/source metadata are not interna
 The static reproducibility level is R1. Source, model mathematics, example entrypoints, and hyperparameters are substantially documented, but exact environment reconstruction, licensing, research inputs, result lineage, and the paper's 3D application are unavailable or incomplete. Notebook outputs and all scientific workflows remained unexecuted. No code, environment, dependency, notebook, data, model, checkpoint, solver, training, inference, evaluation, plotting, or result workflow was executed; R5 remains prohibited.
 
 Cumulative totals are 46 resources, 85 experiments, 198 configurations, 586 evidence records, 46 reproducibility assessments, 224 unresolved findings, and 61 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S033
+
+Status: **PASS**
+
+`CR000040` preserves the official `PredictiveIntelligenceLab/1DBloodFlowPINNs` repository at the Stage-2-pinned commit `da2b583efc7083a4d6bdbfc4c5deb3e92f380118`, official relationship `PRL000118` to Atlas paper 435, and separate verified dataset-mention relationship `PRL000019` to paper 95. The complete tree contains 125 entries and 111 blobs totaling 43,713,366 bytes, including 18 Python sources, 78 NPY arrays, two notebooks, TensorFlow checkpoint parts and event logs, one PDF, and no dependency manifest or license file.
+
+Five source-consuming workflows are represented without inflating plotting scripts or repeated loop iterations: real four-vessel aorta/carotid reconstruction, synthetic three-vessel Y-shaped reconstruction, a 50-run systematic Y-shaped study, seven-vessel pelvic reconstruction, and downstream three-element Windkessel/RCR parameter identification. The PINN drivers use area/velocity measurements, predict area/velocity/pressure, and enforce 1D mass, momentum, pressure-area, and bifurcation-interface constraints. The real, synthetic, systematic, and pelvic drivers use 2,000 residual points and wide tanh networks; the RCR example consumes a saved real-case result and performs grid/local parameter search with RK4/SciPy ODE paths.
+
+Two source-scoped conflicts remain explicit. The real driver loads Aorta3 area/velocity arrays but builds the Aorta3 training path from initial-condition arrays and uses the loaded arrays as a held-out comparison path. The pelvic reverse-tree postprocessor assigns the seventh reference pressure from vessel 6 rather than vessel 7. These findings are limited to the affected source/evaluation paths and are not silently repaired.
+
+The static reproducibility level is R1. The repository has broad source, data, checkpoint and result coverage, but no exact environment, dependency manifest, license, seed specification, portable installation/run sequence, or independently verified binary/result lineage. All NPY arrays, checkpoint parts, event logs, PDF and notebook-output payloads remained unopened, and no source, environment, dependency, notebook, data, model, training, inference, evaluation, plotting, ODE or solver workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 47 resources, 90 experiments, 203 configurations, 608 evidence records, 47 reproducibility assessments, 236 unresolved findings, and 63 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
