@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S045
+Checkpoint: Stage3-S046
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -402,12 +402,24 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0344 | CR000053 | workflow_execution_unverified | low | Training, evaluation, rendering and data-generation entrypoints were inspected but not executed. | Runtime behavior remains unverified. |
 
 
+| S3U-0345 | CR000054 | license_unavailable | medium | No license file or repository license metadata was identified at the pinned commit. | Reuse terms remain unavailable. |
+| S3U-0346 | CR000054 | dependency_manifest_unavailable | high | The pinned tree has no requirements, environment or package manifest despite TensorFlow, NumPy and SciPy imports. | Exact installation and dependency reconstruction is blocked. |
+| S3U-0347 | CR000054 | installation_workflow_unavailable | medium | README documents case descriptions but supplies no installation or run-environment workflow. | Reproduction cannot be initiated from repository instructions alone. |
+| S3U-0348 | CR000054 | paper_relationship_unverified | high | Stage-2 evidence preserves a relationship to paper 476, but README and pinned source do not directly establish that this repository is the paper implementation. | Paper-specific claims remain out of scope. |
+| S3U-0349 | CR000054 | bundled_array_schema_unverified | medium | Twelve NumPy arrays are present, but their shapes, fields and generation lineage were not inspected. | Input-data reconstruction remains incomplete. |
+| S3U-0350 | CR000054 | undefined_bound_names | high | Four source drivers compute bounds from X or Xb although their constructors expose x or xb. | The affected source workflows are statically incomplete as written. |
+| S3U-0351 | CR000054 | documentation_entrypoint_name_conflict | medium | README names VP_NSFnets files while pinned paths use VP_NFSnets. | Direct command/path translation requires manual correction. |
+| S3U-0352 | CR000054 | runtime_compatibility_unknown | high | TensorFlow 1.x-style APIs including tf.contrib are used without a pinned TensorFlow/Python compatibility pair. | Runtime reconstruction is not established. |
+| S3U-0353 | CR000054 | result_lineage_unverified | medium | No generated result files or one-to-one paper figure/table lineage was verified in the pinned tree. | Numerical result reproduction remains unverified. |
+| S3U-0354 | CR000054 | workflow_execution_unverified | low | TensorFlow graphs, Adam/SciPy optimizers, notebooks and source workflows were inspected but not executed. | Runtime behavior remains unverified. |
+
+
 ## Conflict handling
 
-Seventy-nine explicit `conflicting_evidence` findings exist through Stage3-S045. Four new conflicts were recorded for CR000053: a missing CH module, an AC checkpoint-variable typo, a missing dependency manifest behind the README requirements section, and README paths that do not match the pinned root layout.
+Eighty-one explicit `conflicting_evidence` findings exist through Stage3-S046. Two new conflicts were recorded for CR000054: undefined bound-array names in four drivers and README entrypoint names/paths that do not match the pinned source.
 
 ## Escalation state
 
-No Stage-2 resource identity or relationship defect was discovered in S045. Stage 2 remains closed and unchanged.
+No Stage-2 resource identity defect was discovered in S046, but the relationship to paper 476 remains unverified as recorded by Stage 2. Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S045, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000054. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S046, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000055. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.

@@ -617,6 +617,18 @@ The static reproducibility level is R1. Source and paper relationship evidence a
 
 Cumulative totals are 59 resources, 107 experiments, 248 configurations, 790 evidence records, 59 reproducibility assessments, 344 unresolved findings, and 79 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S046
+
+Status: **PASS**
+
+CR000054 preserves the NSFnets repository at the Stage-2-pinned commit e64132cbb7fb48cd3ad6d40e0986fb72f15bf5cb. The Stage-2 relationship to Atlas paper 476 remains unverified. The pinned tree contains 30 entries and 27 blobs totaling 46,894,972 bytes, with 12 Python source files, two notebooks, 12 NumPy arrays, no dependency manifest and no license.
+
+Four README-defined Navier–Stokes source workflows and five configurations are recorded: steady Kovasznay flow, unsteady cylinder wake, unsteady Beltrami flow, and a turbulent-channel family with the additional 42 source variant. The 12 NumPy arrays remain bundled-data evidence only and were not opened.
+
+Two explicit conflicts remain scoped. Four source drivers reference undefined uppercase bound-array names in their constructor setup. README entrypoint names/paths use NSFnets while the pinned source uses NFSnets. The static reproducibility level is R1 because the paper relationship is unverified, installation metadata and licensing are absent, source defects remain, and no runtime or payload inspection was performed. R5 remains prohibited.
+
+Cumulative totals are 60 resources, 111 experiments, 253 configurations, 806 evidence records, 60 reproducibility assessments, 354 unresolved findings, and 81 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.
