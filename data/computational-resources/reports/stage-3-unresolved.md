@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S028
+Checkpoint: Stage3-S029
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -197,6 +197,21 @@ Phase: controlled scale-out in progress
 | S3U-0187 | CR000035 | `checkpoint_result_lineage_partial` | medium | Two pickle checkpoints and PNG/GIF result media are deposited, but no run identifier, training log, checksum map, or source-to-result provenance is supplied. | The artifacts establish availability, not exact paper-trial lineage or numerical acceptance. |
 | S3U-0188 | CR000035 | `binary_payloads_unopened` | medium | The Fluent MAT reference, both pickle checkpoints, PNG, and GIF were inventoried but remained unopened under the static-only boundary. | Array schemas, tensors, plotted values, and numerical results remain unverified. |
 | S3U-0189 | CR000035 | `hard_coded_gpu_and_interactive_workflow` | medium | The two scripts select GPU 0 and GPU 1 separately and call interactive plotting functions; no CPU or headless option is documented. | Portable unattended execution is not established. |
+| S3U-0190 | CR000036 | `dependency_manifest_unavailable` | high | The pinned HFM tree contains no requirements file, environment file, setup metadata, or package lock; dependencies must be inferred from imports and legacy TensorFlow APIs. | Exact environment reconstruction and R2 installation sufficiency are unavailable. |
+| S3U-0191 | CR000036 | `installation_sequence_unavailable` | medium | README supplies the external Data/Figures link and source directories but no dependency-install, working-directory, or command sequence. | A portable end-to-end run workflow is not documented. |
+| S3U-0192 | CR000036 | `required_external_data_unavailable` | high | The primary entrypoints require external MAT files such as `Cylinder2D.mat`, `Cylinder3D.mat`, `Stenosis2D.mat`, and `real_aneurysm.mat`, none of which is in the pinned tree. | Paper-aligned input reconstruction cannot be completed from the snapshot alone. |
+| S3U-0193 | CR000036 | `figures_payload_external` | medium | README directs users to an external SharePoint folder for some Matlab plotting scripts and does not pin or checksum that payload. | Reported figure-generation support is not reproducibly available from the repository snapshot. |
+| S3U-0194 | CR000036 | `result_artifacts_absent` | medium | README states that Results is initially empty and will be populated after running examples; no generated result, log, checkpoint, or numeric target is tracked. | Source-to-result lineage and exact expected outputs remain unavailable. |
+| S3U-0195 | CR000036 | `random_seed_unknown` | medium | Inspected source samples training points with NumPy random choices and initializes network variables without reporting Python, NumPy, TensorFlow, or CUDA seeds. | Exact point membership, initialization, and rerun behavior are unspecified. |
+| S3U-0196 | CR000036 | `cuda_launcher_portability_partial` | medium | `Scripts/kitchen_sink.sh` assigns explicit CUDA device identifiers 0 through 10 and launches many jobs concurrently; no portable CPU or resource-aware alternative is documented. | The bundled multi-GPU orchestration is not a portable default workflow. |
+| S3U-0197 | CR000036 | `activation_function_conflict` | high | Documentation describes sin(x) activations, while `Source/utilities.py` implements H*sigmoid(H) in the hidden layers and the source constructors use aggregate widths of 4*50 or 5*50. | The deposited architecture is not identical to the paper-facing documented architecture. |
+| S3U-0198 | CR000036 | `auxiliary_output_d_conflict` | high | Documentation includes an auxiliary scalar d and six outputs c,d,u,v,w,p, while inspected source classes construct only c,u,v,p or c,u,v,w,p. | The documented residual/output formulation cannot be treated as the verified source formulation. |
+| S3U-0199 | CR000036 | `training_schedule_conflict` | high | Documentation states 250, 500, and 250 Adam epochs at 1e-3, 1e-4, and 1e-5, while primary source entrypoints use a fixed 1e-3 wall-clock loop with total_time=40. | The exact paper-facing optimization schedule is not reproduced by the active source blocks. |
+| S3U-0200 | CR000036 | `repository_variant_scope_conflict` | medium | The pinned tree contains streak/no-slip cylinder variants, flower sampling/noise sweeps, a convergence diagnostic, and DaVinci.py that are not individually named in the Science benchmark catalog. | Their exact Atlas-paper trial mapping remains bounded and source-scoped. |
+| S3U-0201 | CR000036-E001-C001 | `cylinder_input_payload_unavailable` | high | `Source/Cylinder2D.py` loads `../Data/Cylinder2D.mat`, but the required MAT payload is external to the pinned tree. | The baseline 2D cylinder source cannot be statically supplied its required observables from the snapshot. |
+| S3U-0202 | CR000036-E002-C002 | `systematic_sweep_completion_unknown` | medium | Flower systematic launchers enumerate many time-snapshot/spatial-point combinations, but no completion logs or per-run result mapping is deposited. | The sweep definition is known, but completed-trial coverage is not. |
+| S3U-0203 | CR000036-E002-C003 | `noise_sweep_determinism_unknown` | medium | Noise is supplied as a command-line scalar and multiplied by a random Gaussian field; no seed or completed output lineage is recorded. | Exact noisy observations and robustness results cannot be reproduced from source metadata alone. |
+| S3U-0204 | CR000036-E005-C002 | `aneurysm_shear_reference_unavailable` | high | `Aneurysm3D_Wall_Stresses.py` requires `real_aneurysm_shear.mat` with surface coordinates, normals, and reference stresses, but it is external and remained unopened. | Wall-shear result verification and exact post-processing reconstruction are unavailable. |
 
 ## Source-scope handling
 
@@ -238,10 +253,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Fifty-three explicit `conflicting_evidence` findings exist through Stage3-S028. Three new evidence records scope CR000035's steady point accounting, transient sampling/loss weighting, and transient evaluation coverage without changing the official relationship.
+Fifty-seven explicit `conflicting_evidence` findings exist through Stage3-S029. Four new evidence records scope CR000036's activation/width mismatch, auxiliary-output mismatch, training-schedule mismatch, and extra repository-variant scope without changing the official relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S028, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000036. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S029, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000037. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

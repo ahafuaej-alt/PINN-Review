@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S027
+Latest scale-out checkpoint: Stage3-S029
 
 ## Pilot QA
 
@@ -402,6 +402,20 @@ Three scoped conflicts remain explicit. The steady source starts from approximat
 The static reproducibility level is R1. The README identifies GPU TensorFlow 1.10.0, but no dependency manifest, installation command, or portable run sequence exists; source comments refer to TensorFlow v1.9 and use legacy `tf.contrib`. Checkpoints and result media are present, but their payloads and the Fluent MAT reference remained unopened, so numeric values and source-to-result lineage were not independently verified. Hard-coded GPU identifiers and interactive plotting further limit portability. No code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plotting, or result workflow was executed.
 
 Cumulative totals are 42 resources, 77 experiments, 181 configurations, 524 evidence records, 42 reproducibility assessments, 189 unresolved findings, and 53 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S029
+
+Status: **PASS**
+
+`CR000036` preserves the Stage-2-pinned `maziarraissi/HFM` snapshot at `84e1bad47752c5277bdb7fa7fe760167b17f985b`, the MIT license, and official `PRL000112` relationship to Atlas paper 431. The complete tree contains 35 entries and 31 blobs: 18 Python sources, eight shell launchers, documentation, and no dependency manifest or scientific payload. Six experiments and fourteen configurations represent the four paper benchmark families—2D cylinder, 3D cylinder, 2D channel/obstacle, and 3D intracranial aneurysm—plus bounded source-level parameter, flower-domain, robustness, boundary-condition, wall-shear, convergence, and DaVinci workflows.
+
+The source implements passive-scalar advection-diffusion and incompressible Navier-Stokes residuals with automatic differentiation, shared dense networks, and 2D/3D velocity-pressure outputs. Source entrypoints expose fixed and learnable Reynolds/Péclet cases, arbitrary flower-shaped training domains, systematic time/spatial sampling sweeps, concentration-noise sweeps, explicit no-slip/streak variants, and aneurysm wall-shear post-processing. The primary paper documents the four benchmark families and the reported lift/drag, learned-parameter, and wall-shear outputs; source-only DaVinci and variant mappings remain bounded rather than being promoted into additional paper trials.
+
+Four scoped conflicts remain explicit. The documentation describes sin(x) activation and an auxiliary scalar `d`, while the source uses `H*sigmoid(H)` and constructs only `c,u,v,p` or `c,u,v,w,p`. The documentation describes a staged 250/500/250 Adam schedule, while the inspected entrypoints use a fixed-rate wall-clock training loop. Finally, the repository contains additional streak/no-slip, flower-sweep, convergence, and DaVinci workflows not individually identified in the Science benchmark catalog.
+
+The static reproducibility level is R1. No dependency manifest, Python version, lockfile, or installation sequence is supplied; required MAT inputs and Figures payloads are external, Results begins empty, and no checkpoints, logs, or generated outputs are tracked. Sampling and initialization are not seeded, launcher scripts use explicit CUDA device identifiers, and the aneurysm wall-shear path requires an external shear-reference MAT file. External data, Figures, and Results payloads remained unopened, and no code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plotting, or result workflow was executed.
+
+Cumulative totals are 43 resources, 83 experiments, 195 configurations, 551 evidence records, 43 reproducibility assessments, 204 unresolved findings, and 57 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
