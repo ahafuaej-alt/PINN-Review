@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S025
+Checkpoint: Stage3-S026
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -169,6 +169,14 @@ Phase: controlled scale-out in progress
 | S3U-0159 | CR000032 | `random_seed_unknown` | medium | Training reshuffles the 80/20 split every epoch and initializes models without any Python, NumPy, TensorFlow, or CUDA seed. | Exact training membership and deterministic reruns are not specified. |
 | S3U-0160 | CR000032 | `paper_example_coverage_partial` | medium | The paper evaluates a 3-story MRF and a Bouc-Wen system, but the tree contains one Bouc-Wen MAT payload and no dedicated MRF data/driver. | The MRF study remains paper-scoped and cannot be promoted to a repository experiment. |
 | S3U-0161 | CR000032-E001-C002 | `paper_source_architecture_conflict` | high | The paper describes three LSTM and two fully connected layers per component, while all three PhyLSTM3 `Dense(100)` statements are commented out and only the output Dense layers remain active. | The deposited PhyLSTM3 architecture is not identical to the published architecture description. |
+| S3U-0162 | CR000033 | `dependency_environment_unavailable` | high | No dependency manifest, Python version, package versions, installation command, or compatible legacy TensorFlow/Keras workflow is supplied. | One substantially specified and reconstructable environment is unavailable, so R2 is blocked. |
+| S3U-0163 | CR000033 | `data_path_placeholder` | high | All three entrypoints set `dataDir = ".../"` and expose no CLI or configuration override. | Bundled inputs and result destinations require source editing before direct invocation. |
+| S3U-0164 | CR000033-E001-C001 | `post_training_variable_undefined` | high | `PhyCNN_num_ag2u.py` plots undefined `test_loss` before prediction and result export. | The all-state active path cannot reach its deposited-result export as written. |
+| S3U-0165 | CR000033 | `paper_source_architecture_conflict` | high | The paper specifies kernel width 50, Tanh hidden fully connected activations, and dropout 0.2 before the fully connected layers; the all-state source uses kernel width 40, and all three sources use ReLU with no dropout. | Deposited architecture details are not identical to the published description. |
+| S3U-0166 | CR000033 | `random_seed_unknown` | medium | No Python, NumPy, TensorFlow, Keras, or CUDA seed is set, and the paper's random numerical selection and K-means partition implementation are not deposited. | Exact initialization, numerical sample selection, and experimental clustering cannot be deterministically reconstructed. |
+| S3U-0167 | CR000033 | `archived_result_lineage_partial` | medium | Three result MAT files are deposited, but no checkpoint, training log, paper-run identifier, checksum mapping, metric table, or acceptance tolerance connects them to a specific source execution. | Archived outputs strengthen expected-result evidence but do not establish R4 or exact source-to-result provenance. |
+| S3U-0168 | CR000033 | `dataset_schema_split_unverified` | medium | Both input MAT payloads remained unopened; the experimental source loads `trainInd` and `valInd` but does not apply them to `input_tf`. | Array schemas, experimental membership, and agreement with the paper's 11/4/8 partition remain bounded rather than independently verified. |
+| S3U-0169 | CR000033 | `portable_workflow_unavailable` | medium | The repository supplies no run command, CLI, configuration file, workflow order, checkpoint-loading path, or result-verification procedure. | Users must infer invocation and repair paths; portable end-to-end reconstruction remains incomplete. |
 
 ## Source-scope handling
 
@@ -202,12 +210,14 @@ For `CR000031`, `PRL000094` remains an official relationship to Atlas paper 393.
 
 For `CR000032`, `PRL000108` remains an official relationship to Atlas paper 416. One repository experiment contains PhyLSTM2 and PhyLSTM3 configurations; the paper's separate MRF validation remains paper-scoped because the pinned tree deposits no dedicated MRF artifact.
 
+For `CR000033`, `PRL000109` remains an official relationship to Atlas paper 419. Three experiment/configuration pairs correspond exactly to the three deposited drivers: numerical all-state, numerical acceleration-only, and experimental acceleration-only response modeling. Paper architecture and dataset-partition statements remain source-scoped where the pinned implementation differs or the unopened MATLAB payload prevents exact membership verification.
+
 ## Conflict handling
 
-Forty-five explicit `conflicting_evidence` findings exist through Stage3-S025. Four new evidence records scope CR000032's PhyLSTM3 dataset mismatch, shared path/input limitations, post-training variable failures, and paper-to-source architecture difference without changing the official relationship.
+Forty-seven explicit `conflicting_evidence` findings exist through Stage3-S026. Two new evidence records scope CR000033's paper-to-source architecture differences and the numerical all-state undefined `test_loss` path without changing the official relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S025, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000033. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S026, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000034. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

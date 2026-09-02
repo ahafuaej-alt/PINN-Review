@@ -3,7 +3,7 @@
 Status date: 2026-09-01
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S025
+Latest scale-out checkpoint: Stage3-S026
 
 ## Pilot QA
 
@@ -364,6 +364,18 @@ Both configurations use legacy TensorFlow/Keras CuDNNLSTM stacks, finite-differe
 The static reproducibility level is R1. No dependency manifest, versioned environment, installation workflow, portable run command, checkpoint, log, result file, or numeric tolerance is supplied. Both scripts use a placeholder data directory and undefined `save_path`; PhyLSTM3 requests an absent dataset; and both post-training blocks reference undefined loss variables. The MATLAB payload remained unopened, and no code, environment, dependency, data, model, training, inference, evaluation, plot, or result workflow was executed.
 
 Cumulative totals are 39 resources, 70 experiments, 174 configurations, 471 evidence records, 39 reproducibility assessments, 161 unresolved findings, and 45 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S026
+
+Status: **PASS**
+
+`CR000033` preserves the Stage-2-pinned `zhry10/PhyCNN` snapshot, MIT license, and official `PRL000109` relationship to Atlas paper 419. The complete ten-blob tree totals 20,590,448 bytes and contains three Python files with 1,006 source lines, two input MATLAB files, three archived result MATLAB files, one README, and one license. Three experiment/configuration pairs correspond exactly to the deposited numerical all-state, numerical acceleration-only, and six-story experimental acceleration-only drivers.
+
+All three sources implement five 64-filter Conv1D layers, two hidden Dense layers plus an output Dense layer, ReLU activations, finite-difference tensor differentiation, Adam at learning rate 0.001, and L-BFGS-B with at most 20,000 iterations. The all-state case trains on 10 records for 3,000 Adam epochs; the two acceleration-only cases train for 10,000 epochs, using 50 numerical records or all loaded experimental `input_tf` records. Two scoped conflicts remain explicit. The paper describes kernel width 50, Tanh hidden fully connected activations, and dropout 0.2, while the all-state source uses kernel width 40 and all three sources use ReLU without dropout. The all-state script also references undefined `test_loss` before prediction and result export.
+
+The static reproducibility level is R1. No dependency manifest, versioned environment, installation workflow, portable command, seed, checkpoint, log, paper-run identifier, or numeric acceptance tolerance is supplied. Each entrypoint uses a placeholder data directory. The three archived result files provide expected-result evidence, but their binary contents and both input payloads remained unopened, so array schemas, experimental split membership, numeric outputs, and source-to-result lineage were not independently verified. No code, environment, dependency, data, model, checkpoint, training, inference, evaluation, plotting, result, or clustering workflow was executed.
+
+Cumulative totals are 40 resources, 73 experiments, 177 configurations, 487 evidence records, 40 reproducibility assessments, 169 unresolved findings, and 47 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
