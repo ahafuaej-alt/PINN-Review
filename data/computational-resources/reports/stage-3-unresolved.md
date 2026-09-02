@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S037
+Checkpoint: Stage3-S038
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -318,12 +318,23 @@ For `CR000034`, `PRL000110` remains an official relationship to Atlas paper 425.
 
 For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427. Two experiment/configuration pairs correspond to the deposited steady and transient circular-cylinder sources. Paper-reported three-probe Fluent comparison claims remain paper-scoped where the transient source does not materialize the complete evaluation path, and source point construction/weighting differences remain explicit conflicting evidence.
 
+| S3U-0272 | CR000045 | dependency_lock_unavailable | medium | The package has no fully locked transitive environment. | Exact environment reconstruction remains incomplete. |
+| S3U-0273 | CR000045 | torch_dependency_omission | high | Source imports PyTorch but visible project dependencies omit torch. | A fresh documented installation does not establish the core runtime dependency. |
+| S3U-0274 | CR000045 | external_benchmark_data_unopened | high | Darcy and Navier-Stokes loaders retrieve external Zenodo payloads and bundled data remained unopened. | Dataset bytes and sample membership remain unverified. |
+| S3U-0275 | CR000045 | random_seed_unknown | low | Explicit random seeds were not established in inspected workflows. | Bitwise reproducibility is not established. |
+| S3U-0276 | CR000045 | paper_result_lineage_partial | medium | The current library has source workflows but no pinned run records for historical tables. | Historical result reproduction cannot be claimed. |
+| S3U-0277 | CR000045 | historical_snapshot_mismatch | medium | The official relationship redirects the original paper URL to a newer maintained snapshot. | Current settings must not be substituted for historical settings. |
+| S3U-0278 | CR000045 | data_path_source_conflict | high | navier_stokes.py defaults to neuralop/datasets/data while the tree uses neuralop/data/datasets/data/. | The loader default requires correction or caller override. |
+| S3U-0279 | CR000045 | checkpoint_result_unverified | low | The Darcy checkpoint tutorial defines save/load behavior but no checkpoint was opened. | Runtime restoration remains unverified. |
+| S3U-0280 | CR000045 | alternate_model_scope_bounded | low | Many model modules lack separate paper-scoped run contracts. | They remain capability evidence. |
+| S3U-0281 | CR000045 | hardware_matrix_partial | low | CPU is explicit in the gallery while larger drivers support distributed/GPU execution without one matrix. | Cross-hardware reproducibility remains open. |
+
 ## Conflict handling
 
-Sixty-seven explicit `conflicting_evidence` findings exist through Stage3-S037. One new documentation/source finding covers the TrainSetSmooth filename spelling; it does not alter the closed Stage-2 identity or relationship.
+Sixty-nine explicit `conflicting_evidence` findings exist through Stage3-S038. Two new source findings cover the omitted PyTorch dependency and the Navier-Stokes default data path; neither alters the closed Stage-2 identity or relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000045. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000046. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

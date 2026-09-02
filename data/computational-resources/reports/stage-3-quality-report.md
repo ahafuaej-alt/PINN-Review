@@ -523,6 +523,14 @@ The static reproducibility level is R1. The source driver and MATLAB setup are d
 
 Cumulative totals are 51 resources, 97 experiments, 218 configurations, 674 evidence records, 51 reproducibility assessments, 271 unresolved findings, and 67 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S038
+
+Status: **PASS**
+
+CR000045 preserves the redirected official neuraloperator/neuraloperator repository at 00b7d86f8d74ff0af55da53eb585fe26df9c71f0 and official relationship PRL000126 to Atlas paper 465. Three source-backed families and seven configurations cover Burgers, Darcy and two-dimensional incompressible Navier-Stokes. Two source conflicts remain explicit: PyTorch is imported but omitted from visible dependency declarations, and the Navier-Stokes default data path differs from the pinned tree. R2 is assigned from the license, install metadata, dependencies, loaders and source settings; exact locks, seeds, external payloads, result lineage and historical table reproduction remain incomplete. No scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 52 resources, 100 experiments, 225 configurations, 694 evidence records, 52 reproducibility assessments, 281 unresolved findings, and 69 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.
