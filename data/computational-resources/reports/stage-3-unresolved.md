@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S031
+Checkpoint: Stage3-S032
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -224,6 +224,14 @@ Phase: controlled scale-out in progress
 | S3U-0214 | CR000038 | `gist_snapshot_unavailable` | high | No commit, archive snapshot, file inventory, or immutable content identifier is available for the profile. | Reproducibility and historical artifact identity cannot be verified. |
 | S3U-0215 | CR000038 | `paper_relationship_not_verified` | medium | Stage 2 preserves a paper-related PRL000114 mention, but the paper and profile do not provide an inspectable gist artifact mapping. | The relationship remains an audit-trail item rather than verified code provenance. |
 | S3U-0216 | CR000038 | `profile_technical_metadata_unavailable` | medium | License, dependencies, entrypoint, mathematics, architecture, training, evaluation, data, and results cannot be established from the unenumerated profile. | The resource is limited to R0 identity evidence. |
+| S3U-0217 | CR000039 | `dependency_manifest_unavailable` | high | The pinned EikonalNet tree contains no requirements, environment, setup, or lock manifest; README dependencies are names only. | Exact environment reconstruction and R2 installation sufficiency are unavailable. |
+| S3U-0218 | CR000039 | `legacy_runtime_compatibility_conflict` | medium | README names TensorFlow v1.0, `models_tf.py` uses a Python 2 shebang, `active_learning_2Dexample.py` uses Python 3, and notebook metadata reports Python 3.7.3. | A single supported runtime for the pinned examples cannot be established. |
+| S3U-0219 | CR000039 | `license_unavailable` | medium | No repository license file was identified at the pinned commit. | Reuse terms for the source and examples remain unavailable. |
+| S3U-0220 | CR000039 | `required_3d_application_data_unavailable` | high | The paper's personalized left-atrial application requires 3D surface/data inputs, but the pinned tree contains no 3D research data. | The paper's 3D application cannot be statically reconstructed from this snapshot. |
+| S3U-0221 | CR000039 | `paper_3d_entrypoint_unmaterialized` | medium | The repository exposes 3D model classes but no 3D consuming driver or complete run bundle. | 3D classes remain capability evidence and are not promoted into an experiment/configuration. |
+| S3U-0222 | CR000039 | `notebook_result_lineage_unavailable` | medium | The notebook contains rendered output metadata, but no run log, checkpoint, numeric artifact, or source-to-output lineage is deposited. | Notebook outputs are not accepted as independently reproduced results. |
+| S3U-0223 | CR000039-E001-C002 | `randomized_prior_layer_wiring_conflict` | high | `Eikonal2DnetCV2RPF` initializes the fixed CV prior with `layers` rather than `CVlayers` before adding it to the CV path. | The randomized-prior configuration retains conflicting source evidence and is not source-repaired. |
+| S3U-0224 | CR000039-E001-C002 | `active_learning_result_artifacts_absent` | medium | The active-learning source names `results/AL_NNpara_*.pdf`, but no results directory or generated artifact is present in the pinned tree. | Source-defined active-learning evaluation cannot be linked to deposited results. |
 
 ## Source-scope handling
 

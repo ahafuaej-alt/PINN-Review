@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S029
+Latest scale-out checkpoint: Stage3-S032
 
 ## Pilot QA
 
@@ -440,6 +440,20 @@ Status: **PASS**
 The static reproducibility level is R0. Only the profile identity and the Stage-2 relationship record are established; technical fields, licensing, installation, architecture, training, evaluation, and expected-result evidence are unavailable. No gist content or scientific workflow was inspected or executed.
 
 Cumulative totals are 45 resources, 84 experiments, 196 configurations, 570 evidence records, 45 reproducibility assessments, 216 unresolved findings, and 59 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S032
+
+Status: **PASS**
+
+`CR000039` preserves the official `fsahli/EikonalNet` repository at the Stage-2-pinned commit `615b55ee6129cdc6d7e34022783051832a125f4f` and verified relationship `PRL000116` to Atlas paper 432. The complete tree contains five blobs: `README.md`, two 2D/3D model modules, one 2D notebook, and one 2D active-learning script. It contains no dependency manifest, license file, research dataset, checkpoint, or result artifact.
+
+One bounded 2D synthetic Eikonal experiment is represented by two configurations. The notebook uses a single `Eikonal2DnetCV2` network pair with five hidden layers of width 20 for activation time and five hidden layers of width 5 for conduction velocity, 50 Latin-hypercube observations, 50,000 Adam minibatch iterations at size 100, and L-BFGS. The active-learning script uses the same synthetic target with ten initial observations, a 30-member randomized-prior ensemble, 20,000 initial Adam iterations, 40 entropy-selected acquisitions, 5,000 additional iterations per acquisition, and NPEET entropy estimates. The repository's 3D classes are capability evidence only: no 3D consuming driver or input data is present, so the paper's left-atrial application is not promoted into a configuration.
+
+Two scoped conflicts remain explicit. The README/source metadata are not internally portable: README names TensorFlow v1.0, the model source uses a Python 2 shebang, the active-learning source uses Python 3, and the notebook metadata reports Python 3.7.3, with no manifest or lockfile. In the randomized-prior configuration, `Eikonal2DnetCV2RPF` initializes the fixed conduction-velocity prior using the activation-time `layers` list rather than `CVlayers`; the source is retained as written and not repaired.
+
+The static reproducibility level is R1. Source, model mathematics, example entrypoints, and hyperparameters are substantially documented, but exact environment reconstruction, licensing, research inputs, result lineage, and the paper's 3D application are unavailable or incomplete. Notebook outputs and all scientific workflows remained unexecuted. No code, environment, dependency, notebook, data, model, checkpoint, solver, training, inference, evaluation, plotting, or result workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 46 resources, 85 experiments, 198 configurations, 586 evidence records, 46 reproducibility assessments, 224 unresolved findings, and 61 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 
