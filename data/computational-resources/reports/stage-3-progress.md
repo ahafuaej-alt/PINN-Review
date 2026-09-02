@@ -169,7 +169,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - Stage3-S040: CR000047 — QA PASS; adaptive single-resource supporting autograd framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 - Stage3-S041: CR000048 — QA PASS; adaptive single-resource supporting Chainer framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 - Stage3-S042: CR000050 — QA PASS; adaptive single-resource supporting Tangent framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
-- Stage3-S045: CR000052 — QA PASS; adaptive single-resource supporting DiffSharp framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
+- Stage3-S043: CR000051 — QA PASS; adaptive single-resource supporting DiffSharp framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
+- Stage3-S044: CR000052 — QA PASS; adaptive single-resource official PINNs4Drops checkpoint with 2 experiments, 6 configurations, 16 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
