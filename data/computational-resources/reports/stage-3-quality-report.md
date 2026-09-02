@@ -605,6 +605,18 @@ The static reproducibility level is R3 for the documented source/environment/wor
 
 Cumulative totals are 58 resources, 105 experiments, 243 configurations, 770 evidence records, 58 reproducibility assessments, 332 unresolved findings, and 75 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S045
+
+Status: **PASS**
+
+CR000053 preserves the PINNs4Bubbles repository at the Stage-2-pinned commit f270a8b809521a707f2923499e97549830c04fad and relationship PRL000132 to Atlas paper 475. The pinned tree contains 186 entries and 169 blobs totaling 1,055,018 bytes, with 139 Python sources, no dependency manifest, no license file and external data/weight references only.
+
+Two bounded source families and five configurations are recorded: paper-aligned video-conditioned bubble reconstruction with baseline, Allen-Cahn and predicted-chemical-potential CH2 variants; and two supplemental DSH2024/SOAP source variants. Four explicit conflicts remain scoped: an absent Cahn-Hilliard module, an AC checkpoint-variable typo, missing dependency-manifest support behind the README requirements section, and README paths that do not match the pinned root layout.
+
+The static reproducibility level is R1. Source and paper relationship evidence are substantial, but no environment or license is supplied, required data/weights are external, two entrypoint/documentation defects remain, and no result lineage or runtime execution was established. No source, environment, dependency, data, weight, notebook, training, inference, evaluation, plotting or scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 59 resources, 107 experiments, 248 configurations, 790 evidence records, 59 reproducibility assessments, 344 unresolved findings, and 79 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.

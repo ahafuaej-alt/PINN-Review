@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S044
+Checkpoint: Stage3-S045
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -388,12 +388,26 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 | S3U-0332 | CR000052 | binary_payload_inspection_deferred | medium | Python bytecode and image assets are present but were not opened or used to infer executable behavior. | Binary-derived behavior remains outside the bounded extraction. |
 
 
+| S3U-0333 | CR000053 | license_unavailable | medium | No license file or repository license metadata was identified at the pinned commit. | Reuse terms remain unavailable. |
+| S3U-0334 | CR000053 | dependency_manifest_unavailable | high | README lists required packages but the pinned tree contains no requirements.txt, environment file or equivalent manifest. | Exact installation and dependency reconstruction is blocked. |
+| S3U-0335 | CR000053 | required_problem_data_external | high | Required processed images, flow-case metadata and velocity/pressure labels are external to the pinned repository. | Repository-only reconstruction is blocked. |
+| S3U-0336 | CR000053 | checkpoint_lineage_external | high | Trained weights are referenced externally without a pinned checksum or exact paper-run mapping. | R4 restore/result verification is blocked. |
+| S3U-0337 | CR000053 | entrypoint_module_missing | high | apps/train_shape_CH.py imports lib.model.HGPIFuNet_CH, but that module is absent from the pinned tree. | The CH training entrypoint is incomplete as written. |
+| S3U-0338 | CR000053 | checkpoint_variable_typo | high | apps/train_shape_AC.py calls torch.load with pt.load_netG_checkpoint_path although the options object is opt. | The AC restore path is statically invalid as written. |
+| S3U-0339 | CR000053 | documentation_requirements_conflict | medium | README describes a requirements-based setup, but no dependency manifest exists in the pinned tree. | Installation requires manual dependency resolution. |
+| S3U-0340 | CR000053 | documentation_path_conflict | medium | README references PINNs4Drops/VcPINNs, PINNs4Drops/IcPINNs and lib/options directories absent from the pinned root layout. | Documented navigation and checkpoint placement require correction. |
+| S3U-0341 | CR000053 | platform_scope_partial | medium | README limits training/data generation to Linux, but no complete runtime/toolchain matrix is supplied. | Cross-platform reproduction is not established. |
+| S3U-0342 | CR000053 | random_seed_scope_partial | low | No single deterministic seed contract was established across inspected training and augmentation paths. | Exact stochastic reruns remain unspecified. |
+| S3U-0343 | CR000053 | result_lineage_unverified | medium | OBJ/VTK outputs are documented, but no generated-result checksum or one-to-one paper figure/table lineage was verified. | Numerical result reproduction remains unverified. |
+| S3U-0344 | CR000053 | workflow_execution_unverified | low | Training, evaluation, rendering and data-generation entrypoints were inspected but not executed. | Runtime behavior remains unverified. |
+
+
 ## Conflict handling
 
-Seventy-five explicit `conflicting_evidence` findings exist through Stage3-S044. Two new conflicts were recorded for CR000052: an IcPINNs CH import/symbol mismatch and README path references that do not match the pinned file layout.
+Seventy-nine explicit `conflicting_evidence` findings exist through Stage3-S045. Four new conflicts were recorded for CR000053: a missing CH module, an AC checkpoint-variable typo, a missing dependency manifest behind the README requirements section, and README paths that do not match the pinned root layout.
 
 ## Escalation state
 
-No Stage-2 resource identity or relationship defect was discovered in S044. Stage 2 remains closed and unchanged.
+No Stage-2 resource identity or relationship defect was discovered in S045. Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S044, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000053. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S045, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 remains in progress and continues at CR000054. No unresolved item requires scientific workload execution within Stage 3; runtime reproduction, external-data inspection, binary inspection, or executable/model execution remain explicit bounded limitations for later stages.
