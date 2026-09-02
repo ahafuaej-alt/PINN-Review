@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S033
+Latest scale-out checkpoint: Stage3-S034
 
 ## Pilot QA
 
@@ -468,6 +468,20 @@ Two source-scoped conflicts remain explicit. The real driver loads Aorta3 area/v
 The static reproducibility level is R1. The repository has broad source, data, checkpoint and result coverage, but no exact environment, dependency manifest, license, seed specification, portable installation/run sequence, or independently verified binary/result lineage. All NPY arrays, checkpoint parts, event logs, PDF and notebook-output payloads remained unopened, and no source, environment, dependency, notebook, data, model, training, inference, evaluation, plotting, ODE or solver workflow was executed; R5 remains prohibited.
 
 Cumulative totals are 47 resources, 90 experiments, 203 configurations, 608 evidence records, 47 reproducibility assessments, 236 unresolved findings, and 63 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S034
+
+Status: **PASS**
+
+`CR000041` preserves the official `PredictiveIntelligenceLab/UQPINNs` repository at the Stage-2-pinned commit `06933d6c3656db1d2f7147185daa54ea408b1c04` and official relationship `PRL000119` to Atlas paper 444. The complete tree contains 54 entries and 40 blobs totaling 9,063,680 bytes, including 16 Python sources, benchmark MAT/NPZ payloads, five PNGs, cached PYC files, and one tutorial notebook; no dependency manifest or license file is present.
+
+Three source-consuming experiment families are represented by five configurations: Burgers uncertainty propagation with noise-free and noisy initial observations, nonlinear Darcy constitutive-law discovery with noise-free and 5% noisy observations, and stochastic nonlinear ODE uncertainty propagation. The source implements latent-variable generator/discriminator models with KL, reconstruction and physics-residual terms, separate Adam optimizers at 10⁻⁴, and source-defined posterior sampling. Shared model modules, tutorial content, and repeated posterior samples are not promoted into additional experiments.
+
+One source-scoped conflict remains explicit. The noisy Burgers driver comment calls the case noise-free, while the implementation sets `err_var=0.1` and constructs a noisy initial condition. The configuration retains both pieces of source evidence without repair.
+
+The static reproducibility level is R1. Source entrypoints, model structures, benchmark filenames, sampling sizes, training iterations, and uncertainty outputs are visible, but exact dependencies, runtime versions, license, portable installation sequence, checkpoint/result lineage, and binary payload schemas are unavailable or incomplete. MAT, NPZ, PNG, PYC, and notebook payloads remained unopened, and no source, environment, dependency, notebook, data, model, training, inference, evaluation, plotting, or solver workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 48 resources, 93 experiments, 208 configurations, 628 evidence records, 48 reproducibility assessments, 246 unresolved findings, and 64 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

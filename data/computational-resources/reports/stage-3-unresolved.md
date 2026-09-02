@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S033
+Checkpoint: Stage3-S034
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -244,6 +244,16 @@ Phase: controlled scale-out in progress
 | S3U-0234 | CR000040 | `systematic_sweep_completion_unknown` | medium | The systematic Y-shaped driver loops over 50 repetitions but deposits no per-repetition completion log or normalized output mapping. | The study definition is known, but completed-trial coverage is not. |
 | S3U-0235 | CR000040 | `pelvic_reverse_tree_plot_mapping_conflict` | high | `ploter_tree_reverse.py` assigns the seventh reference pressure from vessel 6 while plotting it as vessel 7. | The affected post-processing comparison cannot be treated as vessel-correct without source repair. |
 | S3U-0236 | CR000040-E005-C001 | `rcr_input_payload_unopened` | high | RCR identification loads `Find_RCR/results_real.npy`, but the saved pressure/flow arrays remained unopened. | Windkessel parameter-search inputs and outputs cannot be independently verified. |
+| S3U-0237 | CR000041 | `dependency_manifest_unavailable` | high | The pinned UQPINNs tree contains no requirements, environment, setup, or lock manifest; dependencies are only implied by imports and README prose. | Exact environment reconstruction and R2 installation sufficiency are unavailable. |
+| S3U-0238 | CR000041 | `license_unavailable` | medium | No repository license file was identified at the pinned commit. | Reuse terms for source and bundled artifacts remain unavailable. |
+| S3U-0239 | CR000041 | `runtime_version_unknown` | high | Python, TensorFlow, NumPy, SciPy, pyDOE and related runtime versions are not pinned. | A compatible exact environment cannot be reconstructed. |
+| S3U-0240 | CR000041 | `installation_sequence_unavailable` | medium | README gives project context but no complete install, working-directory, or all-example execution sequence. | Portable end-to-end execution is not documented. |
+| S3U-0241 | CR000041 | `binary_benchmark_payloads_unopened` | medium | MAT and NPZ benchmark payloads remained unopened under the static-only boundary. | Array schemas, dimensions and numeric reference values remain unverified. |
+| S3U-0242 | CR000041 | `result_lineage_unverified` | medium | Generated PNG/NPY artifacts and reference payloads are not linked by run IDs, checksums or a documented source-to-result record. | Reported outputs cannot be independently traced to a pinned execution. |
+| S3U-0243 | CR000041 | `runtime_seed_control_incomplete` | medium | Drivers set NumPy seed 1234, but TensorFlow and other runtime seed controls are not established. | Cross-platform deterministic reruns are not guaranteed. |
+| S3U-0244 | CR000041-E001-C002 | `noisy_burgers_annotation_implementation_conflict` | high | The noisy Burgers source comment says the noise-free case is zero while `err_var=0.1` and a noisy initial-condition transform are implemented. | The annotation cannot be used to characterize the selected configuration without favoring one source statement. |
+| S3U-0245 | CR000041 | `tutorial_scope_not_promoted` | low | The repository tutorial is not tied to a separate paper experiment beyond shared UQPINN capability. | Tutorial content remains supporting evidence rather than an additional configuration. |
+| S3U-0246 | CR000041 | `paper_result_mapping_partial` | medium | The pinned source exposes benchmark drivers and reference filenames, but unopened payloads and absent result lineage prevent exact paper-result reconstruction. | Paper-level reported metrics remain bounded source/paper evidence, not reproduced results. |
 
 ## Source-scope handling
 
@@ -285,10 +295,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Sixty-three explicit `conflicting_evidence` findings exist through Stage3-S033. Two new source-scoped findings cover the Aorta3 training/held-out boundary and the pelvic reverse-tree pressure mapping; they do not alter the closed Stage-2 identity or relationships.
+Sixty-four explicit `conflicting_evidence` findings exist through Stage3-S034. One new configuration-scoped finding covers the noisy Burgers annotation versus implementation; it does not alter the closed Stage-2 identity or relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S033, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000041. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S034, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000042. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
