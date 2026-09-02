@@ -8,22 +8,22 @@ Status date: 2026-09-02
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S035 |
-| Next scale-out checkpoint | Stage3-S036 |
-| Last completed resource | CR000042 |
-| Next resource | CR000043 |
-| Next planned checkpoint resources | CR000043 |
+| Last completed scale-out checkpoint | Stage3-S036 |
+| Next scale-out checkpoint | Stage3-S037 |
+| Last completed resource | CR000043 |
+| Next resource | CR000044 |
+| Next planned checkpoint resources | CR000044 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 49 |
-| Remaining Stage-3 registry resource count | 318 |
+| Completed Stage-3 resource count | 50 |
+| Remaining Stage-3 registry resource count | 317 |
 | Approved pilot resources completed | 10 / 10 |
 | Completed experiment count | 96 |
 | Completed configuration count | 217 |
-| Technical evidence records | 652 |
-| Static reproducibility assessments | 49 |
+| Technical evidence records | 662 |
+| Static reproducibility assessments | 50 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 256 |
-| Next unresolved ID | S3U-0257 |
+| Current unresolved technical item count | 263 |
+| Next unresolved ID | S3U-0264 |
 | Current conflicting-evidence finding count | 66 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
@@ -101,8 +101,9 @@ Completed checkpoints:
 - `Stage3-S033`: `CR000040`
 - `Stage3-S034`: `CR000041`
 - `Stage3-S035`: `CR000042`
+- `Stage3-S036`: `CR000043`
 
-The batch remains open; the exact next resource is `CR000043`.
+The batch remains open; the exact next resource is `CR000044`.
 
 ## Continuation rule
 
@@ -110,7 +111,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0256` are preserved and the next ID is `S3U-0257`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0263` are preserved and the next ID is `S3U-0264`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -153,7 +154,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S033`: `CR000040` — QA PASS; adaptive single-resource official 1D blood-flow checkpoint with 5 source workflows, 5 configurations, 22 evidence records, and 1 reproducibility assessment.
 - `Stage3-S034`: `CR000041` — QA PASS; adaptive single-resource official adversarial-UQ PINN checkpoint with 3 experiment families, 5 configurations, 20 evidence records, and 1 reproducibility assessment.
 - `Stage3-S035`: `CR000042` — QA PASS; adaptive single-resource official physics-constrained surrogate checkpoint with 3 experiment families, 9 configurations, 24 evidence records, and 1 reproducibility assessment.
+- `Stage3-S036`: `CR000043` — QA PASS; adaptive single-resource supporting torchdiffeq framework checkpoint with no experiments/configurations, 10 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S036`** with **`CR000043`**.
+Start **`Stage3-S037`** with **`CR000044`**.

@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S035
+Latest scale-out checkpoint: Stage3-S036
 
 ## Pilot QA
 
@@ -496,6 +496,18 @@ Two source-scoped conflicts remain explicit. The mixed-residual test function pr
 The static reproducibility level is R2. The repository supplies an MIT license, dependency declaration, dataset/checkpoint download scripts, README commands, source entrypoints, and documented architecture/training settings. Exact dependency resolution remains incomplete because requirements are range-based and include `python=3.6` and `json` entries that are not a clean pip lock; external HDF5/checkpoint payloads and generated results remained unopened. No source, environment, dependency, notebook, data, model, checkpoint, solver, training, inference, evaluation, plotting, or FEniCS workflow was executed; R5 remains prohibited.
 
 Cumulative totals are 49 resources, 96 experiments, 217 configurations, 652 evidence records, 49 reproducibility assessments, 256 unresolved findings, and 66 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S036
+
+Status: **PASS**
+
+`CR000043` preserves the supporting `rtqichen/torchdiffeq` library at the Stage-2-pinned commit `657943acefa826ef04c025ebeb1ff5e9d60dc268` and its verified supporting relationship `PRL000121` to Atlas paper 457. The pinned tree contains the ODE solver package, six general examples, tests, `setup.py`, an MIT license, and no research dataset, checkpoint, or paper-specific result bundle.
+
+The framework-level record covers `odeint`, `odeint_adjoint`, `odeint_event`, and dense-output interfaces; adaptive Runge–Kutta, fixed-step, Adams and SciPy-wrapped solvers; adjoint sensitivity; differentiable event handling; and documented installation/API usage. Examples and tests remain capability evidence only, so no paper-specific experiments or configurations are manufactured.
+
+The static reproducibility level is R2. Source, license, installation metadata, documented APIs, examples, tests, and declared Torch/SciPy requirements are present. Exact transitive dependencies and application-specific solver tolerances remain open, and no paper dataset/checkpoint/result lineage applies to this supporting library. No source, environment, dependency, example, test, ODE, solver, training, inference or evaluation workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 50 resources, 96 experiments, 217 configurations, 662 evidence records, 50 reproducibility assessments, 263 unresolved findings, and 66 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

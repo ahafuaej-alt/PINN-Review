@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S035
+Checkpoint: Stage3-S036
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -264,6 +264,13 @@ Phase: controlled scale-out in progress
 | S3U-0254 | CR000042-E001-C001 | `mixed_residual_test_variable_conflict` | high | The mixed-residual test function prints `loss_train` although that variable is outside the function's local scope. | The documented evaluation path is not source-complete without repair. |
 | S3U-0255 | CR000042-E002-C001 | `cglow_test_variable_conflict` | high | The conditional Glow test function uses `log_likeihood` for entropy reporting without a visible local assignment. | The entropy/evaluation path is not source-complete without repair. |
 | S3U-0256 | CR000042 | `cuda_working_directory_contract_partial` | medium | Entry points expose explicit CUDA indices and repository-relative dataset/output paths but do not define a portable CPU/headless contract. | Cross-machine execution setup remains environment-sensitive. |
+| S3U-0257 | CR000043 | `transitive_dependency_lock_unavailable` | medium | `setup.py` declares lower bounds for Torch and SciPy without a transitive lockfile. | Exact library environment reconstruction remains incomplete. |
+| S3U-0258 | CR000043 | `solver_tolerance_contract_application_specific` | low | The library supports method-, tolerance- and option-dependent numerical behavior, but no single application contract is defined at framework level. | Cross-application numerical comparability requires explicit caller settings. |
+| S3U-0259 | CR000043 | `paper_dataset_not_applicable` | low | The supporting library snapshot contains no paper-specific dataset or checkpoint. | Paper-specific experiment reproduction cannot be claimed from this resource alone. |
+| S3U-0260 | CR000043 | `paper_result_bundle_not_applicable` | low | No paper-specific result artifact is deposited in the library tree. | Supporting capability evidence is not a reproduced paper result. |
+| S3U-0261 | CR000043 | `example_execution_unverified` | low | General examples are documented and present, but were not executed under the static-only boundary. | Example output behavior remains unverified here. |
+| S3U-0262 | CR000043 | `test_execution_unverified` | low | Test source is present, but the test suite was not executed. | Runtime regression status remains unverified here. |
+| S3U-0263 | CR000043 | `application_integration_scope_unavailable` | medium | The framework is reusable but no specific downstream PINN/application integration is deposited in the pinned tree. | Its relationship to paper 457 remains supporting software context rather than a paper implementation. |
 
 ## Source-scope handling
 
@@ -305,10 +312,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Sixty-six explicit `conflicting_evidence` findings exist through Stage3-S035. Two new configuration-scoped findings cover undefined evaluation-path variables in the mixed-residual and conditional Glow tests; they do not alter the closed Stage-2 identity or relationship.
+Sixty-six explicit `conflicting_evidence` findings exist through Stage3-S036. No new contradiction was added for the supporting torchdiffeq framework-level checkpoint.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S035, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000043. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S036, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000044. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
