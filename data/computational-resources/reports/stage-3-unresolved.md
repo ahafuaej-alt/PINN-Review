@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S030
+Checkpoint: Stage3-S031
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -220,6 +220,10 @@ Phase: controlled scale-out in progress
 | S3U-0210 | CR000037 | `binary_payloads_unopened` | medium | The bundled MAT and PTH payloads and archived figure/animation files remained unopened under the static-only boundary. | Array schemas, checkpoint tensors, plotted values, and metrics remain unverified. |
 | S3U-0211 | CR000037 | `interactive_headless_workflow_partial` | medium | The source asks interactively whether to resume or start new training and invokes `plt.show()` in plotting paths; no headless option is documented. | Portable unattended execution requires inferred interaction/backend settings. |
 | S3U-0212 | CR000037-E001-C001 | `unselected_model_branch_coverage_partial` | medium | The repository defines vanilla, resnet, and DenseResNet branches, but the main block selects only the resnet label and no per-branch run artifacts or logs are deposited. | Completed-trial coverage for the advertised alternatives cannot be established. |
+| S3U-0213 | CR000038 | `gist_content_unavailable` | high | The public gist profile could not be enumerated through the approved primary-source interface, so no underlying files or content are available for inspection. | No source-level experiment or technical extraction can be established. |
+| S3U-0214 | CR000038 | `gist_snapshot_unavailable` | high | No commit, archive snapshot, file inventory, or immutable content identifier is available for the profile. | Reproducibility and historical artifact identity cannot be verified. |
+| S3U-0215 | CR000038 | `paper_relationship_not_verified` | medium | Stage 2 preserves a paper-related PRL000114 mention, but the paper and profile do not provide an inspectable gist artifact mapping. | The relationship remains an audit-trail item rather than verified code provenance. |
+| S3U-0216 | CR000038 | `profile_technical_metadata_unavailable` | medium | License, dependencies, entrypoint, mathematics, architecture, training, evaluation, data, and results cannot be established from the unenumerated profile. | The resource is limited to R0 identity evidence. |
 
 ## Source-scope handling
 
@@ -261,10 +265,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Fifty-nine explicit `conflicting_evidence` findings exist through Stage3-S030. Two new evidence records scope CR000037's passive-scalar versus velocity-observation boundary and the resnet-label dispatch mismatch without changing the paper-resource relationship.
+Fifty-nine explicit `conflicting_evidence` findings exist through Stage3-S031. No new conflicting-evidence record was added for CR000038 because the profile contents were unavailable.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S030, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000038. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S031, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000039. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.

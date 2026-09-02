@@ -8,22 +8,22 @@ Status date: 2026-09-02
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S030 |
-| Next scale-out checkpoint | Stage3-S031 |
-| Last completed resource | CR000037 |
-| Next resource | CR000038 |
-| Next planned checkpoint resources | CR000038 |
+| Last completed scale-out checkpoint | Stage3-S031 |
+| Next scale-out checkpoint | Stage3-S032 |
+| Last completed resource | CR000038 |
+| Next resource | CR000039 |
+| Next planned checkpoint resources | CR000039 |
 | Current scale-out batch | SOB003 |
-| Completed Stage-3 resource count | 44 |
+| Completed Stage-3 resource count | 45 |
 | Remaining Stage-3 registry resource count | 322 |
 | Approved pilot resources completed | 10 / 10 |
 | Completed experiment count | 84 |
 | Completed configuration count | 196 |
-| Technical evidence records | 564 |
-| Static reproducibility assessments | 44 |
+| Technical evidence records | 570 |
+| Static reproducibility assessments | 45 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 212 |
-| Next unresolved ID | S3U-0213 |
+| Current unresolved technical item count | 216 |
+| Next unresolved ID | S3U-0217 |
 | Current conflicting-evidence finding count | 59 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Acceptance record | `reports/stage-3-pilot-acceptance.md` |
@@ -96,8 +96,9 @@ Completed checkpoints:
 - `Stage3-S028`: `CR000035`
 - `Stage3-S029`: `CR000036`
 - `Stage3-S030`: `CR000037`
+- `Stage3-S031`: `CR000038`
 
-The batch remains open; the exact next resource is `CR000038`.
+The batch remains open; the exact next resource is `CR000039`.
 
 ## Continuation rule
 
@@ -105,7 +106,7 @@ Every continuation must read the progress report, scale-out plan, unresolved reg
 
 ## Unresolved-register rule
 
-The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0212` are preserved and the next ID is `S3U-0213`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
+The unresolved register remains an audit trail. Existing `S3U-0001`–`S3U-0216` are preserved and the next ID is `S3U-0217`. Normal technical gaps and configuration-scoped conflicts do not stop scale-out when they can be scientifically bounded; they instead lower field confidence/status or reproducibility level as appropriate. Hard stops are limited to ontology/schema insufficiency, a material Stage-2 identity contradiction that prevents a defensible bounded record, unrecoverable cumulative reference-integrity failure, or a QA requirement that cannot be satisfied without violating the static-only boundary.
 
 ## Stage boundaries
 
@@ -143,7 +144,8 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 - `Stage3-S028`: `CR000035` — QA PASS; adaptive single-resource official mixed-form cylinder-flow checkpoint with 2 experiments, 2 configurations, 18 evidence records, and 1 reproducibility assessment.
 - `Stage3-S029`: `CR000036` — QA PASS; adaptive single-resource official HFM source-repository checkpoint with 6 experiments, 14 configurations, 27 evidence records, and 1 reproducibility assessment.
 - `Stage3-S030`: `CR000037` — QA PASS; adaptive single-resource supporting PyTorch HFM reimplementation checkpoint with 1 experiment, 1 configuration, 13 evidence records, and 1 reproducibility assessment.
+- `Stage3-S031`: `CR000038` — QA PASS; adaptive single-resource unavailable gist-profile checkpoint with no experiments/configurations, 6 evidence records, and 1 reproducibility assessment.
 
 ## Exact next action
 
-Start **`Stage3-S031`** with **`CR000038`**.
+Start **`Stage3-S032`** with **`CR000039`**.

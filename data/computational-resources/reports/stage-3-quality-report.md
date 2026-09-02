@@ -431,6 +431,16 @@ The static reproducibility level is R1. No dependency manifest, Python/package v
 
 Cumulative totals are 44 resources, 84 experiments, 196 configurations, 564 evidence records, 44 reproducibility assessments, 212 unresolved findings, and 59 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S031
+
+Status: **PASS**
+
+`CR000038` preserves the Stage-2 gist identity `https://gist.github.com/huidonghu` and the retained but unverified `PRL000114` relationship to Atlas paper 431. The profile is public by URL, but its contents could not be enumerated through the approved primary-source interface; no source snapshot, data, model, environment, dependency, or result artifact is available for inspection. Accordingly, no experiment or configuration is manufactured.
+
+The static reproducibility level is R0. Only the profile identity and the Stage-2 relationship record are established; technical fields, licensing, installation, architecture, training, evaluation, and expected-result evidence are unavailable. No gist content or scientific workflow was inspected or executed.
+
+Cumulative totals are 45 resources, 84 experiments, 196 configurations, 570 evidence records, 45 reproducibility assessments, 216 unresolved findings, and 59 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.
