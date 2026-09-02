@@ -581,6 +581,18 @@ The static reproducibility level is R1. Installation and dependency declarations
 
 Cumulative totals are 56 resources, 103 experiments, 237 configurations, 744 evidence records, 56 reproducibility assessments, 314 unresolved findings, and 73 explicit conflicting-evidence findings.
 
+## Scale-out checkpoint Stage3-S043
+
+Status: **PASS**
+
+CR000051 preserves the supporting DiffSharp library at the Stage-2-pinned commit afee7e9c5c1ea872e233cca216cfd047da895863 and relationship PRL000132 to Atlas paper 467. The pinned tree contains 205 entries and 177 blobs totaling 24,610,660 bytes, with F# source and scripts, project files, documentation, tests, examples, benchmark artifacts, a BSD-2-Clause license, and no paper-specific research dataset.
+
+This is a framework-level record with zero paper-specific experiments and configurations. The source covers a differentiable-programming tensor library with nested and mixed-mode differentiation, Reference and Torch backends, model/optimizer/distribution components, CPU/CUDA/lite package bundles, and F#/.NET installation/documentation paths. Examples, tests and benchmark artifacts remain capability evidence only.
+
+The static reproducibility level is R2. Project files declare the .NET target frameworks and package dependencies, README/docs provide package and test workflows, and the license and source are present. Exact transitive dependency resolution, the SDK/runtime matrix, and TorchSharp/LibTorch CUDA-driver pairing remain incomplete. No source, environment, dependency, example, test, benchmark, differentiation, optimization or scientific workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 57 resources, 103 experiments, 237 configurations, 754 evidence records, 57 reproducibility assessments, 322 unresolved findings, and 73 explicit conflicting-evidence findings.
+
 ## Stage boundaries
 
 Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. The accepted Stage-3 methodology remains static-only and does not authorize scientific workload execution.
