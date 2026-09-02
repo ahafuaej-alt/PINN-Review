@@ -1,9 +1,9 @@
 # Computational Resources Stage 3 — Quality Report
 
-Status date: 2026-09-01
+Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S026
+Latest scale-out checkpoint: Stage3-S027
 
 ## Pilot QA
 
@@ -376,6 +376,18 @@ All three sources implement five 64-filter Conv1D layers, two hidden Dense layer
 The static reproducibility level is R1. No dependency manifest, versioned environment, installation workflow, portable command, seed, checkpoint, log, paper-run identifier, or numeric acceptance tolerance is supplied. Each entrypoint uses a placeholder data directory. The three archived result files provide expected-result evidence, but their binary contents and both input payloads remained unopened, so array schemas, experimental split membership, numeric outputs, and source-to-result lineage were not independently verified. No code, environment, dependency, data, model, checkpoint, training, inference, evaluation, plotting, result, or clustering workflow was executed.
 
 Cumulative totals are 40 resources, 73 experiments, 177 configurations, 487 evidence records, 40 reproducibility assessments, 169 unresolved findings, and 47 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S027
+
+Status: **PASS**
+
+`CR000034` preserves the Stage-2-pinned `Jianxun-Wang/LabelFree-DNN-Surrogate` snapshot, MIT license, and official `PRL000110` relationship to Atlas paper 425. The complete 55-blob tree totals 8,449,156 bytes and contains seven Python files with 1,201 source lines, two notebooks, 23 NPZ arrays, six PyTorch checkpoints, 11 PNG figures, one 71-member OpenFOAM ZIP, three tracked Python bytecode files, one README, and one license. Two experiment/configuration pairs represent the deposited pipe-viscosity and aneurysm-geometry workflows; paper-only stenosis and fixed-geometry viscosity studies remain paper-scoped.
+
+Both workflows implement data-free steady incompressible Navier–Stokes surrogates with separate `u`, `v`, and `p` subnetworks, automatic differentiation, momentum-plus-continuity residual losses, and hard no-slip/pressure boundary ansatzes. The PyTorch aneurysm source matches the paper-wide 3x20 fixed-Swish, Adam-0.001, batch-50, He/Kaiming-normal configuration and samples 100,000 geometry-parameterized collocation points over `A=-0.02..0` for 500 epochs. The TensorFlow pipe source instead uses 3x50 subnetworks, trainable-beta Swish, Xavier initialization, Adam at 0.005, batch size 128, and 25,000 viscosity-parameterized collocation points. Those settings conflict with the paper-wide configuration; the pipe Python driver also specifies 3,000 epochs while both notebooks specify 1,000. A third scoped conflict records that `main.py` references undefined `toc` only after `geo_train` has returned and saved final epoch-500 checkpoints.
+
+The static reproducibility level is R3. README names Python 3, PyTorch >=0.4, TensorFlow 1.15, matplotlib, and seaborn; supplies clone/install guidance; and documents pipe training, pipe UQ, and aneurysm training commands. Generated collocation inputs, archived analytical/CFD comparisons, six checkpoints, and evaluation helpers are present. R4 is withheld because the manifest/import coverage is incomplete, seeds are absent, paper/source and source-variant settings conflict, aneurysm UQ is marked “To Be Added,” the aneurysm driver opens an interactive plot, and binary artifact lineage remains bounded. NPZ, PT, PNG, PYC, and ZIP-member payloads remained unopened, and no code, environment, dependency, data, model, checkpoint, solver, training, inference, evaluation, plotting, or result workflow was executed.
+
+Cumulative totals are 41 resources, 75 experiments, 179 configurations, 506 evidence records, 41 reproducibility assessments, 179 unresolved findings, and 50 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

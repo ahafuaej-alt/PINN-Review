@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
-Verification/extraction date: 2026-09-01
-Checkpoint: Stage3-S026
+Verification/extraction date: 2026-09-02
+Checkpoint: Stage3-S027
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -177,6 +177,16 @@ Phase: controlled scale-out in progress
 | S3U-0167 | CR000033 | `archived_result_lineage_partial` | medium | Three result MAT files are deposited, but no checkpoint, training log, paper-run identifier, checksum mapping, metric table, or acceptance tolerance connects them to a specific source execution. | Archived outputs strengthen expected-result evidence but do not establish R4 or exact source-to-result provenance. |
 | S3U-0168 | CR000033 | `dataset_schema_split_unverified` | medium | Both input MAT payloads remained unopened; the experimental source loads `trainInd` and `valInd` but does not apply them to `input_tf`. | Array schemas, experimental membership, and agreement with the paper's 11/4/8 partition remain bounded rather than independently verified. |
 | S3U-0169 | CR000033 | `portable_workflow_unavailable` | medium | The repository supplies no run command, CLI, configuration file, workflow order, checkpoint-loading path, or result-verification procedure. | Users must infer invocation and repair paths; portable end-to-end reconstruction remains incomplete. |
+| S3U-0170 | CR000034 | `dependency_manifest_and_import_coverage_partial` | medium | README names Python 3, PyTorch >=0.4, TensorFlow 1.15, matplotlib, and seaborn, but no machine-readable manifest or resolved environment exists and NumPy, pandas, and SciPy imports are omitted from the list. | The documented environment is substantial enough for R3, but exact installation reconstruction and R4 remain unavailable. |
+| S3U-0171 | CR000034 | `random_seed_unknown` | medium | No NumPy, TensorFlow, PyTorch, CUDA, or deterministic-backend seed is established despite shuffled collocation data, random model initialization, and random pipe Monte Carlo sampling. | Exact training order, initialization, and UQ sample reproduction are unspecified. |
+| S3U-0172 | CR000034-E001-C001 | `paper_source_pipe_configuration_conflict` | high | The paper keeps all cases at PyTorch 3x20 fixed-Swish subnetworks with He-normal initialization, Adam learning rate 0.001, and batch 50; the pipe source uses TensorFlow 3x50 trainable-Swish subnetworks, Xavier initialization, 0.005, and batch 128. | The deposited pipe workflow cannot be treated as the exact paper-wide configuration. |
+| S3U-0173 | CR000034-E001-C001 | `pipe_source_epoch_conflict` | high | `Tutorial/poiseuillePara.py` specifies 3,000 epochs while both copies of the notebook code specify 1,000. | One authoritative deposited pipe training duration cannot be selected without run provenance. |
+| S3U-0174 | CR000034-E002-C001 | `aneurysm_post_training_timing_variable_undefined` | high | After `geo_train` returns and saves epoch-500 checkpoints, `main.py` assigns `tic` and evaluates `toc - tic` although `toc` is undefined in the driver scope. | The active driver does not terminate normally after training, although final checkpoints are written before the defect is reached. |
+| S3U-0175 | CR000034 | `paper_example_coverage_partial` | medium | The paper reports circular-pipe, stenosis-viscosity, stenosis-geometry, aneurysm-viscosity, and aneurysm-geometry studies, while the pinned tree materializes dedicated active training only for pipe viscosity and aneurysm geometry. | Stenosis and fixed-geometry viscosity cases remain paper-scoped and are not promoted into repository experiments. |
+| S3U-0176 | CR000034-E002-C001 | `aneurysm_uq_workflow_partial` | medium | README explicitly marks parametric-geometry aneurysm UQ as “To Be Added”; comparison helpers and archived arrays exist but no documented end-to-end UQ command is supplied. | The aneurysm training/evaluation configuration reaches R3, but its paper UQ workflow is not portably reconstructed. |
+| S3U-0177 | CR000034 | `binary_artifact_lineage_partial` | medium | Twenty-three NPZ files, six PT checkpoints, 11 PNGs, three PYC files, and 71 members of the nested OpenFOAM ZIP were inventoried statically but remained unopened; no run IDs or checksums map them to exact paper trials. | Numeric arrays, model tensors, plotted values, and exact source-to-paper lineage remain unverified, blocking R4. |
+| S3U-0178 | CR000034-E001-C001 | `saved_notebook_execution_error` | medium | The checkpoint notebook retains a saved `AttributeError` stating that `tensorflow_core.compat.v1` has no `contrib`; the primary notebook has no saved outputs and the producing environment is unspecified. | A historical incompatible execution is preserved, but it does not establish behavior under the README-specified TensorFlow 1.15 environment. |
+| S3U-0179 | CR000034-E002-C001 | `headless_workflow_partial` | medium | `main.py` opens an interactive Matplotlib window before invoking training, and no non-interactive or headless option is documented. | Portable unattended execution requires an inferred backend or source change. |
 
 ## Source-scope handling
 
@@ -212,12 +222,14 @@ For `CR000032`, `PRL000108` remains an official relationship to Atlas paper 416.
 
 For `CR000033`, `PRL000109` remains an official relationship to Atlas paper 419. Three experiment/configuration pairs correspond exactly to the three deposited drivers: numerical all-state, numerical acceleration-only, and experimental acceleration-only response modeling. Paper architecture and dataset-partition statements remain source-scoped where the pinned implementation differs or the unopened MATLAB payload prevents exact membership verification.
 
+For `CR000034`, `PRL000110` remains an official relationship to Atlas paper 425. Two experiment/configuration pairs correspond to the source-materialized pipe-viscosity and aneurysm-geometry workflows. The paper's stenosis and fixed-geometry viscosity studies remain paper-scoped, and the pipe implementation is retained as explicit source-scoped conflicting evidence rather than silently overwritten by the paper-wide architecture and optimizer settings.
+
 ## Conflict handling
 
-Forty-seven explicit `conflicting_evidence` findings exist through Stage3-S026. Two new evidence records scope CR000033's paper-to-source architecture differences and the numerical all-state undefined `test_loss` path without changing the official relationship.
+Fifty explicit `conflicting_evidence` findings exist through Stage3-S027. Three new evidence records scope CR000034's pipe paper-to-source configuration divergence, Python/notebook epoch divergence, and aneurysm post-training undefined-`toc` path without changing the official relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S026, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000034. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S027, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000035. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
