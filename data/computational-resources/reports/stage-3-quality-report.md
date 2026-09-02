@@ -3,7 +3,7 @@
 Status date: 2026-09-02
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07
-Latest scale-out checkpoint: Stage3-S036
+Latest scale-out checkpoint: Stage3-S037
 
 ## Pilot QA
 
@@ -508,6 +508,20 @@ The framework-level record covers `odeint`, `odeint_adjoint`, `odeint_event`, an
 The static reproducibility level is R2. Source, license, installation metadata, documented APIs, examples, tests, and declared Torch/SciPy requirements are present. Exact transitive dependencies and application-specific solver tolerances remain open, and no paper dataset/checkpoint/result lineage applies to this supporting library. No source, environment, dependency, example, test, ODE, solver, training, inference or evaluation workflow was executed; R5 remains prohibited.
 
 Cumulative totals are 50 resources, 96 experiments, 217 configurations, 662 evidence records, 50 reproducibility assessments, 263 unresolved findings, and 66 explicit conflicting-evidence findings.
+
+## Scale-out checkpoint Stage3-S037
+
+Status: **PASS**
+
+`CR000044` preserves the accepted non-PINN `TharinduMiyanawala/CNNforCFD` repository at the Stage-2-pinned commit `8f5be9877d637f633b07e786547b8ffcf5b24e69` and verified supplementary-code relationship `PRL000125` to Atlas paper 459. The pinned tree contains one MATLAB driver, seven MAT payloads, a nested `SemiSubCNN.zip`, a README, and no license or dependency manifest.
+
+One source-consuming experiment/configuration is recorded: a MATLAB 2017b Neural Network Toolbox CNN regresses mean drag coefficients from bluff-body geometry functions. The driver selects seven of thirteen training geometries, uses a `[201 301 1]` input, a 4-filter/50-channel convolution with ReLU and scalar regression output, trains with SGDM at learning rate 0.01 for 100 epochs and mini-batch size 7, and evaluates full/training/test predictions against CFD-derived targets at Reynolds number 100.
+
+One documentation/source conflict remains explicit: README names `TrainingSetSmooth.mat`, while the pinned tree and source use `TrainSetSmooth.mat`. All MAT and ZIP payloads remained unopened; the nested semi-submersible lift model is supporting artifact evidence only.
+
+The static reproducibility level is R1. The source driver and MATLAB setup are documented, but exact toolbox/runtime details, licensing, seeds, binary schemas, CFD target lineage and generated result lineage remain incomplete. No MATLAB, toolbox, training, prediction, plotting or CFD workflow was executed; R5 remains prohibited.
+
+Cumulative totals are 51 resources, 97 experiments, 218 configurations, 674 evidence records, 51 reproducibility assessments, 271 unresolved findings, and 67 explicit conflicting-evidence findings.
 
 ## Stage boundaries
 

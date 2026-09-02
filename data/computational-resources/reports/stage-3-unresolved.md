@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-02
-Checkpoint: Stage3-S036
+Checkpoint: Stage3-S037
 Phase: controlled scale-out in progress
 
 ## Current unresolved items
@@ -271,6 +271,14 @@ Phase: controlled scale-out in progress
 | S3U-0261 | CR000043 | `example_execution_unverified` | low | General examples are documented and present, but were not executed under the static-only boundary. | Example output behavior remains unverified here. |
 | S3U-0262 | CR000043 | `test_execution_unverified` | low | Test source is present, but the test suite was not executed. | Runtime regression status remains unverified here. |
 | S3U-0263 | CR000043 | `application_integration_scope_unavailable` | medium | The framework is reusable but no specific downstream PINN/application integration is deposited in the pinned tree. | Its relationship to paper 457 remains supporting software context rather than a paper implementation. |
+| S3U-0264 | CR000044 | `matlab_dependency_manifest_unavailable` | high | No dependency manifest or package lock identifies MATLAB/toolbox installation requirements beyond README prose. | Exact runtime reconstruction remains incomplete. |
+| S3U-0265 | CR000044 | `license_unavailable` | medium | No repository license file was identified at the pinned commit. | Reuse terms for source and bundled artifacts remain unavailable. |
+| S3U-0266 | CR000044 | `matlab_runtime_version_partial` | medium | README names MATLAB 2017b or newer but does not identify an exact toolbox patch/release or platform. | Cross-release compatibility is not established. |
+| S3U-0267 | CR000044 | `binary_payloads_unopened` | high | Seven MAT files and the nested SemiSubCNN ZIP remained unopened under the static-only boundary. | Training arrays, CFD targets, model tensors and embedded results remain unverified. |
+| S3U-0268 | CR000044 | `result_lineage_unverified` | medium | The driver computes predictions and errors but no generated result bundle or run record is tracked. | Numeric claims cannot be independently linked to a pinned execution. |
+| S3U-0269 | CR000044-E001-C001 | `filename_documentation_source_conflict` | high | README uses TrainingSetSmooth.mat while the pinned tree/source use TrainSetSmooth.mat. | The documented single-directory setup requires resolving the filename spelling. |
+| S3U-0270 | CR000044 | `toolbox_training_contract_partial` | medium | Neural Networks Toolbox is required, but exact supported layer/training-function behavior is not pinned. | Reconstructing the CNN training call remains release-sensitive. |
+| S3U-0271 | CR000044 | `nested_archive_relation_unverified` | low | SemiSubCNN.zip is described as a trained lift model, but its contents and relation to the drag driver were not inspected. | It remains supporting artifact evidence, not a second experiment. |
 
 ## Source-scope handling
 
@@ -312,10 +320,10 @@ For `CR000035`, `PRL000111` remains an official relationship to Atlas paper 427.
 
 ## Conflict handling
 
-Sixty-six explicit `conflicting_evidence` findings exist through Stage3-S036. No new contradiction was added for the supporting torchdiffeq framework-level checkpoint.
+Sixty-seven explicit `conflicting_evidence` findings exist through Stage3-S037. One new documentation/source finding covers the TrainSetSmooth filename spelling; it does not alter the closed Stage-2 identity or relationship.
 
 ## Escalation state
 
 No Stage-2 resource identity or relationship defect was discovered in P07. `PRL000193` remains verified and Stage 2 remains closed and unchanged.
 
-The ten-resource pilot, scale-out checkpoints through Stage3-S036, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000044. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
+The ten-resource pilot, scale-out checkpoints through Stage3-S037, and aggregate QA for scale-out batches SOB001 and SOB002 are complete. Scale-out batch SOB003 is in progress and continues at CR000045. No unresolved item requires scientific workload execution within Stage 3; items requiring runtime reproduction, external-data inspection, missing-source recovery, direct archive comparison, binary dataset inspection, or executable/model execution remain explicit bounded limitations for later stages.
