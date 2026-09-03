@@ -8,26 +8,26 @@ Status date: 2026-09-03
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S052 |
-| Next scale-out checkpoint | Stage3-S053 |
-| Latest checkpoint resource | CR000061 |
-| Forward frontier resource | CR000061 |
-| Next resource | CR000062 |
-| Next planned checkpoint resources | CR000062 |
+| Last completed scale-out checkpoint | Stage3-S053 |
+| Next scale-out checkpoint | Stage3-S054 |
+| Latest checkpoint resource | CR000062 |
+| Forward frontier resource | CR000062 |
+| Next resource | CR000063 |
+| Next planned checkpoint resources | CR000063 |
 | Current scale-out batch | SOB006 |
-| Current batch completed members | CR000054, CR000055, CR000057, CR000058, CR000060, CR000061 — 6 / 10 |
-| Completed Stage-3 technical resource records | 66 |
+| Current batch completed members | CR000054, CR000055, CR000057, CR000058, CR000060, CR000061, CR000062 — 7 / 10 |
+| Completed Stage-3 technical resource records | 67 |
 | Resolved non-independent registry identity encountered | CR000021 → CR000184 |
-| Remaining independently extractable registry resources | 297 |
+| Remaining independently extractable registry resources | 296 |
 | Approved pilot resources completed | 10 / 10 |
 | Completed experiment count | 117 |
 | Completed configuration count | 262 |
-| Technical evidence records | 889 |
-| Static reproducibility assessments | 66 |
+| Technical evidence records | 902 |
+| Static reproducibility assessments | 67 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 400 |
-| Next unresolved ID | S3U-0401 |
-| Current conflicting-evidence finding count | 84 |
+| Current unresolved technical item count | 408 |
+| Next unresolved ID | S3U-0409 |
+| Current conflicting-evidence finding count | 87 |
 | Aggregate batch QA | SOB001–SOB005 PASS |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Control reconciliation | `reports/stage-3-control-reconciliation-01.md` |
@@ -37,15 +37,17 @@ Status date: 2026-09-03
 
 ## Current continuation state
 
-`Stage3-S052` completes `CR000061`, preserving the final Stage-2 redirected `ehsanhaghighat/sciann-applications` identity at commit `8c475af6e6a3ae6de6d1757d952ba1eb29438daa`, MIT licensing, and the three verified relationships `PRL000069` (Atlas 338), `PRL000143` (Atlas 495), and `PRL000150` (Atlas 512).
+`Stage3-S053` completes `CR000062`, preserving the final Stage-2 `ehsanhaghighat/sciann` core-framework identity at commit `e3615412c149dbf3152433c09cdd741be2b04f62` and the official `PRL000151` relationship to Atlas paper 512.
 
-Stage 3 refines the resource role to **`mixed_other`** because this is a broad SciANN applications/examples collection rather than the SciANN core framework itself. The strongly paper-scoped `SciANN-ConstitutiveModeling` directory for Atlas 338 is represented as one experiment with four configurations: deterministic von Mises, stochastic von Mises transfer learning, Drucker-Prager biaxial, and Drucker-Prager undrained biaxial. The wider examples, bundled results, and two external submodules remain resource-level capability/evidence under the bounded-extraction rule.
+SciANN is represented as a reusable **`pinn_framework_library`** at resource scope with zero experiments and zero configurations. Its framework surface includes `Variable`, `Functional`, `Parameter`, `SciModel`, Data/PDE/Tie constraints, functional differentiation, MLP/RNN/radial-basis surfaces, parameter inversion, Keras and SciPy optimizers, adaptive weighting, logging/checkpoint hooks, prediction, examples, tests, and CI. `CR000061` remains the separate SciANN applications/examples resource; its experiments/configurations are not copied into CR000062.
 
-Static reproducibility is **R1**. Source, MIT license, paper-linked data/code, mathematical constraints, architecture, training hyperparameters, seeds, outputs, and entrypoints are recoverable, but CR000061 has no authoritative dependency/environment manifest, no pinned SciANN/runtime versions, and no installation workflow. The separate SciANN core resource `CR000062` must not be used to fill those gaps by inference.
+The exact `LICENSE` and package metadata identify MIT, while the pinned README badge claims Apache-2.0. The conflict is preserved explicitly. Runtime declarations also conflict: README recommends Python 3.9 with TensorFlow/Keras 2.10 and says Python 3.8–3.10; `requirements.txt` pins TensorFlow 2.8.1; CI covers Python 3.7–3.9; and packaging metadata retains older Python statements while omitting TensorFlow/Keras from active install requirements.
 
-The exact next independently extractable resource is **`CR000062`**.
+Static reproducibility is **R2**. Source, installation routes, framework API, physics constraints, architecture, training/evaluation, examples and tests are statically recoverable. R3 is withheld because the environment generations conflict, most dependencies are not locked transitively, the project declares itself unmaintained, and no single paper/application dataset/configuration/checkpoint/result contract exists at framework scope.
 
-`CR000021` remains a resolved non-independent registry identity whose technical resource is canonical `CR000184`; it is not independently duplicated in Stage 3. The Stage-2 registry contains 364 entries, giving 363 independently extractable technical identities after this canonical resolution. With 66 Stage-3 resource records complete, **297** remain.
+The exact next independently extractable resource is **`CR000063`**.
+
+`CR000021` remains a resolved non-independent registry identity whose technical resource is canonical `CR000184`; it is not independently duplicated in Stage 3. The Stage-2 registry contains 364 entries, giving 363 independently extractable technical identities after this canonical resolution. With 67 Stage-3 resource records complete, **296** remain.
 
 ## Current batch — SOB006
 
@@ -59,28 +61,29 @@ Completed canonical scale-out members:
 - `CR000059`: pilot-complete; no scale-out duplication
 - `Stage3-S051`: `CR000060`
 - `Stage3-S052`: `CR000061`
+- `Stage3-S053`: `CR000062`
 
-Current canonical completion: **6 / 10 independently extractable SOB006 members**.
+Current canonical completion: **7 / 10 independently extractable SOB006 members**.
 
 No aggregate QA is due until ten canonical SOB006 members are complete.
 
 ## Control notes
 
-The preserved S050 and S051 pre-QA control deviations remain documented in their checkpoint QA and prior reports; no history is rewritten. `Stage3-S052` restores the normal policy: all checkpoint artifacts are assembled and QA-validated before one completion commit is published.
+The preserved S050 and S051 pre-QA control deviations remain documented in their checkpoint QA and prior reports; no history is rewritten. `Stage3-S052` and `Stage3-S053` follow the normal policy: all checkpoint artifacts are assembled and QA-validated before one completion commit is published.
 
 ## Current cumulative totals
 
-After `Stage3-S052`:
+After `Stage3-S053`:
 
-- Stage-3 technical resource records: **66**
+- Stage-3 technical resource records: **67**
 - experiments: **117**
 - configurations: **262**
-- technical-evidence records: **889**
-- static reproducibility assessments: **66**
-- unresolved findings: **400**
-- explicit conflicting-evidence findings: **84**
+- technical-evidence records: **902**
+- static reproducibility assessments: **67**
+- unresolved findings: **408**
+- explicit conflicting-evidence findings: **87**
 
-S052 adds one resource, one experiment, four configurations, fifteen technical-evidence records, one reproducibility assessment, eight bounded unresolved findings, and zero explicit conflicts.
+S053 adds one resource, zero experiments, zero configurations, thirteen technical-evidence records, one reproducibility assessment, eight bounded unresolved findings, and three explicit conflicts.
 
 ## Continuation rule
 
@@ -90,8 +93,8 @@ Normal checkpoint size remains one or two resources. Normal batch size remains t
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, dependency, environment, notebook, script, submodule, model training, evaluation, inference, binary model payload, test, or benchmark is executed. R5 remains prohibited.
+Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, dependency, environment, notebook, script, package, model training, evaluation, inference, test, accelerator workflow, or benchmark is executed. R5 remains prohibited.
 
 ## Exact next action
 
-Start **`Stage3-S053`** with **`CR000062`**.
+Start **`Stage3-S054`** with **`CR000063`**.

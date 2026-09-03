@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-03  
-Checkpoint: Stage3-S052  
+Checkpoint: Stage3-S053  
 Phase: controlled scale-out in progress
 
 ## Audit continuity
@@ -71,6 +71,19 @@ The complete append-only register through `Stage3-S047` is preserved verbatim in
 | S3U-0399 | CR000061 | `external_submodule_environment_scope` | low | `PINNeikonal` and `En-DeepONet` are pinned gitlinks to external repositories, but their dependency and execution contracts are outside the parent applications repository record. | Their technical environments are not inferred into CR000061 and remain separate source scopes. |
 | S3U-0400 | CR000061 | `example_notebook_execution_unverified` | low | The repository contains many SciANN notebooks/scripts across PDEs, mechanics, fluids, and vibrations, but Stage 3 executed none of them. | Runtime behavior and reproducibility of the wider example suite remain unverified under the static-only boundary. |
 
+## Stage3-S053 additions
+
+| ID | Resource | Outcome | Severity | Finding | Effect |
+|---|---|---|---|---|---|
+| S3U-0401 | CR000062 | `license_badge_conflict` | medium | The exact repository `LICENSE`, `setup.py`, package metadata, and package initializer identify MIT, while the pinned README license badge claims Apache-2.0. | MIT remains authoritative from the exact license text; the Apache-2.0 badge is preserved as explicit conflicting documentation. |
+| S3U-0402 | CR000062 | `runtime_compatibility_matrix_conflict` | medium | README states Python 3.8–3.10, reports last tests on Python 3.9/TensorFlow 2.10 and recommends TensorFlow/Keras 2.10; `requirements.txt` pins TensorFlow 2.8.1; CI uses Python 3.7–3.9; and packaging text retains older Python compatibility statements. | No single runtime compatibility matrix is authoritative across the pinned snapshot; R3 is withheld. |
+| S3U-0403 | CR000062 | `dependency_declaration_contract_conflict` | medium | `requirements.txt` includes TensorFlow/Keras and a broad scientific/test/documentation stack, while active `setup.py` and egg-info requirements omit TensorFlow/Keras and expose a narrower dependency set. | Installation dependency resolution depends on the selected repository surface rather than one internally consistent package contract. |
+| S3U-0404 | CR000062 | `transitive_dependency_lock_unavailable` | medium | Only protobuf and TensorFlow are exactly pinned in `requirements.txt`; most direct dependencies are unpinned and no complete transitive lock or immutable container environment is provided. | Exact environment reconstruction remains incomplete even though setup routes are documented. |
+| S3U-0405 | CR000062 | `unmaintained_runtime_compatibility` | medium | The pinned README explicitly states that SciANN is no longer maintained and warns that Keras/TensorFlow changes rapidly. | Compatibility beyond the documented tested/recommended generations is not assured by the repository. |
+| S3U-0406 | CR000062 | `application_contract_not_applicable` | low | SciANN is a reusable framework and `PRL000151` is its official framework-paper relationship; no single canonical application dataset, experiment, seed, checkpoint, or expected result is fixed at resource scope. | Stage 3 records zero experiments/configurations rather than manufacturing a paper run from generic framework capabilities. |
+| S3U-0407 | CR000062 | `test_execution_unverified` | low | The repository contains `tests/test_api.py` and a CI workflow that runs pytest across a Python matrix, but Stage 3 did not execute the tests. | Runtime regression/API pass status remains unverified under the static-only boundary. |
+| S3U-0408 | CR000062 | `example_and_accelerator_execution_unverified` | low | Root examples and CPU/GPU capability through TensorFlow/Keras were inspected statically only; no example, training, prediction, accelerator, or optional dependency workflow was executed. | Example and hardware runtime behavior remain unverified here. |
+
 ## Current register state
 
 - Historical findings preserved through S047: **362** (`S3U-0001`–`S3U-0362`).
@@ -79,22 +92,23 @@ The complete append-only register through `Stage3-S047` is preserved verbatim in
 - Stage3-S050 additions: **10** (`S3U-0377`–`S3U-0386`).
 - Stage3-S051 additions: **6** (`S3U-0387`–`S3U-0392`).
 - Stage3-S052 additions: **8** (`S3U-0393`–`S3U-0400`).
-- Current unresolved finding count: **400**.
-- Next available unresolved ID: **`S3U-0401`**.
-- Explicit `conflicting_evidence` finding count: **84**; S052 adds no new explicit conflict.
+- Stage3-S053 additions: **8** (`S3U-0401`–`S3U-0408`).
+- Current unresolved finding count: **408**.
+- Next available unresolved ID: **`S3U-0409`**.
+- Explicit `conflicting_evidence` finding count: **87**; S053 adds three explicit conflicts.
 
 ## Source-scope handling
 
-`CR000061` remains the final Stage-2 redirected `ehsanhaghighat/sciann-applications` identity at pinned commit `8c475af6e6a3ae6de6d1757d952ba1eb29438daa`. `PRL000069`, `PRL000143`, and `PRL000150` remain unchanged. Stage 3 refines the technical role to `mixed_other`: the repository is a broad SciANN applications/examples collection rather than the SciANN core framework itself. Only the strongly paper-scoped Atlas-338 `SciANN-ConstitutiveModeling` case is materialized as an experiment, with four source-defined configurations. Other application folders and the `PINNeikonal` / `En-DeepONet` submodules remain resource-level evidence under bounded extraction.
+`CR000062` is the final Stage-2 `ehsanhaghighat/sciann` core-library identity at pinned commit `e3615412c149dbf3152433c09cdd741be2b04f62`, with `PRL000151` unchanged as the official relationship to Atlas 512. Stage 3 records it independently as `pinn_framework_library` at reusable framework scope.
 
-`CR000062` is the separate SciANN core library and will be processed independently; its dependency/version information is not imported backward into CR000061. `CR000060` remains the Pair-wise Interaction Neural Network supporting library; `CR000058` remains the hp-VPINNs implementation; `CR000057` remains PyDEns; `CR000049` remains PyTorch. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to `CR000184` and is not independently duplicated.
+`CR000061` remains the separate `ehsanhaghighat/sciann-applications` applications/examples resource. Its paper-scoped constitutive experiment and four configurations are not copied into CR000062, and CR000062 environment information is not imported backward to fill CR000061 gaps. `CR000060` remains the Pair-wise Interaction Neural Network supporting library; `CR000058` remains hp-VPINNs; `CR000057` remains PyDEns; `CR000049` remains PyTorch. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to `CR000184` and is not independently duplicated.
 
 ## Conflict handling
 
-Eighty-four explicit `conflicting_evidence` findings exist through `Stage3-S052`. S052 adds no explicit source conflict. Its limitations are missing environment/setup provenance, bounded binary/large-payload inspection, bundled-output run provenance, separate submodule scope, and non-execution; these remain bounded nonblocking findings.
+Eighty-seven explicit `conflicting_evidence` findings exist through `Stage3-S053`. S053 adds three: the MIT-vs-Apache README-badge conflict, the runtime compatibility matrix conflict, and the dependency-declaration contract conflict. Each remains at the smallest correct repository/documentation scope; none requires modification of the closed Stage-2 identity or relationship records.
 
 ## Escalation state
 
-No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. The active batch is `SOB006`, with canonical completed scale-out members `CR000054`, `CR000055`, `CR000057`, `CR000058`, `CR000060`, and `CR000061`. `CR000056` and `CR000059` are pilot-complete and are not reprocessed.
+No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. The active batch is `SOB006`, with canonical completed scale-out members `CR000054`, `CR000055`, `CR000057`, `CR000058`, `CR000060`, `CR000061`, and `CR000062`. `CR000056` and `CR000059` are pilot-complete and are not reprocessed.
 
-The exact next independently extractable resource is `CR000062`. No unresolved item requires scientific workload execution within Stage 3; dependency installation, notebooks, scripts, submodules, model training/inference, dataset generation, binary model inspection, tests, or benchmarks remain outside the static-only boundary.
+The exact next independently extractable resource is `CR000063`. No unresolved item requires scientific workload execution within Stage 3; dependency installation, package execution, examples, tests, training, prediction, accelerator workflows, or benchmarks remain outside the static-only boundary.

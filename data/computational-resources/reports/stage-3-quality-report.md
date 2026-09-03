@@ -3,7 +3,7 @@
 Status date: 2026-09-03  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S052
+Latest scale-out checkpoint: Stage3-S053
 
 ## Current QA status
 
@@ -19,65 +19,71 @@ The detailed quality report through `Stage3-S047` is preserved verbatim in `repo
 - `Stage3-S049`: CR000057 PyDEns framework, resource-only, R2 — PASS.
 - `Stage3-S050`: CR000058 hp-VPINNs, four experiments/four configurations, R2 — PASS.
 - `Stage3-S051`: CR000060 Pair-wise Interaction Neural Network library, resource-only, R2 — PASS.
-- `Stage3-S052`: CR000061 SciANN applications collection, one paper-scoped experiment/four configurations, R1 — **PASS**.
+- `Stage3-S052`: CR000061 SciANN applications collection, one paper-scoped experiment/four configurations, R1 — PASS.
+- `Stage3-S053`: CR000062 SciANN core framework, resource-only, R2 — **PASS**.
 
-Historical S050/S051 pre-QA control deviations remain preserved and documented without rewriting history. S052 returns to the normal one-post-QA-commit checkpoint policy.
+Historical S050/S051 pre-QA control deviations remain preserved and documented without rewriting history. S052 and S053 follow the normal one-post-QA-commit checkpoint policy.
 
-## Stage3-S052 checkpoint
+## Stage3-S053 checkpoint
 
-`CR000061` preserves the final Stage-2 redirected repository identity `https://github.com/ehsanhaghighat/sciann-applications` at commit `8c475af6e6a3ae6de6d1757d952ba1eb29438daa`, its MIT license, and all three verified Stage-2 relationships:
+`CR000062` preserves the final Stage-2 repository identity `https://github.com/ehsanhaghighat/sciann` at commit `e3615412c149dbf3152433c09cdd741be2b04f62` and `PRL000151` as the official relationship to Atlas paper 512, *SciANN: A Keras/TensorFlow wrapper for scientific computations and physics-informed deep learning using artificial neural networks*.
 
-- `PRL000069` → Atlas 338, `paper_dataset_mention`;
-- `PRL000143` → Atlas 495, `secondary_review_mention`;
-- `PRL000150` → Atlas 512, `supplementary_examples`.
+The resource is the **SciANN core reusable framework**, represented as `pinn_framework_library` with zero experiments and zero configurations. The separate `CR000061` applications/examples repository remains independent; application cases are not copied into the core framework record.
 
-The Stage-2 classification `pinn_framework_or_library` is intentionally refined at Stage 3 to **`mixed_other`**. The repository is a heterogeneous SciANN applications/examples collection containing PINN/PIDL examples, regression examples, mechanics/fluids/vibration cases, bundled trained artifacts/results, and two external git submodules. The separate SciANN core framework is `CR000062`; it is not collapsed into CR000061.
+### Framework surface
 
-### Materialized experiment
+Static source and documentation establish:
 
-Only the strongest paper-scoped case is materialized:
+- `Variable`, `RNNVariable`, and `RadialBasis` inputs;
+- `Functional`, `RNNFunctional`, `Field`, and `RNNField` network/output abstractions;
+- `Parameter` for parameter inversion;
+- `Data`, `PDE`, `Tie`, and `MinMax` constraints;
+- functional differentiation and gradient utilities;
+- MLP, residual-network, RNN, and radial-basis architecture surfaces;
+- `SciModel` with default MSE/Adam training, learning-rate schedules, early stopping, adaptive GP/NTK and sample weighting, Keras and SciPy optimizer paths, parameter/functional/gradient/loss-landscape logging, HDF5 weight I/O, and prediction;
+- root fitting/differentiation examples, `tests/test_api.py`, and an Ubuntu/Python CI matrix.
 
-**`CR000061-E001` — Constitutive model characterization and discovery**, corresponding to the `SciANN-ConstitutiveModeling` directory identified by Atlas paper 338.
+These are reusable framework capabilities, not paper-specific experimental configurations.
 
-Four materially distinct configurations are represented:
+### Preserved conflicts
 
-1. **Deterministic von Mises isotropic-hardening characterization** — `g(t)` as an 8×20 tanh functional, trainable elastic/yield/hardening parameters, five smoothing-delta values, Adam/MSE, exponential learning-rate schedule, 50,000 epochs, fixed seed 12345.
-2. **Stochastic von Mises transfer learning** — grouped random realizations, the same 8×20 tanh functional, bundled HDF5 warm-start weights, Adam/MSE, 1,000 epochs, fixed seed 12345.
-3. **Drucker-Prager biaxial characterization** — trainable bulk/shear/friction/yield parameters, constitutive/yield/plastic-flow residual constraints, five smoothing-delta values, Adam with exponential learning-rate schedule, 50,000 epochs.
-4. **Drucker-Prager undrained biaxial characterization** — distinct undrained data/loading case with the corresponding Drucker-Prager constraint workflow.
+Three explicit source conflicts are retained:
 
-The remaining SciANN folders are not arbitrarily inflated into experiments. They remain resource-level evidence because the Stage-2 relationships to Atlas 495 and 512 establish repository/review/example scope rather than individual paper-defined cases.
+1. **License documentation:** the exact `LICENSE`, `setup.py`, package metadata, and package initializer identify MIT, while the README badge claims Apache-2.0. The exact MIT license text remains authoritative for license identity; the badge remains conflicting documentation.
+2. **Runtime compatibility:** README states Python 3.8–3.10, reports last tests on Python 3.9/TensorFlow 2.10, and recommends TensorFlow/Keras 2.10; `requirements.txt` pins TensorFlow 2.8.1; CI covers Python 3.7–3.9; and setup/package text retains older Python compatibility statements.
+3. **Dependency declaration:** `requirements.txt` includes TensorFlow/Keras plus the scientific/documentation/test stack, whereas active `setup.py` and egg-info requirements omit TensorFlow/Keras and expose a narrower dependency set.
 
-### Evidence and reproducibility
+No conflict is silently harmonized and no source generation is selected by inference.
 
-Fifteen evidence records cover final Stage-2 identity/relationships, root role/license, application inventory, environment limitations, the Atlas-338 folder scope, tensorial constitutive mathematics, all four configurations, constitutive data/transfer-weight inventory, wider bundled outputs, external submodules, relationship scope, and the static-only boundary.
+### Reproducibility
 
-Static reproducibility is **R1**. Source, licensing, data paths, entrypoints, mathematical constraints, architecture, optimizer/loss choices, learning-rate schedules, hyperparameters, seeds, and output workflows are statically recoverable. R2 is withheld because:
+Static reproducibility is **R2**. Source, exact license text, installation routes, public API, physics constraints, architecture surfaces, training/evaluation interfaces, examples, tests, and CI are recoverable.
 
-- the applications repository has no authoritative dependency/environment manifest;
-- compatible SciANN/TensorFlow/Keras/scientific-Python versions are not pinned;
-- no installation/environment-creation procedure is documented;
-- the separate CR000062 SciANN-core environment is not imported by assumption.
+R3 is withheld because:
 
-Bundled HDF5 weights and larger/binary payloads are recorded by presence but not opened. Broader result bundles are not treated as independently reproduced runs.
+- runtime compatibility declarations conflict;
+- dependency declarations conflict and most dependencies are not exactly pinned;
+- no complete transitive lock or immutable container environment is provided;
+- the README states that the project is no longer maintained and warns of TensorFlow/Keras compatibility sensitivity;
+- a reusable framework does not define one canonical paper/application dataset, seed, configuration, checkpoint, or expected result.
 
 Checkpoint additions:
 
 - resources: **1**
-- experiments: **1**
-- configurations: **4**
-- technical-evidence records: **15**
+- experiments: **0**
+- configurations: **0**
+- technical-evidence records: **13**
 - reproducibility assessments: **1**
 - unresolved findings: **8**
-- new explicit conflicts: **0**
+- new explicit conflicts: **3**
 
-No dependency, environment, notebook, script, submodule, model training/inference, data generation, binary HDF5 payload, test, or benchmark was executed.
+No dependency, package installation, example, test, training, prediction, checkpoint-generation, CPU/GPU workflow, or benchmark was executed.
 
 ## Aggregate batch state
 
 Canonical aggregate QA remains complete and passing for `SOB001`–`SOB005`.
 
-`SOB006` is **IN PROGRESS** with six independently extractable completed members:
+`SOB006` is **IN PROGRESS** with seven independently extractable completed members:
 
 - `CR000054` — Stage3-S046
 - `CR000055` — Stage3-S047
@@ -85,28 +91,29 @@ Canonical aggregate QA remains complete and passing for `SOB001`–`SOB005`.
 - `CR000058` — Stage3-S050
 - `CR000060` — Stage3-S051
 - `CR000061` — Stage3-S052
+- `CR000062` — Stage3-S053
 
 `CR000056` and `CR000059` are pilot-complete and are not reprocessed. Aggregate QA is not due until ten canonical SOB006 members are complete.
 
 ## Current cumulative totals
 
-After `Stage3-S052`:
+After `Stage3-S053`:
 
-- technical resource records: **66**
+- technical resource records: **67**
 - experiments: **117**
 - configurations: **262**
-- technical-evidence records: **889**
-- static reproducibility assessments: **66**
-- unresolved findings: **400**
-- explicit conflicting-evidence findings: **84**
+- technical-evidence records: **902**
+- static reproducibility assessments: **67**
+- unresolved findings: **408**
+- explicit conflicting-evidence findings: **87**
 
 ## Registry accounting
 
-The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 66 completed Stage-3 resource records, **297** remain.
+The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 67 completed Stage-3 resource records, **296** remain.
 
 ## Continuation QA
 
-The forward frontier is `CR000061`. The exact next independently extractable resource is **`CR000062`**, to be processed as `Stage3-S053` within `SOB006`.
+The forward frontier is `CR000062`. The exact next independently extractable resource is **`CR000063`**, to be processed as `Stage3-S054` within `SOB006`.
 
 ## Stage boundaries
 
