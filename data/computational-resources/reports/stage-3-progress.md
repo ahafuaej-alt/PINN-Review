@@ -8,27 +8,27 @@ Status date: 2026-09-03
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S055 |
-| Next scale-out checkpoint | Stage3-S056 |
-| Latest checkpoint resource | CR000064 |
-| Forward frontier resource | CR000064 |
-| Next resource | CR000065 |
-| Next planned checkpoint resources | CR000065 |
-| Current scale-out batch | SOB006 |
-| Current batch completed members | CR000054, CR000055, CR000057, CR000058, CR000060, CR000061, CR000062, CR000063, CR000064 — 9 / 10 |
-| Completed Stage-3 technical resource records | 69 |
+| Last completed scale-out checkpoint | Stage3-S056 |
+| Next scale-out checkpoint | Stage3-S057 |
+| Latest checkpoint resource | CR000065 |
+| Forward frontier resource | CR000065 |
+| Next resource | CR000066 |
+| Next planned checkpoint resources | CR000066 |
+| Current scale-out batch | SOB007 |
+| Current batch completed members | none — 0 / 10 |
+| Completed Stage-3 technical resource records | 70 |
 | Resolved non-independent registry identity encountered | CR000021 → CR000184 |
-| Remaining independently extractable registry resources | 294 |
+| Remaining independently extractable registry resources | 293 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 122 |
-| Completed configuration count | 267 |
-| Technical evidence records | 931 |
-| Static reproducibility assessments | 69 |
+| Completed experiment count | 123 |
+| Completed configuration count | 269 |
+| Technical evidence records | 944 |
+| Static reproducibility assessments | 70 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 427 |
-| Next unresolved ID | S3U-0428 |
-| Current conflicting-evidence finding count | 88 |
-| Aggregate batch QA | SOB001–SOB005 PASS |
+| Current unresolved technical item count | 437 |
+| Next unresolved ID | S3U-0438 |
+| Current conflicting-evidence finding count | 89 |
+| Aggregate batch QA | SOB001–SOB006 PASS |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Control reconciliation | `reports/stage-3-control-reconciliation-01.md` |
 | Historical progress snapshot | `reports/stage-3-progress-through-s047.md` |
@@ -37,74 +37,82 @@ Status date: 2026-09-03
 
 ## Current continuation state
 
-`Stage3-S055` completes `CR000064`, preserving final Stage-2 authority for `https://github.com/Jianxun-Wang/phygeonet` at commit `cb146bcf25dd161d89046281217087c139cba632` and the official `PRL000153` relationship to Atlas paper 514.
+`Stage3-S056` completes `CR000065`, preserving final Stage-2 authority for `https://github.com/vbalnt/pnnet`, pinned commit `907364ceb2d95d73c64a3ab5c26915664095690f`, and official `PRL000154` relationship to Atlas paper 515, *PN-Net: Conjoined Triple Deep Network for Learning Local Image Descriptors*.
 
-Stage 3 refines the technical profile to **`pinn_implementation`**. The pinned repository directly implements PhyGeoNet, a physics-residual-constrained geometry-adaptive convolutional neural-network approach for steady PDEs on irregular mapped geometries.
+The acronym is resolved explicitly: PN-Net is **not** a Physics-Informed Neural Network. The pinned artifact is represented as **`non_pinn_research_code`** for a computer-vision local-descriptor method. One stable experiment is materialized with two source-defined configurations:
 
-Five source-defined case directories are represented as five experiments with one active configuration each:
+- bundled Liberty **128-D** descriptor evaluation on Notre Dame's 100,000 benchmark pairs;
+- active Notre Dame **256-D** triplet-training workflow.
 
-1. `case0` — non-parametric steady heat/Laplace on an irregular geometry.
-2. `case1` — non-parametric steady incompressible Navier–Stokes with bundled fully connected-network comparison data.
-3. `case2` — heat/Laplace with parameterized boundary temperature.
-4. `case3` — steady Navier–Stokes across varying vessel/stenosis geometries.
-5. `case4` — Poisson/heat-type solution mapping for spatially varying source fields.
+The primary paper, README and evaluation path describe 128-dimensional descriptors, while `train/run.lua` constructs a 256-dimensional output. Stage 3 preserves this as explicit `conflicting_evidence` rather than selecting one synthetic canonical dimension.
 
-Parameter sweeps, geometry samples and random-field samples remain inside their source case configuration rather than being inflated into separate configurations.
+The training source uses three weight-sharing branches, L2 descriptor distances, minimum-negative selection, a custom SoftMax/MSE distance-ratio criterion, 1,280,000 generated triplets, SGD with learning rate 0.1, momentum 0.9, weight decay 1e-4 and learning-rate decay 1e-6, batch size 128, and 1000 epochs. The pinned README reports a GTX TITAN X and approximately two minutes per epoch for about 1.2 million triplets.
 
-Shared source establishes bicubic upsampling, 16→32→16 convolution widths, ReLU activations, fixed fourth-order finite-difference derivative/Laplacian filters, geometry mapping through `hcubeMesh`, OpenFOAM-style reference-data interfaces, and a global `torch.manual_seed(123)`. Active case scripts hard-code CUDA execution.
+PhotoTour/Brown dataset payloads are not bundled in the pinned PN-Net tree; the README directs users to the separate `vbalnt/UBC-Phototour-Patches-Torch` repository. Pretrained Liberty model artifacts are bundled, but their binary payloads were not deserialized.
 
-Static reproducibility is **R2**. Exact source, PDE residuals, architecture, case hyperparameters, bundled reference fields, several checkpoints/results and evaluation workflows are recoverable. R3 is withheld because no repository license, dependency/version manifest or installation workflow is present; the CUDA environment is not pinned; the case1 checkpoint training invocation/seed is incomplete; and bundled binary/result provenance is only partial.
+Static reproducibility is **R1**. Source, entrypoints, preprocessing, model/training/evaluation logic and pretrained artifacts are recoverable, but R2 is blocked by missing dependency/environment manifests, exact Torch7/CUDA/cuDNN version contracts, and an installation/environment-creation workflow.
 
-The exact next independently extractable resource is **`CR000065`**. It is the tenth canonical member of `SOB006`; after `Stage3-S056` completes, aggregate `SOB006` QA is required before advancing to `CR000066`.
+The exact next independently extractable resource is **`CR000066`**.
 
-`CR000021` remains a resolved non-independent registry identity whose technical resource is canonical `CR000184`; it is not independently duplicated in Stage 3. The Stage-2 registry contains 364 entries, giving 363 independently extractable technical identities. With 69 Stage-3 resource records complete, **294** remain.
+The Stage-2 registry contains 364 entries. `CR000021` remains a resolved non-independent identity canonically mapped to `CR000184`, leaving 363 independently extractable technical identities. With 70 Stage-3 resource records complete, **293** remain.
 
-## Current batch — SOB006
+## Closed batch — SOB006
 
-Completed canonical scale-out members:
+Canonical completed members:
 
 - `Stage3-S046`: `CR000054`
 - `Stage3-S047`: `CR000055`
-- `CR000056`: pilot-complete; no scale-out duplication
 - `Stage3-S049`: `CR000057`
 - `Stage3-S050`: `CR000058`
-- `CR000059`: pilot-complete; no scale-out duplication
 - `Stage3-S051`: `CR000060`
 - `Stage3-S052`: `CR000061`
 - `Stage3-S053`: `CR000062`
 - `Stage3-S054`: `CR000063`
 - `Stage3-S055`: `CR000064`
+- `Stage3-S056`: `CR000065`
 
-Current canonical completion: **9 / 10 independently extractable SOB006 members**.
+`CR000056` and `CR000059` are pilot-complete and are not duplicated.
 
-Aggregate QA becomes due when `CR000065` completes the tenth member; no advance to `CR000066` is permitted before that aggregate QA passes.
+Aggregate `SOB006` QA: **PASS**.
 
-## Control notes
+Batch totals: **10 resources, 16 experiments, 21 configurations, 144 technical-evidence records, 10 reproducibility assessments, 87 new unresolved findings, and 10 new conflicting-evidence findings**.
 
-The preserved S050 and S051 pre-QA control deviations remain documented without history rewrite. `Stage3-S052` through `Stage3-S055` follow the normal policy: all checkpoint artifacts are assembled and QA-validated before one completion commit is published.
+Historical S046/S047 batch labels and S050/S051 control deviations remain preserved as immutable audit history. The aggregate QA applies the canonical batch membership established by `stage-3-control-reconciliation-01.md` without rewriting historical checkpoint files.
+
+## Current batch — SOB007
+
+Current canonical completion: **0 / 10**.
+
+The first independently extractable member is `CR000066`.
 
 ## Current cumulative totals
 
-After `Stage3-S055`:
+After `Stage3-S056`:
 
-- Stage-3 technical resource records: **69**
-- experiments: **122**
-- configurations: **267**
-- technical-evidence records: **931**
-- static reproducibility assessments: **69**
-- unresolved findings: **427**
-- explicit conflicting-evidence findings: **88**
+- Stage-3 technical resource records: **70**
+- experiments: **123**
+- configurations: **269**
+- technical-evidence records: **944**
+- static reproducibility assessments: **70**
+- unresolved findings: **437**
+- explicit conflicting-evidence findings: **89**
 
-S055 adds one resource, five experiments, five configurations, eighteen technical-evidence records, one reproducibility assessment, eleven bounded unresolved findings, and zero explicit conflicts.
+S056 adds one resource, one experiment, two configurations, thirteen technical-evidence records, one reproducibility assessment, ten bounded unresolved findings, and one explicit conflict.
+
+## Control notes
+
+The preserved S050 and S051 pre-QA control deviations remain documented; no history is rewritten. `Stage3-S052` through `Stage3-S056` follow the normal policy: all checkpoint and required aggregate-QA artifacts are assembled and validated before one completion commit is published.
 
 ## Continuation rule
 
-Every continuation must read this progress report, the accepted scale-out plan, active unresolved register, latest checkpoint QA, and `stage-3-control-reconciliation-01.md`; verify the current branch head; resume from the exact `Next resource`; resolve final Stage-2 authority before extraction; preserve source scope; execute no scientific workload; validate schemas/cross-references; update cumulative counts; and publish only after QA passes.
+Every continuation must read this progress report, the accepted scale-out plan, active unresolved register, latest checkpoint QA, latest aggregate QA when a batch has closed, and `stage-3-control-reconciliation-01.md`; verify the current branch head; resume from the exact `Next resource`; resolve final Stage-2 authority before extraction; preserve source scope; perform no scientific workload execution; validate schemas/cross-references; update cumulative counts; and publish only after QA passes.
+
+Normal checkpoint size remains one or two resources. Normal batch size remains ten independently extractable resources, with aggregate QA required before advancement.
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no dependency, environment, OpenFOAM case, script, checkpoint, model training, evaluation, inference, test, accelerator workflow or benchmark is executed. R5 remains prohibited.
+Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, dependency, environment, notebook, script, package, model, training, inference, evaluation, test, accelerator workflow, dataset download or benchmark is executed. R5 remains prohibited.
 
 ## Exact next action
 
-Start **`Stage3-S056`** with **`CR000065`**. After S056, perform aggregate **`SOB006` QA** before any work on CR000066.
+Start **`Stage3-S057`** with **`CR000066`**.
