@@ -8,25 +8,25 @@ Status date: 2026-09-03
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S049 |
-| Next scale-out checkpoint | Stage3-S050 |
-| Latest checkpoint resource | CR000057 |
-| Forward frontier resource | CR000057 |
-| Next resource | CR000058 |
-| Next planned checkpoint resources | CR000058 |
+| Last completed scale-out checkpoint | Stage3-S050 |
+| Next scale-out checkpoint | Stage3-S051 |
+| Latest checkpoint resource | CR000058 |
+| Forward frontier resource | CR000058 |
+| Next resource | CR000060 |
+| Next planned checkpoint resources | CR000060 |
 | Current scale-out batch | SOB006 |
-| Current batch completed members | CR000054, CR000055, CR000057 — 3 / 10 |
-| Completed Stage-3 technical resource records | 63 |
+| Current batch completed members | CR000054, CR000055, CR000057, CR000058 — 4 / 10 |
+| Completed Stage-3 technical resource records | 64 |
 | Resolved non-independent registry identity encountered | CR000021 → CR000184 |
-| Remaining independently extractable registry resources | 300 |
+| Remaining independently extractable registry resources | 299 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 112 |
-| Completed configuration count | 254 |
-| Technical evidence records | 846 |
-| Static reproducibility assessments | 63 |
+| Completed experiment count | 116 |
+| Completed configuration count | 258 |
+| Technical evidence records | 862 |
+| Static reproducibility assessments | 64 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 376 |
-| Next unresolved ID | S3U-0377 |
+| Current unresolved technical item count | 386 |
+| Next unresolved ID | S3U-0387 |
 | Current conflicting-evidence finding count | 84 |
 | Aggregate batch QA | SOB001–SOB005 PASS |
 | Methodology status | Stage3-D01 accepted without schema change |
@@ -37,48 +37,46 @@ Status date: 2026-09-03
 
 ## Current continuation state
 
-`Stage3-S049` completes `CR000057`, the Stage-2-pinned PyDEns framework at commit `748175c4e77d407a5dc593d2f104ce6edddc3126`. `PRL000095` remains a secondary-review mention from Atlas paper 401 and `PRL000140` remains the official framework-paper relationship to Atlas paper 492. Framework examples, tutorials and tests are capability evidence only; no paper-specific experiment/configuration is manufactured.
+`Stage3-S050` completes `CR000058`, the Stage-2-pinned `ehsankharazmi/hp-VPINNs` implementation at commit `1b9773567a7d00d38583f6fb89d5a9ba9d900ae7`, with `PRL000141` remaining the official relationship to Atlas paper 493.
 
-`CR000056` is one of the ten accepted Stage-3 pilot resources and remains excluded from scale-out reprocessing. The forward frontier is therefore now `CR000057`, and the exact next independently extractable resource is **`CR000058`**.
+Four distinct repository cases are represented as four experiments, each with one active default configuration: 1D Poisson, 2D Poisson, L-shaped 2D Poisson, and advection-diffusion coefficient identification. Inactive scheme switches, alternate variational forms, and alternate L-shaped element decompositions remain documented option space rather than additional configurations.
 
-`CR000021` remains a resolved non-independent registry identity whose technical resource is canonical `CR000184`; it is not independently duplicated in Stage 3. The Stage-2 registry contains 364 entries, giving 363 independently extractable technical identities after this canonical resolution. With 63 Stage-3 resource records complete, **300** remain.
+`CR000059` is one of the ten accepted Stage-3 pilot resources and is already complete. It must not be processed again. The forward frontier is `CR000058`, so the exact next independently extractable resource is **`CR000060`**.
+
+`CR000021` remains a resolved non-independent registry identity whose technical resource is canonical `CR000184`; it is not independently duplicated in Stage 3. The Stage-2 registry contains 364 entries, giving 363 independently extractable technical identities after this canonical resolution. With 64 Stage-3 resource records complete, **299** remain.
 
 ## Current batch — SOB006
 
-Completed members:
+Completed canonical scale-out members:
 
 - `Stage3-S046`: `CR000054`
 - `Stage3-S047`: `CR000055`
 - `CR000056`: pilot-complete; no scale-out duplication
 - `Stage3-S049`: `CR000057`
+- `Stage3-S050`: `CR000058`
+- `CR000059`: pilot-complete; no scale-out duplication
 
-Current canonical completion: **3 / 10 independently extractable SOB006 members**.
+Current canonical completion: **4 / 10 independently extractable SOB006 members**.
 
 No aggregate QA is due until ten canonical SOB006 members are complete.
 
-## Completed aggregate QA
+## Stage3-S050 control note
 
-- `SOB001`: PASS
-- `SOB002`: PASS
-- `SOB003`: PASS
-- `SOB004`: PASS
-- `SOB005`: PASS
-
-Historical batch-label drift through S047 remains reconciled by `reports/stage-3-control-reconciliation-01.md` and the canonical aggregate QA records; historical checkpoint files are not rewritten solely to relabel them.
+The normal checkpoint policy is one completed checkpoint commit after QA. During S050, the resource record was introduced by an isolated pre-QA draft commit (`d12157f74aa8397b9e6e867aa8947548df9dfb2e`) before the remaining checkpoint artifacts were assembled. That history is preserved rather than rewritten. The S050 completion commit supplies experiments, configurations, evidence, reproducibility, extraction log, QA, and current reports. The deviation changes neither scientific content nor Stage-3 scope.
 
 ## Current cumulative totals
 
-After `Stage3-S049`:
+After `Stage3-S050`:
 
-- Stage-3 technical resource records: **63**
-- experiments: **112**
-- configurations: **254**
-- technical-evidence records: **846**
-- static reproducibility assessments: **63**
-- unresolved findings: **376**
+- Stage-3 technical resource records: **64**
+- experiments: **116**
+- configurations: **258**
+- technical-evidence records: **862**
+- static reproducibility assessments: **64**
+- unresolved findings: **386**
 - explicit conflicting-evidence findings: **84**
 
-S049 adds one resource, zero experiments, zero configurations, ten technical-evidence records, one reproducibility assessment, eight bounded unresolved findings, and three explicit conflicts.
+S050 adds one resource, four experiments, four configurations, sixteen technical-evidence records, one reproducibility assessment, ten bounded unresolved findings, and zero explicit conflicts.
 
 ## Continuation rule
 
@@ -88,8 +86,8 @@ Normal checkpoint size remains one or two resources. Normal batch size remains t
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, environment, dependency, notebook, tutorial, test, training process, inference workflow, solver, dataset payload, checkpoint, model, example, or benchmark is executed. R5 remains prohibited.
+Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. Stage 3 remains static-only: no scientific resource, environment, dependency, TensorFlow session, training process, prediction workflow, solver, binary data payload, result regeneration, test, or benchmark is executed. R5 remains prohibited.
 
 ## Exact next action
 
-Start **`Stage3-S050`** with **`CR000058`**.
+Start **`Stage3-S051`** with **`CR000060`**. Do not reprocess `CR000059`.
