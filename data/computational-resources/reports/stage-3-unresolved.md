@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-03  
-Checkpoint: Stage3-S054  
+Checkpoint: Stage3-S055  
 Phase: controlled scale-out in progress
 
 ## Audit continuity
@@ -97,6 +97,22 @@ The complete append-only register through `Stage3-S047` is preserved verbatim in
 | S3U-0415 | CR000063 | `provider_test_pipeline_not_reexecuted` | low | GitLab merge request !34 reports passing tests/pipelines for the 2025 TensorFlow update, but Stage 3 did not execute or re-run that provider pipeline. | Runtime regression status is provider-reported evidence only, not independently verified execution. |
 | S3U-0416 | CR000063 | `example_execution_unverified` | low | The official paper and provider documentation supply Schrödinger, catenary, ODE/PDE, variational, domain and fitting examples, including Colab links, but Stage 3 executed none of them. | Example runtime behavior and reported paper outcomes remain unverified under the static-only boundary. |
 
+## Stage3-S055 additions
+
+| ID | Resource | Outcome | Severity | Finding | Effect |
+|---|---|---|---|---|---|
+| S3U-0417 | CR000064 | `repository_license_unavailable` | medium | Final Stage 2 and the pinned repository tree identify no repository license file or SPDX license for PhyGeoNet. | Source availability is verified, but redistribution/use terms are not established by the repository record. |
+| S3U-0418 | CR000064 | `dependency_manifest_absent` | medium | The pinned source imports PyTorch, NumPy, SciPy, scikit-learn, Ofpp, matplotlib and optional plotting utilities but provides no requirements, environment, package or equivalent dependency manifest. | Runtime dependencies must be reconstructed from imports rather than an authoritative environment contract. |
+| S3U-0419 | CR000064 | `dependency_versions_unpinned` | medium | None of the observed Python/CUDA/OpenFOAM-facing dependencies are pinned to exact compatible versions in the repository. | The historical runtime combination cannot be reconstructed exactly and R3 is withheld. |
+| S3U-0420 | CR000064 | `installation_workflow_undocumented` | medium | README/PleaseReadMe and the case directories provide source/case guidance but no installation or environment-creation procedure. | A reproducible setup path is incomplete even though entrypoints are identifiable. |
+| S3U-0421 | CR000064 | `cuda_runtime_hardware_unspecified` | medium | Shared derivative filters and all active case models explicitly target CUDA, but the original GPU model, CUDA toolkit, driver and PyTorch/CUDA compatibility stack are not stated. | Hardware/runtime reconstruction remains partial and CPU-only execution is not established by the pinned scripts. |
+| S3U-0422 | CR000064 | `case1_checkpoint_training_seed_provenance_partial` | medium | The pinned `case1_main.py` loads `Result/15000.pth`, runs an evaluation-style path with `loss.backward()` commented, while `case1/readme.txt` states the original seed was not saved and the checkpoint was around 15000–16000 epochs. | The bundled checkpoint is usable as static result evidence, but its exact training invocation and random seed cannot be reconstructed from the pinned case. |
+| S3U-0423 | CR000064 | `bundled_binary_payloads_unopened` | medium | Multiple PTH model checkpoints and NPZ comparison arrays are bundled across the cases, but their payload-internal state was not opened or deserialized during Stage 3. | Trained-state tensors and binary metadata remain unverified beyond repository presence and source-level load paths. |
+| S3U-0424 | CR000064 | `bundled_result_run_provenance_partial` | medium | The repository contains checkpoint histories, error histories, PDFs/TikZ outputs and comparison files, but no repository-wide immutable run manifest binds all artifacts to exact dependency versions, hardware and invocations. | Bundled results establish artifact presence without complete run-level provenance. |
+| S3U-0425 | CR000064 | `openfoam_reference_generation_provenance_partial` | medium | The cases bundle OpenFOAM-style reference fields and use Ofpp/readOF for evaluation and mesh/reference data, but no single repository-level record pins the reference-solver build and generation workflow for all cases. | Reference fields are usable as bundled data, while their exact external solver-generation provenance remains partial. |
+| S3U-0426 | CR000064 | `case4_random_field_payload_inspection_bounded` | low | `case4` uses bundled FI/GT arrays, KL modes, coefficients and eigenvalues for a 1000-sample random-source ensemble; Stage 3 verified the source-level shapes/usage but did not independently parse every large numeric payload. | Random-field dataset semantics are bounded to source and file-presence evidence rather than full payload-level verification. |
+| S3U-0427 | CR000064 | `expected_numeric_target_manifest_partial` | low | Case-specific checkpoints, error histories and reference fields are bundled, but the repository does not expose one machine-readable manifest of exact expected scalar metrics for all five active cases. | Static expected-result comparison remains case-specific rather than one complete numeric acceptance contract. |
+
 ## Current register state
 
 - Historical findings preserved through S047: **362** (`S3U-0001`–`S3U-0362`).
@@ -107,24 +123,27 @@ The complete append-only register through `Stage3-S047` is preserved verbatim in
 - Stage3-S052 additions: **8** (`S3U-0393`–`S3U-0400`).
 - Stage3-S053 additions: **8** (`S3U-0401`–`S3U-0408`).
 - Stage3-S054 additions: **8** (`S3U-0409`–`S3U-0416`).
-- Current unresolved finding count: **416**.
-- Next available unresolved ID: **`S3U-0417`**.
-- Explicit `conflicting_evidence` finding count: **88**; S054 adds one explicit conflict.
+- Stage3-S055 additions: **11** (`S3U-0417`–`S3U-0427`).
+- Current unresolved finding count: **427**.
+- Next available unresolved ID: **`S3U-0428`**.
+- Explicit `conflicting_evidence` finding count: **88**; S055 adds no explicit conflict.
 
 ## Source-scope handling
 
-`CR000063` remains the final Stage-2 `https://gitlab.com/elvet/elvet` identity with default branch `master`, MIT license and `PRL000152` official relationship to Atlas 513. Stage 2's lack of an exposed commit SHA/tree remains authoritative. Current GitLab project/maintenance observations, provider documentation, PyPI package releases and primary-paper statements are retained as distinct source scopes; none is silently promoted into a Stage-2 snapshot.
+`CR000064` remains the final Stage-2 `https://github.com/Jianxun-Wang/phygeonet` identity at pinned commit `cb146bcf25dd161d89046281217087c139cba632`, with `PRL000153` unchanged as the official relationship to Atlas 514. Stage 3 refines its technical profile to `pinn_implementation` based on the pinned source itself.
 
-The immutable PyPI 1.0.2 hashes establish package-artifact identity only. Stage 3 did not compare package bytes against GitLab and therefore does not claim repository/release equality. The paper and provider examples remain reusable-framework demonstrations and do not create experiment/configuration records.
+The five case directories are treated as five source-defined scientific experiments. Case2 boundary-parameter values, case3 geometry scalers and case4 random-field samples remain within their active case configuration and are not promoted to independent configuration identities. The shared `torch.manual_seed(123)` is not retroactively attributed to the historical case1 checkpoint because the case-level readme explicitly states that checkpoint seed was not saved.
 
-`CR000062` remains the SciANN core framework; `CR000061` remains the separate SciANN applications/examples resource; `CR000060` remains the Pair-wise Interaction Neural Network supporting library; `CR000058` remains hp-VPINNs; `CR000057` remains PyDEns; `CR000049` remains PyTorch. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to `CR000184` and is not independently duplicated.
+OpenFOAM-style TemplateCase data, model checkpoints, comparison arrays and result histories remain repository artifacts at their own source scope. Their presence does not imply that Stage 3 executed them or that every artifact has complete run-level provenance.
+
+`CR000063` remains the Elvet framework; `CR000062` remains the SciANN core framework; `CR000061` remains the separate SciANN applications/examples resource; `CR000060` remains the Pair-wise Interaction Neural Network supporting library; `CR000058` remains hp-VPINNs; `CR000057` remains PyDEns; `CR000049` remains PyTorch. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to `CR000184` and is not independently duplicated.
 
 ## Conflict handling
 
-Eighty-eight explicit `conflicting_evidence` findings exist through `Stage3-S054`. S054 adds one: the TensorFlow-version generation conflict spanning the 2021 paper, historical/current PyPI metadata and the 2025 GitLab maintenance update. The finding remains at the software-environment generation scope and does not require modification of the closed Stage-2 identity or relationship record.
+Eighty-eight explicit `conflicting_evidence` findings exist through `Stage3-S055`. S055 adds no explicit source conflict. Its limitations are absent licensing/setup/version provenance, CUDA/hardware incompleteness, case1 checkpoint-training provenance, bounded binary/numeric payload inspection, and incomplete reference/result run lineage; these remain bounded nonblocking findings rather than conflicts.
 
 ## Escalation state
 
-No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. The active batch is `SOB006`, with canonical completed scale-out members `CR000054`, `CR000055`, `CR000057`, `CR000058`, `CR000060`, `CR000061`, `CR000062`, and `CR000063`. `CR000056` and `CR000059` are pilot-complete and are not reprocessed.
+No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. The active batch is `SOB006`, with canonical completed scale-out members `CR000054`, `CR000055`, `CR000057`, `CR000058`, `CR000060`, `CR000061`, `CR000062`, `CR000063`, and `CR000064`. `CR000056` and `CR000059` are pilot-complete and are not reprocessed.
 
-The exact next independently extractable resource is `CR000064`. No unresolved item requires scientific workload execution within Stage 3; repository cloning, dependency/package installation, source-archive comparison, examples/Colab notebooks, tests/provider pipelines, training, prediction, accelerator workflows, or benchmarks remain outside the static-only boundary.
+The exact next independently extractable resource is `CR000065`. It is the tenth canonical member of `SOB006`; after its Stage3-S056 checkpoint completes, aggregate `SOB006` QA must pass before work advances to `CR000066`. No unresolved item requires scientific workload execution within Stage 3; dependency installation, OpenFOAM execution, checkpoint loading, training, prediction, evaluation, tests, binary-payload inspection or benchmarks remain outside the static-only boundary.
