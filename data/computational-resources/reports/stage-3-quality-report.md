@@ -3,7 +3,7 @@
 Status date: 2026-09-03  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S048
+Latest scale-out checkpoint: Stage3-S049
 
 ## Current QA status
 
@@ -17,11 +17,23 @@ The detailed quality report through `Stage3-S047` is preserved verbatim in `repo
 
 Status: **PASS**
 
-`CR000049` restores the PyTorch supporting-framework resource omitted by the historical `Stage3-S041` → `Stage3-S042` transition. Stage-2 authority identifies `https://github.com/pytorch/pytorch` at commit `8e386332abed96515b823073c931e691d69ff921`, with `PRL000130` scoped only as a `paper_software_mention` from Atlas paper 467.
+`CR000049` restored the PyTorch supporting-framework resource omitted by the historical S041→S042 transition. It remains resource-only, with ten evidence records, one R2 assessment, six bounded unresolved findings and no new conflict. The control reconciliation also closed canonical aggregate QA for SOB003–SOB005 without rewriting historical checkpoint IDs or Git history.
 
-The resource is represented at framework scope with **zero experiments and zero configurations**. Ten technical-evidence records cover identity/relationship scope, repository metadata, build/development dependency declarations, installation workflow, tensor/neural-network capabilities, reverse-mode tape-based automatic differentiation, accelerator/platform scope, citation metadata, and the static-only boundary. No example, test, build, tensor operation, automatic differentiation, training, inference, or benchmark workflow was executed.
+## Stage3-S049 checkpoint
 
-Static reproducibility is **R2**. Source, license text, build metadata, installation documentation, framework capability documentation, hardware-family support, and citation metadata are present. A unique exact cross-platform environment is not established because the framework intentionally supports multiple compiler, accelerator, operating-system, and dependency-resolution variants.
+Status: **PASS**
+
+`CR000057` preserves the Stage-2-pinned `analysiscenter/pydens` repository at commit `748175c4e77d407a5dc593d2f104ce6edddc3126`, Apache-2.0 licensing, `PRL000095` secondary-review mention to Atlas paper 401, and `PRL000140` official relationship to the PyDEns framework paper (Atlas paper 492).
+
+PyDEns is represented as a **PINN framework/library resource with zero experiments and zero configurations**. Ten technical-evidence records cover authoritative identity/relationship scope, package/license metadata, packaging generations, installation instructions, ODE/PDE/parametric/inverse capability, automatic differentiation and trainable-variable tokens, network/condition construction, optimizer/loss/sampling behavior, tutorial/test surface, relationship scope, and the static-only boundary.
+
+The static reproducibility level is **R2**. Source, Apache licensing, package version 1.0.2, solver mathematics, configurable architecture, training API, installation routes, tutorials, examples, tests and citation relationships are inspectable. R3 is withheld because the snapshot contains incompatible-looking packaging generations with no complete transitive lock, the README's BatchFlow-submodule clone guidance does not match the empty `.gitmodules`, one README tutorial path is stale, and no tutorial/test/runtime workflow was executed.
+
+Three explicit conflicts are bounded to CR000057:
+
+1. `setup.py` versus `pyproject.toml` Python/dependency contracts;
+2. README BatchFlow-submodule guidance versus the pinned repository tree;
+3. README `tutorials/PDE_solving.ipynb` link versus the actual pinned tutorial path.
 
 Checkpoint additions:
 
@@ -30,50 +42,43 @@ Checkpoint additions:
 - configurations: **0**
 - technical-evidence records: **10**
 - reproducibility assessments: **1**
-- unresolved findings: **6**
-- new conflicts: **0**
+- unresolved findings: **8**
+- new conflicts: **3**
 
-## Control-state reconciliation
+No package, dependency, notebook, tutorial, test, differential-equation solve, optimizer, prediction, training, inference, or benchmark workflow was executed.
 
-Status: **PASS**
+## Aggregate batch state
 
-The repair preserves all historical commits/checkpoint IDs and does not alter Stage 1, Stage 2, public Atlas/site files, or `05-curated/`.
+Canonical aggregate QA remains complete and passing for `SOB001`–`SOB005`.
 
-Canonical aggregate QA is now present for all completed batches:
+`SOB006` is **IN PROGRESS** with three independently extractable completed members:
 
-| Batch | Canonical resources | Batch counts | Status |
-|---|---|---|---|
-| SOB001 | CR000001–CR000012 with pilot-complete IDs omitted | 10 resources | PASS |
-| SOB002 | CR000013–CR000023 with CR000021 resolved to canonical CR000184 | 10 independently extractable resources | PASS |
-| SOB003 | CR000024–CR000033 | 10 resources; 24 experiments; 35 configurations; 146 evidence | PASS |
-| SOB004 | CR000034–CR000043 | 10 resources; 23 experiments; 40 configurations; 175 evidence | PASS |
-| SOB005 | CR000044–CR000053, including corrective CR000049 | 10 resources; 11 experiments; 31 configurations; 138 evidence | PASS |
-| SOB006 | CR000054, CR000055 completed; CR000056 pilot-complete | 2 / 10 current members | IN PROGRESS |
+- `CR000054` — Stage3-S046
+- `CR000055` — Stage3-S047
+- `CR000057` — Stage3-S049
 
-The historical `SOB003` labels embedded in S027–S047 checkpoint QA are retained as immutable audit history. Canonical batch membership is supplied by the new aggregate QA records and `reports/stage-3-control-reconciliation-01.md`; no historical checkpoint is rewritten merely to relabel it.
+`CR000056` is pilot-complete and is not reprocessed. Aggregate QA is not due until ten canonical SOB006 members are complete.
 
 ## Current cumulative totals
 
-After `Stage3-S048`:
+After `Stage3-S049`:
 
-- technical resource records: **62**
+- technical resource records: **63**
 - experiments: **112**
 - configurations: **254**
-- technical-evidence records: **836**
-- static reproducibility assessments: **62**
-- unresolved findings: **368**
-- explicit conflicting-evidence findings: **81**
-
-All primary S047 cumulative counts were already arithmetically sound. S048 increments them by exactly the CR000049 additions listed above.
+- technical-evidence records: **846**
+- static reproducibility assessments: **63**
+- unresolved findings: **376**
+- explicit conflicting-evidence findings: **84**
 
 ## Registry accounting
 
-The Stage-2 closure manifest records 364 registry entries. `CR000021` is retained as Stage-1/Stage-2 provenance but its broken `fashli/Delta-PINNs` identity was canonically resolved to `CR000184` (`fsahli/Delta-PINNs`) through `PRL000332`; duplicating CR000184 technical facts under CR000021 would violate canonical identity handling. Current canonical accounting therefore contains 363 independently extractable technical resource identities. With 62 Stage-3 technical resource records complete, **301** independently extractable resources remain.
+The Stage-2 closure registry contains 364 entries. `CR000021` is retained as provenance but canonically resolves to the independently extractable `CR000184` identity; therefore 363 independently extractable technical resource identities remain the current Stage-3 denominator. With 63 completed Stage-3 technical resource records, **300** remain.
 
 ## Continuation QA
 
-The former S047 continuation pointer to `CR000056` is invalid because CR000056 is already complete in the accepted Stage-3 pilot. The forward frontier is CR000055 and the exact next independently extractable resource is **CR000057**, to be processed as `Stage3-S049` within `SOB006`.
+The forward frontier is now `CR000057`. The exact next independently extractable resource is **`CR000058`**, to be processed as `Stage3-S050` within `SOB006`.
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. No scientific workload execution occurred during this reconciliation. R5 remains prohibited.
+Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. No scientific workload execution occurred. R5 remains prohibited.
