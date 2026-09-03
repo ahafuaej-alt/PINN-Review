@@ -3,62 +3,47 @@
 Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S057
+Latest scale-out checkpoint: Stage3-S058
 
 ## Current QA status
 
 Status: **PASS**
 
-Stage3-D01 remains accepted without schema modification. The static-only boundary, Stage-2 authority, missing-value semantics, evidence-source semantics, identifier rules, resource → experiment → configuration ontology, type-specific profiles, and R0–R4 reproducibility ceiling remain unchanged.
-
-The detailed quality report through `Stage3-S047` is preserved verbatim in `reports/stage-3-quality-report-through-s047.md`. Per-checkpoint machine-readable QA remains authoritative in `03-technical/batch-qa/scaleout-checkpoint-###-qa.json`; completed normal batches additionally require `scaleout-batch-###-aggregate-qa.json`.
+Stage3-D01 remains accepted without schema modification. Static-only execution boundaries, Stage-2 authority, evidence-source semantics, missing-value semantics, identifier continuity, resource → experiment → configuration ontology, type-specific profiles, and the R0–R4 ceiling remain unchanged.
 
 ## Recent checkpoint continuity
 
-- `Stage3-S056`: CR000065 PN-Net non-PINN research code, one experiment/two configurations, R1 — PASS.
-- `Stage3-S057`: CR000066 locally adaptive activation-functions resource, one experiment/one configuration, R1 — **PASS**.
+- `Stage3-S056`: CR000065 PN-Net non-PINN research code — PASS.
+- `Stage3-S057`: CR000066 locally adaptive activation-functions mixed resource, R1 — PASS.
+- `Stage3-S058`: CR000067 AdaHessian supporting optimizer software, R2 — **PASS**.
 
-Historical S050/S051 pre-QA control deviations and earlier batch-label drift remain preserved without rewriting history.
+## Stage3-S058 checkpoint
 
-## Stage3-S057 checkpoint
-
-`CR000066` preserves the final Stage-2 identity `https://github.com/AmeyaJagtap/Locally-Adaptive-Activation-Functions-Neural-Networks-`, pinned commit `02246c511efb1694d2740c33125b1403168ba0a1`, MIT license, and `PRL000155` official relationship to Atlas paper 517, *Locally adaptive activation functions with slope recovery for deep and physics-informed neural networks*.
+`CR000067` preserves the final Stage-2 repository identity `https://github.com/amirgholami/adahessian`, pinned commit `85ebc00ce873c8497a64ca80bbfa5d996109efea`, MIT license, and `PRL000156` official relationship to Atlas paper 519, *ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning*.
 
 ### Scope classification
 
-The pinned repository has heterogeneous source surfaces and is therefore represented as **`mixed_other`**. The directly visible executable `LAAF_FunApproxi.py` implements supervised one-dimensional function approximation. A separate `Deep_Learning_Benchmark.zip` is documented by its companion README as image-classification benchmarks. The official paper/README scope includes physics-informed neural networks, but no visible pinned executable source establishes PDE, boundary-condition, initial-condition, or physics-loss residuals. No PINN experiment is manufactured from the paper title.
+The resource is classified as **supporting software**. It is a second-order optimizer implementation used across general machine-learning workflows; it is not treated as a PINN implementation simply because an Atlas paper cites/uses it.
+
+The pinned repository contains PyTorch image-classification, TensorFlow, and transformer/fairseq implementation families. This breadth triggers the accepted single-resource complexity rule. Bounded extraction materializes the explicit PyTorch image-classification paper-reproduction path and preserves the other implementation families as source-scoped repository facts.
 
 ### Ontology
 
-One stable experiment is materialized:
+One experiment is materialized:
 
-- **CR000066-E001 — LAAF one-dimensional function approximation.**
+- **CR000067-E001 — AdaHessian CIFAR-10 ResNet image-classification reproduction workflow.**
 
-One active configuration is retained:
+One configuration is retained:
 
-- **CR000066-E001-C001 — CPU TensorFlow LAAF function-approximation workflow.** The script samples 301 points on `[-3,3]`, fits a piecewise target, uses a `[1,50,50,50,50,1]` network with layer-wise adaptive tanh slopes initialized to 0.1 and multiplied by 10, combines MSE with the slope-recovery term, uses Adam at learning rate `2e-4`, fixes NumPy/TensorFlow seeds to 1234, and forces CPU execution.
+- **CR000067-E001-C001 — PyTorch ResNet-20 CIFAR-10 AdaHessian reference configuration.** The repository pins Python 3.7.7, PyTorch 1.5.0, torchvision 0.6.0 and CUDA Toolkit 10.2.89; the reproduction script selects AdaHessian at learning rate 0.15 and ResNet depth 20. The entrypoint defaults to 160 epochs, batch size 256, seed 1 and cross-entropy loss, and writes the best checkpoint to `checkpoint/netbest.pkl`.
 
-The benchmark ZIP is not promoted to an experiment because Stage 3 did not expand its payload. The companion README documents a `main.py` interface, LeNet/PreActResNet18, non-adaptive/GAAF/L-LAAF/N-LAAF choices, seven external image datasets, Python 3.6.7 and Torch 1.0.1; those details remain provider-documentation scope.
-
-### Environment and artifacts
-
-No authoritative requirements/environment/package manifest or installation workflow is present for the visible TensorFlow script, and exact TensorFlow/scientific-Python versions are not pinned. The script also imports `newfig` and `savefig` from a local `plotting` module that is absent from the pinned tree. This is retained as a high-severity reproducibility gap rather than repaired or inferred from elsewhere.
-
-`Deep_Learning_Benchmark.zip` is present as a 10,349-byte archive but was not expanded. Benchmark datasets remain external and were not downloaded.
+The optimizer implementation estimates Hessian diagonal information using a Hutchinson-style random Rademacher vector and requires `loss.backward(create_graph=True)`.
 
 ### Reproducibility
 
-Static reproducibility is **R1**. The pinned source, MIT license, official paper relationship, entrypoint, model structure, objective, seeds and major hyperparameters are recoverable.
+Static reproducibility is **R2**. Environment creation and activation are documented, the bounded environment is strongly version-pinned, an entrypoint and reproduction script are present, seed and major hyperparameters are explicit, and evaluation/checkpoint logic is visible.
 
-R2 is withheld because:
-
-- no authoritative dependency/environment manifest is present;
-- TensorFlow and supporting scientific-Python versions are unpinned;
-- no installation/environment-creation workflow is documented;
-- the visible entrypoint imports a missing local `plotting` module;
-- the benchmark archive was not expanded and its datasets are external;
-- no immutable run manifest or complete numeric acceptance target is present;
-- the visible repository source does not establish a PINN/PDE execution path.
+R3 is withheld because external CIFAR-10 acquisition is required, exact paper-era GPU/run-state provenance is incomplete, and the entrypoint enables `cudnn.benchmark=True` without an explicit deterministic-algorithm setting. The top-level pip recommendation points to an external `torch_optimizer` distribution and is not treated as identity-equivalent to the pinned source tree.
 
 Checkpoint additions:
 
@@ -67,40 +52,41 @@ Checkpoint additions:
 - configurations: **1**
 - technical-evidence records: **10**
 - reproducibility assessments: **1**
-- unresolved findings: **8**
+- unresolved findings: **6**
 - new explicit conflicts: **0**
 
-No dependency installation, archive expansion, dataset download, training, evaluation, test or benchmark was performed.
+No dependency installation, dataset download, model deserialization, training, evaluation, test or benchmark was performed.
 
 ## Aggregate batch state
 
-Canonical aggregate QA is complete and passing for **`SOB001`–`SOB006`**.
+Canonical aggregate QA remains PASS for **SOB001–SOB006**.
 
-`SOB007` is in progress with **1 / 10** canonical members complete:
+`SOB007` is in progress with **2 / 10** canonical members complete:
 
 - `CR000066` — Stage3-S057
+- `CR000067` — Stage3-S058
 
 Aggregate SOB007 QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S057`:
+After `Stage3-S058`:
 
-- technical resource records: **71**
-- experiments: **124**
-- configurations: **270**
-- technical-evidence records: **954**
-- static reproducibility assessments: **71**
-- unresolved findings: **445**
+- technical resource records: **72**
+- experiments: **125**
+- configurations: **271**
+- technical-evidence records: **964**
+- static reproducibility assessments: **72**
+- unresolved findings: **451**
 - explicit conflicting-evidence findings: **89**
 
 ## Registry accounting
 
-The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 71 completed Stage-3 resource records, **292** remain.
+The Stage-2 registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 72 completed Stage-3 technical resource records, **291** remain.
 
 ## Continuation QA
 
-`Stage3-S057` is PASS. `SOB007` is 1/10 and does not yet require aggregate QA. The forward frontier is `CR000066`. The exact next independently extractable resource is **`CR000067`**, to be processed as `Stage3-S058`.
+`Stage3-S058` is PASS. `SOB007` is 2/10 and does not require aggregate QA yet. The forward frontier is `CR000067`; the exact next independently extractable resource is **`CR000068`**, to be processed as `Stage3-S059`.
 
 ## Stage boundaries
 
