@@ -1,163 +1,46 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
-Verification/extraction date: 2026-09-03  
-Checkpoint: Stage3-S056  
+Verification/extraction date: 2026-09-04  
+Checkpoint: Stage3-S057  
 Phase: controlled scale-out in progress
 
 ## Audit continuity
 
-The complete append-only register through `Stage3-S047` is preserved verbatim in `reports/stage-3-unresolved-through-s047.md` and contains `S3U-0001`–`S3U-0362`. The active register continues that identifier sequence; historical findings are not renumbered, deleted, or reinterpreted.
+The complete append-only register through `Stage3-S056` is preserved verbatim in `reports/stage-3-unresolved-through-s056.md` and contains `S3U-0001`–`S3U-0437`. The active register continues that identifier sequence; historical findings are not renumbered, deleted, or reinterpreted.
 
-## Stage3-S048 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0363 | CR000049 | `transitive_dependency_lock_unavailable` | medium | PyTorch declares build and development dependencies with a mixture of lower bounds and unversioned requirements, but no single complete transitive lock covers all supported build/runtime variants. | Exact environment resolution remains variant-dependent. |
-| S3U-0364 | CR000049 | `platform_accelerator_matrix_partial` | medium | Source-build documentation supports CPU, NVIDIA CUDA, AMD ROCm, and Intel GPU paths that depend on external compiler, driver, accelerator, and compatibility selections. | One exact cross-platform hardware/runtime matrix cannot be reconstructed from the repository alone. |
-| S3U-0365 | CR000049 | `build_variant_selection_unfixed` | medium | The framework intentionally exposes multiple valid source-build and binary-install contracts rather than one canonical paper/application environment. | Framework-level R2 is supportable, but a unique application environment is not implied. |
-| S3U-0366 | CR000049 | `example_execution_unverified` | low | Framework examples and documentation were inspected only as capability evidence and were not executed under the Stage-3 static-only boundary. | Example runtime behavior remains unverified here. |
-| S3U-0367 | CR000049 | `test_execution_unverified` | low | The repository contains broad test/CI infrastructure, but no test suite was executed in Stage 3. | Runtime regression status remains unverified here. |
-| S3U-0368 | CR000049 | `paper_result_bundle_not_applicable` | low | PRL000130 is a software-mention relationship from an automatic-differentiation survey; CR000049 does not deposit a paper-specific dataset, checkpoint, or generated result bundle for Atlas paper 467. | The relationship remains framework/software context rather than reproduced paper results. |
-
-## Stage3-S049 additions
+## Stage3-S057 additions
 
 | ID | Resource | Outcome | Severity | Finding | Effect |
 |---|---|---|---|---|---|
-| S3U-0369 | CR000057 | `packaging_metadata_generation_conflict` | medium | `setup.py` advertises Python 3.5–3.7 and broad lower-bound scientific dependencies, while `pyproject.toml` requires Python `^3.8`, BatchFlow with `nn` extras and torchvision `^0.14`. | No single packaging generation can be treated as the uniquely authoritative runtime contract without additional provenance. |
-| S3U-0370 | CR000057 | `requirements_manifest_empty` | medium | The root `requirements.txt` is present but empty, while dependencies are declared elsewhere and README project-repository installation tells users to install dependencies manually. | The requirements file alone cannot reconstruct the environment. |
-| S3U-0371 | CR000057 | `batchflow_submodule_documentation_conflict` | medium | README says recursive cloning is required so a BatchFlow submodule is cloned, but the pinned `.gitmodules` file is empty and no BatchFlow submodule is present at the root. | The documented repository-clone dependency path does not match the pinned tree. |
-| S3U-0372 | CR000057 | `tutorial_path_documentation_conflict` | low | One README link points to `tutorials/PDE_solving.ipynb`, while the pinned tutorial tree contains only `tutorials/1. Solving PDEs.ipynb`. | That documentation path does not resolve verbatim in the pinned snapshot. |
-| S3U-0373 | CR000057 | `transitive_dependency_lock_unavailable` | medium | Neither packaging generation supplies one complete exact transitive environment, and README explicitly leaves PyTorch build/version selection to the user. | Exact environment reconstruction remains incomplete and R3 is not assigned. |
-| S3U-0374 | CR000057 | `application_contract_not_applicable` | low | PyDEns is a reusable differential-equation framework rather than one fixed Atlas-paper application workflow. | Application-specific data, seed, hardware, checkpoint and numeric-target requirements remain caller scoped. |
-| S3U-0375 | CR000057 | `tutorial_example_execution_unverified` | low | The tutorial and example notebook were inspected only as repository capability evidence and were not executed. | Runtime example behavior remains unverified under the static-only boundary. |
-| S3U-0376 | CR000057 | `test_execution_unverified` | low | The repository test converts tutorial notebooks to Python and executes them, but Stage 3 did not run that test. | Runtime regression/tutorial-pass status remains unverified here. |
-
-## Stage3-S050 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0377 | CR000058 | `dependency_manifest_absent` | medium | The pinned repository contains executable TensorFlow/Python case scripts but no requirements, environment, package, or equivalent dependency manifest. | Direct runtime dependencies must be reconstructed from source imports rather than an authoritative environment file. |
-| S3U-0378 | CR000058 | `dependency_versions_unpinned` | medium | Source imports TensorFlow, NumPy, Matplotlib, pyDOE, and SciPy where applicable, but exact compatible package versions are not pinned. | The exact historical runtime cannot be reconstructed and R3 is withheld. |
-| S3U-0379 | CR000058 | `installation_workflow_undocumented` | medium | README provides paper/citation context but no installation or environment-creation procedure. | Repository setup remains incomplete even though entrypoints are identifiable. |
-| S3U-0380 | CR000058 | `runtime_hardware_scope_partial` | low | The 1D, L-shaped, and advection-diffusion scripts explicitly disable GPU use, while the 2D Poisson script uses a default TensorFlow session; no broader hardware specification is provided. | Hardware behavior is case-scoped rather than one repository-wide reproducibility contract. |
-| S3U-0381 | CR000058 | `bundled_result_run_provenance_partial` | medium | Multiple result figures and an advection-diffusion record are bundled, but no run manifest binds those artifacts to an exact dependency environment, source invocation, or immutable configuration record. | Bundled outputs support result presence but not full run-level provenance. |
-| S3U-0382 | CR000058 | `lshape_reference_binary_and_masking_scope_partial` | medium | The L-shaped case loads bundled `X_test.npy` and `y_ref.npy` arrays, and its plotting code replaces predicted values in the removed-quadrant index range with reference values before plotted error surfaces; the NPY payloads were not opened. | Reference-grid semantics and the numerical effect of the plotting mask remain bounded to static source evidence. |
-| S3U-0383 | CR000058 | `advdiff_record_binary_payload_unopened` | low | `hpPINN_ADE_Iden_record.mat` is bundled with the inverse-problem results but remains unopened under the static-only boundary. | Numeric history stored in the MAT payload is not independently extracted or verified. |
-| S3U-0384 | CR000058 | `inactive_option_space_unvalidated` | low | Scripts contain inactive PINN/VPINN switches, alternate variational forms, and L-shaped decompositions with 6, 8, 18, or 35 elements in addition to the active defaults. | Only active default configurations are materialized; alternate code branches remain unvalidated. |
-| S3U-0385 | CR000058 | `exact_expected_numeric_targets_unreported` | low | The repository bundles plots and analytical/reference constructions but does not expose one machine-readable manifest of exact expected scalar errors, losses, or recovered coefficients for all four active cases. | Static comparison targets are incomplete at the scalar-metric level. |
-| S3U-0386 | CR000058 | `output_path_relocation_ambiguous` | low | Some source scripts write result files to the current working directory while the pinned repository stores corresponding artifacts under `Results/` subdirectories, without a documented copy/move step. | Repository evidence does not fully establish the provenance operation that placed those artifacts in their bundled directories. |
-
-## Stage3-S051 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0387 | CR000060 | `transitive_dependency_lock_unavailable` | medium | PiNN supplies supported version ranges through `environment.yml`, `setup.py`, and auxiliary requirements files, but no single complete exact transitive lock covers the supported conda, pip, CPU-container, and GPU-container routes. | Exact byte-for-byte environment resolution remains route-dependent; resource-level R2 is supportable but an immutable application environment is not established. |
-| S3U-0388 | CR000060 | `container_image_digest_unavailable` | medium | CPU and GPU Dockerfiles identify versioned base-image tags, but the pinned repository does not record immutable image digests for those external container bases. | Container source recipes are recoverable, while the exact external base-image bytes are not fixed by digest. |
-| S3U-0389 | CR000060 | `application_dataset_not_fixed` | low | The reusable library supports multiple external atomic/molecular dataset loaders including CP2K, RuNNer, ANI-1, QM9, and DeePMD-kit formats rather than one canonical application dataset. | Dataset identity, split, preprocessing choices, and target variables remain caller/application scoped. |
-| S3U-0390 | CR000060 | `paper_specific_experiment_bundle_not_applicable` | low | `PRL000148` and `PRL000263` are official relationships to PiNN library/suite papers; the repository is a reusable library and no single canonical paper-specific experiment/configuration/result bundle is identified at resource scope. | Stage 3 records zero experiments/configurations rather than manufacturing paper-specific cases from generic library capabilities. |
-| S3U-0391 | CR000060 | `test_execution_unverified` | low | The repository contains a substantial `tests/` suite covering networks, models, I/O, equivariance and utilities, but Stage 3 did not execute it. | Runtime regression status remains unverified under the static-only boundary. |
-| S3U-0392 | CR000060 | `container_workflow_unverified` | low | Docker and Singularity CPU/GPU recipes and run instructions were inspected statically only; no image was built, pulled, launched, or converted. | Container runtime behavior and external image availability remain unverified here. |
-
-## Stage3-S052 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0393 | CR000061 | `dependency_manifest_absent` | medium | The pinned applications repository contains SciANN/Python scripts and notebooks but no authoritative root requirements, environment, package, or equivalent dependency manifest for the materialized constitutive workflow. | The runtime environment must be reconstructed from source imports, so the R2 setup gate is not satisfied. |
-| S3U-0394 | CR000061 | `dependency_versions_unpinned` | medium | Constitutive scripts import SciANN, NumPy, Matplotlib, and pandas without exact compatible version pins. | The historical dependency combination cannot be reconstructed exactly. |
-| S3U-0395 | CR000061 | `installation_workflow_undocumented` | medium | The root README describes the repository as a collection of SciANN examples but does not provide an installation or environment-creation procedure. | A defined setup/use path is incomplete even though individual entrypoints are identifiable. |
-| S3U-0396 | CR000061 | `sciann_core_version_unpinned` | medium | CR000061 depends on the separate SciANN core software but does not pin a SciANN release or commit, and Stage 3 does not import the environment of separate resource CR000062 by assumption. | Core-library compatibility remains unresolved at the applications-repository scope. |
-| S3U-0397 | CR000061 | `binary_weight_and_large_payload_inspection_bounded` | medium | The constitutive stochastic workflow includes a bundled HDF5 transfer-learning weight and the repository contains additional large/binary data and model artifacts; these payloads were not opened during bounded static inspection. | Payload-internal metadata and exact trained-state contents remain unverified. |
-| S3U-0398 | CR000061 | `bundled_result_run_provenance_partial` | medium | Several application folders include trained weights, result arrays, images, PDFs, or output histories, but no repository-wide immutable run manifest binds them to exact dependency versions and invocations. | Bundled outputs establish artifact presence without full run-level provenance. |
-| S3U-0399 | CR000061 | `external_submodule_environment_scope` | low | `PINNeikonal` and `En-DeepONet` are pinned gitlinks to external repositories, but their dependency and execution contracts are outside the parent applications repository record. | Their technical environments are not inferred into CR000061 and remain separate source scopes. |
-| S3U-0400 | CR000061 | `example_notebook_execution_unverified` | low | The repository contains many SciANN notebooks/scripts across PDEs, mechanics, fluids, and vibrations, but Stage 3 executed none of them. | Runtime behavior and reproducibility of the wider example suite remain unverified under the static-only boundary. |
-
-## Stage3-S053 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0401 | CR000062 | `license_badge_conflict` | medium | The exact repository `LICENSE`, `setup.py`, package metadata, and package initializer identify MIT, while the pinned README license badge claims Apache-2.0. | MIT remains authoritative from the exact license text; the Apache-2.0 badge is preserved as explicit conflicting documentation. |
-| S3U-0402 | CR000062 | `runtime_compatibility_matrix_conflict` | medium | README states Python 3.8–3.10, reports last tests on Python 3.9/TensorFlow 2.10 and recommends TensorFlow/Keras 2.10; `requirements.txt` pins TensorFlow 2.8.1; CI uses Python 3.7–3.9; and packaging text retains older Python compatibility statements. | No single runtime compatibility matrix is authoritative across the pinned snapshot; R3 is withheld. |
-| S3U-0403 | CR000062 | `dependency_declaration_contract_conflict` | medium | `requirements.txt` includes TensorFlow/Keras and a broad scientific/test/documentation stack, while active `setup.py` and egg-info requirements omit TensorFlow/Keras and expose a narrower dependency set. | Installation dependency resolution depends on the selected repository surface rather than one internally consistent package contract. |
-| S3U-0404 | CR000062 | `transitive_dependency_lock_unavailable` | medium | Only protobuf and TensorFlow are exactly pinned in `requirements.txt`; most direct dependencies are unpinned and no complete transitive lock or immutable container environment is provided. | Exact environment reconstruction remains incomplete even though setup routes are documented. |
-| S3U-0405 | CR000062 | `unmaintained_runtime_compatibility` | medium | The pinned README explicitly states that SciANN is no longer maintained and warns that Keras/TensorFlow changes rapidly. | Compatibility beyond the documented tested/recommended generations is not assured by the repository. |
-| S3U-0406 | CR000062 | `application_contract_not_applicable` | low | SciANN is a reusable framework and `PRL000151` is its official framework-paper relationship; no single canonical application dataset, experiment, seed, checkpoint, or expected result is fixed at resource scope. | Stage 3 records zero experiments/configurations rather than manufacturing a paper run from generic framework capabilities. |
-| S3U-0407 | CR000062 | `test_execution_unverified` | low | The repository contains `tests/test_api.py` and a CI workflow that runs pytest across a Python matrix, but Stage 3 did not execute the tests. | Runtime regression/API pass status remains unverified under the static-only boundary. |
-| S3U-0408 | CR000062 | `example_and_accelerator_execution_unverified` | low | Root examples and CPU/GPU capability through TensorFlow/Keras were inspected statically only; no example, training, prediction, accelerator, or optional dependency workflow was executed. | Example and hardware runtime behavior remain unverified here. |
-
-## Stage3-S054 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0409 | CR000063 | `stage2_repository_snapshot_unavailable` | medium | Final Stage 2 verified the public GitLab Elvet project and `master` branch but did not expose a 40-character commit SHA or repository tree. | The closed Stage-2 state does not define an immutable repository snapshot for exact source-level reconstruction. |
-| S3U-0410 | CR000063 | `provider_release_repository_lineage_partial` | medium | PyPI 1.0.2 supplies immutable source/wheel hashes and was released two days after the provider's May-2025 GitLab maintenance merge, but no byte comparison binds that package release to a GitLab revision. | The release is usable as provider package evidence but is not asserted byte-identical to repository `master`. |
-| S3U-0411 | CR000063 | `tensorflow_version_generation_conflict` | medium | The 2021 paper documents TensorFlow >=2.4; PyPI 1.0.1 documents 2.4–2.10; current PyPI 1.0.2 leaves the TensorFlow version unspecified; and GitLab merge request !34 states that the updated code targets recent/latest TensorFlow, is incompatible with older versions around 2.10, and leaves TensorFlow unpinned in automatic testing. | No single TensorFlow version contract spans the paper and current package/repository generations; R3 is withheld. |
-| S3U-0412 | CR000063 | `transitive_dependency_lock_unavailable` | medium | Current provider documentation specifies Python >=3.6, TensorFlow as mandatory, and matplotlib as optional, but no complete exact transitive dependency lock or immutable container environment is established by the inspected surfaces. | Exact environment reconstruction remains incomplete even though installation is documented. |
-| S3U-0413 | CR000063 | `repository_tree_inspection_bounded` | medium | The GitLab project remains public, but the bounded primary-source interface used in Stage 3 did not expose a complete current repository tree and full 40-character head SHA. | Source-code claims are limited to Stage-2 identity, provider project metadata, documentation, package metadata, maintenance records, and the primary paper. |
-| S3U-0414 | CR000063 | `application_contract_not_applicable` | low | Elvet is a reusable differential-equation/variational framework and `PRL000152` is its official software-paper relationship; no single canonical dataset, seed, experiment configuration, checkpoint, or expected result is fixed at resource scope. | Stage 3 records zero experiments/configurations rather than manufacturing paper or Colab examples into canonical runs. |
-| S3U-0415 | CR000063 | `provider_test_pipeline_not_reexecuted` | low | GitLab merge request !34 reports passing tests/pipelines for the 2025 TensorFlow update, but Stage 3 did not execute or re-run that provider pipeline. | Runtime regression status is provider-reported evidence only, not independently verified execution. |
-| S3U-0416 | CR000063 | `example_execution_unverified` | low | The official paper and provider documentation supply Schrödinger, catenary, ODE/PDE, variational, domain and fitting examples, including Colab links, but Stage 3 executed none of them. | Example runtime behavior and reported paper outcomes remain unverified under the static-only boundary. |
-
-## Stage3-S055 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0417 | CR000064 | `repository_license_unavailable` | medium | Final Stage 2 and the pinned repository tree identify no repository license file or SPDX license for PhyGeoNet. | Source availability is verified, but redistribution/use terms are not established by the repository record. |
-| S3U-0418 | CR000064 | `dependency_manifest_absent` | medium | The pinned source imports PyTorch, NumPy, SciPy, scikit-learn, Ofpp, matplotlib and optional plotting utilities but provides no requirements, environment, package or equivalent dependency manifest. | Runtime dependencies must be reconstructed from imports rather than an authoritative environment contract. |
-| S3U-0419 | CR000064 | `dependency_versions_unpinned` | medium | None of the observed Python/CUDA/OpenFOAM-facing dependencies are pinned to exact compatible versions in the repository. | The historical runtime combination cannot be reconstructed exactly and R3 is withheld. |
-| S3U-0420 | CR000064 | `installation_workflow_undocumented` | medium | README/PleaseReadMe and the case directories provide source/case guidance but no installation or environment-creation procedure. | A reproducible setup path is incomplete even though entrypoints are identifiable. |
-| S3U-0421 | CR000064 | `cuda_runtime_hardware_unspecified` | medium | Shared derivative filters and all active case models explicitly target CUDA, but the original GPU model, CUDA toolkit, driver and PyTorch/CUDA compatibility stack are not stated. | Hardware/runtime reconstruction remains partial and CPU-only execution is not established by the pinned scripts. |
-| S3U-0422 | CR000064 | `case1_checkpoint_training_seed_provenance_partial` | medium | The pinned `case1_main.py` loads `Result/15000.pth`, runs an evaluation-style path with `loss.backward()` commented, while `case1/readme.txt` states the original seed was not saved and the checkpoint was around 15000–16000 epochs. | The bundled checkpoint is usable as static result evidence, but its exact training invocation and random seed cannot be reconstructed from the pinned case. |
-| S3U-0423 | CR000064 | `bundled_binary_payloads_unopened` | medium | Multiple PTH model checkpoints and NPZ comparison arrays are bundled across the cases, but their payload-internal state was not opened or deserialized during Stage 3. | Trained-state tensors and binary metadata remain unverified beyond repository presence and source-level load paths. |
-| S3U-0424 | CR000064 | `bundled_result_run_provenance_partial` | medium | The repository contains checkpoint histories, error histories, PDFs/TikZ outputs and comparison files, but no repository-wide immutable run manifest binds all artifacts to exact dependency versions, hardware and invocations. | Bundled results establish artifact presence without complete run-level provenance. |
-| S3U-0425 | CR000064 | `openfoam_reference_generation_provenance_partial` | medium | The cases bundle OpenFOAM-style reference fields and use Ofpp/readOF for evaluation and mesh/reference data, but no single repository-level record pins the reference-solver build and generation workflow for all cases. | Reference fields are usable as bundled data, while their exact external solver-generation provenance remains partial. |
-| S3U-0426 | CR000064 | `case4_random_field_payload_inspection_bounded` | low | `case4` uses bundled FI/GT arrays, KL modes, coefficients and eigenvalues for a 1000-sample random-source ensemble; Stage 3 verified the source-level shapes/usage but did not independently parse every large numeric payload. | Random-field dataset semantics are bounded to source and file-presence evidence rather than full payload-level verification. |
-| S3U-0427 | CR000064 | `expected_numeric_target_manifest_partial` | low | Case-specific checkpoints, error histories and reference fields are bundled, but the repository does not expose one machine-readable manifest of exact expected scalar metrics for all five active cases. | Static expected-result comparison remains case-specific rather than one complete numeric acceptance contract. |
-
-## Stage3-S056 additions
-
-| ID | Resource | Outcome | Severity | Finding | Effect |
-|---|---|---|---|---|---|
-| S3U-0428 | CR000065 | `repository_license_unavailable` | medium | Final Stage 2 and the pinned PN-Net tree identify no repository license file or SPDX license. | Source availability is verified, but redistribution/use terms are not established by the repository record. |
-| S3U-0429 | CR000065 | `dependency_manifest_absent` | medium | The pinned Torch7/Lua source imports `nn`, `image`, `optim`, `cudnn`, `cutorch`, `cunn`, `xlua`, `trepl`, and `torch`, but the repository provides no requirements, environment, package, or equivalent dependency manifest. | The runtime environment must be reconstructed from imports rather than an authoritative dependency contract. |
-| S3U-0430 | CR000065 | `dependency_versions_unpinned` | medium | No exact compatible Torch7, CUDA, cuDNN, Lua, or related runtime versions are pinned in the inspected repository surfaces. | The historical software stack cannot be reconstructed exactly. |
-| S3U-0431 | CR000065 | `installation_workflow_undocumented` | medium | README supplies `th eval.lua` and `th run.lua` usage commands but no dependency-installation or environment-creation procedure. | The R2 environment/setup gate is not met and static reproducibility remains R1. |
-| S3U-0432 | CR000065 | `external_phototour_dataset_not_bundled` | medium | The Liberty, Yosemite, and Notre Dame PhotoTour `.t7` datasets required by the workflows are not present in the pinned PN-Net tree; README directs acquisition to the separate `vbalnt/UBC-Phototour-Patches-Torch` repository. | Data acquisition depends on an external source and is not self-contained in CR000065. |
-| S3U-0433 | CR000065 | `descriptor_dimension_documentation_code_conflict` | medium | The primary paper, README, and `eval.lua` describe/use 128-dimensional descriptors, while active `train/run.lua` constructs a 256-dimensional descriptor layer. | No single canonical descriptor dimension is selected; the two source-defined paths remain separate configurations and the disagreement is explicit conflicting evidence. |
-| S3U-0434 | CR000065 | `training_random_seed_unreported` | low | Triplet generation and epoch shuffling use `math.random` and `torch.randperm`, but no explicit random seed is observed in the inspected pinned training/sampling sources. | Exact triplet selection and shuffle order cannot be reconstructed statically. |
-| S3U-0435 | CR000065 | `pretrained_checkpoint_training_provenance_partial` | medium | The pinned tree bundles a Liberty pretrained model used by `eval.lua`, while the active training script defaults to Notre Dame and a 256-D output; no immutable run manifest binds the bundled model to an exact source/environment/training invocation. | The model is available as a static artifact, but its exact training-run provenance is incomplete. |
-| S3U-0436 | CR000065 | `binary_model_payloads_unopened` | low | Large Torch7 model files `pnnet-liberty.t7` and `pnnet-liberty-nn-ascii.t7` plus small statistics artifacts are present, but Stage 3 did not deserialize their binary payloads. | Internal stored model/state metadata remain unverified beyond repository presence, file metadata, and source/documentation load paths. |
-| S3U-0437 | CR000065 | `paper_dataset_distribution_lineage_partial` | low | Final Stage-2 `PRL000154` records that paper 515 points dataset, ground truth, and source code to the PN-Net repository, while the pinned README/tree directs PhotoTour dataset acquisition to a separate repository and does not bundle those payloads. | Paper-era distribution/access lineage is only partially recoverable; the observation does not alter the closed Stage-2 relationship record. |
+| S3U-0438 | CR000066 | `dependency_manifest_absent` | medium | The pinned repository contains an executable TensorFlow/Python function-approximation script but no requirements, environment, package, or equivalent dependency manifest. | Direct runtime dependencies must be reconstructed from source imports rather than an authoritative environment contract. |
+| S3U-0439 | CR000066 | `tensorflow_version_unpinned` | medium | `LAAF_FunApproxi.py` imports TensorFlow and scientific-Python dependencies without exact compatible version pins. | The historical runtime combination cannot be reconstructed exactly and R3 is withheld. |
+| S3U-0440 | CR000066 | `installation_workflow_undocumented` | medium | The pinned README describes the LAAF method and citation but does not provide dependency-installation or environment-creation instructions for the visible Python workflow. | The R2 setup gate is not met even though an entrypoint is identifiable. |
+| S3U-0441 | CR000066 | `missing_local_plotting_module` | high | `LAAF_FunApproxi.py` imports `newfig` and `savefig` from a local `plotting` module, but no `plotting.py` or equivalent module exists in the pinned repository tree. | The visible entrypoint is not self-contained as deposited and end-to-end execution readiness cannot be established. |
+| S3U-0442 | CR000066 | `deep_benchmark_archive_payload_uninspected` | medium | The repository bundles `Deep_Learning_Benchmark.zip`; its companion README documents models, datasets, methods and a `main.py` command, but Stage 3 did not expand the archive. | Archive-internal implementation and configuration claims remain unverified beyond provider documentation and file presence. |
+| S3U-0443 | CR000066 | `deep_benchmark_datasets_external` | low | The benchmark README names MNIST, CIFAR-10/100, SVHN, Fashion-MNIST, KMNIST and Semeion datasets, while those dataset payloads are not bundled in the visible repository tree. | Benchmark data acquisition remains external and was not performed in Stage 3. |
+| S3U-0444 | CR000066 | `physics_informed_implementation_scope_not_established` | medium | The official paper and repository README cover deep and physics-informed neural networks, but the visible pinned executable source is a supervised one-dimensional function-approximation script and the separate benchmark archive is documented as deep-learning classification. | Stage 3 preserves the official relationship without manufacturing a PINN/PDE experiment or physics-loss implementation. |
+| S3U-0445 | CR000066 | `expected_results_and_run_provenance_partial` | low | The visible script writes history/plot artifacts, but no immutable run manifest or complete machine-readable acceptance target binds outputs to exact dependency versions, environment and invocation. | Static result reproducibility remains incomplete even though source-level objective and output paths are recoverable. |
 
 ## Current register state
 
-- Historical findings preserved through S047: **362** (`S3U-0001`–`S3U-0362`).
-- Stage3-S048 additions: **6** (`S3U-0363`–`S3U-0368`).
-- Stage3-S049 additions: **8** (`S3U-0369`–`S3U-0376`).
-- Stage3-S050 additions: **10** (`S3U-0377`–`S3U-0386`).
-- Stage3-S051 additions: **6** (`S3U-0387`–`S3U-0392`).
-- Stage3-S052 additions: **8** (`S3U-0393`–`S3U-0400`).
-- Stage3-S053 additions: **8** (`S3U-0401`–`S3U-0408`).
-- Stage3-S054 additions: **8** (`S3U-0409`–`S3U-0416`).
-- Stage3-S055 additions: **11** (`S3U-0417`–`S3U-0427`).
-- Stage3-S056 additions: **10** (`S3U-0428`–`S3U-0437`).
-- Current unresolved finding count: **437**.
-- Next available unresolved ID: **`S3U-0438`**.
-- Explicit `conflicting_evidence` finding count: **89**; S056 adds one explicit conflict.
+- Historical findings preserved through S056: **437** (`S3U-0001`–`S3U-0437`).
+- Stage3-S057 additions: **8** (`S3U-0438`–`S3U-0445`).
+- Current unresolved finding count: **445**.
+- Next available unresolved ID: **`S3U-0446`**.
+- Explicit `conflicting_evidence` finding count: **89**; S057 adds no new explicit conflict.
 
 ## Source-scope handling
 
-`CR000065` remains the final Stage-2 `https://github.com/vbalnt/pnnet` identity at pinned commit `907364ceb2d95d73c64a3ab5c26915664095690f`, with `PRL000154` unchanged as the official relationship to Atlas 515. Stage 3 resolves the acronym and technical scope as `non_pinn_research_code`: PN-Net is a conjoined computer-vision local-descriptor network, not a Physics-Informed Neural Network.
+`CR000066` preserves the final Stage-2 repository identity at pinned commit `02246c511efb1694d2740c33125b1403168ba0a1` and `PRL000155` official relationship to Atlas paper 517. Stage 3 classifies the resource as `mixed_other`: the visible Python source is a supervised one-dimensional LAAF function-approximation workflow, while `Deep_Learning_Benchmark.zip` is separately documented as a deep-learning classification benchmark package.
 
-One local-descriptor experiment is represented with two source-defined configurations. The README/evaluation/paper 128-D path and active training 256-D path remain distinct and are not silently harmonized. External PhotoTour data remain external source scope; bundled Liberty model artifacts remain repository scope and do not imply that Stage 3 executed or deserialized them.
-
-`CR000064` remains the PhyGeoNet PINN implementation; `CR000063` remains the Elvet framework; `CR000062` remains the SciANN core framework; `CR000061` remains the separate SciANN applications/examples resource; `CR000060` remains the Pair-wise Interaction Neural Network supporting library; `CR000058` remains hp-VPINNs; `CR000057` remains PyDEns; `CR000049` remains PyTorch. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to `CR000184` and is not independently duplicated.
+The paper and README describe locally adaptive activation functions for both deep and physics-informed neural networks, but the visible pinned executable source does not establish a PDE residual, boundary/initial-condition residual, or other physics-loss execution path. No PINN experiment is inferred. The ZIP archive was not expanded under the static-only boundary, so archive-internal implementation details remain provider-documented rather than independently verified.
 
 ## Conflict handling
 
-Eighty-nine explicit `conflicting_evidence` findings exist through `Stage3-S056`. S056 adds one: the descriptor-dimension conflict between the primary paper/README/evaluation 128-D path and the active training-code 256-D path. Both configurations remain source-scoped; no architecture is selected by inference.
+Eighty-nine explicit `conflicting_evidence` findings remain through `Stage3-S057`. S057 adds none. Heterogeneous repository surfaces are retained as separate source scopes rather than treated as a contradiction.
 
 ## Escalation state
 
-No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. `SOB006` is canonically complete and aggregate QA is **PASS** for `CR000054`, `CR000055`, `CR000057`, `CR000058`, `CR000060`, `CR000061`, `CR000062`, `CR000063`, `CR000064`, and `CR000065`; `CR000056` and `CR000059` remain pilot-complete exclusions.
+No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. `SOB007` now has **1 / 10** canonical members complete. No unresolved item requires scientific workload execution within Stage 3; dependency installation, archive expansion, dataset download, training, evaluation, tests, or benchmarks remain outside the static-only boundary.
 
-The exact next independently extractable resource is `CR000066`, the first canonical member of `SOB007`. No unresolved item requires scientific workload execution within Stage 3; dependency installation, dataset download, model deserialization, training, evaluation, ROC postprocessing, tests, or benchmarks remain outside the static-only boundary.
+The exact next independently extractable resource is `CR000067`.

@@ -1,9 +1,9 @@
 # Computational Resources Stage 3 — Quality Report
 
-Status date: 2026-09-03  
+Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S056
+Latest scale-out checkpoint: Stage3-S057
 
 ## Current QA status
 
@@ -15,135 +15,92 @@ The detailed quality report through `Stage3-S047` is preserved verbatim in `repo
 
 ## Recent checkpoint continuity
 
-- `Stage3-S048`: corrective CR000049 recovery and canonical batch reconciliation — PASS.
-- `Stage3-S049`: CR000057 PyDEns framework, resource-only, R2 — PASS.
-- `Stage3-S050`: CR000058 hp-VPINNs, four experiments/four configurations, R2 — PASS.
-- `Stage3-S051`: CR000060 Pair-wise Interaction Neural Network library, resource-only, R2 — PASS.
-- `Stage3-S052`: CR000061 SciANN applications collection, one paper-scoped experiment/four configurations, R1 — PASS.
-- `Stage3-S053`: CR000062 SciANN core framework, resource-only, R2 — PASS.
-- `Stage3-S054`: CR000063 Elvet framework, resource-only, R2 — PASS.
-- `Stage3-S055`: CR000064 PhyGeoNet implementation, five experiments/five configurations, R2 — PASS.
-- `Stage3-S056`: CR000065 PN-Net non-PINN research code, one experiment/two configurations, R1 — **PASS**.
+- `Stage3-S056`: CR000065 PN-Net non-PINN research code, one experiment/two configurations, R1 — PASS.
+- `Stage3-S057`: CR000066 locally adaptive activation-functions resource, one experiment/one configuration, R1 — **PASS**.
 
-Historical S050/S051 pre-QA control deviations remain preserved without rewriting history. S052–S056 follow the normal one-post-QA-commit checkpoint policy.
+Historical S050/S051 pre-QA control deviations and earlier batch-label drift remain preserved without rewriting history.
 
-## Stage3-S056 checkpoint
+## Stage3-S057 checkpoint
 
-`CR000065` preserves the final Stage-2 identity `https://github.com/vbalnt/pnnet`, pinned commit `907364ceb2d95d73c64a3ab5c26915664095690f`, and `PRL000154` as the official relationship to Atlas paper 515, *PN-Net: Conjoined Triple Deep Network for Learning Local Image Descriptors*.
+`CR000066` preserves the final Stage-2 identity `https://github.com/AmeyaJagtap/Locally-Adaptive-Activation-Functions-Neural-Networks-`, pinned commit `02246c511efb1694d2740c33125b1403168ba0a1`, MIT license, and `PRL000155` official relationship to Atlas paper 517, *Locally adaptive activation functions with slope recovery for deep and physics-informed neural networks*.
 
 ### Scope classification
 
-The pinned source and paper establish a computer-vision patch-descriptor method, not a Physics-Informed Neural Network. Stage 3 therefore uses the accepted **`non_pinn_research_code`** profile and does not manufacture PINN-specific physics, PDE, residual or scientific-computing fields.
+The pinned repository has heterogeneous source surfaces and is therefore represented as **`mixed_other`**. The directly visible executable `LAAF_FunApproxi.py` implements supervised one-dimensional function approximation. A separate `Deep_Learning_Benchmark.zip` is documented by its companion README as image-classification benchmarks. The official paper/README scope includes physics-informed neural networks, but no visible pinned executable source establishes PDE, boundary-condition, initial-condition, or physics-loss residuals. No PINN experiment is manufactured from the paper title.
 
 ### Ontology
 
 One stable experiment is materialized:
 
-- **CR000065-E001 — PN-Net local image descriptor learning and benchmark evaluation.**
+- **CR000066-E001 — LAAF one-dimensional function approximation.**
 
-Two materially distinct configurations are retained:
+One active configuration is retained:
 
-1. **CR000065-E001-C001 — bundled Liberty 128-D model evaluation on Notre Dame 100k pairs.** The README documents a 128-D branch architecture and `eval.lua` allocates 128-D descriptors, loads `pnnet-liberty.t7` plus `stats-liberty.t7`, normalizes external `notredame.t7`, evaluates 100,000 ground-truth pairs on CUDA, and prints labels with L2 descriptor distances.
-2. **CR000065-E001-C002 — active Notre Dame 256-D triplet training.** `train/run.lua` builds three parameter-sharing Torch7/cuDNN branches ending in `Linear(4096,256)`, generates 1,280,000 triplets, and trains with SGD for 1000 epochs at batch size 128, learning rate 0.1, momentum 0.9, weight decay 1e-4 and learning-rate decay 1e-6.
+- **CR000066-E001-C001 — CPU TensorFlow LAAF function-approximation workflow.** The script samples 301 points on `[-3,3]`, fits a piecewise target, uses a `[1,50,50,50,50,1]` network with layer-wise adaptive tanh slopes initialized to 0.1 and multiplied by 10, combines MSE with the slope-recovery term, uses Adam at learning rate `2e-4`, fixes NumPy/TensorFlow seeds to 1234, and forces CPU execution.
 
-The custom `DistanceRatioCriterion` applies SoftMax followed by MSE to the pair `[minimum negative distance, positive distance]`. Triplets are generated randomly from class labels after global mean/std normalization. No explicit random seed is observed in the inspected training/sampling source.
+The benchmark ZIP is not promoted to an experiment because Stage 3 did not expand its payload. The companion README documents a `main.py` interface, LeNet/PreActResNet18, non-adaptive/GAAF/L-LAAF/N-LAAF choices, seven external image datasets, Python 3.6.7 and Torch 1.0.1; those details remain provider-documentation scope.
 
-### Preserved conflict
+### Environment and artifacts
 
-One new explicit conflict is retained:
+No authoritative requirements/environment/package manifest or installation workflow is present for the visible TensorFlow script, and exact TensorFlow/scientific-Python versions are not pinned. The script also imports `newfig` and `savefig` from a local `plotting` module that is absent from the pinned tree. This is retained as a high-severity reproducibility gap rather than repaired or inferred from elsewhere.
 
-- the primary paper reports a **128-dimensional** feature;
-- `readme.org` documents `Linear(4096,128)`;
-- `eval.lua` uses a 128-dimensional output tensor;
-- the active `train/run.lua` constructs `Linear(4096,256)`.
-
-These values are source-scoped. The 128-D evaluation and 256-D training paths remain separate configurations; no synthetic canonical descriptor dimension is inferred.
-
-### Data, environment and artifacts
-
-The pinned tree contains pretrained Liberty model/statistics artifacts but no PhotoTour `.t7` dataset payloads. README directs dataset acquisition to the separate `vbalnt/UBC-Phototour-Patches-Torch` repository.
-
-No repository license, dependency/environment manifest, exact Torch7/CUDA/cuDNN compatibility matrix, or dependency-installation workflow is identified. README supplies `th eval.lua` / `th run.lua` usage commands and reports GTX TITAN X timing, but that is insufficient for the R2 environment/setup gate.
+`Deep_Learning_Benchmark.zip` is present as a 10,349-byte archive but was not expanded. Benchmark datasets remain external and were not downloaded.
 
 ### Reproducibility
 
-Static reproducibility is **R1**. Pinned source, official paper relationship, entrypoints, preprocessing, architecture, training/evaluation behavior, hyperparameters and pretrained artifacts are recoverable.
+Static reproducibility is **R1**. The pinned source, MIT license, official paper relationship, entrypoint, model structure, objective, seeds and major hyperparameters are recoverable.
 
 R2 is withheld because:
 
-- repository licensing is unavailable;
-- no dependency/environment manifest is present;
-- exact Torch7/CUDA/cuDNN versions are unpinned;
+- no authoritative dependency/environment manifest is present;
+- TensorFlow and supporting scientific-Python versions are unpinned;
 - no installation/environment-creation workflow is documented;
-- PhotoTour data are external;
-- 128-D and 256-D architecture surfaces conflict;
-- training random seed is unreported;
-- pretrained model payloads were not deserialized and their exact run/environment provenance is incomplete.
+- the visible entrypoint imports a missing local `plotting` module;
+- the benchmark archive was not expanded and its datasets are external;
+- no immutable run manifest or complete numeric acceptance target is present;
+- the visible repository source does not establish a PINN/PDE execution path.
 
 Checkpoint additions:
 
 - resources: **1**
 - experiments: **1**
-- configurations: **2**
-- technical-evidence records: **13**
+- configurations: **1**
+- technical-evidence records: **10**
 - reproducibility assessments: **1**
-- unresolved findings: **10**
-- new explicit conflicts: **1**
+- unresolved findings: **8**
+- new explicit conflicts: **0**
 
-No dependency installation, dataset download, model deserialization, training, evaluation, ROC postprocessing or benchmark was performed.
+No dependency installation, archive expansion, dataset download, training, evaluation, test or benchmark was performed.
 
 ## Aggregate batch state
 
 Canonical aggregate QA is complete and passing for **`SOB001`–`SOB006`**.
 
-### SOB006 — PASS
+`SOB007` is in progress with **1 / 10** canonical members complete:
 
-Canonical resources:
+- `CR000066` — Stage3-S057
 
-- `CR000054` — Stage3-S046
-- `CR000055` — Stage3-S047
-- `CR000057` — Stage3-S049
-- `CR000058` — Stage3-S050
-- `CR000060` — Stage3-S051
-- `CR000061` — Stage3-S052
-- `CR000062` — Stage3-S053
-- `CR000063` — Stage3-S054
-- `CR000064` — Stage3-S055
-- `CR000065` — Stage3-S056
-
-`CR000056` and `CR000059` are pilot-complete and are not reprocessed.
-
-Aggregate counts:
-
-- resources: **10**
-- experiments: **16**
-- configurations: **21**
-- technical-evidence records: **144**
-- reproducibility assessments: **10**
-- new unresolved findings: **87**
-- new explicit conflicts: **10**
-
-The aggregate QA reconciles historical S046/S047 batch-label drift and preserves the documented S050/S051 control deviations without modifying historical checkpoint records.
+Aggregate SOB007 QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S056`:
+After `Stage3-S057`:
 
-- technical resource records: **70**
-- experiments: **123**
-- configurations: **269**
-- technical-evidence records: **944**
-- static reproducibility assessments: **70**
-- unresolved findings: **437**
+- technical resource records: **71**
+- experiments: **124**
+- configurations: **270**
+- technical-evidence records: **954**
+- static reproducibility assessments: **71**
+- unresolved findings: **445**
 - explicit conflicting-evidence findings: **89**
 
 ## Registry accounting
 
-The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 70 completed Stage-3 resource records, **293** remain.
+The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 71 completed Stage-3 resource records, **292** remain.
 
 ## Continuation QA
 
-`SOB006` is closed and PASS. The forward frontier is `CR000065`. The exact next independently extractable resource is **`CR000066`**, to be processed as `Stage3-S057`, the first canonical member of `SOB007`.
+`Stage3-S057` is PASS. `SOB007` is 1/10 and does not yet require aggregate QA. The forward frontier is `CR000066`. The exact next independently extractable resource is **`CR000067`**, to be processed as `Stage3-S058`.
 
 ## Stage boundaries
 
