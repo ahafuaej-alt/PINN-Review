@@ -1,7 +1,7 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-03  
-Checkpoint: Stage3-S050  
+Checkpoint: Stage3-S051  
 Phase: controlled scale-out in progress
 
 ## Audit continuity
@@ -47,28 +47,40 @@ The complete append-only register through `Stage3-S047` is preserved verbatim in
 | S3U-0385 | CR000058 | `exact_expected_numeric_targets_unreported` | low | The repository bundles plots and analytical/reference constructions but does not expose one machine-readable manifest of exact expected scalar errors, losses, or recovered coefficients for all four active cases. | Static comparison targets are incomplete at the scalar-metric level. |
 | S3U-0386 | CR000058 | `output_path_relocation_ambiguous` | low | Some source scripts write result files to the current working directory while the pinned repository stores corresponding artifacts under `Results/` subdirectories, without a documented copy/move step. | Repository evidence does not fully establish the provenance operation that placed those artifacts in their bundled directories. |
 
+## Stage3-S051 additions
+
+| ID | Resource | Outcome | Severity | Finding | Effect |
+|---|---|---|---|---|---|
+| S3U-0387 | CR000060 | `transitive_dependency_lock_unavailable` | medium | PiNN supplies supported version ranges through `environment.yml`, `setup.py`, and auxiliary requirements files, but no single complete exact transitive lock covers the supported conda, pip, CPU-container, and GPU-container routes. | Exact byte-for-byte environment resolution remains route-dependent; resource-level R2 is supportable but an immutable application environment is not established. |
+| S3U-0388 | CR000060 | `container_image_digest_unavailable` | medium | CPU and GPU Dockerfiles identify versioned base-image tags, but the pinned repository does not record immutable image digests for those external container bases. | Container source recipes are recoverable, while the exact external base-image bytes are not fixed by digest. |
+| S3U-0389 | CR000060 | `application_dataset_not_fixed` | low | The reusable library supports multiple external atomic/molecular dataset loaders including CP2K, RuNNer, ANI-1, QM9, and DeePMD-kit formats rather than one canonical application dataset. | Dataset identity, split, preprocessing choices, and target variables remain caller/application scoped. |
+| S3U-0390 | CR000060 | `paper_specific_experiment_bundle_not_applicable` | low | `PRL000148` and `PRL000263` are official relationships to PiNN library/suite papers; the repository is a reusable library and no single canonical paper-specific experiment/configuration/result bundle is identified at resource scope. | Stage 3 records zero experiments/configurations rather than manufacturing paper-specific cases from generic library capabilities. |
+| S3U-0391 | CR000060 | `test_execution_unverified` | low | The repository contains a substantial `tests/` suite covering networks, models, I/O, equivariance and utilities, but Stage 3 did not execute it. | Runtime regression status remains unverified under the static-only boundary. |
+| S3U-0392 | CR000060 | `container_workflow_unverified` | low | Docker and Singularity CPU/GPU recipes and run instructions were inspected statically only; no image was built, pulled, launched, or converted. | Container runtime behavior and external image availability remain unverified here. |
+
 ## Current register state
 
 - Historical findings preserved through S047: **362** (`S3U-0001`–`S3U-0362`).
 - Stage3-S048 additions: **6** (`S3U-0363`–`S3U-0368`).
 - Stage3-S049 additions: **8** (`S3U-0369`–`S3U-0376`).
 - Stage3-S050 additions: **10** (`S3U-0377`–`S3U-0386`).
-- Current unresolved finding count: **386**.
-- Next available unresolved ID: **`S3U-0387`**.
-- Explicit `conflicting_evidence` finding count: **84**; S050 adds no new explicit conflict.
+- Stage3-S051 additions: **6** (`S3U-0387`–`S3U-0392`).
+- Current unresolved finding count: **392**.
+- Next available unresolved ID: **`S3U-0393`**.
+- Explicit `conflicting_evidence` finding count: **84**; S051 adds no new explicit conflict.
 
 ## Source-scope handling
 
-`CR000058` remains the Stage-2-pinned hp-VPINNs paper-specific implementation at commit `1b9773567a7d00d38583f6fb89d5a9ba9d900ae7`. `PRL000141` remains an `official` relationship to Atlas paper 493. Four distinct repository case directories are represented as experiments; each active default source path is represented by one configuration. Inactive code branches remain option-space evidence rather than additional configurations.
+`CR000060` remains the Stage-2-pinned `Teoroo-CMC/PiNN` repository at commit `d511275a59e9a23330a7038977bf52b1f5485302`. `PRL000148` and `PRL000263` remain official relationships to Atlas papers 511 and 744. Stage 3 resolves the repository's technical role as a supporting scientific-ML library: PiNN means **Pair-wise Interaction Neural Network**, not physics-informed neural networks. Generic networks, property models, dataset loaders and CLI defaults are retained as resource capabilities, with zero manufactured experiments/configurations.
 
-`CR000057` remains the PyDEns framework identity with its secondary-review and framework-paper relationships. `CR000049` remains the PyTorch supporting-framework identity. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to CR000184 and is not independently duplicated.
+`CR000058` remains the hp-VPINNs paper-specific implementation; `CR000057` remains the PyDEns framework; `CR000049` remains the PyTorch supporting framework. `CR000021` remains a resolved Stage-2 provenance identity canonically mapped to `CR000184` and is not independently duplicated.
 
 ## Conflict handling
 
-Eighty-four explicit `conflicting_evidence` findings exist through `Stage3-S050`. S050 adds no explicit source conflict. Its limitations concern missing environment/install provenance, bounded binary/result inspection, inactive option space, hardware scope, and output-run provenance; these remain nonblocking unresolved findings.
+Eighty-four explicit `conflicting_evidence` findings exist through `Stage3-S051`. S051 adds no explicit source conflict. The legacy `https://github.com/yqshao/pinn` package URL redirects at the provider to the current repository identity and is treated as repository-transfer provenance rather than a conflict.
 
 ## Escalation state
 
-No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. The active batch is `SOB006`, with canonical completed scale-out members `CR000054`, `CR000055`, `CR000057`, and `CR000058`. `CR000056` and `CR000059` are pilot-complete and are not reprocessed.
+No Stage-2 identity or relationship change is required. Stage 1 and Stage 2 remain closed and unchanged. The active batch is `SOB006`, with canonical completed scale-out members `CR000054`, `CR000055`, `CR000057`, `CR000058`, and `CR000060`. `CR000056` and `CR000059` are pilot-complete and are not reprocessed.
 
-The exact next independently extractable resource is `CR000060`. No unresolved item requires scientific workload execution within Stage 3; dependency installation, TensorFlow sessions, training, prediction, binary NPY/MAT inspection, result regeneration, tests, or benchmarks remain outside the static-only boundary.
+The exact next independently extractable resource is `CR000061`. No unresolved item requires scientific workload execution within Stage 3; dependency installation, containers, tests, dataset conversion, model training, evaluation or inference remain outside the static-only boundary.
