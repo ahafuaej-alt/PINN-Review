@@ -3,7 +3,7 @@
 Status date: 2026-09-03  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S051
+Latest scale-out checkpoint: Stage3-S052
 
 ## Current QA status
 
@@ -13,87 +13,100 @@ Stage3-D01 remains accepted without schema modification. The static-only boundar
 
 The detailed quality report through `Stage3-S047` is preserved verbatim in `reports/stage-3-quality-report-through-s047.md`. Per-checkpoint machine-readable QA remains authoritative in `03-technical/batch-qa/scaleout-checkpoint-###-qa.json`.
 
-## Stage3-S048 corrective checkpoint
+## Recent checkpoint continuity
 
-Status: **PASS**
+- `Stage3-S048`: corrective CR000049 recovery and canonical batch reconciliation — PASS.
+- `Stage3-S049`: CR000057 PyDEns framework, resource-only, R2 — PASS.
+- `Stage3-S050`: CR000058 hp-VPINNs, four experiments/four configurations, R2 — PASS.
+- `Stage3-S051`: CR000060 Pair-wise Interaction Neural Network library, resource-only, R2 — PASS.
+- `Stage3-S052`: CR000061 SciANN applications collection, one paper-scoped experiment/four configurations, R1 — **PASS**.
 
-`CR000049` restored the omitted PyTorch supporting-framework record and the control reconciliation closed canonical aggregate QA for SOB003–SOB005 without rewriting historical checkpoint IDs or Git history.
+Historical S050/S051 pre-QA control deviations remain preserved and documented without rewriting history. S052 returns to the normal one-post-QA-commit checkpoint policy.
 
-## Stage3-S049 checkpoint
+## Stage3-S052 checkpoint
 
-Status: **PASS**
+`CR000061` preserves the final Stage-2 redirected repository identity `https://github.com/ehsanhaghighat/sciann-applications` at commit `8c475af6e6a3ae6de6d1757d952ba1eb29438daa`, its MIT license, and all three verified Stage-2 relationships:
 
-`CR000057` records the PyDEns framework at resource scope with zero experiments/configurations, ten evidence records, R2 reproducibility, eight bounded unresolved findings, and three explicit conflicts.
+- `PRL000069` → Atlas 338, `paper_dataset_mention`;
+- `PRL000143` → Atlas 495, `secondary_review_mention`;
+- `PRL000150` → Atlas 512, `supplementary_examples`.
 
-## Stage3-S050 checkpoint
+The Stage-2 classification `pinn_framework_or_library` is intentionally refined at Stage 3 to **`mixed_other`**. The repository is a heterogeneous SciANN applications/examples collection containing PINN/PIDL examples, regression examples, mechanics/fluids/vibration cases, bundled trained artifacts/results, and two external git submodules. The separate SciANN core framework is `CR000062`; it is not collapsed into CR000061.
 
-Status: **PASS**
+### Materialized experiment
 
-`CR000058` records the hp-VPINNs paper implementation with four repository-defined experiments, four active default configurations, sixteen evidence records, R2 reproducibility, ten bounded unresolved findings, and zero new conflicts. The preserved S050 pre-QA draft-commit deviation remains documented in S050 QA.
+Only the strongest paper-scoped case is materialized:
 
-## Stage3-S051 checkpoint
+**`CR000061-E001` — Constitutive model characterization and discovery**, corresponding to the `SciANN-ConstitutiveModeling` directory identified by Atlas paper 338.
 
-Status: **PASS**
+Four materially distinct configurations are represented:
 
-`CR000060` preserves the Stage-2-pinned `Teoroo-CMC/PiNN` repository at commit `d511275a59e9a23330a7038977bf52b1f5485302`, BSD-3-Clause licensing, `PRL000148` as the official relationship to Atlas paper 511, and `PRL000263` as the official relationship to Atlas paper 744.
+1. **Deterministic von Mises isotropic-hardening characterization** — `g(t)` as an 8×20 tanh functional, trainable elastic/yield/hardening parameters, five smoothing-delta values, Adam/MSE, exponential learning-rate schedule, 50,000 epochs, fixed seed 12345.
+2. **Stochastic von Mises transfer learning** — grouped random realizations, the same 8×20 tanh functional, bundled HDF5 warm-start weights, Adam/MSE, 1,000 epochs, fixed seed 12345.
+3. **Drucker-Prager biaxial characterization** — trainable bulk/shear/friction/yield parameters, constitutive/yield/plastic-flow residual constraints, five smoothing-delta values, Adam with exponential learning-rate schedule, 50,000 epochs.
+4. **Drucker-Prager undrained biaxial characterization** — distinct undrained data/loading case with the corresponding Drucker-Prager constraint workflow.
 
-The key scientific classification is an acronym/scope distinction: **PiNN means Pair-wise Interaction Neural Network**. It is a TensorFlow-based atomic/equivariant neural-network library for molecules, materials and electrochemical systems, not a physics-informed neural-network/PDE PINN implementation. Stage 3 therefore assigns the `supporting_scientific_ml_library` profile and preserves PINN-specific PDE fields as inapplicable rather than forcing a false physics-informed interpretation.
+The remaining SciANN folders are not arbitrarily inflated into experiments. They remain resource-level evidence because the Stage-2 relationships to Atlas 495 and 512 establish repository/review/example scope rather than individual paper-defined cases.
 
-The repository is represented at **resource scope with zero experiments and zero configurations**. Twelve technical-evidence records cover authoritative identity and both paper relationships, Pair-wise Interaction Neural Network scope, package version/license/CLI metadata, conda/pip dependency contracts, CPU/GPU container routes, dataset-loader capabilities, network and property-model registries, CLI conversion/training/evaluation behavior, legacy repository-transfer URL provenance, and the static-only boundary.
+### Evidence and reproducibility
 
-The static reproducibility level is **R2**. Source, BSD licensing, Python/TensorFlow support ranges, conda and editable-pip installation, CPU/GPU container recipes, the `pinn` CLI, YAML parameter workflow, model/network registries, generic data conversion/preprocessing, TensorFlow Estimator training/evaluation, and test infrastructure are statically inspectable. R3 is not assigned because this is a reusable library rather than one selected paper/application experiment and no exact transitive lock, immutable container digest, canonical application dataset/configuration, checkpoint, or expected numeric result is fixed at resource scope.
+Fifteen evidence records cover final Stage-2 identity/relationships, root role/license, application inventory, environment limitations, the Atlas-338 folder scope, tensorial constitutive mathematics, all four configurations, constitutive data/transfer-weight inventory, wider bundled outputs, external submodules, relationship scope, and the static-only boundary.
 
-Six bounded unresolved findings are retained for the absent transitive lock, missing immutable container digests, application-scoped datasets, non-applicable paper-specific experiment bundle, unexecuted tests, and unexecuted container workflows. No new explicit conflict is introduced. The legacy `yqshao/pinn` URL in `setup.py` is provider-redirected to the current repository identity and is treated as transfer provenance, not conflicting evidence.
+Static reproducibility is **R1**. Source, licensing, data paths, entrypoints, mathematical constraints, architecture, optimizer/loss choices, learning-rate schedules, hyperparameters, seeds, and output workflows are statically recoverable. R2 is withheld because:
+
+- the applications repository has no authoritative dependency/environment manifest;
+- compatible SciANN/TensorFlow/Keras/scientific-Python versions are not pinned;
+- no installation/environment-creation procedure is documented;
+- the separate CR000062 SciANN-core environment is not imported by assumption.
+
+Bundled HDF5 weights and larger/binary payloads are recorded by presence but not opened. Broader result bundles are not treated as independently reproduced runs.
 
 Checkpoint additions:
 
 - resources: **1**
-- experiments: **0**
-- configurations: **0**
-- technical-evidence records: **12**
+- experiments: **1**
+- configurations: **4**
+- technical-evidence records: **15**
 - reproducibility assessments: **1**
-- unresolved findings: **6**
+- unresolved findings: **8**
 - new explicit conflicts: **0**
 
-No dependency, environment, container, test, dataset conversion, training, evaluation or inference workflow was executed.
-
-## Stage3-S051 control-policy deviation
-
-The normal policy requires one completed checkpoint commit after QA. During S051 staging, two unintended pre-QA commits occurred: `124b8ae4c36a394ec60e988146b9a0f529c75276` added an empty root path `SHOULD_NOT_USE`, and `214d072b2eb7b2b20ea2a2a57559860bb844f7ed` added placeholder `TEMP` content at the intended S051 resource path. The S051 completion tree removes the unintended path and replaces the placeholder with the validated resource record. History is preserved without force push, rebase, squash or rewrite. The final S050→S051 net tree is restricted to legitimate Stage-3 checkpoint paths, so the deviation has no scientific, ontology, source-authority, count, or final-scope effect.
+No dependency, environment, notebook, script, submodule, model training/inference, data generation, binary HDF5 payload, test, or benchmark was executed.
 
 ## Aggregate batch state
 
 Canonical aggregate QA remains complete and passing for `SOB001`–`SOB005`.
 
-`SOB006` is **IN PROGRESS** with five independently extractable completed members:
+`SOB006` is **IN PROGRESS** with six independently extractable completed members:
 
 - `CR000054` — Stage3-S046
 - `CR000055` — Stage3-S047
 - `CR000057` — Stage3-S049
 - `CR000058` — Stage3-S050
 - `CR000060` — Stage3-S051
+- `CR000061` — Stage3-S052
 
 `CR000056` and `CR000059` are pilot-complete and are not reprocessed. Aggregate QA is not due until ten canonical SOB006 members are complete.
 
 ## Current cumulative totals
 
-After `Stage3-S051`:
+After `Stage3-S052`:
 
-- technical resource records: **65**
-- experiments: **116**
-- configurations: **258**
-- technical-evidence records: **874**
-- static reproducibility assessments: **65**
-- unresolved findings: **392**
+- technical resource records: **66**
+- experiments: **117**
+- configurations: **262**
+- technical-evidence records: **889**
+- static reproducibility assessments: **66**
+- unresolved findings: **400**
 - explicit conflicting-evidence findings: **84**
 
 ## Registry accounting
 
-The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 65 completed Stage-3 resource records, **298** remain.
+The Stage-2 closure registry contains 364 entries. `CR000021` remains provenance for a non-independent identity canonically resolved to `CR000184`, leaving 363 independently extractable technical identities. With 66 completed Stage-3 resource records, **297** remain.
 
 ## Continuation QA
 
-The forward frontier is now `CR000060`. The exact next independently extractable resource is **`CR000061`**, to be processed as `Stage3-S052` within `SOB006`.
+The forward frontier is `CR000061`. The exact next independently extractable resource is **`CR000062`**, to be processed as `Stage3-S053` within `SOB006`.
 
 ## Stage boundaries
 
