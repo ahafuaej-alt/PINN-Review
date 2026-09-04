@@ -2,12 +2,12 @@
 
 **Stage:** 3 — deep static technical/scientific extraction  
 **Methodology:** Stage3-D01 accepted without modification  
-**Current checkpoint:** `Stage3-S073`  
+**Current checkpoint:** `Stage3-S074`  
 **Checkpoint status:** PASS  
-**Current batch:** `SOB008` — 8/10  
+**Current batch:** `SOB008` — 9/10  
 **Latest aggregate QA:** `SOB007` PASS  
 
-## S073 QA result
+## S074 QA result
 
 | QA control | Result |
 |---|---|
@@ -26,28 +26,28 @@
 
 ## Checkpoint counts
 
-| Measure | S073 | Cumulative |
+| Measure | S074 | Cumulative |
 |---|---:|---:|
-| Resources | 1 | 88 |
-| Experiments | 1 | 152 |
-| Configurations | 1 | 314 |
-| Technical evidence | 10 | 1144 |
-| Reproducibility assessments | 1 | 88 |
-| Unresolved findings | 6 | 572 |
+| Resources | 1 | 89 |
+| Experiments | 0 | 152 |
+| Configurations | 0 | 314 |
+| Technical evidence | 6 | 1150 |
+| Reproducibility assessments | 1 | 89 |
+| Unresolved findings | 6 | 578 |
 | Explicit conflicts | 0 | 97 |
 
 ## Scientific QA notes
 
-CR000083 is represented as `simulator_solver`, preserving its verified Atlas-591 `paper_software_mention` role. The extraction is bounded to the `buoyantPimpleFoam` solver path actually identified by the paper relationship evidence and does not manufacture PINN semantics or paper-specific CFD settings.
+CR000084 preserves the final Stage-2 official relationship to Atlas 593 and its immutable repository SHA. The complete pinned tree contains only `README.md`; therefore no experiment, configuration, training, architecture, mathematics, dataset or evaluation facts are manufactured from the paper title or repository name.
 
-R1 is appropriate because the source snapshot, software version, license, solver entrypoint and build target are available, while the paper-specific case and pinned runtime/build environment are not self-contained in this generic solver distribution.
+R0 is appropriate because repository identity and paper association are inspectable, but an executable scientific implementation is absent from the pinned snapshot. Missing values remain explicitly `not_available` rather than `false` where absence of evidence is the relevant semantics.
 
-No explicit conflict is present. Generic solver capabilities remain distinct from the Atlas paper's case-specific scientific configuration.
+No explicit conflict is present.
 
 ## Batch state
 
-`SOB008` is **8 / 10**. Aggregate QA is not due; latest completed aggregate QA remains `SOB007` PASS.
+`SOB008` is **9 / 10**. Aggregate QA is not yet due; latest completed aggregate QA remains `SOB007` PASS.
 
 ## Continuation gate
 
-**PASS.** Continue at `CR000084` in `Stage3-S074` under unchanged Stage3-D01 methodology and schemas.
+**PASS.** Continue at `CR000085` in `Stage3-S075` under unchanged Stage3-D01 methodology and schemas.
