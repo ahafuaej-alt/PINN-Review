@@ -1,41 +1,47 @@
-# Computational Resources Stage 3 — Unresolved Technical Findings
+# Computational Resources Stage 3 — Unresolved Findings
 
-Verification/extraction date: 2026-09-04  
-Checkpoint: Stage3-S070  
-Phase: controlled scale-out in progress
+**Status:** active controlled register  
+**Current checkpoint:** `Stage3-S071`  
+**Current batch:** `SOB008`  
+**Current unresolved count:** **558**  
+**Next unresolved ID:** `S3U-0559`
 
-## Audit continuity
+This register preserves unresolved or bounded findings that do not justify modifying accepted Stage3-D01 methodology or schemas.
 
-The append-only register through `Stage3-S056` remains preserved in `reports/stage-3-unresolved-through-s056.md` as `S3U-0001`–`S3U-0437`. `Stage3-S057`–`Stage3-S069` extend continuity through `S3U-0540`; historical checkpoint states remain preserved in Git. This active register continues without renumbering or deletion.
+## Register continuity
 
-## Stage3-S070 additions
+- Historical Stage-3 findings remain unchanged: `S3U-0001` through `S3U-0549`.
+- S071 adds `S3U-0550` through `S3U-0558` for `CR000081`.
+- No prior finding was deleted or renumbered.
 
-| ID | Resource | Outcome | Severity | Finding | Effect |
+## Stage3-S071 additions
+
+| ID | Resource | Finding | Confidence | Static evidence | Consequence |
 |---|---|---|---|---|---|
-| S3U-0541 | CR000080 | `repository_license_unknown` | medium | Final Stage-2 authority detects no repository license, and the pinned tree contains no license file. | License clarity remains unresolved. |
-| S3U-0542 | CR000080 | `environment_not_pinned` | high | No dependency/environment manifest or package-version lock is present despite TensorFlow/Keras, pandas, NumPy, scikit-learn and related imports. | Exact software-environment reconstruction is blocked; R2+ is not justified. |
-| S3U-0543 | CR000080 | `installation_not_documented` | medium | The 59-byte README and notebook provide no portable installation procedure or canonical end-to-end command. | Setup requires manual reconstruction. |
-| S3U-0544 | CR000080 | `external_data_not_bundled` | high | The pinned repository contains only README.md and ssm_cnn_kernel.ipynb, while numerical and experimental sections load external data files. | End-to-end replay is impossible from the repository snapshot alone. |
-| S3U-0545 | CR000080 | `host_specific_experimental_data_path` | high | Experimental validation reads from `D:/research work/Pyhsical SSM-CNN/data/`. | Data access is non-portable without manual path and file reconstruction. |
-| S3U-0546 | CR000080 | `hardware_provenance_not_reported` | medium | No exact CPU/GPU/runtime-machine provenance is documented in inspected repository sources. | Runtime and performance comparability remain unavailable. |
-| S3U-0547 | CR000080 | `model_training_seed_incomplete` | medium | Both train/validation splits use `random_state=0`, but no TensorFlow/Keras/NumPy model-training seed was identified. | Dataset partitioning is controlled while stochastic model replay remains uncontrolled. |
-| S3U-0548 | CR000080 | `pretrained_checkpoint_not_available` | medium | Save/load cells refer to model files, but no immutable trained-model artifact is bundled in the two-file pinned tree. | Reported model state cannot be reconstructed without retraining or external artifacts. |
-| S3U-0549 | CR000080 | `bounded_multiworkflow_scope` | low | The 3.8 MB notebook combines numerical and experimental studies and paired baseline/physics-informed models; S070 represents the principal workflow families but does not claim exhaustive cell-level replay. | Remaining notebook detail is retained as source scope rather than unsupported additional experiments. |
+| S3U-0550 | CR000081 | `license_unknown` | high | Final Stage-2 authority records license `unknown`; no license file is identified in the pinned repository tree. | License clarity remains unresolved. |
+| S3U-0551 | CR000081 | `dependency_manifest_absent` | high | README reports package versions, but no requirements/environment/lock manifest is identified in the pinned tree. | Environment reconstruction is documentation-driven rather than manifest-driven. |
+| S3U-0552 | CR000081 | `installation_not_documented` | high | README provides version requirements and workflow descriptions but no portable installation procedure. | Setup remains under-specified. |
+| S3U-0553 | CR000081 | `cpu_support_vs_gpu_entrypoint_conflict` | high | README states CPU computation can be used, while principal entrypoints hard-code CUDA/GPU assumptions. | Preserve as explicit `conflicting_evidence`; runtime CPU portability is not inferred. |
+| S3U-0554 | CR000081 | `hardware_provenance_not_reported` | high | Exact CPU/GPU model, OS, driver and runtime-machine provenance are not identified. | Performance/runtime reproduction remains under-specified. |
+| S3U-0555 | CR000081 | `pretrained_checkpoints_not_available` | medium | No immutable pretrained full-PINN/SA-PINN or GPT-PINN checkpoints are identified in the bounded pinned-tree inspection. | Reported surrogate states require retraining rather than direct static replay. |
+| S3U-0556 | CR000081 | `mixed_framework_environment_sensitivity` | medium | Allen–Cahn trains the self-adaptive PINN in TensorFlow, then converts weights into a PyTorch representation for GPT-PINN processing. | Reproduction depends on a mixed-framework environment whose installation is not pinned by a manifest. |
+| S3U-0557 | CR000081 | `generated_result_state_not_immutable` | low | Entry points generate timing, loss, selected-neuron, parameter and solution files during execution; immutable canonical run artifacts are not established by the bounded snapshot. | Historical result reconstruction cannot be assumed without rerunning workflows. |
+| S3U-0558 | CR000081 | `bounded_multiworkflow_scope` | low | The repository contains three PDE families plus legacy/original scripts; S071 represents the principal current entrypoint workflows without claiming exhaustive script-level replay. | Remaining implementation detail is retained as source scope rather than inflated into additional experiments. |
 
 ## Current register state
 
-- Current unresolved finding count: **549**.
-- Next available unresolved ID: **`S3U-0550`**.
-- Explicit `conflicting_evidence` finding count: **96**; S070 adds no explicit conflict.
+- Current unresolved finding count: **558**.
+- Next available unresolved ID: **`S3U-0559`**.
+- Explicit `conflicting_evidence` finding count: **97**; S071 adds **1** explicit conflict.
 
 ## Source-scope handling
 
-`CR000080` preserves final Stage-2 identity, corrected canonical owner spelling, pinned SHA, verified official relationship `PRL000174` to Atlas paper 569, and unknown-license state. The notebook is represented as structural-response research code with numerical and experimental validation workflows; no generalized PINN semantics are manufactured beyond the source's explicit physics-informed SSM-CNN claim.
+`CR000081` preserves final Stage-2 identity, pinned SHA, verified official relationship `PRL000180` to Atlas paper 578, Stage-2 bundled-data classification, and unknown-license state. The repository is represented as a PINN implementation for GPT-PINN meta-learning over parametric PDEs, with distinct Klein–Gordon, Burgers and Allen–Cahn workflows.
 
-Notebook historical outputs are treated only as archived static repository content. They were not regenerated or independently validated. External CSV references and the host-specific path are retained as reproducibility gaps rather than inferred as bundled data.
+README claims, current source-code behavior, and Stage-2 claims remain separately scoped. In particular, CPU support is preserved as documentation while hard-coded CUDA/GPU assumptions are preserved as implementation evidence. No execution was used to adjudicate runtime behavior.
 
 ## Escalation state
 
-No hard-stop condition is present. The external-data, environment, seed and portability limitations are representable under the accepted schemas. No schema or methodology change is required.
+No hard-stop condition is present. The environment, installation, portability, checkpoint, mixed-framework and boundedness limitations are representable under the accepted schemas. No schema or methodology change is required.
 
-`SOB008` is in progress at **5 / 10**. Aggregate QA is not yet due. The exact next independently extractable resource is `CR000081`.
+`SOB008` is in progress at **6 / 10**. Aggregate QA is not yet due. The exact next independently extractable resource is `CR000082`.
