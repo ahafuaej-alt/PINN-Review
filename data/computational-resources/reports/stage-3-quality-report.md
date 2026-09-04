@@ -2,12 +2,12 @@
 
 **Stage:** 3 — deep static technical/scientific extraction  
 **Methodology:** Stage3-D01 accepted without modification  
-**Current checkpoint:** `Stage3-S072`  
+**Current checkpoint:** `Stage3-S073`  
 **Checkpoint status:** PASS  
-**Current batch:** `SOB008` — 7/10  
+**Current batch:** `SOB008` — 8/10  
 **Latest aggregate QA:** `SOB007` PASS  
 
-## S072 QA result
+## S073 QA result
 
 | QA control | Result |
 |---|---|
@@ -26,28 +26,28 @@
 
 ## Checkpoint counts
 
-| Measure | S072 | Cumulative |
+| Measure | S073 | Cumulative |
 |---|---:|---:|
-| Resources | 1 | 87 |
-| Experiments | 1 | 151 |
-| Configurations | 1 | 313 |
-| Technical evidence | 12 | 1134 |
-| Reproducibility assessments | 1 | 87 |
-| Unresolved findings | 8 | 566 |
+| Resources | 1 | 88 |
+| Experiments | 1 | 152 |
+| Configurations | 1 | 314 |
+| Technical evidence | 10 | 1144 |
+| Reproducibility assessments | 1 | 88 |
+| Unresolved findings | 6 | 572 |
 | Explicit conflicts | 0 | 97 |
 
 ## Scientific QA notes
 
-CR000082 is represented as `non_pinn_research_code`, preserving supervised FVMN training semantics while separately representing finite-difference physics-residual monitoring during rollout. The single experiment maps architecture, preprocessing, training, bundled arrays, prediction boundary reinsertion, residual calculations and stopping logic to pinned static evidence.
+CR000083 is represented as `simulator_solver`, preserving its verified Atlas-591 `paper_software_mention` role. The extraction is bounded to the `buoyantPimpleFoam` solver path actually identified by the paper relationship evidence and does not manufacture PINN semantics or paper-specific CFD settings.
 
-R3 satisfies Stage3-D01 because environment/install/use-path information, required data/configuration and training/use instructions are substantially available. R4 remains blocked by absent canonical checkpoints/expected-result targets and the explicit heat-residual formula review marker.
+R1 is appropriate because the source snapshot, software version, license, solver entrypoint and build target are available, while the paper-specific case and pinned runtime/build environment are not self-contained in this generic solver distribution.
 
-No explicit conflict is manufactured from README “dummy input” wording; it is retained as a provenance limitation.
+No explicit conflict is present. Generic solver capabilities remain distinct from the Atlas paper's case-specific scientific configuration.
 
 ## Batch state
 
-`SOB008` is **7 / 10**. Aggregate QA is not due; latest completed aggregate QA remains `SOB007` PASS.
+`SOB008` is **8 / 10**. Aggregate QA is not due; latest completed aggregate QA remains `SOB007` PASS.
 
 ## Continuation gate
 
-**PASS.** Continue at `CR000083` in `Stage3-S073` under unchanged Stage3-D01 methodology and schemas.
+**PASS.** Continue at `CR000084` in `Stage3-S074` under unchanged Stage3-D01 methodology and schemas.
