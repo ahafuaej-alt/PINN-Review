@@ -3,7 +3,7 @@
 Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S064
+Latest scale-out checkpoint: Stage3-S065
 
 ## Current QA status
 
@@ -13,55 +13,59 @@ Stage3-D01 remains accepted without schema modification. Static-only execution b
 
 ## Recent checkpoint continuity
 
-- `Stage3-S062`: CR000071 Dual-Cone-Gradient-Descent PINN implementation / PINN-optimization research code, R1 — PASS.
 - `Stage3-S063`: CR000072 SGDR supporting optimizer software, R1 — PASS.
-- `Stage3-S064`: CR000073 PINN-Preprocess PINN implementation, R1 — **PASS**.
+- `Stage3-S064`: CR000073 PINN-Preprocess PINN implementation, R1 — PASS.
+- `Stage3-S065`: CR000074 hamiltorch supporting probabilistic-inference software, R1 — **PASS**.
 
-## Stage3-S064 checkpoint
+## Stage3-S065 checkpoint
 
-`CR000073` preserves final Stage-2 authority for `https://github.com/Shengfeng233/PINN-Preprocess`, pinned commit `ca2efdbe82792898ec7542c087a48c1df4a83609`, MIT license, and verified official relationship `PRL000162` to Atlas paper 533.
+`CR000074` preserves final Stage-2 authority for `https://github.com/AdamCobb/hamiltorch`, pinned commit `19b627b2aabc77c1b4b78db0f860372eb1bf9778`, BSD-2-Clause license, and `PRL000163` to Atlas paper 536 as `not_verified` with manual review required.
 
 ### Scope classification
 
-The resource is classified as a **PINN implementation**. The pinned code implements preprocessing comparisons for 2D unsteady incompressible Navier–Stokes reconstruction with three modes: Baseline, InnerNorm, and Normalization. The README states broader PDE applicability, but Stage 3 does not promote that statement to implemented capability beyond the inspected Navier–Stokes source.
+The resource is classified as **supporting probabilistic-inference software**, not a PINN implementation. The pinned library exposes HMC, HMC_NUTS and RMHMC sampler surfaces, explicit/implicit/splitting integrators, and Hessian/SoftAbs/Jacobian-diagonal metric choices. No PINN or PDE implementation semantics are inferred from the paper context.
 
-One bounded experiment represents the comparative workflow, with three configurations corresponding to the preprocessing modes. Four Reynolds-number flow cases remain parameterized within the experiment rather than being proliferated into separate records.
+One bounded experiment represents the multiple-chain synthetic Gaussian HMC tutorial, with parallel and serial configurations. The target is a three-dimensional diagonal Gaussian; the notebook specifies 400 samples, step size 0.3, five integration steps per sample, four workers and seeds 0–7.
+
+### Relationship handling
+
+The Stage-2 relationship to Atlas paper 536 remains **not verified**. The paper cites Adam D. Cobb's HMC work but does not identify hamiltorch or the corrected repository URL. Stage 3 preserves that state exactly and does not use the relationship as provenance for implemented library capabilities.
 
 ### Reproducibility
 
-Static reproducibility is **R1**. Positive evidence includes the exact pinned source and MIT license, explicit training entrypoint, equations and residuals, network architecture, optimizer/scheduler, sweep grid, data-path mappings, checkpoint logic, and relative-L2 evaluation code.
+Static reproducibility is **R1**. Positive evidence includes the exact pinned source and BSD license, package version 0.4.1, README installation command, `setup.py` requirements, notebook Python 3.8.8 metadata, a self-contained synthetic target, explicit HMC parameters and worker seeds, and archived serial/parallel outputs.
 
-R2 is withheld because no dependency/environment manifest or package-version pins are present, no installation procedure is documented, the MAT datasets are external, no explicit seed is set, exact hardware provenance is absent, W&B requires an external service/account, and no immutable pretrained checkpoints or archived run artifacts are bundled.
+R2 is withheld because only PyTorch has a lower-bound version constraint, other dependencies are unpinned, there is no exact environment lock, the README installation command targets the mutable repository default, exact operating-system/runtime details are absent, and hardware provenance is limited to a narrative Mac note. Archived timing outputs are machine-specific observations and were not reproduced.
 
 Checkpoint additions:
 
 - resources: **1**
 - experiments: **1**
-- configurations: **3**
-- technical-evidence records: **12**
+- configurations: **2**
+- technical-evidence records: **10**
 - reproducibility assessments: **1**
-- unresolved findings: **8**
+- unresolved findings: **7**
 - new explicit conflicts: **0**
 
-No dependency installation, external dataset download, W&B execution, model loading, training, evaluation, test or benchmark was performed.
+No dependency installation, notebook execution, sampling, model loading, dataset download, training, inference, evaluation, test or benchmark was performed.
 
 ## Aggregate batch state
 
 Canonical aggregate QA remains PASS for **SOB001–SOB006**.
 
-`SOB007` is in progress with **8 / 10** canonical members complete: CR000066–CR000073. Aggregate SOB007 QA is not yet due.
+`SOB007` is in progress with **9 / 10** canonical members complete: CR000066–CR000074. Aggregate SOB007 QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S064`: **78 resources, 138 experiments, 287 configurations, 1038 technical-evidence records, 78 reproducibility assessments, 498 unresolved findings, 93 explicit conflicts**.
+After `Stage3-S065`: **79 resources, 139 experiments, 289 configurations, 1048 technical-evidence records, 79 reproducibility assessments, 505 unresolved findings, 93 explicit conflicts**.
 
 ## Registry accounting
 
-With 363 independently extractable technical identities and 78 completed Stage-3 technical records, **285** remain.
+With 363 independently extractable technical identities and 79 completed Stage-3 technical records, **284** remain.
 
 ## Continuation QA
 
-`Stage3-S064` is PASS. The exact next independently extractable resource is **`CR000074`**, to be processed as `Stage3-S065`.
+`Stage3-S065` is PASS. The exact next independently extractable resource is **`CR000075`**, to be processed as `Stage3-S066`.
 
 ## Stage boundaries
 
