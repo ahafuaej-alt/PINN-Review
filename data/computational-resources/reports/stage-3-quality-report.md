@@ -2,15 +2,16 @@
 
 Date: 2026-09-04  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S076`  
+Latest checkpoint: `Stage3-S077`  
 Status: **PASS**
 
-## Stage3-S076 checkpoint QA
+## Stage3-S077 checkpoint QA
 
-Resource: `CR000086`
+Resource: `CR000088`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
-- Final Stage-2 authority and pinned SHA resolution: **PASS**
+- Final Stage-2 authority resolution: **PASS**
+- Authoritative unavailable-repository / null-SHA preservation: **PASS**
 - Static-inspection-only execution boundary: **PASS**
 - Five Stage-3 schema validations: **PASS**
 - Resource → experiment → configuration cross-references: **PASS**
@@ -28,29 +29,29 @@ Resource: `CR000086`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 1 experiment / 2 configurations / 10 evidence records / 1 reproducibility assessment / 8 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 0 experiments / 0 configurations / 6 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S076
+## Cumulative counts through S077
 
-- Resources: **91**
+- Resources: **92**
 - Experiments: **156**
 - Configurations: **320**
-- Technical evidence: **1170**
-- Reproducibility assessments: **91**
-- Unresolved findings: **594**
+- Technical evidence: **1176**
+- Reproducibility assessments: **92**
+- Unresolved findings: **600**
 - Explicit conflicts: **97**
-- Independently extractable resources remaining: **272**
+- Independently extractable resources remaining: **271**
 
 ## Aggregate batch QA
 
 `SOB008`: **PASS** (latest completed aggregate QA).
 
-`SOB009` is **1/10** after S076, so aggregate SOB009 QA is **not yet due**.
+`SOB009` is **2/10** after S077, so aggregate SOB009 QA is **not yet due**.
 
 ## Scientific QA note
 
-CR000086 is bounded as `simulator_solver`: a MATLAB adaptive phase-field fracture/IGA codebase used by Atlas paper 598 for high-fidelity data generation. The Stage-2 `paper_dataset_mention` role is preserved. Source-implemented second-/fourth-order tensile-example branches are recorded as capability configurations only; they are not promoted to the exact Atlas-598 generation setup without direct evidence.
+CR000088 is a negative-authority bounded extraction. The final Stage-2 resource record establishes the canonical GitHub identity and operator-learning classification but also records the repository as unavailable with no verified commit SHA. PRL000189 to Atlas 600 remains not_verified/manual-review-required. No substitute repository, experiment, configuration, implementation claim, or runtime result is manufactured.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000088`. Next checkpoint: `Stage3-S077`.
+Exact next independently extractable resource: `CR000089`. Next checkpoint: `Stage3-S078`.
