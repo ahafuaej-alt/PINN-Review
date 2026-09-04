@@ -2,74 +2,60 @@
 
 **Status:** active — controlled scale-out  
 **Methodology:** Stage3-D01 accepted without modification  
-**Current checkpoint:** `Stage3-S071`  
+**Current checkpoint:** `Stage3-S072`  
 **Current scale-out batch:** `SOB008`  
-**Last completed resource:** `CR000081`  
-**Next resource:** `CR000082`  
-**Next checkpoint:** `Stage3-S072`  
+**Last completed resource:** `CR000082`  
+**Next resource:** `CR000083`  
+**Next checkpoint:** `Stage3-S073`  
 **Checkpoint QA:** PASS  
 **Latest aggregate batch QA:** `SOB007` PASS  
 **Aggregate QA due:** when `SOB008` reaches 10/10 independently extractable resources
 
 ## Stage-3 cumulative state
 
-- Completed Stage-3 resources: **86**
-- Completed experiments: **150**
-- Completed configurations: **312**
-- Technical evidence records: **1122**
-- Reproducibility assessments: **86**
-- Unresolved findings: **558**
+- Completed Stage-3 resources: **87**
+- Completed experiments: **151**
+- Completed configurations: **313**
+- Technical evidence records: **1134**
+- Reproducibility assessments: **87**
+- Unresolved findings: **566**
 - Explicit conflicts: **97**
-- Independently extractable resources remaining: **277**
+- Independently extractable resources remaining: **276**
 
 ## Current batch
 
-`SOB008`: **6 / 10** independently extractable resources completed.
+`SOB008`: **7 / 10** independently extractable resources completed.
 
-Completed members:
-
-- `CR000076`
-- `CR000077`
-- `CR000078`
-- `CR000079`
-- `CR000080`
-- `CR000081`
+Completed members: `CR000076`, `CR000077`, `CR000078`, `CR000079`, `CR000080`, `CR000081`, `CR000082`.
 
 Aggregate batch QA is **not yet due**.
 
-## Stage3-S071 checkpoint summary
+## Stage3-S072 checkpoint summary
 
-Processed exactly one resource because bounded inspection established material complexity.
+Processed exactly one resource because bounded inspection established material complexity and the next resource is the full OpenFOAM 2.1.x solver distribution.
 
-### CR000081 — skoohy/GPT-PINN
+### CR000082 — 41monster/RePIT_NaturalCirculation2D
 
-- Final Stage-2 canonical identity: `https://github.com/skoohy/GPT-PINN`
-- Final Stage-2 classification: `pinn_or_physics_informed_implementation`
-- Authoritative pinned SHA: `2b7dae22e7fdd781c47252a33fdaaf021afc4e72`
-- Stage-2 license state: `unknown`
+- Final Stage-2 canonical identity: `https://github.com/41monster/RePIT_NaturalCirculation2D`
+- Final Stage-2 classification: `supporting_software_or_library`
+- Authoritative pinned SHA: `252134a59e84a17c3116ea918c4540473a0162c0`
+- Stage-2 license: `MIT`
 - Stage-2 data classification: `bundled_research_or_example_data`
-- Verified official relationship: `PRL000180 → Atlas 578`
-- Stage-3 resource profile: `pinn_implementation`
-- Artifact form: `source_repository`
-- Experiments: **3**
-- Configurations: **6**
-- Technical evidence records: **14**
-- Reproducibility: **R1**
-- New unresolved findings: **9**
-- New explicit conflicts: **1**
+- Verified official relationship: `PRL000183 → Atlas 591`
+- Stage-3 resource profile: `non_pinn_research_code`
+- Experiments: **1**; configurations: **1**; evidence: **12**; reproducibility: **R3**
+- New unresolved findings: **8**; new explicit conflicts: **0**
 
-The bounded static extraction preserves three principal workflow families: parametric Klein–Gordon, Burgers and Allen–Cahn. Each is represented as a distinct experiment with a full-PINN or SA-PINN basis configuration and a GPT-PINN configuration. README environment versions, implementation-level training settings, seeds, parameter grids and device assumptions are retained without executing any workload.
+The bounded extraction preserves the implemented distinction between supervised FVMN training and physics-based rollout monitoring. Three subnetworks predict temperature and velocity increments; training minimizes summed MSE. During autoregressive prediction, ground-truth boundary values are reinserted and finite-difference mass, momentum and heat residuals are logged, with relative mass residual used as a rollout gate.
 
-The explicit conflict concerns device portability. README states GPU is intended primarily and CPU computation can also be used, while the inspected current entrypoints hard-code CUDA/GPU device assumptions. The documentation and implementation observations are preserved separately rather than silently reconciled.
+R3 is supported by the pinned Conda environment, documented installation/run path, bundled U/T arrays, preprocessing, architecture, hyperparameters, train/validation split and prediction procedure. R4 is not assigned because canonical checkpoints and expected numerical targets are absent and the heat-residual source explicitly retains `TODO: Check the formula`.
 
-R1 is retained conservatively because no dependency lock/environment manifest, portable installation procedure, machine-level hardware provenance or immutable pretrained checkpoint set is available. Allen–Cahn also crosses TensorFlow and PyTorch representations, increasing environment reconstruction sensitivity.
+`CR000083` is the full OpenFOAM 2.1.x source distribution linked to Atlas 591 as a separate `paper_software_mention`; it requires dedicated solver-oriented extraction rather than compression into S072.
 
 ## Scope protection
 
-S071 modified only Stage-3 technical/evidence/report paths. It did not modify Stage 1, Stage 2, public Atlas/site files, `05-curated/`, methodology, or schemas.
-
-No scientific software, notebook, model, training, inference, evaluation, test, dependency, environment, container, accelerator, dataset or benchmark workload was executed.
+S072 modifies only Stage-3 technical/evidence/report paths. Stage 1, Stage 2, public Atlas/site files, `05-curated/`, methodology and schemas remain unchanged. No scientific workload was executed.
 
 ## Exact continuation
 
-Resume at `CR000082` for `Stage3-S072`. Resolve final Stage-2 authority before extraction. Normally pair with the next independently extractable resource only if bounded inspection confirms that both can be completed safely and accurately within one checkpoint.
+Resume at `CR000083` for `Stage3-S073`. Preserve its `paper_software_mention` role separately from CR000082.
