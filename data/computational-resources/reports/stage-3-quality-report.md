@@ -3,69 +3,45 @@
 Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S065
+Latest scale-out checkpoint: Stage3-S066
 
 ## Current QA status
 
 Status: **PASS**
 
-Stage3-D01 remains accepted without schema modification. Static-only execution boundaries, Stage-2 authority, evidence-source semantics, missing-value semantics, identifier continuity, resource → experiment → configuration ontology, type-specific profiles, and the R0–R4 ceiling remain unchanged.
+Stage3-D01 remains accepted without schema modification. Static-only execution boundaries, Stage-2 authority, source-scope semantics, missing-value semantics, identifier continuity, resource → experiment → configuration ontology, type-specific profiles, and the R0–R4 ceiling remain unchanged.
 
-## Recent checkpoint continuity
+## Stage3-S066 checkpoint
 
-- `Stage3-S063`: CR000072 SGDR supporting optimizer software, R1 — PASS.
-- `Stage3-S064`: CR000073 PINN-Preprocess PINN implementation, R1 — PASS.
-- `Stage3-S065`: CR000074 hamiltorch supporting probabilistic-inference software, R1 — **PASS**.
+`CR000075` preserves final Stage-2 authority for `mosaic-group/inverse-dirichlet-pinn` at pinned commit `157a3ed4f401e6d94940872ac6e91fa95c0405d3`, no identified repository license, and verified official relationship `PRL000166` to Atlas paper 540.
 
-## Stage3-S065 checkpoint
+The bounded extraction records two representative experiments: a Poisson PINN loss-weighting comparison and a square-domain active-turbulence forward PINN. Nine configurations preserve implemented weighting branches across gradient-standard-deviation/inverse-Dirichlet, max-to-mean, MGDA-style, vanilla, and analytical-optimal forms where applicable.
 
-`CR000074` preserves final Stage-2 authority for `https://github.com/AdamCobb/hamiltorch`, pinned commit `19b627b2aabc77c1b4b78db0f860372eb1bf9778`, BSD-2-Clause license, and `PRL000163` to Atlas paper 536 as `not_verified` with manual review required.
+One explicit conflict is retained: the Poisson CLI method comment (`0 vanilla, 1 ann, 2 old ann, 3 max avg, 4 optimal`) does not agree with the actual method branches, where method 0 performs gradient-standard-deviation adaptive weighting, method 3 invokes MGDA-style combination, method 4 is vanilla, and method 5 is the analytical optimal branch.
 
-### Scope classification
+Static reproducibility is **R1**. The repository documents dependencies but no versions or environment lock; no installation procedure, exact runtime/OS/CUDA/PyTorch specification, or hardware provenance is present. Active-turbulence training data is external and the code expects a `../data/...mat` layout absent from the pinned tree. Source seeds, architectures, optimizer schedules, and many hyperparameters are explicit.
 
-The resource is classified as **supporting probabilistic-inference software**, not a PINN implementation. The pinned library exposes HMC, HMC_NUTS and RMHMC sampler surfaces, explicit/implicit/splitting integrators, and Hessian/SoftAbs/Jacobian-diagonal metric choices. No PINN or PDE implementation semantics are inferred from the paper context.
+Checkpoint additions: **1 resource, 2 experiments, 9 configurations, 12 technical-evidence records, 1 reproducibility assessment, 8 unresolved findings, 1 explicit conflict**.
 
-One bounded experiment represents the multiple-chain synthetic Gaussian HMC tutorial, with parallel and serial configurations. The target is a three-dimensional diagonal Gaussian; the notebook specifies 400 samples, step size 0.3, five integration steps per sample, four workers and seeds 0–7.
-
-### Relationship handling
-
-The Stage-2 relationship to Atlas paper 536 remains **not verified**. The paper cites Adam D. Cobb's HMC work but does not identify hamiltorch or the corrected repository URL. Stage 3 preserves that state exactly and does not use the relationship as provenance for implemented library capabilities.
-
-### Reproducibility
-
-Static reproducibility is **R1**. Positive evidence includes the exact pinned source and BSD license, package version 0.4.1, README installation command, `setup.py` requirements, notebook Python 3.8.8 metadata, a self-contained synthetic target, explicit HMC parameters and worker seeds, and archived serial/parallel outputs.
-
-R2 is withheld because only PyTorch has a lower-bound version constraint, other dependencies are unpinned, there is no exact environment lock, the README installation command targets the mutable repository default, exact operating-system/runtime details are absent, and hardware provenance is limited to a narrative Mac note. Archived timing outputs are machine-specific observations and were not reproduced.
-
-Checkpoint additions:
-
-- resources: **1**
-- experiments: **1**
-- configurations: **2**
-- technical-evidence records: **10**
-- reproducibility assessments: **1**
-- unresolved findings: **7**
-- new explicit conflicts: **0**
-
-No dependency installation, notebook execution, sampling, model loading, dataset download, training, inference, evaluation, test or benchmark was performed.
+No dependency installation, notebook execution, dataset download, model loading, training, inference, evaluation, test, benchmark, or external service was executed.
 
 ## Aggregate batch state
 
-Canonical aggregate QA remains PASS for **SOB001–SOB006**.
+Canonical aggregate QA is **PASS for SOB001–SOB007**. `SOB007` is complete with CR000066–CR000075 and reconciled batch counts of **10 resources, 18 experiments, 29 configurations, 116 evidence records, 10 reproducibility assessments, 76 new unresolved findings, and 5 new explicit conflicts**.
 
-`SOB007` is in progress with **9 / 10** canonical members complete: CR000066–CR000074. Aggregate SOB007 QA is not yet due.
+`SOB008` has not started. Its exact first resource is `CR000076`.
 
 ## Current cumulative totals
 
-After `Stage3-S065`: **79 resources, 139 experiments, 289 configurations, 1048 technical-evidence records, 79 reproducibility assessments, 505 unresolved findings, 93 explicit conflicts**.
+After `Stage3-S066`: **80 resources, 141 experiments, 298 configurations, 1060 technical-evidence records, 80 reproducibility assessments, 513 unresolved findings, 94 explicit conflicts**.
 
 ## Registry accounting
 
-With 363 independently extractable technical identities and 79 completed Stage-3 technical records, **284** remain.
+With 363 independently extractable technical identities and 80 completed Stage-3 technical records, **283** remain.
 
 ## Continuation QA
 
-`Stage3-S065` is PASS. The exact next independently extractable resource is **`CR000075`**, to be processed as `Stage3-S066`.
+`Stage3-S066` and aggregate `SOB007` QA are PASS. The exact next independently extractable resource is **`CR000076`**, to be processed as `Stage3-S067`.
 
 ## Stage boundaries
 
