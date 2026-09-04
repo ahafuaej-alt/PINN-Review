@@ -8,25 +8,25 @@ Status date: 2026-09-04
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S063 |
-| Next scale-out checkpoint | Stage3-S064 |
-| Latest checkpoint resource | CR000072 |
-| Forward frontier resource | CR000072 |
-| Next resource | CR000073 |
-| Next planned checkpoint resources | CR000073 |
+| Last completed scale-out checkpoint | Stage3-S064 |
+| Next scale-out checkpoint | Stage3-S065 |
+| Latest checkpoint resource | CR000073 |
+| Forward frontier resource | CR000073 |
+| Next resource | CR000074 |
+| Next planned checkpoint resources | CR000074 |
 | Current scale-out batch | SOB007 |
-| Current batch completed members | CR000066, CR000067, CR000068, CR000069, CR000070, CR000071, CR000072 — 7 / 10 |
-| Completed Stage-3 technical resource records | 77 |
+| Current batch completed members | CR000066, CR000067, CR000068, CR000069, CR000070, CR000071, CR000072, CR000073 — 8 / 10 |
+| Completed Stage-3 technical resource records | 78 |
 | Resolved non-independent registry identity encountered | CR000021 → CR000184 |
-| Remaining independently extractable registry resources | 286 |
+| Remaining independently extractable registry resources | 285 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 137 |
-| Completed configuration count | 284 |
-| Technical evidence records | 1026 |
-| Static reproducibility assessments | 77 |
+| Completed experiment count | 138 |
+| Completed configuration count | 287 |
+| Technical evidence records | 1038 |
+| Static reproducibility assessments | 78 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 490 |
-| Next unresolved ID | S3U-0491 |
+| Current unresolved technical item count | 498 |
+| Next unresolved ID | S3U-0499 |
 | Current conflicting-evidence finding count | 93 |
 | Aggregate batch QA | SOB001–SOB006 PASS; SOB007 in progress |
 | Methodology status | Stage3-D01 accepted without schema change |
@@ -34,41 +34,23 @@ Status date: 2026-09-04
 
 ## Current continuation state
 
-`Stage3-S063` completes `CR000072`, preserving final Stage-2 authority for `https://github.com/loshchil/SGDR`, pinned commit `5269a615448b93d6ab5926b4402eaaf1dafca230`, no identified repository license, and verified official relationship `PRL000161` to Atlas paper 532.
+`Stage3-S064` completes `CR000073`, preserving final Stage-2 authority for `https://github.com/Shengfeng233/PINN-Preprocess`, pinned commit `ca2efdbe82792898ec7542c087a48c1df4a83609`, MIT license, and verified official relationship `PRL000162` to Atlas paper 533.
 
-The resource is represented as **supporting software / optimizer research code**, not as a PINN implementation. One bounded experiment captures the repository's SGDR Wide-Residual-Network image-classification workflow, with two configurations for CIFAR-10 and CIFAR-100. The pinned source exposes 28 scenarios, five run indices, WRN-28 width factors 10/20, batch size 128, 200 epochs, SGD momentum 0.9, weight decay 0.0005, warm-restart periods 1/10/50/100, and test-loss/test-accuracy evaluation.
+The resource is represented as a **PINN implementation** for preprocessing studies in 2D unsteady incompressible Navier–Stokes flow reconstruction. One bounded comparative experiment captures three configurations: Baseline, InnerNorm, and full Normalization. The repository maps four Reynolds-number flow cases and uses external MAT training/reference data, PyTorch automatic differentiation, Adam with exponential learning-rate decay, a W&B grid sweep, and relative-L2 evaluation for `u`, `v`, and `p`.
 
-Static reproducibility is **R1**. The source, entrypoint, architecture, scenario grid, hyperparameters and evaluation/output logic are explicit, but the pinned repository contains only `README.md` and `SGDR_WRNs.py`: no license, dependency manifest, version pins, installation procedure, bundled CIFAR data, explicit random seed, exact hardware provenance, or archived model checkpoints are available.
+Static reproducibility is **R1**. The pinned source, license, entrypoint, equations, preprocessing paths, architecture, hyperparameters, case mapping, checkpoint logic, and evaluation metric are explicit, but package versions, installation instructions, explicit random seeds, exact hardware provenance, immutable run artifacts, and bundled datasets are absent; the main sweep also depends on an external Weights & Biases service/account.
 
-The exact next independently extractable resource is **`CR000073`**.
+The exact next independently extractable resource is **`CR000074`**.
 
-The Stage-2 registry contains 364 entries. `CR000021` remains a resolved non-independent identity canonically mapped to `CR000184`, leaving 363 independently extractable technical identities. With 77 Stage-3 resource records complete, **286** remain.
+The Stage-2 registry contains 364 entries. `CR000021` remains a resolved non-independent identity canonically mapped to `CR000184`, leaving 363 independently extractable technical identities. With 78 Stage-3 resource records complete, **285** remain.
 
 ## Current batch — SOB007
 
-Canonical completed members:
-
-- `Stage3-S057`: `CR000066`
-- `Stage3-S058`: `CR000067`
-- `Stage3-S059`: `CR000068`
-- `Stage3-S060`: `CR000069`
-- `Stage3-S061`: `CR000070`
-- `Stage3-S062`: `CR000071`
-- `Stage3-S063`: `CR000072`
-
-Current canonical completion: **7 / 10**. Aggregate batch QA is not yet due.
+Canonical completed members: CR000066–CR000073. Current canonical completion: **8 / 10**. Aggregate batch QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S063`:
-
-- Stage-3 technical resource records: **77**
-- experiments: **137**
-- configurations: **284**
-- technical-evidence records: **1026**
-- static reproducibility assessments: **77**
-- unresolved findings: **490**
-- explicit conflicting-evidence findings: **93**
+After `Stage3-S064`: **78 resources, 138 experiments, 287 configurations, 1038 technical-evidence records, 78 reproducibility assessments, 498 unresolved findings, 93 explicit conflicts**.
 
 ## Continuation rule
 
@@ -76,8 +58,8 @@ Every continuation must verify the live branch head, read this report, the accep
 
 ## Stage boundaries
 
-Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. No scientific resource, dependency, environment, model, dataset, training, inference, evaluation, test or benchmark is executed. R5 remains prohibited.
+Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05-curated/` remain unchanged. No scientific resource, dependency, environment, model, dataset, training, inference, evaluation, test, benchmark, or external service is executed. R5 remains prohibited.
 
 ## Exact next action
 
-Start **`Stage3-S064`** with **`CR000073`**.
+Start **`Stage3-S065`** with **`CR000074`**.
