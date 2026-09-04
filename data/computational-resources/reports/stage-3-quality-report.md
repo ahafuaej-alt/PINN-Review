@@ -2,12 +2,12 @@
 
 Date: 2026-09-05  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S078`  
+Latest checkpoint: `Stage3-S079`  
 Status: **PASS**
 
-## Stage3-S078 checkpoint QA
+## Stage3-S079 checkpoint QA
 
-Resource: `CR000089`
+Resource: `CR000090`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -29,29 +29,29 @@ Resource: `CR000089`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 5 experiments / 9 configurations / 13 evidence records / 1 reproducibility assessment / 8 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 3 experiments / 4 configurations / 12 evidence records / 1 reproducibility assessment / 7 unresolved / 1 conflict**.
 
-## Cumulative counts through S078
+## Cumulative counts through S079
 
-- Resources: **93**
-- Experiments: **161**
-- Configurations: **329**
-- Technical evidence: **1189**
-- Reproducibility assessments: **93**
-- Unresolved findings: **608**
-- Explicit conflicts: **97**
-- Independently extractable resources remaining: **270**
+- Resources: **94**
+- Experiments: **164**
+- Configurations: **333**
+- Technical evidence: **1201**
+- Reproducibility assessments: **94**
+- Unresolved findings: **615**
+- Explicit conflicts: **98**
+- Independently extractable resources remaining: **269**
 
 ## Aggregate batch QA
 
 `SOB008`: **PASS** (latest completed aggregate QA).
 
-`SOB009` is **3/10** after S078, so aggregate SOB009 QA is **not yet due**.
+`SOB009` is **4/10** after S079, so aggregate SOB009 QA is **not yet due**.
 
 ## Scientific QA note
 
-CR000089 preserves its final Stage-2 operator-learning identity, pinned SHA and verified official relationship to Atlas 603. The repository is materially heterogeneous, so S078 is a single-resource checkpoint. Five workflow families and nine notebook-level configurations are represented using static repository evidence only; bundled data, generator files and trained artifacts remain source-scoped and are not promoted to independent reusable datasets or execution evidence.
+CR000090 preserves final Stage-2 identity, pinned SHA and verified official relationship to Atlas 604. Static code inspection supports three power-network DAE-PINN workflow families and four configurations. R3 is supported by the explicit pinned Linux-64 Conda environment, source entrypoints, mathematics, architecture, training/evaluation configuration, fixed sampling seeds, and bundled checkpoint/result surface. Device-control inconsistency is retained as explicit conflicting evidence rather than normalized away.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000090`. Next checkpoint: `Stage3-S079`.
+Exact next independently extractable resource: `CR000091`. Next checkpoint: `Stage3-S080`.
