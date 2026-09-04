@@ -1,40 +1,42 @@
 # Computational Resources Stage 3 — Unresolved Technical Findings
 
 Verification/extraction date: 2026-09-04  
-Checkpoint: Stage3-S066  
+Checkpoint: Stage3-S067  
 Phase: controlled scale-out in progress
 
 ## Audit continuity
 
-The append-only register through `Stage3-S056` remains preserved in `reports/stage-3-unresolved-through-s056.md` as `S3U-0001`–`S3U-0437`. `Stage3-S057`–`Stage3-S065` added `S3U-0438`–`S3U-0505`. This active register continues without renumbering or deletion.
+The append-only register through `Stage3-S056` remains preserved in `reports/stage-3-unresolved-through-s056.md` as `S3U-0001`–`S3U-0437`. `Stage3-S057`–`Stage3-S066` added `S3U-0438`–`S3U-0513`. This active register continues without renumbering or deletion.
 
-## Stage3-S066 additions
+## Stage3-S067 additions
 
 | ID | Resource | Outcome | Severity | Finding | Effect |
 |---|---|---|---|---|---|
-| S3U-0506 | CR000075 | `repository_license_unavailable` | medium | Final Stage-2 authority and the pinned tree identify no repository license. | License clarity remains unavailable. |
-| S3U-0507 | CR000075 | `dependency_versions_unpinned` | medium | README lists NumPy, SciPy, sklearn, PyTorch, matplotlib, seaborn, and pandas without versions. | Exact environment reconstruction is not established. |
-| S3U-0508 | CR000075 | `installation_procedure_absent` | medium | No installation command or environment/bootstrap file is provided in the pinned snapshot. | Reproduction requires unstated setup decisions. |
-| S3U-0509 | CR000075 | `external_active_turbulence_data_required` | medium | Active-turbulence workflows depend on an externally hosted MAT dataset documented by README. | Full workflow replay is not repository-self-contained. |
-| S3U-0510 | CR000075 | `expected_data_layout_absent` | high | `solve_vort_square.py` loads `../data/meso_bacterial_turbulence_IFRK4_N{dms}_2pi_dt0p01_Tmax10.mat`, but the pinned tree contains no `data` directory. | The documented workflow cannot be replayed from the repository snapshot alone without manual external-data placement. |
-| S3U-0511 | CR000075 | `conflicting_evidence` | high | The Poisson CLI comment maps methods as `0 vanilla, 1 ann, 2 old ann, 3 max avg, 4 optimal`, while the implemented branches use method 0 for gradient-std adaptive weighting, method 3 for MGDA-style weighting, method 4 for vanilla, and method 5 for analytical optimal weighting. | Method semantics must be taken from code branches; the contradictory comment is preserved explicitly. |
-| S3U-0512 | CR000075 | `runtime_hardware_provenance_absent` | medium | Exact Python/PyTorch/CUDA/OS and hardware provenance are not recorded. | Static reproducibility remains R1. |
-| S3U-0513 | CR000075 | `result_artifacts_not_pinned` | low | The source writes models/results during training, but immutable pretrained checkpoints and complete result artifacts are not present in the pinned tree. | Result-level replay cannot be checked statically from bundled artifacts. |
+| S3U-0514 | CR000076 | `repository_unavailable` | high | Final Stage-2 authority records `sjiang23/trapz-PiNN` as unavailable, and a fresh Stage3-S067 GitHub repository API check still returns 404. | No usable source/equivalent technical artifact is available; reproducibility is R0. |
+| S3U-0515 | CR000076 | `immutable_revision_not_available` | high | Stage 2 could not resolve a default branch or immutable repository revision, and Stage 3 cannot resolve one while the repository is unavailable. | No pinned source snapshot exists for technical extraction. |
+| S3U-0516 | CR000076 | `paper_relationship_not_verified` | medium | `PRL000168` to Atlas paper 543 remains `not_verified` and manual-review-required in final Stage-2 authority. | Stage 3 retains the candidate relationship without promotion. |
+| S3U-0517 | CR000076 | `artifact_scope_not_available` | medium | Source files, dependency/environment files, data, checkpoints, documentation, and license evidence cannot be inspected from the unavailable repository. | Experiment/configuration records are not manufactured and technical fields remain unavailable/unknown as appropriate. |
+| S3U-0518 | CR000077 | `conflicting_evidence` | high | Final Stage-2 authority marks `PRL000169` to Atlas paper 544 as verified and records a Zobeiry/Humayun 2021 README citation, while the authoritative pinned README instead cites Mavi–Bekar–Haghighat–Madenci 2022, arXiv:2210.12177. | Stage-2 authority is preserved, but the paper–repository citation evidence requires later adjudication. |
+| S3U-0519 | CR000077 | `repository_license_unknown` | medium | Final Stage-2 license state is `unknown`, and the pinned recursive tree contains no license file. | License clarity remains unresolved. |
+| S3U-0520 | CR000077 | `external_dataset_required` | high | The main pipeline requires `../Dataset/dataset.npy`, but the pinned tree contains no `Dataset` directory; README points to external data-generation repositories. | R3/R4 advancement is blocked and the reference workflow is not snapshot-self-contained. |
+| S3U-0521 | CR000077 | `random_seed_not_reported` | medium | The inspected pipeline sets no explicit seed while NumPy/TensorFlow stochastic initializers and random comparison-point selection are used. | Exact stochastic replay is not controlled. |
+| S3U-0522 | CR000077 | `pretrained_checkpoint_absent` | low | The source writes checkpoints during training, but no pretrained model checkpoint is bundled in the pinned tree. | Static result-level replay cannot start from an archived trained state. |
+| S3U-0523 | CR000077 | `benchmark_scope_not_code_parameterized` | medium | README documents Burgers, lambda-omega reaction-diffusion, and Gray-Scott benchmarks, while the bounded inspected main pipeline/model procedure exposes one hard-coded vector advection-diffusion/Burgers-form PDDO residual. | Additional benchmark configurations are not synthesized without direct implementation evidence. |
 
 ## Current register state
 
-- Current unresolved finding count: **513**.
-- Next available unresolved ID: **`S3U-0514`**.
-- Explicit `conflicting_evidence` finding count: **94**; S066 adds one explicit conflict.
+- Current unresolved finding count: **523**.
+- Next available unresolved ID: **`S3U-0524`**.
+- Explicit `conflicting_evidence` finding count: **95**; S067 adds one explicit conflict.
 
 ## Source-scope handling
 
-`CR000075` preserves final Stage-2 authority for `https://github.com/mosaic-group/inverse-dirichlet-pinn`, pinned commit `157a3ed4f401e6d94940872ac6e91fa95c0405d3`, no identified repository license, and verified official relationship `PRL000166` to Atlas paper 540.
+`CR000076` retains `not_available` repository semantics and `unknown` license semantics exactly; those states are not converted into `false` or `not_applicable`.
 
-Repository README claims the code should be sufficient to reproduce manuscript results; Stage 3 retains that as repository documentation rather than upgrading it to a reproducibility conclusion. The R1 assessment is based on the pinned source and its missing environment/data provenance.
+`CR000077` retains final Stage-2 relationship status while separately preserving the pinned README citation as conflicting repository evidence. README benchmark claims are retained as documentation; only the directly inspected reference pipeline is represented as implemented code.
 
 ## Escalation state
 
-No Stage-2 identity or relationship change is required. No schema or methodology change is required. The method-comment conflict and reproducibility gaps are representable by accepted Stage-3 semantics and do not satisfy a hard-stop criterion.
+No Stage-2 file is modified and no Stage-2 relationship is silently re-adjudicated. The CR000077 citation mismatch is consequential but representable by accepted `conflicting_evidence` semantics, so it does not require a Stage-3 hard stop or schema/methodology change.
 
-`SOB007` is complete at **10 / 10** and aggregate QA is PASS. The exact next independently extractable resource is `CR000076`, first member of `SOB008`.
+`SOB008` is in progress at **2 / 10**. Aggregate QA is not yet due. The exact next independently extractable resource is `CR000078`.

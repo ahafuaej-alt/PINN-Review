@@ -8,45 +8,47 @@ Status date: 2026-09-04
 | Current planning checkpoint | Stage3-SO-D01 |
 | Pilot extraction checkpoint | Stage3-P07 |
 | Pilot acceptance checkpoint | Stage3-A01 |
-| Last completed scale-out checkpoint | Stage3-S066 |
-| Next scale-out checkpoint | Stage3-S067 |
-| Latest checkpoint resource | CR000075 |
-| Forward frontier resource | CR000075 |
-| Next resource | CR000076 |
-| Next planned checkpoint resources | CR000076 |
+| Last completed scale-out checkpoint | Stage3-S067 |
+| Next scale-out checkpoint | Stage3-S068 |
+| Latest checkpoint resource | CR000077 |
+| Forward frontier resource | CR000077 |
+| Next resource | CR000078 |
+| Next planned checkpoint resources | CR000078 |
 | Current scale-out batch | SOB008 |
-| Current batch completed members | none — 0 / 10 |
-| Completed Stage-3 technical resource records | 80 |
+| Current batch completed members | CR000076–CR000077 — 2 / 10 |
+| Completed Stage-3 technical resource records | 82 |
 | Resolved non-independent registry identity encountered | CR000021 → CR000184 |
-| Remaining independently extractable registry resources | 283 |
+| Remaining independently extractable registry resources | 281 |
 | Approved pilot resources completed | 10 / 10 |
-| Completed experiment count | 141 |
-| Completed configuration count | 298 |
-| Technical evidence records | 1060 |
-| Static reproducibility assessments | 80 |
+| Completed experiment count | 142 |
+| Completed configuration count | 299 |
+| Technical evidence records | 1074 |
+| Static reproducibility assessments | 82 |
 | Current QA status | PASS |
-| Current unresolved technical item count | 513 |
-| Next unresolved ID | S3U-0514 |
-| Current conflicting-evidence finding count | 94 |
-| Aggregate batch QA | SOB001–SOB007 PASS; SOB008 not started |
+| Current unresolved technical item count | 523 |
+| Next unresolved ID | S3U-0524 |
+| Current conflicting-evidence finding count | 95 |
+| Aggregate batch QA | SOB001–SOB007 PASS; SOB008 in progress 2 / 10 |
 | Methodology status | Stage3-D01 accepted without schema change |
 | Control reconciliation | `reports/stage-3-control-reconciliation-01.md` |
 
 ## Current continuation state
 
-`Stage3-S066` completes `CR000075`, preserving final Stage-2 authority for `https://github.com/mosaic-group/inverse-dirichlet-pinn`, pinned commit `157a3ed4f401e6d94940872ac6e91fa95c0405d3`, no identified repository license, and verified official relationship `PRL000166` to Atlas paper 540.
+`Stage3-S067` completes `CR000076` and `CR000077`.
 
-The resource is represented as a PINN implementation. Bounded extraction covers the Poisson loss-weighting comparison and the square-domain active-turbulence forward PINN, with nine configurations spanning gradient-standard-deviation/inverse-Dirichlet weighting, max-to-mean weighting, MGDA-style weighting, vanilla weighting, and the Poisson analytical optimal weighting branch. One explicit source-code conflict preserves the mismatch between the Poisson CLI method comment and implemented method branches.
+`CR000076` preserves final Stage-2 authority for `https://github.com/sjiang23/trapz-PiNN`: repository availability remains `unavailable`, repository revision remains `not_available`, license remains `unknown`, and `PRL000168` to Atlas paper 543 remains `not_verified` with manual review required. The live GitHub repository endpoint still returns 404, so no experiment or configuration is manufactured and static reproducibility is R0.
 
-Static reproducibility is R1. Source workflows, seeds, architecture and many hyperparameters are explicit, but dependency versions, installation procedure, exact runtime/hardware environment, external active-turbulence data layout, and result-level artifacts are insufficiently pinned.
+`CR000077` preserves the Stage-2 pinned commit `e78dc0f61eae0644d4384d1fd7d9509a0f98f39c`. Bounded extraction represents the executable PI-rCNN reference pipeline: a 128×128 two-channel encoder–ConvLSTM–decoder architecture, PDDO-based physical and latent residuals, RMSprop training, explicit environment/package versions, and an external `Dataset/dataset.npy` requirement. The final Stage-2 verified relationship `PRL000169` to Atlas paper 544 is retained unchanged, while a high-confidence conflict records that the pinned README instead cites the 2022 Mavi–Bekar–Haghighat–Madenci arXiv work.
 
-`CR000075` closes canonical `SOB007` at 10/10. Aggregate SOB007 QA is PASS. The exact next independently extractable resource is **`CR000076`**, first member of `SOB008`.
+Static reproducibility is R2 for `CR000077`: environment, installation, entrypoint, architecture, physics residual, training procedure, and hardware are substantially specified, but the required dataset is absent from the pinned tree, no explicit random seed is set, no pretrained checkpoint is bundled, and the citation conflict blocks higher classification.
 
-The Stage-2 registry contains 364 entries. `CR000021` remains a resolved non-independent identity canonically mapped to `CR000184`, leaving 363 independently extractable technical identities. With 80 Stage-3 resource records complete, **283** remain.
+`SOB008` is now 2/10. Aggregate batch QA is not yet due. The exact next independently extractable resource is **`CR000078`**.
+
+The Stage-2 registry contains 364 entries. `CR000021` remains a resolved non-independent identity canonically mapped to `CR000184`, leaving 363 independently extractable technical identities. With 82 Stage-3 resource records complete, **281** remain.
 
 ## Current cumulative totals
 
-After `Stage3-S066`: **80 resources, 141 experiments, 298 configurations, 1060 technical-evidence records, 80 reproducibility assessments, 513 unresolved findings, 94 explicit conflicts**.
+After `Stage3-S067`: **82 resources, 142 experiments, 299 configurations, 1074 technical-evidence records, 82 reproducibility assessments, 523 unresolved findings, 95 explicit conflicts**.
 
 ## Continuation rule
 
@@ -58,4 +60,4 @@ Stage 1 and Stage 2 remain closed and read-only. Public Atlas/site files and `05
 
 ## Exact next action
 
-Start **`Stage3-S067`** with **`CR000076`**.
+Start **`Stage3-S068`** with **`CR000078`**.
