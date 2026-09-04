@@ -1,34 +1,25 @@
-# Computational Resources Stage 3 — Unresolved Findings
+# Computational Resources Stage 3 Unresolved Register
 
-**Status:** active controlled register  
-**Current checkpoint:** `Stage3-S075`  
-**Current batch:** `SOB008` — COMPLETE  
-**Current unresolved count:** **586**  
-**Next unresolved ID:** `S3U-0587`
+Date: 2026-09-04  
+Current checkpoint: `Stage3-S076`  
+Current batch: `SOB009` (1/10)  
+Current unresolved count: **594**  
+Next unresolved ID: `S3U-0595`  
+Explicit conflict count: **97**
 
-## Register continuity
+## Stage3-S076 additions — CR000086
 
-Historical findings `S3U-0001` through `S3U-0578` remain unchanged. S075 adds `S3U-0579` through `S3U-0586` for `CR000085`.
+- `S3U-0587` — Repository license is not identified in final Stage-2 authority or the inspected pinned repository root.
+- `S3U-0588` — No pinned MATLAB/runtime version or portable environment/dependency manifest is provided.
+- `S3U-0589` — Snapshot-contained installation/setup instructions are not available.
+- `S3U-0590` — The verified Atlas-598 relationship establishes use of this repository for high-fidelity data generation, but the exact paper-specific generation script is not identified.
+- `S3U-0591` — The exact Atlas-598 data-generation parameter set and case selection are not identified.
+- `S3U-0592` — The paper-associated high-fidelity generated dataset is not bundled as a canonical research dataset in this repository snapshot.
+- `S3U-0593` — Paper-specific expected-result manifests or numerical acceptance targets are not available.
+- `S3U-0594` — Runtime hardware/machine provenance for the Atlas-598 high-fidelity simulations is not represented.
 
-## Stage3-S075 additions
+No new explicit conflict is created. The repository's `example_data` directories contain model/example inputs and functions; they do not contradict Stage-2's `no_bundled_research_dataset_identified` classification.
 
-| ID | Resource | Finding | Confidence | Consequence |
-|---|---|---|---|---|
-| S3U-0579 | CR000085 | `dependency_environment_manifest_not_available` | high | A portable runtime cannot be reconstructed from repository metadata alone. |
-| S3U-0580 | CR000085 | `package_versions_not_pinned` | high | TensorFlow/scientific-stack compatibility remains unconstrained. |
-| S3U-0581 | CR000085 | `repository_license_not_available` | medium | Reuse/legal terms are not established by the pinned snapshot. |
-| S3U-0582 | CR000085 | `installation_instructions_not_available` | medium | Environment setup requires external reconstruction. |
-| S3U-0583 | CR000085 | `random_seed_provenance_not_available` | medium | Stochastic data generation/training cannot be reproduced exactly. |
-| S3U-0584 | CR000085 | `canonical_pretrained_checkpoints_not_available` | medium | Model-state reproduction requires retraining. |
-| S3U-0585 | CR000085 | `hardware_trace_source_scoped_to_archived_notebook_output` | low | Observed NVIDIA T400 output does not establish hardware requirements for all workflows. |
-| S3U-0586 | CR000085 | `expected_results_only_partially_archived` | medium | Notebook outputs provide partial targets but no canonical cross-workflow result manifest. |
+## Continuation
 
-## Current register state
-
-- Current unresolved finding count: **586**.
-- Next available unresolved ID: **`S3U-0587`**.
-- Explicit `conflicting_evidence` finding count: **97**; S075 adds **0**.
-
-CR000085 preserves final Stage-2 identity, pinned SHA and verified official relationship to Atlas 597. The repository supports a bounded static extraction of its principal operator-learning workflows, while environment/version/install/seed/checkpoint gaps remain open.
-
-No hard-stop condition is present. `SOB008` is **10 / 10** and aggregate QA is **PASS**. Exact next resource: `CR000086`.
+No Stage-3 hard stop is active. Exact next independently extractable resource: `CR000088` (`CR000087` remains pilot-complete and excluded from reprocessing).
