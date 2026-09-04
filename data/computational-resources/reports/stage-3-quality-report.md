@@ -3,7 +3,7 @@
 Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S067
+Latest scale-out checkpoint: Stage3-S068
 
 ## Current QA status
 
@@ -11,35 +11,37 @@ Status: **PASS**
 
 Stage3-D01 remains accepted without schema modification. Static-only execution boundaries, Stage-2 authority, source-scope semantics, missing-value semantics, identifier continuity, resource → experiment → configuration ontology, type-specific profiles, and the R0–R4 ceiling remain unchanged.
 
-## Stage3-S067 checkpoint
+## Stage3-S068 checkpoint
 
-`CR000076` preserves final Stage-2 authority for `sjiang23/trapz-PiNN`: the repository remains unavailable, no immutable revision can be resolved, license remains unknown, and `PRL000168` to Atlas paper 543 remains not verified/manual-review-required. A fresh static GitHub API check again returned 404. No experiment or configuration is synthesized from unavailable source, and reproducibility is **R0**.
+`CR000078` preserves final Stage-2 identity for `arkadaw9/PID-GAN` at pinned commit `476792f63dcc61b334dadec1e35c5587f3cde97a`, with verified official relationship `PRL000171` to Atlas paper 562. Repository license remains unknown.
 
-`CR000077` preserves final Stage-2 identity for `ardamavi/PI-rCNN` at pinned commit `e78dc0f61eae0644d4384d1fd7d9509a0f98f39c`. The bounded extraction records one executable reference experiment and one default configuration: a 128×128 two-channel encoder–ConvLSTM–decoder with PDDO physical/latent residuals, RMSprop optimization, 2000 epochs, 100-step temporal batches over 1000 dataset steps, and learning rate 1e-3.
+The repository is materially complex across Burgers, Darcy, Schrödinger, tossing, and collision benchmark families and multiple comparator implementations (PID-GAN, PIG-GAN, PINN, APINN, cGAN). The accepted single-resource complexity rule therefore applies. Bounded extraction records one representative Burgers PID-GAN experiment and one notebook configuration while preserving the broader repository surfaces as scope evidence.
 
-One explicit high-confidence conflict is retained. Final Stage-2 authority marks `PRL000169` to Atlas paper 544 as a verified official relationship and records a Zobeiry/Humayun 2021 README citation, while the pinned README at the authoritative SHA instead cites Mavi, Bekar, Haghighat, and Madenci (2022), arXiv:2210.12177. Stage 3 does not rewrite Stage 2; both source-scoped claims are preserved.
+The Burgers implementation uses PyTorch autograd for the PDE residual, transforms residual magnitude into the discriminator physics probability `exp(-lambda_val * residual^2)`, and trains generator, discriminator, and Q networks with Adam. The inspected notebook specifies 30,000 epochs, `lambda_val=0.05`, `lambda_q=0.5`, 0.1 label noise, 100 boundary points, 50 initial points, 10,000 collocation points, NumPy seed 1234, and the bundled `burgers_shock.mat` dataset. Evaluation code draws 500 stochastic samples and computes relative L2 error, mean squared PDE residual, mean predictions, and variances.
 
-Static reproducibility for `CR000077` is **R2**. README and requirements specify CentOS/Python/Conda/CUDA/CuDNN/Cudatoolkit plus exact Python-package versions, installation command, entrypoint and hardware. Advancement is blocked because `../Dataset/dataset.npy` is not bundled, no explicit seed is set despite stochastic initializers, no pretrained checkpoint is present, and the citation conflict remains unresolved.
+A high-severity implementation defect is preserved: `train_generator` declares a five-iteration loop but returns from inside its first iteration, so static control flow yields one generator update per call. This is recorded as unresolved workflow evidence, not silently interpreted as five effective updates.
 
-Checkpoint additions: **2 resources, 1 experiment, 1 configuration, 14 technical-evidence records, 2 reproducibility assessments, 10 unresolved findings, 1 explicit conflict**.
+Static reproducibility is **R1**. Source, bundled datasets, equations, architecture, training logic, hyperparameters, and a NumPy seed are available, but the pinned snapshot lacks a dependency/version manifest, installation instructions, exact runtime/hardware provenance, explicit PyTorch seeding, trained checkpoints, and a repository license. Notebook outputs are absent, so no run result is claimed.
+
+Checkpoint additions: **1 resource, 1 experiment, 1 configuration, 10 technical-evidence records, 1 reproducibility assessment, 8 unresolved findings, 0 explicit conflicts**.
 
 No dependency installation, dataset acquisition/generation, model loading, training, inference, evaluation, test, benchmark, container, accelerator workload, or external service was executed.
 
 ## Aggregate batch state
 
-Canonical aggregate QA is **PASS for SOB001–SOB007**. `SOB008` is in progress at **2 / 10** with `CR000076` and `CR000077` complete. Aggregate SOB008 QA is not yet due.
+Canonical aggregate QA is **PASS for SOB001–SOB007**. `SOB008` is in progress at **3 / 10** with `CR000076`–`CR000078` complete. Aggregate SOB008 QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S067`: **82 resources, 142 experiments, 299 configurations, 1074 technical-evidence records, 82 reproducibility assessments, 523 unresolved findings, 95 explicit conflicts**.
+After `Stage3-S068`: **83 resources, 143 experiments, 300 configurations, 1084 technical-evidence records, 83 reproducibility assessments, 531 unresolved findings, 95 explicit conflicts**.
 
 ## Registry accounting
 
-With 363 independently extractable technical identities and 82 completed Stage-3 technical records, **281** remain.
+With 363 independently extractable technical identities and 83 completed Stage-3 technical records, **280** remain.
 
 ## Continuation QA
 
-`Stage3-S067` QA is PASS. The latest applicable aggregate QA remains `SOB007` PASS. The exact next independently extractable resource is **`CR000078`**, to be processed as `Stage3-S068`.
+`Stage3-S068` QA is PASS. The latest applicable aggregate QA remains `SOB007` PASS. The exact next independently extractable resource is **`CR000079`**, to be processed as `Stage3-S069`.
 
 ## Stage boundaries
 
