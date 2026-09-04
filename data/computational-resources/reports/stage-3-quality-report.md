@@ -3,7 +3,7 @@
 Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S061
+Latest scale-out checkpoint: Stage3-S062
 
 ## Current QA status
 
@@ -13,33 +13,43 @@ Stage3-D01 remains accepted without schema modification. Static-only execution b
 
 ## Recent checkpoint continuity
 
-- `Stage3-S059`: CR000068 GradientPathologiesPINNs PINN implementation, R1 — PASS.
 - `Stage3-S060`: CR000069 maziarraissi/PINNs canonical PINN implementation, R1 — PASS.
-- `Stage3-S061`: CR000070 PINN-for-NS-equation PINN implementation, R1 — **PASS**.
+- `Stage3-S061`: CR000070 PINN-for-NS-equation PINN implementation, R1 — PASS.
+- `Stage3-S062`: CR000071 Dual-Cone-Gradient-Descent PINN implementation / PINN-optimization research code, R1 — **PASS**.
 
-## Stage3-S061 checkpoint
+## Stage3-S062 checkpoint
 
-`CR000070` preserves final Stage-2 authority for `https://github.com/Shengfeng233/PINN-for-NS-equation`, pinned commit `961d1e23a1a41ec1d7072c81a4ee9d43444e125e`, no identified repository license, and verified official relationship `PRL000159` to Atlas paper 526.
+`CR000071` preserves final Stage-2 authority for `https://github.com/youngsikhwang/Dual-Cone-Gradient-Descent`, pinned commit `7242cd76e8f94616c7e4611ba971c5bc33244e9e`, MIT license, and verified official relationship `PRL000160` to Atlas paper 527.
 
 ### Scope classification
 
-The resource is classified as a **PINN implementation**. One bounded workflow represents sparse-data reconstruction of two-dimensional unsteady incompressible flow past a circular cylinder at `Re=3900` from 36 measurement points. The code explicitly predicts `u`, `v`, and `p`, enforces continuity and two momentum residuals through PyTorch automatic differentiation, and supports input normalization.
+The resource is classified as a **PINN implementation** because the pinned repository directly implements physics-informed PDE benchmarks and the proposed DCGD optimizer, while the broader Stage-2 `research_code_related_to_pinn_corpus` classification remains preserved as provenance.
 
-`CR000071` was bounded-preinspected solely to decide checkpoint pairing. Its pinned repository contains several PDE families plus CausalPINNs, SPINN, PINNsformer and multiple DCGD optimizer variants. Pairing would make the checkpoint harder to audit, so the accepted single-resource complexity rule is applied and CR000071 is deferred to S062.
+Three bounded primary experiments represent 2D Helmholtz, viscous Burgers, and nonlinear Klein-Gordon. SPINN 3D Helmholtz, CausalPINNs chaotic Kuramoto-Sivashinsky, and PINNsFormer convection adaptations are retained as variant capability evidence under the accepted bounded-extraction rule rather than expanded into additional experiments.
 
 ### Reproducibility
 
-Static reproducibility is **R1**. The pinned source exposes architecture, physics residuals, major training hyperparameters, sparse bundled training data, Latin-hypercube sampling, relative-L2 evaluation code, a pretrained state-dict artifact, and comparison outputs. R2 is withheld because dependency versions and installation are unspecified, no seed or exact hardware provenance is provided, no repository license is identified, and the configured full validation MAT file is external rather than bundled.
+Static reproducibility is **R1**. Strong positive evidence includes MIT licensing, a large version-pinned manifest, Python/PyTorch/CUDA versions, an explicit seed, documented architecture/hyperparameters, bundled Burgers data, exact/analytic benchmark targets, and relative-L2 evaluation.
+
+R2 is withheld because four consequential explicit conflicts and one additional portability defect affect the documented runnable path:
+
+1. README says `pip install -r requirements.txt`, but the file is Conda-export-style with single-equals version/build entries.
+2. `main.py` passes an extra positional `betas` argument relative to all three primary benchmark model constructors.
+3. `run_dcgd.sh` uses `klein-gordon`, while `main.py` accepts `klein_gordon`.
+4. The documented Adam+DCGD path calls `DCGD.step()` without the required `losses` argument.
+5. The Burgers sampler loads a host-specific absolute MAT path rather than the bundled MAT path.
+
+These observations are recorded as source-scoped static evidence; Stage 3 does not repair the scientific repository.
 
 Checkpoint additions:
 
 - resources: **1**
-- experiments: **1**
-- configurations: **1**
-- technical-evidence records: **10**
+- experiments: **3**
+- configurations: **3**
+- technical-evidence records: **16**
 - reproducibility assessments: **1**
-- unresolved findings: **8**
-- new explicit conflicts: **0**
+- unresolved findings: **9**
+- new explicit conflicts: **4**
 
 No dependency installation, external dataset download, model deserialization, training, evaluation, test or benchmark was performed.
 
@@ -47,19 +57,19 @@ No dependency installation, external dataset download, model deserialization, tr
 
 Canonical aggregate QA remains PASS for **SOB001–SOB006**.
 
-`SOB007` is in progress with **5 / 10** canonical members complete: CR000066, CR000067, CR000068, CR000069, and CR000070. Aggregate SOB007 QA is not yet due.
+`SOB007` is in progress with **6 / 10** canonical members complete: CR000066, CR000067, CR000068, CR000069, CR000070, and CR000071. Aggregate SOB007 QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S061`: **75 resources, 133 experiments, 279 configurations, 998 technical-evidence records, 75 reproducibility assessments, 473 unresolved findings, 89 explicit conflicts**.
+After `Stage3-S062`: **76 resources, 136 experiments, 282 configurations, 1014 technical-evidence records, 76 reproducibility assessments, 482 unresolved findings, 93 explicit conflicts**.
 
 ## Registry accounting
 
-With 363 independently extractable technical identities and 75 completed Stage-3 technical records, **288** remain.
+With 363 independently extractable technical identities and 76 completed Stage-3 technical records, **287** remain.
 
 ## Continuation QA
 
-`Stage3-S061` is PASS. The exact next independently extractable resource is **`CR000071`**, to be processed as `Stage3-S062`.
+`Stage3-S062` is PASS. The exact next independently extractable resource is **`CR000072`**, to be processed as `Stage3-S063`.
 
 ## Stage boundaries
 
