@@ -1,23 +1,25 @@
 # Computational Resources Stage 3 Unresolved Register
 
-Date: 2026-09-04  
-Current checkpoint: `Stage3-S077`  
-Current batch: `SOB009` (2/10)  
-Current unresolved count: **600**  
-Next unresolved ID: `S3U-0601`  
+Date: 2026-09-05  
+Current checkpoint: `Stage3-S078`  
+Current batch: `SOB009` (3/10)  
+Current unresolved count: **608**  
+Next unresolved ID: `S3U-0609`  
 Explicit conflict count: **97**
 
-## Stage3-S077 additions — CR000088
+## Stage3-S078 additions — CR000089
 
-- `S3U-0595` — The authoritative repository URL returns 404/not found, so no usable repository source/equivalent technical artifact is available for Stage-3 inspection.
-- `S3U-0596` — No authoritative repository commit SHA can be verified or pinned while the recorded repository remains unavailable.
-- `S3U-0597` — Repository contents, implementation scope, scientific entrypoints, dependency/environment specification, installation procedure and runtime requirements are not available.
-- `S3U-0598` — Repository-side data, preprocessing, mathematics/model implementation, architecture, training, evaluation, checkpoints and expected-result artifacts are not available for static inspection.
-- `S3U-0599` — Repository license status remains unknown because the authoritative repository is unavailable.
-- `S3U-0600` — `PRL000189 → Atlas 600` remains `not_verified` and manual-review-required; no repository-side corroboration establishes that the unavailable resource is the paper's code artifact.
+- `S3U-0601` — No repository license is identified in final Stage-2 authority.
+- `S3U-0602` — The pinned README declares support for JAX 0.3.25, but no complete dependency/environment manifest is present.
+- `S3U-0603` — No repository installation procedure is provided.
+- `S3U-0604` — Random-seed provenance is not established by the bounded repository-level inspection.
+- `S3U-0605` — Hardware requirements/provenance are not established by the bounded repository-level inspection.
+- `S3U-0606` — Bundled trained parameter/loss artifacts lack a unified repository manifest tying every artifact to a fully specified portable environment and canonical evaluation target.
+- `S3U-0607` — Bundled Burgers generators and Eikonal airfoil data are repository research artifacts, not an independently versioned reusable dataset release.
+- `S3U-0608` — The repository contains multiple workflow/configuration variants; repository-level documentation does not provide a complete explicit paper-to-notebook-to-artifact result crosswalk for every variant.
 
-No new explicit conflict is created. Unavailability and an unverified relationship are represented as bounded missing/relationship states rather than contradictory evidence.
+No new explicit conflict is created. Missing provenance and documentation are represented as bounded unresolved states rather than contradictory evidence.
 
 ## Continuation
 
-No Stage-3 hard stop is active. Exact next independently extractable resource: `CR000089` (`CR000087` remains pilot-complete and excluded from reprocessing).
+No Stage-3 hard stop is active. Exact next independently extractable resource: `CR000090`.
