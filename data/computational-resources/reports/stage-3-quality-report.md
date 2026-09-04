@@ -3,7 +3,7 @@
 Status date: 2026-09-04  
 Acceptance checkpoint: Stage3-A01  
 Pilot extraction checkpoint: Stage3-P07  
-Latest scale-out checkpoint: Stage3-S062
+Latest scale-out checkpoint: Stage3-S063
 
 ## Current QA status
 
@@ -13,43 +13,35 @@ Stage3-D01 remains accepted without schema modification. Static-only execution b
 
 ## Recent checkpoint continuity
 
-- `Stage3-S060`: CR000069 maziarraissi/PINNs canonical PINN implementation, R1 — PASS.
 - `Stage3-S061`: CR000070 PINN-for-NS-equation PINN implementation, R1 — PASS.
-- `Stage3-S062`: CR000071 Dual-Cone-Gradient-Descent PINN implementation / PINN-optimization research code, R1 — **PASS**.
+- `Stage3-S062`: CR000071 Dual-Cone-Gradient-Descent PINN implementation / PINN-optimization research code, R1 — PASS.
+- `Stage3-S063`: CR000072 SGDR supporting optimizer software, R1 — **PASS**.
 
-## Stage3-S062 checkpoint
+## Stage3-S063 checkpoint
 
-`CR000071` preserves final Stage-2 authority for `https://github.com/youngsikhwang/Dual-Cone-Gradient-Descent`, pinned commit `7242cd76e8f94616c7e4611ba971c5bc33244e9e`, MIT license, and verified official relationship `PRL000160` to Atlas paper 527.
+`CR000072` preserves final Stage-2 authority for `https://github.com/loshchil/SGDR`, pinned commit `5269a615448b93d6ab5926b4402eaaf1dafca230`, no identified repository license, and verified official relationship `PRL000161` to Atlas paper 532.
 
 ### Scope classification
 
-The resource is classified as a **PINN implementation** because the pinned repository directly implements physics-informed PDE benchmarks and the proposed DCGD optimizer, while the broader Stage-2 `research_code_related_to_pinn_corpus` classification remains preserved as provenance.
+The resource is classified as **supporting software** because the pinned repository implements SGDR warm-restart optimization for conventional Wide-ResNet CIFAR image-classification experiments. No PINN, PDE, physics-informed, or scientific-computing semantics are manufactured.
 
-Three bounded primary experiments represent 2D Helmholtz, viscous Burgers, and nonlinear Klein-Gordon. SPINN 3D Helmholtz, CausalPINNs chaotic Kuramoto-Sivashinsky, and PINNsFormer convection adaptations are retained as variant capability evidence under the accepted bounded-extraction rule rather than expanded into additional experiments.
+One bounded experiment represents the SGDR Wide-ResNet reproduction workflow. CIFAR-10 and CIFAR-100 are retained as two configurations of that workflow rather than proliferating 28 scenario records.
 
 ### Reproducibility
 
-Static reproducibility is **R1**. Strong positive evidence includes MIT licensing, a large version-pinned manifest, Python/PyTorch/CUDA versions, an explicit seed, documented architecture/hyperparameters, bundled Burgers data, exact/analytic benchmark targets, and relative-L2 evaluation.
+Static reproducibility is **R1**. Positive evidence includes the exact pinned source, an explicit CLI entrypoint, WRN architecture, data preprocessing, scenario grid, training hyperparameters, warm-restart schedule, evaluation metrics, statistics output, and periodic checkpoint-writing logic.
 
-R2 is withheld because four consequential explicit conflicts and one additional portability defect affect the documented runnable path:
-
-1. README says `pip install -r requirements.txt`, but the file is Conda-export-style with single-equals version/build entries.
-2. `main.py` passes an extra positional `betas` argument relative to all three primary benchmark model constructors.
-3. `run_dcgd.sh` uses `klein-gordon`, while `main.py` accepts `klein_gordon`.
-4. The documented Adam+DCGD path calls `DCGD.step()` without the required `losses` argument.
-5. The Burgers sampler loads a host-specific absolute MAT path rather than the bundled MAT path.
-
-These observations are recorded as source-scoped static evidence; Stage 3 does not repair the scientific repository.
+R2 is withheld because the pinned tree contains only `README.md` and `SGDR_WRNs.py`; no dependency/environment manifest or version pins, no installation procedure, no bundled CIFAR datasets, no explicit random seed, no exact hardware provenance, no repository license, and no archived model checkpoints are available. Python 2-era syntax/features further leave the exact compatible runtime stack unspecified.
 
 Checkpoint additions:
 
 - resources: **1**
-- experiments: **3**
-- configurations: **3**
-- technical-evidence records: **16**
+- experiments: **1**
+- configurations: **2**
+- technical-evidence records: **12**
 - reproducibility assessments: **1**
-- unresolved findings: **9**
-- new explicit conflicts: **4**
+- unresolved findings: **8**
+- new explicit conflicts: **0**
 
 No dependency installation, external dataset download, model deserialization, training, evaluation, test or benchmark was performed.
 
@@ -57,19 +49,19 @@ No dependency installation, external dataset download, model deserialization, tr
 
 Canonical aggregate QA remains PASS for **SOB001–SOB006**.
 
-`SOB007` is in progress with **6 / 10** canonical members complete: CR000066, CR000067, CR000068, CR000069, CR000070, and CR000071. Aggregate SOB007 QA is not yet due.
+`SOB007` is in progress with **7 / 10** canonical members complete: CR000066, CR000067, CR000068, CR000069, CR000070, CR000071, and CR000072. Aggregate SOB007 QA is not yet due.
 
 ## Current cumulative totals
 
-After `Stage3-S062`: **76 resources, 136 experiments, 282 configurations, 1014 technical-evidence records, 76 reproducibility assessments, 482 unresolved findings, 93 explicit conflicts**.
+After `Stage3-S063`: **77 resources, 137 experiments, 284 configurations, 1026 technical-evidence records, 77 reproducibility assessments, 490 unresolved findings, 93 explicit conflicts**.
 
 ## Registry accounting
 
-With 363 independently extractable technical identities and 76 completed Stage-3 technical records, **287** remain.
+With 363 independently extractable technical identities and 77 completed Stage-3 technical records, **286** remain.
 
 ## Continuation QA
 
-`Stage3-S062` is PASS. The exact next independently extractable resource is **`CR000072`**, to be processed as `Stage3-S063`.
+`Stage3-S063` is PASS. The exact next independently extractable resource is **`CR000073`**, to be processed as `Stage3-S064`.
 
 ## Stage boundaries
 
