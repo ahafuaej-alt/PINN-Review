@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S083`.
+- Latest completed checkpoint: `Stage3-S084`.
 - Current canonical batch: `SOB009`.
-- Current batch status: **8/10 independently extractable members complete**.
-- Latest completed resource: `CR000095`.
+- Current batch status: **9/10 independently extractable members complete**.
+- Latest completed resource: `CR000096`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB008` — **PASS**.
-- Exact next independently extractable resource: `CR000096`.
-- Next checkpoint: `Stage3-S084`.
+- Exact next independently extractable resource: `CR000097`.
+- Next checkpoint: `Stage3-S085`.
 - `CR000091` is Stage-3 pilot-complete and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **98**
-- Experiments: **174**
-- Configurations: **354**
-- Technical-evidence records: **1239**
-- Static reproducibility assessments: **98**
-- Unresolved findings: **639**
-- Explicit conflicts: **99**
-- Independently extractable resources remaining: **265**
+- Technical resource records: **99**
+- Experiments: **176**
+- Configurations: **360**
+- Technical-evidence records: **1248**
+- Static reproducibility assessments: **99**
+- Unresolved findings: **645**
+- Explicit conflicts: **100**
+- Independently extractable resources remaining: **264**
 
 ## Latest checkpoint
 
-`Stage3-S083` completed `CR000095` (`DeepWave-KAUST/PINNgabor`) at the final Stage-2 pinned SHA `8ce07464438b32159813800ac70593df6e81123f`. `PRL000197 → Atlas 611` remains a verified official relationship.
+`Stage3-S084` completed `CR000096` (`zheyuanhu01/AugmentedPINN`) at the final Stage-2 pinned SHA `7091d2a809377c9b5bd89dab2bbb8d79f50451e2`. `PRL000198 → Atlas 612` remains a verified official relationship.
 
-Material complexity required a single-resource checkpoint. The bounded static extraction represents two frequency-domain seismic PINN workflow families at 4 Hz and 16 Hz, with six exact Gabor/MLP run-script configurations. The repository provides an MIT license, installation procedure, extensive Conda environment manifest, explicit training commands and TensorBoard evaluation instructions. One explicit source conflict is preserved because the README describes experiments on a single NVIDIA GeForce A6000 GPU while `scripts/run.sh` dispatches configurations across `cuda:0` through `cuda:3`.
+Material complexity required a single-resource checkpoint. The bounded static extraction represents two workflow families with six configurations: four scalar-PDE selectors in `main.py` (Burgers, Helmholtz, Wave, and Klein-Gordon) and the two- and four-subdomain Burgers-Boussinesq workflows in `BB.py` and `BB4.py`. The repository exposes PINN, XPINN, and SXPINN/APINN model controls, deterministic seeds, architecture and training hyperparameters, and source-level evaluation logic. One explicit device-control conflict is preserved because the BB gate-pretraining paths hard-code CUDA tensor placement while the scripts expose a configurable `--device` argument.
 
-S083 records one resource, two experiments, six configurations, ten technical-evidence records, one R3 reproducibility assessment, four new unresolved findings, and one new explicit conflict. No scientific workload was executed.
+S084 records one resource, two experiments, six configurations, nine technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and one new explicit conflict. No scientific workload was executed.
 
 ## Continuation
 
-Resume only from `CR000096` for `Stage3-S084`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000097` for `Stage3-S085`. Preserve all accepted pilot exclusions and completed-resource boundaries.

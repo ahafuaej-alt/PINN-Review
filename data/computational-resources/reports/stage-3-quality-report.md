@@ -2,12 +2,12 @@
 
 Date: 2026-09-05  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S083`  
+Latest checkpoint: `Stage3-S084`  
 Status: **PASS**
 
-## Stage3-S083 checkpoint QA
+## Stage3-S084 checkpoint QA
 
-Resource: `CR000095`
+Resource: `CR000096`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,29 +28,29 @@ Resource: `CR000095`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 2 experiments / 6 configurations / 10 evidence records / 1 reproducibility assessment / 4 unresolved / 1 conflict**.
+Checkpoint counts: **1 resource / 2 experiments / 6 configurations / 9 evidence records / 1 reproducibility assessment / 6 unresolved / 1 conflict**.
 
-## Cumulative counts through S083
+## Cumulative counts through S084
 
-- Resources: **98**
-- Experiments: **174**
-- Configurations: **354**
-- Technical evidence: **1239**
-- Reproducibility assessments: **98**
-- Unresolved findings: **639**
-- Explicit conflicts: **99**
-- Independently extractable resources remaining: **265**
+- Resources: **99**
+- Experiments: **176**
+- Configurations: **360**
+- Technical evidence: **1248**
+- Reproducibility assessments: **99**
+- Unresolved findings: **645**
+- Explicit conflicts: **100**
+- Independently extractable resources remaining: **264**
 
 ## Aggregate batch QA
 
 `SOB008`: **PASS** (latest completed aggregate QA).
 
-`SOB009` is **8/10** after S083, so aggregate SOB009 QA is **not yet due**.
+`SOB009` is **9/10** after S084, so aggregate SOB009 QA is **not yet due**.
 
 ## Scientific QA note
 
-CR000095 preserves final Stage-2 identity and the verified `PRL000197 → Atlas 611` official relationship. Two bounded frequency families and six exact run-script configurations represent the pinned PINNgabor repository. R3 is supported by the MIT license, installation procedure, extensive Conda environment, explicit training commands, seed reporting for five of six runs, hardware documentation and TensorBoard evaluation instructions. Mixed unpinned dependencies, the seed omission in the 16-Hz Gabor command, editable absolute path placeholders, and the preserved single-A6000 versus `cuda:0–3` hardware/device-control conflict prevent R4. No scientific workload was executed.
+CR000096 preserves final Stage-2 identity and the verified `PRL000198 → Atlas 612` official relationship. Two bounded workflow families and six configurations represent the pinned AugmentedPINN repository without multiplying PINN/XPINN/APINN mode flags into artificial experiments. R2 is supported by explicit source-level PDE selectors, deterministic seeds, architecture/training hyperparameters, collocation/boundary sampling logic and evaluation routines. The absence of a license, dependency/environment manifest, installation procedure, package versions, hardware provenance, canonical checkpoints, and complete bundled data prevents a higher static reproducibility level. The BB gate-pretraining code also hard-codes CUDA placement despite exposing a configurable device control; this is preserved as an explicit source-code conflict. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000096`. Next checkpoint: `Stage3-S084`.
+Exact next independently extractable resource: `CR000097`. Next checkpoint: `Stage3-S085`.
