@@ -2,12 +2,12 @@
 
 Date: 2026-09-05  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S081`  
+Latest checkpoint: `Stage3-S082`  
 Status: **PASS**
 
-## Stage3-S081 checkpoint QA
+## Stage3-S082 checkpoint QA
 
-Resource: `CR000093`
+Resource: `CR000094`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,29 +28,29 @@ Resource: `CR000093`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 5 experiments / 7 configurations / 12 evidence records / 1 reproducibility assessment / 8 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 3 experiments / 8 configurations / 10 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S081
+## Cumulative counts through S082
 
-- Resources: **96**
-- Experiments: **169**
-- Configurations: **340**
-- Technical evidence: **1219**
-- Reproducibility assessments: **96**
-- Unresolved findings: **629**
+- Resources: **97**
+- Experiments: **172**
+- Configurations: **348**
+- Technical evidence: **1229**
+- Reproducibility assessments: **97**
+- Unresolved findings: **635**
 - Explicit conflicts: **98**
-- Independently extractable resources remaining: **267**
+- Independently extractable resources remaining: **266**
 
 ## Aggregate batch QA
 
 `SOB008`: **PASS** (latest completed aggregate QA).
 
-`SOB009` is **6/10** after S081, so aggregate SOB009 QA is **not yet due**.
+`SOB009` is **7/10** after S082, so aggregate SOB009 QA is **not yet due**.
 
 ## Scientific QA note
 
-CR000093 preserves final Stage-2 identity and the verified `PRL000195 → Atlas 606` official relationship. Five distinct workflow families and seven bounded configurations are represented without proliferating commented alternatives into unsupported experiments. R2 is conservative because pinned source provides substantial mathematical, architecture, training and evaluation detail while environment/version pinning, license, complete requested runtime data, checkpoints and canonical results remain incomplete. No scientific workload was executed.
+CR000094 preserves final Stage-2 identity and the verified `PRL000196 → Atlas 608` official relationship. Three bounded workflow families and eight dimensional/time-variation configurations represent the pinned GRINN repository without promoting finite-difference support material into independent resources. R2 is conservative because substantial scientific notebooks and comparison artifacts are available while environment/version pinning, installation instructions, license, seed/hardware provenance and canonical checkpoints remain incomplete. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000094`. Next checkpoint: `Stage3-S082`.
+Exact next independently extractable resource: `CR000095`. Next checkpoint: `Stage3-S083`.
