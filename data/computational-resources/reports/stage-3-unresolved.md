@@ -1,24 +1,23 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-05  
-Current checkpoint: `Stage3-S079`  
-Current batch: `SOB009` (4/10)  
-Current unresolved count: **615**  
-Next unresolved ID: `S3U-0616`  
+Current checkpoint: `Stage3-S080`  
+Current batch: `SOB009` (5/10)  
+Current unresolved count: **621**  
+Next unresolved ID: `S3U-0622`  
 Explicit conflict count: **98**
 
-## Stage3-S079 additions — CR000090
+## Stage3-S080 additions — CR000092
 
-- `S3U-0609` — Repository-level installation documentation is minimal despite the explicit Conda package manifest.
-- `S3U-0610` — Exact hardware provenance is not documented by the bounded static inspection.
-- `S3U-0611` — The archived result/checkpoint surface lacks a single explicit paper-to-entrypoint-to-artifact result crosswalk.
-- `S3U-0612` — The pinned explicit environment is Linux-64/Python 3.7; portability to other platforms is not documented.
-- `S3U-0613` — Archived checkpoints and NPZ result artifacts are present, but canonical expected-result targets are not uniformly documented for every configuration.
-- `S3U-0614` — Final Stage-2 authority did not inventory the pinned `DAE-PINNs-req.txt`; Stage 3 preserves Stage-2 authority while recording the manifest as pinned-source evidence rather than retroactively changing Stage 2.
-- `S3U-0615` — Repository documentation is too sparse to establish a complete provenance map for every analysis script and archived log variant beyond the bounded principal workflows.
+- `S3U-0616` — Archive license remains unknown in final Stage-2 authority and the provider metadata inspected for this checkpoint.
+- `S3U-0617` — The 1.2 GB primary flow payload was not downloaded or payload-inspected under the bounded static-only rule; detailed payload structure remains unverified.
+- `S3U-0618` — The two processing scripts are present and their roles are documented, but an explicit runtime environment, dependency set and version specification are not provided by the inspected archive metadata.
+- `S3U-0619` — Provider MD5 checksums are documented for the archive files but were not independently recomputed because the payloads were not downloaded.
+- `S3U-0620` — Exact raw-file schema, units and indexing are not fully established beyond the provider's high-level description of stored flow variables and reactions.
+- `S3U-0621` — No canonical expected parser-output table, processed-result hash or equivalent reference output is documented by the bounded metadata inspection.
 
-One new explicit conflict is recorded: CLI `--no-cuda` controls coexist with forced CUDA/device-selection logic in inspected entrypoints. Both source-scoped claims are preserved.
+No new explicit conflict is recorded. The resource remains a verified dataset relationship to Atlas 605; associated pilot-complete CR000091 is not reopened.
 
 ## Continuation
 
-No Stage-3 hard stop is active. Exact next independently extractable resource: `CR000091`.
+No Stage-3 hard stop is active. Exact next independently extractable resource: `CR000093`.

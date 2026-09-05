@@ -2,16 +2,16 @@
 
 Date: 2026-09-05  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S079`  
+Latest checkpoint: `Stage3-S080`  
 Status: **PASS**
 
-## Stage3-S079 checkpoint QA
+## Stage3-S080 checkpoint QA
 
-Resource: `CR000090`
+Resource: `CR000092`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
-- Authoritative pinned SHA preservation: **PASS**
+- Pilot-exclusion / continuation-pointer reconciliation: **PASS**
 - Static-inspection-only execution boundary: **PASS**
 - Five Stage-3 schema validations: **PASS**
 - Resource → experiment → configuration cross-references: **PASS**
@@ -29,29 +29,29 @@ Resource: `CR000090`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 3 experiments / 4 configurations / 12 evidence records / 1 reproducibility assessment / 7 unresolved / 1 conflict**.
+Checkpoint counts: **1 resource / 0 experiments / 0 configurations / 6 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S079
+## Cumulative counts through S080
 
-- Resources: **94**
+- Resources: **95**
 - Experiments: **164**
 - Configurations: **333**
-- Technical evidence: **1201**
-- Reproducibility assessments: **94**
-- Unresolved findings: **615**
+- Technical evidence: **1207**
+- Reproducibility assessments: **95**
+- Unresolved findings: **621**
 - Explicit conflicts: **98**
-- Independently extractable resources remaining: **269**
+- Independently extractable resources remaining: **268**
 
 ## Aggregate batch QA
 
 `SOB008`: **PASS** (latest completed aggregate QA).
 
-`SOB009` is **4/10** after S079, so aggregate SOB009 QA is **not yet due**.
+`SOB009` is **5/10** after S080, so aggregate SOB009 QA is **not yet due**.
 
 ## Scientific QA note
 
-CR000090 preserves final Stage-2 identity, pinned SHA and verified official relationship to Atlas 604. Static code inspection supports three power-network DAE-PINN workflow families and four configurations. R3 is supported by the explicit pinned Linux-64 Conda environment, source entrypoints, mathematics, architecture, training/evaluation configuration, fixed sampling seeds, and bundled checkpoint/result surface. Device-control inconsistency is retained as explicit conflicting evidence rather than normalized away.
+CR000092 preserves final Stage-2 identity as an external dataset and the verified `PRL000194 → Atlas 605` dataset relationship. The provider metadata documents a Reynolds-100 two-dimensional fixed-cylinder flow dataset, its 1.2 GB primary flow file, reaction file, processing scripts and checksums. The archive is represented as a dataset resource rather than PINN software. R1 is conservative because archive accessibility and metadata are strong, while license, processing environment, payload-level schema validation and canonical expected processed outputs remain incomplete. No scientific workload or payload was executed or loaded.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000091`. Next checkpoint: `Stage3-S080`.
+Exact next independently extractable resource: `CR000093`. Next checkpoint: `Stage3-S081`.

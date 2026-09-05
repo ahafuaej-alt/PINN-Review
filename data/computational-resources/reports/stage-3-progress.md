@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S079`.
+- Latest completed checkpoint: `Stage3-S080`.
 - Current canonical batch: `SOB009`.
-- Current batch status: **4/10 independently extractable members complete**.
-- Latest completed resource: `CR000090`.
+- Current batch status: **5/10 independently extractable members complete**.
+- Latest completed resource: `CR000092`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB008` — **PASS**.
-- Exact next independently extractable resource: `CR000091`.
-- Next checkpoint: `Stage3-S080`.
-- `CR000087` is Stage-3 pilot-complete and must not be reprocessed.
+- Exact next independently extractable resource: `CR000093`.
+- Next checkpoint: `Stage3-S081`.
+- `CR000091` is Stage-3 pilot-complete and was correctly skipped; it must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **94**
+- Technical resource records: **95**
 - Experiments: **164**
 - Configurations: **333**
-- Technical-evidence records: **1201**
-- Static reproducibility assessments: **94**
-- Unresolved findings: **615**
+- Technical-evidence records: **1207**
+- Static reproducibility assessments: **95**
+- Unresolved findings: **621**
 - Explicit conflicts: **98**
-- Independently extractable resources remaining: **269**
+- Independently extractable resources remaining: **268**
 
 ## Latest checkpoint
 
-`Stage3-S079` completed `CR000090` (`cmoyacal/DAE-PINNs`) at the final Stage-2 pinned SHA `2d36275d883baebd566cf96bea82be0602de16ec`. `PRL000192 → Atlas 604` remains a verified official relationship.
+`Stage3-S080` completed `CR000092`, the external numerical-flow dataset at DOI `10.5281/zenodo.5039610`. Final Stage-2 authority is preserved: `PRL000194 → Atlas 605` is a verified `paper_dataset_mention`, while the associated `CR000091` ModalPINN software archive remains pilot-complete and was not reprocessed.
 
-Material complexity required a single-resource checkpoint. The bounded static extraction represents three power-network DAE-PINN workflow families: Backward Euler, RK/Gauss-Legendre, and the configurable high-stage IRK entrypoint, yielding four configurations. The explicit Linux-64 Conda environment, fixed sampling seeds, training/evaluation logic, and archived checkpoint/result surface support R3. One explicit device-control conflict is preserved because no-cuda CLI controls coexist with forced CUDA/device-selection logic in inspected entrypoints.
+The bounded static extraction records the provider-documented two-dimensional fixed-cylinder vortex-shedding dataset at Reynolds number 100, generated with the Cadyf finite-element fluid-structure interaction solver. Zenodo exposes a 1.2 GB primary flow file, a reaction file and two processing scripts, with provider checksums. No archive payload was downloaded or unpacked and no processing script or scientific workload was executed.
 
-S079 records one resource, three experiments, four configurations, twelve technical-evidence records, one R3 reproducibility assessment, seven new unresolved findings, and one new explicit conflict. No scientific workload was executed.
+S080 records one resource, zero experiments, zero configurations, six technical-evidence records, one R1 reproducibility assessment, six new unresolved findings and no new explicit conflicts.
 
 ## Continuation
 
-Resume only from `CR000091` for `Stage3-S080`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000093` for `Stage3-S081`. Preserve all accepted pilot exclusions and completed-resource boundaries.
