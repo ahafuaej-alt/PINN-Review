@@ -7,35 +7,34 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S080`.
+- Latest completed checkpoint: `Stage3-S081`.
 - Current canonical batch: `SOB009`.
-- Current batch status: **5/10 independently extractable members complete**.
-- Latest completed resource: `CR000092`.
+- Current batch status: **6/10 independently extractable members complete**.
+- Latest completed resource: `CR000093`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB008` — **PASS**.
-- Exact next independently extractable resource: `CR000093`.
-- Next checkpoint: `Stage3-S081`.
-- `CR000091` is Stage-3 pilot-complete and was correctly skipped; it must not be reprocessed.
+- Exact next independently extractable resource: `CR000094`.
+- Next checkpoint: `Stage3-S082`.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **95**
-- Experiments: **164**
-- Configurations: **333**
-- Technical-evidence records: **1207**
-- Static reproducibility assessments: **95**
-- Unresolved findings: **621**
+- Technical resource records: **96**
+- Experiments: **169**
+- Configurations: **340**
+- Technical-evidence records: **1219**
+- Static reproducibility assessments: **96**
+- Unresolved findings: **629**
 - Explicit conflicts: **98**
-- Independently extractable resources remaining: **268**
+- Independently extractable resources remaining: **267**
 
 ## Latest checkpoint
 
-`Stage3-S080` completed `CR000092`, the external numerical-flow dataset at DOI `10.5281/zenodo.5039610`. Final Stage-2 authority is preserved: `PRL000194 → Atlas 605` is a verified `paper_dataset_mention`, while the associated `CR000091` ModalPINN software archive remains pilot-complete and was not reprocessed.
+`Stage3-S081` completed `CR000093` (`PredictiveIntelligenceLab/MultiscalePINNs`) at the final Stage-2 pinned SHA `ba7d6bb8af6cabe348def80bed72110f5f0e3621`. `PRL000195 → Atlas 606` remains a verified official relationship.
 
-The bounded static extraction records the provider-documented two-dimensional fixed-cylinder vortex-shedding dataset at Reynolds number 100, generated with the Cadyf finite-element fluid-structure interaction solver. Zenodo exposes a 1.2 GB primary flow file, a reaction file and two processing scripts, with provider checksums. No archive payload was downloaded or unpacked and no processing script or scientific workload was executed.
+Material complexity required a single-resource checkpoint. The bounded static extraction represents five workflow families—regression, Poisson 1D, heat 1D, wave 1D, and Gray–Scott 2D—with seven active/bounded configurations. The pinned source documents Fourier-feature and multiscale PINN formulations, training parameters, and evaluation logic, but no explicit environment manifest is present and the Gray–Scott runtime files `data.npy` and `sol.mat` referenced by the entrypoints are absent from the pinned tree. R2 is therefore conservative.
 
-S080 records one resource, zero experiments, zero configurations, six technical-evidence records, one R1 reproducibility assessment, six new unresolved findings and no new explicit conflicts.
+S081 records one resource, five experiments, seven configurations, twelve technical-evidence records, one R2 reproducibility assessment, eight new unresolved findings, and no new explicit conflict. No scientific workload was executed.
 
 ## Continuation
 
-Resume only from `CR000093` for `Stage3-S081`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000094` for `Stage3-S082`. Preserve all accepted pilot exclusions and completed-resource boundaries.
