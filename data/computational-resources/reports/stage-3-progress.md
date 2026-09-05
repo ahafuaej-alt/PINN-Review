@@ -1,41 +1,41 @@
 # Computational Resources Stage 3 Progress
 
-Date: 2026-09-05  
+Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
 Status: active controlled scale-out  
 Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S084`.
-- Current canonical batch: `SOB009`.
-- Current batch status: **9/10 independently extractable members complete**.
-- Latest completed resource: `CR000096`.
+- Latest completed checkpoint: `Stage3-S085`.
+- Current canonical batch: `SOB010`.
+- Current batch status: **0/10 independently extractable members complete**.
+- Latest completed resource: `CR000097`.
 - Checkpoint QA: **PASS**.
-- Latest completed aggregate batch QA: `SOB008` — **PASS**.
-- Exact next independently extractable resource: `CR000097`.
-- Next checkpoint: `Stage3-S085`.
-- `CR000091` is Stage-3 pilot-complete and must not be reprocessed.
+- Latest completed aggregate batch QA: `SOB009` — **PASS**.
+- Exact next independently extractable resource: `CR000098`.
+- Next checkpoint: `Stage3-S086`.
+- Pilot-complete resources remain excluded; `CR000087` and `CR000091` were skipped in SOB009 and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **99**
-- Experiments: **176**
-- Configurations: **360**
-- Technical-evidence records: **1248**
-- Static reproducibility assessments: **99**
-- Unresolved findings: **645**
+- Technical resource records: **100**
+- Experiments: **177**
+- Configurations: **363**
+- Technical-evidence records: **1256**
+- Static reproducibility assessments: **100**
+- Unresolved findings: **651**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **264**
+- Independently extractable resources remaining: **263**
 
 ## Latest checkpoint
 
-`Stage3-S084` completed `CR000096` (`zheyuanhu01/AugmentedPINN`) at the final Stage-2 pinned SHA `7091d2a809377c9b5bd89dab2bbb8d79f50451e2`. `PRL000198 → Atlas 612` remains a verified official relationship.
+`Stage3-S085` completed `CR000097` (`demiludan/LSTM_JHMpaper`) at the final Stage-2 pinned SHA `ac9d3d8875e7560a8b8583bf7576abd44b3480f7`. `PRL000199 → Atlas 615` remains a verified official relationship.
 
-Material complexity required a single-resource checkpoint. The bounded static extraction represents two workflow families with six configurations: four scalar-PDE selectors in `main.py` (Burgers, Helmholtz, Wave, and Klein-Gordon) and the two- and four-subdomain Burgers-Boussinesq workflows in `BB.py` and `BB4.py`. The repository exposes PINN, XPINN, and SXPINN/APINN model controls, deterministic seeds, architecture and training hyperparameters, and source-level evaluation logic. One explicit device-control conflict is preserved because the BB gate-pretraining paths hard-code CUDA tensor placement while the scripts expose a configurable `--device` argument.
+The bounded static extraction preserves Stage-2 classification as research code related to the PINN corpus rather than manufacturing PINN semantics from the code. One experiment family and three configurations represent the H_LSTM, B_LSTM and S_LSTM source variants. The scripts define 60-day multivariate streamflow forecasting workflows; B_LSTM includes Monte-Carlo dropout, while the pinned S_LSTM source calls `exit()` after model summary and before its declared training block. The scripts reference `Data_98_18.dat`, which is absent from the pinned repository tree.
 
-S084 records one resource, two experiments, six configurations, nine technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and one new explicit conflict. No scientific workload was executed.
+S085 records one resource, one experiment, three configurations, eight technical-evidence records, one R1 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload was executed. SOB009 aggregate QA passed at 10/10.
 
 ## Continuation
 
-Resume only from `CR000097` for `Stage3-S085`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000098` for `Stage3-S086`. Preserve all accepted pilot exclusions and completed-resource boundaries.

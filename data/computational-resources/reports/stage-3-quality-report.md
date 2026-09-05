@@ -1,13 +1,13 @@
 # Computational Resources Stage 3 Quality Report
 
-Date: 2026-09-05  
+Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S084`  
+Latest checkpoint: `Stage3-S085`  
 Status: **PASS**
 
-## Stage3-S084 checkpoint QA
+## Stage3-S085 checkpoint QA
 
-Resource: `CR000096`
+Resource: `CR000097`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,29 +28,27 @@ Resource: `CR000096`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 2 experiments / 6 configurations / 9 evidence records / 1 reproducibility assessment / 6 unresolved / 1 conflict**.
+Checkpoint counts: **1 resource / 1 experiment / 3 configurations / 8 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S084
+## Cumulative counts through S085
 
-- Resources: **99**
-- Experiments: **176**
-- Configurations: **360**
-- Technical evidence: **1248**
-- Reproducibility assessments: **99**
-- Unresolved findings: **645**
+- Resources: **100**
+- Experiments: **177**
+- Configurations: **363**
+- Technical evidence: **1256**
+- Reproducibility assessments: **100**
+- Unresolved findings: **651**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **264**
+- Independently extractable resources remaining: **263**
 
 ## Aggregate batch QA
 
-`SOB008`: **PASS** (latest completed aggregate QA).
-
-`SOB009` is **9/10** after S084, so aggregate SOB009 QA is **not yet due**.
+`SOB009`: **PASS** at 10/10 independently extractable resources. `CR000087` and `CR000091` were correctly skipped as pilot-complete. Batch counts reconcile to the SOB008 boundary with no schema or methodology drift.
 
 ## Scientific QA note
 
-CR000096 preserves final Stage-2 identity and the verified `PRL000198 → Atlas 612` official relationship. Two bounded workflow families and six configurations represent the pinned AugmentedPINN repository without multiplying PINN/XPINN/APINN mode flags into artificial experiments. R2 is supported by explicit source-level PDE selectors, deterministic seeds, architecture/training hyperparameters, collocation/boundary sampling logic and evaluation routines. The absence of a license, dependency/environment manifest, installation procedure, package versions, hardware provenance, canonical checkpoints, and complete bundled data prevents a higher static reproducibility level. The BB gate-pretraining code also hard-codes CUDA placement despite exposing a configurable device control; this is preserved as an explicit source-code conflict. No scientific workload was executed.
+CR000097 preserves final Stage-2 identity, the verified `PRL000199 → Atlas 615` official relationship, and Stage-2 classification as research code related to the PINN corpus. The source provides explicit LSTM architecture/training/evaluation logic, but no repository license, reconstructable environment, installation surface, hardware provenance, required `Data_98_18.dat` input, canonical checkpoints or expected-result artifacts. R1 is therefore conservative. The S_LSTM training block is recorded as unreachable in the pinned source because `exit()` occurs immediately after model summary. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000097`. Next checkpoint: `Stage3-S085`.
+Exact next independently extractable resource: `CR000098`. Next checkpoint: `Stage3-S086`.
