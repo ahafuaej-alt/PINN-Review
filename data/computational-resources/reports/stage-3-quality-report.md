@@ -2,12 +2,12 @@
 
 Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S085`  
+Latest checkpoint: `Stage3-S086`  
 Status: **PASS**
 
-## Stage3-S085 checkpoint QA
+## Stage3-S086 checkpoint QA
 
-Resource: `CR000097`
+Resource: `CR000098`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,27 +28,27 @@ Resource: `CR000097`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 1 experiment / 3 configurations / 8 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 4 experiments / 4 configurations / 9 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S085
+## Cumulative counts through S086
 
-- Resources: **100**
-- Experiments: **177**
-- Configurations: **363**
-- Technical evidence: **1256**
-- Reproducibility assessments: **100**
-- Unresolved findings: **651**
+- Resources: **101**
+- Experiments: **181**
+- Configurations: **367**
+- Technical evidence: **1265**
+- Reproducibility assessments: **101**
+- Unresolved findings: **657**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **263**
+- Independently extractable resources remaining: **262**
 
 ## Aggregate batch QA
 
-`SOB009`: **PASS** at 10/10 independently extractable resources. `CR000087` and `CR000091` were correctly skipped as pilot-complete. Batch counts reconcile to the SOB008 boundary with no schema or methodology drift.
+`SOB010` is **1/10** after S086, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
 
 ## Scientific QA note
 
-CR000097 preserves final Stage-2 identity, the verified `PRL000199 → Atlas 615` official relationship, and Stage-2 classification as research code related to the PINN corpus. The source provides explicit LSTM architecture/training/evaluation logic, but no repository license, reconstructable environment, installation surface, hardware provenance, required `Data_98_18.dat` input, canonical checkpoints or expected-result artifacts. R1 is therefore conservative. The S_LSTM training block is recorded as unreachable in the pinned source because `exit()` occurs immediately after model summary. No scientific workload was executed.
+CR000098 preserves final Stage-2 identity and the verified `PRL000201 → Atlas 616` official relationship. Four source-scoped workflow families cover deterministic PINN identification, Bayesian PINN/HMC, analytical Bayesian inference, and SA-PINN. The analytical Bayesian workflow is explicitly retained as a non-PINN comparator. R2 is supported by bundled COVID data, explicit oscillator mathematics, architecture/training/evaluation logic, result artifacts, and pinned deterministic-PINN package versions; the absence of a repository license, installation procedure, unified environment for the Bayesian and SA-PINN stacks, complete seed coverage, and hardware/checkpoint provenance prevents a higher static reproducibility level. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000098`. Next checkpoint: `Stage3-S086`.
+Exact next independently extractable resource: `CR000099`. Next checkpoint: `Stage3-S087`.

@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S085`.
+- Latest completed checkpoint: `Stage3-S086`.
 - Current canonical batch: `SOB010`.
-- Current batch status: **0/10 independently extractable members complete**.
-- Latest completed resource: `CR000097`.
+- Current batch status: **1/10 independently extractable members complete**.
+- Latest completed resource: `CR000098`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB009` — **PASS**.
-- Exact next independently extractable resource: `CR000098`.
-- Next checkpoint: `Stage3-S086`.
-- Pilot-complete resources remain excluded; `CR000087` and `CR000091` were skipped in SOB009 and must not be reprocessed.
+- Exact next independently extractable resource: `CR000099`.
+- Next checkpoint: `Stage3-S087`.
+- Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **100**
-- Experiments: **177**
-- Configurations: **363**
-- Technical-evidence records: **1256**
-- Static reproducibility assessments: **100**
-- Unresolved findings: **651**
+- Technical resource records: **101**
+- Experiments: **181**
+- Configurations: **367**
+- Technical-evidence records: **1265**
+- Static reproducibility assessments: **101**
+- Unresolved findings: **657**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **263**
+- Independently extractable resources remaining: **262**
 
 ## Latest checkpoint
 
-`Stage3-S085` completed `CR000097` (`demiludan/LSTM_JHMpaper`) at the final Stage-2 pinned SHA `ac9d3d8875e7560a8b8583bf7576abd44b3480f7`. `PRL000199 → Atlas 615` remains a verified official relationship.
+`Stage3-S086` completed `CR000098` (`LivingMatterLab/xPINNs`) at the final Stage-2 pinned SHA `3b05f729bd471f680b1fb7dfa6458cc632a0ee67`. `PRL000201 → Atlas 616` remains a verified official relationship.
 
-The bounded static extraction preserves Stage-2 classification as research code related to the PINN corpus rather than manufacturing PINN semantics from the code. One experiment family and three configurations represent the H_LSTM, B_LSTM and S_LSTM source variants. The scripts define 60-day multivariate streamflow forecasting workflows; B_LSTM includes Monte-Carlo dropout, while the pinned S_LSTM source calls `exit()` after model summary and before its declared training block. The scripts reference `Data_98_18.dat`, which is absent from the pinned repository tree.
+Material complexity required a single-resource checkpoint. Four bounded experiment families and four configurations preserve the deterministic PINN, Bayesian PINN/HMC, analytical Bayesian-inference comparator, and SA-PINN COVID-oscillator workflows. The shared `covid_world.dat` dataset is bundled across workflow directories, and source/result artifacts are retained without execution. The analytical Bayesian workflow is explicitly retained as a non-PINN comparator rather than being relabeled.
 
-S085 records one resource, one experiment, three configurations, eight technical-evidence records, one R1 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload was executed. SOB009 aggregate QA passed at 10/10.
+S086 records one resource, four experiments, four configurations, nine technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload was executed. SOB010 is 1/10.
 
 ## Continuation
 
-Resume only from `CR000098` for `Stage3-S086`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000099` for `Stage3-S087`. Preserve all accepted pilot exclusions and completed-resource boundaries.
