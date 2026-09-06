@@ -1,23 +1,23 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-06  
-Current checkpoint: `Stage3-S088`  
-Current batch: `SOB010` (3/10)  
-Current unresolved count: **669**  
-Next unresolved ID: `S3U-0670`  
+Current checkpoint: `Stage3-S089`  
+Current batch: `SOB010` (4/10)  
+Current unresolved count: **675**  
+Next unresolved ID: `S3U-0676`  
 Explicit conflict count: **100**
 
-## Stage3-S088 additions — CR000100
+## Stage3-S089 additions — CR000101
 
-- `S3U-0664` — `setup.py` declares the runtime dependencies but does not pin package versions, so the exact Python environment is not reconstructable from the repository alone.
-- `S3U-0665` — The location workflow requires trained external EikoNet models, but their exact checkpoint identities and provenance are not bundled in the pinned HypoSVI repository.
-- `S3U-0666` — The event-pick and station inputs required for the paper/example workflow are external; no canonical reproduction dataset is bundled at the pinned snapshot.
-- `S3U-0667` — The README points to an externally hosted Colab example rather than preserving the example as an immutable repository artifact.
-- `S3U-0668` — Particle initialization uses NumPy randomness in `LocateEvents`, but no deterministic repository-level seed is established in the inspected workflow.
-- `S3U-0669` — Hardware/runtime provenance for the published or example HypoSVI calculations is not documented in the pinned repository.
+- `S3U-0670` — Executable scientific source is delivered inside `XPINN_Code.zip`; deep archive inspection is deferred, so internal entrypoints, experiment cases, and configuration details remain unresolved at this checkpoint.
+- `S3U-0671` — No dependency/environment manifest or installation procedure is exposed at the pinned repository root.
+- `S3U-0672` — The README recommends TensorFlow 1.14 and Python 3.6, but the broader dependency/version environment required by the archived workflows is not established by the inspected root evidence.
+- `S3U-0673` — Dataset and input-file requirements for the archived XPINN workflows cannot be established from the pinned root tree and README alone.
+- `S3U-0674` — Random-seed and hardware provenance are not documented in the inspected root evidence.
+- `S3U-0675` — Evaluation commands, expected numeric outputs, and checkpoint/model artifacts cannot be established from the inspected root evidence.
 
-No new explicit conflict is recorded in S088.
+No new explicit conflict is recorded in S089.
 
 ## Continuation
 
-Continue from `S3U-0670` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
+Continue from `S3U-0676` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
