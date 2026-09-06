@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S098`.
+- Latest completed checkpoint: `Stage3-S099`.
 - Current canonical batch: `SOB011`.
-- Current batch status: **3/10 independently extractable members complete**.
-- Latest completed resource: `CR000110`.
+- Current batch status: **4/10 independently extractable members complete**.
+- Latest completed resource: `CR000111`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB010` — **PASS**.
-- Exact next independently extractable resource: `CR000111`.
-- Next checkpoint: `Stage3-S099`.
+- Exact next independently extractable resource: `CR000112`.
+- Next checkpoint: `Stage3-S100`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **113**
+- Technical resource records: **114**
 - Experiments: **201**
 - Configurations: **392**
-- Technical-evidence records: **1364**
-- Static reproducibility assessments: **113**
-- Unresolved findings: **725**
+- Technical-evidence records: **1369**
+- Static reproducibility assessments: **114**
+- Unresolved findings: **730**
 - Explicit conflicts: **101**
-- Independently extractable resources remaining: **250**
+- Independently extractable resources remaining: **249**
 
 ## Latest checkpoint
 
-`Stage3-S098` completed `CR000110`, the EconForge `interpolation.py` supporting-software resource linked by verified `PRL000217` to Atlas 665 as a `paper_software_mention`. Final Stage-2 authority pins commit `c07eab292a223a1fe1dd77c3a87db4f1fa6a83ed` and BSD-2-Clause licensing.
+`Stage3-S099` completed `CR000111`, preserving the recorded `xzhao399/DEM_TOgit` identity and `PRL000218 → Atlas 671` exactly as the final Stage-2 state: the repository is unavailable, no pinned commit SHA exists, and the paper relationship remains `not_verified`.
 
-The pinned snapshot is a general numerical interpolation library with documented multilinear, cubic, Smolyak and complete-polynomial capabilities, installation routes, Python >=3.9, Numba >=0.59.1 and SciPy ^1.10. It is not represented as PINN code, and package examples/tests are not promoted to paper-specific experiments or configurations. S098 records one resource, zero experiments, zero configurations, seven technical-evidence records, one R2 reproducibility assessment and five new unresolved findings, with no new explicit conflict.
+A fresh static endpoint check still returns not found. The historical Stage-2 `pinn_or_physics_informed_implementation` classification is retained only as provenance and is not promoted to a verified Stage-3 PINN implementation profile. S099 therefore records one bounded `mixed_other` resource, zero experiments, zero configurations, five technical-evidence records, one R0 reproducibility assessment and five new unresolved findings, with no new explicit conflict.
 
-No scientific software, model, dataset, example, test, environment, dependency or benchmark workload was executed.
+No scientific software, model, dataset, test, environment, dependency or benchmark workload was executed.
 
 ## Continuation
 
-Resume only from `CR000111` for `Stage3-S099` as the fourth independently extractable member of `SOB011`.
+Resume only from `CR000112` for `Stage3-S100` as the fifth independently extractable member of `SOB011`.
