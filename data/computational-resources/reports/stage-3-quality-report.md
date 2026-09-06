@@ -5,43 +5,43 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S095`
-- Batch: `SOB010` — **10/10 complete**
-- Resource: `CR000107`
+- Checkpoint: `Stage3-S096`
+- Batch: `SOB011` — **1/10 complete**
+- Resource: `CR000108`
 - Checkpoint status: **PASS**
-- Aggregate batch QA: `SOB010` — **PASS**
+- Latest aggregate batch QA: `SOB010` — **PASS**
 
-## S095 checkpoint counts
+## S096 checkpoint counts
 
 - Resources: **1**
-- Experiments: **4**
-- Configurations: **4**
-- Technical-evidence records: **9**
+- Experiments: **0**
+- Configurations: **0**
+- Technical-evidence records: **7**
 - Reproducibility assessments: **1**
 - New unresolved findings: **5**
 - New explicit conflicts: **0**
 
-## Cumulative counts through S095
+## Cumulative counts through S096
 
-- Resources: **110**
+- Resources: **111**
 - Experiments: **201**
 - Configurations: **392**
-- Technical-evidence records: **1342**
-- Reproducibility assessments: **110**
-- Unresolved findings: **709**
+- Technical-evidence records: **1349**
+- Reproducibility assessments: **111**
+- Unresolved findings: **714**
 - Explicit conflicts: **101**
-- Independently extractable resources remaining: **253**
+- Independently extractable resources remaining: **252**
 
 ## QA gates
 
-Schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening and branch-head stability all **PASS** for S095.
+Schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening and branch-head stability all **PASS** for S096.
 
-SOB010 aggregate reconciliation also **PASS**: ten independently extractable resources `CR000098–CR000107`, no pilot skips, batch additions `10/24/29/86/10/58/1`, and cumulative totals `110/201/392/1342/110/709/101`.
+SOB011 is 1/10; aggregate SOB011 QA is not yet due. Latest completed aggregate remains SOB010 — **PASS**.
 
 ## Scientific/reproducibility note
 
-`CR000107` preserves the Stage-2 pinned SHA `336e2df0cb7c946acb562ef0baf0109bc9963bf5` and verified official `PRL000213 → Atlas 662`. The source contains four Hamiltonian-system identification workflows and is classified in Stage 3 as `non_pinn_research_code`, without changing its Stage-2 identity. R2 is conservative because source mathematics, architecture, training controls and README environment versions are explicit, while a dependency manifest, installation recipe, random seeds, runtime hardware provenance and checkpoints/results are incomplete or unavailable.
+`CR000108` preserves the verified Stage-2 supplemental relationship `PRL000214 → Atlas 663`. APS identifies `dqd.ipynb` and `transmon.ipynb` as Julia Jupyter notebooks used for the reported robust-quantum-gate PINN results. Because the supplemental archive internals were not directly opened under the bounded static boundary, S096 does not manufacture experiment/configuration records. R1 is conservative because exact source/citation context is available while archive-internal environment, dependency, data-input, seed, hardware and execution provenance remain incomplete.
 
 ## Continuation
 
-Next batch: `SOB011`. Exact next resource: `CR000108`. Exact next checkpoint: `Stage3-S096`.
+Exact next resource: `CR000109`. Exact next checkpoint: `Stage3-S097`.
