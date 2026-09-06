@@ -108,7 +108,9 @@ jobs:
         run: |
           set -o pipefail
           node scripts/apply-paper-update.mjs /tmp/pinn-paper-update.json | tee /tmp/pinn-apply-result.json
+          node scripts/build-atlas-overview.mjs
           node scripts/build-datasets.mjs --check
+          node scripts/build-atlas-overview.mjs --check
           node scripts/validate-dataset.mjs
           node scripts/validate-citation-format.mjs
           node scripts/validate-pinn-realm.mjs
@@ -126,7 +128,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json
+          git add data/papers-master.json data/changes.json data/references.json data/references-metadata.json data/pinn-realm.json data/atlas-overview.json
           git commit -m "Update canonical paper dataset [skip pages]"
           git push origin HEAD:main
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
