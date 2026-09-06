@@ -1,23 +1,22 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-06  
-Current checkpoint: `Stage3-S092`  
-Current batch: `SOB010` (7/10)  
-Current unresolved count: **693**  
-Next unresolved ID: `S3U-0694`  
+Current checkpoint: `Stage3-S093`  
+Current batch: `SOB010` (8/10)  
+Current unresolved count: **698**  
+Next unresolved ID: `S3U-0699`  
 Explicit conflict count: **101**
 
-## Stage3-S092 additions — CR000104
+## Stage3-S093 additions — CR000105
 
-- `S3U-0688` — No repository license was identified at the final Stage-2 pinned snapshot.
-- `S3U-0689` — `requirements.txt` lists the required Python packages without pinned versions; README specifies Python 3.10+ rather than a reconstructable environment.
-- `S3U-0690` — Training/evaluation data are external to the repository and the inspected provider link does not establish an immutable data version or checksum.
-- `S3U-0691` — The training interface is internally inconsistent: `train.py` defines `--save_folder` but later accesses undefined `args.root`; README training wording also mixes `--root` with `--save_folder` examples.
-- `S3U-0692` — The testing interface is internally inconsistent: `test.py` defines `--load_folder` but later accesses undefined `args.root` when constructing checkpoint paths.
-- `S3U-0693` — Specific hardware provenance for the reported study results is not documented in the inspected repository evidence.
+- `S3U-0694` — No reconstructable dependency/environment manifest is bundled; the example notebook installs `megnet` and `pymatgen` without pinned versions.
+- `S3U-0695` — Training source and the training procedure for the four bundled pretrained models are not included in the inspected repository snapshot.
+- `S3U-0696` — Model metadata names provider training datasets, but those training datasets and immutable checksums are not bundled in this repository.
+- `S3U-0697` — Training seeds and study hardware provenance are not documented in the inspected repository evidence.
+- `S3U-0698` — The example notebook demonstrates only formation-energy and band-gap-regression inference although four pretrained model families are bundled; complete evaluation procedures for all four are not documented here.
 
-New explicit conflict in S092: the train/test output/load-path CLI and runtime-variable mismatch documented above. Cumulative explicit conflict count is **101**.
+No new explicit conflict was added in S093. Cumulative explicit conflict count remains **101**.
 
 ## Continuation
 
-Continue from `S3U-0694` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
+Continue from `S3U-0699` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.

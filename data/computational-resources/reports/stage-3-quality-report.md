@@ -2,12 +2,12 @@
 
 Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S092`  
+Latest checkpoint: `Stage3-S093`  
 Status: **PASS**
 
-## Stage3-S092 checkpoint QA
+## Stage3-S093 checkpoint QA
 
-Resource: `CR000104`
+Resource: `CR000105`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,27 +28,27 @@ Resource: `CR000104`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 3 experiments / 3 configurations / 9 evidence records / 1 reproducibility assessment / 6 unresolved / 1 conflict**.
+Checkpoint counts: **1 resource / 1 experiment / 2 configurations / 8 evidence records / 1 reproducibility assessment / 5 unresolved / 0 conflicts**.
 
-## Cumulative counts through S092
+## Cumulative counts through S093
 
-- Resources: **107**
-- Experiments: **193**
-- Configurations: **380**
-- Technical evidence: **1315**
-- Reproducibility assessments: **107**
-- Unresolved findings: **693**
+- Resources: **108**
+- Experiments: **194**
+- Configurations: **382**
+- Technical evidence: **1323**
+- Reproducibility assessments: **108**
+- Unresolved findings: **698**
 - Explicit conflicts: **101**
-- Independently extractable resources remaining: **256**
+- Independently extractable resources remaining: **255**
 
 ## Aggregate batch QA
 
-`SOB010` is **7/10** after S092, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
+`SOB010` is **8/10** after S093, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
 
 ## Scientific QA note
 
-CR000104 preserves final Stage-2 identity, pinned SHA `e02fd50eb4cf87074e31550ebdd47c1eba9dae08`, and verified `PRL000209 → Atlas 656` official relationship. Static source inspection establishes a convolutional QuantumShellNet architecture and three documented prediction task modes, with explicit seeds, optimizer/training controls, requirements and testing logic. No PINN/PDE-residual implementation is present in the inspected source, so `non_pinn_research_code` preserves resource-role distinction. A consequential reproducibility conflict is retained: train.py parses `save_folder` and test.py parses `load_folder`, while both later reference undefined `args.root`; README command wording is also inconsistent with those source interfaces. R1 is therefore conservative despite otherwise substantial documentation. No scientific workload was executed.
+CR000105 preserves final Stage-2 identity, pinned SHA `1ef437b6b936184e0a56b310605d945c138e00fe`, MIT license and verified `PRL000210 → Atlas 657` official relationship. Static inspection establishes a supplementary MEGNet graph-network prediction workflow with bundled pretrained models and example material structures. It does not implement PINN/PDE-residual semantics. R2 is appropriate because the inference surface is substantially documented and bundled while the training environment, training source, seeds and hardware provenance remain incomplete. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000105`. Next checkpoint: `Stage3-S093`.
+Exact next independently extractable resource: `CR000106`. Next checkpoint: `Stage3-S094`.
