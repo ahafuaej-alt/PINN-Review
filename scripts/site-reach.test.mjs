@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildSnapshot, getReachStatistics, normalizeCountries } from './update-site-reach.mjs';
+import { buildSnapshot, getReachStatistics, normalizeCountries, requestJson } from './update-site-reach.mjs';
 
 const locations = [
   { id: 'SE', name: 'Sweden', count: 17 },
@@ -91,6 +91,63 @@ test('retrieves reach statistics through documented stats endpoints', async () =
     assert.equal(requestedPaths.filter((value) => value === '/api/v0/stats/total').length, 2);
     assert.equal(requestedPaths.filter((value) => value === '/api/v0/stats/locations').length, 1);
     assert.equal(requestedPaths.includes('/api/v0/sites'), false);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('retries transient documented-endpoint failures with bounded backoff', async () => {
+  const originalFetch = globalThis.fetch;
+  let attempts = 0;
+  try {
+    globalThis.fetch = async () => {
+      attempts += 1;
+      if (attempts < 3) {
+        return new Response(JSON.stringify({ error: 'not found' }), {
+          status: 404,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      return new Response(JSON.stringify({ total: 12 }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    };
+
+    const result = await requestJson(
+      new URL('https://pinn-review-atlas.goatcounter.com/api/v0/stats/total'),
+      'protected-test-token',
+      { maxAttempts: 3, retryDelayMs: 0 }
+    );
+
+    assert.equal(result.total, 12);
+    assert.equal(attempts, 3);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('does not retry authentication or permission failures', async () => {
+  const originalFetch = globalThis.fetch;
+  let attempts = 0;
+  try {
+    globalThis.fetch = async () => {
+      attempts += 1;
+      return new Response(JSON.stringify({ error: 'forbidden' }), {
+        status: 403,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    };
+
+    await assert.rejects(
+      requestJson(
+        new URL('https://pinn-review-atlas.goatcounter.com/api/v0/stats/total'),
+        'protected-test-token',
+        { maxAttempts: 4, retryDelayMs: 0 }
+      ),
+      /GoatCounter returned 403/
+    );
+    assert.equal(attempts, 1);
   } finally {
     globalThis.fetch = originalFetch;
   }
