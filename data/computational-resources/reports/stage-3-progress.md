@@ -32,7 +32,7 @@ Methodology: `Stage3-D01` accepted without modification
 
 `Stage3-S100` completed `CR000112`, the pinned `AdityaJoglekar/DMF-TONN` repository linked by verified official `PRL000219 → Atlas 672`. Final Stage-2 authority pins commit `4669490fd5aab527e68696aeaa27fc7ac7b0abeb`.
 
-The pinned README and source resolve the prior `mixed_or_uncertain` classification as a PINN implementation embedded in direct mesh-free topology optimization. The source-explicit default workflow couples a physics-informed displacement network for 3D linear elasticity with a density-field topology network on a 40×20×8 cantilever problem. S100 records one resource, one experiment, one configuration, ten technical-evidence records, one R2 reproducibility assessment and five new unresolved findings, with no new explicit conflict.
+The pinned README and source resolve the prior `mixed_or_uncertain` classification as a PINN implementation embedded in direct mesh-free topology optimization. The source-explicit default workflow couples a physics-informed displacement network for 3D linear elasticity with a density-field topology network on a 40×20×8 cantilever problem. S100 records one resource, one experiment, one configuration, ten technical-evidence records, one R1 reproducibility assessment and five new unresolved findings, with no new explicit conflict.
 
 No scientific software, model, dataset, test, environment, dependency or benchmark workload was executed.
 

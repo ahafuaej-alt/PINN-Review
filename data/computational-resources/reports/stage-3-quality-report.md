@@ -40,7 +40,7 @@ SOB011 is 5/10; aggregate SOB011 QA is not yet due. Latest completed aggregate r
 
 ## Scientific/reproducibility note
 
-`CR000112` is a pinned DMF-TONN implementation whose source explicitly couples a physics-informed 3D linear-elasticity displacement network to a density-field topology network. The default repository workflow is a 40×20×8 cantilever case with explicit seeds, Adam learning rates and training schedules. R2 is conservative because the pinned snapshot lacks a dependency/version manifest, installation instructions, a repository license, runtime-hardware provenance and a provider-bundled numerical acceptance target.
+`CR000112` is a pinned DMF-TONN implementation whose source explicitly couples a physics-informed 3D linear-elasticity displacement network to a density-field topology network. The default repository workflow is a 40×20×8 cantilever case with explicit seeds, Adam learning rates and training schedules. R1 is required because the pinned source has no dependency/environment manifest or installation instructions; under the gated reproducibility model this blocks R2 even though mathematics, architecture, seeds and training controls are explicit. Repository license, runtime-hardware provenance and a provider-bundled numerical acceptance target are also absent.
 
 ## Continuation
 
