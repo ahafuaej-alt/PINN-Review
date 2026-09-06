@@ -1,23 +1,26 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-06  
-Current checkpoint: `Stage3-S094`  
-Current batch: `SOB010` (9/10)  
-Current unresolved count: **704**  
-Next unresolved ID: `S3U-0705`  
+Current checkpoint: `Stage3-S095`  
+Current batch: `SOB010` (10/10; aggregate QA PASS)  
+Current unresolved count: **709**  
+Next unresolved ID: `S3U-0710`  
 Explicit conflict count: **101**
 
-## Stage3-S094 additions — CR000106
+## Stage3-S095 additions — CR000107
 
-- `S3U-0699` — No repository license was identified at the final Stage-2 pinned snapshot.
-- `S3U-0700` — No pinned environment or dependency manifest is bundled; notebooks install packages inline and clone the external `Arif-PhyChem/MLQD` repository without pinning its commit.
-- `S3U-0701` — Saved notebook output records failure of the `pip install sklearn` step, so the displayed installation sequence is not a clean reconstructable environment recipe.
-- `S3U-0702` — README points to external Zenodo training data while the repository bundles selected test/paper data and trained models; complete training-data-to-model provenance is distributed across resources.
-- `S3U-0703` — Notebook cells use quick-run `TrEpochs=10` settings and explicitly advise higher values for better training, so the exact production-study training schedule is not fully represented by those cells.
-- `S3U-0704` — Training seeds are not established in the inspected bounded evidence; saved T4 Colab metadata describes notebook context but does not fully establish study hardware provenance.
+- `S3U-0705` — No repository license was identified at the final Stage-2 pinned snapshot.
+- `S3U-0706` — README gives Python, NumPy and PyTorch versions, but no dependency/environment manifest or installation recipe is bundled.
+- `S3U-0707` — Three-body and irregular-time-step workflows use random sampling without an explicit seed in the inspected source.
+- `S3U-0708` — The README's CUDA-tagged PyTorch build does not establish the hardware actually used for the reported study runs.
+- `S3U-0709` — No provider-bundled checkpoints or generated result artifacts were identified in the pinned tree.
 
-No new explicit conflict was added in S094. Cumulative explicit conflict count remains **101**.
+No new explicit conflict was added in S095. Cumulative explicit conflict count remains **101**.
+
+## Batch boundary
+
+S095 closes `SOB010`; aggregate batch QA passes. The next active batch is `SOB011`, beginning with `CR000108`.
 
 ## Continuation
 
-Continue from `S3U-0705` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
+Continue from `S3U-0710` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
