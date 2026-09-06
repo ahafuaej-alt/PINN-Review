@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S093`.
+- Latest completed checkpoint: `Stage3-S094`.
 - Current canonical batch: `SOB010`.
-- Current batch status: **8/10 independently extractable members complete**.
-- Latest completed resource: `CR000105`.
+- Current batch status: **9/10 independently extractable members complete**.
+- Latest completed resource: `CR000106`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB009` — **PASS**.
-- Exact next independently extractable resource: `CR000106`.
-- Next checkpoint: `Stage3-S094`.
+- Exact next independently extractable resource: `CR000107`.
+- Next checkpoint: `Stage3-S095`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **108**
-- Experiments: **194**
-- Configurations: **382**
-- Technical-evidence records: **1323**
-- Static reproducibility assessments: **108**
-- Unresolved findings: **698**
+- Technical resource records: **109**
+- Experiments: **197**
+- Configurations: **388**
+- Technical-evidence records: **1333**
+- Static reproducibility assessments: **109**
+- Unresolved findings: **704**
 - Explicit conflicts: **101**
-- Independently extractable resources remaining: **255**
+- Independently extractable resources remaining: **254**
 
 ## Latest checkpoint
 
-`Stage3-S093` completed `CR000105` (`ncfrey/defect-design`) at the final Stage-2 pinned SHA `1ef437b6b936184e0a56b310605d945c138e00fe`. `PRL000210 → Atlas 657` remains a verified official relationship.
+`Stage3-S094` completed `CR000106` (`Arif-PhyChem/trace_conservation`) at the final Stage-2 pinned SHA `b5978c4b9b7d46296b3ca339e1f0501c48cc1c61`. `PRL000212 → Atlas 661` remains a verified official relationship.
 
-The repository is supplementary material for machine-learning-enabled point-defect design and provides a compact MEGNet graph-network inference example, four bundled pretrained HDF5 models, sidecar model metadata and three example 2D-material structures. The inspected implementation does not contain PINN/PDE-residual semantics, so Stage 3 records it as `non_pinn_research_code` while preserving its official corpus relationship.
+The repository provides three substantial notebook workflow families for quantum dissipative dynamics: uncertainty-aware trace-conserving PINN, PINN, and a physics-agnostic neural-network comparator. Each explicitly covers spin-boson and FMO-complex cases. Bundled paper/test arrays, trained models and result surfaces are preserved as static evidence; external training data are documented through Zenodo.
 
-S093 records one resource, one experiment, two configurations, eight technical-evidence records, one R2 reproducibility assessment and five new unresolved findings, with no new explicit conflict. No notebook, pretrained model, environment, dataset, training or inference workload was executed. SOB010 is 8/10.
+S094 records one resource, three experiments, six configurations, ten technical-evidence records, one R2 reproducibility assessment and six new unresolved findings, with no new explicit conflict. The large notebook/evidence surface makes S094 a single-resource checkpoint. No notebook, dependency, model, binary array, data, training, inference or evaluation workload was executed. SOB010 is 9/10.
 
 ## Continuation
 
-Resume only from `CR000106` for `Stage3-S094`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000107` for `Stage3-S095`. The next independently extractable resource will complete SOB010 and therefore requires aggregate SOB010 QA before advancement.

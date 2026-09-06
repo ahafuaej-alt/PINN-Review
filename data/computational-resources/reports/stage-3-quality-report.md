@@ -2,12 +2,12 @@
 
 Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S093`  
+Latest checkpoint: `Stage3-S094`  
 Status: **PASS**
 
-## Stage3-S093 checkpoint QA
+## Stage3-S094 checkpoint QA
 
-Resource: `CR000105`
+Resource: `CR000106`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,27 +28,27 @@ Resource: `CR000105`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 1 experiment / 2 configurations / 8 evidence records / 1 reproducibility assessment / 5 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 3 experiments / 6 configurations / 10 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S093
+## Cumulative counts through S094
 
-- Resources: **108**
-- Experiments: **194**
-- Configurations: **382**
-- Technical evidence: **1323**
-- Reproducibility assessments: **108**
-- Unresolved findings: **698**
+- Resources: **109**
+- Experiments: **197**
+- Configurations: **388**
+- Technical evidence: **1333**
+- Reproducibility assessments: **109**
+- Unresolved findings: **704**
 - Explicit conflicts: **101**
-- Independently extractable resources remaining: **255**
+- Independently extractable resources remaining: **254**
 
 ## Aggregate batch QA
 
-`SOB010` is **8/10** after S093, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
+`SOB010` is **9/10** after S094, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
 
 ## Scientific QA note
 
-CR000105 preserves final Stage-2 identity, pinned SHA `1ef437b6b936184e0a56b310605d945c138e00fe`, MIT license and verified `PRL000210 → Atlas 657` official relationship. Static inspection establishes a supplementary MEGNet graph-network prediction workflow with bundled pretrained models and example material structures. It does not implement PINN/PDE-residual semantics. R2 is appropriate because the inference surface is substantially documented and bundled while the training environment, training source, seeds and hardware provenance remain incomplete. No scientific workload was executed.
+CR000106 preserves final Stage-2 identity, pinned SHA `b5978c4b9b7d46296b3ca339e1f0501c48cc1c61`, and verified `PRL000212 → Atlas 661` official relationship. Static inspection establishes three notebook workflow families across spin-boson and FMO-complex quantum dissipative dynamics, with bundled result/data/model surfaces and an external training-data record. The notebooks also depend on an unpinned external MLQD clone and inline package installation; saved output records a failed `sklearn` installation step. R2 is therefore conservative. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000106`. Next checkpoint: `Stage3-S094`.
+Exact next independently extractable resource: `CR000107`. Next checkpoint: `Stage3-S095`. Completion of CR000107 will trigger required SOB010 aggregate QA.
