@@ -1,130 +1,114 @@
 # Repository Control Register
 
 **Repository:** `ahafuaej-alt/PINN-Review`  
-**Audit date:** 2026-09-03  
-**Purpose:** establish a non-destructive authority map for production, active research workstreams, historical scientific branches, and branch-cleanup review.
+**Register refreshed:** 2026-09-07  
+**Purpose:** maintain the authoritative production, scientific-workstream, historical-provenance, release-governance, and branch-cleanup policy for the PINN Review Atlas.
 
-## Control baseline
+## Current control baseline
 
-- Production branch: `main`
-- Audited `main` head: `975c34c7b850359a86b27d49c9c75db60740a44a`
-- Open pull requests at audit time: **0**
-- Total branches at audit time: **96**
-- `main` branch protection at audit time: **not enabled**
-- Repository rulesets at audit time: **none**
-- Branch deletion performed by this audit: **none**
-- Branch merges performed by this audit: **none**
+- Production authority: `main`
+- Audited production head: `00aaccc75f2657a60d346da5290425683bbf149c` — `Keep Dataset Manager derived data synchronized`
+- Current branch count: **5**
+- Open pull requests at the final branch-cleanup checkpoint: **0**
+- `main` protection: **not yet enabled**
+- Repository rulesets: **none at the pre-protection checkpoint**
+- Obsolete/superseded branch refs removed after reachability and provenance review: **97**
+- Stage 3 was not modified by repository-governance cleanup or Issue #368 migration work.
 
-Branch age or naming is never sufficient evidence for deletion. A branch may be considered for cleanup only after Git reachability and scientific/operational provenance are both checked.
+Branch age or naming is never sufficient evidence for deletion. Cleanup requires Git reachability plus scientific/operational provenance review and explicit approval.
 
-## Authoritative workstreams
+## Authoritative branch register
 
-| Branch | Role | Status | Audit relationship to `main` | Merge policy | Next action |
-| --- | --- | --- | --- | --- | --- |
-| `main` | Production authority | ACTIVE / LIVE | authoritative production head | production changes must be controlled | migrate direct-write workflows, then enable protection |
-| `data/computational-resources-stage3` | Computational Resources Stage 3 | ACTIVE SCIENTIFIC | 76 commits ahead, 5 behind | **do not merge until Stage 3 scientific closure and integration review** | continue checkpointed Stage 3 work only |
-| `docs/master-atlas-roadmap` | Atlas architecture/roadmap documentation | ACTIVE DOCUMENTATION | 3 commits ahead at audit start | documentation review before integration | maintain roadmap and repository-control records here |
+| Branch | Role | Status | Merge / retention policy | Next action |
+| --- | --- | --- | --- | --- |
+| `main` | Production authority | ACTIVE / LIVE | Production changes must use controlled integration; no uncontrolled scientific or feature development directly on `main`. | Complete Issue #368 protection and protected-release verification. |
+| `data/computational-resources-stage3` | Computational Resources Stage 3 | ACTIVE SCIENTIFIC | Do not merge casually. Integrate only after Stage 3 scientific closure and dedicated integration QA. | Continue checkpointed Stage 3 work only. |
+| `data/computational-resources-stage1` | Computational Resources Stage 1 | HISTORICAL / CLOSED | Preserve as scientific provenance even when fully represented in later history. | No active development. |
+| `data/computational-resources-stage2` | Computational Resources Stage 2 | HISTORICAL / CLOSED | Preserve as scientific provenance; Stage 2 is scientifically closed. | No active development. |
+| `docs/master-atlas-roadmap` | Atlas roadmap and repository-governance documentation | ACTIVE DOCUMENTATION | Maintain architecture, workstream, and repository-control records here until deliberate integration. | Keep this register synchronized with governance state. |
 
-## Historical scientific branches — preserve
+At the final cleanup checkpoint, no legacy `agent/*`, superseded `feat/*`/`fix/*`, temporary `chore/*`, obsolete `ci/*`, or other non-authoritative working branches remained.
 
-These branches are fully contained in `main` according to Git ancestry but are retained as scientific provenance/checkpoint references.
+## Branch-cleanup closure
 
-| Branch | Unique commits vs `main` | Behind `main` | Policy |
-| --- | ---: | ---: | --- |
-| `data/computational-resources-stage1` | 0 | 211 | preserve as closed scientific history |
-| `data/computational-resources-stage2` | 0 | 6 | preserve as closed scientific history |
+The repository was reduced from approximately 102 branches to the five branches above through staged audits. In total **97 obsolete or superseded refs** were removed.
 
-A zero unique-commit count does not by itself authorize deletion of a scientific-stage branch.
+Every deletion batch was gated by applicable checks:
 
-## History-contained cleanup candidates — explicit approval still required
+- branch purpose and current head identified;
+- comparison against the relevant authoritative branch;
+- unique commits reviewed for merge/squash equivalence or intentional obsolescence;
+- merged pull-request provenance checked where applicable;
+- open pull-request dependencies checked;
+- scientific provenance requirements checked;
+- workflow/documentation dependencies checked where relevant;
+- explicit cleanup approval obtained;
+- post-deletion branch inventory and `main`/Stage 3 heads verified.
 
-The following branches have **zero commits ahead of `main`** and are therefore history-contained at this audit point. They are cleanup candidates from a Git-reachability standpoint only. No deletion is authorized by this register.
+Historical Stage 1 and Stage 2 branches were deliberately retained despite their closed status because scientific provenance value is independent of Git uniqueness.
 
-| Branch | Unique commits vs `main` | Classification |
-| --- | ---: | --- |
-| `data/stage2-c03-correction-temp` | 0 | temporary branch; cleanup candidate |
-| `chore/tmp-ignore` | 0 | temporary branch; cleanup candidate |
-| `chore/tmp-ignore2` | 0 | temporary branch; cleanup candidate |
-| `chore/tmp-ignore3` | 0 | same contained head as `chore/tmp-ignore2`; cleanup candidate |
-| `chore/tmp-ignore4` | 0 | same contained head as `chore/tmp-ignore2`; cleanup candidate |
-| `feat/frameworks-rebuild` | 0 | fully contained; cleanup candidate |
-| `fix/frameworks-evidence-confidentiality` | 0 | fully contained; cleanup candidate |
-| `fix/frameworks-navigation-overflow` | 0 | fully contained; cleanup candidate |
+## Issue #368 — protected production integration
 
-Before deletion, confirm that the branch is not referenced by documentation, workflows, release procedures, or an intentionally retained scientific checkpoint.
+Issue #368 governs migration from unrestricted direct writes to a protected `main` production authority.
 
-## Stale or supersession-unknown branches with unique commits — preserve for review
+### Original three mutating workflows
 
-These conventional branches are **not** safe-delete candidates because they contain commits not reachable from current `main`. Unique commits can represent useful work, obsolete experiments, or functionality later reimplemented differently; Git ancestry alone cannot decide which.
+The original scope contained:
 
-| Branch | Commits ahead of `main` | Required action |
-| --- | ---: | --- |
-| `feat/atlas-concept-knowledge-system` | 3 | supersession/content review |
-| `feat/canonical-concept-mapping` | 24 | supersession/content review |
-| `feat/co-design-arrange-mode` | 14 | supersession/content review |
-| `feat/co-design-framework-v2` | 41 | supersession/content review |
-| `feat/design-performance-workbench` | 55 | supersession/content review |
-| `feat/design-stack-scientific-flow` | 12 | supersession/content review |
-| `feat/failure-diagnostics-workbench` | 9 | supersession/content review |
-| `feat/frameworks` | 6 | supersession/content review |
-| `feat/frameworks-shared-interactions` | 13 | supersession/content review |
-| `feat/realm-svg-export` | 4 | supersession/content review |
-| `fix/atlas-reach-goatcounter-refresh` | 2 | supersession/content review |
-| `fix/canonical-context-precision` | 5 | supersession/content review |
-| `fix/co-design-pages-qa` | 1 | supersession/content review |
-| `fix/concept-runtime-regressions` | 8 | supersession/content review |
-| `fix/design-performance-marker-semantics` | 2 | supersession/content review |
-| `fix/failure-diagnostics-pages-qa` | 4 | supersession/content review |
-| `fix/firefox-deployment-freshness-20260820` | 5 | supersession/content review |
-| `fix/framework-rendering-export` | 17 | supersession/content review |
-| `fix/nested-404-assets-20260820` | 3 | supersession/content review |
-| `fix/performance-navigation-technical-details` | 8 | supersession/content review |
-| `fix/realm-annual-charts-newest-first` | 2 | supersession/content review |
-| `fix/reference-prose-concept-links` | 9 | supersession/content review |
-| `fix/static-ambient-performance-20260820` | 5 | supersession/content review |
-| `refactor/unify-publication-year-source` | 1 | supersession/content review |
+1. `.github/workflows/update-site-reach.yml`
+2. `.github/workflows/update-dataset.yml`
+3. `.github/workflows/accept-all-publisher-enrichment.yml`
 
-**Rule:** do not merge these branches wholesale into current `main`. Review their unique diffs against current production semantics and recover only still-valid work through a current conventional branch when needed.
+PR #369 migrated the three original direct-`main` writers to controlled release-branch / pull-request integration and merged as `b7c562cd994c1a8eafd9719adc672977e8d23ce6` after migration validation passed.
 
-## Legacy session branches — unknown until audited
+The publisher-metadata acceptance campaign subsequently completed. PR #374 removed `.github/workflows/accept-all-publisher-enrichment.yml` from the active production release surface and merged as `32bb2c7e7d4bf865f9cef6e993634aca0c8a6799`. Its underlying scripts, datasets, audit history, and reproducibility evidence remain preserved. No artificial metadata mutation is required solely for governance testing.
 
-There are **59 legacy session branches using a historical non-conventional prefix**. They predate the current repository naming policy.
+Therefore the continuing production writers in Issue #368 are:
 
-Current status: **UNKNOWN — DO NOT TOUCH**.
+- `.github/workflows/update-site-reach.yml`
+- `.github/workflows/update-dataset.yml`
 
-Required audit for each branch:
+Current source inspection confirms these workflows publish candidate commits to short-lived conventional `ci/*` branches, create pull requests, merge the exact candidate SHA, verify the merge SHA is reachable from `origin/main`, remove the temporary release branch when possible, and pass the integrated SHA into the reusable Pages deployment workflow. A current default-branch search found no remaining literal `git push origin HEAD:main` publication path.
 
-1. identify purpose and last commit;
-2. compare against current `main`;
-3. determine unique-commit count;
-4. check whether unique work was later superseded or independently integrated;
-5. determine scientific or operational provenance value;
-6. classify as preserve, recover/review, or cleanup candidate.
+### Genuine release evidence
 
-No legacy branch should be deleted merely because it is old or because an equivalent feature appears to exist on `main`.
+#### Atlas Reach
 
-## `main` protection dependency
+A genuine mutating re-run of workflow run `33851670491` retrieved **313 visits across 12 countries**, passed validation, created `ci/atlas-reach-33851670491-2`, opened PR #372 through `github-actions[bot]`, and merged into `main` as `ea7fddeec515328a0021f24d3163f65971977d28`. The temporary release branch was removed.
 
-`main` should be protected, but enabling a blocking rule immediately would interfere with legitimate workflows that currently commit directly to `main`.
+That run proved the controlled release-branch → workflow-created PR → merge path. It also exposed a Pages provenance defect: although the artifact was built from the intended integrated SHA, `actions/deploy-pages@v4` initially registered the reusable-workflow caller SHA as `pages_build_version`.
 
-Confirmed direct-`main` writer workflows:
+PR #373 corrected the reusable Pages workflow by asserting checkout provenance and setting the deployment step's `GITHUB_SHA` to the requested `source_sha`; it merged as `2bd57d0e8864114ddb9d9171d513c75ccb93830f`.
 
-- `.github/workflows/update-site-reach.yml` — validates and commits refreshed `data/site-reach.json`, then pushes to `main` and deploys that exact SHA.
-- `.github/workflows/update-dataset.yml` — applies and validates a canonical dataset update, commits synchronized dataset files, pushes to `main`, then deploys.
-- `.github/workflows/accept-all-publisher-enrichment.yml` — validates accepted publisher-metadata proposals and, when changes exist, commits and pushes them to `main` before deployment.
+A fresh Atlas Reach mutation using that corrected Pages revision remains the cleanest path-specific runtime proof for the Atlas Reach acceptance item if no later mutating Reach run has already supplied it.
 
-Therefore branch protection must be introduced **together with a compatible write-path design**, not as an isolated switch.
+#### Canonical dataset / synchronized deployment
 
-### Preferred migration
+Paper 810 was applied as canonical dataset version **2.3.1** at commit `fbf2a224961031771b750d6fd0f9e2fa53ec4f2a`. Its first batch deployment exposed a stale derived Atlas-overview condition. PR #376 repaired deterministic derived-data synchronization and merged as current production commit `00aaccc75f2657a60d346da5290425683bbf149c`.
 
-1. Each workflow that mutates repository content creates or updates a controlled conventional branch instead of pushing directly to `main`.
-2. The workflow validates the exact candidate commit.
-3. Integration occurs through a pull request or another explicitly governed mechanism.
-4. Deployment uses the integrated production SHA.
-5. After the migration is verified, protect `main` against uncontrolled direct pushes, force pushes, and deletion.
-6. Add required status checks only after the stable check contexts and their trigger behavior have been verified; do not hard-code unreliable or PR-inapplicable checks.
+Verified deployment run `34058677903` then deployed the synchronized Atlas successfully. Runtime logs prove:
 
-A broad Actions bypass can preserve current automation but would weaken the goal of making `main` a strictly controlled production authority. PR-based workflow writes are preferred where practical.
+- reusable `pages.yml` received `source_sha=00aaccc75f2657a60d346da5290425683bbf149c`;
+- checkout `HEAD` equaled that exact SHA;
+- canonical/generated dataset validation and full static/browser QA passed;
+- `actions/deploy-pages@v4` ran with `GITHUB_SHA=00aaccc75f2657a60d346da5290425683bbf149c`;
+- the Pages API payload registered `pages_build_version=00aaccc75f2657a60d346da5290425683bbf149c`;
+- the deployment for that exact SHA reported success.
+
+This is strong post-PR-#373 proof that the reusable Pages exact-SHA provenance mechanism works. It does **not by itself prove** that `.github/workflows/update-dataset.yml` completed its own controlled `ci/dataset-release-*` → workflow-created PR → merge path, because the Paper 810 application used the Dataset Manager owner-automation/batch-deployment route. That distinction must remain explicit until a genuine mutation through the migrated canonical writer is verified or the active writer architecture is deliberately revised.
+
+## Target `main` protection policy
+
+Protection should enforce the following without a broad workflow bypass:
+
+1. require pull-request integration into `main`;
+2. block force pushes;
+3. block deletion of `main`;
+4. prevent uncontrolled direct development pushes;
+5. allow GitHub Actions to create release pull requests, but do not grant a blanket bypass around `main` protection;
+6. require status checks only when their exact contexts are stable and guaranteed to run for every protected merge path.
+
+At this register refresh, no required status-check context is designated. The repository has multiple workflow types and some checks are PR- or path-specific; unreliable or non-universal contexts must not be made blocking merely for appearance of strictness.
 
 ## Repository control rules
 
@@ -133,27 +117,32 @@ A broad Actions bypass can preserve current automation but would weaken the goal
 3. **Active scientific branches are checkpointed and merged only after scientific closure and integration QA.**
 4. **No branch deletion based on age, apparent inactivity, or naming.** Cleanup requires Git reachability plus provenance/supersession review.
 5. **Branches with unique commits are preserved until their unique work is explicitly classified.**
-6. **Historical scientific branches may be retained even when fully merged.** Their provenance value is independent of Git uniqueness.
+6. **Historical scientific branches may be retained even when fully integrated.** Their provenance value is independent of Git uniqueness.
 7. **Force-updating an established research branch is prohibited unless a specific recovery procedure explicitly requires it.**
 8. **Update this register whenever an authoritative workstream changes state, is integrated, archived, or approved for deletion.**
+9. **No broad Actions bypass for protected `main`.** Automation should use the same governed integration boundary as other production changes wherever practical.
 
 ## Deletion gate
 
 A branch may be proposed for deletion only when all applicable conditions are true:
 
-- `ahead_by == 0` relative to the relevant authoritative branch, or all unique commits are intentionally archived/recovered elsewhere;
+- `ahead_by == 0` relative to the relevant authoritative branch, or all unique commits are intentionally superseded/archived/recovered elsewhere;
 - no active workflow depends on the branch;
 - no open pull request depends on the branch;
 - no scientific checkpoint/provenance requirement requires retention;
 - no documentation or release procedure designates it as authoritative;
 - deletion has explicit cleanup approval.
 
-## Next controlled actions
+## Remaining Issue #368 gates
 
-1. Migrate the three confirmed direct-`main` writer workflows to a protection-compatible integration path.
-2. Enable `main` protection after the migrated workflows are validated end-to-end.
-3. Audit the 59 legacy session branches for unique commits and supersession.
-4. Re-check the eight history-contained candidates immediately before any cleanup action.
-5. Present any proposed deletion batch for explicit approval before deleting branch refs.
+Before Issue #368 is closed:
 
-Until those actions are complete, the safe repository policy is: **organize and classify; do not delete or merge by assumption.**
+1. enable the target protection/ruleset on `main`;
+2. verify force pushes and branch deletion are blocked;
+3. verify a continuing production release path can still create a controlled release PR and integrate under protected `main`;
+4. verify Pages deploys the resulting exact integrated production SHA;
+5. obtain a genuine controlled-path runtime proof for the canonical dataset writer if `.github/workflows/update-dataset.yml` remains an active production writer;
+6. update this register again with the actual protection/ruleset state and protected-release evidence;
+7. close Issue #368 only after all applicable gates pass.
+
+Until those gates pass, the repository has a clean branch topology and protection-compatible workflow design, but `main` must not be described as protected.
