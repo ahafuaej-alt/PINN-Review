@@ -7,12 +7,12 @@
 ## Current control baseline
 
 - Production authority: `main`
-- Audited production head: `00aaccc75f2657a60d346da5290425683bbf149c` — `Keep Dataset Manager derived data synchronized`
-- Current branch count: **5**
-- Open pull requests at the final branch-cleanup checkpoint: **0**
+- Audited production head: `df27069ada4ed1d65cde2c7a208bfa0653cb662d` — `Route Dataset Manager updates through controlled integration`
+- Authoritative/preserved branches: **5**
+- Temporary merged branch pending ordinary cleanup if still present: `ci/protect-dataset-manager-writes`
 - `main` protection: **not yet enabled**
 - Repository rulesets: **none at the pre-protection checkpoint**
-- Obsolete/superseded branch refs removed after reachability and provenance review: **97**
+- Obsolete/superseded branch refs removed after reachability and provenance review before the current protection migration: **97**
 - Stage 3 was not modified by repository-governance cleanup or Issue #368 migration work.
 
 Branch age or naming is never sufficient evidence for deletion. Cleanup requires Git reachability plus scientific/operational provenance review and explicit approval.
@@ -27,25 +27,13 @@ Branch age or naming is never sufficient evidence for deletion. Cleanup requires
 | `data/computational-resources-stage2` | Computational Resources Stage 2 | HISTORICAL / CLOSED | Preserve as scientific provenance; Stage 2 is scientifically closed. | No active development. |
 | `docs/master-atlas-roadmap` | Atlas roadmap and repository-governance documentation | ACTIVE DOCUMENTATION | Maintain architecture, workstream, and repository-control records here until deliberate integration. | Keep this register synchronized with governance state. |
 
-At the final cleanup checkpoint, no legacy `agent/*`, superseded `feat/*`/`fix/*`, temporary `chore/*`, obsolete `ci/*`, or other non-authoritative working branches remained.
-
 ## Branch-cleanup closure
 
-The repository was reduced from approximately 102 branches to the five branches above through staged audits. In total **97 obsolete or superseded refs** were removed.
+The repository was reduced from approximately 102 branches to the five authoritative/preserved branches above through staged audits. In total **97 obsolete or superseded refs** were removed before the current Issue #368 protection migration.
 
-Every deletion batch was gated by applicable checks:
+Every deletion batch was gated by applicable checks: branch purpose and head, comparison with the relevant authority, unique-commit review, merged-PR provenance, open-PR dependencies, scientific-provenance requirements, workflow/documentation dependencies, explicit cleanup approval, and post-deletion verification.
 
-- branch purpose and current head identified;
-- comparison against the relevant authoritative branch;
-- unique commits reviewed for merge/squash equivalence or intentional obsolescence;
-- merged pull-request provenance checked where applicable;
-- open pull-request dependencies checked;
-- scientific provenance requirements checked;
-- workflow/documentation dependencies checked where relevant;
-- explicit cleanup approval obtained;
-- post-deletion branch inventory and `main`/Stage 3 heads verified.
-
-Historical Stage 1 and Stage 2 branches were deliberately retained despite their closed status because scientific provenance value is independent of Git uniqueness.
+Historical Stage 1 and Stage 2 branches are deliberately retained because scientific provenance value is independent of Git uniqueness.
 
 ## Issue #368 — protected production integration
 
@@ -59,43 +47,59 @@ The original scope contained:
 2. `.github/workflows/update-dataset.yml`
 3. `.github/workflows/accept-all-publisher-enrichment.yml`
 
-PR #369 migrated the three original direct-`main` writers to controlled release-branch / pull-request integration and merged as `b7c562cd994c1a8eafd9719adc672977e8d23ce6` after migration validation passed.
+PR #369 migrated those original writers to controlled release-branch / pull-request integration and merged as `b7c562cd994c1a8eafd9719adc672977e8d23ce6`.
 
-The publisher-metadata acceptance campaign subsequently completed. PR #374 removed `.github/workflows/accept-all-publisher-enrichment.yml` from the active production release surface and merged as `32bb2c7e7d4bf865f9cef6e993634aca0c8a6799`. Its underlying scripts, datasets, audit history, and reproducibility evidence remain preserved. No artificial metadata mutation is required solely for governance testing.
+The publisher-metadata acceptance campaign subsequently completed. PR #374 removed `.github/workflows/accept-all-publisher-enrichment.yml` from the active production release surface and merged as `32bb2c7e7d4bf865f9cef6e993634aca0c8a6799`. Its scripts, datasets, audit history, and reproducibility evidence remain preserved.
 
-Therefore the continuing production writers in Issue #368 are:
+### Additional active writer found by protection-readiness audit
 
-- `.github/workflows/update-site-reach.yml`
-- `.github/workflows/update-dataset.yml`
+The 2026-09-07 re-audit found that `.github/workflows/dataset-update-request.yml`, the Dataset Manager owner/maintainer application path, still contained `git push origin HEAD:main`. Enabling protection at that point would have broken an actively used production workflow.
 
-Current source inspection confirms these workflows publish candidate commits to short-lived conventional `ci/*` branches, create pull requests, merge the exact candidate SHA, verify the merge SHA is reachable from `origin/main`, remove the temporary release branch when possible, and pass the integrated SHA into the reusable Pages deployment workflow. A current default-branch search found no remaining literal `git push origin HEAD:main` publication path.
+PR #377, `Route Dataset Manager updates through controlled integration`, changed only that workflow. The direct push was replaced by:
 
-### Genuine release evidence
+- a short-lived `ci/dataset-request-*` release branch;
+- a pull request for the exact validated candidate SHA;
+- exact-candidate merge through the pull-request API;
+- verification that the merged SHA is reachable from `origin/main`;
+- temporary release-branch cleanup;
+- preservation of canonical and derived dataset validation, issue reporting, and batch-deployment behavior.
 
-#### Atlas Reach
+Both existing PR gates passed (`Validate canonical dataset` and `Atlas navigation integrity`). PR #377 merged as `df27069ada4ed1d65cde2c7a208bfa0653cb662d`.
 
-A genuine mutating re-run of workflow run `33851670491` retrieved **313 visits across 12 countries**, passed validation, created `ci/atlas-reach-33851670491-2`, opened PR #372 through `github-actions[bot]`, and merged into `main` as `ea7fddeec515328a0021f24d3163f65971977d28`. The temporary release branch was removed.
+The continuing production mutation surface that must remain compatible with protected `main` is therefore:
 
-That run proved the controlled release-branch → workflow-created PR → merge path. It also exposed a Pages provenance defect: although the artifact was built from the intended integrated SHA, `actions/deploy-pages@v4` initially registered the reusable-workflow caller SHA as `pages_build_version`.
+- `.github/workflows/update-site-reach.yml`;
+- `.github/workflows/update-dataset.yml` while it remains an intentional manual writer;
+- `.github/workflows/dataset-update-request.yml` for Dataset Manager owner/maintainer updates.
+
+No broad Actions bypass is intended.
+
+## Genuine release evidence
+
+### Atlas Reach
+
+A genuine mutating re-run of workflow run `33851670491` retrieved **313 visits across 12 countries**, passed validation, created `ci/atlas-reach-33851670491-2`, opened PR #372, and merged into `main` as `ea7fddeec515328a0021f24d3163f65971977d28`. The temporary release branch was removed.
+
+That run proved the controlled release-branch → pull request → merge path. It also exposed a Pages provenance defect: the artifact was built from the intended SHA but `actions/deploy-pages@v4` registered the reusable-workflow caller SHA as `pages_build_version`.
 
 PR #373 corrected the reusable Pages workflow by asserting checkout provenance and setting the deployment step's `GITHUB_SHA` to the requested `source_sha`; it merged as `2bd57d0e8864114ddb9d9171d513c75ccb93830f`.
 
-A fresh Atlas Reach mutation using that corrected Pages revision remains the cleanest path-specific runtime proof for the Atlas Reach acceptance item if no later mutating Reach run has already supplied it.
+A fresh Atlas Reach mutation using the corrected Pages revision remains the cleanest path-specific post-fix proof.
 
-#### Canonical dataset / synchronized deployment
+### Canonical dataset and synchronized deployment
 
-Paper 810 was applied as canonical dataset version **2.3.1** at commit `fbf2a224961031771b750d6fd0f9e2fa53ec4f2a`. Its first batch deployment exposed a stale derived Atlas-overview condition. PR #376 repaired deterministic derived-data synchronization and merged as current production commit `00aaccc75f2657a60d346da5290425683bbf149c`.
+Paper 810 was applied as dataset version **2.3.1** at commit `fbf2a224961031771b750d6fd0f9e2fa53ec4f2a`. Its first batch deployment exposed a stale derived Atlas-overview condition. PR #376 repaired deterministic derived-data synchronization and merged as `00aaccc75f2657a60d346da5290425683bbf149c`.
 
-Verified deployment run `34058677903` then deployed the synchronized Atlas successfully. Runtime logs prove:
+Verified deployment run `34058677903` then proved the corrected reusable Pages exact-SHA mechanism end to end:
 
-- reusable `pages.yml` received `source_sha=00aaccc75f2657a60d346da5290425683bbf149c`;
-- checkout `HEAD` equaled that exact SHA;
-- canonical/generated dataset validation and full static/browser QA passed;
-- `actions/deploy-pages@v4` ran with `GITHUB_SHA=00aaccc75f2657a60d346da5290425683bbf149c`;
-- the Pages API payload registered `pages_build_version=00aaccc75f2657a60d346da5290425683bbf149c`;
-- the deployment for that exact SHA reported success.
+- `pages.yml` received `source_sha=00aaccc75f2657a60d346da5290425683bbf149c`;
+- checkout `HEAD` equaled that SHA;
+- canonical/generated dataset validation and static/browser QA passed;
+- `actions/deploy-pages@v4` ran with the same `GITHUB_SHA`;
+- `pages_build_version` was the same SHA;
+- deployment completed successfully.
 
-This is strong post-PR-#373 proof that the reusable Pages exact-SHA provenance mechanism works. It does **not by itself prove** that `.github/workflows/update-dataset.yml` completed its own controlled `ci/dataset-release-*` → workflow-created PR → merge path, because the Paper 810 application used the Dataset Manager owner-automation/batch-deployment route. That distinction must remain explicit until a genuine mutation through the migrated canonical writer is verified or the active writer architecture is deliberately revised.
+This proves the shared exact-SHA Pages mechanism. It does **not** prove that `.github/workflows/update-dataset.yml` has completed a genuine `ci/dataset-release-*` mutation under the migrated design. It also predates PR #377, so a genuine Dataset Manager mutation after protection is still required to prove that newly migrated path.
 
 ## Target `main` protection policy
 
@@ -105,10 +109,10 @@ Protection should enforce the following without a broad workflow bypass:
 2. block force pushes;
 3. block deletion of `main`;
 4. prevent uncontrolled direct development pushes;
-5. allow GitHub Actions to create release pull requests, but do not grant a blanket bypass around `main` protection;
-6. require status checks only when their exact contexts are stable and guaranteed to run for every protected merge path.
+5. allow workflows to create release pull requests and merge them only through the normal protected merge boundary;
+6. require status checks only when their exact contexts are stable and guaranteed for every protected merge path.
 
-At this register refresh, no required status-check context is designated. The repository has multiple workflow types and some checks are PR- or path-specific; unreliable or non-universal contexts must not be made blocking merely for appearance of strictness.
+At this checkpoint, **no required status-check context is designated**. Existing checks are valuable validation evidence but are not universal across all release paths; making a non-universal context mandatory would risk deadlocking valid automated release PRs.
 
 ## Repository control rules
 
@@ -138,11 +142,12 @@ A branch may be proposed for deletion only when all applicable conditions are tr
 Before Issue #368 is closed:
 
 1. enable the target protection/ruleset on `main`;
-2. verify force pushes and branch deletion are blocked;
-3. verify a continuing production release path can still create a controlled release PR and integrate under protected `main`;
-4. verify Pages deploys the resulting exact integrated production SHA;
-5. obtain a genuine controlled-path runtime proof for the canonical dataset writer if `.github/workflows/update-dataset.yml` remains an active production writer;
-6. update this register again with the actual protection/ruleset state and protected-release evidence;
-7. close Issue #368 only after all applicable gates pass.
+2. verify force pushes and deletion of `main` are blocked;
+3. run a genuine mutation through a continuing production writer after protection and verify its controlled release PR merges normally;
+4. verify Pages deploys that exact integrated production SHA where the path includes deployment;
+5. obtain a genuine post-PR-#377 Dataset Manager mutation under protected `main`;
+6. determine whether `.github/workflows/update-dataset.yml` remains an intentional manual production writer; if retained, obtain a genuine migrated-path mutation rather than manufacturing unsupported scientific data;
+7. update this register with the actual protection/ruleset state and protected-release evidence;
+8. close Issue #368 only after all applicable gates pass.
 
-Until those gates pass, the repository has a clean branch topology and protection-compatible workflow design, but `main` must not be described as protected.
+Until those gates pass, the repository has a clean authoritative branch model and protection-compatible workflow design, but `main` must not be described as protected.
