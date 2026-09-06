@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S090`.
+- Latest completed checkpoint: `Stage3-S091`.
 - Current canonical batch: `SOB010`.
-- Current batch status: **5/10 independently extractable members complete**.
-- Latest completed resource: `CR000102`.
+- Current batch status: **6/10 independently extractable members complete**.
+- Latest completed resource: `CR000103`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB009` — **PASS**.
-- Exact next independently extractable resource: `CR000103`.
-- Next checkpoint: `Stage3-S091`.
+- Exact next independently extractable resource: `CR000104`.
+- Next checkpoint: `Stage3-S092`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **105**
+- Technical resource records: **106**
 - Experiments: **190**
 - Configurations: **377**
-- Technical-evidence records: **1299**
-- Static reproducibility assessments: **105**
-- Unresolved findings: **681**
+- Technical-evidence records: **1306**
+- Static reproducibility assessments: **106**
+- Unresolved findings: **687**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **258**
+- Independently extractable resources remaining: **257**
 
 ## Latest checkpoint
 
-`Stage3-S090` completed `CR000102` (`amir-cardiolab/BL-PINN`) at the final Stage-2 pinned SHA `acf606b8081990be8da3778035006be404f685ff`. `PRL000207 → Atlas 650` remains a verified official relationship.
+`Stage3-S091` completed `CR000103` (`HarshaSSL/collisionAI`) at the final Stage-2 pinned SHA `7f17460245aeee22aef12b2adab55b55092c4a55`. `PRL000208 → Atlas 655` remains a verified official relationship.
 
-The pinned repository contains seven clearly separated boundary-layer example directories spanning 1D linear and nonlinear advection-diffusion, 2D Couette flow, 2D double gyre, a 2D inverse problem, an axisymmetric Burgers vortex, and a 3D separation case. One bounded experiment/configuration pair was recorded per case. README evidence documents PyTorch and VTK/ParaView use, while exact dependency versions and a full environment manifest remain unavailable.
+The pinned repository exposes extensive simulated collision-data CSVs and `All_Result_plots.pdf`, but no scientific source-code files, dependency/environment manifest, license file, or substantive README beyond the repository title. The bundled data and result PDF were identified from immutable tree metadata only and were not opened. Because repository evidence does not expose an implementation workflow, no experiment or configuration was manufactured.
 
-S090 records one resource, seven experiments, seven configurations, ten technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload or large result payload was opened or executed. SOB010 is 5/10.
+S091 records one resource, zero experiments, zero configurations, seven technical-evidence records, one R1 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload or bundled data/result payload was opened or executed. SOB010 is 6/10.
 
 ## Continuation
 
-Resume only from `CR000103` for `Stage3-S091`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000104` for `Stage3-S092`. Preserve all accepted pilot exclusions and completed-resource boundaries.
