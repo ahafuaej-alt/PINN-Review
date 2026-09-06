@@ -21443,28 +21443,33 @@
   {
     "id": 810,
     "title": "Physics-informed neural networks for two-phase flow simulations An integrated approach with advanced interface tracking methods",
-    "citation": "ZHOU, W.; MIWA, S.; OKAMOTO, K. Physics-informed neural networks for two-phase flow simulations An integrated approach with advanced interface tracking methods. 人工知能学会全国大会論文集 2024, JSAI2024, 4Q1IS2c02-4Q1IS2c02. https://doi.org/10.11517/pjsai.JSAI2024.0_4Q1IS2c02.",
+    "citation": "ZHOU, W.; MIWA, S.; OKAMOTO, K. Physics-informed neural networks for two-phase flow simulations An integrated approach with advanced interface tracking methods. In Proceedings of Japanese Society of Artificial Intelligence National Conference, Hamamatsu, Japan, 28-31 May 2024; Abstract JSAI2024, p. 4Q1IS2c02. https://doi.org/10.11517/pjsai.JSAI2024.0_4Q1IS2c02.",
     "doi": "10.11517/pjsai.JSAI2024.0_4Q1IS2c02",
     "publisher_url": "https://doi.org/10.11517/pjsai.JSAI2024.0_4Q1IS2c02",
-    "venue": "人工知能学会全国大会論文集",
-    "reference_type": "other",
+    "venue": "The 38th Annual Conference of the Japanese Society for Artificial Intelligence",
+    "reference_type": "conference",
     "bibliographic": {
       "authors": "ZHOU, W.; MIWA, S.; OKAMOTO, K.",
       "journal_abbreviation": "人工知能学会全国大会論文集",
       "volume": "JSAI2024",
-      "pages": "4Q1IS2c02-4Q1IS2c02",
+      "pages": "4Q1IS2c02",
       "publisher": "一般社団法人 人工知能学会",
+      "conference_name": "Japanese Society of Artificial Intelligence National Conference",
+      "conference_location": "Hamamatsu",
+      "conference_country": "Japan",
+      "conference_date": "28-31 May 2024",
+      "abstract_number": "JSAI2024",
       "publication_date": "2024",
       "report_number": "0"
     },
-    "abstract": null,
+    "abstract": "Physics-informed neural networks (PINNs) are emerging as a promising artificial intelligence approach for solving complex two-phase flow simulations. A critical challenge in these simulations are the accurate representation of the gas-liquid interface with different interface tracking methods. Therefore, this study aims to develop a robust and generic PINNs for two phase flows by incorporating the Navier-Stokes equations and three advanced interface tracking methods—specifically, the Volume of Fluid, Set, and Phase-Field methods—into an improved PINNs framework that has been previously proposed and validated. To further enhance the performance of the PINNs in simulating two phase flow, the phase constraints field strategies and the time-divisor-conquer algorithm employed are for restricting neural network training within the scope of physical laws. The improved PINNs then is optimized by minimizing both the residual and loss terms of partial differential equations. The case of single rising bubble in two-phase flows is simulated to validate the robustness and accuracy of the improved PINNs. The accuracy of the simulations is compared with the velocity, pressure, and phase field against CFD solutions. The results indicate that the improved PINNs coupled with these interface tracking methods offers a satisfactory consistency in simulating rising bubble.",
     "graphical_abstract": null,
     "year": 2024,
-    "access": "Subscription",
+    "access": "Open access",
     "countries": [
       "Japan"
     ],
-    "last_updated": "2026-07-23"
+    "last_updated": "2026-09-06"
   },
   {
     "id": 811,

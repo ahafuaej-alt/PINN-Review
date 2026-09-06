@@ -2,6 +2,49 @@
   "schema_version": "1.0.0",
   "changes": [
     {
+      "change_id": "paper-810-2026-09-06-2.3.1",
+      "version": "2.3.1",
+      "date": "2026-09-06",
+      "paper_id": 810,
+      "changed_fields": [
+        "citation",
+        "bibliographic",
+        "abstract",
+        "venue",
+        "access"
+      ],
+      "reason": "All \nWen Zhou, Shuichiro MIWA, Koji Okamoto, Physics-Informed Neural Networks for Two-Phase Flow Simulations: An Integrated Approach with Advanced Interface Tracking Methods, Japanese Society of Artificial Intelligence National Conference, 2024, JSAI2024 Volume, 38th (2024), Session ID 4Q1-IS-2c-02, p. 4Q1IS2c02, Publish date 2024/06/11, Online ISSN 2758-7347, https://doi.org/10.11517/pjsai.JSAI204.0_4Q1IS2c02, https://www.jstage.jst.go.jp/article/pjsai/JSAI2024/0/JSAI2024_4Q1IS2c02/_article/-char/ja,",
+      "evidence": {
+        "url": "https://www.jstage.jst.go.jp/article/pjsai/JSAI2024/0/JSAI2024_4Q1IS2c02/_article/-char/ja/",
+        "note": "All \nWen Zhou, Shuichiro MIWA, Koji Okamoto, Physics-Informed Neural Networks for Two-Phase Flow Simulations: An Integrated Approach with Advanced Interface Tracking Methods, Japanese Society of Artificial Intelligence National Conference, 2024, JSAI2024 Volume, 38th (2024), Session ID 4Q1-IS-2c-02, p. 4Q1IS2c02, Publish date 2024/06/11, Online ISSN 2758-7347, https://doi.org/10.11517/pjsai.JSAI204.0_4Q1IS2c02, https://www.jstage.jst.go.jp/article/pjsai/JSAI2024/0/JSAI2024_4Q1IS2c02/_article/-char/ja,"
+      },
+      "submitted_by": null,
+      "impact": {
+        "paper_id": 810,
+        "changed_fields": [
+          "citation",
+          "bibliographic",
+          "abstract",
+          "venue",
+          "access"
+        ],
+        "reference_publication_counts": [],
+        "realm_publication_counts": [],
+        "realm_country_count": {
+          "before": 63,
+          "after": 63
+        },
+        "collaboration_pair_count": {
+          "before": 172,
+          "after": 172
+        },
+        "affected_views": [
+          "Reference card, filters, details, search, analytics, and citation exports",
+          "Machine-readable metadata, provenance, and dataset version"
+        ]
+      }
+    },
+    {
       "change_id": "publication-year-source-2026-08-29",
       "version": "2.3.0",
       "date": "2026-08-29",
