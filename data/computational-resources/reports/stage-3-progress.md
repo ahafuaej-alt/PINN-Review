@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S086`.
+- Latest completed checkpoint: `Stage3-S087`.
 - Current canonical batch: `SOB010`.
-- Current batch status: **1/10 independently extractable members complete**.
-- Latest completed resource: `CR000098`.
+- Current batch status: **2/10 independently extractable members complete**.
+- Latest completed resource: `CR000099`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB009` — **PASS**.
-- Exact next independently extractable resource: `CR000099`.
-- Next checkpoint: `Stage3-S087`.
+- Exact next independently extractable resource: `CR000100`.
+- Next checkpoint: `Stage3-S088`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **101**
-- Experiments: **181**
-- Configurations: **367**
-- Technical-evidence records: **1265**
-- Static reproducibility assessments: **101**
-- Unresolved findings: **657**
+- Technical resource records: **102**
+- Experiments: **182**
+- Configurations: **369**
+- Technical-evidence records: **1274**
+- Static reproducibility assessments: **102**
+- Unresolved findings: **663**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **262**
+- Independently extractable resources remaining: **261**
 
 ## Latest checkpoint
 
-`Stage3-S086` completed `CR000098` (`LivingMatterLab/xPINNs`) at the final Stage-2 pinned SHA `3b05f729bd471f680b1fb7dfa6458cc632a0ee67`. `PRL000201 → Atlas 616` remains a verified official relationship.
+`Stage3-S087` completed `CR000099` (`mroberto166/wpinns`) at the final Stage-2 pinned SHA `eef571bdd86fac5436c5c71a643611f283930442`. `PRL000202 → Atlas 631` remains a verified official relationship.
 
-Material complexity required a single-resource checkpoint. Four bounded experiment families and four configurations preserve the deterministic PINN, Bayesian PINN/HMC, analytical Bayesian-inference comparator, and SA-PINN COVID-oscillator workflows. The shared `covid_world.dat` dataset is bundled across workflow directories, and source/result artifacts are retained without execution. The analytical Bayesian workflow is explicitly retained as a non-PINN comparator rather than being relabeled.
+Material complexity required a single-resource checkpoint. One bounded experiment and two configurations preserve the parameterized weak-PINN ensemble/retraining workflow without expanding its generated setup/retraining combinations into synthetic configuration records. The pinned source includes the ShockRarEntropy equation model, Data.zip archive, and extensive RarefactionWave precomputed result artifacts; archives and serialized models were not opened or loaded.
 
-S086 records one resource, four experiments, four configurations, nine technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload was executed. SOB010 is 1/10.
+S087 records one resource, one experiment, two configurations, nine technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload was executed. SOB010 is 2/10.
 
 ## Continuation
 
-Resume only from `CR000099` for `Stage3-S087`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000100` for `Stage3-S088`. Preserve all accepted pilot exclusions and completed-resource boundaries.
