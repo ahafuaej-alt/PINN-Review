@@ -1,23 +1,23 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-06  
-Current checkpoint: `Stage3-S089`  
-Current batch: `SOB010` (4/10)  
-Current unresolved count: **675**  
-Next unresolved ID: `S3U-0676`  
+Current checkpoint: `Stage3-S090`  
+Current batch: `SOB010` (5/10)  
+Current unresolved count: **681**  
+Next unresolved ID: `S3U-0682`  
 Explicit conflict count: **100**
 
-## Stage3-S089 additions — CR000101
+## Stage3-S090 additions — CR000102
 
-- `S3U-0670` — Executable scientific source is delivered inside `XPINN_Code.zip`; deep archive inspection is deferred, so internal entrypoints, experiment cases, and configuration details remain unresolved at this checkpoint.
-- `S3U-0671` — No dependency/environment manifest or installation procedure is exposed at the pinned repository root.
-- `S3U-0672` — The README recommends TensorFlow 1.14 and Python 3.6, but the broader dependency/version environment required by the archived workflows is not established by the inspected root evidence.
-- `S3U-0673` — Dataset and input-file requirements for the archived XPINN workflows cannot be established from the pinned root tree and README alone.
-- `S3U-0674` — Random-seed and hardware provenance are not documented in the inspected root evidence.
-- `S3U-0675` — Evaluation commands, expected numeric outputs, and checkpoint/model artifacts cannot be established from the inspected root evidence.
+- `S3U-0676` — No repository license was identified at the final Stage-2 pinned snapshot.
+- `S3U-0677` — PyTorch and VTK are documented, but exact versions and a reconstructable dependency/environment manifest are unavailable.
+- `S3U-0678` — Random-seed provenance is not established by the bounded static inspection.
+- `S3U-0679` — Hardware provenance is not established by the bounded static inspection.
+- `S3U-0680` — A canonical end-to-end run command and expected numeric outputs are not documented in the inspected README/tree evidence.
+- `S3U-0681` — Case-specific input/data and result provenance across all seven workflows remain only partially characterized under bounded inspection.
 
-No new explicit conflict is recorded in S089.
+No new explicit conflict is recorded in S090.
 
 ## Continuation
 
-Continue from `S3U-0676` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
+Continue from `S3U-0682` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
