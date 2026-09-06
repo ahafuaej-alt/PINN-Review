@@ -7,35 +7,35 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S087`.
+- Latest completed checkpoint: `Stage3-S088`.
 - Current canonical batch: `SOB010`.
-- Current batch status: **2/10 independently extractable members complete**.
-- Latest completed resource: `CR000099`.
+- Current batch status: **3/10 independently extractable members complete**.
+- Latest completed resource: `CR000100`.
 - Checkpoint QA: **PASS**.
 - Latest completed aggregate batch QA: `SOB009` — **PASS**.
-- Exact next independently extractable resource: `CR000100`.
-- Next checkpoint: `Stage3-S088`.
+- Exact next independently extractable resource: `CR000101`.
+- Next checkpoint: `Stage3-S089`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **102**
-- Experiments: **182**
-- Configurations: **369**
-- Technical-evidence records: **1274**
-- Static reproducibility assessments: **102**
-- Unresolved findings: **663**
+- Technical resource records: **103**
+- Experiments: **183**
+- Configurations: **370**
+- Technical-evidence records: **1282**
+- Static reproducibility assessments: **103**
+- Unresolved findings: **669**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **261**
+- Independently extractable resources remaining: **260**
 
 ## Latest checkpoint
 
-`Stage3-S087` completed `CR000099` (`mroberto166/wpinns`) at the final Stage-2 pinned SHA `eef571bdd86fac5436c5c71a643611f283930442`. `PRL000202 → Atlas 631` remains a verified official relationship.
+`Stage3-S088` completed `CR000100` (`Ulvetanna/HypoSVI`) at the final Stage-2 pinned SHA `4d449575d3266507741e844e4f1a39935c65f987`. `PRL000203 → Atlas 634` remains a verified official relationship.
 
-Material complexity required a single-resource checkpoint. One bounded experiment and two configurations preserve the parameterized weak-PINN ensemble/retraining workflow without expanding its generated setup/retraining combinations into synthetic configuration records. The pinned source includes the ShockRarEntropy equation model, Data.zip archive, and extensive RarefactionWave precomputed result artifacts; archives and serialized models were not opened or loaded.
+Material complexity required a single-resource checkpoint. One bounded experiment and one configuration preserve the repository's HypoSVI hypocenter-location workflow, which combines external trained EikoNet travel-time models with Stein variational gradient descent. The final Stage-2 role `research_code_related_to_pinn_corpus` is preserved rather than manufacturing a broader standalone PINN-implementation classification.
 
-S087 records one resource, one experiment, two configurations, nine technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and no new explicit conflict. No scientific workload was executed. SOB010 is 2/10.
+S088 records one resource, one experiment, one configuration, eight technical-evidence records, one R2 reproducibility assessment, six new unresolved findings, and no new explicit conflict. The pinned package documents MIT licensing, installation and algorithm defaults, but exact dependency versions, external EikoNet checkpoint/data provenance, deterministic particle-initialization seed, and hardware provenance remain incomplete. No scientific workload was executed. SOB010 is 3/10.
 
 ## Continuation
 
-Resume only from `CR000100` for `Stage3-S088`. Preserve all accepted pilot exclusions and completed-resource boundaries.
+Resume only from `CR000101` for `Stage3-S089`. Preserve all accepted pilot exclusions and completed-resource boundaries.

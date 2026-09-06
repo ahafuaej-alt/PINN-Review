@@ -2,12 +2,12 @@
 
 Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S087`  
+Latest checkpoint: `Stage3-S088`  
 Status: **PASS**
 
-## Stage3-S087 checkpoint QA
+## Stage3-S088 checkpoint QA
 
-Resource: `CR000099`
+Resource: `CR000100`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,27 +28,27 @@ Resource: `CR000099`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 1 experiment / 2 configurations / 9 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 1 experiment / 1 configuration / 8 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
 
-## Cumulative counts through S087
+## Cumulative counts through S088
 
-- Resources: **102**
-- Experiments: **182**
-- Configurations: **369**
-- Technical evidence: **1274**
-- Reproducibility assessments: **102**
-- Unresolved findings: **663**
+- Resources: **103**
+- Experiments: **183**
+- Configurations: **370**
+- Technical evidence: **1282**
+- Reproducibility assessments: **103**
+- Unresolved findings: **669**
 - Explicit conflicts: **100**
-- Independently extractable resources remaining: **261**
+- Independently extractable resources remaining: **260**
 
 ## Aggregate batch QA
 
-`SOB010` is **2/10** after S087, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
+`SOB010` is **3/10** after S088, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
 
 ## Scientific QA note
 
-CR000099 preserves final Stage-2 identity and the verified `PRL000202 → Atlas 631` official relationship. The extraction preserves the weak-PINN ensemble and single-retraining surfaces, the ShockRarEntropy equation model, bundled archive metadata, and precomputed RarefactionWave artifacts without loading archives or serialized models. R2 is supported by explicit mathematics/training controls, deterministic sampling seed, and provider-bundled result evidence; the absent license, dependency/environment manifest, installation procedure, hardware provenance, and complete command-to-artifact manifest prevent a higher static reproducibility level. No scientific workload was executed.
+CR000100 preserves final Stage-2 identity and the verified `PRL000203 → Atlas 634` official relationship. The extraction retains the authoritative research-code role and represents one EikoNet-coupled hypocenter-location experiment with one default configuration. R2 is supported by available source, MIT licensing, installation instructions, declared dependencies and explicit SVGD/location defaults; exact dependency versions, external EikoNet model/data provenance, deterministic seed and hardware provenance prevent a higher static reproducibility level. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000100`. Next checkpoint: `Stage3-S088`.
+Exact next independently extractable resource: `CR000101`. Next checkpoint: `Stage3-S089`.
