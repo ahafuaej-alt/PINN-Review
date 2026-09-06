@@ -5,43 +5,43 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S099`
-- Batch: `SOB011` — **4/10 complete**
-- Resource: `CR000111`
+- Checkpoint: `Stage3-S100`
+- Batch: `SOB011` — **5/10 complete**
+- Resource: `CR000112`
 - Checkpoint status: **PASS**
 - Latest aggregate batch QA: `SOB010` — **PASS**
 
-## S099 checkpoint counts
+## S100 checkpoint counts
 
 - Resources: **1**
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **5**
+- Experiments: **1**
+- Configurations: **1**
+- Technical-evidence records: **10**
 - Reproducibility assessments: **1**
 - New unresolved findings: **5**
 - New explicit conflicts: **0**
 
-## Cumulative counts through S099
+## Cumulative counts through S100
 
-- Resources: **114**
-- Experiments: **201**
-- Configurations: **392**
-- Technical-evidence records: **1369**
-- Reproducibility assessments: **114**
-- Unresolved findings: **730**
+- Resources: **115**
+- Experiments: **202**
+- Configurations: **393**
+- Technical-evidence records: **1379**
+- Reproducibility assessments: **115**
+- Unresolved findings: **735**
 - Explicit conflicts: **101**
-- Independently extractable resources remaining: **249**
+- Independently extractable resources remaining: **248**
 
 ## QA gates
 
-Schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening and branch-head stability all **PASS** for S099.
+Schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening and branch-head stability all **PASS** for S100.
 
-SOB011 is 4/10; aggregate SOB011 QA is not yet due. Latest completed aggregate remains SOB010 — **PASS**.
+SOB011 is 5/10; aggregate SOB011 QA is not yet due. Latest completed aggregate remains SOB010 — **PASS**.
 
 ## Scientific/reproducibility note
 
-`CR000111` remains unavailable and `PRL000218 → Atlas 671` remains `not_verified`, exactly matching final Stage-2 authority. The historical Stage-2 implementation classification is preserved as provenance but not upgraded to a verified Stage-3 technical profile. With no inspectable source snapshot, R0 and zero experiments/configurations are the defensible static result.
+`CR000112` is a pinned DMF-TONN implementation whose source explicitly couples a physics-informed 3D linear-elasticity displacement network to a density-field topology network. The default repository workflow is a 40×20×8 cantilever case with explicit seeds, Adam learning rates and training schedules. R2 is conservative because the pinned snapshot lacks a dependency/version manifest, installation instructions, a repository license, runtime-hardware provenance and a provider-bundled numerical acceptance target.
 
 ## Continuation
 
-Exact next resource: `CR000112`. Exact next checkpoint: `Stage3-S100`.
+Exact next resource: `CR000113`. Exact next checkpoint: `Stage3-S101`.
