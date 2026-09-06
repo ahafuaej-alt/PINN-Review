@@ -2,12 +2,12 @@
 
 Date: 2026-09-06  
 Branch: `data/computational-resources-stage3`  
-Latest checkpoint: `Stage3-S091`  
+Latest checkpoint: `Stage3-S092`  
 Status: **PASS**
 
-## Stage3-S091 checkpoint QA
+## Stage3-S092 checkpoint QA
 
-Resource: `CR000103`
+Resource: `CR000104`
 
 - Accepted Stage3-D01 methodology/schemas: **unchanged**
 - Final Stage-2 authority resolution: **PASS**
@@ -28,27 +28,27 @@ Resource: `CR000103`
 - Branch-head stability before publication: **PASS**
 - Checkpoint commit policy: **PASS**
 
-Checkpoint counts: **1 resource / 0 experiments / 0 configurations / 7 evidence records / 1 reproducibility assessment / 6 unresolved / 0 conflicts**.
+Checkpoint counts: **1 resource / 3 experiments / 3 configurations / 9 evidence records / 1 reproducibility assessment / 6 unresolved / 1 conflict**.
 
-## Cumulative counts through S091
+## Cumulative counts through S092
 
-- Resources: **106**
-- Experiments: **190**
-- Configurations: **377**
-- Technical evidence: **1306**
-- Reproducibility assessments: **106**
-- Unresolved findings: **687**
-- Explicit conflicts: **100**
-- Independently extractable resources remaining: **257**
+- Resources: **107**
+- Experiments: **193**
+- Configurations: **380**
+- Technical evidence: **1315**
+- Reproducibility assessments: **107**
+- Unresolved findings: **693**
+- Explicit conflicts: **101**
+- Independently extractable resources remaining: **256**
 
 ## Aggregate batch QA
 
-`SOB010` is **6/10** after S091, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
+`SOB010` is **7/10** after S092, so aggregate SOB010 QA is **not yet due**. Latest completed aggregate remains `SOB009` — **PASS**.
 
 ## Scientific QA note
 
-CR000103 preserves final Stage-2 identity, pinned SHA `7f17460245aeee22aef12b2adab55b55092c4a55`, and verified `PRL000208 → Atlas 655` official relationship. The final pinned tree contains provider-bundled simulated collision datasets and a result PDF but no scientific source-code files, executable entrypoint, dependency/environment manifest, license file, or substantive method documentation. The Stage-2 PINN classification is preserved as identity provenance while Stage-3 experiment/configuration mappings are left empty because the pinned repository itself does not expose an implementation workflow. R1 is appropriate for the available official artifact and bundled evidence surface without reconstructable scientific execution. No scientific workload or bundled payload was opened or executed.
+CR000104 preserves final Stage-2 identity, pinned SHA `e02fd50eb4cf87074e31550ebdd47c1eba9dae08`, and verified `PRL000209 → Atlas 656` official relationship. Static source inspection establishes a convolutional QuantumShellNet architecture and three documented prediction task modes, with explicit seeds, optimizer/training controls, requirements and testing logic. No PINN/PDE-residual implementation is present in the inspected source, so `non_pinn_research_code` preserves resource-role distinction. A consequential reproducibility conflict is retained: train.py parses `save_folder` and test.py parses `load_folder`, while both later reference undefined `args.root`; README command wording is also inconsistent with those source interfaces. R1 is therefore conservative despite otherwise substantial documentation. No scientific workload was executed.
 
 ## Continuation
 
-Exact next independently extractable resource: `CR000104`. Next checkpoint: `Stage3-S092`.
+Exact next independently extractable resource: `CR000105`. Next checkpoint: `Stage3-S093`.
