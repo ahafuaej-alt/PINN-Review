@@ -97,6 +97,10 @@ The public navigation is organized around one featured system and six research f
 | **[Publisher Metadata Review](https://ahafuaej-alt.github.io/PINN-Review/dataset-manager/review/)** | **Live** | Review surface for DOI, publisher, and arXiv metadata proposals. |
 | **[Reference Changelog](https://ahafuaej-alt.github.io/PINN-Review/references/changelog/)** | **Live** | Version history, provenance, correction history, and data-quality policy. |
 
+Production publication is governed separately from scientific evidence curation. `main` is the protected production authority: production mutations are validated and integrated through pull requests, while active scientific workstreams remain isolated until deliberate scientific closure and integration review.
+
+Atlas Reach provides a separate operational view of aggregate site usage. Its GoatCounter-derived snapshot is refreshed automatically each day, publishes only aggregate visit and country-level statistics, and is deliberately kept separate from **PINN Realm**, which describes the geography of the research corpus rather than the geography of Atlas visitors.
+
 The primary navigation also exposes **[Cite](https://ahafuaej-alt.github.io/PINN-Review/cite/)** directly. Privacy and the 404 recovery page are supporting public routes rather than primary menu destinations.
 
 > **Status matters.** A prepared workspace is not presented as a populated evidence dataset. Live status is reserved for public views whose underlying records or curated taxonomy are available for inspection.
@@ -114,6 +118,7 @@ Current public data include:
 - **62** canonical activation-function entries
 - **9** PINN ecosystem layers and **35** methodological groups
 - **114** mathematical formulation records supported by **154** unique papers
+- an **active aggregate Atlas Reach snapshot**, refreshed daily and maintained separately from the scientific evidence datasets
 
 The compact cross-module status source is [`data/atlas-overview.json`](data/atlas-overview.json).
 
@@ -160,6 +165,7 @@ Available client-side citation/data exports include BibTeX, RIS, EndNote-compati
 - [`data/papers-master.json`](data/papers-master.json) — canonical paper register
 - [`data/references-metadata.json`](data/references-metadata.json) — bibliography metadata and dataset summary
 - [`data/atlas-overview.json`](data/atlas-overview.json) — cross-module Home/status summary
+- [`data/site-reach.json`](data/site-reach.json) — aggregate Atlas Reach snapshot, refreshed daily and kept separate from scientific evidence data
 - [`data/pinn-realm.json`](data/pinn-realm.json) — geographic evidence dataset
 - [`data/pinn-ecosystem/pinn-ecosystem.json`](data/pinn-ecosystem/pinn-ecosystem.json) — PINN ecosystem taxonomy
 - [`data/optimizers/optimizer-records.json`](data/optimizers/optimizer-records.json) — normalized optimizer evidence
@@ -260,7 +266,7 @@ PINN-Review/
 
 ### Publishing
 
-The repository deploys to GitHub Pages from `main` through `.github/workflows/pages.yml`. Canonical-data, navigation, Home, Mathematical Formulations, UI-refinement, and README-integrity checks run before Pages upload/deployment.
+The repository deploys to GitHub Pages from protected `main` through `.github/workflows/pages.yml`. Production-changing workflows integrate validated candidates through pull requests before deployment; the deployment path verifies and publishes the exact integrated production commit. Canonical-data, navigation, Home, Mathematical Formulations, UI-refinement, and README-integrity checks run before Pages upload/deployment.
 
 ### README synchronization gate
 
