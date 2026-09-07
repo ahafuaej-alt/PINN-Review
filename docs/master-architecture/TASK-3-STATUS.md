@@ -12,8 +12,8 @@ Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 |---|---|---|
 | 3.1 Define all first-class Paper Profile sections | **PASS — COMPLETE** | `TASK-3.1-FIRST-CLASS-PAPER-PROFILE-SECTIONS.md` |
 | 3.2 Expand every section field-by-field | **PASS — COMPLETE** | `TASK-3.2-PAPER-PROFILE-FIELD-SPECIFICATION.md` |
-| 3.3 Define conditional profile sections and display logic | **NEXT** | Not started |
-| 3.4 Define evidence/provenance drill-down behavior | **PENDING** | Not started |
+| 3.3 Define conditional profile sections and display logic | **PASS — COMPLETE** | `TASK-3.3-CONDITIONAL-PROFILE-SECTIONS-AND-DISPLAY-LOGIC.md` |
+| 3.4 Define evidence/provenance drill-down behavior | **NEXT** | Not started |
 | 3.5 Create a machine-readable profile specification in GitHub | **PENDING** | Not started |
 | 3.6 Create a Paper Profile UI mockup before implementation | **PENDING** | Not started |
 
@@ -62,8 +62,31 @@ The specification treats the Paper Profile as a read projection rather than a co
 
 No mandatory `study_component_id`, `physical_knowledge_representation[]`, competing `solution_postprocessing[]`, competing canonical `adaptive_weighting[]`, premature PINN-type entity, framework-synthesis paper fields, or Computational Resources fields were introduced.
 
+## Task 3.3 completion boundary
+
+Task 3.3 defines deterministic conditional section/body rendering over the Task-3.1/3.2 contract without creating new scientific ownership.
+
+Core decisions:
+
+- all **19/19** `PP-01`–`PP-19` semantic section identities remain permanently discoverable in a fixed section-status index;
+- exactly **3/3** core section bodies always render: `PP-01`, `PP-02`, `PP-19`;
+- exactly **16/16** scientific section bodies (`PP-03`–`PP-18`) are conditional on scientific applicability, represented governed content, explicit semantic states, integrity-forced visibility or review-mode pending content;
+- applicability, represented-content state and scientific integrity are separate display axes and are never collapsed into one ambiguous status;
+- `not_applicable` is not treated as missing; empty arrays are not treated as negative evidence or `not_reported`;
+- verified negative/inconclusive outcomes, conflicts, mismatches, provisional terms and source-local terms remain visible;
+- review-only papers use `REVIEW_SYNTHESIS_SCOPE` and do not populate direct scientific sections from cited-study content;
+- mixed papers preserve current-paper/reanalysis/review/cited/adapted source/component scope without introducing mandatory `study_component_id`;
+- public verified mode excludes unreviewed AI/extraction proposals from scientific claims, while maintenance mode may show them as clearly separate pending content;
+- no generic profile-completeness percentage may be computed from field filling;
+- mobile/compact/export views must preserve the same scientific distinctions;
+- new locked-v0.7 fields/entities = **0**;
+- silently revived prohibited/deferred structures = **0**;
+- Computational Resources boundary violations = **0**.
+
+The authoritative decision record is `TASK-3.3-CONDITIONAL-PROFILE-SECTIONS-AND-DISPLAY-LOGIC.md`.
+
 ## Exact next action
 
-Proceed only to **Task 3.3 — define conditional profile sections and display logic**, using the Task 3.1 section identities and Task 3.2 field/applicability/ownership contract as mandatory inputs.
+Proceed only to **Task 3.4 — define evidence/provenance drill-down behavior**, using PP-19, the Task 3.2 evidence ownership contract and Task 3.3 minimum visibility/status obligations as mandatory inputs.
 
-**STOP boundary: Task 3.3 has not been started.**
+**STOP boundary: Task 3.4 has not been started.**
