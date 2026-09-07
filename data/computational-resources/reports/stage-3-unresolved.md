@@ -1,28 +1,28 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08  
-Current checkpoint: `Stage3-S118`  
+Current checkpoint: `Stage3-S119`  
 Latest completed batch: `SOB012` — **PASS**  
-Current batch: `SOB013` (6/10)  
-Current unresolved count: **865**  
-Next unresolved ID: `S3U-0866`  
-Explicit conflict count: **111**
+Current batch: `SOB013` (7/10)  
+Current unresolved count: **871**  
+Next unresolved ID: `S3U-0872`  
+Explicit conflict count: **112**
 
-## Stage3-S118 additions — CR000133
+## Stage3-S119 additions — CR000134
 
-- `S3U-0860` — the pinned README explicitly states that an environment-setup tutorial will be updated later, leaving installation guidance incomplete.
-- `S3U-0861` — a complete version-pinned software environment was not established from authoritative static evidence.
-- `S3U-0862` — the heterogeneous PDE example suite does not expose one canonical executable entrypoint or one configuration applicable across all problem families.
-- `S3U-0863` — random-seed policy was not established in the bounded evidence.
-- `S3U-0864` — hardware used for the reported scientific experiments was not established in the bounded evidence.
-- `S3U-0865` — availability of released trained checkpoints was not established.
+- `S3U-0866` — no repository license was identified in the authoritative pinned Stage-2 snapshot.
+- `S3U-0867` — no dependency manifest or complete version-pinned environment is present; QSSA source imports Assimulo alongside the numerical/learning stack.
+- `S3U-0868` — the Robertson-QSSA script defaults to restart mode and attempts to load `models/robertson_pinn.pt.tar`, but the checkpoint is absent from the pinned recursive tree. **Explicit conflict.**
+- `S3U-0869` — NumPy seeding is explicit, but the regular Robertson script has PyTorch seed calls commented out, so full stochastic seed control is incomplete.
+- `S3U-0870` — experimental hardware is not documented in the bounded static evidence.
+- `S3U-0871` — installation instructions and a canonical environment reconstruction procedure are not provided.
 
-S118 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **111**.
+S119 adds **1 explicit conflict**. Cumulative explicit conflict count is **112**.
 
 ## Batch status
 
-`SOB012` remains **PASS (10/10)**. `SOB013` is **6/10** after CR000133.
+`SOB012` remains **PASS (10/10)**. `SOB013` is **7/10** after CR000134.
 
 ## Continuation
 
-Continue from `S3U-0866` only for genuinely new findings. Exact next resource is `CR000134` for `Stage3-S119`.
+Continue from `S3U-0872` only for genuinely new findings. Exact next resource is `CR000135` for `Stage3-S120`.
