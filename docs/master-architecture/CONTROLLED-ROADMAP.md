@@ -48,9 +48,9 @@ Task 2 shared architecture registry: `atlas-architecture-registry.json`.
 
 Task 2 read-only drift validator: `validate-architecture-registry.py`.
 
-### Task 3 — Define the complete Paper Profile
-- 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence.
-- 3.2 Expand each section field-by-field.
+### Task 3 — Define the complete Paper Profile — IN PROGRESS
+- 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence. — **PASS / COMPLETE**
+- 3.2 Expand each section field-by-field. — **NEXT**
 - 3.3 Define conditional profile sections and display logic.
 - 3.4 Define evidence/provenance drill-down behavior.
 - 3.5 Create a machine-readable profile specification in GitHub.
@@ -254,8 +254,10 @@ Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementati
 
 Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
-The shared machine-readable architecture coordination source is `atlas-architecture-registry.json`; `validate-architecture-registry.py` defines the read-only cross-artifact drift checks. Neither is a scientific ontology owner.
+Task 3 is **IN PROGRESS**. Task 3.1 is **PASS / COMPLETE**. The first-class Paper Profile architecture contains **19/19 sections (`PP-01`–`PP-19`)**, maps all **20/20** Task-2.2 L4 permanent conceptual facets, preserves L2/L3/L5 authority boundaries, and has **0** profile-section conceptual orphans. No locked-v0.7 scientific fields/entities were added.
 
-**STOP boundary:** Task 3 has not been started.
+The shared machine-readable architecture coordination source remains `atlas-architecture-registry.json`; `validate-architecture-registry.py` remains the read-only Task-2 cross-artifact drift contract. Neither is a scientific ontology owner.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 3 — Define the complete Paper Profile**, beginning with Task 3.1 under the frozen Master Plan v1.0 and locked v0.7 scientific authority.
+**STOP boundary:** Task 3.2 has not been started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 3.2 — expand each PP-01–PP-19 section field-by-field** under the frozen Master Plan v1.0 and locked v0.7 scientific authority.
