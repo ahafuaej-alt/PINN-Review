@@ -8,8 +8,8 @@ This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md` wit
 |---|---|---|
 | 1.1 Authoritative Reconciliation | **PASS — COMPLETE (surface scope clarified)** | `TASK-1.1-AUTHORITATIVE-RECONCILIATION.md` + `ATLAS-PRODUCTION-SURFACE-REGISTER.md` |
 | 1.2 Complete project objective | **PASS — COMPLETE (surface scope clarified)** | `TASK-1.2-COMPLETE-PROJECT-OBJECTIVE.md` + `ATLAS-PRODUCTION-SURFACE-REGISTER.md` |
-| 1.3 Non-negotiable scientific rules | **NEXT** | Not started |
-| 1.4 Controlled dynamic-extension rules | Pending | Not started |
+| 1.3 Non-negotiable scientific rules | **PASS — COMPLETE** | `TASK-1.3-NON-NEGOTIABLE-SCIENTIFIC-RULES.md` |
+| 1.4 Controlled dynamic-extension rules | **NEXT** | Not started |
 | 1.5 Operational scale-out acceptance gates | Pending | Not started |
 | 1.6 Formal requirement/coverage matrix | Pending | Not started |
 | 1.7 Freeze Master Plan v1.0 | Pending | Not started |
@@ -20,11 +20,22 @@ This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md` wit
 
 The Master Architecture must consider the **complete Atlas production surface**, not only the 31-field PINN Ecosystem, the four Atlas frameworks, the Dataset Manager, or other highlighted scientific/implementation subsystems.
 
-The current minimum route register contains:
+The current 26-route inventory is a **current-surface migration/preservation baseline**, not the final target information architecture and not a route ceiling. Task 9 must inspect the repository/site and add any additional production route, tool, generated surface, deep-link surface, or independently linked Atlas-facing consumer found at audit time.
 
-`/` · `/pinn-ecosystem/` · `/architectures/` · `/activation-functions/` · `/training/` · `/optimizers/` · `/performance-metrics/` · `/mathematical-formulations/` · `/pinn-types/` · `/abbreviations/` · `/pinn-realm/` · `/applications/` · `/references/` · `/software/` · `/datasets/` · `/frameworks/` · `/frameworks/design-stack/` · `/frameworks/co-design/` · `/frameworks/design-performance/` · `/frameworks/failure-diagnostics/` · `/dataset-manager/` · `/dataset-manager/review/` · `/references/changelog/` · `/cite/` · `/privacy/` · `/404.html`.
+The permanent architecture must also permit governed addition of future Atlas pages and page families. Current pages may later be retained, redesigned, merged, nested, renamed, replaced, redirected, or retired only after explicit dependency/migration/regression treatment.
 
-This is a minimum inventory, not a closed list. Task 9 must inspect the repository/site and add any additional production route, tool, generated surface, or independently linked Atlas-facing consumer found at audit time.
+The reserved future Computational Resources information-architecture direction remains:
+
+```text
+Computational Resources
+├── Code & Software
+├── Datasets
+├── Frameworks & Libraries
+├── Simulators & Solvers
+└── Reproducibility Explorer
+```
+
+This does not authorize modification of Computational Resources Stage 1/2/3 branches.
 
 ## Task 1.1 completion boundary
 
@@ -36,14 +47,26 @@ Task 1.1's deeper treatment of Ecosystem, frameworks, bibliography, Dataset Mana
 
 Task 1.2 formally defines the complete end-to-end project objective from primary scientific sources through bibliography, evidence/provenance, verified paper-level scientific knowledge, dynamic ontology, cross-paper intelligence, Atlas synthesis frameworks, user-facing pages/tools, ingestion/review, correction/history, architecture/documentation, storage responsibilities, scale-out, and ongoing governance.
 
-Its phrase "complete existing Atlas" explicitly means every route in `ATLAS-PRODUCTION-SURFACE-REGISTER.md` plus any additional current production surface discovered later.
+Its phrase "complete existing Atlas" explicitly means every route in `ATLAS-PRODUCTION-SURFACE-REGISTER.md` plus any additional current production surface discovered later, while the permanent architecture remains open to future pages and page families.
 
 Task 1.2 did not modify locked `v0.7-pilot-atlas-prefreeze`, production Atlas `main`, any Computational Resources Stage 1/2/3 branch, or any production database. Computational Resources remains a bounded future integration dependency rather than an absorbed Task 1 scientific workstream.
 
+## Task 1.3 completion boundary
+
+Task 1.3 formalizes 48 non-negotiable scientific and scientific-implementation invariants, derived from locked v0.7 governance plus the completed Task 1.1/1.2 authority/objective records and the full production-surface rule.
+
+The rules cover authority; evidence/provenance; scientific-semantic separations; ambiguity/contradiction/novelty; identity and record granularity; synthesis/aggregation; AI-assisted extraction and human verification; serialization; complete current/future Atlas surfaces; Computational Resources integration boundaries; historical/version preservation; and research-quality acceptance.
+
+Task 1.3 explicitly does **not** define Task 1.4 dynamic-extension mechanics or Task 1.5 numerical scale-out gates.
+
+Any later architecture, schema, prototype, page, migration, ingestion workflow, synthesis system, or production release that violates a Task 1.3 invariant fails scientific acceptance even if technically functional.
+
+No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, or ontology version was modified by Task 1.3.
+
 ## Master Plan freeze safeguard
 
-Task 1.7 must not freeze Master Plan v1.0 unless Task 1.6 coverage work recognizes the full production-surface register and preserves the mandatory Task 9 page/data dependency audit for every registered/discovered route.
+Task 1.7 must not freeze Master Plan v1.0 unless Task 1.6 coverage work recognizes the full production-surface register and maps the Task 1.3 non-negotiable scientific rules into the implementation/QA coverage contract while preserving the mandatory Task 9 page/data dependency audit.
 
 ## Exact next action
 
-Proceed only to **Task 1.3 — Formalize the non-negotiable scientific rules**, using `TASK-1.1-AUTHORITATIVE-RECONCILIATION.md`, `TASK-1.2-COMPLETE-PROJECT-OBJECTIVE.md`, and `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as controlling inputs.
+Proceed only to **Task 1.4 — Formalize controlled dynamic-extension rules**, using `TASK-1.3-NON-NEGOTIABLE-SCIENTIFIC-RULES.md` as a mandatory invariant set that no extension mechanism may violate.
