@@ -36,15 +36,13 @@ Status: planning/documentation only. This roadmap does not authorize production 
 
 Authoritative freeze record: `TASK-1.7-MASTER-PLAN-V1.0-FREEZE.md`.
 
-### Task 2 — Design the complete permanent Atlas Architecture system — IN PROGRESS
-- 2.1 Define the full eight-level conceptual architecture plus global QA/versioning/governance. — **PASS / COMPLETE**
-- 2.2 Expand every major level into its complete internal components and fields. — **PASS / COMPLETE**
-- 2.3 Create version-controlled Mermaid architecture source. — **NEXT**
+### Task 2 — Design the complete permanent Atlas Architecture system
+- 2.1 Define the full eight-level conceptual architecture plus global QA/versioning/governance.
+- 2.2 Expand every major level into its complete internal components and fields.
+- 2.3 Create version-controlled Mermaid architecture source.
 - 2.4 Create version-controlled DBML/technical ERD source for the data model.
 - 2.5 Design the interactive Atlas Architecture & Data Map page.
 - 2.6 Reuse shared architecture definitions so dependent documentation/UI can be validated automatically.
-
-Task 2 execution status is controlled by `TASK-2-STATUS.md`.
 
 ### Task 3 — Define the complete Paper Profile
 - 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence.
@@ -250,8 +248,8 @@ Task 9 must use `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as the current-surface ba
 
 Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementation contract, not as a new ontology version**. Scientific authority remains locked Drive `v0.7-pilot-atlas-prefreeze`.
 
-Task 2 is **IN PROGRESS**. Task 2.1 and Task 2.2 are **PASS / COMPLETE**.
+Task 2 is **IN PROGRESS**. Tasks 2.1, 2.2 and 2.3 are **PASS / COMPLETE**.
 
-**STOP boundary:** Task 2.3 has not been started.
+**STOP boundary:** Task 2.4 has not been started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 2.3 — create version-controlled Mermaid conceptual architecture source representing the Task 2.1 eight-level architecture and Task 2.2 internal-component map**, without prematurely creating the physical DBML/technical ERD.
+The exact next substantive roadmap task, only when separately authorized, is **Task 2.4 — create the version-controlled DBML/technical ERD source for the data model**, translating the accepted conceptual architecture into a physical/logical relational design while preserving all scientific authority, evidence, synthesis and bounded-subsystem boundaries and without yet selecting or implementing a database provider.
