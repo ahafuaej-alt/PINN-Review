@@ -1,31 +1,27 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-07  
-Current checkpoint: `Stage3-S102`  
-Current batch: `SOB011` (8/10)  
-Current unresolved count: **755**  
-Next unresolved ID: `S3U-0756`  
+Current checkpoint: `Stage3-S103`  
+Current batch: `SOB011` (9/10)  
+Current unresolved count: **761**  
+Next unresolved ID: `S3U-0762`  
 Explicit conflict count: **103**
 
-## Stage3-S102 additions — CR000115
+## Stage3-S103 additions — CR000116
 
-- `S3U-0746` — No repository license was identified at the authoritative pinned LESnets snapshot.
-- `S3U-0747` — No dependency manifest is present; the README specifies Python 3.9.13 and PyTorch 1.12.1+cu116 but leaves NumPy unpinned.
-- `S3U-0748` — No explicit installation procedure is identified; under the gated reproducibility model this blocks advancement to R2.
-- `S3U-0749` — Repository YAML configurations embed provider-local absolute `/work/mae-zhaosn/...` data paths, so the externally documented dataset requires manual path remapping.
-- `S3U-0750` — The training entrypoint generates a random seed when `--seed` is omitted; no stable repository-default seed is provided.
-- `S3U-0751` — Runtime hardware provenance and a reconstructable acceptance environment are not documented.
-- `S3U-0752` — Provider-bundled trained checkpoints or an equivalent acceptance package were not established in the bounded pinned repository surface.
-- `S3U-0753` — The README-cited SGS-coefficient-learning configuration uses only 31 total iterations whereas the principal DHIT physics-informed configuration uses 30001; the short setting is not explained.
-- `S3U-0754` — **Explicit conflict:** `config/TML/PI_FNO_L20_W150_M12_data2000_g0_gp0.yaml` is named as an FNO configuration but internally declares `model.name: IFNO`.
-- `S3U-0755` — **Explicit conflict:** `train_pino.py` selects CPU when CUDA is unavailable but then unconditionally calls `torch.cuda.get_device_properties(device)`, making the advertised CPU fallback internally inconsistent.
+- `S3U-0756` — The Cambridge provider exposes `PINN_Airfoil.py`, but its source-text payload was not directly inspectable through the bounded interface; imports, commands, code defaults, and source-internal workflow structure remain unverified.
+- `S3U-0757` — No reconstructable software environment or pinned dependency manifest is established by the inspected provider metadata and primary-paper surface.
+- `S3U-0758` — No installation procedure is established for the deposited single-file software artifact.
+- `S3U-0759` — Random-seed provenance is not established in the bounded evidence.
+- `S3U-0760` — Provider-bundled datasets, trained checkpoints, or machine-readable expected-output artifacts were not established.
+- `S3U-0761` — The primary paper documents training/optimization hyperparameters and hardware, but source-to-paper parameter correspondence cannot be verified without direct inspection of the deposited source payload.
 
-S102 adds **2 explicit conflicts**. Cumulative explicit conflict count is **103**.
+S103 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **103**.
 
 ## Batch status
 
-`SOB011` is 8/10 after S102. Aggregate batch QA is not yet due.
+`SOB011` is 9/10 after S103. Aggregate batch QA is not yet due.
 
 ## Continuation
 
-Continue from `S3U-0756` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
+Continue from `S3U-0762` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above.
