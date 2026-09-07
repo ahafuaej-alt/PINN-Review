@@ -6,39 +6,37 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S112`.
+- Latest completed checkpoint: `Stage3-S113`.
 - Latest completed canonical batch: `SOB012` — **PASS**.
 - Current canonical batch: `SOB013`.
-- Current batch status: **0/10 independently extractable members complete**.
-- Latest completed resources: `CR000126`, `CR000127`.
+- Current batch status: **1/10 independently extractable members complete**.
+- Latest completed resource: `CR000128`.
 - Checkpoint QA: **PASS**.
-- Exact next independently extractable resource: `CR000128`.
-- Next checkpoint: `Stage3-S113`.
+- Exact next independently extractable resource: `CR000129`.
+- Next checkpoint: `Stage3-S114`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **130**
+- Technical resource records: **131**
 - Experiments: **216**
 - Configurations: **413**
-- Technical-evidence records: **1500**
-- Static reproducibility assessments: **130**
-- Unresolved findings: **829**
+- Technical-evidence records: **1505**
+- Static reproducibility assessments: **131**
+- Unresolved findings: **835**
 - Explicit conflicts: **109**
-- Independently extractable resources remaining: **233**
+- Independently extractable resources remaining: **232**
 
 ## Latest checkpoint
 
-`Stage3-S112` completed `CR000126` and `CR000127`. CR000126 preserves the Stage-2 pinned ClimODE SHA `e729d23e8799ce0e075699e76d60227d848d8d0c`, MIT license, and verified official `PRL000247` relationship to Atlas 717. Three source-explicit ClimODE forecasting workflows are represented: global, global-monthly, and regional. ClimODE is treated as a physics-informed neural ODE method, not a classical PDE-residual PINN.
+`Stage3-S113` completed `CR000128`. Final Stage-2 authority preserves `https://github.com/power-grid-lib/pgl` as an unavailable repository with no authoritative pinned SHA. `PRL000250` to Atlas 721 remains a `secondary_review_mention` with `relationship_status=not_verified`; the review mentions Power Grid Lib as a benchmark concept but does not establish the unavailable generic `pgl` repository as the specific resource.
 
-CR000127 preserves the verified Zenodo DOI and `PRL000249` relationship to Atlas 718. The primary paper establishes PI-RFR as recurrent feature-reasoning image inpainting initialized with numerical climate-model spatial patterns and reports ideal and realistic Antarctic reconstruction experiments. Archive internals were not directly inspectable, so paper-level claims remain source-scoped and no source-internal experiment/configuration records were manufactured.
-
-CR000126 is R2 and CR000127 is R1. No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator, or benchmark workload was executed.
+The GitHub repository remains unavailable. No source-internal method, experiment, configuration, environment, dataset, training, evaluation, or checkpoint facts were manufactured. CR000128 is assessed at R0. No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator, or benchmark workload was executed.
 
 ## Batch status
 
-`SOB012` contains exactly `CR000118` through `CR000127` and is **PASS (10/10)** after aggregate QA. `SOB013` begins at `CR000128`.
+`SOB012` remains **PASS (10/10)**. `SOB013` now contains `CR000128` and is **1/10**.
 
 ## Continuation
 
-Resume only from `CR000128` for `Stage3-S113`.
+Resume only from `CR000129` for `Stage3-S114`.
