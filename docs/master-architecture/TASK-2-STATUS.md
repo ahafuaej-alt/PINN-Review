@@ -14,8 +14,8 @@ Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 | 2.2 Expand every major level into complete internal components and fields | **PASS — COMPLETE** | `TASK-2.2-COMPLETE-INTERNAL-COMPONENTS-AND-FIELDS.md` |
 | 2.3 Create version-controlled Mermaid architecture source | **PASS — COMPLETE** | `TASK-2.3-MERMAID-CONCEPTUAL-ARCHITECTURE.md` + `atlas-conceptual-architecture.mmd` |
 | 2.4 Create version-controlled DBML/technical ERD source | **PASS — COMPLETE** | `TASK-2.4-DBML-TECHNICAL-ERD.md` + `atlas-technical-erd.dbml` |
-| 2.5 Design interactive Atlas Architecture & Data Map page | **NEXT** | Not started |
-| 2.6 Reuse shared architecture definitions for dependent documentation/UI validation | **PENDING** | Not started |
+| 2.5 Design interactive Atlas Architecture & Data Map page | **PASS — COMPLETE** | `TASK-2.5-INTERACTIVE-ARCHITECTURE-DATA-MAP-DESIGN.md` |
+| 2.6 Reuse shared architecture definitions for dependent documentation/UI validation | **NEXT** | Not started |
 
 ## Task 2.1 architecture boundary
 
@@ -34,9 +34,7 @@ The global plane preserves scientific authority, evidence/provenance, human veri
 
 ## Task 2.2 completion boundary
 
-Task 2.2 expands L1–L8 and the global plane into complete conceptual component/field maps while preserving locked ownership.
-
-Key Task 2.2 results remain:
+Key results remain:
 
 - locked v0.7 structural families assigned = **21/21**;
 - structural-family orphan count = **0**;
@@ -48,18 +46,14 @@ Key Task 2.2 results remain:
 
 ## Task 2.3 completion boundary
 
-Task 2.3 adds the version-controlled Mermaid conceptual source:
+Version-controlled Mermaid source:
 
 `docs/master-architecture/atlas-conceptual-architecture.mmd`
 
-and the execution/readback record:
-
-`docs/master-architecture/TASK-2.3-MERMAID-CONCEPTUAL-ARCHITECTURE.md`.
-
-Mermaid coverage:
+Mermaid coverage remains:
 
 - conceptual levels L1–L8 = **8/8**;
-- L1 internal groups = **4/4**;
+- L1 = **4/4**;
 - L2 = **5/5**;
 - L3 = **7/7**;
 - L4 permanent conceptual domains/facets = **20/20**;
@@ -68,38 +62,63 @@ Mermaid coverage:
 - L7 = **8/8**;
 - L8 = **9/9**;
 - global governance G1–G14 = **14/14**;
-- Computational Resources bounded subsystem = represented explicitly.
+- Computational Resources bounded subsystem represented explicitly.
 
 ## Task 2.4 completion boundary
 
-Task 2.4 adds the provider-neutral relational source:
+Provider-neutral relational source:
 
 `docs/master-architecture/atlas-technical-erd.dbml`
 
-and execution/readback record:
-
-`docs/master-architecture/TASK-2.4-DBML-TECHNICAL-ERD.md`.
-
-Technical-ERD validation:
+Technical-ERD validation remains:
 
 - DBML tables = **108**;
 - explicit DBML references = **151**;
 - duplicate tables = **0**;
-- duplicate columns within tables = **0**;
-- tables without a primary key = **0**;
-- unresolved table/column reference endpoints = **0**;
+- duplicate columns = **0**;
+- tables without primary key = **0**;
+- unresolved reference endpoints = **0**;
 - block/brace imbalance = **0**.
 
-The DBML normalizes repeatable v0.7 structures into relational child/link tables without creating new scientific owners or reviving rejected/deferred fields. L3 evidence, L4 verified science, L5 semantic control, L6 analytics, L7 synthesis, L8 surfaces, and G1–G14 governance remain distinguishable.
+The DBML remains provider-neutral and does not redefine scientific ownership.
 
-`scientific_relationships` is separate from `relationship_registry`; framework/synthesis tables remain separate from paper-level scientific relationship assertions. Computational Resources is represented only by bounded subsystem/interface tables and retains independent internal governance.
+## Task 2.5 completion boundary
 
-The source is deliberately provider-neutral. PostgreSQL-specific DDL, ID types, indexes, triggers/RLS, physical polymorphic enforcement, JSONB trade-offs, search infrastructure, partitioning and provider selection are deferred to later Tasks 11–13 / Task 12.
+Task 2.5 defines the future **Atlas Architecture & Data Map** as a read-only L8 architecture-observability surface rather than a new scientific authority.
+
+The design specifies six coordinated primary views:
+
+1. Conceptual Architecture;
+2. Technical ERD;
+3. Authority & Provenance;
+4. Requirements & QA Coverage;
+5. Surface & Dependency Map;
+6. Versions & Change State.
+
+It also defines:
+
+- shared stable-ID selection and contextual inspector;
+- cross-view tracing from source/evidence to verified science, semantic control, analytics, synthesis and surfaces;
+- progressive disclosure for the 108-table/151-reference ERD;
+- explicit five-owner authority presentation;
+- R1–R48 / X1–X9 / H1–H11 / 111-requirement coverage lookup;
+- the 26-route production surface as a preservation baseline, not a route ceiling;
+- Task 9 dependency-audit enrichment without pretending that audit is already complete;
+- future-page extensibility;
+- bounded Computational Resources integration;
+- responsive/mobile behavior;
+- accessibility and text/table fallbacks;
+- shareable/deep-link state based on stable IDs;
+- version separation and change-history visibility;
+- explicit read-only/write-governance boundary;
+- failure/regression requirements for the later prototype.
+
+Design-contract orphan among Task 2.1–2.4 principal architecture domains = **0**.
+
+Task 2.5 did **not** implement a page, choose/freeze a route, alter navigation, select a visualization library, select a database provider, execute Task 9, modify production `main`, or create shared machine-readable definitions.
 
 Current 26 production routes remain a preservation/migration baseline rather than final target IA. Task 9 remains mandatory for registered and later-discovered surfaces. Future pages remain open-ended but governed.
 
-No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, migration, extraction, or Atlas page implementation was modified by Task 2.4.
-
 ## Exact next action
 
-Proceed only to **Task 2.5 — design the interactive Atlas Architecture & Data Map page**, consuming Tasks 2.1–2.4 while preserving scientific authority/provenance and without yet performing production implementation.
+Proceed only to **Task 2.6 — define and reuse shared machine-readable architecture definitions so the Mermaid architecture, technical ERD metadata, Task 2 documentation and future Architecture & Data Map UI can be generated/validated against a common controlled representation**, preventing cross-artifact drift.
