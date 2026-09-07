@@ -2,7 +2,9 @@
 
 Date: 2026-09-07
 
-This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md` without changing the scientific ontology or production Atlas data.
+Status: **TASK 1 COMPLETE — MASTER PLAN v1.0 FROZEN AS IMPLEMENTATION CONTRACT**
+
+This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md`. It does not change the scientific ontology or production Atlas data.
 
 | Roadmap item | Status | Authoritative execution record |
 |---|---|---|
@@ -12,19 +14,47 @@ This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md` wit
 | 1.4 Controlled dynamic-extension rules | **PASS — COMPLETE** | `TASK-1.4-CONTROLLED-DYNAMIC-EXTENSION-RULES.md` |
 | 1.5 Operational scale-out acceptance gates | **PASS — COMPLETE** | `TASK-1.5-OPERATIONAL-SCALEOUT-ACCEPTANCE-GATES.md` |
 | 1.6 Formal requirement/coverage matrix | **PASS — COMPLETE** | `TASK-1.6-REQUIREMENT-COVERAGE-MATRIX.md` |
-| 1.7 Freeze Master Plan v1.0 | **NEXT** | Not started |
+| 1.7 Freeze Master Plan v1.0 | **PASS — COMPLETE / FROZEN** | `TASK-1.7-MASTER-PLAN-V1.0-FREEZE.md` |
+
+## Frozen Task 1 contract
+
+Master Plan v1.0 is frozen as the implementation contract, **not as a new ontology version**.
+
+Scientific authority remains the locked Google Drive baseline `v0.7-pilot-atlas-prefreeze` and its five single-owner scientific documents. The Master Plan may govern implementation order and acceptance but cannot silently alter scientific meaning.
+
+The frozen contract consists of `CONTROLLED-ROADMAP.md`, Task 1.1–1.7 records, and `ATLAS-PRODUCTION-SURFACE-REGISTER.md`. The Google Drive Master Architecture & Implementation Memory is the synchronized decision-history companion, not an ontology owner.
+
+## Final coverage state
+
+Task 1.6 remains the formal requirement/coverage contract and reports:
+
+- Task 1.1 authority/reconciliation requirements: **11/11 mapped**;
+- Task 1.2 project-objective obligations: **20/20 mapped**;
+- Task 1.3 invariants: **48/48 mapped**;
+- Task 1.4 extension classes: **9/9 mapped**;
+- Task 1.5 hard gates: **11/11 mapped**;
+- NDU/CMR/disposition rules: **5/5 mapped**;
+- complete-surface/future-extension rules: **7/7 mapped**;
+- total explicit Master-Plan contract requirements: **111/111 mapped**;
+- specification orphan count: **0**.
+
+PASS means every requirement has an owner, representation obligation, evidence/provenance expectation, QA/acceptance path and downstream assignment. It does **not** mean Tasks 2–22 are already implemented.
 
 ## Complete Atlas production-surface rule
 
-`ATLAS-PRODUCTION-SURFACE-REGISTER.md` is a mandatory architectural input for the remainder of the roadmap.
+`ATLAS-PRODUCTION-SURFACE-REGISTER.md` remains a mandatory architectural input.
 
-The Master Architecture must consider the **complete Atlas production surface**, not only the 31-field PINN Ecosystem, the four Atlas frameworks, the Dataset Manager, or other highlighted scientific/implementation subsystems.
+The current **26/26 registered production routes** are a current-surface preservation/migration baseline, **not the final target information architecture and not a route ceiling**.
 
-The current 26-route inventory is a **current-surface migration/preservation baseline**, not the final target information architecture and not a route ceiling. Task 9 must inspect the repository/site and add any additional production route, tool, generated surface, deep-link surface, or independently linked Atlas-facing consumer found at audit time.
+Task 9 remains mandatory for every registered route and every additional current production route/page/tool/generated view/deep-link surface/Atlas-facing consumer discovered at audit time.
 
-The permanent architecture must also permit governed addition of future Atlas pages and page families. Current pages may later be retained, redesigned, merged, nested, renamed, replaced, redirected, or retired only after explicit dependency/migration/regression treatment.
+Current pages may later be retained, redesigned, merged, nested, renamed, replaced, redirected, or retired only after explicit dependency/migration/regression treatment.
 
-The reserved future Computational Resources information-architecture direction remains:
+Future Atlas pages and page families remain open-ended but governed. A new page does not create a new scientific authority merely because it exists.
+
+## Computational Resources boundary
+
+The reserved future information-architecture direction remains:
 
 ```text
 Computational Resources
@@ -35,90 +65,48 @@ Computational Resources
 └── Reproducibility Explorer
 ```
 
-This does not authorize modification of Computational Resources Stage 1/2/3 branches.
+This remains a bounded target-information-architecture requirement/direction. It does not authorize modification, absorption, or freezing of Computational Resources Stage 1/2/3 schemas.
 
-## Task 1.1 completion boundary
+Current `/software/` and `/datasets/` remain protected current routes until later Task 9 and migration decisions establish their future disposition.
 
-Task 1.1 passed without modifying locked `v0.7-pilot-atlas-prefreeze`, production Atlas `main`, or any Computational Resources Stage 1/2/3 branch. Computational Resources remains an independently governed Atlas subsystem and bounded future architectural dependency, not a Task 1.1 scientific-authority input.
+## Scientific and operational safeguards carried forward
 
-Task 1.1's deeper treatment of Ecosystem, frameworks, bibliography, Dataset Manager, and Master Memory must not be interpreted as exclusion of other Atlas pages. The complete production surface is an implementation dependency and preservation constraint; detailed per-page ownership/dependency analysis remains assigned to Task 9.
+All **R1–R48** remain mandatory scientific invariants.
 
-## Task 1.2 completion boundary
+All **X1–X9** remain the controlled dynamic-extension lifecycle. Locked v0.7 cannot be silently mutated; post-v0.7 canonical scientific additions or structural scientific changes require a later governed ontology version.
 
-Task 1.2 formally defines the complete end-to-end project objective from primary scientific sources through bibliography, evidence/provenance, verified paper-level scientific knowledge, dynamic ontology, cross-paper intelligence, Atlas synthesis frameworks, user-facing pages/tools, ingestion/review, correction/history, architecture/documentation, storage responsibilities, scale-out, and ongoing governance.
+All **H1–H11** remain non-bypassable scale-out gates. CMR remains:
 
-Its phrase "complete existing Atlas" explicitly means every route in `ATLAS-PRODUCTION-SURFACE-REGISTER.md` plus any additional current production surface discovered later, while the permanent architecture remains open to future pages and page families.
+- **GO:** ≥95%, only when all hard gates pass and active major structural gaps = 0;
+- **CONDITIONAL GO:** 90–<95%, bounded qualification/adversarial work only;
+- **STOP:** <90%, any hard-gate failure, or any active major structural gap;
+- **ROLLBACK REQUIRED:** corruption of accepted evidence/history, identity, provenance, or mandatory semantics.
 
-Task 1.2 did not modify locked `v0.7-pilot-atlas-prefreeze`, production Atlas `main`, any Computational Resources Stage 1/2/3 branch, or any production database. Computational Resources remains a bounded future integration dependency rather than an absorbed Task 1 scientific workstream.
+No percentage can override a hard scientific failure.
 
-## Task 1.3 completion boundary
+## Task 1.7 completion boundary
 
-Task 1.3 formalizes 48 non-negotiable scientific and scientific-implementation invariants, derived from locked v0.7 governance plus the completed Task 1.1/1.2 authority/objective records and the full production-surface rule.
+The final Task 1.1–1.6 consistency/readback audit found no blocking inconsistency.
 
-The rules cover authority; evidence/provenance; scientific-semantic separations; ambiguity/contradiction/novelty; identity and record granularity; synthesis/aggregation; AI-assisted extraction and human verification; serialization; complete current/future Atlas surfaces; Computational Resources integration boundaries; historical/version preservation; and research-quality acceptance.
+Confirmed at freeze:
 
-Task 1.3 explicitly does **not** define Task 1.4 dynamic-extension mechanics or Task 1.5 numerical scale-out gates.
+- locked Drive v0.7 scientific authority unchanged;
+- R1–R48, X1–X9, H1–H11 and NDU/CMR rules covered;
+- Task 1.6 orphan count = 0;
+- current registered routes = 26/26 recognized;
+- Task 9 remains mandatory for registered and later-discovered surfaces;
+- current surface, target information architecture, and future extensible surface remain distinct;
+- future pages remain open-ended but governed;
+- Computational Resources remains independently governed and bounded for future integration;
+- downstream Tasks 2–22 are assigned but not falsely marked complete;
+- Master Plan freeze does not create a new ontology version.
 
-Any later architecture, schema, prototype, page, migration, ingestion workflow, synthesis system, or production release that violates a Task 1.3 invariant fails scientific acceptance even if technically functional.
+No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, migration, route/page implementation, or extraction record was modified by Task 1.7.
 
-No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, or ontology version was modified by Task 1.3.
+## Stop boundary and next roadmap task
 
-## Task 1.4 completion boundary
+**STOP: Task 2 has not been started.**
 
-Task 1.4 formalizes the controlled dynamic-extension lifecycle while keeping Task 1.3 R1–R48 mandatory.
+Task 1 is complete.
 
-It defines nine extension classes: existing adequate representation; source-local/paper-specific concept; provisional taxonomy/alias candidate; provisional relationship candidate; controlled/extensible value candidate; structural/schema candidate; synthesis-only extension; page/tool/information-architecture extension; and bounded-subsystem integration extension.
-
-The required extension sequence is now: preserve evidence → search current owners → test semantic adequacy → normalize only when adequate → retain scoped/provisional meaning when not adequate → classify extension → record trigger/evidence → review recurrence/generalizability/analytical need → adjudicate → update only the correct owner in a candidate future version → changelog → migrate normalized records without rewriting source evidence → backward/regression QA → governed promotion.
-
-Post-v0.7 canonical scientific additions or structural scientific changes require a later governed ontology version. Locked v0.7 is not silently mutated. Paper-specific/source-local/provisional information can remain preserved without being falsely presented as canonical v0.7 science.
-
-Task 1.4 also formalizes alias scope, controlled/extensible-value handling, provisional/canonical relation handling, structural-home-first/schema-escalation rules, generalization-before-duplication, migration/history preservation, synthesis-only extension, future-page extensibility, and Computational Resources bounded integration.
-
-Task 1.4 deliberately sets **no numerical scale-out thresholds, clean-mapping percentages, batch sizes, or unresolved-rate gates**; those belong to Task 1.5.
-
-No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, route, page, or ontology version was modified by Task 1.4.
-
-## Task 1.5 completion boundary
-
-Task 1.5 restores and formalizes the operational scale-out readiness policy while treating Task 1.3 R1–R48 and Task 1.4 X1–X9 as non-bypassable constraints.
-
-It defines a paper-scoped **Normalization Decision Unit (NDU)** so repeated mentions inside one paper do not inflate mapping statistics, and a **Clean Mapping Rate (CMR)** measuring whether NDUs can be represented under the existing governed structure without structural loss or semantic coercion.
-
-CMR bands are now explicit:
-
-- **GO:** CMR ≥95%, provided every hard gate passes and active major structural gaps = 0;
-- **CONDITIONAL GO:** 90% ≤ CMR <95%, permitting only bounded additional qualification/adversarial work rather than unrestricted corpus widening;
-- **STOP:** CMR <90%, or any hard-gate failure, or any active major structural gap.
-
-CMR counts X1–X5 as clean structural mapping when the current governed structure preserves scientific meaning. Legitimate source-local/paper-specific/provisional concepts are therefore not penalized merely because they are noncanonical. X6 structural specialization, unresolved structural-owner ambiguity, or representation requiring information loss is not clean mapping.
-
-Eleven hard gate families H1–H11 require, as applicable: zero forced mappings; 100% provenance completeness for accepted verified evidence-bound scientific records; 100% human scientific review coverage for verified/published scientific records; evidence/history immutability; 100% identity/referential integrity; Task 1.3 semantic-boundary regression; conflict/mismatch/ambiguity preservation; zero ineligible positive-synthesis contamination; zero active major structural gaps; complete 36-paper/eight-sentinel/A6/no-merge/framework regression; and explicit batch checkpoint/publication readiness.
-
-Task 1.5 does **not** set future batch size, start Task 20/21, choose infrastructure, change ontology version, or authorize production extraction.
-
-No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, route, page, migration, or ontology version was modified by Task 1.5.
-
-## Task 1.6 completion boundary
-
-Task 1.6 creates the formal implementation-contract coverage matrix without claiming that downstream implementation is already complete.
-
-The matrix contains **111 explicit contract requirements**: 11 Task 1.1 authority/reconciliation requirements, 20 Task 1.2 project-objective obligations, all **48/48** Task 1.3 invariants, all **9/9** Task 1.4 extension classes, all **11/11** Task 1.5 hard gates, five NDU/CMR/disposition rules, and seven complete-surface/future-extension rules.
-
-Every row identifies its owner, required representation, evidence/provenance obligation, QA/acceptance path, downstream roadmap/consumer coverage, and coverage state. **Specification orphan count = 0.**
-
-The matrix additionally enumerates the current **26/26** registered production routes and binds every route to the mandatory Task 9 audit. It explicitly preserves the rule that the route list is a current preservation/migration baseline rather than final target information architecture or a route ceiling. New/discovered surfaces extend the Task 9 audit inventory.
-
-The reserved future Computational Resources hierarchy remains a bounded target-information-architecture direction, and the matrix does not import or modify Computational Resources Stage 1/2/3 schemas.
-
-Task 1.6 also provides a requirement-to-roadmap handoff map for Tasks 2–22 and a Task 1.7 freeze safeguard. PASS means the Master Plan specification has no orphan requirement; it does not mean Tasks 2–22 are implemented.
-
-No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, route, page, migration, or ontology version was modified by Task 1.6.
-
-## Master Plan freeze safeguard
-
-Task 1.7 must not freeze Master Plan v1.0 unless final readback confirms Task 1.1–1.6 are mutually consistent; locked v0.7 remains unchanged; R1–R48, X1–X9, H1–H11 and the NDU/CMR dispositions remain covered; Task 1.6 orphan count remains zero; the current 26-route production surface remains an audit/preservation baseline rather than final IA; Task 9 remains mandatory for every registered and later-discovered production surface; the Computational Resources hierarchy remains bounded and independently governed; future pages remain open-ended but governed; and no downstream implementation/provider/migration/ontology-version decision is falsely presented as completed.
-
-## Exact next action
-
-Proceed only to **Task 1.7 — Freeze Master Plan v1.0 as the implementation contract, not as a new ontology version**, by performing a final Task 1.1–1.6 consistency/readback audit, confirming the Task 1.6 orphan count remains zero and the complete-surface/future-extension safeguards remain present, recording the freeze decision, synchronizing the Master Memory, and stopping before Task 2.
+The next roadmap task, **only when separately authorized**, is **Task 2 — Design the complete permanent Atlas Architecture system**, beginning with Task 2.1: define the full eight-level conceptual architecture plus global QA/versioning/governance.
