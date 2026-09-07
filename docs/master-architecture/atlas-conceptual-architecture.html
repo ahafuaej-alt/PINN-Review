@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>PINN Review Atlas — Conceptual Architecture Viewer</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: rgba(255, 255, 255, 0.96);
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --button: #ffffff;
+      --button-hover: #eef2f7;
+      --accent: #2563eb;
+      --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1020;
+        --panel: rgba(17, 24, 39, 0.96);
+        --text: #f3f4f6;
+        --muted: #a7b0c0;
+        --line: #344054;
+        --button: #182033;
+        --button-hover: #25304a;
+        --accent: #60a5fa;
+        --shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    header {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 64px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .title-block {
+      min-width: 220px;
+      margin-right: auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 750;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    button,
+    .button-link {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--button);
+      color: var(--text);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    button:hover,
+    .button-link:hover {
+      background: var(--button-hover);
+    }
+
+    button:focus-visible,
+    .button-link:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+      outline-offset: 2px;
+    }
+
+    .primary {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+      color: var(--accent);
+    }
+
+    #viewport {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--muted) 22%, transparent) 1px, transparent 1.2px) 0 0 / 22px 22px,
+        var(--bg);
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+    }
+
+    #viewport.dragging { cursor: grabbing; }
+
+    #viewport:fullscreen,
+    #viewport:-webkit-full-screen {
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg);
+    }
+
+    #diagram-shell {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    #diagram {
+      display: block;
+    }
+
+    #diagram svg {
+      display: block;
+      max-width: none !important;
+      height: auto !important;
+      overflow: visible;
+    }
+
+    .status {
+      position: absolute;
+      z-index: 4;
+      left: 12px;
+      bottom: 12px;
+      max-width: min(680px, calc(100% - 24px));
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      pointer-events: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .status strong { color: var(--text); }
+
+    .loading,
+    .error {
+      position: absolute;
+      z-index: 5;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      width: min(680px, calc(100% - 32px));
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    .error { color: #b42318; }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 880px) {
+      body { grid-template-rows: auto 1fr; }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 9px 10px 10px;
+      }
+
+      .title-block {
+        width: 100%;
+        min-width: 0;
+        margin-right: 0;
+      }
+
+      .controls {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: thin;
+      }
+
+      button,
+      .button-link {
+        flex: 0 0 auto;
+        min-height: 34px;
+        padding: 6px 10px;
+      }
+
+      .status {
+        right: 10px;
+        left: 10px;
+        bottom: 10px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-block">
+      <h1>PINN Review Atlas — Conceptual Architecture</h1>
+      <div class="subtitle">Interactive viewer · `.mmd` remains the authoritative architecture source</div>
+    </div>
+
+    <nav class="controls" aria-label="Diagram controls">
+      <button id="fitBtn" class="primary" type="button" title="Fit diagram to the available screen (F)">Fit</button>
+      <button id="zoomOutBtn" type="button" title="Zoom out (-)">−</button>
+      <button id="zoomInBtn" type="button" title="Zoom in (+)">+</button>
+      <button id="resetBtn" type="button" title="Reset to 100% zoom (0)">100%</button>
+      <button id="fullscreenBtn" type="button" title="Toggle full screen">Full screen</button>
+      <a
+        class="button-link"
+        href="https://github.com/ahafuaej-alt/PINN-Review/blob/docs/master-atlas-roadmap/docs/master-architecture/atlas-conceptual-architecture.mmd"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Open the authoritative Mermaid source on GitHub"
+      >Source .mmd</a>
+    </nav>
+  </header>
+
+  <main id="viewport" aria-label="Interactive Atlas architecture diagram">
+    <div id="diagram-shell">
+      <div id="diagram"></div>
+    </div>
+
+    <div id="loading" class="loading">
+      <strong>Loading Atlas conceptual architecture…</strong><br />
+      Reading the authoritative Mermaid source from the <code>docs/master-atlas-roadmap</code> branch.
+    </div>
+
+    <div id="error" class="error hidden" role="alert"></div>
+
+    <div id="status" class="status hidden">
+      <strong id="zoomStatus">100%</strong>
+      <span> · drag to pan · mouse wheel / trackpad to zoom · keyboard: F, +, −, 0</span>
+      <span id="sourceStatus"></span>
+    </div>
+  </main>
+
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+    const SOURCE_API = "https://api.github.com/repos/ahafuaej-alt/PINN-Review/contents/docs/master-architecture/atlas-conceptual-architecture.mmd?ref=docs%2Fmaster-atlas-roadmap";
+
+    const viewport = document.getElementById("viewport");
+    const shell = document.getElementById("diagram-shell");
+    const diagram = document.getElementById("diagram");
+    const loading = document.getElementById("loading");
+    const errorBox = document.getElementById("error");
+    const status = document.getElementById("status");
+    const zoomStatus = document.getElementById("zoomStatus");
+    const sourceStatus = document.getElementById("sourceStatus");
+
+    const fitBtn = document.getElementById("fitBtn");
+    const zoomOutBtn = document.getElementById("zoomOutBtn");
+    const zoomInBtn = document.getElementById("zoomInBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+
+    let scale = 1;
+    let panX = 24;
+    let panY = 24;
+    let diagramWidth = 1;
+    let diagramHeight = 1;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragOriginX = 0;
+    let dragOriginY = 0;
+    let hasRendered = false;
+
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function updateTransform() {
+      shell.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+      zoomStatus.textContent = `${Math.round(scale * 100)}%`;
+    }
+
+    function fitToScreen() {
+      if (!hasRendered) return;
+      const padding = 56;
+      const availableWidth = Math.max(1, viewport.clientWidth - padding * 2);
+      const availableHeight = Math.max(1, viewport.clientHeight - padding * 2);
+      scale = clamp(Math.min(availableWidth / diagramWidth, availableHeight / diagramHeight), 0.05, 4);
+      panX = (viewport.clientWidth - diagramWidth * scale) / 2;
+      panY = (viewport.clientHeight - diagramHeight * scale) / 2;
+      updateTransform();
+    }
+
+    function resetTo100() {
+      if (!hasRendered) return;
+      scale = 1;
+      panX = Math.max(24, (viewport.clientWidth - diagramWidth) / 2);
+      panY = 24;
+      updateTransform();
+    }
+
+    function zoomAt(newScale, clientX, clientY) {
+      if (!hasRendered) return;
+      newScale = clamp(newScale, 0.05, 6);
+
+      const rect = viewport.getBoundingClientRect();
+      const cursorX = clientX - rect.left;
+      const cursorY = clientY - rect.top;
+      const ratio = newScale / scale;
+
+      panX = cursorX - (cursorX - panX) * ratio;
+      panY = cursorY - (cursorY - panY) * ratio;
+      scale = newScale;
+      updateTransform();
+    }
+
+    function zoomCentered(factor) {
+      const rect = viewport.getBoundingClientRect();
+      zoomAt(scale * factor, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }
+
+    async function toggleFullscreen() {
+      try {
+        if (!document.fullscreenElement) {
+          await viewport.requestFullscreen();
+        } else {
+          await document.exitFullscreen();
+        }
+      } catch (err) {
+        console.warn("Fullscreen request failed:", err);
+      }
+    }
+
+    function decodeBase64Utf8(base64) {
+      const binary = atob(base64.replace(/\s/g, ""));
+      const bytes = Uint8Array.from(binary, ch => ch.charCodeAt(0));
+      return new TextDecoder("utf-8").decode(bytes);
+    }
+
+    async function loadAuthoritativeSource() {
+      const response = await fetch(SOURCE_API, {
+        headers: { "Accept": "application/vnd.github+json" }
+      });
+
+      if (!response.ok) {
+        throw new Error(`GitHub source request failed (${response.status} ${response.statusText}).`);
+      }
+
+      const payload = await response.json();
+      if (!payload?.content) {
+        throw new Error("GitHub returned no Mermaid source content.");
+      }
+
+      sourceStatus.textContent = payload.sha ? ` · source SHA ${payload.sha.slice(0, 7)}` : "";
+      return decodeBase64Utf8(payload.content);
+    }
+
+    async function renderDiagram() {
+      try {
+        const source = await loadAuthoritativeSource();
+
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: "strict",
+          theme: prefersDark ? "dark" : "neutral",
+          flowchart: {
+            useMaxWidth: false,
+            htmlLabels: true,
+            curve: "basis"
+          },
+          themeVariables: {
+            fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            fontSize: "15px"
+          }
+        });
+
+        const { svg, bindFunctions } = await mermaid.render("atlasConceptualArchitecture", source);
+        diagram.innerHTML = svg;
+        bindFunctions?.(diagram);
+
+        const svgEl = diagram.querySelector("svg");
+        if (!svgEl) throw new Error("Mermaid produced no SVG output.");
+
+        const viewBox = svgEl.viewBox?.baseVal;
+        if (viewBox?.width && viewBox?.height) {
+          diagramWidth = viewBox.width;
+          diagramHeight = viewBox.height;
+          svgEl.setAttribute("width", String(diagramWidth));
+          svgEl.setAttribute("height", String(diagramHeight));
+        } else {
+          const bounds = svgEl.getBBox();
+          diagramWidth = Math.max(1, bounds.width);
+          diagramHeight = Math.max(1, bounds.height);
+        }
+
+        hasRendered = true;
+        loading.classList.add("hidden");
+        status.classList.remove("hidden");
+        fitToScreen();
+      } catch (err) {
+        console.error(err);
+        loading.classList.add("hidden");
+        errorBox.classList.remove("hidden");
+        errorBox.innerHTML = `<strong>Unable to render the architecture.</strong><br>${String(err.message || err)}<br><br>Use <em>Source .mmd</em> above to inspect the authoritative Mermaid file.`;
+      }
+    }
+
+    fitBtn.addEventListener("click", fitToScreen);
+    zoomInBtn.addEventListener("click", () => zoomCentered(1.2));
+    zoomOutBtn.addEventListener("click", () => zoomCentered(1 / 1.2));
+    resetBtn.addEventListener("click", resetTo100);
+    fullscreenBtn.addEventListener("click", toggleFullscreen);
+
+    viewport.addEventListener("wheel", event => {
+      if (!hasRendered) return;
+      event.preventDefault();
+      const factor = Math.exp(-event.deltaY * 0.0015);
+      zoomAt(scale * factor, event.clientX, event.clientY);
+    }, { passive: false });
+
+    viewport.addEventListener("pointerdown", event => {
+      if (!hasRendered || event.button !== 0) return;
+      isDragging = true;
+      viewport.classList.add("dragging");
+      viewport.setPointerCapture(event.pointerId);
+      dragStartX = event.clientX;
+      dragStartY = event.clientY;
+      dragOriginX = panX;
+      dragOriginY = panY;
+    });
+
+    viewport.addEventListener("pointermove", event => {
+      if (!isDragging) return;
+      panX = dragOriginX + (event.clientX - dragStartX);
+      panY = dragOriginY + (event.clientY - dragStartY);
+      updateTransform();
+    });
+
+    function endDrag(event) {
+      if (!isDragging) return;
+      isDragging = false;
+      viewport.classList.remove("dragging");
+      if (event?.pointerId != null && viewport.hasPointerCapture(event.pointerId)) {
+        viewport.releasePointerCapture(event.pointerId);
+      }
+    }
+
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+    viewport.addEventListener("dblclick", fitToScreen);
+
+    document.addEventListener("keydown", event => {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+      if (event.key === "f" || event.key === "F") fitToScreen();
+      if (event.key === "+" || event.key === "=") zoomCentered(1.2);
+      if (event.key === "-") zoomCentered(1 / 1.2);
+      if (event.key === "0") resetTo100();
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      fullscreenBtn.textContent = document.fullscreenElement ? "Exit full screen" : "Full screen";
+      window.setTimeout(fitToScreen, 80);
+    });
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (hasRendered) fitToScreen();
+    });
+    resizeObserver.observe(viewport);
+
+    renderDiagram();
+  </script>
+</body>
+</html>
