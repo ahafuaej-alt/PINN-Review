@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "id": "PINN-ATLAS-ARCH",
+    "schema": "1.0.0",
+    "version": "1.0.0",
+    "date": "2026-09-07",
+    "branch": "docs/master-atlas-roadmap",
+    "role": "architecture_coordination_metadata",
+    "scientific_authority": false,
+    "may_define_scientific_meaning": false
+  },
+  "authority": {
+    "science": ["Google Drive", "v0.7-pilot-atlas-prefreeze", "highest_for_scientific_meaning"],
+    "implementation": ["Master Plan v1.0", false],
+    "registry": "implementation_metadata_only"
+  },
+  "contracts": {
+    "R": 48,
+    "X": 9,
+    "H": 11,
+    "requirements": 111,
+    "orphans": 0,
+    "current_routes": 26,
+    "final_ia": false,
+    "route_ceiling": false,
+    "task9": true
+  },
+  "levels": [
+    ["L1", "Primary Scientific Sources", "source", "L1H", [
+      ["L1-S1", "Source Artifact Registry", "L1S1"],
+      ["L1-S2", "Paper–Source Association", "L1S2"],
+      ["L1-S3", "Supplementary / Component Source Scope", "L1S3"],
+      ["L1-S4", "Source Integrity State", "L1S4"]
+    ]],
+    ["L2", "Bibliographic Identity & Corpus Registry", "identity", "L2H", [
+      ["L2-B1", "Stable Paper Identity", "L2B1"],
+      ["L2-B2", "Verified Bibliographic Metadata", "L2B2"],
+      ["L2-B3", "Corpus / Record Version Identity", "L2B3"],
+      ["L2-B4", "Bibliographic Verification", "L2B4"],
+      ["L2-B5", "Metadata Correction & History", "L2B5"]
+    ]],
+    ["L3", "Evidence & Provenance", "evidence", "L3H", [
+      ["L3-E1", "Evidence Identity & Linkage", "L3E1"],
+      ["L3-E2", "Evidence Content", "L3E2"],
+      ["L3-E3", "Evidence Locator", "L3E3"],
+      ["L3-E4", "Evidence Role, Strength & Origin", "L3E4"],
+      ["L3-E5", "Verification, Support & Conflict", "L3E5"],
+      ["L3-E6", "Evidence Version / History", "L3E6"],
+      ["L3-E7", "Evidence Graph", "L3E7"]
+    ]],
+    ["L4", "Verified Paper Scientific Knowledge", "verified_science", "L4H", [
+      ["L4-P1", "Study Design, Applicability & Review Scope", "L4P1"],
+      ["L4-P2", "Scientific Record Lifecycle & Extraction State", "L4P2"],
+      ["L4-P3", "Application & Physical System", "L4P3"],
+      ["L4-P4", "Problem Definition & Governing Physics", "L4P4"],
+      ["L4-P5", "Scientific Objective & Computational Task", "L4P5"],
+      ["L4-P6", "Data & Observation Context", "L4P6"],
+      ["L4-P7", "PINN Problem / Challenge Addressed", "L4P7"],
+      ["L4-P8", "PINN Type / Family Assignment", "L4P8"],
+      ["L4-P9", "Methodological Features", "L4P9"],
+      ["L4-P10", "Contribution & Innovation", "L4P10"],
+      ["L4-P11", "Claim, Demonstration & Generality", "L4P11"],
+      ["L4-P12", "Outcome / Degree of Resolution", "L4P12"],
+      ["L4-P13", "Validation", "L4P13"],
+      ["L4-P14", "Evaluation Results & Test Cases", "L4P14"],
+      ["L4-P15", "Reproducibility & Reproduction State", "L4P15"],
+      ["L4-P16", "Limitations", "L4P16"],
+      ["L4-P17", "Open Problems", "L4P17"],
+      ["L4-P18", "Future Work", "L4P18"],
+      ["L4-P19", "Paper Diagnostic Pathways", "L4P19"],
+      ["L4-P20", "Evidence and Semantic Linkage Facets", "L4P20"]
+    ]],
+    ["L5", "Ontology, Taxonomy & Semantic Control", "semantic_control", "L5H", [
+      ["L5-O1", "Schema Authority Map", "L5O1"],
+      ["L5-O2", "Controlled Vocabulary Registry", "L5O2"],
+      ["L5-O3", "Taxonomy Term & Alias Registry", "L5O3"],
+      ["L5-O4", "Relationship Registry", "L5O4"],
+      ["L5-O5", "Non-Equivalence / No-Merge Constraints", "L5O5"],
+      ["L5-O6", "Provisional / Source-Local Extension Workbench", "L5O6"],
+      ["L5-O7", "Ontology Changelog & Migration Reference", "L5O7"]
+    ]],
+    ["L6", "Cross-Paper Intelligence & Analytical Semantics", "derived_analytics", "L6H", [
+      ["L6-A1", "Dimension Catalogue", "L6A1"],
+      ["L6-A2", "Single-Dimension Intelligence Profile", "L6A2"],
+      ["L6-A3", "Cross-Dimensional Query / Comparison Specification", "L6A3"],
+      ["L6-A4", "Aggregate / Trend Result", "L6A4"],
+      ["L6-A5", "Contradiction / Negative / Integrity Analytics", "L6A5"],
+      ["L6-A6", "Research-Gap / Opportunity Candidate Signals", "L6A6"]
+    ]],
+    ["L7", "Curated Atlas Synthesis & Frameworks", "atlas_synthesis", "L7H", [
+      ["L7-SY1", "General Atlas Synthesis Record", "L7SY1"],
+      ["L7-SY2", "Atlas Research Gap", "L7SY2"],
+      ["L7-SY3", "Atlas Research Opportunity", "L7SY3"],
+      ["L7-SY4", "Design Stack & Feedback Loops", "L7SY4"],
+      ["L7-SY5", "Co-Design Framework", "L7SY5"],
+      ["L7-SY6", "Design–Performance 14×7 / 98-Cell Matrix", "L7SY6"],
+      ["L7-SY7", "Failure-Mode Diagnostics Synthesis", "L7SY7"],
+      ["L7-SY8", "Future Official Frameworks", "L7SY8"]
+    ]],
+    ["L8", "Atlas Experience, Tools & Integration Surfaces", "surface", "L8H", [
+      ["L8-U1", "Surface / Page Registry", "L8U1"],
+      ["L8-U2", "Paper Profile Surface Family", "L8U2"],
+      ["L8-U3", "Explorers & Analytical Views", "L8U3"],
+      ["L8-U4", "Official Framework Surfaces", "L8U4"],
+      ["L8-U5", "Controlled Maintenance / Review Tools", "L8U5"],
+      ["L8-U6", "Architecture & Data Map", "L8U6"],
+      ["L8-U7", "APIs, Views & Machine Consumers", "L8U7"],
+      ["L8-U8", "Navigation, Search & Cross-Linking", "L8U8"],
+      ["L8-U9", "Computational Resources Bounded Integration", "L8U9"]
+    ]]
+  ],
+  "governance": [
+    ["G1", "Scientific Authority Registry", "G1"],
+    ["G2", "Requirement / Rule Registry", "G2"],
+    ["G3", "QA Test & Assertion Registry", "G3"],
+    ["G4", "Human Review / Verification Governance", "G4"],
+    ["G5", "Version Registry", "G5"],
+    ["G6", "Change / Migration Governance", "G6"],
+    ["G7", "Batch / Checkpoint / Scale-Out Governance", "G7"],
+    ["G8", "Conflict, Ambiguity & Non-Equivalence Governance", "G8"],
+    ["G9", "Correction / History / Rollback", "G9"],
+    ["G10", "Dependency & Impact Propagation", "G10"],
+    ["G11", "Access / Write / Role Governance", "G11"],
+    ["G12", "Full-Surface Preservation & Lifecycle Governance", "G12"],
+    ["G13", "Bounded-Subsystem Integration Governance", "G13"],
+    ["G14", "Reproducibility / Auditability of Atlas Knowledge", "G14"]
+  ],
+  "relations": [
+    ["ARC-R001", "L1", "L2", "information_flow", "source identity / association"],
+    ["ARC-R002", "L1", "L3", "information_flow", "evidence capture from source"],
+    ["ARC-R003", "L2", "L3", "information_flow", "stable paper identity"],
+    ["ARC-R004", "L2", "L4", "information_flow", "stable identity backbone"],
+    ["ARC-R005", "L3", "L4", "information_flow", "evidence-backed records"],
+    ["ARC-R006", "L4", "L6", "information_flow", "verified paper records"],
+    ["ARC-R007", "L6", "L7", "information_flow", "reproducible analytical inputs"],
+    ["ARC-R008", "L7", "L8", "information_flow", "official Atlas synthesis"],
+    ["ARC-R009", "L5", "L4", "semantic_control", "semantic control"],
+    ["ARC-R010", "L5", "L6", "semantic_control", "dimension / relation semantics"],
+    ["ARC-R011", "L5", "L7", "semantic_control", "synthesis semantic constraints"],
+    ["ARC-R012", "L5", "L8", "semantic_control", "labels / IDs / relationship semantics"],
+    ["ARC-R013", "L4", "L5", "governed_proposal", "X1–X6 governed extension proposals"],
+    ["ARC-R014", "L3", "L6", "provenance_drilldown", "eligible evidence / drill-down"],
+    ["ARC-R015", "L3", "L7", "provenance_drilldown", "supporting + contradictory evidence"],
+    ["ARC-R016", "L3", "L8", "provenance_drilldown", "provenance drill-down"],
+    ["ARC-R017", "L4", "L8", "consumer_flow", "Paper Profiles / detail views"],
+    ["ARC-R018", "L6", "L8", "consumer_flow", "explorers / comparisons / trends"],
+    ["ARC-R019", "EXT-CR", "L8-U9", "bounded_interface", "bounded integration only"]
+  ],
+  "technical": {
+    "path": "docs/master-architecture/atlas-technical-erd.dbml",
+    "tables": 108,
+    "refs": 151,
+    "table_id": "T::<dbml_table_name>",
+    "inventory_authority": "DBML",
+    "families": [
+      ["TF-L1", "L1", "source", ["source_artifacts", "paper_sources"]],
+      ["TF-L2", "L2", "identity", ["papers", "paper_authors", "paper_bibliographic_metadata", "bibliographic_history"]],
+      ["TF-L3", "L3", "evidence", ["evidence", "evidence_classification_history", "scientific_conflicts", "conflict_evidence"]],
+      ["TF-L4", "L4", "verified_science", [
+        "paper_study_design_components", "review_synthesis_scopes", "review_scope_items", "paper_applications", "application_associations", "paper_problems", "governing_equations", "physical_constraints", "problem_characteristics", "data_regimes", "paper_pinn_problem_links", "paper_contributions", "contribution_items", "paper_outcomes", "outcome_items", "paper_validation", "validation_items", "methodological_feature_sets", "method_terms", "model_variable_representations", "network_configurations", "training_protocols", "differentiation_methods", "differentiation_component_methods", "parallel_executions", "loss_weighting_methods", "loss_weighting_targets", "transformation_methods", "fidelity_source_roles", "derived_output_methods", "derived_output_sources", "evaluation_results", "evaluation_result_items", "reproducibility", "reproduction_attempts", "paper_diagnostic_pathways", "diagnostic_components", "diagnostic_component_evidence", "diagnostic_verification_links", "limitations", "open_problems", "future_work", "extraction_control"
+      ]],
+      ["TF-L5", "L5", "semantic_control", ["controlled_vocabulary_dimensions", "controlled_vocabulary_values", "taxonomy_terms", "taxonomy_aliases", "provisional_terms", "relationship_registry", "scientific_relationships", "scientific_relationship_evidence", "no_merge_rules", "extension_proposals", "ontology_changelog", "ontology_change_papers", "ontology_change_evidence"]],
+      ["TF-L6", "L6", "derived_analytics", ["dimension_catalog", "analysis_specs", "analysis_results", "analysis_result_support", "analytical_integrity_findings", "research_candidate_signals"]],
+      ["TF-L7", "L7", "atlas_synthesis", ["atlas_syntheses", "atlas_synthesis_support", "atlas_research_gaps", "atlas_gap_support", "atlas_research_opportunities", "atlas_opportunity_support", "framework_definitions", "framework_nodes", "framework_edges", "framework_edge_support", "design_performance_cells", "design_performance_cell_support", "diagnostic_synthesis_items", "diagnostic_synthesis_support"]],
+      ["TF-L8", "L8", "surface", ["surface_registry", "surface_dependencies", "interface_registry", "review_requests", "bounded_subsystems", "subsystem_entity_links"]],
+      ["TF-G", "GLOBAL", "governance", ["authority_registry", "requirement_registry", "qa_test_registry", "qa_test_requirements", "qa_runs", "human_reviews", "version_registry", "migrations", "migration_impacts", "batches", "batch_papers", "correction_history", "dependency_edges", "role_registry", "role_permissions", "knowledge_builds"]]
+    ]
+  },
+  "surfaces": [
+    ["SURF-001", "/", "current_baseline", "not_yet_audited", false],
+    ["SURF-002", "/pinn-ecosystem/", "current_baseline", "not_yet_audited", false],
+    ["SURF-003", "/architectures/", "current_baseline", "not_yet_audited", false],
+    ["SURF-004", "/activation-functions/", "current_baseline", "not_yet_audited", false],
+    ["SURF-005", "/training/", "current_baseline", "not_yet_audited", false],
+    ["SURF-006", "/optimizers/", "current_baseline", "not_yet_audited", false],
+    ["SURF-007", "/performance-metrics/", "current_baseline", "not_yet_audited", false],
+    ["SURF-008", "/mathematical-formulations/", "current_baseline", "not_yet_audited", false],
+    ["SURF-009", "/pinn-types/", "current_baseline", "not_yet_audited", false],
+    ["SURF-010", "/abbreviations/", "current_baseline", "not_yet_audited", false],
+    ["SURF-011", "/pinn-realm/", "current_baseline", "not_yet_audited", false],
+    ["SURF-012", "/applications/", "current_baseline", "not_yet_audited", false],
+    ["SURF-013", "/references/", "current_baseline", "not_yet_audited", false],
+    ["SURF-014", "/software/", "current_baseline", "not_yet_audited", false],
+    ["SURF-015", "/datasets/", "current_baseline", "not_yet_audited", false],
+    ["SURF-016", "/frameworks/", "current_baseline", "not_yet_audited", false],
+    ["SURF-017", "/frameworks/design-stack/", "current_baseline", "not_yet_audited", false],
+    ["SURF-018", "/frameworks/co-design/", "current_baseline", "not_yet_audited", false],
+    ["SURF-019", "/frameworks/design-performance/", "current_baseline", "not_yet_audited", false],
+    ["SURF-020", "/frameworks/failure-diagnostics/", "current_baseline", "not_yet_audited", false],
+    ["SURF-021", "/dataset-manager/", "current_baseline", "not_yet_audited", false],
+    ["SURF-022", "/dataset-manager/review/", "current_baseline", "not_yet_audited", false],
+    ["SURF-023", "/references/changelog/", "current_baseline", "not_yet_audited", false],
+    ["SURF-024", "/cite/", "current_baseline", "not_yet_audited", false],
+    ["SURF-025", "/privacy/", "current_baseline", "not_yet_audited", false],
+    ["SURF-026", "/404.html", "current_baseline", "not_yet_audited", false]
+  ],
+  "future_surface": ["SURF-FUTURE", "future_surface_sentinel", true],
+  "bounded_external": [
+    ["EXT-CR", "Computational Resources", "L8-U9", "CRH", false, false, ["Code & Software", "Datasets", "Frameworks & Libraries", "Simulators & Solvers", "Reproducibility Explorer"]]
+  ],
+  "artifacts": {
+    "mermaid": "docs/master-architecture/atlas-conceptual-architecture.mmd",
+    "viewer": "docs/master-architecture/atlas-conceptual-architecture.html",
+    "dbml": "docs/master-architecture/atlas-technical-erd.dbml",
+    "status": "docs/master-architecture/TASK-2-STATUS.md",
+    "future_ui": "read_only_registry_consumer"
+  },
+  "validation": [
+    ["VAL-001", "registry", "parse + unique stable IDs + non-scientific authority"],
+    ["VAL-002", "mermaid", "L1-L8/components/G1-G14 aliases present"],
+    ["VAL-003", "mermaid", "counts 4,5,7,20,7,6,8,9 and G=14"],
+    ["VAL-004", "mermaid", "registered core relations present"],
+    ["VAL-005", "viewer", "embedded Mermaid snapshot equals .mmd"],
+    ["VAL-006", "dbml", "108 tables, 151 refs, exact registry-family table set"],
+    ["VAL-007", "dbml", "one T::<name> ID and one family per table; L7 synthesis stays separate"],
+    ["VAL-008", "surfaces", "26 current routes + future sentinel; Task9 required; no route ceiling"],
+    ["VAL-009", "contracts", "R48/X9/H11/111/zero-orphan preserved"],
+    ["VAL-010", "versions", "ontology/architecture/DB/UI/CR versions stay distinct"],
+    ["VAL-011", "cr", "bounded external; no schema import; stage branches untouched"],
+    ["VAL-012", "docs", "specified/mapped != implemented/tested/passed"],
+    ["VAL-013", "future_ui", "stable IDs consumed; labels/layout cannot redefine ownership"],
+    ["VAL-014", "change", "stable IDs not silently deleted/repurposed/reused"]
+  ],
+  "change": {
+    "stable_ids": "immutable; rename keeps ID; replacement deprecates and points to new; never reuse meaning",
+    "display": "allowed only if semantics/ownership unchanged",
+    "architecture_metadata": "requires bound-artifact validation",
+    "scientific": "not allowed via registry alone; ontology governance + later version required"
+  }
+}
