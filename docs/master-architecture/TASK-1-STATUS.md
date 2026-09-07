@@ -9,8 +9,8 @@ This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md` wit
 | 1.1 Authoritative Reconciliation | **PASS — COMPLETE (surface scope clarified)** | `TASK-1.1-AUTHORITATIVE-RECONCILIATION.md` + `ATLAS-PRODUCTION-SURFACE-REGISTER.md` |
 | 1.2 Complete project objective | **PASS — COMPLETE (surface scope clarified)** | `TASK-1.2-COMPLETE-PROJECT-OBJECTIVE.md` + `ATLAS-PRODUCTION-SURFACE-REGISTER.md` |
 | 1.3 Non-negotiable scientific rules | **PASS — COMPLETE** | `TASK-1.3-NON-NEGOTIABLE-SCIENTIFIC-RULES.md` |
-| 1.4 Controlled dynamic-extension rules | **NEXT** | Not started |
-| 1.5 Operational scale-out acceptance gates | Pending | Not started |
+| 1.4 Controlled dynamic-extension rules | **PASS — COMPLETE** | `TASK-1.4-CONTROLLED-DYNAMIC-EXTENSION-RULES.md` |
+| 1.5 Operational scale-out acceptance gates | **NEXT** | Not started |
 | 1.6 Formal requirement/coverage matrix | Pending | Not started |
 | 1.7 Freeze Master Plan v1.0 | Pending | Not started |
 
@@ -63,10 +63,26 @@ Any later architecture, schema, prototype, page, migration, ingestion workflow, 
 
 No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, or ontology version was modified by Task 1.3.
 
+## Task 1.4 completion boundary
+
+Task 1.4 formalizes the controlled dynamic-extension lifecycle while keeping Task 1.3 R1–R48 mandatory.
+
+It defines nine extension classes: existing adequate representation; source-local/paper-specific concept; provisional taxonomy/alias candidate; provisional relationship candidate; controlled/extensible value candidate; structural/schema candidate; synthesis-only extension; page/tool/information-architecture extension; and bounded-subsystem integration extension.
+
+The required extension sequence is now: preserve evidence → search current owners → test semantic adequacy → normalize only when adequate → retain scoped/provisional meaning when not adequate → classify extension → record trigger/evidence → review recurrence/generalizability/analytical need → adjudicate → update only the correct owner in a candidate future version → changelog → migrate normalized records without rewriting source evidence → backward/regression QA → governed promotion.
+
+Post-v0.7 canonical scientific additions or structural scientific changes require a later governed ontology version. Locked v0.7 is not silently mutated. Paper-specific/source-local/provisional information can remain preserved without being falsely presented as canonical v0.7 science.
+
+Task 1.4 also formalizes alias scope, controlled/extensible-value handling, provisional/canonical relation handling, structural-home-first/schema-escalation rules, generalization-before-duplication, migration/history preservation, synthesis-only extension, future-page extensibility, and Computational Resources bounded integration.
+
+Task 1.4 deliberately sets **no numerical scale-out thresholds, clean-mapping percentages, batch sizes, or unresolved-rate gates**; those belong to Task 1.5.
+
+No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, route, page, or ontology version was modified by Task 1.4.
+
 ## Master Plan freeze safeguard
 
-Task 1.7 must not freeze Master Plan v1.0 unless Task 1.6 coverage work recognizes the full production-surface register and maps the Task 1.3 non-negotiable scientific rules into the implementation/QA coverage contract while preserving the mandatory Task 9 page/data dependency audit.
+Task 1.7 must not freeze Master Plan v1.0 unless Task 1.6 coverage work recognizes the full production-surface register and maps both the Task 1.3 non-negotiable scientific rules and Task 1.4 controlled-extension lifecycle into the implementation/QA coverage contract while preserving the mandatory Task 9 page/data dependency audit.
 
 ## Exact next action
 
-Proceed only to **Task 1.4 — Formalize controlled dynamic-extension rules**, using `TASK-1.3-NON-NEGOTIABLE-SCIENTIFIC-RULES.md` as a mandatory invariant set that no extension mechanism may violate.
+Proceed only to **Task 1.5 — Restore/formalize operational scale-out acceptance gates**, using `TASK-1.3-NON-NEGOTIABLE-SCIENTIFIC-RULES.md` and `TASK-1.4-CONTROLLED-DYNAMIC-EXTENSION-RULES.md` as mandatory constraints.
