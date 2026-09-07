@@ -1,0 +1,280 @@
+flowchart TB
+  %% PINN Review Atlas conceptual architecture
+  %% Task 2.3 source only: conceptual responsibility/authority architecture.
+  %% This file intentionally contains no SQL tables, PK/FK design, physical cardinalities, provider decisions, or production implementation.
+
+  SCOPE["CONCEPTUAL SOURCE ONLY<br/>Master Plan v1.0 + Task 2.1 + Task 2.2<br/>Locked scientific authority: v0.7-pilot-atlas-prefreeze"]
+
+  subgraph GOV["Global QA / Versioning / Governance Plane — applies to every level"]
+    direction TB
+    GH["GLOBAL GOVERNANCE OVERLAY"]
+    G1["G1 Scientific Authority Registry"]
+    G2["G2 Requirement / Rule Registry"]
+    G3["G3 QA Test & Assertion Registry"]
+    G4["G4 Human Review / Verification Governance"]
+    G5["G5 Version Registry"]
+    G6["G6 Change / Migration Governance"]
+    G7["G7 Batch / Checkpoint / Scale-Out Governance"]
+    G8["G8 Conflict, Ambiguity & Non-Equivalence Governance"]
+    G9["G9 Correction / History / Rollback"]
+    G10["G10 Dependency & Impact Propagation"]
+    G11["G11 Access / Write / Role Governance"]
+    G12["G12 Full-Surface Preservation & Lifecycle Governance"]
+    G13["G13 Bounded-Subsystem Integration Governance"]
+    G14["G14 Reproducibility / Auditability of Atlas Knowledge"]
+    GH --- G1
+    GH --- G2
+    GH --- G3
+    GH --- G4
+    GH --- G5
+    GH --- G6
+    GH --- G7
+    GH --- G8
+    GH --- G9
+    GH --- G10
+    GH --- G11
+    GH --- G12
+    GH --- G13
+    GH --- G14
+  end
+
+  subgraph L1["L1 — Primary Scientific Sources"]
+    direction TB
+    L1H["L1 RESPONSIBILITY BOUNDARY"]
+    L1S1["L1-S1 Source Artifact Registry"]
+    L1S2["L1-S2 Paper–Source Association"]
+    L1S3["L1-S3 Supplementary / Component Source Scope"]
+    L1S4["L1-S4 Source Integrity State"]
+    L1H --- L1S1
+    L1H --- L1S2
+    L1H --- L1S3
+    L1H --- L1S4
+  end
+
+  subgraph L2["L2 — Bibliographic Identity & Corpus Registry"]
+    direction TB
+    L2H["L2 RESPONSIBILITY BOUNDARY"]
+    L2B1["L2-B1 Stable Paper Identity"]
+    L2B2["L2-B2 Verified Bibliographic Metadata"]
+    L2B3["L2-B3 Corpus / Record Version Identity"]
+    L2B4["L2-B4 Bibliographic Verification"]
+    L2B5["L2-B5 Metadata Correction & History"]
+    L2H --- L2B1
+    L2H --- L2B2
+    L2H --- L2B3
+    L2H --- L2B4
+    L2H --- L2B5
+  end
+
+  subgraph L3["L3 — Evidence & Provenance"]
+    direction TB
+    L3H["L3 RESPONSIBILITY BOUNDARY"]
+    L3E1["L3-E1 Evidence Identity & Linkage"]
+    L3E2["L3-E2 Evidence Content"]
+    L3E3["L3-E3 Evidence Locator"]
+    L3E4["L3-E4 Evidence Role, Strength & Origin"]
+    L3E5["L3-E5 Verification, Support & Conflict"]
+    L3E6["L3-E6 Evidence Version / History"]
+    L3E7["L3-E7 Evidence Graph"]
+    L3H --- L3E1
+    L3H --- L3E2
+    L3H --- L3E3
+    L3H --- L3E4
+    L3H --- L3E5
+    L3H --- L3E6
+    L3H --- L3E7
+  end
+
+  subgraph L4["L4 — Verified Paper Scientific Knowledge"]
+    direction TB
+    L4H["L4 RESPONSIBILITY BOUNDARY"]
+    L4P1["L4-P1 Study Design, Applicability & Review Scope"]
+    L4P2["L4-P2 Scientific Record Lifecycle & Extraction State"]
+    L4P3["L4-P3 Application & Physical System"]
+    L4P4["L4-P4 Problem Definition & Governing Physics"]
+    L4P5["L4-P5 Scientific Objective & Computational Task"]
+    L4P6["L4-P6 Data & Observation Context"]
+    L4P7["L4-P7 PINN Problem / Challenge Addressed"]
+    L4P8["L4-P8 PINN Type / Family Assignment"]
+    L4P9["L4-P9 Methodological Features"]
+    L4P10["L4-P10 Contribution & Innovation"]
+    L4P11["L4-P11 Claim, Demonstration & Generality"]
+    L4P12["L4-P12 Outcome / Degree of Resolution"]
+    L4P13["L4-P13 Validation"]
+    L4P14["L4-P14 Evaluation Results & Test Cases"]
+    L4P15["L4-P15 Reproducibility & Reproduction State"]
+    L4P16["L4-P16 Limitations"]
+    L4P17["L4-P17 Open Problems"]
+    L4P18["L4-P18 Future Work"]
+    L4P19["L4-P19 Paper Diagnostic Pathways"]
+    L4P20["L4-P20 Evidence and Semantic Linkage Facets"]
+    L4H --- L4P1
+    L4H --- L4P2
+    L4H --- L4P3
+    L4H --- L4P4
+    L4H --- L4P5
+    L4H --- L4P6
+    L4H --- L4P7
+    L4H --- L4P8
+    L4H --- L4P9
+    L4H --- L4P10
+    L4H --- L4P11
+    L4H --- L4P12
+    L4H --- L4P13
+    L4H --- L4P14
+    L4H --- L4P15
+    L4H --- L4P16
+    L4H --- L4P17
+    L4H --- L4P18
+    L4H --- L4P19
+    L4H --- L4P20
+  end
+
+  subgraph L5["L5 — Ontology, Taxonomy & Semantic Control"]
+    direction TB
+    L5H["L5 RESPONSIBILITY BOUNDARY"]
+    L5O1["L5-O1 Schema Authority Map"]
+    L5O2["L5-O2 Controlled Vocabulary Registry"]
+    L5O3["L5-O3 Taxonomy Term & Alias Registry"]
+    L5O4["L5-O4 Relationship Registry"]
+    L5O5["L5-O5 Non-Equivalence / No-Merge Constraints"]
+    L5O6["L5-O6 Provisional / Source-Local Extension Workbench"]
+    L5O7["L5-O7 Ontology Changelog & Migration Reference"]
+    L5H --- L5O1
+    L5H --- L5O2
+    L5H --- L5O3
+    L5H --- L5O4
+    L5H --- L5O5
+    L5H --- L5O6
+    L5H --- L5O7
+  end
+
+  subgraph L6["L6 — Cross-Paper Intelligence & Analytical Semantics"]
+    direction TB
+    L6H["L6 RESPONSIBILITY BOUNDARY"]
+    L6A1["L6-A1 Dimension Catalogue"]
+    L6A2["L6-A2 Single-Dimension Intelligence Profile"]
+    L6A3["L6-A3 Cross-Dimensional Query / Comparison Specification"]
+    L6A4["L6-A4 Aggregate / Trend Result"]
+    L6A5["L6-A5 Contradiction / Negative / Integrity Analytics"]
+    L6A6["L6-A6 Research-Gap / Opportunity Candidate Signals"]
+    L6H --- L6A1
+    L6H --- L6A2
+    L6H --- L6A3
+    L6H --- L6A4
+    L6H --- L6A5
+    L6H --- L6A6
+  end
+
+  subgraph L7["L7 — Curated Atlas Synthesis & Frameworks"]
+    direction TB
+    L7H["L7 RESPONSIBILITY BOUNDARY"]
+    L7SY1["L7-SY1 General Atlas Synthesis Record"]
+    L7SY2["L7-SY2 Atlas Research Gap"]
+    L7SY3["L7-SY3 Atlas Research Opportunity"]
+    L7SY4["L7-SY4 Design Stack & Feedback Loops"]
+    L7SY5["L7-SY5 Co-Design Framework"]
+    L7SY6["L7-SY6 Design–Performance 14×7 / 98-Cell Matrix"]
+    L7SY7["L7-SY7 Failure-Mode Diagnostics Synthesis"]
+    L7SY8["L7-SY8 Future Official Frameworks"]
+    L7H --- L7SY1
+    L7H --- L7SY2
+    L7H --- L7SY3
+    L7H --- L7SY4
+    L7H --- L7SY5
+    L7H --- L7SY6
+    L7H --- L7SY7
+    L7H --- L7SY8
+  end
+
+  subgraph L8["L8 — Atlas Experience, Tools & Integration Surfaces"]
+    direction TB
+    L8H["L8 RESPONSIBILITY BOUNDARY"]
+    L8U1["L8-U1 Surface / Page Registry<br/>26 current routes = migration baseline, not route ceiling"]
+    L8U2["L8-U2 Paper Profile Surface Family"]
+    L8U3["L8-U3 Explorers & Analytical Views"]
+    L8U4["L8-U4 Official Framework Surfaces"]
+    L8U5["L8-U5 Controlled Maintenance / Review Tools"]
+    L8U6["L8-U6 Architecture & Data Map"]
+    L8U7["L8-U7 APIs, Views & Machine Consumers"]
+    L8U8["L8-U8 Navigation, Search & Cross-Linking"]
+    L8U9["L8-U9 Computational Resources Bounded Integration"]
+    L8H --- L8U1
+    L8H --- L8U2
+    L8H --- L8U3
+    L8H --- L8U4
+    L8H --- L8U5
+    L8H --- L8U6
+    L8H --- L8U7
+    L8H --- L8U8
+    L8H --- L8U9
+  end
+
+  subgraph CR["Independent Computational Resources Subsystem — bounded interface only"]
+    direction TB
+    CRH["CR INDEPENDENT AUTHORITY / VERSION"]
+    CR1["Code & Software"]
+    CR2["Datasets"]
+    CR3["Frameworks & Libraries"]
+    CR4["Simulators & Solvers"]
+    CR5["Reproducibility Explorer"]
+    CRH --- CR1
+    CRH --- CR2
+    CRH --- CR3
+    CRH --- CR4
+    CRH --- CR5
+  end
+
+  %% Principal governed scientific-information chain
+  SCOPE --> GH
+  L1H -->|source identity / association| L2H
+  L1H -->|evidence capture from source| L3H
+  L2H -->|stable paper identity| L3H
+  L2H -->|stable identity backbone| L4H
+  L3H -->|evidence-backed records| L4H
+  L4H -->|verified paper records| L6H
+  L6H -->|reproducible analytical inputs| L7H
+  L7H -->|official Atlas synthesis| L8H
+
+  %% Semantic control and controlled feedback
+  L5H -.->|semantic control| L4H
+  L5H -.->|dimension / relation semantics| L6H
+  L5H -.->|synthesis semantic constraints| L7H
+  L5H -.->|labels / IDs / relationship semantics| L8H
+  L4H -.->|X1–X6 governed extension proposals| L5H
+  L6H -.->|candidate semantic / ontology issues| L5H
+  L7H -.->|candidate semantic / ontology issues| L5H
+  L8H -.->|governed change proposals only| L5H
+
+  %% Evidence/provenance drill-down beyond L4
+  L3H -->|eligible evidence / drill-down| L6H
+  L3H -->|supporting + contradictory evidence| L7H
+  L3H -->|provenance drill-down| L8H
+
+  %% Direct governed consumption
+  L4H -->|Paper Profiles / detail views| L8H
+  L6H -->|explorers / comparisons / trends| L8H
+
+  %% Global governance overlay on all levels
+  GH -.-> L1H
+  GH -.-> L2H
+  GH -.-> L3H
+  GH -.-> L4H
+  GH -.-> L5H
+  GH -.-> L6H
+  GH -.-> L7H
+  GH -.-> L8H
+
+  %% Full-surface and bounded-subsystem safeguards
+  G12 -.-> L8U1
+  G13 -.-> L8U9
+  CRH -.->|bounded integration only| L8U9
+  G13 -.-> CRH
+
+  %% Explicit conceptual boundaries
+  L8U4 -.->|display does not create paper facts or canonical relations| L7H
+  L7SY6 -.->|matrix cell is synthesis, not canonical relation| L5O4
+  L7SY7 -.->|Atlas diagnostic synthesis distinct from paper pathways| L4P19
+  L4P20 -->|evidence IDs| L3E1
+  L4P20 -->|taxonomy / relation IDs| L5O3
+  L4P20 -->|typed relation semantics| L5O4
