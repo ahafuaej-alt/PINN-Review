@@ -5,43 +5,43 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint and aggregate batch
 
-- Checkpoint: `Stage3-S115`
-- Resource: `CR000130`
+- Checkpoint: `Stage3-S116`
+- Resource: `CR000131`
 - Checkpoint status: **PASS**
 - Latest completed batch: `SOB012` — **PASS (10/10)**
-- Current batch: `SOB013` — **3/10**
+- Current batch: `SOB013` — **4/10**
 
-## S115 checkpoint counts
+## S116 checkpoint counts
 
 - Resources: **1**
 - Experiments: **1**
 - Configurations: **1**
-- Technical-evidence records: **8**
+- Technical-evidence records: **9**
 - Reproducibility assessments: **1**
-- New unresolved findings: **7**
-- New explicit conflicts: **0**
+- New unresolved findings: **6**
+- New explicit conflicts: **1**
 
-## Cumulative counts through S115
+## Cumulative counts through S116
 
-- Resources: **133**
-- Experiments: **218**
-- Configurations: **415**
-- Technical-evidence records: **1523**
-- Reproducibility assessments: **133**
-- Unresolved findings: **847**
-- Explicit conflicts: **110**
-- Independently extractable resources remaining: **230**
+- Resources: **134**
+- Experiments: **219**
+- Configurations: **416**
+- Technical-evidence records: **1532**
+- Reproducibility assessments: **134**
+- Unresolved findings: **853**
+- Explicit conflicts: **111**
+- Independently extractable resources remaining: **229**
 
 ## QA gates
 
-S115 schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
+S116 schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
 
-The latest aggregate batch remains `SOB012` — **PASS**. `SOB013` is not yet due for aggregate QA.
+Latest aggregate batch remains `SOB012` — **PASS**. `SOB013` is not yet due for aggregate QA.
 
 ## Scientific/reproducibility note
 
-CR000130 is pinned battery-degradation PIML research code with three source-explicit method families: a hybrid-loss PINN, a half-cell model and multi-fidelity co-kriging. The PINN example provides architecture, optimizer, hyperparameters and seed, but its dataset is confidential, required pretrained model files are absent, and no environment manifest or license is available. The bounded assessment is **R1**.
+CR000131 is a pinned comparative repository with paired FEM/PINN implementations for six PDE problem families. Representative 1D Poisson exposes the PINN's Adam→L-BFGS workflow, Latin-hypercube collocation, architecture sweep, and the FEM mesh/solver sweep. The repository lacks a license and complete environment manifest, and its own JAX version/API comment is internally contradictory; the bounded assessment is **R1**.
 
 ## Continuation
 
-Exact next resource: `CR000131`. Exact next checkpoint: `Stage3-S116`.
+Exact next resource: `CR000132`. Exact next checkpoint: `Stage3-S117`.
