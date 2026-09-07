@@ -11,8 +11,8 @@ This register records execution status for Task 1 of `CONTROLLED-ROADMAP.md` wit
 | 1.3 Non-negotiable scientific rules | **PASS — COMPLETE** | `TASK-1.3-NON-NEGOTIABLE-SCIENTIFIC-RULES.md` |
 | 1.4 Controlled dynamic-extension rules | **PASS — COMPLETE** | `TASK-1.4-CONTROLLED-DYNAMIC-EXTENSION-RULES.md` |
 | 1.5 Operational scale-out acceptance gates | **PASS — COMPLETE** | `TASK-1.5-OPERATIONAL-SCALEOUT-ACCEPTANCE-GATES.md` |
-| 1.6 Formal requirement/coverage matrix | **NEXT** | Not started |
-| 1.7 Freeze Master Plan v1.0 | Pending | Not started |
+| 1.6 Formal requirement/coverage matrix | **PASS — COMPLETE** | `TASK-1.6-REQUIREMENT-COVERAGE-MATRIX.md` |
+| 1.7 Freeze Master Plan v1.0 | **NEXT** | Not started |
 
 ## Complete Atlas production-surface rule
 
@@ -93,20 +93,32 @@ CMR bands are now explicit:
 
 CMR counts X1–X5 as clean structural mapping when the current governed structure preserves scientific meaning. Legitimate source-local/paper-specific/provisional concepts are therefore not penalized merely because they are noncanonical. X6 structural specialization, unresolved structural-owner ambiguity, or representation requiring information loss is not clean mapping.
 
-Eleven hard gate families H1–H11 now require, as applicable: zero forced mappings; **100% provenance completeness for accepted verified evidence-bound scientific records**; **100% human scientific review coverage for verified/published scientific records**; evidence/history immutability; 100% identity/referential integrity; Task 1.3 semantic-boundary regression; conflict/mismatch/ambiguity preservation; zero ineligible positive-synthesis contamination; zero active major structural gaps; complete 36-paper/eight-sentinel/A6/no-merge/framework regression; and explicit batch checkpoint/publication readiness.
-
-A major structural gap is a hard STOP when one adversarial case breaks a mandatory Task 1.3 distinction/provenance/identity/multiplicity requirement, or when the same irreducible X6 deficiency recurs in two or more independent papers and cannot be reconstructed from existing governed structures. A high CMR cannot average away such a gap.
-
-Task 1.5 also defines GO / CONDITIONAL GO / STOP / ROLLBACK REQUIRED dispositions; defect routing to the owning scientific/implementation layer; continuous batch and cumulative monitoring; preservation of unresolved/provisional/negative states; Task 20 qualification use of the verified 36-paper corpus; and Task 21 batch-controlled full-corpus operation after separate authorization.
+Eleven hard gate families H1–H11 require, as applicable: zero forced mappings; 100% provenance completeness for accepted verified evidence-bound scientific records; 100% human scientific review coverage for verified/published scientific records; evidence/history immutability; 100% identity/referential integrity; Task 1.3 semantic-boundary regression; conflict/mismatch/ambiguity preservation; zero ineligible positive-synthesis contamination; zero active major structural gaps; complete 36-paper/eight-sentinel/A6/no-merge/framework regression; and explicit batch checkpoint/publication readiness.
 
 Task 1.5 does **not** set future batch size, start Task 20/21, choose infrastructure, change ontology version, or authorize production extraction.
 
 No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, route, page, migration, or ontology version was modified by Task 1.5.
 
+## Task 1.6 completion boundary
+
+Task 1.6 creates the formal implementation-contract coverage matrix without claiming that downstream implementation is already complete.
+
+The matrix contains **111 explicit contract requirements**: 11 Task 1.1 authority/reconciliation requirements, 20 Task 1.2 project-objective obligations, all **48/48** Task 1.3 invariants, all **9/9** Task 1.4 extension classes, all **11/11** Task 1.5 hard gates, five NDU/CMR/disposition rules, and seven complete-surface/future-extension rules.
+
+Every row identifies its owner, required representation, evidence/provenance obligation, QA/acceptance path, downstream roadmap/consumer coverage, and coverage state. **Specification orphan count = 0.**
+
+The matrix additionally enumerates the current **26/26** registered production routes and binds every route to the mandatory Task 9 audit. It explicitly preserves the rule that the route list is a current preservation/migration baseline rather than final target information architecture or a route ceiling. New/discovered surfaces extend the Task 9 audit inventory.
+
+The reserved future Computational Resources hierarchy remains a bounded target-information-architecture direction, and the matrix does not import or modify Computational Resources Stage 1/2/3 schemas.
+
+Task 1.6 also provides a requirement-to-roadmap handoff map for Tasks 2–22 and a Task 1.7 freeze safeguard. PASS means the Master Plan specification has no orphan requirement; it does not mean Tasks 2–22 are implemented.
+
+No locked v0.7 scientific document, production `main` file, Computational Resources Stage 1/2/3 branch, production database, route, page, migration, or ontology version was modified by Task 1.6.
+
 ## Master Plan freeze safeguard
 
-Task 1.7 must not freeze Master Plan v1.0 unless Task 1.6 coverage work recognizes the full production-surface register and maps Task 1.3 R1–R48, Task 1.4 X1–X9, and Task 1.5 H1–H11/CMR/GO-STOP rules into the implementation, evidence/provenance, workflow, QA/regression, migration, and Atlas-consumer coverage contract while preserving the mandatory Task 9 page/data dependency audit.
+Task 1.7 must not freeze Master Plan v1.0 unless final readback confirms Task 1.1–1.6 are mutually consistent; locked v0.7 remains unchanged; R1–R48, X1–X9, H1–H11 and the NDU/CMR dispositions remain covered; Task 1.6 orphan count remains zero; the current 26-route production surface remains an audit/preservation baseline rather than final IA; Task 9 remains mandatory for every registered and later-discovered production surface; the Computational Resources hierarchy remains bounded and independently governed; future pages remain open-ended but governed; and no downstream implementation/provider/migration/ontology-version decision is falsely presented as completed.
 
 ## Exact next action
 
-Proceed only to **Task 1.6 — Produce the formal requirement/coverage matrix**, mapping the completed Task 1.1–1.5 requirements to their scientific owner, representation, evidence/provenance requirements, QA/tests, workflows, and complete Atlas consumer surfaces.
+Proceed only to **Task 1.7 — Freeze Master Plan v1.0 as the implementation contract, not as a new ontology version**, by performing a final Task 1.1–1.6 consistency/readback audit, confirming the Task 1.6 orphan count remains zero and the complete-surface/future-extension safeguards remain present, recording the freeze decision, synchronizing the Master Memory, and stopping before Task 2.
