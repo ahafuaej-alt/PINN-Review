@@ -137,11 +137,69 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
       - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/github-script@v7
         env:
-          GITHUB_SHA: ${{ inputs.source_sha || github.sha }}
-        uses: actions/deploy-pages@v4
+          SOURCE_SHA: ${{ inputs.source_sha || github.sha }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const sourceSha = process.env.SOURCE_SHA;
+            const artifactId = Number(process.env.ARTIFACT_ID);
+            if (!/^[0-9a-f]{40}$/.test(sourceSha)) {
+              core.setFailed(`Invalid deployment source SHA: ${sourceSha}`);
+              return;
+            }
+            if (!Number.isSafeInteger(artifactId) || artifactId <= 0) {
+              core.setFailed(`Invalid Pages artifact ID: ${process.env.ARTIFACT_ID}`);
+              return;
+            }
+
+            const oidcToken = await core.getIDToken();
+            const { data: deployment } = await github.request('POST /repos/{owner}/{repo}/pages/deployments', {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              artifact_id: artifactId,
+              environment: 'github-pages',
+              pages_build_version: sourceSha,
+              oidc_token: oidcToken,
+              headers: { 'X-GitHub-Api-Version': '2026-03-10' }
+            });
+
+            core.info(`Created Pages deployment for exact source ${sourceSha}.`);
+            core.setOutput('page_url', deployment.page_url || '');
+            const deploymentId = deployment.id || deployment.status_url?.split('/').pop() || sourceSha;
+            const finalFailures = new Set([
+              'deployment_failed',
+              'deployment_perms_error',
+              'deployment_content_failed',
+              'deployment_cancelled',
+              'deployment_lost'
+            ]);
+
+            for (let attempt = 1; attempt <= 120; attempt += 1) {
+              await new Promise(resolve => setTimeout(resolve, 5000));
+              const { data: status } = await github.request('GET /repos/{owner}/{repo}/pages/deployments/{deployment_id}', {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                deployment_id: deploymentId,
+                headers: { 'X-GitHub-Api-Version': '2026-03-10' }
+              });
+              if (status.status === 'succeed') {
+                core.info(`Pages deployment succeeded for ${sourceSha}.`);
+                return;
+              }
+              if (finalFailures.has(status.status)) {
+                core.setFailed(`Pages deployment failed with status: ${status.status}`);
+                return;
+              }
+              core.info(`Pages deployment status: ${status.status}`);
+            }
+
+            core.setFailed('Timed out waiting for GitHub Pages deployment status.');
