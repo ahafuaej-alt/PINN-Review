@@ -48,17 +48,19 @@ Task 2 shared architecture registry: `atlas-architecture-registry.json`.
 
 Task 2 read-only drift validator: `validate-architecture-registry.py`.
 
-### Task 3 — Define the complete Paper Profile — IN PROGRESS
+### Task 3 — Define the complete Paper Profile — COMPLETE / PASS
 - 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence. — **PASS / COMPLETE**
 - 3.2 Expand each section field-by-field. — **PASS / COMPLETE**
 - 3.3 Define conditional profile sections and display logic. — **PASS / COMPLETE**
 - 3.4 Define evidence/provenance drill-down behavior. — **PASS / COMPLETE**
 - 3.5 Create a machine-readable profile specification in GitHub. — **PASS / COMPLETE**
-- 3.6 Create a Paper Profile UI mockup before implementation. — **NEXT**
+- 3.6 Create a Paper Profile UI mockup before implementation. — **PASS / COMPLETE**
 
-Task 3 machine-readable Paper Profile coordination source: `atlas-paper-profile-spec.json`.
+Task 3 machine-readable profile contract: `atlas-paper-profile-spec.json`.
 
 Task 3 read-only drift validator: `validate-paper-profile-spec.py`.
+
+Task 3 non-production UI mockup: `mockups/paper-profile-ui-mockup.html`.
 
 ### Task 4 — Formalize PINN Type / Variant classification
 - 4.1 Audit the existing Abbreviations/PINN-type material.
@@ -258,16 +260,14 @@ Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementati
 
 Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
-Task 3 is **IN PROGRESS**. Tasks 3.1–3.5 are **PASS / COMPLETE**.
+Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
-Task 3.5 creates `atlas-paper-profile-spec.json` as the non-authoritative machine-readable L8 Paper Profile coordination contract and `validate-paper-profile-spec.py` as its read-only drift validator. The contract fixes **19/19** stable section IDs, **274** explicit Task-3.2 profile coordinates, **73** deterministic nested structured-subfield IDs and therefore **347** total profile-spec field IDs while preserving Task 3.2's **317/317** locked scientific mappings (`244` top-level + `73` structured subfields). The remaining **30** explicit coordinates are documented bibliographic/technical/L3/ARCH/future-bounded projection coordinates and are not new v0.7 scientific fields.
+Task 3 closes the complete Paper Profile specification chain: 19 stable PP sections; 317/317 locked field/subfield mappings; deterministic conditional display logic; auditable five-stage evidence/provenance drill-down; non-authoritative `atlas-paper-profile-spec.json` machine-readable contract; and the self-contained synthetic-data `mockups/paper-profile-ui-mockup.html` pre-implementation UI mockup.
 
-Task 3.5 also binds the Task-3.3 **3/3 core + 16/16 conditional** section split, R-D01–R-D18 display rules and Task-3.4 evidence/provenance classes, entry points, drill-down stages and status/source-role semantics. The JSON explicitly declares `scientific_authority=false`, `may_define_scientific_meaning=false` and `may_modify_locked_v0_7=false`.
+The Task-3.6 mockup demonstrates the permanent 19-section index, 3 core bodies, conditional body suppression without false absence claims, A/C/I status axes, public-vs-maintenance separation, pending-content segregation, verified mismatch/conflict visibility, progressive methodology disclosure, evidence/source-text separation, keyboard/focus behavior, responsive layout and the CR reproducibility boundary. It registers **no production route**, makes **no production API/database write**, uses **no real Atlas scientific record**, and creates **0** locked-v0.7 fields/entities.
 
-Task 3.5 creates **0** locked-v0.7 fields/entities, **0** competing ontology owners and **0** Computational Resources boundary violations. Task 3.2 remains the owner/multiplicity/evidence/semantic/applicability/serialization source for every bound field coordinate.
+The shared architecture coordination source remains `atlas-architecture-registry.json`; the Paper Profile coordination source remains `atlas-paper-profile-spec.json`. Neither is a scientific ontology owner.
 
-The shared architecture coordination source remains `atlas-architecture-registry.json`; the Paper Profile contract references its accepted L2/L3/L4 component IDs rather than redefining them.
+**STOP boundary:** Task 4 has not been started.
 
-**STOP boundary:** Task 3.6 has not been started.
-
-The exact next substantive roadmap task, only when separately authorized, is **Task 3.6 — create the Paper Profile UI mockup before implementation**, using Tasks 3.1–3.5 and `atlas-paper-profile-spec.json` as controlling design inputs without implementing a production route/page.
+The exact next substantive roadmap task, only when separately authorized, is **Task 4.1 — audit the existing Abbreviations/PINN-type material** before formalizing the extensible PINN Type / Variant classification system.
