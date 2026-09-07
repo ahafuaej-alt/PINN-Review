@@ -36,13 +36,17 @@ Status: planning/documentation only. This roadmap does not authorize production 
 
 Authoritative freeze record: `TASK-1.7-MASTER-PLAN-V1.0-FREEZE.md`.
 
-### Task 2 — Design the complete permanent Atlas Architecture system
+### Task 2 — Design the complete permanent Atlas Architecture system — COMPLETE / PASS
 - 2.1 Define the full eight-level conceptual architecture plus global QA/versioning/governance.
 - 2.2 Expand every major level into its complete internal components and fields.
 - 2.3 Create version-controlled Mermaid architecture source.
 - 2.4 Create version-controlled DBML/technical ERD source for the data model.
 - 2.5 Design the interactive Atlas Architecture & Data Map page.
 - 2.6 Reuse shared architecture definitions so dependent documentation/UI can be validated automatically.
+
+Task 2 shared architecture registry: `atlas-architecture-registry.json`.
+
+Task 2 read-only drift validator: `validate-architecture-registry.py`.
 
 ### Task 3 — Define the complete Paper Profile
 - 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence.
@@ -248,8 +252,10 @@ Task 9 must use `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as the current-surface ba
 
 Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementation contract, not as a new ontology version**. Scientific authority remains locked Drive `v0.7-pilot-atlas-prefreeze`.
 
-Task 2 is **IN PROGRESS**. Tasks 2.1, 2.2, 2.3, 2.4 and 2.5 are **PASS / COMPLETE**.
+Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
-**STOP boundary:** Task 2.6 has not been started.
+The shared machine-readable architecture coordination source is `atlas-architecture-registry.json`; `validate-architecture-registry.py` defines the read-only cross-artifact drift checks. Neither is a scientific ontology owner.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 2.6 — define and reuse shared machine-readable architecture definitions so dependent architecture documentation and the future Architecture & Data Map UI can be generated/validated against a common controlled representation**, without yet performing production implementation.
+**STOP boundary:** Task 3 has not been started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 3 — Define the complete Paper Profile**, beginning with Task 3.1 under the frozen Master Plan v1.0 and locked v0.7 scientific authority.
