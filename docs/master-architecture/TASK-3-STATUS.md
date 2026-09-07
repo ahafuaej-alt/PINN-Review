@@ -13,8 +13,8 @@ Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 | 3.1 Define all first-class Paper Profile sections | **PASS — COMPLETE** | `TASK-3.1-FIRST-CLASS-PAPER-PROFILE-SECTIONS.md` |
 | 3.2 Expand every section field-by-field | **PASS — COMPLETE** | `TASK-3.2-PAPER-PROFILE-FIELD-SPECIFICATION.md` |
 | 3.3 Define conditional profile sections and display logic | **PASS — COMPLETE** | `TASK-3.3-CONDITIONAL-PROFILE-SECTIONS-AND-DISPLAY-LOGIC.md` |
-| 3.4 Define evidence/provenance drill-down behavior | **NEXT** | Not started |
-| 3.5 Create a machine-readable profile specification in GitHub | **PENDING** | Not started |
+| 3.4 Define evidence/provenance drill-down behavior | **PASS — COMPLETE** | `TASK-3.4-EVIDENCE-PROVENANCE-DRILLDOWN-BEHAVIOR.md` |
+| 3.5 Create a machine-readable profile specification in GitHub | **NEXT** | Not started |
 | 3.6 Create a Paper Profile UI mockup before implementation | **PENDING** | Not started |
 
 ## Task 3.1 completion boundary
@@ -85,8 +85,37 @@ Core decisions:
 
 The authoritative decision record is `TASK-3.3-CONDITIONAL-PROFILE-SECTIONS-AND-DISPLAY-LOGIC.md`.
 
+## Task 3.4 completion boundary
+
+Task 3.4 defines the auditable Paper Profile evidence/provenance interaction contract:
+
+`profile record/component → L3 evidence set → exact evidence record → source locator/source context → L5 semantic/provenance trace`.
+
+Core results:
+
+- PP-19 locked evidence fields covered = **24/24** (`F01`–`F24`);
+- PP-19 derived evidence index/grouping projections covered = **2/2** (`F25`–`F26`);
+- Task-3.2 evidence/provenance classes governed = **6/6** (`BIB-PROV`, `E-LINK`, `E-INLINE`, `E-DIRECT`, `PROV`, `N/A`);
+- verification status and support status remain independent, including valid `verified + mismatched` representation;
+- source roles preserve current-paper original/reanalysis/review/cited/adapted/unclear provenance;
+- source text and Atlas normalized interpretation remain separate;
+- record, component, PP-19 index and integrity-warning drill-down entry points are all specified;
+- conflicts/mismatches are never hidden by positive-only evidence filtering;
+- evidence counts cannot be presented as evidence strength or independent-study counts;
+- inline/direct evidence plus L3 evidence cannot be double-counted;
+- public verified evidence and maintenance/pending evidence remain separated;
+- locator/source URL invention is prohibited;
+- logical deep-link restoration includes `paper_id`, `PP-xx`, record/component identity and `evidence_id` where selected;
+- evidence/history/correction display preserves immutable original source evidence;
+- adversarial evidence/provenance cases covered = **15/15**;
+- new locked-v0.7 fields/entities = **0**;
+- silently revived prohibited/deferred structures = **0**;
+- Computational Resources boundary violations = **0**.
+
+The authoritative decision record is `TASK-3.4-EVIDENCE-PROVENANCE-DRILLDOWN-BEHAVIOR.md`.
+
 ## Exact next action
 
-Proceed only to **Task 3.4 — define evidence/provenance drill-down behavior**, using PP-19, the Task 3.2 evidence ownership contract and Task 3.3 minimum visibility/status obligations as mandatory inputs.
+Proceed only to **Task 3.5 — create a version-controlled machine-readable Paper Profile specification in GitHub**, binding Tasks 3.1–3.4 to shared IDs, field ownership, conditional display states and evidence-drill-down rules without creating a new scientific ontology owner.
 
-**STOP boundary: Task 3.4 has not been started.**
+**STOP boundary: Task 3.5 has not been started.**
