@@ -2,7 +2,7 @@
 
 Date: 2026-09-07
 
-Status: **IN PROGRESS**
+Status: **COMPLETE / PASS**
 
 Parent contract: frozen Master Plan v1.0 (`TASK-1.7-MASTER-PLAN-V1.0-FREEZE.md`).
 
@@ -15,7 +15,7 @@ Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 | 2.3 Create version-controlled Mermaid architecture source | **PASS — COMPLETE** | `TASK-2.3-MERMAID-CONCEPTUAL-ARCHITECTURE.md` + `atlas-conceptual-architecture.mmd` |
 | 2.4 Create version-controlled DBML/technical ERD source | **PASS — COMPLETE** | `TASK-2.4-DBML-TECHNICAL-ERD.md` + `atlas-technical-erd.dbml` |
 | 2.5 Design interactive Atlas Architecture & Data Map page | **PASS — COMPLETE** | `TASK-2.5-INTERACTIVE-ARCHITECTURE-DATA-MAP-DESIGN.md` |
-| 2.6 Reuse shared architecture definitions for dependent documentation/UI validation | **NEXT** | Not started |
+| 2.6 Define/reuse shared machine-readable architecture definitions and drift validation | **PASS — COMPLETE** | `TASK-2.6-SHARED-MACHINE-READABLE-ARCHITECTURE-DEFINITIONS.md` + `atlas-architecture-registry.json` + `validate-architecture-registry.py` |
 
 ## Task 2.1 architecture boundary
 
@@ -64,6 +64,8 @@ Mermaid coverage remains:
 - global governance G1–G14 = **14/14**;
 - Computational Resources bounded subsystem represented explicitly.
 
+The self-contained documentation viewer `atlas-conceptual-architecture.html` remains non-authoritative; its embedded Mermaid snapshot must remain equal to the `.mmd` source under Task 2.6 validation.
+
 ## Task 2.4 completion boundary
 
 Provider-neutral relational source:
@@ -95,30 +97,59 @@ The design specifies six coordinated primary views:
 5. Surface & Dependency Map;
 6. Versions & Change State.
 
-It also defines:
+The 26 current routes remain a preservation/migration baseline, not final target IA and not a route ceiling. Task 9 remains mandatory for all registered and later-discovered surfaces. Future pages remain open-ended but governed.
 
-- shared stable-ID selection and contextual inspector;
-- cross-view tracing from source/evidence to verified science, semantic control, analytics, synthesis and surfaces;
-- progressive disclosure for the 108-table/151-reference ERD;
-- explicit five-owner authority presentation;
-- R1–R48 / X1–X9 / H1–H11 / 111-requirement coverage lookup;
-- the 26-route production surface as a preservation baseline, not a route ceiling;
-- Task 9 dependency-audit enrichment without pretending that audit is already complete;
-- future-page extensibility;
-- bounded Computational Resources integration;
-- responsive/mobile behavior;
-- accessibility and text/table fallbacks;
-- shareable/deep-link state based on stable IDs;
-- version separation and change-history visibility;
-- explicit read-only/write-governance boundary;
-- failure/regression requirements for the later prototype.
+## Task 2.6 completion boundary
 
-Design-contract orphan among Task 2.1–2.4 principal architecture domains = **0**.
+Task 2.6 establishes one controlled architecture-coordination metadata source:
 
-Task 2.5 did **not** implement a page, choose/freeze a route, alter navigation, select a visualization library, select a database provider, execute Task 9, modify production `main`, or create shared machine-readable definitions.
+`docs/master-architecture/atlas-architecture-registry.json`
 
-Current 26 production routes remain a preservation/migration baseline rather than final target IA. Task 9 remains mandatory for registered and later-discovered surfaces. Future pages remain open-ended but governed.
+and one read-only drift validator:
 
-## Exact next action
+`docs/master-architecture/validate-architecture-registry.py`
 
-Proceed only to **Task 2.6 — define and reuse shared machine-readable architecture definitions so the Mermaid architecture, technical ERD metadata, Task 2 documentation and future Architecture & Data Map UI can be generated/validated against a common controlled representation**, preventing cross-artifact drift.
+The registry is explicitly **not a scientific ontology owner**. Locked Drive v0.7 remains authoritative for scientific meaning; Master Plan v1.0 remains the implementation contract.
+
+The registry defines stable architecture bindings for:
+
+- L1–L8 and every Task 2.2 conceptual component;
+- G1–G14 governance objects;
+- core conceptual relations and Mermaid aliases;
+- all **108** DBML tables, grouped exactly once into L1/L2/L3/L4/L5/L6/L7/L8/global technical families with deterministic `T::<dbml_table_name>` technical IDs;
+- all **26** current production routes plus an explicit future-surface sentinel;
+- the bounded external Computational Resources subsystem;
+- bound artifacts and the future read-only Architecture & Data Map consumer.
+
+The validation contract checks:
+
+1. registry authority and stable-ID uniqueness;
+2. Mermaid level/component/governance bindings and core relation presence;
+3. equality of the self-contained viewer Mermaid snapshot to the authoritative `.mmd` source;
+4. DBML table/ref counts, exact table-family coverage and deterministic technical IDs;
+5. R1–R48, X1–X9, H1–H11, 111-requirement and zero-orphan safeguards;
+6. 26-route baseline + future-page sentinel + mandatory Task 9 audit;
+7. version separation;
+8. Computational Resources bounded-subsystem separation;
+9. wording/status separation between specified/mapped and implemented/tested/passed.
+
+Stable architecture IDs are non-reusable. A label rename keeps the stable ID. Replacement requires explicit deprecation/migration linkage. Scientific meaning cannot be changed by editing the architecture registry alone.
+
+Task 2.6 does **not** implement production generators, CI, the production Architecture & Data Map page, a database provider, a PostgreSQL schema, a migration, or Task 3.
+
+## Task 2 final result
+
+**TASK 2 = COMPLETE / PASS.**
+
+- Conceptual architecture: complete.
+- Internal conceptual component map: complete.
+- Version-controlled Mermaid source: complete.
+- Provider-neutral DBML/technical ERD: complete.
+- Interactive Architecture & Data Map design: complete.
+- Shared machine-readable architecture registry and drift-validation contract: complete.
+
+## Stop boundary / exact next action
+
+**STOP: Task 3 has not been started.**
+
+The next roadmap task, only when separately authorized, is **Task 3 — Define the complete Paper Profile**, beginning with Task 3.1 and continuing under the frozen Master Plan v1.0 and locked v0.7 scientific authority.
