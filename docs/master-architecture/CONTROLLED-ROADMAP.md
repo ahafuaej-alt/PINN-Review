@@ -248,8 +248,8 @@ Task 9 must use `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as the current-surface ba
 
 Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementation contract, not as a new ontology version**. Scientific authority remains locked Drive `v0.7-pilot-atlas-prefreeze`.
 
-Task 2 is **IN PROGRESS**. Tasks 2.1, 2.2, 2.3 and 2.4 are **PASS / COMPLETE**.
+Task 2 is **IN PROGRESS**. Tasks 2.1, 2.2, 2.3, 2.4 and 2.5 are **PASS / COMPLETE**.
 
-**STOP boundary:** Task 2.5 has not been started.
+**STOP boundary:** Task 2.6 has not been started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 2.5 — design the interactive Atlas Architecture & Data Map page**, using Tasks 2.1–2.4 as its source contract and without yet performing production implementation.
+The exact next substantive roadmap task, only when separately authorized, is **Task 2.6 — define and reuse shared machine-readable architecture definitions so dependent architecture documentation and the future Architecture & Data Map UI can be generated/validated against a common controlled representation**, without yet performing production implementation.
