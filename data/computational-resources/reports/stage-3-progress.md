@@ -6,41 +6,43 @@ Methodology: `Stage3-D01` accepted without modification
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S103`.
-- Current canonical batch: `SOB011`.
-- Current batch status: **9/10 independently extractable members complete**.
-- Latest completed resource: `CR000116`.
+- Latest completed checkpoint: `Stage3-S104`.
+- Latest completed canonical batch: `SOB011` — **PASS**.
+- Current canonical batch: `SOB012`.
+- Current batch status: **0/10 independently extractable members complete**.
+- Latest completed resource: `CR000117`.
 - Checkpoint QA: **PASS**.
-- Latest completed aggregate batch QA: `SOB010` — **PASS**.
-- Exact next independently extractable resource: `CR000117`.
-- Next checkpoint: `Stage3-S104`.
+- Exact next independently extractable resource: `CR000118`.
+- Next checkpoint: `Stage3-S105`.
 - Pilot-complete resources remain excluded and must not be reprocessed.
 
 ## Cumulative Stage-3 counts
 
-- Technical resource records: **119**
+- Technical resource records: **120**
 - Experiments: **206**
 - Configurations: **402**
-- Technical-evidence records: **1414**
-- Static reproducibility assessments: **119**
-- Unresolved findings: **761**
+- Technical-evidence records: **1422**
+- Static reproducibility assessments: **120**
+- Unresolved findings: **767**
 - Explicit conflicts: **103**
-- Independently extractable resources remaining: **244**
+- Independently extractable resources remaining: **243**
 
 ## Latest checkpoint
 
-`Stage3-S103` completed `CR000116`, the Cambridge DOI-hosted software artifact supporting Atlas 697. Final Stage-2 authority, CC-BY-4.0 licensing, and verified `PRL000227` paper relationship are preserved.
+`Stage3-S104` completed `CR000117`, the Zenodo DOI-hosted supplementary-code artifact linked to Atlas 701. Final Stage-2 pilot authority and verified `PRL000228` relationship are preserved.
 
-Cambridge metadata identifies a single Python source artifact, `PINN_Airfoil.py` (60.96 KB). The primary paper documents a physics-informed airfoil surrogate/optimization framework using steady incompressible Navier-Stokes residuals, design parameters plus spatial collocation coordinates as inputs, adaptive sampling, Adam network training, and L-BFGS design optimization. It reports both a single-parameter angle-of-attack example and an eleven-parameter PARSEC shape-optimization example.
+The primary paper documents a physics-informed stochastic grid-frequency model combining a stochastic differential equation with a neural network that maps external techno-economic drivers to time-dependent system parameters. Reported applications include probabilistic short-horizon prediction, system-parameter identification, and synthetic frequency time-series generation. The paper and Stage-2 records keep the supplementary-code DOI separate from the related data DOI.
 
-The source-file payload was not directly inspectable through the bounded interface. S103 therefore records one resource, zero source-internal experiments, zero configurations, eight technical-evidence records, one R1 reproducibility assessment, six new unresolved findings, and no new explicit conflict. Paper-level workflow claims remain source-scoped and are not promoted into unverified code defaults.
+Archive internals were explicitly deferred by Stage 2 and were not directly text-inspectable through the bounded interface. S104 therefore records one resource, zero source-internal experiments, zero configurations, eight technical-evidence records, one R1 reproducibility assessment, six new unresolved findings, and no new explicit conflict. Paper-level applications remain source-scoped and are not promoted into unverified code-internal records.
 
 No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator, or benchmark workload was executed.
 
 ## Batch status
 
-`SOB011` is 9/10 after S103. Aggregate SOB011 QA is not yet due. Latest completed aggregate remains `SOB010` — **PASS**.
+`SOB011` is complete at 10/10 and aggregate QA is **PASS**. It contains `CR000108–CR000117`, adds 10 resources, 5 experiments, 10 configurations, 80 evidence records, 10 reproducibility assessments, 58 unresolved findings and 2 explicit conflicts, and reconciles exactly to the cumulative totals above.
+
+`SOB012` starts at `CR000118` and is currently 0/10.
 
 ## Continuation
 
-Resume only from `CR000117` for `Stage3-S104` as the tenth independently extractable member of `SOB011`. S104 must complete both checkpoint QA and the required SOB011 aggregate batch QA before Stage 3 advances further.
+Resume only from `CR000118` for `Stage3-S105` as the first independently extractable member of `SOB012`.
