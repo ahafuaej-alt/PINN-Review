@@ -1,28 +1,29 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-07  
-Current checkpoint: `Stage3-S104`  
+Current checkpoint: `Stage3-S105`  
 Latest completed batch: `SOB011` — **PASS**  
-Current batch: `SOB012` (0/10)  
-Current unresolved count: **767**  
-Next unresolved ID: `S3U-0768`  
-Explicit conflict count: **103**
+Current batch: `SOB012` (1/10)  
+Current unresolved count: **774**  
+Next unresolved ID: `S3U-0775`  
+Explicit conflict count: **104**
 
-## Stage3-S104 additions — CR000117
+## Stage3-S105 additions — CR000118
 
-- `S3U-0762` — Archive-internal file inventory and source-text payload for DOI `10.5281/zenodo.8014136` were not directly inspectable through the bounded interface.
-- `S3U-0763` — No reconstructable software environment or pinned dependency manifest is established by the inspected Stage-2 and primary-paper evidence.
-- `S3U-0764` — Installation procedure, executable entry point, and invocation commands for the archived supplementary code remain unknown.
-- `S3U-0765` — Random-seed and stochastic-control provenance for the released code remain unknown.
-- `S3U-0766` — Trained artifacts and machine-readable expected-output files were not established through the bounded evidence.
-- `S3U-0767` — The paper documents the scientific workflow and separate data DOI, but exact source-to-paper parameter correspondence and code-level data-loading/preprocessing wiring remain unverified.
+- `S3U-0768` — The pinned requirements manifest names NumPy, SciPy and TensorFlow but pins no package versions and specifies no Python version.
+- `S3U-0769` — No installation procedure or reconstructable environment specification is documented for CR000118.
+- `S3U-0770` — The CFD/MRI research data are hosted externally; the data payload was not loaded or inspected within the Stage-3 static boundary.
+- `S3U-0771` — Random time/residual/boundary sampling is implemented, but no random seed or stochastic-control provenance was identified.
+- `S3U-0772` — Hardware requirements, accelerator assumptions, and runtime characteristics are not documented in the inspected repository evidence.
+- `S3U-0773` — No released trained checkpoint or machine-readable expected-result artifact was verified at the pinned repository snapshot.
+- `S3U-0774` — The default transfer-learning path requests 31 snapshots while its implemented time-index construction yields 29 unique indices and can subsequently draw only indices already present, so the default sampling loop cannot reach its requested length.
 
-S104 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **103**.
+S105 adds **1 explicit conflict**: the default `TL_WS_PINN.py` time-index construction cannot reach the requested 31 snapshots under its implemented 29-interval default. Cumulative explicit conflict count is **104**.
 
-## SOB011 closure
+## Batch status
 
-`SOB011` completed `CR000108–CR000117` with aggregate QA **PASS**. Batch additions reconcile to 10 resources, 5 experiments, 10 configurations, 80 evidence records, 10 reproducibility assessments, 58 unresolved findings, and 2 explicit conflicts.
+`SOB012` is **1/10** after CR000118. Aggregate QA is not yet due; `SOB011` remains the latest completed aggregate batch with **PASS** status.
 
 ## Continuation
 
-Continue from `S3U-0768` only if a later checkpoint generates a genuinely new unresolved finding. Preserve the cumulative unresolved/conflict counts above. Exact next resource is `CR000118` for `Stage3-S105`.
+Continue from `S3U-0775` only if a later checkpoint generates a genuinely new unresolved finding. Exact next resource is `CR000119` for `Stage3-S106`.

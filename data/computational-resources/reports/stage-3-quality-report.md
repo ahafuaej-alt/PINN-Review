@@ -5,55 +5,47 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint and aggregate batch
 
-- Checkpoint: `Stage3-S104`
-- Resource: `CR000117`
+- Checkpoint: `Stage3-S105`
+- Resource: `CR000118`
 - Checkpoint status: **PASS**
-- Completed batch: `SOB011` — **PASS (10/10)**
-- Next batch: `SOB012` — **0/10**
+- Latest completed batch: `SOB011` — **PASS (10/10)**
+- Current batch: `SOB012` — **1/10**
 
-## S104 checkpoint counts
+## S105 checkpoint counts
 
 - Resources: **1**
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **8**
+- Experiments: **2**
+- Configurations: **3**
+- Technical-evidence records: **11**
 - Reproducibility assessments: **1**
-- New unresolved findings: **6**
-- New explicit conflicts: **0**
+- New unresolved findings: **7**
+- New explicit conflicts: **1**
 
-## SOB011 aggregate counts
+## Cumulative counts through S105
 
-- Resources: **10**
-- Experiments: **5**
-- Configurations: **10**
-- Technical-evidence records: **80**
-- Reproducibility assessments: **10**
-- New unresolved findings: **58**
-- New explicit conflicts: **2**
-
-## Cumulative counts through S104
-
-- Resources: **120**
-- Experiments: **206**
-- Configurations: **402**
-- Technical-evidence records: **1422**
-- Reproducibility assessments: **120**
-- Unresolved findings: **767**
-- Explicit conflicts: **103**
-- Independently extractable resources remaining: **243**
+- Resources: **121**
+- Experiments: **208**
+- Configurations: **405**
+- Technical-evidence records: **1433**
+- Reproducibility assessments: **121**
+- Unresolved findings: **774**
+- Explicit conflicts: **104**
+- Independently extractable resources remaining: **242**
 
 ## QA gates
 
-S104 checkpoint schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
+S105 schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
 
-SOB011 aggregate planned-resource completion, canonical membership, cumulative-count reconciliation, cross-corpus ID/reference checks, source-scope sample, missing-value semantics, methodology/schema drift, stage boundary, execution boundary, and provenance screening all **PASS**.
+`SOB012` is 1/10, so aggregate batch QA is not yet due. `SOB011` remains the latest completed aggregate batch and is **PASS**.
 
 ## Scientific/reproducibility note
 
-`CR000117` is supplementary code for the Atlas-701 study on physics-informed power-grid frequency modeling. The paper combines a stochastic differential equation with a neural network that predicts time-varying system parameters from external drivers. This role is retained as `mixed_other`, rather than being collapsed into a PDE-residual PINN implementation.
+`CR000118` is an official PINN implementation for Atlas 711. The pinned source includes a data-only baseline, a warm-start Navier-Stokes PINN, and a transfer-learning warm-start PINN for evolving stretched aneurysm geometries. The shared network predicts three velocity components and pressure and enforces three-dimensional momentum plus incompressibility residuals.
 
-R1 is conservative because DOI identity, paper relationship and scientific workflow are established, while archive-internal files, software environment, installation, dependency pins, entry point, seeds, trained artifacts and exact source-to-paper execution mapping remain incomplete.
+The default transfer-learning configuration is marked `conflicting_evidence`: it requests 31 temporal snapshots while the implemented candidate construction cannot generate 31 unique time indices under the default 29-interval setting.
+
+R1 is conservative because dependencies are unpinned, Python and installation specifications are absent, the external data payload was not inspected, random seeds and hardware are unspecified, released checkpoints were not verified, and the default transfer-learning path has the source-level sampling defect.
 
 ## Continuation
 
-Exact next resource: `CR000118`. Exact next checkpoint: `Stage3-S105`. `SOB012` begins there.
+Exact next resource: `CR000119`. Exact next checkpoint: `Stage3-S106`.
