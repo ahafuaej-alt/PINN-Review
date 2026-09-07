@@ -5,45 +5,45 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint and aggregate batch
 
-- Checkpoint: `Stage3-S110`
-- Resources: `CR000124`
+- Checkpoint: `Stage3-S111`
+- Resources: `CR000125`
 - Checkpoint status: **PASS**
 - Latest completed batch: `SOB011` — **PASS (10/10)**
-- Current batch: `SOB012` — **7/10**
+- Current batch: `SOB012` — **8/10**
 
-## S110 checkpoint counts
+## S111 checkpoint counts
 
 - Resources: **1**
-- Experiments: **2**
-- Configurations: **2**
-- Technical-evidence records: **8**
+- Experiments: **0**
+- Configurations: **0**
+- Technical-evidence records: **6**
 - Reproducibility assessments: **1**
-- New unresolved findings: **7**
-- New explicit conflicts: **1**
+- New unresolved findings: **6**
+- New explicit conflicts: **0**
 
-## Cumulative counts through S110
+## Cumulative counts through S111
 
-- Resources: **127**
+- Resources: **128**
 - Experiments: **213**
 - Configurations: **410**
-- Technical-evidence records: **1479**
-- Reproducibility assessments: **127**
-- Unresolved findings: **813**
+- Technical-evidence records: **1485**
+- Reproducibility assessments: **128**
+- Unresolved findings: **819**
 - Explicit conflicts: **109**
-- Independently extractable resources remaining: **236**
+- Independently extractable resources remaining: **235**
 
 ## QA gates
 
-S110 schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
+S111 schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
 
-`SOB012` is 7/10, so aggregate batch QA is not yet due. `SOB011` remains the latest completed aggregate batch and is **PASS**.
+`SOB012` is 8/10, so aggregate batch QA is not yet due. `SOB011` remains the latest completed aggregate batch and is **PASS**.
 
 ## Scientific/reproducibility note
 
-CR000124 is bounded as physics-guided architecture research code for lake-temperature modeling and uncertainty quantification, not as a classical PDE-residual PINN. Two source-explicit site workflows are retained. R1 is conservative because source, bundled data, architecture, training and evaluation are inspectable while the dependency environment, installation procedure, seed, hardware profile and released checkpoints remain insufficient.
+CR000125 is bounded as research code associated with weather and climate modeling. Final Stage-2 authority verifies the exact public GitLab project and its relationship to Atlas 716 but provides no immutable commit SHA. Current mutable project visibility is therefore used only as availability evidence, not as a substitute pinned snapshot. No source-internal experiments or configurations are manufactured, and the resource is not relabeled as a classical PDE-residual PINN.
 
-The FCR-designated source loading a bundled filename containing `mendota` is retained as an explicit data-provenance/naming conflict.
+R1 is conservative because project identity and paper relationship are verified while immutable source-version provenance, license, reconstructable environment, pinned training details, hardware/evaluation provenance and released checkpoints remain insufficient.
 
 ## Continuation
 
-Exact next resource: `CR000125`. Exact next checkpoint: `Stage3-S111`.
+Exact next resource: `CR000126`. Exact next checkpoint: `Stage3-S112`.

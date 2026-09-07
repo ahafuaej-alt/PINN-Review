@@ -1,29 +1,28 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-07  
-Current checkpoint: `Stage3-S110`  
+Current checkpoint: `Stage3-S111`  
 Latest completed batch: `SOB011` — **PASS**  
-Current batch: `SOB012` (7/10)  
-Current unresolved count: **813**  
-Next unresolved ID: `S3U-0814`  
+Current batch: `SOB012` (8/10)  
+Current unresolved count: **819**  
+Next unresolved ID: `S3U-0820`  
 Explicit conflict count: **109**
 
-## Stage3-S110 additions — CR000124
+## Stage3-S111 additions — CR000125
 
-- `S3U-0807` — CR000124 has no repository license identified at the pinned snapshot.
-- `S3U-0808` — CR000124 has no dependency manifest, reconstructable pinned environment, or installation procedure.
-- `S3U-0809` — CR000124 uses random training-subset selection but no reproducibility seed is documented in the bounded workflows.
-- `S3U-0810` — CR000124 does not document a complete hardware profile.
-- `S3U-0811` — CR000124 has no released trained checkpoint verified in the bounded source.
-- `S3U-0812` — CR000124 has no fixed machine-readable numerical acceptance target verified in the bounded source.
-- `S3U-0813` — CR000124 `Models/FCR_PGA_LSTM.py` loads `ROA_temporal_mendota_train_test_split_4_year_train_new.mat` despite being the FCR-designated workflow and writing FCR results; the inspected source does not resolve this naming/provenance mismatch.
+- `S3U-0814` — CR000125 has no authoritative Stage-2 commit SHA, so immutable source-version provenance is unavailable.
+- `S3U-0815` — CR000125 has no verified repository license in the authoritative Stage-2 record.
+- `S3U-0816` — CR000125 has no verified dependency manifest, reconstructable pinned environment, or installation procedure in the bounded evidence.
+- `S3U-0817` — CR000125 has no source-explicit training entrypoint, hyperparameter set, or reproducibility seed defensibly pinned to an immutable snapshot.
+- `S3U-0818` — CR000125 has no complete hardware or evaluation-target provenance verified in the bounded evidence.
+- `S3U-0819` — CR000125 has no released trained checkpoint verified against an authoritative source snapshot.
 
-S110 adds **1 explicit conflict**, corresponding to the FCR workflow/data-filename mismatch. Cumulative explicit conflict count is **109**.
+S111 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **109**.
 
 ## Batch status
 
-`SOB012` is **7/10** after CR000124. Aggregate QA is not yet due; `SOB011` remains the latest completed aggregate batch with **PASS** status.
+`SOB012` is **8/10** after CR000125. Aggregate QA is not yet due; `SOB011` remains the latest completed aggregate batch with **PASS** status.
 
 ## Continuation
 
-Continue from `S3U-0814` only if a later checkpoint generates a genuinely new unresolved finding. Exact next resource is `CR000125` for `Stage3-S111`.
+Continue from `S3U-0820` only if a later checkpoint generates a genuinely new unresolved finding. Exact next resource is `CR000126` for `Stage3-S112`.
