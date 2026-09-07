@@ -14,8 +14,8 @@ Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 | 3.2 Expand every section field-by-field | **PASS — COMPLETE** | `TASK-3.2-PAPER-PROFILE-FIELD-SPECIFICATION.md` |
 | 3.3 Define conditional profile sections and display logic | **PASS — COMPLETE** | `TASK-3.3-CONDITIONAL-PROFILE-SECTIONS-AND-DISPLAY-LOGIC.md` |
 | 3.4 Define evidence/provenance drill-down behavior | **PASS — COMPLETE** | `TASK-3.4-EVIDENCE-PROVENANCE-DRILLDOWN-BEHAVIOR.md` |
-| 3.5 Create a machine-readable profile specification in GitHub | **NEXT** | Not started |
-| 3.6 Create a Paper Profile UI mockup before implementation | **PENDING** | Not started |
+| 3.5 Create a machine-readable profile specification in GitHub | **PASS — COMPLETE** | `TASK-3.5-MACHINE-READABLE-PAPER-PROFILE-SPECIFICATION.md` + `atlas-paper-profile-spec.json` |
+| 3.6 Create a Paper Profile UI mockup before implementation | **NEXT** | Not started |
 
 ## Task 3.1 completion boundary
 
@@ -114,8 +114,32 @@ Core results:
 
 The authoritative decision record is `TASK-3.4-EVIDENCE-PROVENANCE-DRILLDOWN-BEHAVIOR.md`.
 
+## Task 3.5 completion boundary
+
+Task 3.5 creates `atlas-paper-profile-spec.json` as a non-authoritative L8 machine-readable coordination contract and `validate-paper-profile-spec.py` as a read-only drift validator.
+
+Core results:
+
+- stable Paper Profile sections = **19/19**;
+- explicit Task-3.2 profile coordinates bound = **274**;
+- deterministic nested structured subfield IDs = **73**;
+- total machine-readable profile field IDs = **347**;
+- locked Task-3.2 mappings preserved = **317/317** (`244` top-level + `73` structured subfields);
+- additional non-locked profile coordinates = **30**, retained only as documented bibliographic/technical/L3/ARCH/future-bounded projections;
+- core body sections = **3/3**; conditional body sections = **16/16**;
+- display-rule references = **18/18** (`R-D01`–`R-D18`);
+- evidence/provenance classes = **6/6**; evidence entry points = **4/4**; drill-down stages = **5/5**;
+- machine-readable spec scientific-authority flag = **false**;
+- machine-readable spec may-define-scientific-meaning flag = **false**;
+- new locked-v0.7 fields/entities = **0**;
+- Computational Resources boundary violations = **0**.
+
+For every explicit coordinate, Task 3.2 remains the owner/multiplicity/evidence/semantic/applicability/serialization source. Nested IDs are deterministic profile coordinates and do not rename the underlying scientific keys. The validator is intended to detect cross-artifact drift; its source was syntax-checked during construction, but an executed repository validator run is not claimed in this connector session.
+
+The authoritative decision record is `TASK-3.5-MACHINE-READABLE-PAPER-PROFILE-SPECIFICATION.md`.
+
 ## Exact next action
 
-Proceed only to **Task 3.5 — create a version-controlled machine-readable Paper Profile specification in GitHub**, binding Tasks 3.1–3.4 to shared IDs, field ownership, conditional display states and evidence-drill-down rules without creating a new scientific ontology owner.
+Proceed only to **Task 3.6 — create the Paper Profile UI mockup before implementation**, using Tasks 3.1–3.5 and `atlas-paper-profile-spec.json` as controlling design inputs without implementing a production page/route.
 
-**STOP boundary: Task 3.5 has not been started.**
+**STOP boundary: Task 3.6 has not been started.**
