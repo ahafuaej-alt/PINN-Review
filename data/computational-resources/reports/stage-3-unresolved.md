@@ -1,28 +1,28 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-07  
-Current checkpoint: `Stage3-S116`  
+Current checkpoint: `Stage3-S117`  
 Latest completed batch: `SOB012` — **PASS**  
-Current batch: `SOB013` (4/10)  
-Current unresolved count: **853**  
-Next unresolved ID: `S3U-0854`  
+Current batch: `SOB013` (5/10)  
+Current unresolved count: **859**  
+Next unresolved ID: `S3U-0860`  
 Explicit conflict count: **111**
 
-## Stage3-S116 additions — CR000131
+## Stage3-S117 additions — CR000132
 
-- `S3U-0848` — CR000131 has no repository license identified in final Stage 2.
-- `S3U-0849` — CR000131 provides no dependency manifest or complete version-pinned environment for its PINN stack.
-- `S3U-0850` — the 1D Poisson PINN source states JAX 0.2.24 is installed while calling `jax.block_until_ready`, which the same source states is available only from JAX 0.2.27; this is explicit conflicting evidence.
-- `S3U-0851` — Latin-hypercube collocation sampling has no explicit NumPy/pyDOE seed even though model initialization uses JAX PRNG seed 17.
-- `S3U-0852` — hardware used for the repository's timing comparisons is not reported in the bounded source.
-- `S3U-0853` — no released trained PINN checkpoint or expected numerical acceptance baseline was identified for the representative workflow.
+- `S3U-0854` — final Stage-2 inspection did not expose CR000132's recursive repository tree, so dependency manifests and sub-root workflow declarations remain unverified.
+- `S3U-0855` — a complete version-pinned software environment was not established from authoritative static repository evidence.
+- `S3U-0856` — executable entrypoints and exact repository-to-paper script mappings remain unverified at the pinned snapshot.
+- `S3U-0857` — random seeds were not established in the bounded evidence.
+- `S3U-0858` — availability of released trained checkpoints was not established.
+- `S3U-0859` — paper-reported scientific settings are preserved as paper-scoped evidence because repository-internal confirmation of those settings was incomplete.
 
-S116 adds **1 explicit conflict** (`S3U-0850`). Cumulative explicit conflict count is **111**.
+S117 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **111**.
 
 ## Batch status
 
-`SOB012` remains **PASS (10/10)**. `SOB013` is **4/10** after CR000131.
+`SOB012` remains **PASS (10/10)**. `SOB013` is **5/10** after CR000132.
 
 ## Continuation
 
-Continue from `S3U-0854` only for genuinely new findings. Exact next resource is `CR000132` for `Stage3-S117`.
+Continue from `S3U-0860` only for genuinely new findings. Exact next resource is `CR000133` for `Stage3-S118`.
