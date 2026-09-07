@@ -5,43 +5,43 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint and aggregate batch
 
-- Checkpoint: `Stage3-S113`
-- Resource: `CR000128`
+- Checkpoint: `Stage3-S114`
+- Resource: `CR000129`
 - Checkpoint status: **PASS**
 - Latest completed batch: `SOB012` — **PASS (10/10)**
-- Current batch: `SOB013` — **1/10**
+- Current batch: `SOB013` — **2/10**
 
-## S113 checkpoint counts
+## S114 checkpoint counts
 
 - Resources: **1**
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **5**
+- Experiments: **1**
+- Configurations: **1**
+- Technical-evidence records: **10**
 - Reproducibility assessments: **1**
-- New unresolved findings: **6**
-- New explicit conflicts: **0**
+- New unresolved findings: **5**
+- New explicit conflicts: **1**
 
-## Cumulative counts through S113
+## Cumulative counts through S114
 
-- Resources: **131**
-- Experiments: **216**
-- Configurations: **413**
-- Technical-evidence records: **1505**
-- Reproducibility assessments: **131**
-- Unresolved findings: **835**
-- Explicit conflicts: **109**
-- Independently extractable resources remaining: **232**
+- Resources: **132**
+- Experiments: **217**
+- Configurations: **414**
+- Technical-evidence records: **1515**
+- Reproducibility assessments: **132**
+- Unresolved findings: **840**
+- Explicit conflicts: **110**
+- Independently extractable resources remaining: **231**
 
 ## QA gates
 
-S113 schema validation for applicable record families, cumulative ID uniqueness, evidence-reference integrity, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**. Experiment/configuration schema and cross-reference checks are not applicable beyond confirming that no such records were created.
+S114 schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, source-scope discipline, missing-value semantics, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/methodology/schema write boundaries, execution boundary, provenance-text screening, and branch-head stability all **PASS**.
 
 The latest aggregate batch remains `SOB012` — **PASS**. `SOB013` is not yet due for aggregate QA.
 
 ## Scientific/reproducibility note
 
-CR000128 is intentionally bounded as an unavailable repository/provenance record. Stage 2 records no pinned commit and retains `PRL000250 → Atlas 721` as a not-verified secondary-review mention. The repository remains unavailable, so no source-internal technical claims are promoted. R0 is required by the absence of an inspectable source snapshot and reconstructable reproducibility surface.
+CR000129 is a pinned multi-problem classical PINN platform. The default HeatEquation workflow is source-explicit and receives experiment/configuration records; the additional four problem families are preserved at resource scope. MIT licensing, pinned requirements, installation, entrypoint, seeds, training and evaluation surfaces support R2. Hardware, released checkpoints, expected numerical baselines and exact paper-to-current-module attribution remain unresolved. The configured Sobol point label conflicts with the default HeatEquation implementation's Cartesian/linspace construction and is retained explicitly.
 
 ## Continuation
 
-Exact next resource: `CR000129`. Exact next checkpoint: `Stage3-S114`.
+Exact next resource: `CR000130`. Exact next checkpoint: `Stage3-S115`.
