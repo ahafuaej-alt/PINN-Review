@@ -10,7 +10,7 @@ Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 
 Implementation contract: frozen Master Plan v1.0.
 
-This task is architecture coordination/validation only. It does not create a scientific ontology version, production database, production UI, migration, corpus extraction, or Task 3 work.
+Task 2.6 is architecture-coordination and drift-validation work only. It does not create or change scientific ontology meaning, production data, a database provider, a production UI, migration, extraction, or Task 3 work.
 
 ## 1. Verified starting state
 
@@ -18,34 +18,23 @@ Before Task 2.6 writes, the active branch was verified as:
 
 `docs/master-atlas-roadmap`
 
-with pre-Task-2.6 head:
+Pre-Task-2.6 branch head:
 
 `92f2444c3c13506fd47bc494fafb7b956cf99532`
 
-(`docs: make conceptual architecture viewer self-contained`).
+Commit: `docs: make conceptual architecture viewer self-contained`.
 
-The current branch already contained and preserved:
+The branch already contained Tasks 2.1–2.5, the authoritative Mermaid conceptual source, the provider-neutral DBML technical ERD, and the non-authoritative self-contained conceptual viewer.
 
-- Task 2.1 eight-level conceptual architecture;
-- Task 2.2 complete internal conceptual components;
-- Task 2.3 `atlas-conceptual-architecture.mmd`;
-- the non-authoritative self-contained documentation viewer `atlas-conceptual-architecture.html`;
-- Task 2.4 provider-neutral `atlas-technical-erd.dbml` with the accepted 108-table / 151-reference design;
-- Task 2.5 Architecture & Data Map design;
-- `TASK-2-STATUS.md` showing 2.1–2.5 PASS and 2.6 NEXT;
-- `CONTROLLED-ROADMAP.md` showing Task 2 in progress and Task 2.6 not started.
+The Google Drive Master Memory was verified before Task 2.6 at revision:
 
-The Google Drive Master Memory was also verified at revision:
+`ANLCKQn6dsvtMGm6kOv3xnwkjbU6I2U9x08Cofh4J538otWfrQminZ7XTw7FaRG8myzijLD4Kk8Wj26EQKeEBEiZi21QfohlutrA2aV3wBg`
 
-`ANLCKQn6dsvtMGm6kOv3xnwkjbU6I2U9x08Cofh4J538otXWfrQminZ7XTw7FaRG8myzijLD4Kk8Wj26EQKeEBEiZi21QfohlutrA2aV3wBg`
-
-with Section 38 recording Task 2.5 completion.
-
-> Note: the revision string above is reproduced only as a checkpoint reference. The authoritative revision is the one returned by the verified Drive readback for Section 38 at Task 2.6 start.
+with Section 38 recording Task 2.5 completion and Task 2.6 as not started.
 
 ## 2. Task 2.6 architectural decision
 
-Task 2.6 establishes one controlled machine-readable **architecture coordination registry**:
+Task 2.6 establishes one controlled machine-readable architecture coordination registry:
 
 `docs/master-architecture/atlas-architecture-registry.json`
 
@@ -53,126 +42,72 @@ and one read-only drift validator:
 
 `docs/master-architecture/validate-architecture-registry.py`
 
-The architecture registry coordinates identities, artifact mappings and validation metadata across Task 2 outputs. It is **not** a scientific ontology owner.
+The registry coordinates stable architecture identity, mappings, artifact bindings, surface identities, technical-table placement, and validation metadata across Task 2 outputs.
 
-The authority hierarchy remains:
+It is explicitly **not a scientific ontology owner**.
+
+Authority remains:
 
 1. locked Drive v0.7 owners define scientific meaning;
 2. Master Plan v1.0 defines the frozen implementation contract;
-3. Task 2.1–2.5 define the accepted conceptual/technical/page-design architecture;
+3. Tasks 2.1–2.5 define accepted conceptual, technical and page-design architecture;
 4. `atlas-architecture-registry.json` coordinates those definitions for machine validation;
-5. Mermaid, DBML, documentation viewers and future UI consume or validate against those definitions;
-6. no display, serialization, registry entry or UI label may override scientific ownership.
+5. Mermaid, DBML, documentation viewers and future UI consume or validate against them;
+6. no registry, serialization, display label or UI may override scientific ownership.
 
-## 3. Why a separate architecture registry is needed
+## 3. Registry non-authority contract
 
-Before Task 2.6, important architecture facts existed in several valid artifacts:
+The registry declares:
 
-- conceptual component IDs and relationships in Mermaid/documentation;
-- technical table names and references in DBML;
-- page/surface scope in the production-surface register;
-- R/X/H and requirement coverage in Task 1 contracts;
-- future Architecture & Data Map behavior in Task 2.5;
-- a self-contained HTML viewing snapshot of the Mermaid source.
-
-These are deliberately different representations, but repeating identifiers and labels manually creates cross-artifact drift risk.
-
-Task 2.6 therefore introduces a coordination layer that answers machine-readable questions such as:
-
-- Which stable architecture object does this Mermaid node represent?
-- Which conceptual level owns the architecture placement of a technical table?
-- Is a technical table L4 paper science, L5 semantic control, L6 derived analytics or L7 Atlas synthesis?
-- Which current route corresponds to a stable surface identity?
-- Is the route a current migration baseline or a final target IA commitment?
-- Does an object belong to the independently governed Computational Resources boundary?
-- Which artifacts must agree after an architecture metadata change?
-
-## 4. Non-authority rule
-
-`atlas-architecture-registry.json` declares:
-
+- `role = architecture_coordination_metadata`;
 - `scientific_authority = false`;
 - `may_define_scientific_meaning = false`;
-- its role is `architecture_coordination_metadata`;
-- scientific authority remains Drive `v0.7-pilot-atlas-prefreeze`;
-- Master Plan v1.0 remains an implementation contract, not an ontology version.
+- scientific authority = Drive `v0.7-pilot-atlas-prefreeze`;
+- Master Plan v1.0 = implementation contract, not ontology version.
 
-Therefore:
+Consequences:
 
-- changing a display label in the registry cannot rename a canonical scientific term;
-- assigning a DBML table to L4 cannot create a new L4 scientific field;
-- assigning an edge to a visual relation cannot create a Relationship Registry relation;
-- adding a route cannot create scientific authority;
-- changing a technical family cannot override field/taxonomy/relationship ownership;
-- any genuine scientific change must follow Task 1.4 governance and a later governed scientific version when applicable.
+- changing a registry display label cannot rename a canonical scientific term;
+- assigning a DBML table to a conceptual level cannot create a scientific field;
+- an architecture edge cannot create a canonical paper relationship;
+- adding a surface cannot create scientific authority;
+- any genuine scientific change must follow Task 1.4 governance and, where structural/canonical promotion is required, a later governed scientific version.
 
-## 5. Stable architecture identity system
+## 4. Stable architecture identities
 
-### 5.1 Conceptual levels and components
+The registry preserves stable identifiers for:
 
-Stable IDs preserve the accepted Task 2.1/2.2 identifiers:
+- conceptual levels `L1`–`L8`;
+- all **66** Task 2.2 conceptual components/facets;
+- governance objects `G1`–`G14`;
+- nineteen current core architecture flow/control relations `ARC-R001`–`ARC-R019`;
+- all DBML tables through deterministic IDs `T::<dbml_table_name>`;
+- current routes `SURF-001`–`SURF-026`;
+- explicit future-surface sentinel `SURF-FUTURE`;
+- bounded Computational Resources subsystem `EXT-CR`.
 
-- levels: `L1`–`L8`;
-- L1 components: `L1-S1`–`L1-S4`;
-- L2 components: `L2-B1`–`L2-B5`;
-- L3 components: `L3-E1`–`L3-E7`;
-- L4 components/facets: `L4-P1`–`L4-P20`;
-- L5 components: `L5-O1`–`L5-O7`;
-- L6 components: `L6-A1`–`L6-A6`;
-- L7 components: `L7-SY1`–`L7-SY8`;
-- L8 components: `L8-U1`–`L8-U9`.
+Stable IDs are not presentation labels. Renames retain identity. Replacement requires explicit deprecation/replacement linkage. Retired IDs are not silently reused for different meaning.
 
-The registry stores the Mermaid node alias separately, e.g. stable `L4-P9` maps to Mermaid node `L4P9`. This allows UI/document labels to evolve without silently changing stable identity.
+## 5. Mermaid binding
 
-### 5.2 Governance objects
+The registry stores stable conceptual IDs separately from Mermaid node aliases. For example, stable `L4-P9` maps to Mermaid node `L4P9`.
 
-The global governance plane uses stable IDs `G1`–`G14`.
+This allows visual labels/layout to evolve without changing architecture identity.
 
-### 5.3 Conceptual relations
+The validation contract requires:
 
-Nineteen current core architecture relations are assigned `ARC-R001`–`ARC-R019`. These cover principal information flow, L5 semantic control, governed extension proposals, direct provenance drill-down, consumer flows and the bounded Computational Resources interface.
+- all L1–L8 subgraphs/boundaries;
+- component counts `4,5,7,20,7,6,8,9`;
+- G1–G14;
+- registered core relationship endpoints/labels;
+- the independently governed Computational Resources boundary;
+- the self-contained HTML viewer’s embedded Mermaid snapshot to remain equal to `atlas-conceptual-architecture.mmd`.
 
-They describe **architecture flow/control**, not canonical paper-level Relationship Registry semantics.
-
-### 5.4 Technical tables
-
-Every DBML table receives a deterministic technical architecture ID:
-
-`T::<dbml_table_name>`
-
-Examples:
-
-- `T::evidence`;
-- `T::paper_problems`;
-- `T::relationship_registry`;
-- `T::framework_edges`;
-- `T::surface_registry`.
-
-A table rename therefore requires explicit migration/alias handling; a technical ID must not be silently reused for a different meaning.
-
-### 5.5 Production surfaces
-
-The current 26-route preservation baseline is assigned stable IDs `SURF-001`–`SURF-026`.
-
-The registry also contains:
-
-`SURF-FUTURE`
-
-as an explicit future-surface sentinel so the current 26 routes cannot become an accidental route ceiling.
-
-### 5.6 Bounded external subsystem
-
-Computational Resources uses architecture-boundary identity:
-
-`EXT-CR`
-
-It remains independently governed and connects only through L8-U9 / the governed bounded interface.
+The `.mmd` remains the authoritative conceptual visualization source; the HTML viewer remains a viewing snapshot only.
 
 ## 6. Technical table family map
 
-The registry classifies every current DBML table **exactly once** at architecture level while leaving the DBML itself authoritative for technical table inventory.
-
-Current family counts:
+All **108** current DBML tables are classified exactly once into architecture families while `atlas-technical-erd.dbml` remains authoritative for the technical table inventory.
 
 | Family | Conceptual home | Class | Tables |
 |---|---|---|---:|
@@ -187,37 +122,38 @@ Current family counts:
 | TF-G | Global plane | governance | 16 |
 | **Total** |  |  | **108** |
 
-This mapping is deliberately architectural, not ontological.
+The accepted DBML relationship count remains **151**.
 
-Important preserved boundaries include:
+This architecture placement preserves the required scientific boundaries:
 
-- `relationship_registry` and scientific relation assertions remain L5 semantic-control structures;
-- `framework_edges`, Design–Performance cells and diagnostic synthesis remain L7 synthesis structures;
-- L7 framework/synthesis records must never be treated as L4 paper facts or L5 canonical relationships merely because all are relational tables;
-- L3 evidence remains distinct from L4 normalized science;
-- L6 analytics remain derived and reproducible rather than authoritative paper facts;
-- L8 tables remain delivery/integration structures.
+- L3 evidence ≠ L4 normalized paper knowledge;
+- L5 semantic-control registries ≠ L7 synthesis;
+- `relationship_registry`/scientific relation assertions remain L5;
+- framework edges, Design–Performance cells and diagnostic synthesis remain L7;
+- L6 analytical results remain derived;
+- L8 tables remain surfaces/integration structures.
 
-## 7. Surface registry safeguards
+Technical normalization therefore cannot promote a framework edge into a canonical relation or a synthesis result into a paper fact.
 
-All 26 current production routes are machine-registered as:
+## 7. Production-surface contract
 
-`current_baseline`
+The registry records all **26/26** current production routes as `current_baseline` and `not_yet_audited` for Task 9.
 
-with:
+It explicitly records:
 
-- `task9 = not_yet_audited`;
-- `final_ia = false`.
+- current routes are a preservation/migration baseline;
+- `final_ia = false`;
+- `route_ceiling = false`;
+- Task 9 is mandatory;
+- `SURF-FUTURE` preserves open-ended future-page extensibility.
 
-Task 2.6 therefore preserves the controlling rule:
+Task 2.6 does not perform or preempt the detailed Task 9 dependency audit.
 
-> Current routes are preservation/migration inputs, not the final target information architecture and not a route ceiling.
+## 8. Computational Resources boundary
 
-Task 9 remains mandatory for every current route and every later-discovered production surface.
+Computational Resources remains independently governed under `EXT-CR` and connects only through the bounded L8-U9 architecture interface.
 
-## 8. Computational Resources safeguard
-
-The shared registry records only the bounded interface and reserved target hierarchy:
+The registry preserves the reserved direction:
 
 ```text
 Computational Resources
@@ -228,87 +164,64 @@ Computational Resources
 └── Reproducibility Explorer
 ```
 
-It explicitly records:
+It does not import or redesign Stage 1/2/3 internal schemas and does not authorize modification of those branches. `Frameworks & Libraries` remains a resource/software category and is not the four Atlas scientific synthesis frameworks.
 
-- independent governance;
-- no internal schema import;
-- no permission for Task 2.6 to modify Stage 1/2/3 branches;
-- interface through `L8-U9`;
-- `Frameworks & Libraries` is not the four Atlas scientific synthesis frameworks.
+## 9. Frozen Task 1 contract bindings
 
-## 9. Bound artifacts
+The machine-readable registry preserves:
 
-The registry binds the following representations:
+- R1–R48 = **48**;
+- X1–X9 = **9**;
+- H1–H11 = **11**;
+- Master Plan requirements = **111**;
+- specification orphan count = **0**;
+- current routes = **26**;
+- final IA = false;
+- route ceiling = false;
+- Task 9 mandatory = true.
 
-| Artifact | Role | Authority rule |
-|---|---|---|
-| `atlas-conceptual-architecture.mmd` | conceptual visualization source | architecture representation only |
-| `atlas-conceptual-architecture.html` | self-contained documentation viewing snapshot | non-authoritative; embedded source must match `.mmd` |
-| `atlas-technical-erd.dbml` | provider-neutral relational serialization | implementation serialization only |
-| `TASK-2-STATUS.md` | execution status | cannot define scientific meaning |
-| future Architecture & Data Map UI | read-only registry consumer | L8 observability only |
+These counts are control assertions; they do not convert architecture metadata into scientific authority.
 
-The self-contained HTML viewer was already present before Task 2.6. Task 2.6 does not redesign it; it simply places it under an explicit no-drift validation rule.
+## 10. Drift validator
 
-## 10. Validation contract
+`validate-architecture-registry.py` is read-only and Python-standard-library-only.
 
-The registry defines VAL-001–VAL-014.
+It is designed to check, in a repository checkout/CI-capable environment:
 
-The read-only validator implements the immediately checkable subset against the current repository files:
+1. registry parsing and non-scientific-authority declaration;
+2. component/governance counts and stable-ID uniqueness;
+3. R/X/H/111/zero-orphan assertions;
+4. current-route/future-surface/Task-9 safeguards;
+5. Computational Resources bounded status;
+6. Mermaid subgraph/node bindings;
+7. registered core Mermaid relation endpoints/labels;
+8. equality of the HTML viewer’s embedded Mermaid snapshot to `.mmd`;
+9. DBML table count = 108 and Ref count = 151;
+10. exact equality between the DBML table set and registry technical-family table set;
+11. one technical family and deterministic technical ID per table;
+12. `TASK-2-STATUS.md` binding to Task 2.6 completion.
 
-1. registry parses and declares itself non-scientific;
-2. Task 2 component counts remain L1=4, L2=5, L3=7, L4=20, L5=7, L6=6, L7=8, L8=9;
-3. G1–G14 remain present;
-4. stable architecture IDs are unique;
-5. R1–R48 / X1–X9 / H1–H11 / 111 requirements / zero-orphan contract remain bound;
-6. 26 route records remain current baselines with the future-page safeguard;
-7. Computational Resources remains bounded;
-8. Mermaid contains all registered level/component/governance bindings;
-9. registered core Mermaid relation endpoints/labels remain present;
-10. self-contained viewer embedded Mermaid text matches the `.mmd` source;
-11. DBML remains 108 tables / 151 references;
-12. the exact DBML table set equals the union of the nine registry technical families;
-13. every DBML table has one deterministic technical ID and one family assignment;
-14. `TASK-2-STATUS.md` records Task 2.6 PASS and references the shared registry.
+The validator source was syntax-checked during Task 2.6 construction. This connector session is not a repository checkout/CI runtime, so Task 2.6 does **not** falsely claim that the committed validator was executed as a GitHub check. CI wiring/execution remains a later implementation action.
 
-The validator is deliberately read-only and Python-standard-library-only. It performs no migration, code generation, scientific write, or production modification.
+## 11. Generation/reuse policy
 
-Task 2.6 establishes the validation contract and validator source. It does **not** wire CI or production deployment; those are later implementation concerns.
+The long-term pattern is:
 
-## 11. Stable-ID change rules
+**shared architecture registry + authoritative scientific/technical sources → generated or validated dependent representations**.
 
-Stable IDs are not presentation labels.
+Task 2.6 does not require every existing artifact to be regenerated immediately. It creates shared identities and no-drift checks so later work can incrementally replace manually duplicated architecture metadata with generated/validated representations.
 
-Rules:
-
-1. a label/help-text/UI wording change retains the same stable ID;
-2. an object replacement deprecates the old ID and explicitly points to the replacement;
-3. a removed concept keeps historical identity and is not silently reused;
-4. stable IDs may not be reassigned to a different scientific or architectural meaning;
-5. architecture-metadata changes require bound-artifact validation;
-6. scientific changes cannot be authorized by the registry alone.
-
-## 12. Generation/reuse policy
-
-The preferred long-term pattern is:
-
-**shared registry + authoritative science/technical sources → generated or validated dependent representations**
-
-rather than copying architecture definitions independently into each page or document.
-
-Task 2.6 does **not** force every artifact to be generated immediately. It establishes the common IDs and validation contract so later work can incrementally move from manually synchronized artifacts toward generated/validated ones without making the registry a new ontology owner.
-
-Future consumers may include:
+Potential consumers include:
 
 - Mermaid generator/validator;
 - DBML metadata inspector;
-- Task 2 documentation checks;
-- Architecture & Data Map UI;
+- Task documentation consistency checks;
+- future read-only Architecture & Data Map UI;
 - later CI architecture-drift checks.
 
-## 13. Completeness/readback checks
+## 12. Completeness result
 
-Construction-level checks for the shared registry passed:
+Task 2.6 construction/readback coverage:
 
 - conceptual levels = **8/8**;
 - conceptual components = **66/66**;
@@ -317,34 +230,35 @@ Construction-level checks for the shared registry passed:
 - current production surfaces = **26/26**;
 - future-surface sentinel = **1/1**;
 - technical tables classified = **108/108**;
-- duplicate technical family memberships = **0**;
+- duplicate technical-family memberships = **0**;
 - R/X/H/111/zero-orphan safeguards represented = **PASS**;
 - Computational Resources bounded rule represented = **PASS**.
 
-The validator source was syntax-checked during Task 2.6 construction. Exact GitHub readback is required after all Task 2.6 writes.
-
-Because this connector session is not a repository filesystem/CI checkout, Task 2.6 does not claim that the committed validator executable was run as a GitHub check. That future automation is intentionally outside this task. The accepted Task 2.3/2.4 source validations remain controlling until the validator is executed in a checkout/CI environment.
-
-## 14. Task 2.6 verdict
+## 13. Task 2.6 verdict
 
 **PASS — COMPLETE**
 
-Task 2.6 creates a common, version-controlled architecture identity/metadata layer and a concrete drift-validation contract without creating a scientific ontology owner or changing production architecture.
+Task 2.6 creates a common, version-controlled architecture identity/metadata layer and drift-validation contract without creating a scientific ontology owner or changing production architecture.
 
-No Task 2.1–2.5 scientific/architectural meaning was changed.
+## 14. Change boundary
 
-No locked v0.7 document was modified.
+Task 2.6 changed only roadmap-branch architecture documentation/coordination artifacts.
 
-No production `main` file was modified.
+It did **not** modify:
 
-No Computational Resources Stage 1/2/3 branch was modified.
-
-No production page, database, provider, migration, extraction workflow or corpus record was changed.
-
-No Task 3 work was performed.
+- locked v0.7 scientific authority;
+- production Atlas `main`;
+- any Computational Resources Stage 1/2/3 branch;
+- production database/data;
+- database provider choice;
+- production page/navigation;
+- migration state;
+- extraction/review records;
+- corpus records;
+- Task 3 scientific/profile specification.
 
 ## 15. Stop boundary
 
 **STOP: Task 3 has not been started.**
 
-The next roadmap task, only when separately authorized, is **Task 3 — Define the complete Paper Profile**, beginning with Task 3.1 under Master Plan v1.0 and the locked v0.7 scientific authority.
+The next roadmap task, only when separately authorized, is **Task 3 — Define the complete Paper Profile**, beginning with Task 3.1 under frozen Master Plan v1.0 and locked v0.7 scientific authority.
