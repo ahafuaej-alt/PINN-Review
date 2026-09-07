@@ -52,8 +52,8 @@ Task 2 read-only drift validator: `validate-architecture-registry.py`.
 - 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence. — **PASS / COMPLETE**
 - 3.2 Expand each section field-by-field. — **PASS / COMPLETE**
 - 3.3 Define conditional profile sections and display logic. — **PASS / COMPLETE**
-- 3.4 Define evidence/provenance drill-down behavior. — **NEXT**
-- 3.5 Create a machine-readable profile specification in GitHub.
+- 3.4 Define evidence/provenance drill-down behavior. — **PASS / COMPLETE**
+- 3.5 Create a machine-readable profile specification in GitHub. — **NEXT**
 - 3.6 Create a Paper Profile UI mockup before implementation.
 
 ### Task 4 — Formalize PINN Type / Variant classification
@@ -254,14 +254,14 @@ Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementati
 
 Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
-Task 3 is **IN PROGRESS**. Tasks 3.1, 3.2 and 3.3 are **PASS / COMPLETE**.
+Task 3 is **IN PROGRESS**. Tasks 3.1–3.4 are **PASS / COMPLETE**.
 
-Task 3.3 fixes conditional Paper Profile rendering as a derived L8 presentation function: all **19/19** section identities remain permanently discoverable in fixed order; **3/3** core bodies (`PP-01`, `PP-02`, `PP-19`) always render; **16/16** bodies (`PP-03`–`PP-18`) are conditional on scientific applicability, represented governed content, explicit semantic states, integrity-forced visibility or review-mode pending content. Empty arrays do not become negative evidence, `not_applicable` does not become missing, and verified negative/inconclusive outcomes, conflicts, mismatches, provisional/source-local terms remain visible. Review-only and mixed-study boundaries are preserved; public verified mode excludes unreviewed AI/extraction proposals; no generic profile-completeness percentage is allowed.
+Task 3.4 defines the auditable Paper Profile evidence chain as `record/component → L3 evidence set → exact evidence record → source locator/context → L5 semantic/provenance trace`. PP-19 remains a read/index projection over L3 rather than a second evidence store. The contract covers all **24/24** locked PP-19 evidence fields, both **2/2** derived evidence-index/grouping projections and all **6/6** Task-3.2 evidence/provenance classes. Verification and support states remain independent, reviewed mismatches/conflicts cannot be hidden, mixed/review source roles and `scope_locator` remain visible, inline/direct evidence cannot be double-counted, source locators cannot be invented, evidence-record counts cannot be presented as evidence strength/independent support, and public verified evidence remains separated from maintenance/pending evidence.
 
-Task 3.3 creates **0** locked-v0.7 fields/entities and preserves the Computational Resources bounded-integration boundary.
+Task 3.4 creates **0** locked-v0.7 fields/entities and preserves immutable evidence/history, the no-merge rules and the Computational Resources bounded-integration boundary.
 
 The shared machine-readable architecture coordination source remains `atlas-architecture-registry.json`; `validate-architecture-registry.py` remains the read-only Task-2 cross-artifact drift contract. Neither is a scientific ontology owner.
 
-**STOP boundary:** Task 3.4 has not been started.
+**STOP boundary:** Task 3.5 has not been started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 3.4 — define evidence/provenance drill-down behavior** using PP-19, Task 3.2 evidence ownership and Task 3.3 minimum visibility/status obligations as mandatory inputs.
+The exact next substantive roadmap task, only when separately authorized, is **Task 3.5 — create a version-controlled machine-readable Paper Profile specification in GitHub**, binding Tasks 3.1–3.4 to shared IDs, field ownership, conditional display states and evidence-drill-down rules without creating a new scientific ontology owner.
