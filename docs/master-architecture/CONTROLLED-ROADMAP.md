@@ -50,8 +50,8 @@ Task 2 read-only drift validator: `validate-architecture-registry.py`.
 
 ### Task 3 — Define the complete Paper Profile — IN PROGRESS
 - 3.1 Define all first-class profile sections: bibliographic identity, study/extraction identity, application, problem, task, challenge, PINN type, methodology, contribution, claim-vs-demonstration, outcome, validation, evaluation, reproducibility, limitations, open problems, future work, diagnostic pathways, and evidence. — **PASS / COMPLETE**
-- 3.2 Expand each section field-by-field. — **NEXT**
-- 3.3 Define conditional profile sections and display logic.
+- 3.2 Expand each section field-by-field. — **PASS / COMPLETE**
+- 3.3 Define conditional profile sections and display logic. — **NEXT**
 - 3.4 Define evidence/provenance drill-down behavior.
 - 3.5 Create a machine-readable profile specification in GitHub.
 - 3.6 Create a Paper Profile UI mockup before implementation.
@@ -254,10 +254,12 @@ Task 1 is **COMPLETE** and Master Plan v1.0 remains **FROZEN as the implementati
 
 Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
-Task 3 is **IN PROGRESS**. Task 3.1 is **PASS / COMPLETE**. The first-class Paper Profile architecture contains **19/19 sections (`PP-01`–`PP-19`)**, maps all **20/20** Task-2.2 L4 permanent conceptual facets, preserves L2/L3/L5 authority boundaries, and has **0** profile-section conceptual orphans. No locked-v0.7 scientific fields/entities were added.
+Task 3 is **IN PROGRESS**. Tasks 3.1 and 3.2 are **PASS / COMPLETE**. Task 3.2 maps all **19/19 Paper Profile sections**, all **20/20 Task-2.2 L4 permanent conceptual facets**, all **16/16 locked paper/profile schema entities**, all **244/244 locked top-level fields** and all **73/73 explicitly structured locked subfields** (**317/317 locked field/subfield mappings total**). The Paper Profile remains a read projection over governed L2/L3/L4/L5 owners, with **0** new locked-v0.7 fields/entities, **0** profile-field orphans, **0** silently revived prohibited/deferred structures and the Computational Resources boundary preserved.
+
+`PP-07` PINN Type / Family remains an architecture/L5 projection pending Task 4; Task 3.2 does not manufacture a new `pinn_type_id` or assignment entity. PP-19 remains the cross-cutting L3 evidence/provenance projection; `verification_status` remains separate from `support_status`.
 
 The shared machine-readable architecture coordination source remains `atlas-architecture-registry.json`; `validate-architecture-registry.py` remains the read-only Task-2 cross-artifact drift contract. Neither is a scientific ontology owner.
 
-**STOP boundary:** Task 3.2 has not been started.
+**STOP boundary:** Task 3.3 has not been started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 3.2 — expand each PP-01–PP-19 section field-by-field** under the frozen Master Plan v1.0 and locked v0.7 scientific authority.
+The exact next substantive roadmap task, only when separately authorized, is **Task 3.3 — define conditional profile sections and display logic** using Task 3.1 section identities and Task 3.2 field/applicability/ownership rules as mandatory inputs.
