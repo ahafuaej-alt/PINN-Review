@@ -25,7 +25,7 @@ Status: planning/documentation only. This roadmap does not authorize production 
 - 0.4 Preserve provenance/history for all prior ontology baselines.
 - 0.5 Never change scientific meaning merely for implementation convenience.
 
-### Task 1 — Build the formal Master Atlas Scientific Database & Implementation Plan
+### Task 1 — Build the formal Master Atlas Scientific Database & Implementation Plan — COMPLETE / MASTER PLAN v1.0 FROZEN
 - 1.1 Reconcile the locked ontology, original pilot, 31-field Ecosystem, four frameworks, current Atlas architecture, verified bibliographic work, Dataset Manager, and Master Memory.
 - 1.2 Define the complete project objective from source papers through evidence, structured knowledge, ontology, synthesis, frameworks, pages, and tools.
 - 1.3 Formalize non-negotiable scientific rules.
@@ -33,6 +33,8 @@ Status: planning/documentation only. This roadmap does not authorize production 
 - 1.5 Restore operational scale-out acceptance gates, including clean-mapping thresholds and provenance completeness.
 - 1.6 Produce the formal requirement/coverage matrix.
 - 1.7 Freeze Master Plan v1.0 as the implementation contract, not as a new ontology version.
+
+Authoritative freeze record: `TASK-1.7-MASTER-PLAN-V1.0-FREEZE.md`.
 
 ### Task 2 — Design the complete permanent Atlas Architecture system
 - 2.1 Define the full eight-level conceptual architecture plus global QA/versioning/governance.
@@ -95,6 +97,8 @@ Status: planning/documentation only. This roadmap does not authorize production 
 - 9.4 Identify duplicated values.
 - 9.5 Define future single-source ownership.
 - 9.6 Produce an Atlas page/data dependency graph.
+
+Task 9 must use `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as the current-surface baseline and must add every additional production route/page/tool/generated view/deep-link surface/Atlas-facing consumer discovered at audit time. The 26-route baseline is not the final target information architecture and not a route ceiling.
 
 ### Task 10 — Design metadata history and correction propagation
 - 10.1 Treat verified bibliographic values as authoritative baseline input.
@@ -242,4 +246,8 @@ Status: planning/documentation only. This roadmap does not authorize production 
 
 ## Current position
 
-Task 0 is sufficiently established to proceed. The exact next substantive task is **Task 1 — Build the formal Master Atlas Scientific Database & Implementation Plan**.
+Task 1 is **COMPLETE**. Master Plan v1.0 is **FROZEN as the implementation contract, not as a new ontology version**. Scientific authority remains locked Drive `v0.7-pilot-atlas-prefreeze`.
+
+**STOP boundary:** Task 2 has not been started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 2 — Design the complete permanent Atlas Architecture system**, beginning with Task 2.1: define the full eight-level conceptual architecture plus global QA/versioning/governance.
