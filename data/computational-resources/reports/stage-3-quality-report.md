@@ -5,45 +5,45 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S101`
-- Batch: `SOB011` — **7/10 complete**
-- Resources: `CR000113`, `CR000114`
+- Checkpoint: `Stage3-S102`
+- Batch: `SOB011` — **8/10 complete**
+- Resource: `CR000115`
 - Checkpoint status: **PASS**
 - Latest aggregate batch QA: `SOB010` — **PASS**
 
-## S101 checkpoint counts
+## S102 checkpoint counts
 
-- Resources: **2**
-- Experiments: **1**
-- Configurations: **4**
-- Technical-evidence records: **15**
-- Reproducibility assessments: **2**
+- Resources: **1**
+- Experiments: **3**
+- Configurations: **5**
+- Technical-evidence records: **12**
+- Reproducibility assessments: **1**
 - New unresolved findings: **10**
-- New explicit conflicts: **0**
+- New explicit conflicts: **2**
 
-## Cumulative counts through S101
+## Cumulative counts through S102
 
-- Resources: **117**
-- Experiments: **203**
-- Configurations: **397**
-- Technical-evidence records: **1394**
-- Reproducibility assessments: **117**
-- Unresolved findings: **745**
-- Explicit conflicts: **101**
-- Independently extractable resources remaining: **246**
+- Resources: **118**
+- Experiments: **206**
+- Configurations: **402**
+- Technical-evidence records: **1406**
+- Reproducibility assessments: **118**
+- Unresolved findings: **755**
+- Explicit conflicts: **103**
+- Independently extractable resources remaining: **245**
 
 ## QA gates
 
-Schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening and branch-head stability all **PASS** for S101.
+Schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, Stage-1/Stage-2/public-Atlas/curated/schema write boundaries, execution boundary, provenance-text screening and branch-head stability all **PASS** for S102.
 
-SOB011 is 7/10; aggregate SOB011 QA is not yet due. Latest completed aggregate remains SOB010 — **PASS**.
+`SOB011` is 8/10; aggregate SOB011 QA is not yet due. Latest completed aggregate remains SOB010 — **PASS**.
 
 ## Scientific/reproducibility note
 
-`CR000113` is a pinned TSA-PINN implementation for cylinder-wake Navier-Stokes approximation. Source code verifies a streamfunction-pressure formulation, automatic-differentiation Navier-Stokes residuals, a standard-PINN baseline and trainable sinusoidal TSA frequencies. Four repository YAML configurations share the same 4001-epoch Adam training surface and vary the model family/initial frequency. R1 is required because explicit installation documentation is absent and package specifications are minimum-version constraints rather than exact environment pins.
+`CR000115` is a pinned physics-informed neural-operator implementation for large-eddy simulation of three-dimensional turbulence. The bounded record preserves two primary flow families, DHIT and TML, their data-driven FNO/IFNO comparators, and a distinct SGS-coefficient-learning workflow. The large parameter/data/loss sweep matrix is represented as capability evidence rather than exhaustively proliferated.
 
-`CR000114` remains an unavailable source with a not-verified paper-resource relationship. R0 is required and no scientific workflow semantics are inferred beyond the Stage-2 provenance record.
+Two source conflicts remain explicit: the TML physics-informed YAML filename uses `PI_FNO` while its internal model is `IFNO`, and `train_pino.py` advertises CPU fallback but subsequently performs an unconditional CUDA device-properties query. R1 is conservative because installation and reconstructable dependency/environment specifications are incomplete.
 
 ## Continuation
 
-Exact next resource: `CR000115`. Exact next checkpoint: `Stage3-S102`.
+Exact next resource: `CR000116`. Exact next checkpoint: `Stage3-S103`.
