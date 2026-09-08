@@ -64,10 +64,12 @@ Task 3 non-production UI mockup: `mockups/paper-profile-ui-mockup.html`.
 
 ### Task 4 — Formalize PINN Type / Variant classification — IN PROGRESS
 - 4.1 Audit the existing Abbreviations/PINN-type material. — **PASS / COMPLETE**
-- 4.2 Define an extensible PINN type/family taxonomy.
+- 4.2 Define an extensible PINN type/family taxonomy. — **PASS / COMPLETE**
 - 4.3 Link PINN types to papers and evidence.
 - 4.4 Link PINN types to applications, problems, methods, outcomes, and failures.
 - 4.5 Specify the future PINN Type Explorer.
+
+Task 4.2 taxonomy coordination source: `atlas-pinn-type-taxonomy-spec.json`.
 
 ### Task 5 — Formalize methodological extensibility
 - 5.1 Catalogue existing methodology dimensions.
@@ -262,14 +264,16 @@ Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
 Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
-Task 4 is **IN PROGRESS**. Task 4.1 is **PASS / COMPLETE**.
+Task 4 is **IN PROGRESS**. Tasks 4.1 and 4.2 are **PASS / COMPLETE**.
 
-Task 4.1 established the complete existing-state baseline for PINN terminology and the unfinished Abbreviations/PINN Types surfaces: raw source preservation; controlled PINN-related triage; 30 collision/non-equivalence classes; separate Abbreviation Registry and 268-term PINN Type candidate inventories; verified current page/parser/dependency behavior; and resolution of the 500-vs-501 issue as an implementation/tokenization/counting-contract discrepancy rather than a scientific contradiction.
+Task 4.1 established the verified existing-state baseline: preserved raw terminology; controlled candidate triage; 30 collision/non-equivalence classes; separate Abbreviation Registry and 268-term PINN Type candidate inventories; and the current Abbreviations/PINN Types scaffold/parser audit.
 
-The current `/abbreviations/` page remains a functional but incomplete client-side terminology browser over the legacy TXT. The current `/pinn-types/` route remains an empty pre-data scaffold. Neither is a scientific taxonomy owner. No production page/data, locked-v0.7 structure, or Computational Resources branch was changed by Task 4.1.
+Task 4.2 defines the extensible PINN taxonomy as a **faceted governed taxonomy graph**. Only evidence-supported `is_a` creates subtype hierarchy. Formulation, decomposition, architecture/backbone, training/adaptivity, probabilistic/UQ, multi-fidelity/transfer, application specialization and source-local naming are represented as controlled classification lanes and typed relations when they do not justify subtype status. The system inherits locked-v0.7 lifecycle states and alias scopes, preserves Task 4.1C collision/no-merge controls, and performs **0 automatic promotions** of the 268 candidates.
 
-Evidence-driven revision remains controlling: later primary-source evidence may revise normalized meaning, alias/collision interpretation, family/variant role, source scope, relationship, or taxonomy placement, but the revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording and prior decisions must not be silently erased.
+The machine-readable coordination source is `atlas-pinn-type-taxonomy-spec.json`. It is not scientific authority and does not modify locked v0.7.
 
-**STOP boundary:** Task 4.2 has not been started.
+Evidence-driven revision remains controlling: later primary-source evidence may revise normalized meaning, lane, family/variant placement, alias/collision interpretation, relationship or taxonomy status, but the revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording and prior decisions must not be silently erased.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 4.2 — define an extensible PINN type/family taxonomy**, using Task 4.1A–4.1E as mandatory controlling inputs.
+**STOP boundary:** Task 4.3 has not been started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 4.3 — link PINN types to papers and evidence** using the Task 4.2 taxonomy semantics without inventing unsupported assignments.
