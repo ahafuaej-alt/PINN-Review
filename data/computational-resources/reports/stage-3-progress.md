@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S141`
-- Latest completed resource: `CR000158`
+- Latest completed checkpoint: `Stage3-S142`
+- Latest completed resource: `CR000159`
 - Latest completed aggregate batch: `SOB015` — **PASS (10/10)**
-- Current batch: `SOB016` — **1/10**
+- Current batch: `SOB016` — **2/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000159`
-- Exact next checkpoint: `Stage3-S142`
+- Exact next independently extractable resource: `CR000160`
+- Exact next checkpoint: `Stage3-S143`
 
-## Cumulative counts through S141
+## Cumulative counts through S142
 
-- Resources: **161**
-- Experiments: **251**
-- Configurations: **450**
-- Technical-evidence records: **1804**
-- Reproducibility assessments: **161**
-- Unresolved findings: **1012**
+- Resources: **162**
+- Experiments: **252**
+- Configurations: **451**
+- Technical-evidence records: **1813**
+- Reproducibility assessments: **162**
+- Unresolved findings: **1016**
 - Explicit conflicts: **117**
-- Independently extractable resources remaining: **202**
+- Independently extractable resources remaining: **201**
 
-## S141
+## S142
 
-CR000158 preserves the Stage-2 pinned FiberNet identity, AGPL-3.0 license and official Atlas-835 relationship. Bounded static extraction maps representative 2D and 3D anisotropic-eikonal fiber reconstruction workflows. Unpinned dependencies, missing platform specification, uninspected VTK payloads and absent expected metrics limit static reproducibility to **R2**.
+CR000159 preserves the Stage-2 resolution of its obsolete Stage-1 URL to `thomgrand/fim-python`, pinned SHA, AGPL-3.0 license and software-use relationship to Atlas 835. It is represented as a supporting anisotropic-eikonal solver library, not a PINN. The documented self-generated 2D workflow supports **R3**; exact environment and comparable outputs remain unresolved.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S142` at `CR000159` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S143` at `CR000160` after published-head and checkpoint-QA readback.

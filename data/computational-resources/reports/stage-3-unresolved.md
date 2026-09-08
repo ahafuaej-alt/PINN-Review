@@ -1,22 +1,21 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08
-Current checkpoint: `Stage3-S141`
+Current checkpoint: `Stage3-S142`
 Latest completed batch: **SOB015 PASS**
-Current batch: `SOB016` (1/10)
-Current unresolved count: **1012**
-Next unresolved ID: `S3U-1013`
+Current batch: `SOB016` (2/10)
+Current unresolved count: **1016**
+Next unresolved ID: `S3U-1017`
 Explicit conflict count: **117**
 
-## Stage3-S141 additions
+## Stage3-S142 additions
 
-- `S3U-1008` — CR000158; resource; high: All requirements are unversioned, leaving the TensorFlow v1 compatibility, FIM, VTK/PyVista and notebook stack unpinned.
-- `S3U-1009` — CR000158; resource; medium: No hardware or operating-system specification is supplied.
-- `S3U-1010` — CR000158; resource; medium: Bundled VTK geometry payloads were not loaded and lack file-level checksums in the Stage-3 record.
-- `S3U-1011` — CR000158; configuration; medium: No trained checkpoints, bundled expected metric values, or numerical acceptance thresholds were identified.
-- `S3U-1012` — CR000158; configuration; low: Reported NumPy and TensorFlow seeds do not fully constrain stochastic and parallel library behavior.
+- `S3U-1013` — CR000159; resource; medium: The exact transitive CPU/GPU/compiler environment is not pinned.
+- `S3U-1014` — CR000159; resource; medium: GPU installation depends on a compatible CUDA toolchain, but no exact hardware, driver or CUDA version is specified.
+- `S3U-1015` — CR000159; configuration; medium: Tracked benchmark-data directories do not provide a complete reference dataset or performance acceptance thresholds.
+- `S3U-1016` — CR000159; configuration; low: Published benchmark figures are not machine-independent expected outputs for the bounded usage example.
 
-This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-141-extraction-log.jsonl`.
+This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-142-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -24,4 +23,4 @@ Prior findings through S122 are retained in the S122 register snapshot and histo
 
 ## Continuation
 
-Exact next resource: `CR000159`. Exact next checkpoint: `Stage3-S142`.
+Exact next resource: `CR000160`. Exact next checkpoint: `Stage3-S143`.
