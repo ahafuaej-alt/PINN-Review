@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "id": "PINN-ATLAS-LEARNING-INTEGRATION-TAXONOMY",
+    "version": "1.0.0",
+    "date": "2026-09-08",
+    "branch": "docs/master-atlas-roadmap",
+    "role": "non_authoritative_coordination_metadata",
+    "scientific_authority": false,
+    "may_modify_locked_v0_7": false,
+    "may_create_scientific_terms": false,
+    "may_create_paper_assignments": false
+  },
+  "authority": {
+    "science": "Google Drive v0.7-pilot-atlas-prefreeze",
+    "implementation": "Master Plan v1.0",
+    "controlling_catalogue": "TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md",
+    "pinn_type_boundary": "TASK-4.2-EXTENSIBLE-PINN-TYPE-FAMILY-TAXONOMY.md"
+  },
+  "design": {
+    "model": "faceted_governed_taxonomy_graph",
+    "hierarchy_relation": "is_a_only_when_evidence_supported",
+    "multi_facet_assignment_allowed": true,
+    "field_per_method_design": false,
+    "new_locked_fields": 0
+  },
+  "facets": [
+    {
+      "id": "LIT-F1",
+      "label": "physics_incorporation_mode",
+      "owner": "physics_integration_mode[]",
+      "nodes": [
+        {"id":"LIT-F1-01","label":"residual/loss-based physics constraint","authority_state":"existing_cv_value","owners":["physics_integration_mode[]","loss_components[]"]},
+        {"id":"LIT-F1-02","label":"hard/analytic constraint","authority_state":"existing_cv_value","owners":["physics_integration_mode[]","physics_enforcement[]"],"guard":"R-C20_exact_by_construction_required"},
+        {"id":"LIT-F1-03","label":"architecture-encoded physics","authority_state":"existing_cv_value","owners":["physics_integration_mode[]","PINN_architecture[]","model_variable_representation[]"]},
+        {"id":"LIT-F1-04","label":"physics-guided data/feature integration","authority_state":"existing_cv_value","owners":["physics_integration_mode[]","transformation_method[]","data_regime[]"]},
+        {"id":"LIT-F1-05","label":"physics-informed initialization/pretraining","authority_state":"existing_cv_value","owners":["physics_integration_mode[]","training_protocol[]"]},
+        {"id":"LIT-F1-06","label":"hybrid numerical/ML coupling","authority_state":"existing_cv_value","owners":["physics_integration_mode[]","relationship_registry"]}
+      ]
+    },
+    {
+      "id": "LIT-F2",
+      "label": "transfer_reuse_adaptation_mode",
+      "nodes": [
+        {"id":"LIT-F2-01","label":"transfer learning","authority_state":"existing_dimension_anchor","owners":["taxonomy_registry","relationship_registry"],"note":"training_protocol does not own transfer identity"},
+        {"id":"LIT-F2-02","label":"Sequential/time-marching transfer learning","authority_state":"existing_canonical_term","owners":["taxonomy_registry","relationship_registry","training_protocol[]"],"relation":"R-C14_when_applicable"},
+        {"id":"LIT-F2-03","label":"pretraining/fine-tuning workflow","authority_state":"existing_training_protocol_subtype","owners":["training_protocol[]"],"not_equivalent_to":"transfer_learning_by_default"},
+        {"id":"LIT-F2-04","label":"meta-learning / learned adaptation","authority_state":"coordination_slot","owners":["taxonomy_registry","relationship_registry"],"structural_decision":"deferred_to_Task_5.4"},
+        {"id":"LIT-F2-05","label":"warm-start / continuation reuse","authority_state":"coordination_slot","owners":["training_protocol[]","taxonomy_registry","relationship_registry"],"not_equivalent_to":"transfer_learning_by_default"}
+      ]
+    },
+    {
+      "id": "LIT-F3",
+      "label": "multisource_multifidelity_integration_mode",
+      "nodes": [
+        {"id":"LIT-F3-01","label":"multi-fidelity learning/integration","authority_state":"existing_dimension_anchor","owners":["fidelity_source_role[]","taxonomy_registry","relationship_registry"]},
+        {"id":"LIT-F3-02","label":"low-fidelity pretraining / high-fidelity updating","authority_state":"coordination_slot","owners":["fidelity_source_role[]","training_protocol[]","relationship_registry"]},
+        {"id":"LIT-F3-03","label":"fidelity-guided learning/data fusion","authority_state":"coordination_slot","owners":["fidelity_source_role[]","relationship_registry"]}
+      ]
+    },
+    {
+      "id": "LIT-F4",
+      "label": "operator_solver_integration_mode",
+      "nodes": [
+        {"id":"LIT-F4-01","label":"operator-learning integration","authority_state":"existing_dimension_anchor","owners":["taxonomy_registry","relationship_registry","PINN_architecture[]","computational_task"]},
+        {"id":"LIT-F4-02","label":"learned differential/operator evaluation","authority_state":"existing_provisional_method_concept","owners":["differentiation_method[]","relationship_registry"],"relation":"R-A1-09_provisional"},
+        {"id":"LIT-F4-03","label":"pretrained operator integration","authority_state":"coordination_slot","owners":["taxonomy_registry","relationship_registry","training_protocol[]"],"relation":"R-A1-13_provisional_when_applicable"},
+        {"id":"LIT-F4-04","label":"numerical/classical solver coupling","authority_state":"existing_integration_mode_crosswalk","owners":["physics_integration_mode[]","relationship_registry"],"relation":"R-A1-05_provisional_when_applicable"}
+      ]
+    }
+  ],
+  "derived_query_facets": {
+    "integration_locus": [
+      "objective_or_residual",
+      "mathematical_constraint_construction",
+      "architecture_or_representation",
+      "input_data_or_feature",
+      "initialization_or_pretraining",
+      "training_update_or_adaptation",
+      "source_fidelity_workflow",
+      "operator_or_model_coupling",
+      "numerical_solver_coupling"
+    ],
+    "knowledge_source_role": [
+      "governing_equation_or_residual_physics",
+      "physical_constraint",
+      "constitutive_conservation_invariance_or_admissibility",
+      "observational_or_measurement_data",
+      "labeled_solution_or_state_data",
+      "explicit_fidelity_source",
+      "pretrained_model_or_previous_segment",
+      "learned_operator",
+      "classical_or_numerical_solver",
+      "other_explicit_scientific_knowledge_source"
+    ],
+    "persisted_science": false
+  },
+  "lifecycle": {
+    "term_status": ["canonical","provisional","alias","deprecated","paper_specific"],
+    "alias_scope": ["corpus_global","source_local","author_defined","unresolved"],
+    "new_terms_default": "provisional_or_paper_specific_until_governed_review"
+  },
+  "relation_policy": {
+    "reuse": ["R-C01","R-C02","R-C14","R-A1-05","R-A1-09","R-A1-13"],
+    "new_relation_policy": "provisional_only_when_existing_relation_would_distort_meaning",
+    "context_free_performance_edges": false,
+    "lexical_inference_allowed": false
+  },
+  "no_merge_guards": [
+    "physics_integration_mode != pinn_type_family",
+    "learning_integration_type != coupled_ml_backbone",
+    "architecture_encoded_physics != arbitrary_architecture_use",
+    "residual_loss_physics != hard_exact_enforcement",
+    "author_hard_constraint_label != exact_by_construction_without_R-C20",
+    "physical_constraint != enforcement_mechanism",
+    "transfer_learning != pretraining_finetuning_by_default",
+    "transfer_learning != multifidelity_learning",
+    "multifidelity != generic_data_plus_physics_hybrid",
+    "low_fidelity != coarse_simulation",
+    "meta_learning != ordinary_finetuning_or_warm_start",
+    "previous_step_initialization != global_transfer_family_by_default",
+    "neural_operator != PINN",
+    "neural_operator != physics_informed_operator_by_default",
+    "operator_learning_integration != operator_learning_task",
+    "learned_differential_operator != neural_operator_family_by_default",
+    "solver_used_for_validation != hybrid_solver_coupling",
+    "hybrid_solver_coupling != software_framework",
+    "data_regime != integration_type",
+    "adaptive_sampling != adaptive_loss_weighting != meta_learning_adaptation",
+    "training_protocol != learning_method_identity",
+    "derived_output != learning_integration_mechanism",
+    "application_equation_specialization != integration_type",
+    "lexical_similarity != scientific_equivalence"
+  ],
+  "assignment_requirements": [
+    "paper_id",
+    "exact_source_label_or_statement_when_applicable",
+    "governed_or_provisional_concept",
+    "existing_v0_7_owner_records",
+    "evidence_ids_and_locators",
+    "scope_or_component_context_when_needed",
+    "evidence_source_role",
+    "verification_status",
+    "support_status",
+    "taxonomy_status_and_alias_scope_when_relevant",
+    "relationship_status_when_used",
+    "ontology_version_context"
+  ],
+  "prohibited": [
+    "new_generic_learning_integration_field_in_v0_7",
+    "automatic_canonicalization",
+    "automatic_primary_study_assignment_from_review_mentions",
+    "automatic_operator_to_PINN_merge",
+    "automatic_multifidelity_to_transfer_merge",
+    "Task_5.3_coupled_ML_taxonomy",
+    "Task_5.4_structural_promotion_decision",
+    "Task_5.5_recurrence_thresholds"
+  ],
+  "stop_boundary": "Task 5.3 not started"
+}
