@@ -1,35 +1,32 @@
 # Computational Resources Stage 3 Unresolved Register
 
-Date: 2026-09-08  
-Current checkpoint: `Stage3-S122`  
-Latest completed batch: `SOB013` — **PASS**  
-Current batch: `SOB014` (0/10)  
-Current unresolved count: **887**  
-Next unresolved ID: `S3U-0888`  
-Explicit conflict count: **112**
+Date: 2026-09-08
+Current checkpoint: `Stage3-S123`
+Latest completed batch: **SOB013 PASS**
+Current batch: `SOB014` (1/10)
+Current unresolved count: **897**
+Next unresolved ID: `S3U-0898`
+Explicit conflict count: **113**
 
-## Stage3-S122 additions — CR000137
+## Stage3-S123 additions
 
-- `S3U-0883` — the README pip command installs the latest stable release rather than the immutable Stage-2 snapshot; immutable reproduction therefore depends on the pinned-source/manual-install path.
-- `S3U-0884` — `requirements.txt` and `setup.py` use unversioned dependencies even though `Pipfile.lock` provides an exact Python-3.8 locked environment; the documented install paths are not unified around the lock file.
-- `S3U-0885` — the representative README examples do not report a random-seed policy.
-- `S3U-0886` — execution hardware for the representative examples is not specified.
-- `S3U-0887` — expected outputs are illustrated by solution/residual plots, but no quantitative acceptance thresholds are specified for the representative examples.
+- `S3U-0888` — CR000138; resource; medium: No repository license was detected at the Stage-2 pinned snapshot.
+- `S3U-0889` — CR000138; resource; high: No dependency manifest, exact package versions or installation procedure specifies the full observed Python stack; R2 is not justified.
+- `S3U-0890` — CR000138; resource; high: Required raw/processed datasets and data/data_process.py are absent; data acquisition, preprocessing and split construction are not specified.
+- `S3U-0891` — CR000138; resource; high: Testing requires trained_model.pth, but no pretrained checkpoint is supplied in the pinned tree.
+- `S3U-0892` — CR000138; resource; medium: Nested trained-model and prediction output directories must be created by downstream setup; inspected scripts only create the loss-log directory.
+- `S3U-0893` — CR000138; resource; high: Fixed training reshape and last-test-batch-only prediction aggregation impose unchecked sample-count assumptions; applicability to the missing datasets is unknown.
+- `S3U-0894` — CR000138; resource; medium: README calls the minor-loop folders minor_loops, while the pinned tree uses minor_loop for both training and testing.
+- `S3U-0895` — CR000138; resource; medium: Training and test H arrays are independently min-max scaled, and no scaler state or common deployment normalization contract is supplied.
+- `S3U-0896` — CR000138; resource; low: Actual experimental hardware is not reported in the bounded repository evidence.
+- `S3U-0897` — CR000138; resource; low: Evaluation code provides metrics and plots but no verified numerical baseline or acceptance threshold for the bounded workflows.
 
-S122 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **112**.
+This checkpoint adds **1 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-123-extraction-log.jsonl`.
 
-## Batch status
+## Audit continuity
 
-`SOB013` is **PASS (10/10)** after CR000137. `SOB014` begins at CR000138.
+Prior findings through S122 are retained in [the S122 register snapshot](stage-3-unresolved-through-s122.md) and historical checkpoint records. S123 onward stores each new finding and identifier in its immutable checkpoint extraction log. No earlier ID is reused or silently removed. Stage3-RC02 remains authoritative for the prior count-neutral reconciliation.
 
 ## Continuation
 
-Continue from `S3U-0888` only for genuinely new findings. Exact next resource is `CR000138` for `Stage3-S123`.
-
-## Cumulative reconciliation — 2026-09-08
-
-`Stage3-RC02` repairs the previously published schema/reference defects and reconciles 15 R2 assessments to R1 under the accepted environment-and-installation gate. All 2,516 technical/evidence/assessment records pass schema validation; cumulative identifiers, hierarchy links, evidence references and SOB001–SOB013 counts pass revalidation.
-
-No resources, experiments, configurations, evidence IDs, unresolved findings or conflict findings are added or removed. The current frontier remains S122 / CR000137, SOB014 0/10; next extraction is S123 / CR000138. Unresolved ID S3U-0888 remains next.
-
-See [stage-3-cumulative-reconciliation-2026-09-08.md](stage-3-cumulative-reconciliation-2026-09-08.md) for per-field corrections, assessment decisions and the QA scope. Historical PASS statements are supported only after this reconciliation for the affected schema/reference gates. No scientific workloads were executed.
+Exact next resource: `CR000139`. Exact next checkpoint: `Stage3-S124`.

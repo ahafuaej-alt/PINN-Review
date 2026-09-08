@@ -1,51 +1,39 @@
 # Computational Resources Stage 3 Progress
 
-Date: 2026-09-08  
+Date: 2026-09-08
 Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S122`
-- Latest completed resource: `CR000137`
+- Latest completed checkpoint: `Stage3-S123`
+- Latest completed resource: `CR000138`
 - Latest completed aggregate batch: `SOB013` — **PASS (10/10)**
-- Current batch: `SOB014` — **0/10**
+- Current batch: `SOB014` — **1/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000138`
-- Exact next checkpoint: `Stage3-S123`
+- Exact next independently extractable resource: `CR000139`
+- Exact next checkpoint: `Stage3-S124`
 
-## Cumulative counts through S122
+## Cumulative counts through S123
 
-- Resources: **140**
-- Experiments: **227**
-- Configurations: **424**
-- Technical-evidence records: **1585**
-- Reproducibility assessments: **140**
-- Unresolved findings: **887**
-- Explicit conflicts: **112**
-- Independently extractable resources remaining: **223**
+- Resources: **141**
+- Experiments: **229**
+- Configurations: **426**
+- Technical-evidence records: **1602**
+- Reproducibility assessments: **141**
+- Unresolved findings: **897**
+- Explicit conflicts: **113**
+- Independently extractable resources remaining: **222**
 
-## S122
+## S123
 
-`Stage3-S122` records `CR000137` (`NeuroDiffGym/neurodiffeq`) at the reconstructed Stage-2 immutable SHA `df47923878f39377bd45922a0654f79849488452`, preserving MIT licensing and the verified `PRL000264 → Atlas 745` official relationship restored by the post-closure Stage-2 authority overlay.
-
-NeuroDiffEq is represented as a `pinn_framework_library`. The bounded extraction records the framework-wide ODE/PDE, solver, network, sampling, installation and environment capabilities at resource scope, plus two explicit README use cases: the Lotka-Volterra ODE system and a two-dimensional Laplace PDE. These are repository-documented examples, not claims about the 2025 paper's experimental program.
-
-The repository provides Python 3.8 in `Pipfile`, exact dependency versions and hashes in `Pipfile.lock`, explicit installation paths, package version 0.7.0, formal documentation and Docker infrastructure. The static reproducibility assessment is **R3**; R4 is withheld because the representative examples do not specify deterministic seed control or quantitative acceptance thresholds.
+CR000138 records supervised magnetic-hysteresis operator research code at the retained Stage-2 SHA. Two README-selected RIFNO workflows, FORC and minor loops, retain separate active configurations. Missing environment/install, data/preparation and checkpoint prerequisites limit the static assessment to R1. The README/tree minor-loop folder conflict is explicit.
 
 No scientific workload was executed.
 
-## Batch status
+## Reconciled baseline
 
-`SOB013` is **PASS (10/10)** and contains exactly `CR000128–CR000137`. `SOB014` is **0/10** and begins at `CR000138`.
+The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation-2026-09-08.md) remains authoritative for repaired pre-S123 metadata and reproducibility assessments. Accepted methodology and schemas are unchanged.
 
 ## Continuation
 
-Continue with `Stage3-S123` at `CR000138`.
-
-## Cumulative reconciliation — 2026-09-08
-
-`Stage3-RC02` repairs the previously published schema/reference defects and reconciles 15 R2 assessments to R1 under the accepted environment-and-installation gate. All 2,516 technical/evidence/assessment records pass schema validation; cumulative identifiers, hierarchy links, evidence references and SOB001–SOB013 counts pass revalidation.
-
-No resources, experiments, configurations, evidence IDs, unresolved findings or conflict findings are added or removed. The current frontier remains S122 / CR000137, SOB014 0/10; next extraction is S123 / CR000138. Unresolved ID S3U-0888 remains next.
-
-See [stage-3-cumulative-reconciliation-2026-09-08.md](stage-3-cumulative-reconciliation-2026-09-08.md) for per-field corrections, assessment decisions and the QA scope. Historical PASS statements are supported only after this reconciliation for the affected schema/reference gates. No scientific workloads were executed.
+Continue with `Stage3-S124` at `CR000139` after published-head and checkpoint-QA readback.
