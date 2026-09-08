@@ -5,32 +5,32 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S129`
-- Resource: CR000145
+- Checkpoint: `Stage3-S130`
+- Resources: CR000146, CR000147
 - Status: **PASS**
-- Current batch: `SOB014` — **8/10**
-- Latest aggregate: **SOB013 PASS (10/10)**
+- Latest aggregate: **SOB014 PASS (10/10)**
+- Current batch: `SOB015` — **0/10**
 
-All applicable accepted schemas, cumulative identifier uniqueness, evidence ownership/reference integrity, evidence-use completeness and inference pairing pass. Experiment/configuration schemas are not applicable because CR000145 is a profile-level identity and no repository experiment is attributed to it. Missing-value states and R0 reproducibility are evidence-scoped; no R5 assessment is assigned.
+All applicable accepted schemas, cumulative identifier uniqueness, evidence ownership/reference integrity, evidence-use completeness, source scoping, missing-value semantics, inference pairing, Stage-2 authority resolution, static-execution boundary, repository-scope safety and publication boundaries pass. No R5 assessment is assigned.
 
-Checkpoint counts: {"configurations": 0, "experiments": 0, "new_conflicting_evidence_findings": 0, "new_unresolved_findings": 5, "reproducibility_assessments": 1, "resources": 1, "technical_evidence_records": 5}.
+Checkpoint counts: {"configurations": 2, "experiments": 2, "new_conflicting_evidence_findings": 0, "new_unresolved_findings": 8, "reproducibility_assessments": 2, "resources": 2, "technical_evidence_records": 16}.
 
 ## Cumulative counts
 
-- Resources: **148**
-- Experiments: **235**
-- Configurations: **434**
-- Technical-evidence records: **1675**
-- Reproducibility assessments: **148**
-- Unresolved findings: **942**
+- Resources: **150**
+- Experiments: **237**
+- Configurations: **436**
+- Technical-evidence records: **1691**
+- Reproducibility assessments: **150**
+- Unresolved findings: **950**
 - Explicit conflicts: **115**
 
 ## Scientific scope
 
-CR000145 preserves the JeongsLee GitHub profile identity supplied for Atlas 778 without manufacturing a repository-level paper relationship. PINN-for-ExtremeMechanics remains separately represented as CR000358 with relationship to Atlas 778 not established. Static reproducibility is **R0**.
+CR000146 remains an improved PINN implementation for Atlas 779; the not-verified Atlas-810 relationship is preserved as a negative correction to distinct CR000151. CR000147 remains the GAN-PI implementation associated with Atlas 787. Both are bounded at **R1** because environment/install/version information is insufficient despite code, data and released model artifacts.
 
-Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02 remains authoritative for prior reconciliations.
+`SOB014` aggregate reconciliation passes from the SOB013 boundary through `CR000147`. Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02 remains authoritative for prior reconciliations.
 
 ## Continuation
 
-Next resource: `CR000146`. Next checkpoint: `Stage3-S130`. Remaining identities: **215**.
+Next resource: `CR000148`. Next checkpoint: `Stage3-S131`. Remaining identities: **213**.

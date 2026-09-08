@@ -1,22 +1,25 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08
-Current checkpoint: `Stage3-S129`
-Latest completed batch: **SOB013 PASS**
-Current batch: `SOB014` (8/10)
-Current unresolved count: **942**
-Next unresolved ID: `S3U-0943`
+Current checkpoint: `Stage3-S130`
+Latest completed batch: **SOB014 PASS**
+Current batch: `SOB015` (0/10)
+Current unresolved count: **950**
+Next unresolved ID: `S3U-0951`
 Explicit conflict count: **115**
 
-## Stage3-S129 additions
+## Stage3-S130 additions
 
-- `S3U-0938` — CR000145; relationship; high: Paper 778 supplies only the JeongsLee parent profile URL; no repository-level official code relationship is established.
-- `S3U-0939` — CR000145; resource; medium: CR000145 is a profile identity and therefore has no pinned executable commit of its own.
-- `S3U-0940` — CR000145; relationship; high: PINN-for-ExtremeMechanics is preserved as CR000358, but its relationship to Atlas 778 remains not established.
-- `S3U-0941` — CR000145; resource; medium: ADAF, MOTION and NTO-ADA are profile discoveries not attributable to paper 778 from the accepted evidence.
-- `S3U-0942` — CR000145; reproducibility; high: Environment, entrypoint, data, training and evaluation reproducibility fields are not attributable at profile level.
+- `S3U-0943` — CR000146; environment; high: No dependency declaration was identified in the pinned repository.
+- `S3U-0944` — CR000146; reproducibility; high: The representative Beltrami source hardcodes CUDA and a user-specific model-save path.
+- `S3U-0945` — CR000146; environment; medium: Exact package versions and tested hardware are not specified.
+- `S3U-0946` — CR000146; evaluation; medium: No quantitative acceptance threshold is defined for a successful rerun despite released models/results.
+- `S3U-0947` — CR000147; environment; high: No dependency manifest or installation workflow is present in the pinned repository.
+- `S3U-0948` — CR000147; environment; high: Python and TensorFlow versions are not fixed by the pinned repository.
+- `S3U-0949` — CR000147; reproducibility; medium: Seed and hardware policy are not established by the inspected static sources.
+- `S3U-0950` — CR000147; evaluation; medium: Bundled checkpoints/data do not define a quantitative acceptance threshold.
 
-This checkpoint adds **0 explicit conflicts**; the cumulative explicit-conflict count remains **115**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-129-extraction-log.jsonl`.
+This checkpoint adds **0 explicit conflicts**; the cumulative explicit-conflict count remains **115**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-130-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -24,4 +27,4 @@ Prior findings through S122 are retained in [the S122 register snapshot](stage-3
 
 ## Continuation
 
-Exact next resource: `CR000146`. Exact next checkpoint: `Stage3-S130`.
+Exact next resource: `CR000148`. Exact next checkpoint: `Stage3-S131`.
