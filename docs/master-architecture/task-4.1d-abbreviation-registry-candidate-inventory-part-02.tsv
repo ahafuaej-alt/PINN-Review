@@ -1,0 +1,85 @@
+inventory_row_id	raw_reported_form	paper_ids	occurrence_count	candidate_selected_for_task_4_1b	task4_1b_disposition	verification_state	collision_ids	collision_decision_states	abbreviation_registry_candidate_state	raw_parenthetical_text
+AR4D-0001	PINN	2,3,4,7,8,11,13,14,17,22,23,24,25,26,27,29,30,31,32,33,35,36,39,40,42,47,50,56,58,61,62,65,66,67,68,69,70,72,73,74,75,76,77,80,81,83,84,85,86,87,90,94,95,98,99,108,124,132,134,137,138,139,140,142,144,149,150,151,154,157,158,159,160,162,163,164,165,168,172,176,186,188,196,199,203,204,208,233,234,236,237,239,241,243,244,245,248,252,255,257,260,264,265,266,268,269,270,271,272,275,277,279,280,281,285,287,292,293,294,297,298,299,300,302,303,304,308,310,315,317,319,320,323,324,326,327,328,329,330,331,332,333,334,336,338,339,340,341,344,346,347,349,350,351,353,354,362,364,365,367,370,373,374,375,381,384,385,386,387,388,391,392,393,396,403,406,411,412,414,415,418,420,421,422,424,425,426,428,429,431,432,435,436,438,439,444,445,447,450,473,477,478,479,480,481,482,483,484,485,486,487,488,489,493,495,496,497,498,500,501,503,506,510,512,513,517,520,525,526,527,528,529,533,534,535,536,540,547,566,568,569,570,571,573,574,575,576,578,579,580,581,583,584,585,606,634,637,655,661,663,667,668,671,676,678,679,682,684,687,688,689,690,691,695,697,701,702,703,704,705,709,712,713,714,717,719,720,721,722,723,725,728,729,730,731,732,733,734,735,737,739,741,745,751,752,753,754,755,756,757,758,759,766,777,780,785,786,787,788,789,790,795,797,800,806,814,816,819,821,822,823,826,833,835,836,837,838,839,840,841,842,843,844,845,846,848,849,850,851,852	350	true	validated_core_PINN_family_candidate	verified_from_current_Atlas_meaning_map	C007;C015;C027;C028	hard_no_merge;adjacent_concept_non_equivalence;adjacent_concept_non_equivalence;adjacent_concept_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0002	B-PINN	3,22,72,84,144,367,410,482,495,536	10	true	validated_PINN_variant_candidate	verified_from_primary_source	C003	scoped_alias_candidate	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0003	cPINN	3,29,150,172,482,495,503,517,628,733,791	11	true	validated_PINN_variant_candidate	verified_from_primary_source	C001;C022	hard_no_merge;hard_no_merge	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0004	XPINN	3,29,84,143,150,172,384,482,495,503,612,647,733	13	true	validated_PINN_variant_candidate	verified_from_current_Atlas_meaning_map			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0005	PPINN	3,172,367,413,482,495,503	7	true	validated_PINN_variant_candidate	verified_from_current_Atlas_meaning_map	C009	source_scoped_meaning_only	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0006	VPINN	3,29,84,150,367,493,636,637	8	true	validated_PINN_variant_candidate	verified_from_current_Atlas_meaning_map			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0007	SA-PINN	3,482,495,541,543,544	6	true	training_or_adaptivity_strategy_not_yet_a_type	verified_from_current_Atlas_meaning_map	C011	scoped_alias_candidate	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0008	DAE-PINN	3,604	2	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0009	fPINN	3,87,367,463,470,495	6	true	validated_PINN_variant_candidate	verified_from_current_Atlas_meaning_map	C010	scoped_alias_candidate	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0010	Meta-PINN	3,572,574,576,579	5	true	training_or_adaptivity_strategy_not_yet_a_type	verified_from_current_Atlas_meaning_map			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0011	GPT-PINN	3,578	2	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0012	HWPINN	3,609	2	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C019	hard_no_merge	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0013	PIKFN	3	1	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0014	DMF-TONN	3,672	2	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0015	TSO-PINN	3	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0016	NSfNet	3	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B	C025	orthographic_candidate_unresolved	general_abbreviation_candidate_unverified	
+AR4D-0017	LESnets	3,693	2	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0018	PI-GAN	3,367,499,787	4	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification	C016	adjacent_concept_non_equivalence	pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0019	PI-VAE	3,635,680	3	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification	C017	scoped_alias_candidate	pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0020	PI-VEGAN	3	1	true	architecture_or_backbone_coupled_not_yet_a_type	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0021	SPI-GeM	3	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0022	VINO	3	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0023	E-PINN	3,291,659	3	true	ambiguous_or_homographic_abbreviation	unresolved_collision	C006	case_sensitive_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0024	FBPINN	3,29	2	true	decomposition_or_time_marching_strategy_not_yet_a_type	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0025	tpPINN	3	1	true	decomposition_or_time_marching_strategy_not_yet_a_type	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0026	PINN-RANS	3,545	2	true	equation_or_application_specific_PINN_name	needs_primary_source_verification	C027	adjacent_concept_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0027	PINN-Euler	3,545	2	true	equation_or_application_specific_PINN_name	needs_primary_source_verification	C027	adjacent_concept_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0028	DD-PINN	3,548,651,740	4	true	ambiguous_or_homographic_abbreviation	unresolved_collision	C002;C023;C026	same_form_homograph;hard_no_merge;hard_no_merge	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0029	BL-PINN	3,650	2	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0030	Gated-PINN	3,652	2	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C024	hard_no_merge	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0031	HP-VPINN	3	1	true	alias_or_orthographic_variant_candidate	needs_primary_source_verification	C008	orthographic_candidate_unresolved	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0032	DO-PINN	3	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0033	CIDER	3,665	2	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0034	SympNets	3	1	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0035	PIKAN	3,29,150,262	4	true	architecture_or_backbone_coupled_not_yet_a_type	verified_from_current_Atlas_meaning_map	C012	adjacent_concept_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0036	NNSMSM	4	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0037	VPM	4	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0038	PI-LSTM	8,14,332,359,376,557	6	true	architecture_or_backbone_coupled_not_yet_a_type	verified_from_current_Atlas_meaning_map	C013	adjacent_concept_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0039	PEMNN	13	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0040	PARL	13	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0041	SIDM	13	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0042	GWO	14	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0043	DFNN	15	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0044	GSN	18	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0045	TransformerPINN	22	1	true	architecture_or_backbone_coupled_not_yet_a_type	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0046	ISPNet	24	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0047	MTL-PINN	26	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C020	case_sensitive_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0048	PI-MPN	27	1	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0049	mp-PINN	31	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C020	case_sensitive_non_equivalence	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0050	Hybrid-PINN	32	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0051	PINNI	33	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0052	NNI	33	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0053	Physics-KAN	41	1	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification	C012	adjacent_concept_non_equivalence	pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0054	PyMC3	45	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0055	PMSM	46	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0056	BiLSTM	46	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0057	NNSCA	51	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0058	BNNM	51	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0059	ARIMA	55	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0060	SARIMA	55	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0061	PMNN	55	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0062	VS-PINN	61	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0063	KKT-hPINN	61	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C019	hard_no_merge	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0064	AL-PINN	61	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0065	MARL	61	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0066	ST-GCN	61	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0067	CapsGN	61	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0068	iPINN	66	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C004	same_form_homograph	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0069	Non-PINN	68	1	true	non_PINN_negative_label	supported_by_raw_source_supplied_expansion			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0070	E-TUNI	69	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0071	UNI	69	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0072	NARMAX	69	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0073	RKNN	69	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0074	ABNN	69	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0075	PCNN	69,367,442	3	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0076	TSPINN	72	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0077	PHM	73	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0078	PIRL	74,137,193,212	4	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0079	UPINN	78,224	2	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0080	BPINN	78,616,617,618	4	true	validated_PINN_variant_candidate	verified_from_current_Atlas_meaning_map	C003	scoped_alias_candidate	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0081	GPINN	78	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification	C024	hard_no_merge	pinn_type_or_variant_candidate_pending_governed_classification	
+AR4D-0082	PI-CNRFC	79	1	true	broader_physics_informed_ML_adjacent	needs_primary_source_verification			pinn_related_or_adjacent_abbreviation_candidate	
+AR4D-0083	HPDNN	80	1	false	outside_Task_4.1B_retain_for_all_abbreviations_inventory	not_assessed_in_Task_4.1B			general_abbreviation_candidate_unverified	
+AR4D-0084	SFM-PINN	83	1	true	likely_PINN_variant_needs_primary_source_verification	needs_primary_source_verification			pinn_type_or_variant_candidate_pending_governed_classification	
