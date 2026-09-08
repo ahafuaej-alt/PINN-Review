@@ -1,0 +1,102 @@
+{
+  "id": "ATLAS-PINN-TYPE-TAXONOMY-SPEC",
+  "version": "task-4.2",
+  "date": "2026-09-08",
+  "branch": "docs/master-atlas-roadmap",
+  "scientific_authority": false,
+  "role": "non_authoritative_taxonomy_coordination_spec",
+  "scientific_authority_source": "locked Google Drive v0.7-pilot-atlas-prefreeze",
+  "design_model": "faceted_governed_taxonomy_graph",
+  "hierarchy_rule": "Only is_a establishes subtype hierarchy. Other distinctions use typed relations/facets.",
+  "concept_roles": [
+    "root_scope",
+    "family",
+    "subfamily",
+    "variant",
+    "source_local_variant",
+    "alias",
+    "adjacent_method",
+    "excluded_non_type"
+  ],
+  "classification_lanes": [
+    {"id":"core_pinn","default_behavior":"hierarchy_eligible"},
+    {"id":"formulation_enforcement","default_behavior":"hierarchy_or_relation_based_on_evidence"},
+    {"id":"decomposition_temporal","default_behavior":"hierarchy_or_relation_based_on_evidence"},
+    {"id":"probabilistic_uncertainty","default_behavior":"hierarchy_eligible_when_PINN_identity_is_supported"},
+    {"id":"architecture_backbone_hybrid","default_behavior":"relation_or_variant_by_default"},
+    {"id":"training_adaptivity","default_behavior":"relation_or_variant_by_default"},
+    {"id":"multifidelity_transfer","default_behavior":"relation_or_variant_by_default"},
+    {"id":"application_equation_specialization","default_behavior":"specialization_or_source_local_by_default"},
+    {"id":"source_local_named_method","default_behavior":"paper_specific_or_source_local_by_default"},
+    {"id":"adjacent_physics_informed_method","default_behavior":"outside_PINN_subtype_hierarchy"}
+  ],
+  "allowed_relations": [
+    "is_a",
+    "alias_of",
+    "source_local_alias_of",
+    "uses_formulation",
+    "uses_enforcement",
+    "uses_architecture",
+    "uses_training_strategy",
+    "uses_decomposition_strategy",
+    "uses_uncertainty_method",
+    "uses_transfer_or_multifidelity_strategy",
+    "specialized_for_application_or_equation",
+    "integrates_with",
+    "adjacent_to",
+    "not_equivalent_to",
+    "historically_derived_from"
+  ],
+  "lifecycle_states_inherited_from_v0_7": [
+    "canonical",
+    "provisional",
+    "alias",
+    "deprecated",
+    "paper_specific"
+  ],
+  "alias_scopes_inherited_from_v0_7": [
+    "corpus_global",
+    "source_local",
+    "author_defined",
+    "unresolved"
+  ],
+  "promotion_requirements": [
+    "primary_source_meaning_supported",
+    "semantically_distinct_from_existing_terms",
+    "aliases_and_collisions_adjudicated_or_scoped",
+    "denotes_method_identity_not_only_configuration_training_application_software_or_evidence_artifact",
+    "recurrence_or_scientific_justification_appropriate_to_scope",
+    "relationship_to_existing_concepts_explicit",
+    "Task_1_3_and_Task_4_1C_constraints_satisfied",
+    "decision_versioned_and_traceable"
+  ],
+  "candidate_state_mapping": {
+    "eligible_verified_candidate": "eligible_for_governed_family_subfamily_or_variant_placement_review",
+    "eligible_unverified_candidate": "provisional_candidate_primary_source_verification_required",
+    "conditional_method_dimension_candidate": "default_relation_or_facet_promote_only_with_method_identity_evidence",
+    "conditional_source_specialization_candidate": "default_specialization_relation_or_variant_not_global_family",
+    "conditional_source_local_candidate": "default_source_local_variant_or_paper_specific",
+    "conditional_collision_candidate": "normalization_blocked_until_scoped_collision_resolution",
+    "conditional_alias_candidate": "corpus_global_alias_blocked_until_alias_evidence_is_sufficient"
+  },
+  "protected_non_equivalences": [
+    "PIML != PINN",
+    "neural_operator != PINN",
+    "PgNN != PiNN/PINN != PeNN globally",
+    "network_configuration != architecture_family",
+    "probabilistic_uncertainty_propagation != Bayesian_PINN",
+    "time_marching_PINN != generic_spatial_domain_decomposition",
+    "hardware_reporting != parallel_execution",
+    "application_or_equation_label != PINN_family_by_default"
+  ],
+  "collision_register_dependency": "task-4.1c-terminology-collision-register.json",
+  "candidate_inventory_dependency": "task-4.1d-pinn-type-candidate-inventory-manifest.json",
+  "candidate_count": 268,
+  "automatic_promotions": 0,
+  "automatic_global_alias_promotions": 0,
+  "paper_assignments_created": 0,
+  "locked_v0_7_fields_or_entities_added": 0,
+  "revision_rule": "Later primary-source evidence may revise meaning, lane, hierarchy placement, alias/collision interpretation, relationship, or taxonomy status. Revisions must be explicit, evidence-backed, versioned/history-preserving, and traceable; raw wording and prior decisions must never be silently rewritten or deleted.",
+  "next_task": "Task 4.3 — link PINN types to papers and evidence",
+  "stop_boundary": "Task 4.3 was not started."
+}
