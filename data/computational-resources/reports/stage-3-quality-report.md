@@ -5,11 +5,11 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S131`
-- Resource: CR000148
+- Checkpoint: `Stage3-S132`
+- Resource: CR000149
 - Status: **PASS**
 - Latest aggregate: **SOB014 PASS (10/10)**
-- Current batch: `SOB015` — **1/10**
+- Current batch: `SOB015` — **2/10**
 
 All applicable accepted schemas, cumulative identifier uniqueness, evidence ownership/reference integrity, evidence-use completeness, source scoping, missing-value semantics, inference pairing, Stage-2 authority resolution, static-execution boundary, repository-scope safety and publication boundaries pass. No R5 assessment is assigned.
 
@@ -17,20 +17,20 @@ Checkpoint counts: {"configurations": 1, "experiments": 1, "new_conflicting_evid
 
 ## Cumulative counts
 
-- Resources: **151**
-- Experiments: **238**
-- Configurations: **437**
-- Technical-evidence records: **1698**
-- Reproducibility assessments: **151**
-- Unresolved findings: **956**
+- Resources: **152**
+- Experiments: **239**
+- Configurations: **438**
+- Technical-evidence records: **1705**
+- Reproducibility assessments: **152**
+- Unresolved findings: **962**
 - Explicit conflicts: **115**
 
 ## Scientific scope
 
-CR000148 remains the PICNN implementation officially associated with Atlas 802. The homogeneous 20x20 workflow is the bounded representative case. Its missing `samplesperm.txt` reference, absent dependency/install specification and external heterogeneous permeability requirement are preserved explicitly; static reproducibility is **R1**.
+CR000149 is a Stage-1-normalized PIRBFNN repository identity for oil-water two-phase multi-well Darcy flow. Its historical Stage-2 resource authority is absent; this is preserved as an explicit authority gap, not repaired by retroactive Stage-2 edits. The observed repository head contains a README and one PyTorch implementation script; environment/install metadata are insufficient for R2, so static reproducibility is **R1**.
 
 `SOB014` remains accepted PASS. Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02 remains authoritative for prior reconciliations.
 
 ## Continuation
 
-Next resource: `CR000149`. Next checkpoint: `Stage3-S132`. Remaining identities: **212**. CR000149's final Stage-2 authority must be resolved before extraction because it exists in Stage 1 but is absent from the historical Batch-006 resource output.
+Next resource: `CR000150`. Next checkpoint: `Stage3-S133`. Remaining identities: **211**.
