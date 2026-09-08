@@ -9,7 +9,7 @@ Branch: `data/computational-resources-stage3`
 - Resource: CR000149
 - Status: **PASS**
 - Latest aggregate: **SOB014 PASS (10/10)**
-- Current batch: `SOB015` — **2/10**
+- Current batch: `SOB015` вЂ” **2/10**
 
 All applicable accepted schemas, cumulative identifier uniqueness, evidence ownership/reference integrity, evidence-use completeness, source scoping, missing-value semantics, inference pairing, Stage-2 authority resolution, static-execution boundary, repository-scope safety and publication boundaries pass. No R5 assessment is assigned.
 
@@ -34,3 +34,7 @@ CR000149 is a Stage-1-normalized PIRBFNN repository identity for oil-water two-p
 ## Continuation
 
 Next resource: `CR000150`. Next checkpoint: `Stage3-S133`. Remaining identities: **211**.
+
+## Schema reconciliation
+
+[Stage3-RC03](stage-3-schema-reconciliation-2026-09-08-rc03.md) corrects seven unsupported enum values in six S129/S132 records. The published counts are unchanged; accepted schema validation and cumulative integrity pass after this correction.
