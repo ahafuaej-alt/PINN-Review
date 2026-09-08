@@ -5,29 +5,29 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S148`
-- Resources: CR000166
+- Checkpoint: `Stage3-S149`
+- Resources: CR000167
 - Status: **PASS**
-- Current batch: `SOB016` — **8/10**
+- Current batch: `SOB016` — **9/10**
 - Latest aggregate: **SOB015 PASS (10/10)**
 
-All accepted schemas, cumulative identifier uniqueness, hierarchy links, evidence ownership/reference integrity, evidence-use completeness and inference pairing pass. Missing-value states and reproducibility gates remain evidence-scoped; no R5 assessment is assigned. CR000166 preserves its pinned non-PINN identity without executing notebook cells or manufacturing PINN experiment semantics.
+All accepted schemas, cumulative identifier uniqueness, hierarchy links, evidence ownership/reference integrity, evidence-use completeness and inference pairing pass. Missing-value states and reproducibility gates remain evidence-scoped; no R5 assessment is assigned. CR000167 preserves its pinned non-PINN identity and paper-software-mention scope without manufacturing PINN experiment semantics.
 
-Checkpoint counts: {"configurations": 0, "experiments": 0, "new_conflicting_evidence_findings": 0, "new_unresolved_findings": 6, "reproducibility_assessments": 1, "resources": 1, "technical_evidence_records": 9}.
+Checkpoint counts: {"configurations": 0, "experiments": 0, "new_conflicting_evidence_findings": 0, "new_unresolved_findings": 5, "reproducibility_assessments": 1, "resources": 1, "technical_evidence_records": 8}.
 
 ## Cumulative counts
 
-- Resources: **168**
+- Resources: **169**
 - Experiments: **255**
 - Configurations: **454**
-- Technical-evidence records: **1862**
-- Reproducibility assessments: **168**
-- Unresolved findings: **1046**
+- Technical-evidence records: **1870**
+- Reproducibility assessments: **169**
+- Unresolved findings: **1051**
 - Explicit conflicts: **120**
 
 ## Scientific scope
 
-CR000166 is an official non-PINN astronomy interpretability notebook. Its source specifies tabular and image workflows, architectures and explanation methods, but incomplete unpinned installation and external runtime data/repository dependencies cap reproducibility at R1.
+CR000167 is generic non-PINN Chebyshev KAN software referenced by Atlas paper 262 rather than official paper code. Source and examples are present, but unpinned dependencies/data and author-stated testing/correctness uncertainty cap reproducibility at R1.
 
 Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative.
 
@@ -35,4 +35,4 @@ Stage3-RC04 normalizes two S137 inference evidence-type labels without changing 
 
 ## Continuation
 
-Next resource: `CR000167`. Next checkpoint: `Stage3-S149`. Remaining identities: **195**.
+Next resource: `CR000168`. Next checkpoint: `Stage3-S150`. Remaining identities: **194**.
