@@ -62,8 +62,8 @@ Task 3 read-only drift validator: `validate-paper-profile-spec.py`.
 
 Task 3 non-production UI mockup: `mockups/paper-profile-ui-mockup.html`.
 
-### Task 4 — Formalize PINN Type / Variant classification
-- 4.1 Audit the existing Abbreviations/PINN-type material.
+### Task 4 — Formalize PINN Type / Variant classification — IN PROGRESS
+- 4.1 Audit the existing Abbreviations/PINN-type material. — **PASS / COMPLETE**
 - 4.2 Define an extensible PINN type/family taxonomy.
 - 4.3 Link PINN types to papers and evidence.
 - 4.4 Link PINN types to applications, problems, methods, outcomes, and failures.
@@ -262,12 +262,14 @@ Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
 Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
-Task 3 closes the complete Paper Profile specification chain: 19 stable PP sections; 317/317 locked field/subfield mappings; deterministic conditional display logic; auditable five-stage evidence/provenance drill-down; non-authoritative `atlas-paper-profile-spec.json` machine-readable contract; and the self-contained synthetic-data `mockups/paper-profile-ui-mockup.html` pre-implementation UI mockup.
+Task 4 is **IN PROGRESS**. Task 4.1 is **PASS / COMPLETE**.
 
-The Task-3.6 mockup demonstrates the permanent 19-section index, 3 core bodies, conditional body suppression without false absence claims, A/C/I status axes, public-vs-maintenance separation, pending-content segregation, verified mismatch/conflict visibility, progressive methodology disclosure, evidence/source-text separation, keyboard/focus behavior, responsive layout and the CR reproducibility boundary. It registers **no production route**, makes **no production API/database write**, uses **no real Atlas scientific record**, and creates **0** locked-v0.7 fields/entities.
+Task 4.1 established the complete existing-state baseline for PINN terminology and the unfinished Abbreviations/PINN Types surfaces: raw source preservation; controlled PINN-related triage; 30 collision/non-equivalence classes; separate Abbreviation Registry and 268-term PINN Type candidate inventories; verified current page/parser/dependency behavior; and resolution of the 500-vs-501 issue as an implementation/tokenization/counting-contract discrepancy rather than a scientific contradiction.
 
-The shared architecture coordination source remains `atlas-architecture-registry.json`; the Paper Profile coordination source remains `atlas-paper-profile-spec.json`. Neither is a scientific ontology owner.
+The current `/abbreviations/` page remains a functional but incomplete client-side terminology browser over the legacy TXT. The current `/pinn-types/` route remains an empty pre-data scaffold. Neither is a scientific taxonomy owner. No production page/data, locked-v0.7 structure, or Computational Resources branch was changed by Task 4.1.
 
-**STOP boundary:** Task 4 has not been started.
+Evidence-driven revision remains controlling: later primary-source evidence may revise normalized meaning, alias/collision interpretation, family/variant role, source scope, relationship, or taxonomy placement, but the revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording and prior decisions must not be silently erased.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 4.1 — audit the existing Abbreviations/PINN-type material** before formalizing the extensible PINN Type / Variant classification system.
+**STOP boundary:** Task 4.2 has not been started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 4.2 — define an extensible PINN type/family taxonomy**, using Task 4.1A–4.1E as mandatory controlling inputs.
