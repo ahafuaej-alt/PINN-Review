@@ -1,25 +1,23 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08
-Current checkpoint: `Stage3-S130`
+Current checkpoint: `Stage3-S131`
 Latest completed batch: **SOB014 PASS**
-Current batch: `SOB015` (0/10)
-Current unresolved count: **950**
-Next unresolved ID: `S3U-0951`
+Current batch: `SOB015` (1/10)
+Current unresolved count: **956**
+Next unresolved ID: `S3U-0957`
 Explicit conflict count: **115**
 
-## Stage3-S130 additions
+## Stage3-S131 additions
 
-- `S3U-0943` — CR000146; environment; high: No dependency declaration was identified in the pinned repository.
-- `S3U-0944` — CR000146; reproducibility; high: The representative Beltrami source hardcodes CUDA and a user-specific model-save path.
-- `S3U-0945` — CR000146; environment; medium: Exact package versions and tested hardware are not specified.
-- `S3U-0946` — CR000146; evaluation; medium: No quantitative acceptance threshold is defined for a successful rerun despite released models/results.
-- `S3U-0947` — CR000147; environment; high: No dependency manifest or installation workflow is present in the pinned repository.
-- `S3U-0948` — CR000147; environment; high: Python and TensorFlow versions are not fixed by the pinned repository.
-- `S3U-0949` — CR000147; reproducibility; medium: Seed and hardware policy are not established by the inspected static sources.
-- `S3U-0950` — CR000147; evaluation; medium: Bundled checkpoints/data do not define a quantitative acceptance threshold.
+- `S3U-0951` — CR000148; environment; high: No dependency manifest or installation instructions are present in the pinned repository.
+- `S3U-0952` — CR000148; entrypoint; high: The homogeneous script reads `samplesperm.txt`, but that file is absent from the pinned tree.
+- `S3U-0953` — CR000148; data; high: The heterogeneous workflow requires a user-provided permeability file outside the pinned repository.
+- `S3U-0954` — CR000148; environment; medium: Python/PyTorch versions and tested GPU hardware are not specified.
+- `S3U-0955` — CR000148; reproducibility; medium: No random-seed policy is established by the inspected source.
+- `S3U-0956` — CR000148; evaluation; medium: No released model checkpoint or quantitative rerun acceptance threshold is provided.
 
-This checkpoint adds **0 explicit conflicts**; the cumulative explicit-conflict count remains **115**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-130-extraction-log.jsonl`.
+This checkpoint adds **0 explicit conflicts**; the cumulative explicit-conflict count remains **115**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-131-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -27,4 +25,4 @@ Prior findings through S122 are retained in [the S122 register snapshot](stage-3
 
 ## Continuation
 
-Exact next resource: `CR000148`. Exact next checkpoint: `Stage3-S131`.
+Exact next resource: `CR000149`. Exact next checkpoint: `Stage3-S132`. Resolve CR000149's missing historical Stage-2 Batch-006 authority before technical extraction; do not silently skip the Stage-1 normalized identity.
