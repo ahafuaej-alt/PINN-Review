@@ -25,3 +25,11 @@ S122 adds **0 explicit conflicts**. Cumulative explicit conflict count remains *
 ## Continuation
 
 Continue from `S3U-0888` only for genuinely new findings. Exact next resource is `CR000138` for `Stage3-S123`.
+
+## Cumulative reconciliation — 2026-09-08
+
+`Stage3-RC02` repairs the previously published schema/reference defects and reconciles 15 R2 assessments to R1 under the accepted environment-and-installation gate. All 2,516 technical/evidence/assessment records pass schema validation; cumulative identifiers, hierarchy links, evidence references and SOB001–SOB013 counts pass revalidation.
+
+No resources, experiments, configurations, evidence IDs, unresolved findings or conflict findings are added or removed. The current frontier remains S122 / CR000137, SOB014 0/10; next extraction is S123 / CR000138. Unresolved ID S3U-0888 remains next.
+
+See [stage-3-cumulative-reconciliation-2026-09-08.md](stage-3-cumulative-reconciliation-2026-09-08.md) for per-field corrections, assessment decisions and the QA scope. Historical PASS statements are supported only after this reconciliation for the affected schema/reference gates. No scientific workloads were executed.
