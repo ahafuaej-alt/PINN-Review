@@ -14,41 +14,14 @@
     "task4_1b_selected_unique_forms": 327,
     "task4_1b_selected_occurrences": 838
   },
-  "schema_fields": [
-    "inventory_row_id",
-    "raw_reported_form",
-    "paper_ids",
-    "occurrence_count",
-    "candidate_selected_for_task_4_1b",
-    "task4_1b_disposition",
-    "verification_state",
-    "collision_ids",
-    "collision_decision_states",
-    "abbreviation_registry_candidate_state",
-    "raw_parenthetical_text"
-  ],
+  "schema_fields": ["inventory_row_id","raw_reported_form","paper_ids","occurrence_count","candidate_selected_for_task_4_1b","task4_1b_disposition","verification_state","collision_ids","collision_decision_states","abbreviation_registry_candidate_state","raw_parenthetical_text"],
   "parts": [
-    {
-      "file": "part-001.tsv",
-      "row_start": 1,
-      "row_end": 170,
-      "rows": 170,
-      "sha256": "d7d55f8a312339ad2ed48e25c6f95a33d733c31e0ed7e3eccdaeb082789e95cb"
-    },
-    {
-      "file": "part-002.tsv",
-      "row_start": 171,
-      "row_end": 340,
-      "rows": 170,
-      "sha256": "78cf3b3ddd1359415e578d0775260decdf82ed914dfb2ea64cf7a8817cdf5701"
-    },
-    {
-      "file": "part-003.tsv",
-      "row_start": 341,
-      "row_end": 501,
-      "rows": 161,
-      "sha256": "720bfc1086e1c6f86559312f463da1d70ac2457fcf1065bab95647df30db41f9"
-    }
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-001.tsv","row_start":1,"row_end":84,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-002.tsv","row_start":85,"row_end":168,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-003.tsv","row_start":169,"row_end":252,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-004.tsv","row_start":253,"row_end":336,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-005.tsv","row_start":337,"row_end":420,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-006.tsv","row_start":421,"row_end":501,"rows":81}
   ],
   "evidence_locator_status": "The raw TXT carries paper/reference identity but no formal evidence IDs or exact source locators. Task 4.1D does not invent them.",
   "future_extraction_rule": "Future extraction must gather all abbreviations found in every paper, preserve exact form, attach expansion only when evidenced, attach paper/evidence/locator, and keep ambiguity/aliases explicit.",
