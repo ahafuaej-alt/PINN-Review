@@ -1,22 +1,21 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-09
-Current checkpoint: `Stage3-S144`
+Current checkpoint: `Stage3-S145`
 Latest completed batch: **SOB015 PASS**
-Current batch: `SOB016` (4/10)
-Current unresolved count: **1026**
-Next unresolved ID: `S3U-1027`
+Current batch: `SOB016` (5/10)
+Current unresolved count: **1030**
+Next unresolved ID: `S3U-1031`
 Explicit conflict count: **119**
 
-## Stage3-S144 additions
+## Stage3-S145 additions
 
-- `S3U-1022` — CR000161; resource; high: No dependency manifest or runtime versions define a reproducible environment.
-- `S3U-1023` — CR000161; configuration; high: The shipped default leaves `pinn_models_list` empty despite README paper-specific PINN bus selections.
-- `S3U-1024` — CR000161; resource; medium: The bundled checkpoint was not opened, leaving exact architecture, training configuration and provenance unresolved.
-- `S3U-1025` — CR000161; resource; high: No training entrypoint or workflow for recreating `trained_PINN_1.pth` was identified.
-- `S3U-1026` — CR000161; resource; medium: Hardware, operating system and random seeds are not reported.
+- `S3U-1027` — CR000162; resource; high: Stage 2 could not establish a reliable exact repository commit SHA or complete tree.
+- `S3U-1028` — CR000162; resource; high: Dependency declarations, installation path, entrypoints, configurations and expected outputs remain unknown at the authoritative interface.
+- `S3U-1029` — CR000162; resource; medium: The exact LGPL-2.1-only versus LGPL-2.1-or-later SPDX variant is unresolved.
+- `S3U-1030` — CR000162; resource; high: Paper-stated notebooks and supporting data were not inspected under an immutable source identity.
 
-This checkpoint adds **1 explicit conflict**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-144-extraction-log.jsonl`.
+This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-145-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -24,4 +23,4 @@ Prior findings through S122 are retained in the S122 register snapshot and histo
 
 ## Continuation
 
-Exact next resource: `CR000162`. Exact next checkpoint: `Stage3-S145`.
+Exact next resource: `CR000164`. Exact next checkpoint: `Stage3-S146`; CR000163 is pilot-complete.
