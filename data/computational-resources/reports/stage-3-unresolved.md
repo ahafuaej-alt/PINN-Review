@@ -1,21 +1,22 @@
 # Computational Resources Stage 3 Unresolved Register
 
-Date: 2026-09-08
-Current checkpoint: `Stage3-S142`
+Date: 2026-09-09
+Current checkpoint: `Stage3-S143`
 Latest completed batch: **SOB015 PASS**
-Current batch: `SOB016` (2/10)
-Current unresolved count: **1016**
-Next unresolved ID: `S3U-1017`
-Explicit conflict count: **117**
+Current batch: `SOB016` (3/10)
+Current unresolved count: **1021**
+Next unresolved ID: `S3U-1022`
+Explicit conflict count: **118**
 
-## Stage3-S142 additions
+## Stage3-S143 additions
 
-- `S3U-1013` — CR000159; resource; medium: The exact transitive CPU/GPU/compiler environment is not pinned.
-- `S3U-1014` — CR000159; resource; medium: GPU installation depends on a compatible CUDA toolchain, but no exact hardware, driver or CUDA version is specified.
-- `S3U-1015` — CR000159; configuration; medium: Tracked benchmark-data directories do not provide a complete reference dataset or performance acceptance thresholds.
-- `S3U-1016` — CR000159; configuration; low: Published benchmark figures are not machine-independent expected outputs for the bounded usage example.
+- `S3U-1017` — CR000160; resource; high: The required Zenodo archive and archived results were identified but not opened or reconciled to the script paths.
+- `S3U-1018` — CR000160; resource; high: No repository license was identified at the pinned commit.
+- `S3U-1019` — CR000160; resource; medium: Hardware and operating-system requirements are not specified.
+- `S3U-1020` — CR000160; configuration; high: The combined script formats its run directory with `alpha_eik` instead of the run index, creating a static multi-run overwrite conflict.
+- `S3U-1021` — CR000160; configuration; medium: No explicit numerical acceptance thresholds were identified for comparison with archived results.
 
-This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-142-extraction-log.jsonl`.
+This checkpoint adds **1 explicit conflict**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-143-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -23,4 +24,4 @@ Prior findings through S122 are retained in the S122 register snapshot and histo
 
 ## Continuation
 
-Exact next resource: `CR000160`. Exact next checkpoint: `Stage3-S143`.
+Exact next resource: `CR000161`. Exact next checkpoint: `Stage3-S144`.

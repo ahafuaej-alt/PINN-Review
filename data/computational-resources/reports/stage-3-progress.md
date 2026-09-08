@@ -1,32 +1,32 @@
 # Computational Resources Stage 3 Progress
 
-Date: 2026-09-08
+Date: 2026-09-09
 Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S142`
-- Latest completed resource: `CR000159`
+- Latest completed checkpoint: `Stage3-S143`
+- Latest completed resource: `CR000160`
 - Latest completed aggregate batch: `SOB015` — **PASS (10/10)**
-- Current batch: `SOB016` — **2/10**
+- Current batch: `SOB016` — **3/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000160`
-- Exact next checkpoint: `Stage3-S143`
+- Exact next independently extractable resource: `CR000161`
+- Exact next checkpoint: `Stage3-S144`
 
-## Cumulative counts through S142
+## Cumulative counts through S143
 
-- Resources: **162**
-- Experiments: **252**
-- Configurations: **451**
-- Technical-evidence records: **1813**
-- Reproducibility assessments: **162**
-- Unresolved findings: **1016**
-- Explicit conflicts: **117**
-- Independently extractable resources remaining: **201**
+- Resources: **163**
+- Experiments: **254**
+- Configurations: **453**
+- Technical-evidence records: **1823**
+- Reproducibility assessments: **163**
+- Unresolved findings: **1021**
+- Explicit conflicts: **118**
+- Independently extractable resources remaining: **200**
 
-## S142
+## S143
 
-CR000159 preserves the Stage-2 resolution of its obsolete Stage-1 URL to `thomgrand/fim-python`, pinned SHA, AGPL-3.0 license and software-use relationship to Atlas 835. It is represented as a supporting anisotropic-eikonal solver library, not a PINN. The documented self-generated 2D workflow supports **R3**; exact environment and comparable outputs remain unresolved.
+CR000160 preserves the Stage-2 pinned GitLab source, official Atlas-836 relationship, no-license finding and external Zenodo boundary. Bounded static extraction separates the NC-PINN active-tension workflow from the sequential NC+EIK-PINN excitation workflow. The pinned environment and explicit configurations support **R3**; the unopened archive, missing platform specification, output-directory conflict and absent acceptance thresholds block R4.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S143` at `CR000160` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S144` at `CR000161` after published-head and checkpoint-QA readback.
