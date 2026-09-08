@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S123`
-- Latest completed resource: `CR000138`
+- Latest completed checkpoint: `Stage3-S124`
+- Latest completed resource: `CR000139`
 - Latest completed aggregate batch: `SOB013` — **PASS (10/10)**
-- Current batch: `SOB014` — **1/10**
+- Current batch: `SOB014` — **2/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000139`
-- Exact next checkpoint: `Stage3-S124`
+- Exact next independently extractable resource: `CR000140`
+- Exact next checkpoint: `Stage3-S125`
 
-## Cumulative counts through S123
+## Cumulative counts through S124
 
-- Resources: **141**
-- Experiments: **229**
-- Configurations: **426**
-- Technical-evidence records: **1602**
-- Reproducibility assessments: **141**
-- Unresolved findings: **897**
-- Explicit conflicts: **113**
-- Independently extractable resources remaining: **222**
+- Resources: **142**
+- Experiments: **230**
+- Configurations: **428**
+- Technical-evidence records: **1617**
+- Reproducibility assessments: **142**
+- Unresolved findings: **904**
+- Explicit conflicts: **114**
+- Independently extractable resources remaining: **221**
 
-## S123
+## S124
 
-CR000138 records supervised magnetic-hysteresis operator research code at the retained Stage-2 SHA. Two README-selected RIFNO workflows, FORC and minor loops, retain separate active configurations. Missing environment/install, data/preparation and checkpoint prerequisites limit the static assessment to R1. The README/tree minor-loop folder conflict is explicit.
+CR000139 records the periodic Burgers PhyCRNet implementation at the retained Stage-2 SHA. The active checkpoint continuation and README curriculum are separate configurations. Missing installation instructions and resume checkpoint limit reproducibility to R1; generator/input data paths are preserved as an explicit conflict.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation
 
 ## Continuation
 
-Continue with `Stage3-S124` at `CR000139` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S125` at `CR000140` after published-head and checkpoint-QA readback.
