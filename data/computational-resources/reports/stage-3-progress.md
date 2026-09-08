@@ -5,37 +5,39 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S121`
-- Latest completed resource: `CR000136`
-- Latest completed aggregate batch: `SOB012` — **PASS (10/10)**
-- Current batch: `SOB013` — **9/10**
+- Latest completed checkpoint: `Stage3-S122`
+- Latest completed resource: `CR000137`
+- Latest completed aggregate batch: `SOB013` — **PASS (10/10)**
+- Current batch: `SOB014` — **0/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000137`
-- Exact next checkpoint: `Stage3-S122`
+- Exact next independently extractable resource: `CR000138`
+- Exact next checkpoint: `Stage3-S123`
 
-## Cumulative counts through S121
+## Cumulative counts through S122
 
-- Resources: **139**
-- Experiments: **225**
-- Configurations: **422**
-- Technical-evidence records: **1575**
-- Reproducibility assessments: **139**
-- Unresolved findings: **882**
+- Resources: **140**
+- Experiments: **227**
+- Configurations: **424**
+- Technical-evidence records: **1585**
+- Reproducibility assessments: **140**
+- Unresolved findings: **887**
 - Explicit conflicts: **112**
-- Independently extractable resources remaining: **224**
+- Independently extractable resources remaining: **223**
 
-## S121
+## S122
 
-`Stage3-S121` records `CR000136` (`lululxvi/deeponet`) at Stage-2 pinned SHA `8d62345afd39e1df9c2c8c8d0e7c41882b06a9bf`, preserving CC-BY-NC-SA-4.0 licensing and the verified `PRL000262 → Atlas 743` official relationship.
+`Stage3-S122` records `CR000137` (`NeuroDiffGym/neurodiffeq`) at the reconstructed Stage-2 immutable SHA `df47923878f39377bd45922a0654f79849488452`, preserving MIT licensing and the verified `PRL000264 → Atlas 745` official relationship restored by the post-closure Stage-2 authority overlay.
 
-The repository is the source package for the DeepONet nonlinear-operator-learning paper and spans antiderivative/nonlinear ODE, pendulum, diffusion-reaction, advection, advection-diffusion, stochastic ODE/PDE, fractional and Seq2Seq surfaces. The default antiderivative workflow is used as the bounded representative experiment. The source specifies DeepXDE v0.11.2 compatibility and detailed default model/training parameters, while the broader dependency environment, seeds, hardware and released checkpoints remain incomplete; CR000136 is **R2**.
+NeuroDiffEq is represented as a `pinn_framework_library`. The bounded extraction records the framework-wide ODE/PDE, solver, network, sampling, installation and environment capabilities at resource scope, plus two explicit README use cases: the Lotka-Volterra ODE system and a two-dimensional Laplace PDE. These are repository-documented examples, not claims about the 2025 paper's experimental program.
+
+The repository provides Python 3.8 in `Pipfile`, exact dependency versions and hashes in `Pipfile.lock`, explicit installation paths, package version 0.7.0, formal documentation and Docker infrastructure. The static reproducibility assessment is **R3**; R4 is withheld because the representative examples do not specify deterministic seed control or quantitative acceptance thresholds.
 
 No scientific workload was executed.
 
 ## Batch status
 
-`SOB012` remains **PASS (10/10)**. `SOB013` is **9/10**; aggregate QA is not yet due.
+`SOB013` is **PASS (10/10)** and contains exactly `CR000128–CR000137`. `SOB014` is **0/10** and begins at `CR000138`.
 
 ## Continuation
 
-Continue with `Stage3-S122` at `CR000137`.
+Continue with `Stage3-S123` at `CR000138`.
