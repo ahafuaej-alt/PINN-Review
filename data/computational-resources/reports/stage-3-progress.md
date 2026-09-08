@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S134`
-- Latest completed resource: `CR000151`
+- Latest completed checkpoint: `Stage3-S135`
+- Latest completed resource: `CR000152`
 - Latest completed aggregate batch: `SOB014` — **PASS (10/10)**
-- Current batch: `SOB015` — **4/10**
+- Current batch: `SOB015` — **5/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000152`
-- Exact next checkpoint: `Stage3-S135`
+- Exact next independently extractable resource: `CR000153`
+- Exact next checkpoint: `Stage3-S136`
 
-## Cumulative counts through S134
+## Cumulative counts through S135
 
-- Resources: **154**
-- Experiments: **242**
-- Configurations: **441**
-- Technical-evidence records: **1735**
-- Reproducibility assessments: **154**
-- Unresolved findings: **979**
+- Resources: **155**
+- Experiments: **243**
+- Configurations: **442**
+- Technical-evidence records: **1745**
+- Reproducibility assessments: **155**
+- Unresolved findings: **983**
 - Explicit conflicts: **117**
-- Independently extractable resources remaining: **209**
+- Independently extractable resources remaining: **208**
 
-## S134
+## S135
 
-CR000151 preserves the pinned two-phase-flow identity and distinct paper811 relationship. Phase-field training in 0-0.6 and VOF evaluation in 0.6-1.2 remain separate cases. Missing PF arrays, external CFD reference and incomplete setup prevent a complete sequential workflow; static reproducibility is R1.
+CR000152 preserves the pinned self-scaled quasi-Newton PINN implementation and official paper819 relationship. The bounded representative 1D Burgers workflow documents exact principal library versions, bundled reference data, hyperparameters, Adam plus RAD training, and quasi-Newton refinement. Manual SciPy-internal patching, unknown Python/hardware, and absence of a bundled checkpoint or quantitative acceptance threshold limit static reproducibility to **R3**.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation
 
 ## Continuation
 
-Continue with `Stage3-S135` at `CR000152` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S136` at `CR000153` after published-head and checkpoint-QA readback.
