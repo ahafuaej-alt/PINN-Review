@@ -29,7 +29,9 @@ Checkpoint counts: {"configurations": 1, "experiments": 1, "new_conflicting_evid
 
 CR000156 is classified as a simulator/solver toolbox rather than a PINN implementation. Static evidence confirms the multi-method additive-manufacturing scope and bounds experiment/configuration extraction to the retained 3D linear-elasticity FEM demo. Dependency versions are not pinned, petsc4py is platform-sensitive, FEM maintenance has moved to JAX-FEM and no bounded numerical reference threshold was identified; these factors cap static reproducibility at R2.
 
-Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02 and Stage3-RC03 remain authoritative.
+Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative.
+
+Stage3-RC04 normalizes two S137 inference evidence-type labels without changing scientific content or cumulative counts.
 
 ## Continuation
 
