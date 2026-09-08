@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S146`
-- Latest completed resource: `CR000164`
+- Latest completed checkpoint: `Stage3-S147`
+- Latest completed resource: `CR000165`
 - Latest completed aggregate batch: `SOB015` — **PASS (10/10)**
-- Current batch: `SOB016` — **6/10**
+- Current batch: `SOB016` — **7/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000165`
-- Exact next checkpoint: `Stage3-S147`
+- Exact next independently extractable resource: `CR000166`
+- Exact next checkpoint: `Stage3-S148`
 
-## Cumulative counts through S146
+## Cumulative counts through S147
 
-- Resources: **166**
+- Resources: **167**
 - Experiments: **255**
 - Configurations: **454**
-- Technical-evidence records: **1845**
-- Reproducibility assessments: **166**
-- Unresolved findings: **1035**
+- Technical-evidence records: **1853**
+- Reproducibility assessments: **167**
+- Unresolved findings: **1040**
 - Explicit conflicts: **120**
-- Independently extractable resources remaining: **197**
+- Independently extractable resources remaining: **196**
 
-## S146
+## S147
 
-CR000164 preserves the pinned official non-PINN research-code identity for differential-equation solution fine-tuning and evaluation. Static inspection identifies transformer, Mamba and TeX-aware metric surfaces, but records no PINN experiment or configuration. The two-byte training workbook conflicts with the README's training-data claim; static reproducibility remains **R1**.
+CR000165 preserves the pinned official non-PINN research-code identity for time-varying autoregressive models. Static inspection identifies generalized-additive, one-sided-kernel and traditional VAR methods, four stochastic simulation scenarios, and a rolling finance workflow. Absent environment, installation, invocation and seed controls keep static reproducibility at **R1**.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S147` at `CR000165` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S148` at `CR000166` after published-head and checkpoint-QA readback.
