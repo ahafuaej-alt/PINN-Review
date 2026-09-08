@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S135`
-- Latest completed resource: `CR000152`
+- Latest completed checkpoint: `Stage3-S136`
+- Latest completed resource: `CR000153`
 - Latest completed aggregate batch: `SOB014` — **PASS (10/10)**
-- Current batch: `SOB015` — **5/10**
+- Current batch: `SOB015` — **6/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000153`
-- Exact next checkpoint: `Stage3-S136`
+- Exact next independently extractable resource: `CR000154`
+- Exact next checkpoint: `Stage3-S137`
 
-## Cumulative counts through S135
+## Cumulative counts through S136
 
-- Resources: **155**
-- Experiments: **243**
-- Configurations: **442**
-- Technical-evidence records: **1745**
-- Reproducibility assessments: **155**
-- Unresolved findings: **983**
+- Resources: **156**
+- Experiments: **244**
+- Configurations: **443**
+- Technical-evidence records: **1755**
+- Reproducibility assessments: **156**
+- Unresolved findings: **988**
 - Explicit conflicts: **117**
-- Independently extractable resources remaining: **208**
+- Independently extractable resources remaining: **207**
 
-## S135
+## S136
 
-CR000152 preserves the pinned self-scaled quasi-Newton PINN implementation and official paper819 relationship. The bounded representative 1D Burgers workflow documents exact principal library versions, bundled reference data, hyperparameters, Adam plus RAD training, and quasi-Newton refinement. Manual SciPy-internal patching, unknown Python/hardware, and absence of a bundled checkpoint or quantitative acceptance threshold limit static reproducibility to **R3**.
+CR000153 preserves the corrected AAF-for-PINNs identity, official paper821 relationship and Stage-2 pinned README-only default snapshot. Executable code, bundled benchmark data and result artifacts are separately source-scoped to the Stage-2-recorded master commit. A representative Burgers workflow uses a trainable L2-normalized assembly of sin, tanh, GELU, SiLU and softplus activations. Missing dependency/version/install specification and unresolved seed/result mapping limit static reproducibility to **R1**.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation
 
 ## Continuation
 
-Continue with `Stage3-S136` at `CR000153` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S137` at `CR000154` after published-head and checkpoint-QA readback.
