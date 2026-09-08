@@ -1,27 +1,28 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08  
-Current checkpoint: `Stage3-S120`  
+Current checkpoint: `Stage3-S121`  
 Latest completed batch: `SOB012` — **PASS**  
-Current batch: `SOB013` (8/10)  
-Current unresolved count: **876**  
-Next unresolved ID: `S3U-0877`  
+Current batch: `SOB013` (9/10)  
+Current unresolved count: **882**  
+Next unresolved ID: `S3U-0883`  
 Explicit conflict count: **112**
 
-## Stage3-S120 additions — CR000135
+## Stage3-S121 additions — CR000136
 
-- `S3U-0872` — the documented master reproducibility entrypoint executes only the Burgers workflow; Navier-Stokes and wave experiment surfaces require separate invocation not specified by that entrypoint.
-- `S3U-0873` — the archived Code Ocean image is referenced by registry tag and complemented by a pinned Dockerfile, but external registry availability is not preserved by the Git repository itself.
-- `S3U-0874` — the Burgers workflow dynamically selects CUDA when available or CPU otherwise, so exact experimental hardware is not fixed by the pinned source.
-- `S3U-0875` — bundled Original trained models and loss-surface arrays are available, but exact generating-run provenance is not encoded beside every artifact.
-- `S3U-0876` — expected quantitative acceptance thresholds for successful reproduction are not specified in the bounded documentation.
+- `S3U-0877` — the README specifies DeepXDE v0.11.2 for the archived API, but `requirements.txt` lists dependencies without package-version pins.
+- `S3U-0878` — Python is specified only as Python 3, and exact versions for TensorFlow, NumPy, SciPy and the remaining runtime dependencies are not fixed.
+- `S3U-0879` — no random-seed policy is reported for the representative antiderivative workflow.
+- `S3U-0880` — experimental hardware is not specified by the pinned repository.
+- `S3U-0881` — the representative workflow writes checkpoints during training, but no pretrained checkpoint for that workflow is bundled in the pinned tree.
+- `S3U-0882` — several documented cases require source-level parameter selection or separate runtime stacks rather than an immutable per-case run manifest.
 
-S120 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **112**.
+S121 adds **0 explicit conflicts**. Cumulative explicit conflict count remains **112**.
 
 ## Batch status
 
-`SOB012` remains **PASS (10/10)**. `SOB013` is **8/10** after CR000135.
+`SOB012` remains **PASS (10/10)**. `SOB013` is **9/10** after CR000136.
 
 ## Continuation
 
-Continue from `S3U-0877` only for genuinely new findings. Exact next resource is `CR000136` for `Stage3-S121`.
+Continue from `S3U-0883` only for genuinely new findings. Exact next resource is `CR000137` for `Stage3-S122`.
