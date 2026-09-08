@@ -1,21 +1,22 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-09
-Current checkpoint: `Stage3-S145`
+Current checkpoint: `Stage3-S146`
 Latest completed batch: **SOB015 PASS**
-Current batch: `SOB016` (5/10)
-Current unresolved count: **1030**
-Next unresolved ID: `S3U-1031`
-Explicit conflict count: **119**
+Current batch: `SOB016` (6/10)
+Current unresolved count: **1035**
+Next unresolved ID: `S3U-1036`
+Explicit conflict count: **120**
 
-## Stage3-S145 additions
+## Stage3-S146 additions
 
-- `S3U-1027` — CR000162; resource; high: Stage 2 could not establish a reliable exact repository commit SHA or complete tree.
-- `S3U-1028` — CR000162; resource; high: Dependency declarations, installation path, entrypoints, configurations and expected outputs remain unknown at the authoritative interface.
-- `S3U-1029` — CR000162; resource; medium: The exact LGPL-2.1-only versus LGPL-2.1-or-later SPDX variant is unresolved.
-- `S3U-1030` — CR000162; resource; high: Paper-stated notebooks and supporting data were not inspected under an immutable source identity.
+- `S3U-1031` — CR000164; resource; high: No license, dependency manifest or installation instructions were identified.
+- `S3U-1032` — CR000164; resource; high: The README labels train.xlsx as training data, but it is only two bytes at the pinned snapshot.
+- `S3U-1033` — CR000164; resource; medium: The bundled TeX metric embedding checkpoint was not opened and its provenance is not documented in the README.
+- `S3U-1034` — CR000164; resource; high: Exact base-model revisions, runtime environment and hardware requirements are not pinned.
+- `S3U-1035` — CR000164; resource; medium: No bundled expected results or numerical acceptance thresholds were identified.
 
-This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-145-extraction-log.jsonl`.
+This checkpoint adds **1 explicit conflict**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-146-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -23,4 +24,4 @@ Prior findings through S122 are retained in the S122 register snapshot and histo
 
 ## Continuation
 
-Exact next resource: `CR000164`. Exact next checkpoint: `Stage3-S146`; CR000163 is pilot-complete.
+Exact next resource: `CR000165`. Exact next checkpoint: `Stage3-S147`.
