@@ -5,32 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S128`
-- Latest completed resource: `CR000144`
+- Latest completed checkpoint: `Stage3-S129`
+- Latest completed resource: `CR000145`
 - Latest completed aggregate batch: `SOB013` — **PASS (10/10)**
-- Current batch: `SOB014` — **7/10**
+- Current batch: `SOB014` — **8/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000145`
-- Exact next checkpoint: `Stage3-S129`
+- Exact next independently extractable resource: `CR000146`
+- Exact next checkpoint: `Stage3-S130`
 
-## Cumulative counts through S128
+## Cumulative counts through S129
 
-- Resources: **147**
+- Resources: **148**
 - Experiments: **235**
 - Configurations: **434**
-- Technical-evidence records: **1670**
-- Reproducibility assessments: **147**
-- Unresolved findings: **937**
+- Technical-evidence records: **1675**
+- Reproducibility assessments: **148**
+- Unresolved findings: **942**
 - Explicit conflicts: **115**
-- Independently extractable resources remaining: **216**
+- Independently extractable resources remaining: **215**
 
-## S128
+## S129
 
-CR000144 preserves the Stage-2 Zenodo DOI archive identity, CC-BY-4.0 licensing and verified `PRL000302 → Atlas 778` supplementary-code relationship. The approximately 650 MB code/data/results archive is represented as a PINN implementation delivered as a DOI archive; archive internals were not downloaded or unpacked under the accepted bounded static archive policy.
-
-The matching IEEE paper documents spectral-bias mitigation for the frequency-domain acoustic wave equation using multiscale Fourier feature mapping, frequency transferring, revised neuron splitting and denser sampling. These remain paper-scoped because archive-internal implementation mapping is not verified. Static reproducibility is **R1**.
-
-A new explicit metadata conflict is retained: the frozen Stage-2 relationship record gives DOI `10.1109/TGRS.2024.3436985`, while the IEEE publisher record for the matching paper gives `10.1109/TGRS.2024.3440471`. Stage 2 is not rewritten; publisher DOI is used only for paper-scoped Stage-3 evidence.
+CR000145 is preserved as the verified JeongsLee GitHub profile identity supplied for Atlas 778. The profile-level discovery `PINN-for-ExtremeMechanics` remains separately materialized as CR000358, but no repository-level relationship to Atlas 778 is established. ADAF, MOTION and NTO-ADA remain non-attributed profile discoveries. Static reproducibility is **R0** because the profile itself is not a pinned executable artifact.
 
 No scientific workload was executed.
 
@@ -40,4 +36,4 @@ The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation
 
 ## Continuation
 
-Continue with `Stage3-S129` at `CR000145` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S130` at `CR000146` after published-head and checkpoint-QA readback.

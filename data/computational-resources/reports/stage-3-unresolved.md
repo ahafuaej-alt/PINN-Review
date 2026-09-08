@@ -1,24 +1,22 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08
-Current checkpoint: `Stage3-S128`
+Current checkpoint: `Stage3-S129`
 Latest completed batch: **SOB013 PASS**
-Current batch: `SOB014` (7/10)
-Current unresolved count: **937**
-Next unresolved ID: `S3U-0938`
+Current batch: `SOB014` (8/10)
+Current unresolved count: **942**
+Next unresolved ID: `S3U-0943`
 Explicit conflict count: **115**
 
-## Stage3-S128 additions
+## Stage3-S129 additions
 
-- `S3U-0931` — CR000144; relationship; high; **explicit conflict**: The frozen Stage-2 relationship record gives DOI `10.1109/TGRS.2024.3436985`, while the IEEE publisher record for the matching title gives `10.1109/TGRS.2024.3440471`.
-- `S3U-0932` — CR000144; resource; medium: The approximately 650 MB archive was not downloaded or unpacked; deep archive inspection remains deferred under the accepted bounded static archive policy.
-- `S3U-0933` — CR000144; resource; high: Archive-internal environment declarations, dependency versions and installation instructions remain unverified.
-- `S3U-0934` — CR000144; resource; high: Executable entrypoints and exact run commands remain unverified without archive inspection.
-- `S3U-0935` — CR000144; resource; medium: The exact internal manifest and mapping among code, data, result artifacts and individual paper experiments remain unverified.
-- `S3U-0936` — CR000144; experiment; medium: Training hyperparameters, random-seed policy and experimental hardware are not established by the bounded metadata inspected for this checkpoint.
-- `S3U-0937` — CR000144; resource; medium: Released checkpoint/model availability and exact expected per-run numerical outputs inside the archive remain unknown.
+- `S3U-0938` — CR000145; relationship; high: Paper 778 supplies only the JeongsLee parent profile URL; no repository-level official code relationship is established.
+- `S3U-0939` — CR000145; resource; medium: CR000145 is a profile identity and therefore has no pinned executable commit of its own.
+- `S3U-0940` — CR000145; relationship; high: PINN-for-ExtremeMechanics is preserved as CR000358, but its relationship to Atlas 778 remains not established.
+- `S3U-0941` — CR000145; resource; medium: ADAF, MOTION and NTO-ADA are profile discoveries not attributable to paper 778 from the accepted evidence.
+- `S3U-0942` — CR000145; reproducibility; high: Environment, entrypoint, data, training and evaluation reproducibility fields are not attributable at profile level.
 
-This checkpoint adds **1 explicit conflict**, raising the cumulative explicit-conflict count to **115**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-128-extraction-log.jsonl`.
+This checkpoint adds **0 explicit conflicts**; the cumulative explicit-conflict count remains **115**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-129-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -26,4 +24,4 @@ Prior findings through S122 are retained in [the S122 register snapshot](stage-3
 
 ## Continuation
 
-Exact next resource: `CR000145`. Exact next checkpoint: `Stage3-S129`.
+Exact next resource: `CR000146`. Exact next checkpoint: `Stage3-S130`.
