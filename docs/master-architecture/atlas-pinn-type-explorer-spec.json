@@ -1,0 +1,146 @@
+{
+  "id": "ATLAS-PINN-TYPE-EXPLORER-SPEC",
+  "version": "task-4.5",
+  "date": "2026-09-08",
+  "branch": "docs/master-atlas-roadmap",
+  "scientific_authority": false,
+  "role": "non_authoritative_future_explorer_coordination_spec",
+  "scientific_authority_source": "locked Google Drive v0.7-pilot-atlas-prefreeze",
+  "dependencies": [
+    "atlas-pinn-type-taxonomy-spec.json",
+    "atlas-pinn-type-paper-evidence-linkage-spec.json",
+    "atlas-pinn-type-cross-dimensional-linkage-spec.json",
+    "task-4.1c-terminology-collision-register.json",
+    "task-4.1d-pinn-type-candidate-inventory-manifest.json"
+  ],
+  "view_families": [
+    "overview_browse",
+    "classification",
+    "frequency",
+    "evidence",
+    "type_profile"
+  ],
+  "candidate_routes_not_final_ia": [
+    "pinn-types/classification/",
+    "pinn-types/frequency/",
+    "pinn-types/evidence/",
+    "pinn-types/{type}/"
+  ],
+  "final_ia_owner": "Task 9",
+  "search_fields": [
+    "canonical_or_preferred_name",
+    "exact_reported_form",
+    "scoped_alias",
+    "source_local_label",
+    "paper_or_reference_id",
+    "supported_expansion"
+  ],
+  "filter_dimensions": [
+    "concept_role",
+    "lifecycle_status",
+    "classification_lane",
+    "verification_state",
+    "assignment_state",
+    "alias_source_local_collision_state",
+    "publication_year",
+    "application",
+    "physical_problem_or_problem_characteristic",
+    "methodology",
+    "outcome_validation_evaluation",
+    "failure_limitation_diagnostic",
+    "source_role"
+  ],
+  "frequency_measures": [
+    "verified_or_scoped_paper_assignments",
+    "source_local_assignments_separately_labeled",
+    "provisional_assignment_review_count",
+    "raw_reported_form_occurrences",
+    "unique_papers"
+  ],
+  "principal_frequency": "verified_or_scoped_paper_assignments",
+  "frequency_safeguards": [
+    "raw_occurrence_not_equal_normalized_assignment",
+    "frequency_not_equal_evidence_strength",
+    "frequency_not_equal_scientific_validity",
+    "frequency_not_equal_family_rank",
+    "frequency_not_equal_superiority",
+    "raw_and_normalized_counts_never_silently_mixed"
+  ],
+  "classification_rules": [
+    "only_is_a_renders_subtype_hierarchy",
+    "typed_nonhierarchical_relations_remain_visually_distinct",
+    "canonical_provisional_paper_specific_alias_deprecated_states_visually_distinct",
+    "source_local_status_visible",
+    "collisions_and_not_equivalent_to_visible",
+    "no_lexical_parent_inference"
+  ],
+  "evidence_drilldown_fields": [
+    "paper_id",
+    "exact_reported_form",
+    "normalized_or_scoped_concept",
+    "paper_role",
+    "assignment_scope",
+    "evidence_locator",
+    "verification_status",
+    "support_status",
+    "collision_ids",
+    "alias_scope",
+    "contradictions_or_counterevidence",
+    "review_version_history"
+  ],
+  "collision_ux": [
+    "multiple_meanings_badge",
+    "source_local_badge",
+    "unresolved_collision_panel",
+    "explicit_non_equivalence_note",
+    "alias_scope_and_evidence",
+    "paper_scoped_meaning_links"
+  ],
+  "cross_dimensional_views": [
+    "applications",
+    "physical_problems",
+    "methodology",
+    "outcomes_validation_evaluation",
+    "failures_limitations_diagnostics"
+  ],
+  "abbreviation_registry_relationship": "Abbreviation Registry is the broad all-review terminology index; PINN Type Explorer is the scientifically filtered PINN type/family/variant projection. The explorer does not use legacy TXT as scientific authority.",
+  "reusable_existing_abbreviation_patterns": [
+    "search",
+    "sorting",
+    "term_and_reference_views",
+    "exact_form_display",
+    "deep_links",
+    "csv_export",
+    "evidence_navigation"
+  ],
+  "public_visibility_rule": "Default public views emphasize verified/scoped assignments. Provisional, blocked, unresolved and rejected records require explicit labeling/review context and cannot contribute as positive verified prevalence.",
+  "export_rule": "Filtered exports must preserve verification, support, scope, alias/collision and status qualifiers.",
+  "accessibility_requirements": [
+    "keyboard_navigation",
+    "semantic_controls_and_tables",
+    "visible_focus",
+    "screen_reader_labels",
+    "non_color_only_status_encoding",
+    "responsive_mobile_tablet_desktop",
+    "non_graph_alternative_views",
+    "shareable_stable_url_state_where_practical"
+  ],
+  "prohibited_behaviors": [
+    "all_268_candidates_presented_as_validated_types",
+    "scientific_rank_from_acronym_frequency",
+    "review_mentions_counted_as_primary_study_assignments",
+    "automatic_case_hyphen_plural_merges",
+    "hidden_collisions_or_counterevidence",
+    "paper_specific_property_presented_as_universal_type_property",
+    "PIML_or_neural_operator_or_PgNN_or_PeNN_collapsed_into_PINN_without_evidence",
+    "source_local_name_promoted_globally_without_governance",
+    "invented_evidence_locators",
+    "locked_v0_7_mutation_for_UI_convenience"
+  ],
+  "revision_rule": "Later primary-source evidence may revise taxonomy placement, aliases/collisions, assignments or cross-links. Explorer projections must refresh to current governed state while preserving history/provenance; raw wording and prior decisions are never silently erased.",
+  "production_ui_implemented": 0,
+  "new_production_routes_created": 0,
+  "locked_v0_7_fields_or_entities_added": 0,
+  "next_task": "Task 5 — Formalize methodological extensibility",
+  "stop_boundary": "Task 5 was not started."
+}
