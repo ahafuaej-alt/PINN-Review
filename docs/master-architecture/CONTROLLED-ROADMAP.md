@@ -62,18 +62,20 @@ Task 3 read-only drift validator: `validate-paper-profile-spec.py`.
 
 Task 3 non-production UI mockup: `mockups/paper-profile-ui-mockup.html`.
 
-### Task 4 — Formalize PINN Type / Variant classification — IN PROGRESS
+### Task 4 — Formalize PINN Type / Variant classification — COMPLETE / PASS
 - 4.1 Audit the existing Abbreviations/PINN-type material. — **PASS / COMPLETE**
 - 4.2 Define an extensible PINN type/family taxonomy. — **PASS / COMPLETE**
 - 4.3 Link PINN types to papers and evidence. — **PASS / COMPLETE**
 - 4.4 Link PINN types to applications, problems, methods, outcomes, and failures. — **PASS / COMPLETE**
-- 4.5 Specify the future PINN Type Explorer.
+- 4.5 Specify the future PINN Type Explorer. — **PASS / COMPLETE**
 
 Task 4.2 taxonomy coordination source: `atlas-pinn-type-taxonomy-spec.json`.
 
 Task 4.3 paper/evidence linkage coordination source: `atlas-pinn-type-paper-evidence-linkage-spec.json`.
 
 Task 4.4 cross-dimensional linkage coordination source: `atlas-pinn-type-cross-dimensional-linkage-spec.json`.
+
+Task 4.5 future explorer coordination source: `atlas-pinn-type-explorer-spec.json`.
 
 ### Task 5 — Formalize methodological extensibility
 - 5.1 Catalogue existing methodology dimensions.
@@ -268,20 +270,22 @@ Task 2 is **COMPLETE / PASS**. Tasks 2.1–2.6 are **PASS / COMPLETE**.
 
 Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
-Task 4 is **IN PROGRESS**. Tasks 4.1–4.4 are **PASS / COMPLETE**.
+Task 4 is **COMPLETE / PASS**. Tasks 4.1–4.5 are **PASS / COMPLETE**.
 
-Task 4.1 established the verified existing-state baseline: preserved raw terminology; controlled candidate triage; 30 collision/non-equivalence classes; separate Abbreviation Registry and 268-term PINN Type candidate inventories; and the current Abbreviations/PINN Types scaffold/parser audit.
+Task 4.1 established the verified terminology baseline: raw-source preservation, candidate triage, collision/non-equivalence controls, dual candidate inventories, and current Abbreviations/PINN Types scaffold/parser audit.
 
-Task 4.2 defines the extensible PINN taxonomy as a faceted governed taxonomy graph. Only evidence-supported `is_a` creates subtype hierarchy; other scientific distinctions remain typed relations/facets when appropriate.
+Task 4.2 defines a faceted governed PINN taxonomy graph. Only evidence-supported `is_a` creates subtype hierarchy; other scientific distinctions remain typed relations/facets when appropriate.
 
-Task 4.3 establishes the controlled **paper ↔ exact reported term ↔ governed PINN concept/candidate ↔ evidence** chain. Reported occurrence is separate from normalized assignment; verified assignments require scoped evidence, valid source role, collision/alias compliance, and traceable verification/support states. Review-level mentions cannot manufacture direct primary-study assignments. Normalized frequency must count eligible assignments rather than raw term recurrence.
+Task 4.3 defines the controlled **paper ↔ exact reported term ↔ governed PINN concept/candidate ↔ evidence** chain. Reported occurrence is separate from normalized assignment, and normalized frequency counts eligible assignments rather than raw term recurrence.
 
-Task 4.4 establishes the evidence-governed cross-dimensional relation layer from scoped paper/type assignments to applications, physical problems/problem characteristics, methodology, outcomes/validation/evaluation, and failures/limitations/diagnostic pathways. Dimensions remain independently owned; co-occurrence alone cannot create a relation; directionality, scope, verification/support state, negative/counterevidence, and history are mandatory. No application/method/outcome/failure values were fabricated from type identity alone.
+Task 4.4 defines evidence-backed cross-dimensional links from scoped paper/type assignments to applications, physical problems/problem characteristics, methodology, outcomes/validation/evaluation, and failures/limitations/diagnostic pathways without collapsing those dimensions into taxonomy.
 
-The machine-readable coordination sources are `atlas-pinn-type-taxonomy-spec.json`, `atlas-pinn-type-paper-evidence-linkage-spec.json`, and `atlas-pinn-type-cross-dimensional-linkage-spec.json`; none is scientific authority or a locked-v0.7 schema owner.
+Task 4.5 specifies the future PINN Type Explorer as complementary overview, classification, normalized-frequency, evidence and type-profile views. It requires collision/alias/source-local/provisional visibility, evidence drill-down, cross-dimensional navigation, deep-link/export qualifiers and responsive/accessibility support. The existing `pinn-types/classification/`, `pinn-types/frequency/`, `pinn-types/evidence/`, and `pinn-types/{type}/` ideas remain candidate/compatible routes; **Task 9 retains final IA and migration-audit ownership**.
+
+Task 4 machine-readable coordination sources are `atlas-pinn-type-taxonomy-spec.json`, `atlas-pinn-type-paper-evidence-linkage-spec.json`, `atlas-pinn-type-cross-dimensional-linkage-spec.json`, and `atlas-pinn-type-explorer-spec.json`. None is scientific authority or a locked-v0.7 schema owner.
 
 Evidence-driven revision remains controlling: later primary-source evidence may revise normalized meaning, lane, family/variant placement, alias/collision interpretation, paper assignment, cross-dimensional relationship, or taxonomy status, but the revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording and prior decisions must not be silently erased.
 
-**STOP boundary:** Task 4.5 has not been started.
+**STOP boundary:** Task 5 has not been started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 4.5 — specify the future PINN Type Explorer using Tasks 4.1–4.4 as controlling inputs without implementing production UI.**
+The exact next substantive roadmap task, only when separately authorized, is **Task 5 — Formalize methodological extensibility**.
