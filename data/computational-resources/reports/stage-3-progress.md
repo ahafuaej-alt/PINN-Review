@@ -5,35 +5,35 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S137`
-- Latest completed resource: `CR000154`
+- Latest completed checkpoint: `Stage3-S138`
+- Latest completed resource: `CR000155`
 - Latest completed aggregate batch: `SOB014` — **PASS (10/10)**
-- Current batch: `SOB015` — **7/10**
+- Current batch: `SOB015` — **8/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000155`
-- Exact next checkpoint: `Stage3-S138`
+- Exact next independently extractable resource: `CR000156`
+- Exact next checkpoint: `Stage3-S139`
 
-## Cumulative counts through S137
+## Cumulative counts through S138
 
-- Resources: **157**
-- Experiments: **245**
-- Configurations: **444**
-- Technical-evidence records: **1765**
-- Reproducibility assessments: **157**
-- Unresolved findings: **993**
+- Resources: **158**
+- Experiments: **246**
+- Configurations: **445**
+- Technical-evidence records: **1775**
+- Reproducibility assessments: **158**
+- Unresolved findings: **998**
 - Explicit conflicts: **117**
-- Independently extractable resources remaining: **206**
+- Independently extractable resources remaining: **205**
 
-## S137
+## S138
 
-CR000154 is retained from the accepted Stage-1 inventory for `wandiab/PINNs_BuckleyLeverett`, but historical Stage-2 Batch-006 contains no CR000154 resource record. Stage 3 therefore does not manufacture a Stage-2 pinned SHA, license decision or verified paper relationship; the observed repository head is source-scoped only. A representative data-free Buckley-Leverett Colab notebook maps hard I/BC construction, bundled reference data and auxiliary weight files, MLP/attention code paths and training defaults. Missing environment version pins and manual Colab upload/path handling limit static reproducibility to **R1**.
+CR000155 preserves the Stage-2 pinned `pratikrathore8/opt_for_pinns` snapshot and official Atlas-823 relationship. Static inspection maps the repository's PINN optimizer-study surface, pinned Python requirements and a representative convection Adam→L-BFGS→NysNewton-CG configuration. The representative shell script references an undefined `switch_epochs` variable, while GPU indices and Weights & Biases dependencies remain environment-specific; static reproducibility is **R2**.
 
 No scientific workload was executed.
 
 ## Reconciled baseline
 
-The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation-2026-09-08.md) remains authoritative for repaired pre-S123 metadata and reproducibility assessments. Accepted methodology and schemas are unchanged. [Stage3-RC03](stage-3-schema-reconciliation-2026-09-08-rc03.md) additionally corrects count-neutral S129/S132 enum labels.
+Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility records. Stage3-RC03 remains authoritative for repaired S129/S132 enum labels. Accepted methodology and schemas are unchanged.
 
 ## Continuation
 
-Continue with `Stage3-S138` at `CR000155` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S139` at `CR000156` after published-head and checkpoint-QA readback.
