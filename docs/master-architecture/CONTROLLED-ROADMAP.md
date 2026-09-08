@@ -79,14 +79,18 @@ Task 4.5 future explorer coordination source: `atlas-pinn-type-explorer-spec.jso
 
 ### Task 5 — Formalize methodological extensibility — IN PROGRESS
 - 5.1 Catalogue existing methodology dimensions. — **PASS / COMPLETE**
-- 5.2 Define learning/integration-type taxonomy. — **NEXT / NOT STARTED**
-- 5.3 Define coupled ML-method taxonomy such as CNN, GNN, RNN/LSTM, Transformer, GAN, Autoencoder, and RL. — **NOT STARTED**
+- 5.2 Define learning/integration-type taxonomy. — **PASS / COMPLETE**
+- 5.3 Define coupled ML-method taxonomy such as CNN, GNN, RNN/LSTM, Transformer, GAN, Autoencoder, and RL. — **NEXT / NOT STARTED**
 - 5.4 Decide which concepts require specialized structure versus dynamic taxonomy/linking records. — **NOT STARTED**
 - 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8). — **NOT STARTED**
 
 Task 5.1 human-readable catalogue: `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md`.
 
 Task 5.1 machine-readable coordination catalogue: `atlas-methodology-dimension-catalogue.json`.
+
+Task 5.2 human-readable taxonomy: `TASK-5.2-LEARNING-INTEGRATION-TYPE-TAXONOMY.md`.
+
+Task 5.2 machine-readable coordination taxonomy: `atlas-learning-integration-taxonomy-spec.json`.
 
 ### Task 6 — Define the complete Cross-Paper Intelligence system
 - 6.1 Define the dimension catalogue.
@@ -276,14 +280,18 @@ Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
 Task 4 is **COMPLETE / PASS**. Tasks 4.1–4.5 are **PASS / COMPLETE**.
 
-Task 5 is **IN PROGRESS**. Task 5.1 is **PASS / COMPLETE**; Task 5.2 is **NEXT / NOT STARTED**.
+Task 5 is **IN PROGRESS**. Tasks 5.1–5.2 are **PASS / COMPLETE**; Task 5.3 is **NEXT / NOT STARTED**.
 
-Task 5.1 catalogues the existing methodology ownership surface without changing science: locked PP-08/data-context owners, the 25 controlled-vocabulary method-dimension labels, consolidated training-protocol subdimensions, physical-constraint and reproducibility boundaries, and composite/deferred dimensions that Tasks 5.2–5.4 must resolve without premature schema promotion.
+Task 5.1 catalogues the existing methodology ownership surface without changing science: locked PP-08/data-context owners, the 25 controlled-vocabulary method-dimension labels, consolidated training-protocol subdimensions, physical-constraint and reproducibility boundaries, and composite/deferred dimensions that later Task 5 work must resolve without premature schema promotion.
 
-Task 5.1 coordination sources are `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md` and `atlas-methodology-dimension-catalogue.json`. Neither is scientific authority or a locked-v0.7 schema owner.
+Task 5.2 defines a faceted learning/integration taxonomy over existing owners. It preserves the six locked `physics_integration_mode[]` values; separately governs transfer/reuse/adaptation, multi-fidelity integration, and operator/solver integration; defines derived query facets for integration locus and knowledge/source role; and explicitly prevents integration taxonomy from becoming a second PINN-type hierarchy or a coupled-ML-backbone taxonomy.
+
+Task 5.1 coordination sources are `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md` and `atlas-methodology-dimension-catalogue.json`.
+
+Task 5.2 coordination sources are `TASK-5.2-LEARNING-INTEGRATION-TYPE-TAXONOMY.md` and `atlas-learning-integration-taxonomy-spec.json`. These coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments or relations.
 
 Evidence-driven revision remains controlling: later primary-source evidence may revise normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-**STOP boundary:** Task 5.2 has not been started.
+**STOP boundary:** Task 5.3 has not been started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 5.2 — Define learning/integration-type taxonomy**.
+The exact next substantive roadmap task, only when separately authorized, is **Task 5.3 — Define coupled ML-method taxonomy such as CNN, GNN, RNN/LSTM, Transformer, GAN, Autoencoder, RL and other evidence-supported coupled ML methods**.
