@@ -1,6 +1,6 @@
 # Task 4 — PINN Type / Variant Classification Status
 
-Status: **IN PROGRESS — Tasks 4.1–4.3 COMPLETE / PASS**
+Status: **IN PROGRESS — Tasks 4.1–4.4 COMPLETE / PASS**
 
 Date: 2026-09-08
 
@@ -18,8 +18,8 @@ Implementation contract: frozen Master Plan v1.0.
   - 4.1E page-scaffold/parser audit: **PASS / COMPLETE**
 - Task 4.2 — Define extensible PINN type/family taxonomy: **PASS / COMPLETE**
 - Task 4.3 — Link PINN types to papers and evidence: **PASS / COMPLETE**
-- Task 4.4 — Link PINN types to applications/problems/methods/outcomes/failures: **NEXT / NOT STARTED**
-- Task 4.5 — Specify future PINN Type Explorer: **NOT STARTED**
+- Task 4.4 — Link PINN types to applications/problems/methods/outcomes/failures: **PASS / COMPLETE**
+- Task 4.5 — Specify future PINN Type Explorer: **NEXT / NOT STARTED**
 
 ## Task 4.1 baseline
 
@@ -49,28 +49,43 @@ Authoritative specification: `TASK-4.3-PINN-TYPE-PAPER-EVIDENCE-LINKAGE.md`.
 
 Machine-readable coordination source: `atlas-pinn-type-paper-evidence-linkage-spec.json`.
 
-Task 4.3 establishes the controlled paper ↔ exact reported term ↔ governed PINN concept/candidate ↔ evidence chain.
+Task 4.3 establishes the controlled paper ↔ exact reported term ↔ governed PINN concept/candidate ↔ evidence chain. Reported occurrence and normalized assignment remain separate; lexical occurrence alone cannot create a scientific type assignment; review-only mentions cannot manufacture direct primary-study assignments; normalized type frequency must count eligible assignments rather than raw string recurrence.
+
+## Task 4.4 cross-dimensional linkage checkpoint
+
+Authoritative specification: `TASK-4.4-PINN-TYPE-CROSS-DIMENSIONAL-LINKAGE.md`.
+
+Machine-readable coordination source: `atlas-pinn-type-cross-dimensional-linkage-spec.json`.
+
+Task 4.4 establishes evidence-backed typed links from scoped paper/type assignments to:
+
+- applications;
+- physical problems/problem characteristics;
+- methodological dimensions;
+- outcomes/validation/evaluation;
+- failures/limitations/diagnostic pathways.
 
 Key controls:
 
-- reported term occurrence and normalized type assignment are separate;
-- lexical occurrence alone cannot create a normalized assignment;
-- assignment states are `reported_occurrence`, `verified_assignment`, `provisional_assignment`, `source_local_assignment`, `blocked_collision`, `adjacent_not_type`, and `rejected_assignment`;
-- verified assignments require scoped evidence, valid source role, verification/support separation, collision/alias compliance, and history/version traceability;
-- review-synthesis occurrences cannot automatically create direct assignments for cited primary studies;
-- papers may have multiple type/variant assignments and component/test-case scope without mandatory `study_component_id`;
-- normalized type frequency must count eligible paper assignments, not raw term recurrence;
-- conservative scoped seed assignments were recorded only where Task 4.1 already established support (including cPINN/628, CPINN/707–708, Bayesian B-PINN/BPINN scoped papers, three paper-scoped DD-PINN meanings, SPINN/609, and E-PINN/659);
-- all 746 occurrences automatically promoted to verified assignments: **0**;
+- type taxonomy remains separate from application/problem/method/outcome/failure dimensions;
+- every relation is anchored to a scoped Task-4.3 paper/type assignment and evidence;
+- co-occurrence alone cannot create a cross-link;
+- directionality and source scope are mandatory;
+- methodology owners remain distinct (e.g. network configuration ≠ architecture family; loss weighting ≠ generic training protocol; hardware reporting ≠ parallel execution);
+- demonstrated/related/potential applications remain distinct;
+- outcome claims remain paper/setting scoped and cannot be universalized from one study;
+- failure, symptom, cause/mechanism, intervention, verification and trade-off remain distinct;
+- negative/counterevidence remains first-class and must not be hidden;
+- Task 4.4 fabricates **0** application/method/outcome/failure values from type identity alone;
 - new locked-v0.7 fields/entities: **0**;
-- Task 4.4 cross-dimensional links: **0**.
+- production records created: **0**.
 
 ## Controlling revision rule
 
-Later primary-source evidence may revise normalized meaning, lane, family/variant placement, alias/collision interpretation, paper assignment, relationship, or taxonomy status. Any revision must be evidence-backed, explicit, versioned/history-preserving and traceable. Raw wording and prior decisions must never be silently deleted or rewritten.
+Later primary-source evidence may revise normalized meaning, lane, family/variant placement, alias/collision interpretation, paper assignment, cross-dimensional relationship, or taxonomy status. Any revision must be evidence-backed, explicit, versioned/history-preserving and traceable. Raw wording and prior decisions must never be silently deleted or rewritten.
 
 ## Stop boundary
 
-**Task 4.4 has not started.**
+**Task 4.5 has not started.**
 
-Exact next action, only when separately authorized: **Task 4.4 — link governed PINN types/variants to applications, problems, methods, outcomes, and failures without collapsing those dimensions into the type taxonomy.**
+Exact next action, only when separately authorized: **Task 4.5 — specify the future PINN Type Explorer using Tasks 4.1–4.4 as controlling inputs without implementing production UI.**
