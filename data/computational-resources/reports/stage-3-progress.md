@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S125`
-- Latest completed resource: `CR000140`
+- Latest completed checkpoint: `Stage3-S126`
+- Latest completed resource: `CR000141`
 - Latest completed aggregate batch: `SOB013` — **PASS (10/10)**
-- Current batch: `SOB014` — **3/10**
+- Current batch: `SOB014` — **4/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000141`
-- Exact next checkpoint: `Stage3-S126`
+- Exact next independently extractable resource: `CR000142`
+- Exact next checkpoint: `Stage3-S127`
 
-## Cumulative counts through S125
+## Cumulative counts through S126
 
-- Resources: **143**
-- Experiments: **232**
-- Configurations: **431**
-- Technical-evidence records: **1633**
-- Reproducibility assessments: **143**
-- Unresolved findings: **911**
+- Resources: **144**
+- Experiments: **233**
+- Configurations: **432**
+- Technical-evidence records: **1648**
+- Reproducibility assessments: **144**
+- Unresolved findings: **920**
 - Explicit conflicts: **114**
-- Independently extractable resources remaining: **220**
+- Independently extractable resources remaining: **219**
 
-## S125
+## S126
 
-CR000140 records PECANN Helmholtz forward and hydraulic inverse notebook cases at the retained Stage-2 SHA. Three configurations preserve forward, high-fidelity and multi-fidelity settings, including squared-constraint penalties, inactive scheduling and reused inverse trial state. Incomplete environment/install instructions limit reproducibility to R1.
+CR000141 records Mish as supporting activation software, preserving its Stage-2 SHA and relationship. A representative CIFAR ResNet20 sweep remains distinct from the library wrappers and linked notebook. Missing dependency coverage, source-specific implementation gaps and benchmark limitations are explicit; reproducibility is R1.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation
 
 ## Continuation
 
-Continue with `Stage3-S126` at `CR000141` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S127` at `CR000142` after published-head and checkpoint-QA readback.
