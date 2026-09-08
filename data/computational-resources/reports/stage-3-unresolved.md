@@ -1,22 +1,22 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-09
-Current checkpoint: `Stage3-S143`
+Current checkpoint: `Stage3-S144`
 Latest completed batch: **SOB015 PASS**
-Current batch: `SOB016` (3/10)
-Current unresolved count: **1021**
-Next unresolved ID: `S3U-1022`
-Explicit conflict count: **118**
+Current batch: `SOB016` (4/10)
+Current unresolved count: **1026**
+Next unresolved ID: `S3U-1027`
+Explicit conflict count: **119**
 
-## Stage3-S143 additions
+## Stage3-S144 additions
 
-- `S3U-1017` — CR000160; resource; high: The required Zenodo archive and archived results were identified but not opened or reconciled to the script paths.
-- `S3U-1018` — CR000160; resource; high: No repository license was identified at the pinned commit.
-- `S3U-1019` — CR000160; resource; medium: Hardware and operating-system requirements are not specified.
-- `S3U-1020` — CR000160; configuration; high: The combined script formats its run directory with `alpha_eik` instead of the run index, creating a static multi-run overwrite conflict.
-- `S3U-1021` — CR000160; configuration; medium: No explicit numerical acceptance thresholds were identified for comparison with archived results.
+- `S3U-1022` — CR000161; resource; high: No dependency manifest or runtime versions define a reproducible environment.
+- `S3U-1023` — CR000161; configuration; high: The shipped default leaves `pinn_models_list` empty despite README paper-specific PINN bus selections.
+- `S3U-1024` — CR000161; resource; medium: The bundled checkpoint was not opened, leaving exact architecture, training configuration and provenance unresolved.
+- `S3U-1025` — CR000161; resource; high: No training entrypoint or workflow for recreating `trained_PINN_1.pth` was identified.
+- `S3U-1026` — CR000161; resource; medium: Hardware, operating system and random seeds are not reported.
 
-This checkpoint adds **1 explicit conflict**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-143-extraction-log.jsonl`.
+This checkpoint adds **1 explicit conflict**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-144-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -24,4 +24,4 @@ Prior findings through S122 are retained in the S122 register snapshot and histo
 
 ## Continuation
 
-Exact next resource: `CR000161`. Exact next checkpoint: `Stage3-S144`.
+Exact next resource: `CR000162`. Exact next checkpoint: `Stage3-S145`.

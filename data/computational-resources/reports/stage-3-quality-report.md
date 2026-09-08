@@ -5,29 +5,29 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S143`
-- Resources: CR000160
+- Checkpoint: `Stage3-S144`
+- Resources: CR000161
 - Status: **PASS**
-- Current batch: `SOB016` — **3/10**
+- Current batch: `SOB016` — **4/10**
 - Latest aggregate: **SOB015 PASS (10/10)**
 
-All accepted schemas, cumulative identifier uniqueness, hierarchy links, evidence ownership/reference integrity, evidence-use completeness and inference pairing pass. Missing-value states and reproducibility gates remain evidence-scoped; no R5 assessment is assigned. CR000160 preserves its pinned Stage-2 identity, no-license finding, external-data boundary and official Atlas-836 relationship.
+All accepted schemas, cumulative identifier uniqueness, hierarchy links, evidence ownership/reference integrity, evidence-use completeness and inference pairing pass. Missing-value states and reproducibility gates remain evidence-scoped; no R5 assessment is assigned. CR000161 preserves its pinned Stage-2 identity, GPL-3.0 license, binary-artifact boundary and official Atlas-843 relationship.
 
-Checkpoint counts: {"configurations": 2, "experiments": 2, "new_conflicting_evidence_findings": 1, "new_unresolved_findings": 5, "reproducibility_assessments": 1, "resources": 1, "technical_evidence_records": 10}.
+Checkpoint counts: {"configurations": 1, "experiments": 1, "new_conflicting_evidence_findings": 1, "new_unresolved_findings": 5, "reproducibility_assessments": 1, "resources": 1, "technical_evidence_records": 9}.
 
 ## Cumulative counts
 
-- Resources: **163**
-- Experiments: **254**
-- Configurations: **453**
-- Technical-evidence records: **1823**
-- Reproducibility assessments: **163**
-- Unresolved findings: **1021**
-- Explicit conflicts: **118**
+- Resources: **164**
+- Experiments: **255**
+- Configurations: **454**
+- Technical-evidence records: **1832**
+- Reproducibility assessments: **164**
+- Unresolved findings: **1026**
+- Explicit conflicts: **119**
 
 ## Scientific scope
 
-CR000160 is a two-workflow deformation-based PINN implementation. Static evidence maps NC-PINN and sequential NC+EIK-PINN configurations separately. Its pinned PINN environment supports R3, while the unopened external archive, missing platform specification, combined-script output-directory conflict and absent acceptance thresholds prevent R4.
+CR000161 is a hybrid IEEE power-system solver with optional PINN component surrogates. Static evidence maps the shipped IEEE-30 configuration and preserves the conflict between its empty PINN list and README paper-specific bus choice. Missing environment and training provenance cap reproducibility at R1.
 
 Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved. No scientific workload was executed. Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative.
 
@@ -35,4 +35,4 @@ Stage3-RC04 normalizes two S137 inference evidence-type labels without changing 
 
 ## Continuation
 
-Next resource: `CR000161`. Next checkpoint: `Stage3-S144`. Remaining identities: **200**.
+Next resource: `CR000162`. Next checkpoint: `Stage3-S145`. Remaining identities: **199**.

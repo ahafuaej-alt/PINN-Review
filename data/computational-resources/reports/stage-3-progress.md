@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S143`
-- Latest completed resource: `CR000160`
+- Latest completed checkpoint: `Stage3-S144`
+- Latest completed resource: `CR000161`
 - Latest completed aggregate batch: `SOB015` — **PASS (10/10)**
-- Current batch: `SOB016` — **3/10**
+- Current batch: `SOB016` — **4/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000161`
-- Exact next checkpoint: `Stage3-S144`
+- Exact next independently extractable resource: `CR000162`
+- Exact next checkpoint: `Stage3-S145`
 
-## Cumulative counts through S143
+## Cumulative counts through S144
 
-- Resources: **163**
-- Experiments: **254**
-- Configurations: **453**
-- Technical-evidence records: **1823**
-- Reproducibility assessments: **163**
-- Unresolved findings: **1021**
-- Explicit conflicts: **118**
-- Independently extractable resources remaining: **200**
+- Resources: **164**
+- Experiments: **255**
+- Configurations: **454**
+- Technical-evidence records: **1832**
+- Reproducibility assessments: **164**
+- Unresolved findings: **1026**
+- Explicit conflicts: **119**
+- Independently extractable resources remaining: **199**
 
-## S143
+## S144
 
-CR000160 preserves the Stage-2 pinned GitLab source, official Atlas-836 relationship, no-license finding and external Zenodo boundary. Bounded static extraction separates the NC-PINN active-tension workflow from the sequential NC+EIK-PINN excitation workflow. The pinned environment and explicit configurations support **R3**; the unopened archive, missing platform specification, output-directory conflict and absent acceptance thresholds block R4.
+CR000161 preserves the Stage-2 pinned IEEE-system repository, GPL-3.0 license, official Atlas-843 relationship, bundled cases, saved simulations and trained model. Bounded extraction maps the shipped IEEE-30 configuration without loading binary artifacts. The absent dependency environment and training workflow, plus the empty default PINN list, limit static reproducibility to **R1**.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S144` at `CR000161` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S145` at `CR000162` after published-head and checkpoint-QA readback.
