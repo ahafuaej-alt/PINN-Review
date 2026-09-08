@@ -77,12 +77,16 @@ Task 4.4 cross-dimensional linkage coordination source: `atlas-pinn-type-cross-d
 
 Task 4.5 future explorer coordination source: `atlas-pinn-type-explorer-spec.json`.
 
-### Task 5 — Formalize methodological extensibility
-- 5.1 Catalogue existing methodology dimensions.
-- 5.2 Define learning/integration-type taxonomy.
-- 5.3 Define coupled ML-method taxonomy such as CNN, GNN, RNN/LSTM, Transformer, GAN, Autoencoder, and RL.
-- 5.4 Decide which concepts require specialized structure versus dynamic taxonomy/linking records.
-- 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8).
+### Task 5 — Formalize methodological extensibility — IN PROGRESS
+- 5.1 Catalogue existing methodology dimensions. — **PASS / COMPLETE**
+- 5.2 Define learning/integration-type taxonomy. — **NEXT / NOT STARTED**
+- 5.3 Define coupled ML-method taxonomy such as CNN, GNN, RNN/LSTM, Transformer, GAN, Autoencoder, and RL. — **NOT STARTED**
+- 5.4 Decide which concepts require specialized structure versus dynamic taxonomy/linking records. — **NOT STARTED**
+- 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8). — **NOT STARTED**
+
+Task 5.1 human-readable catalogue: `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md`.
+
+Task 5.1 machine-readable coordination catalogue: `atlas-methodology-dimension-catalogue.json`.
 
 ### Task 6 — Define the complete Cross-Paper Intelligence system
 - 6.1 Define the dimension catalogue.
@@ -272,20 +276,14 @@ Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
 Task 4 is **COMPLETE / PASS**. Tasks 4.1–4.5 are **PASS / COMPLETE**.
 
-Task 4.1 established the verified terminology baseline: raw-source preservation, candidate triage, collision/non-equivalence controls, dual candidate inventories, and current Abbreviations/PINN Types scaffold/parser audit.
+Task 5 is **IN PROGRESS**. Task 5.1 is **PASS / COMPLETE**; Task 5.2 is **NEXT / NOT STARTED**.
 
-Task 4.2 defines a faceted governed PINN taxonomy graph. Only evidence-supported `is_a` creates subtype hierarchy; other scientific distinctions remain typed relations/facets when appropriate.
+Task 5.1 catalogues the existing methodology ownership surface without changing science: locked PP-08/data-context owners, the 25 controlled-vocabulary method-dimension labels, consolidated training-protocol subdimensions, physical-constraint and reproducibility boundaries, and composite/deferred dimensions that Tasks 5.2–5.4 must resolve without premature schema promotion.
 
-Task 4.3 defines the controlled **paper ↔ exact reported term ↔ governed PINN concept/candidate ↔ evidence** chain. Reported occurrence is separate from normalized assignment, and normalized frequency counts eligible assignments rather than raw term recurrence.
+Task 5.1 coordination sources are `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md` and `atlas-methodology-dimension-catalogue.json`. Neither is scientific authority or a locked-v0.7 schema owner.
 
-Task 4.4 defines evidence-backed cross-dimensional links from scoped paper/type assignments to applications, physical problems/problem characteristics, methodology, outcomes/validation/evaluation, and failures/limitations/diagnostic pathways without collapsing those dimensions into taxonomy.
+Evidence-driven revision remains controlling: later primary-source evidence may revise normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-Task 4.5 specifies the future PINN Type Explorer as complementary overview, classification, normalized-frequency, evidence and type-profile views. It requires collision/alias/source-local/provisional visibility, evidence drill-down, cross-dimensional navigation, deep-link/export qualifiers and responsive/accessibility support. The existing `pinn-types/classification/`, `pinn-types/frequency/`, `pinn-types/evidence/`, and `pinn-types/{type}/` ideas remain candidate/compatible routes; **Task 9 retains final IA and migration-audit ownership**.
+**STOP boundary:** Task 5.2 has not been started.
 
-Task 4 machine-readable coordination sources are `atlas-pinn-type-taxonomy-spec.json`, `atlas-pinn-type-paper-evidence-linkage-spec.json`, `atlas-pinn-type-cross-dimensional-linkage-spec.json`, and `atlas-pinn-type-explorer-spec.json`. None is scientific authority or a locked-v0.7 schema owner.
-
-Evidence-driven revision remains controlling: later primary-source evidence may revise normalized meaning, lane, family/variant placement, alias/collision interpretation, paper assignment, cross-dimensional relationship, or taxonomy status, but the revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording and prior decisions must not be silently erased.
-
-**STOP boundary:** Task 5 has not been started.
-
-The exact next substantive roadmap task, only when separately authorized, is **Task 5 — Formalize methodological extensibility**.
+The exact next substantive roadmap task, only when separately authorized, is **Task 5.2 — Define learning/integration-type taxonomy**.
