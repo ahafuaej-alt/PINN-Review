@@ -1,22 +1,22 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-08
-Current checkpoint: `Stage3-S136`
+Current checkpoint: `Stage3-S137`
 Latest completed batch: **SOB014 PASS**
-Current batch: `SOB015` (6/10)
-Current unresolved count: **988**
-Next unresolved ID: `S3U-0989`
+Current batch: `SOB015` (7/10)
+Current unresolved count: **993**
+Next unresolved ID: `S3U-0994`
 Explicit conflict count: **117**
 
-## Stage3-S136 additions
+## Stage3-S137 additions
 
-- `S3U-0984` — CR000153; resource; medium: No repository license is identified in the accepted Stage-2 verification scope.
-- `S3U-0985` — CR000153; resource; high: No dependency declaration, exact package versions or installation recipe is supplied for the executable master snapshot.
-- `S3U-0986` — CR000153; resource; medium: The Stage-2 pinned default snapshot is README-only; executable code, bundled data and results reside on the separately recorded nondefault master snapshot and must remain source-scoped rather than substituted for the pinned identity snapshot.
-- `S3U-0987` — CR000153; resource; medium: README reports fixed seed=42 for Table 1 testing, but the representative Burgers training script has seed activation commented out; deterministic mapping from this script to the bundled/table results is not established.
-- `S3U-0988` — CR000153; resource; medium: Bundled model/data/result artifacts exist but were not opened or runtime-validated; exact package compatibility and quantitative acceptance criteria for the representative workflow remain unknown.
+- `S3U-0989` — CR000154; resource; high: Historical Stage-2 Batch-006 contains no CR000154 resource record, so no Stage-2 pinned SHA, license decision or verified paper relationship is available; the observed live repository head remains Stage-3 source-scoped only.
+- `S3U-0990` — CR000154; resource; medium: No repository license is identified at the observed repository head.
+- `S3U-0991` — CR000154; resource; high: The Colab workflow lacks pinned versions or an environment manifest for TensorFlow, TensorFlow Probability, SciPy, NumPy, Matplotlib and pyDOE.
+- `S3U-0992` — CR000154; configuration; medium: README requires manual upload to Colab session storage while the representative notebook expects `/content/Buckley_Swc_0_Sor_0_M_2.mat` and the repository stores the file under `Data/`; no automatic path mapping is provided.
+- `S3U-0993` — CR000154; resource; medium: Bundled MAT and HDF5 artifacts were not opened or runtime-validated, so exact compatibility and mapping to reported results remain unresolved.
 
-This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-136-extraction-log.jsonl`.
+This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-137-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -24,4 +24,4 @@ Prior findings through S122 are retained in [the S122 register snapshot](stage-3
 
 ## Continuation
 
-Exact next resource: `CR000154`. Exact next checkpoint: `Stage3-S137`.
+Exact next resource: `CR000155`. Exact next checkpoint: `Stage3-S138`.

@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S136`
-- Latest completed resource: `CR000153`
+- Latest completed checkpoint: `Stage3-S137`
+- Latest completed resource: `CR000154`
 - Latest completed aggregate batch: `SOB014` — **PASS (10/10)**
-- Current batch: `SOB015` — **6/10**
+- Current batch: `SOB015` — **7/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000154`
-- Exact next checkpoint: `Stage3-S137`
+- Exact next independently extractable resource: `CR000155`
+- Exact next checkpoint: `Stage3-S138`
 
-## Cumulative counts through S136
+## Cumulative counts through S137
 
-- Resources: **156**
-- Experiments: **244**
-- Configurations: **443**
-- Technical-evidence records: **1755**
-- Reproducibility assessments: **156**
-- Unresolved findings: **988**
+- Resources: **157**
+- Experiments: **245**
+- Configurations: **444**
+- Technical-evidence records: **1765**
+- Reproducibility assessments: **157**
+- Unresolved findings: **993**
 - Explicit conflicts: **117**
-- Independently extractable resources remaining: **207**
+- Independently extractable resources remaining: **206**
 
-## S136
+## S137
 
-CR000153 preserves the corrected AAF-for-PINNs identity, official paper821 relationship and Stage-2 pinned README-only default snapshot. Executable code, bundled benchmark data and result artifacts are separately source-scoped to the Stage-2-recorded master commit. A representative Burgers workflow uses a trainable L2-normalized assembly of sin, tanh, GELU, SiLU and softplus activations. Missing dependency/version/install specification and unresolved seed/result mapping limit static reproducibility to **R1**.
+CR000154 is retained from the accepted Stage-1 inventory for `wandiab/PINNs_BuckleyLeverett`, but historical Stage-2 Batch-006 contains no CR000154 resource record. Stage 3 therefore does not manufacture a Stage-2 pinned SHA, license decision or verified paper relationship; the observed repository head is source-scoped only. A representative data-free Buckley-Leverett Colab notebook maps hard I/BC construction, bundled reference data and auxiliary weight files, MLP/attention code paths and training defaults. Missing environment version pins and manual Colab upload/path handling limit static reproducibility to **R1**.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ The count-neutral [Stage3-RC02 reconciliation](stage-3-cumulative-reconciliation
 
 ## Continuation
 
-Continue with `Stage3-S137` at `CR000154` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S138` at `CR000155` after published-head and checkpoint-QA readback.
