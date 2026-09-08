@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S140`
-- Latest completed resource: `CR000157`
+- Latest completed checkpoint: `Stage3-S141`
+- Latest completed resource: `CR000158`
 - Latest completed aggregate batch: `SOB015` — **PASS (10/10)**
-- Current batch: `SOB016` — **0/10**
+- Current batch: `SOB016` — **1/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000158`
-- Exact next checkpoint: `Stage3-S141`
+- Exact next independently extractable resource: `CR000159`
+- Exact next checkpoint: `Stage3-S142`
 
-## Cumulative counts through S139
+## Cumulative counts through S141
 
-- Resources: **160**
-- Experiments: **249**
-- Configurations: **448**
-- Technical-evidence records: **1794**
-- Reproducibility assessments: **160**
-- Unresolved findings: **1007**
+- Resources: **161**
+- Experiments: **251**
+- Configurations: **450**
+- Technical-evidence records: **1804**
+- Reproducibility assessments: **161**
+- Unresolved findings: **1012**
 - Explicit conflicts: **117**
-- Independently extractable resources remaining: **203**
+- Independently extractable resources remaining: **202**
 
-## S140
+## S141
 
-CR000157 preserves the Stage-2 pinned EP-PINNs identity, no-license finding and official Atlas-834 relationship. Bounded static extraction maps representative 1D and 2D Aliev-Panfilov workflows. Missing environment/install specification, unpinned runtime, uninspected MAT payloads and absent acceptance criteria limit static reproducibility to **R1**.
+CR000158 preserves the Stage-2 pinned FiberNet identity, AGPL-3.0 license and official Atlas-835 relationship. Bounded static extraction maps representative 2D and 3D anisotropic-eikonal fiber reconstruction workflows. Unpinned dependencies, missing platform specification, uninspected VTK payloads and absent expected metrics limit static reproducibility to **R2**.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S141` at `CR000158` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S142` at `CR000159` after published-head and checkpoint-QA readback.
