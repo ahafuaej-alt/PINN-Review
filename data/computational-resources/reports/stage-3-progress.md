@@ -5,30 +5,32 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S164`
-- Latest completed resource: `CR000183`
+- Latest completed checkpoint: `Stage3-S165`
+- Latest completed resources: `CR000184`, `CR000185`
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **5/10**
+- Current batch: `SOB018` — **7/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000185`
-- Exact next checkpoint: `Stage3-S165`
+- Exact next independently extractable resource: `CR000186`
+- Exact next checkpoint: `Stage3-S166`
 
-## Cumulative counts through S164
+## Cumulative counts through S165
 
-- Resources: **185**
-- Experiments: **270**
-- Configurations: **479**
-- Technical-evidence records: **2035**
-- Reproducibility assessments: **185**
-- Unresolved findings: **1137**
+- Resources: **187**
+- Experiments: **273**
+- Configurations: **482**
+- Technical-evidence records: **2057**
+- Reproducibility assessments: **187**
+- Unresolved findings: **1148**
 - Explicit conflicts: **124**
-- Independently extractable resources remaining: **178**
+- Independently extractable resources remaining: **176**
 
-## S164
+## S165
 
-CR000183 preserves the Stage-2-authoritative `frank1010111/pywaterflood` repository at pinned SHA `01fe02789b5f3c1e9b3d469941265a2dae083c27`, its BSD-2-Clause license, JOSS citation and no-Atlas-relationship boundary. It is physics-inspired capacitance-resistance modeling software, not a PINN implementation.
+CR000184 is the Stage-2-authoritative canonical Delta-PINNs implementation for the broken-owner alias CR000021 and official resource for Atlas paper 312. Two notebook experiments map coil-surface Eikonal and heat-transfer workflows using Laplace-Beltrami eigenfunction positional encoding. Pinned source, seeds, data and training controls are present, but no license, dependency manifest, installation procedure or tests are available, limiting the static assessment to **R1**.
 
-Bounded static extraction maps one documented injector-producer connectivity fit and forecast, the Python/Rust implementation, exact CRM controls, locked Python and Rust environments, bundled CSV fixtures and prediction tests. This supports **R3**; the unexecuted native-build boundary blocks R4. SOB018 advances to 5/10.
+CR000185 retains the Google Research monorepo authority at pinned SHA `041338718b4e8151372fd63677104c65b73a0a4e`. The original resource link identifies `jax_dft`; one non-interacting one-dimensional H2 calculation, differentiable Kohn-Sham source, local requirements, runner, tests and bundled project artifacts are mapped at **R3**. Root source/data licensing remains distinct.
+
+QA corrected an initial eligibility assumption before publication: CR000184 was complete in Stage 2, not Stage 3, and therefore is included in this two-resource checkpoint. SOB018 advances from 5/10 to 7/10.
 
 No scientific workload was executed.
 
@@ -38,4 +40,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-CR000184 was completed in the Stage-3 pilot and is skipped without reprocessing. Continue with `Stage3-S165` at `CR000185` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S166` at `CR000186` after published-head and checkpoint-QA readback.
