@@ -1,6 +1,6 @@
 # Task 5 — Methodological Extensibility Status
 
-Status: **IN PROGRESS — Tasks 5.1–5.2C PASS / COMPLETE; 5.3 NEXT**
+Status: **IN PROGRESS — Tasks 5.1–5.3 PASS / COMPLETE; 5.4 NEXT**
 
 Date: 2026-09-09
 
@@ -14,8 +14,8 @@ Implementation contract: frozen Master Plan v1.0.
 - **Task 5.2 — Define learning/integration-type taxonomy: PASS / COMPLETE**
 - **Task 5.2B — General Machine-Learning Learning-Paradigm Taxonomy: PASS / COMPLETE**
 - **Task 5.2C — External Methodology Coverage / Gap Audit: PASS / COMPLETE**
-- **Task 5.3 — Model / Representation / Coupled-ML Architecture Taxonomy: NEXT / NOT STARTED**
-- Task 5.4 — Decide specialized structure versus dynamic taxonomy/linking: **NOT STARTED**
+- **Task 5.3 — Model / Representation / Coupled-ML Architecture Taxonomy: PASS / COMPLETE**
+- **Task 5.4 — Decide specialized structure versus dynamic taxonomy/linking: NEXT / NOT STARTED**
 - Task 5.5 — Define evidence/recurrence criteria for future ontology promotion: **NOT STARTED**
 
 ## Task 5.1 artifacts
@@ -41,6 +41,12 @@ Implementation contract: frozen Master Plan v1.0.
 - `atlas-external-methodology-coverage-gap-audit.json` — non-authoritative machine-readable X→Y→Z audit register
 - `TASK-5.2C-REFERENCE-QA-ADDENDUM.md`
 - `TASK-5.2C-MACHINE-READABLE-VALIDATION.md` — runtime syntax/consistency validation record
+
+## Task 5.3 artifacts
+
+- `TASK-5.3-MODEL-REPRESENTATION-COUPLED-ML-ARCHITECTURE-TAXONOMY.md`
+- `atlas-model-representation-coupled-ml-taxonomy-spec.json` — non-authoritative machine-readable architecture coordination taxonomy
+- `TASK-5.3-MACHINE-READABLE-VALIDATION.md` — executed runtime syntax/consistency validation record
 
 ## Task 5.1 result
 
@@ -72,35 +78,17 @@ Hard-gate result:
 - **37/37** internal dimensions have an explicit final matrix disposition;
 - **15/15** materially new or externally emphasized dimensions discovered during the audit have explicit dispositions.
 
-The main externally emphasized gaps are **semantic/taxonomic coordination gaps rather than a foundational schema failure**. Important cross-cutting dimensions include:
+The main externally emphasized gaps are **semantic/taxonomic coordination gaps rather than a foundational schema failure**. Important cross-cutting dimensions include general learning paradigms; prior/domain-knowledge source; knowledge representation; knowledge-integration locus; distributed-learning topology/aggregation/partition; lifecycle/deployment/inference organization; model compression/efficiency transformations; automated architecture/hyperparameter search; data modality/structural form; ML task/output type/system role; neuro-symbolic/differentiable-programming integration; robustness/privacy/security/fairness-aware methods; model combination/mixture/ensemble organization; representation-learning/latent objective; and surrogate/reduced-order/learned-model role.
 
-1. general learning paradigms — already formalized in 5.2B;
-2. prior/domain-knowledge source;
-3. knowledge representation;
-4. knowledge-integration locus;
-5. distributed-learning topology/aggregation/partition, distinct from compute parallelism;
-6. model lifecycle/deployment/inference organization;
-7. model compression/efficiency transformations;
-8. automated architecture/hyperparameter search;
-9. data modality/structural form;
-10. ML task/output type/system role;
-11. neuro-symbolic/differentiable-programming integration;
-12. robustness/privacy/security/fairness-aware learning techniques;
-13. model combination/mixture and ensemble organization;
-14. representation-learning/latent-representation objective;
-15. surrogate/reduced-order/learned-model role.
-
-No discovered external dimension was ignored merely because it was absent from X.
-
-### Machine-readable validation
+### Task 5.2C machine-readable validation
 
 A focused runtime validation of `atlas-external-methodology-coverage-gap-audit.json` was executed after Task 5.2C. Result: **PASS with 0 validation errors**.
 
 Verified conditions include valid JSON syntax; required top-level keys; unique `Y01`–`Y16`, `MDC-01`–`MDC-37` and `EX-01`–`EX-15` identifiers; 37/37 internal Y mappings; 15/15 external dispositions; valid declared coverage states; unique source-registry IDs; safety/authority flags remaining false; recomputed acceptance counts matching the human audit; and `task_5_3_started=false`.
 
-No defect required modification of the JSON artifact. The complete validation record is `TASK-5.2C-MACHINE-READABLE-VALIDATION.md`.
+No defect required modification of the Task 5.2C JSON artifact. The complete validation record is `TASK-5.2C-MACHINE-READABLE-VALIDATION.md`.
 
-### Structural conclusion
+### Structural conclusion from Task 5.2C
 
 The audit did **not** identify evidence requiring Tasks 1–4 to be reopened or the locked v0.7 schema to be mutated immediately. Existing L1–L8 architecture, evidence/provenance, L5 dynamic taxonomy, typed relations and governed extension rules can accommodate the discovered space while Task 5.4 later decides whether recurrent evidence justifies specialized storage.
 
@@ -122,45 +110,75 @@ The 21-item Drive resource folder was incorporated as a full-text evidence works
 
 These refine prior coordination rules without silently rewriting source evidence or historical decisions.
 
-### Paper Profile consequence
+## Task 5.3 result
 
-PP-08 Methodology may later expose evidence-backed derived facets for learning paradigm, prior/domain-knowledge source and representation, knowledge-integration locus, architecture/model family, and distributed-learning organization. No scalar `learning_type` and no locked-v0.7 Paper Profile/schema mutation is authorized.
+Task 5.3 formalizes model/representation/coupled-ML architecture semantics as a **six-facet coordination system**, not as one flat architecture list:
 
-### Task 5.3 consequence
+1. backbone model architecture;
+2. model composition pattern;
+3. scientific representation choice;
+4. generative/latent model system;
+5. coupled external ML/operator method;
+6. architecture lifecycle/search/transformation process.
 
-Task 5.3 can now begin as **Model / Representation / Coupled-ML Architecture Taxonomy**. It must preserve these boundaries:
+The controlling scientific boundary is:
 
-- architecture family ≠ network configuration;
-- architecture ≠ learning paradigm;
-- architecture ≠ statistical learning character;
-- architecture ≠ computational task/output type;
-- latent/generative objective ≠ architecture automatically;
-- neural operator ≠ PINN automatically;
-- ensemble/mixture-of-experts/multi-network composition require typed composition semantics;
-- compression/NAS/HPO describe transformation/search processes, not necessarily final architecture identity.
+**PINN type/family ≠ architecture family ≠ network configuration ≠ scientific representation ≠ learning paradigm ≠ training protocol ≠ numerical/solver coupling ≠ application/equation specialization.**
+
+Task 5.3 preserves `MDC-01 / PINN_architecture[]` as the current architecture-family owner, `MDC-02 / model_variable_representation[]` for explicit scientific model-interface representation, `MDC-03 / network_configuration[]` for configuration, and `MDC-13 / training_protocol[]` for training protocol. Internal learned latent semantics are not forced into `model_variable_representation[]` unless they are an explicit model interface; their structural home remains a Task 5.4 question.
+
+The taxonomy coordinates evidence-supported architecture concepts including MLP/feed-forward networks, CNN, recurrent/RNN, LSTM, GRU, Transformer, GNN, KAN/PIKAN, stacked-residual architecture, RBF neural networks, SIREN and source-specific architecture concepts without creating automatic Atlas paper assignments. Generative/latent systems such as autoencoders, VAEs, GANs and diffusion models remain multi-axis systems rather than interchangeable backbone labels. Neural operators retain operator-learning identity; reinforcement learning remains a learning paradigm; numerical solvers remain coupling/integration methods. NAS/HPO and pruning/quantization/distillation remain search/transformation processes rather than final architecture identities.
+
+Task 5.3 also preserves the high-risk no-merge rules: attention mechanism ≠ Transformer; sequence representation ≠ RNN/LSTM/GRU/Transformer; graph representation ≠ GNN; grid/tensor representation ≠ CNN; GAN ≠ generator backbone and ≠ PINN; autoencoder ≠ VAE ≠ GAN; neural operator ≠ PINN; ensemble ≠ mixture of experts ≠ generic multi-network system; Fourier-feature encoding ≠ architecture family; geometry/constraint representation ≠ neural architecture; terminology occurrence ≠ verified classification.
+
+The Task 5.2C crosswalk is corrected and explicit: **EX-07** owns the compression/efficiency-transformation gap and **EX-08** owns automated architecture/hyperparameter search. These feed Task 5.3's process facet and remain structural-decision inputs to Task 5.4.
+
+### Task 5.3 machine-readable validation
+
+The corrected `atlas-model-representation-coupled-ml-taxonomy-spec.json` was parsed and consistency-validated after repository write/readback. Result: **PASS with 0 validation errors**.
+
+Validated machine contract:
+
+- taxonomy facets: **6**;
+- architecture nodes: **13**;
+- representation nodes: **8**;
+- organization/composition nodes: **8**;
+- coupled-method nodes: **6**;
+- search/compression process nodes: **5**;
+- carried collision dependencies: **6**;
+- governed-review flags: **4**;
+- typed cross-dimensional links: **10**;
+- no-merge rules: **35**.
+
+Validation also confirmed the corrected `MDC-13` training-protocol ownership, `EX-07`/`EX-08` crosswalk, zero locked-v0.7 mutation/promotion/assignment flags, and Task 5.4 remaining unstarted. No GitHub Actions/CI execution is claimed by this runtime validation.
+
+### Paper Profile consequence after Task 5.3
+
+PP-08 Methodology may later expose evidence-backed derived facets for learning paradigm, prior/domain-knowledge source and representation, knowledge-integration locus, architecture/model family, distributed-learning organization and related composition/coupling semantics. Task 5.3 does not authorize a scalar `learning_type`, a competing architecture field, or any locked-v0.7 Paper Profile/schema mutation.
 
 ## Evidence basis
 
-Task 5.2C used authoritative/publisher-verified external evidence plus the curated Drive full texts. The principal evidence set includes peer-reviewed work on general ML paradigms, informed machine learning, physics-informed machine learning, edge/distributed ML, weak supervision, meta-learning, domain adaptation, multi-task learning, decentralized federated PINNs, PINN optimization/training pathologies and multi-fidelity PINNs. The human Task 5.2C audit contains a checked MDPI-style reference list with DOI information.
+Tasks 5.2B–5.3 use authoritative/publisher-verified external evidence plus curated Drive full texts for generic scientific/ML semantics and locked Atlas evidence for Atlas-specific meaning, collisions and ownership. Generic external definitions do not create paper-level Atlas assignments.
 
-General web pages and AI/checklist files were used only for terminology discovery and were not treated as scientific authority.
+General web pages and AI/checklist files are discovery aids only and are not scientific authority.
 
 ## Governing revision rule
 
-Later authoritative external research, Task 5.3–5.5 findings or primary-source evidence may revise candidate dimensions, normalization, relationships, applicability or structural-promotion judgments. Any correction must be explicit, evidence-backed, versioned and history-preserving. Raw wording, locators, prior decisions, contradictions and deferred/rejected alternatives must remain traceable.
+Later authoritative external research, Task 5.4–5.5 findings or primary-source evidence may revise candidate dimensions, normalization, relationships, applicability, model-family placement or structural-promotion judgments. Any correction must be explicit, evidence-backed, versioned and history-preserving. Raw wording, locators, prior decisions, contradictions and deferred/rejected alternatives must remain traceable.
 
-## Change boundary
+## Change boundary through Task 5.3
 
 - New locked-v0.7 scientific fields/entities: **0**.
 - Automatic canonical ontology promotions: **0**.
-- Automatic paper-level methodology/learning assignments: **0**.
+- Automatic global alias promotions: **0**.
+- Automatic paper-level methodology/learning/architecture assignments: **0**.
 - Tasks 1–4 reopened: **0**.
-- Task 5.3 architecture taxonomy work performed: **0**.
 - Production `main` changes: **0**.
 - Computational Resources Stage 1/2/3 changes: **0**.
+- Task 5.4 work performed: **0**.
 
 ## Stop boundary
 
-**Task 5.3 was not started by Task 5.2C or its machine-readable validation.**
+**Task 5.3 is PASS / COMPLETE. Task 5.4 has not started.**
 
-Exact next action, only when separately authorized: **Task 5.3 — define the Model / Representation / Coupled-ML Architecture Taxonomy using Task 5.2C as a controlling coverage input.**
+Exact next substantive action, only when separately authorized: **Task 5.4 — decide which concepts require specialized structure versus dynamic taxonomy/linking records, using Tasks 5.1–5.3 as controlling inputs.**
