@@ -1,6 +1,6 @@
 # Task 5 — Methodological Extensibility Status
 
-Status: **IN PROGRESS — Tasks 5.1–5.2B PASS / COMPLETE; 5.2C NEXT**
+Status: **IN PROGRESS — Tasks 5.1–5.2C PASS / COMPLETE; 5.3 NEXT**
 
 Date: 2026-09-09
 
@@ -13,8 +13,8 @@ Implementation contract: frozen Master Plan v1.0.
 - **Task 5.1 — Catalogue existing methodology dimensions: PASS / COMPLETE**
 - **Task 5.2 — Define learning/integration-type taxonomy: PASS / COMPLETE**
 - **Task 5.2B — General Machine-Learning Learning-Paradigm Taxonomy: PASS / COMPLETE**
-- **Task 5.2C — External Methodology Coverage / Gap Audit: NEXT / NOT STARTED**
-- **Task 5.3 — Model / Representation / Coupled-ML Architecture Taxonomy: NOT STARTED**
+- **Task 5.2C — External Methodology Coverage / Gap Audit: PASS / COMPLETE**
+- **Task 5.3 — Model / Representation / Coupled-ML Architecture Taxonomy: NEXT / NOT STARTED**
 - Task 5.4 — Decide specialized structure versus dynamic taxonomy/linking: **NOT STARTED**
 - Task 5.5 — Define evidence/recurrence criteria for future ontology promotion: **NOT STARTED**
 
@@ -32,10 +32,17 @@ Implementation contract: frozen Master Plan v1.0.
 
 - `TASK-5.2B-GENERAL-ML-LEARNING-PARADIGM-TAXONOMY.md`
 - `atlas-learning-paradigm-taxonomy-spec.json` — non-authoritative machine-readable coordination taxonomy
+- `TASK-5.2B-REFERENCE-AUDIT-AND-MDPI-BIBLIOGRAPHY.md`
+- `atlas-learning-paradigm-reference-register.json`
+
+## Task 5.2C artifacts
+
+- `TASK-5.2C-EXTERNAL-METHODOLOGY-COVERAGE-GAP-AUDIT.md`
+- `atlas-external-methodology-coverage-gap-audit.json` — non-authoritative machine-readable X→Y→Z audit register
 
 ## Task 5.1 result
 
-Task 5.1 inventoried the existing methodology model before any extensibility redesign. It accounts for all 25 methodology-dimension labels already named in locked v0.7 Controlled Vocabularies; the complete PP-08 methodology/data ownership surface; structured subdimensions; the consolidated training protocol; physical-constraint and reproducibility boundaries; and composite/deferred dimensions.
+Task 5.1 inventoried the existing methodology model before extensibility redesign. It accounts for all 25 methodology-dimension labels already named in locked v0.7 Controlled Vocabularies; the complete PP-08 methodology/data ownership surface; structured subdimensions; the consolidated training protocol; physical-constraint and reproducibility boundaries; and composite/deferred dimensions.
 
 Task 5.1 created **no new scientific fields, entities, canonical terms or relationships**.
 
@@ -45,105 +52,105 @@ Task 5.2 defines the physics/knowledge learning-integration system as a **facete
 
 ## Task 5.2B result
 
-Task 5.2B used authoritative external terminology and peer-reviewed taxonomy/review literature rather than flat internet lists. It defines **ten orthogonal general-learning facets**:
+Task 5.2B used authoritative external terminology and peer-reviewed taxonomy/review literature rather than flat internet lists. It defines **ten orthogonal general-learning facets**: supervision/feedback; label availability/acquisition; learning/update regime; adaptation/reuse; target-support/sample-scarcity; task organization; distributed/collaborative learning; model combination/ensemble; statistical learning character; and inference/generalization regime.
 
-1. supervision / feedback paradigm;
-2. label availability / acquisition paradigm;
-3. learning / update regime;
-4. adaptation / reuse paradigm;
-5. target-support / sample-scarcity regime;
-6. task-organization paradigm;
-7. distributed / collaborative learning paradigm;
-8. model-combination / ensemble paradigm;
-9. statistical learning character;
-10. inference / generalization regime.
+These are facets, not mutually exclusive global classes. Task 5.2B therefore forbids a single scalar `learning_type` as the architectural solution and creates no generic locked-v0.7 learning field.
 
-Evidence-supported coordination concepts include supervised, unsupervised, semi-supervised, self-supervised, reinforcement, active, weak-supervision, positive-unlabeled, online, incremental, continual, transfer, domain adaptation, domain generalization, meta-learning, few-/one-/zero-shot, multi-task, federated, ensemble, generative/discriminative, and inductive/transductive learning.
+## Task 5.2C result
 
-These are **facets, not mutually exclusive global classes**. A study may occupy several simultaneously. The taxonomy therefore forbids a single scalar `learning_type` as the architectural solution.
+Task 5.2C executed the broader external methodology-comprehensiveness audit using the mandatory **X → Y → Z** protocol:
 
-Task 5.2B explicitly preserves these boundaries:
+- **X:** all 37 Task 5.1 internal methodology dimensions;
+- **Y:** 16 externally researched methodological search axes covering general learning, architecture, prior/domain knowledge, formulation/enforcement, objective/loss, optimization/training, sampling/data acquisition, differentiation/operator evaluation, transformations/encodings, decomposition/distributed execution, transfer/multi-fidelity, UQ, operator/surrogate/solver coupling, lifecycle/deployment/reproducibility, task/data modality/system role, and emerging/cross-cutting methods;
+- **Z:** a final coverage/disposition matrix.
 
-- general learning paradigm ≠ physics/knowledge integration mode;
-- general learning paradigm ≠ PINN type/family;
-- learning paradigm ≠ representation/model architecture;
-- reinforcement learning ≠ architecture;
-- deep learning ≠ one architecture family;
-- self-supervised ≠ automatically unsupervised;
-- semi-supervised ≠ weak supervision ≠ positive-unlabeled;
-- active learning ≠ adaptive collocation/sampling by default;
-- online ≠ incremental ≠ continual globally;
-- transfer ≠ fine-tuning schedule ≠ domain adaptation ≠ domain generalization;
-- meta-learning ≠ transfer learning ≠ few-shot learning;
-- few-shot ≠ sparse data; zero-shot ≠ zero observational data;
-- multi-task ≠ multiple outputs ≠ multiple loss components;
-- federated learning ≠ distributed/parallel execution;
-- ensemble learning ≠ uncertainty quantification;
-- mixture-of-experts ≠ ensemble learning automatically;
-- generative/discriminative character ≠ model-family identity;
-- inductive/transductive regime ≠ interpolation/extrapolation result labeling.
+Hard-gate result:
 
-### Existing Atlas ownership consequence
+- **37/37** internal dimensions map to at least one external-search axis;
+- **37/37** internal dimensions have an explicit final matrix disposition;
+- **15/15** materially new or externally emphasized dimensions discovered during the audit have explicit dispositions.
 
-Task 5.2B creates **no generic `learning_type[]` field**. Existing owners provide context/evidence where applicable: `data_regime[]`, `sampling_strategy[]`, `training_protocol[]`, Task 5.2 transfer/reuse semantics, computational-task/study context, `parallel_execution[]`, `uncertainty_method[]`, architecture/model evidence, TR/RR and L3 evidence. None of these owners is silently redefined as the missing global learning-paradigm owner.
+The main externally emphasized gaps are **semantic/taxonomic coordination gaps rather than a foundational schema failure**. Important cross-cutting dimensions include:
 
-Task 5.4 remains responsible for deciding whether taxonomy/relationship projections are sufficient or recurrent evidence later justifies specialized future structure under governed X6/versioning rules.
+1. general learning paradigms — already formalized in 5.2B;
+2. prior/domain-knowledge source;
+3. knowledge representation;
+4. knowledge-integration locus;
+5. distributed-learning topology/aggregation/partition, distinct from compute parallelism;
+6. model lifecycle/deployment/inference organization;
+7. model compression/efficiency transformations;
+8. automated architecture/hyperparameter search;
+9. data modality/structural form;
+10. ML task/output type/system role;
+11. neuro-symbolic/differentiable-programming integration;
+12. robustness/privacy/security/fairness-aware learning techniques;
+13. model combination/mixture and ensemble organization;
+14. representation-learning/latent-representation objective;
+15. surrogate/reduced-order/learned-model role.
+
+No discovered external dimension was ignored merely because it was absent from X.
+
+### Structural conclusion
+
+The audit did **not** identify evidence requiring Tasks 1–4 to be reopened or the locked v0.7 schema to be mutated immediately. Existing L1–L8 architecture, evidence/provenance, L5 dynamic taxonomy, typed relations and governed extension rules can accommodate the discovered space while Task 5.4 later decides whether recurrent evidence justifies specialized storage.
+
+Thus:
+
+- architecture comprehensiveness is supported;
+- vocabulary exhaustiveness is **not** claimed;
+- taxonomy/detail expansion remains evidence-driven;
+- no field is added merely because an external taxonomy contains a term.
+
+### Full-text refinements from the curated `Taxonomy resources` folder
+
+The 21-item Drive resource folder was incorporated as a full-text evidence workspace. Four important refinements are preserved:
+
+1. **Weak supervision / semi-supervised learning:** some authoritative taxonomies place semi-supervised learning inside a broader weak-supervision landscape. Atlas must therefore preserve source-specific hierarchy/context rather than assert universal equivalence or universal disjointness.
+2. **Multi-task learning:** multiple loss components do not automatically prove MTL; explicit source formulation and task semantics can support a paper-scoped MTL assignment, as in AW-EL-PINNs.
+3. **Domain adaptation:** source taxonomies may treat domain adaptation as a transfer-learning subtype and distinguish sample-, feature- and inference-based approaches; Atlas must preserve source framing rather than force one universal hierarchy.
+4. **Federated/distributed learning:** learning organization, topology/aggregation/partition and compute parallelism are separate semantic axes.
+
+These refine prior coordination rules without silently rewriting source evidence or historical decisions.
 
 ### Paper Profile consequence
 
-The future Paper Profile may expose multiple evidence-backed learning-paradigm facets under PP-08 Methodology. No scalar `learning_type` and no locked-v0.7 Paper Profile/schema mutation is authorized. Any future structural change requires Task 5.4 and a governed later ontology/profile version.
+PP-08 Methodology may later expose evidence-backed derived facets for learning paradigm, prior/domain-knowledge source and representation, knowledge-integration locus, architecture/model family, and distributed-learning organization. No scalar `learning_type` and no locked-v0.7 Paper Profile/schema mutation is authorized.
 
-## Authoritative external research basis for Task 5.2B
+### Task 5.3 consequence
 
-The Task 5.2B record includes source-level citations. The principal evidence stack includes NIST AI 100-2 E2025 terminology; Emmert-Streib et al. 2022 WIREs ML-paradigm taxonomy; peer-reviewed surveys/reviews of online learning, continual learning, active learning, positive-unlabeled learning, weak supervision, meta-learning, multi-task learning, federated learning, ensemble learning, domain adaptation/generalization, zero-shot learning, and generative/discriminative learning. PINN/SciML relevance was checked against peer-reviewed examples of active-learning PINNs, multi-task PINNs, and decentralized federated PINNs.
+Task 5.3 can now begin as **Model / Representation / Coupled-ML Architecture Taxonomy**. It must preserve these boundaries:
 
-External definitions establish semantics only. They do **not** assign paradigms to Atlas papers without paper-scoped evidence.
+- architecture family ≠ network configuration;
+- architecture ≠ learning paradigm;
+- architecture ≠ statistical learning character;
+- architecture ≠ computational task/output type;
+- latent/generative objective ≠ architecture automatically;
+- neural operator ≠ PINN automatically;
+- ensemble/mixture-of-experts/multi-network composition require typed composition semantics;
+- compression/NAS/HPO describe transformation/search processes, not necessarily final architecture identity.
 
-## Roadmap refinement after Task 5.2
+## Evidence basis
 
-The methodology-comprehensiveness discussion recorded in Master Memory Sections 57–58 showed that Task 5.2 correctly covers physics/knowledge learning-integration but not all general ML paradigms. Task 5.2B now closes that general-learning taxonomy step. Task 5.2C remains the broader methodology-comprehensiveness gate.
+Task 5.2C used authoritative/publisher-verified external evidence plus the curated Drive full texts. The principal evidence set includes peer-reviewed work on general ML paradigms, informed machine learning, physics-informed machine learning, edge/distributed ML, weak supervision, meta-learning, domain adaptation, multi-task learning, decentralized federated PINNs, PINN optimization/training pathologies and multi-fidelity PINNs. The human Task 5.2C audit contains a checked MDPI-style reference list with DOI information.
 
-## Task 5.2C purpose and hard traceability gate
-
-Task 5.2C must test whether the Atlas methodology architecture is semantically comprehensive across the full methodological space, not merely whether current vocabulary is large.
-
-Hard traceability gate:
-
-- every internally identified methodology dimension must map to at least one external-search axis;
-- every such dimension must appear in the final coverage matrix;
-- every newly discovered external dimension must also appear in that matrix with an explicit disposition;
-- uncovered, partially covered, compositely covered, irrelevant and possible-future-structure cases must remain distinguishable;
-- the audit must not assume the current internal list is a ceiling.
-
-The controlling principle remains:
-
-> **Comprehensive architecture = complete semantic dimensions + extensible vocabularies + extensible typed relations + controlled structural extension.**
-
-This does not mean enumerating every machine-learning method currently known.
-
-Only after Task 5.2C passes should Task 5.3 begin.
-
-## Expanded Task 5.3 scope
-
-Task 5.3 is **Model / Representation / Coupled-ML Architecture Taxonomy**. It will classify representation/model families and coupled ML methods such as MLP, CNN, RNN/LSTM/GRU, Transformer/attention, GNN, KAN, Autoencoder/VAE, GAN, diffusion/generative families, operator-learning models and other evidence-supported model families while preserving boundaries among architecture, learning paradigm, PINN type, training method and computational task.
-
-The exact taxonomy scope may be refined by Task 5.2C; Task 5.3 must not preempt that audit.
+General web pages and AI/checklist files were used only for terminology discovery and were not treated as scientific authority.
 
 ## Governing revision rule
 
-Later authoritative external research, Task 5.2C findings or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment. Any correction must be explicit, evidence-backed, versioned and history-preserving. Raw wording, locators, prior decisions, contradictions and deferred/rejected alternatives must remain traceable.
+Later authoritative external research, Task 5.3–5.5 findings or primary-source evidence may revise candidate dimensions, normalization, relationships, applicability or structural-promotion judgments. Any correction must be explicit, evidence-backed, versioned and history-preserving. Raw wording, locators, prior decisions, contradictions and deferred/rejected alternatives must remain traceable.
 
 ## Change boundary
 
 - New locked-v0.7 scientific fields/entities: **0**.
 - Automatic canonical ontology promotions: **0**.
-- Automatic paper-level learning-paradigm assignments: **0**.
+- Automatic paper-level methodology/learning assignments: **0**.
+- Tasks 1–4 reopened: **0**.
 - Task 5.3 architecture taxonomy work performed: **0**.
 - Production `main` changes: **0**.
 - Computational Resources Stage 1/2/3 changes: **0**.
 
 ## Stop boundary
 
-**Task 5.2C was not started by Task 5.2B.**
+**Task 5.3 was not started by Task 5.2C.**
 
-Exact next action, only when separately authorized: **Task 5.2C — perform the External Methodology Coverage / Gap Audit using Tasks 5.1, 5.2, 5.2B and Master Memory Sections 57–59 as controlling inputs.**
+Exact next action, only when separately authorized: **Task 5.3 — define the Model / Representation / Coupled-ML Architecture Taxonomy using Task 5.2C as a controlling coverage input.**
