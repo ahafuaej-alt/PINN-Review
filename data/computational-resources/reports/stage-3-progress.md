@@ -5,32 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S159`
-- Latest completed resource: `CR000178`
+- Latest completed checkpoint: `Stage3-S160`
+- Latest completed resource: `CR000179`
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **0/10**
+- Current batch: `SOB018` — **1/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000179`
-- Exact next checkpoint: `Stage3-S160`
+- Exact next independently extractable resource: `CR000180`
+- Exact next checkpoint: `Stage3-S161`
 
-## Cumulative counts through S159
+## Cumulative counts through S160
 
-- Resources: **180**
-- Experiments: **265**
-- Configurations: **474**
-- Technical-evidence records: **1988**
-- Reproducibility assessments: **180**
-- Unresolved findings: **1112**
+- Resources: **181**
+- Experiments: **266**
+- Configurations: **475**
+- Technical-evidence records: **1997**
+- Reproducibility assessments: **181**
+- Unresolved findings: **1118**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **183**
+- Independently extractable resources remaining: **182**
 
-## S159
+## S160
 
-CR000177 preserves the Stage-2-authoritative A-PINN repository at its pinned snapshot. Static extraction maps one representative 1D forward Volterra integro-differential workflow: a 1-60-60-60-60-2 multi-output network, auxiliary integral state, L-BFGS default training controls, bundled model checkpoint and relative-L2 evaluation against the exact solution. Missing dependency versions, installation instructions, license, seed and immutable expected metric limit the static assessment to **R2**.
+CR000179 preserves the Stage-2-authoritative `bawalla2/JMLR-2024` repository at pinned SHA `f73f2fc5c1ba2484e60e3db101bff18139fd1cef` and the official relationship to Atlas paper 314. Its accepted role remains adjacent physics-informed continuous-time reinforcement-learning research code rather than a PINN implementation.
 
-CR000178 remains the Stage-2-authoritative GitHub profile identity. Observed owned repositories are not promoted and no paper relationship is inferred; no executable artifact belongs to the profile record, so **R0** applies.
-
-S159 completes `SOB017` at 10/10. Mandatory aggregate QA is **PASS**.
+Bounded static extraction maps the default inverted-pendulum RCI modeling-error training sweep selected by `main.m`. The pinned workflow uses the RCI-only training-group path, bundled model/data products and documented loop controls. Missing MATLAB/toolbox environment specifications, installation instructions and repository license limit the static reproducibility assessment to **R1**.
 
 No scientific workload was executed.
 
@@ -40,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S160` at `CR000179` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S161` at `CR000180` after published-head and checkpoint-QA readback.
