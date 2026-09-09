@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S157`
-- Latest completed resource: `CR000175`
+- Latest completed checkpoint: `Stage3-S158`
+- Latest completed resource: `CR000176`
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **7/10**
+- Current batch: `SOB017` — **8/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000176`
-- Exact next checkpoint: `Stage3-S158`
+- Exact next independently extractable resource: `CR000177`
+- Exact next checkpoint: `Stage3-S159`
 
-## Cumulative counts through S157
+## Cumulative counts through S158
 
-- Resources: **177**
-- Experiments: **263**
-- Configurations: **469**
-- Technical-evidence records: **1961**
-- Reproducibility assessments: **177**
-- Unresolved findings: **1095**
+- Resources: **178**
+- Experiments: **264**
+- Configurations: **473**
+- Technical-evidence records: **1975**
+- Reproducibility assessments: **178**
+- Unresolved findings: **1102**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **186**
+- Independently extractable resources remaining: **185**
 
-## S157
+## S158
 
-CR000175 preserves the corrected energy_PINN_Contact identity and repository-scoped paper citation without creating an Atlas relationship. Static extraction maps two large-deformation frictionless-contact experiments, two active configurations, prepared coordinate inputs, hard-boundary displacement networks, neo-Hookean energy and exponential contact potentials. Detailed version and training information supports **R3**; missing licensing, reference artifacts and deterministic controls block R4. SOB017 advances to 7/10.
+CR000176 remains supporting Parareal theory software rather than PINN code. Static extraction maps its core iteration/matrix library, 169-line Linux/Dedalus environment, 16-test surface, and one paper-figure experiment grouped into four workflow configurations covering all 16 documented figures. The detailed environment, tests and figure mapping support **R3**; manual parameter edits and absent reference outputs block R4. SOB017 advances to 8/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S158` at `CR000176` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S159` at `CR000177` after published-head and checkpoint-QA readback.
