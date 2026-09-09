@@ -10,27 +10,37 @@ Starting branch head: `ddae939478930ea166f2e7ff8a03ec0329c5cbf8`
 
 Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 
-This document is a **non-authoritative architecture/taxonomy coordination artifact**. It does not modify locked v0.7 scientific records, create a second PINN-type hierarchy, promote new canonical ontology terms, or create paper-level architecture assignments.
+Machine-readable coordination contract: `atlas-model-representation-coupled-ml-taxonomy-spec.json` (`task-5.3-v1.0.1`).
+
+Machine-readable validation: `TASK-5.3-MACHINE-READABLE-VALIDATION.md` — **PASS / 0 errors**.
+
+This document is a **non-authoritative architecture/taxonomy coordination artifact**. It does not modify locked v0.7 scientific records, create a second PINN-type hierarchy, promote new canonical ontology terms, create global aliases, or create paper-level architecture assignments.
 
 ## 1. Task boundary
 
-Task 5.3 resolves the architecture-side methodological gap identified by Tasks 5.1–5.2C. The purpose is not to enumerate every neural-network or machine-learning method. The purpose is to define scientifically defensible semantic boundaries so that future Atlas records can distinguish model architecture, scientific representation, model composition, external/coupled ML methods and architecture-lifecycle processes without corrupting PINN-family, learning, training, numerical-coupling or application semantics.
+Task 5.3 resolves the architecture-side methodological gap identified by Tasks 5.1–5.2C. The purpose is not to enumerate every neural-network or machine-learning method. The purpose is to define scientifically defensible semantic boundaries so that future Atlas records can distinguish:
 
-The task remains inside the frozen architecture/governance system:
+- PINN type/family;
+- neural/model architecture;
+- scientific representation;
+- model composition;
+- learning/integration mode;
+- coupled external ML method;
+- training protocol;
+- numerical/solver coupling;
+- application/equation specialization.
 
-- L1–L8 conceptual architecture;
-- G1–G14 governance;
-- R1–R48 non-negotiable scientific rules;
-- X1–X9 controlled dynamic-extension lifecycle;
-- H1–H11 operational acceptance gates.
+These dimensions are linkable but non-equivalent.
 
-Task 5.4 is **not** started here. Any question about whether a recurring concept deserves specialized future structure is passed forward explicitly to Task 5.4.
+Task 5.3 remains inside the frozen architecture/governance system: **L1–L8**, **G1–G14**, **R1–R48**, **X1–X9**, and **H1–H11**.
 
-## 2. Sources inspected
+**Task 5.4 is not started here.** Questions about future specialized storage are passed forward explicitly.
 
-The readback covered the following controlling sources before any Task 5.3 change.
+## 2. Controlling sources inspected
 
 ### 2.1 GitHub roadmap and Task 5 chain
+
+The following were re-read before finalization:
 
 - `CONTROLLED-ROADMAP.md`;
 - `TASK-5-STATUS.md`;
@@ -71,178 +81,194 @@ The review also inspected:
 - `ATLAS-PRODUCTION-SURFACE-REGISTER.md`;
 - current `/architectures/` page scaffold and its shared section-page implementation.
 
-The current `/architectures/` page is a production-surface **scaffold**, not a verified scientific classifier. Its wording therefore provides implementation context, not scientific authority.
+The current `/architectures/` page is a production-surface **scaffold**, not a verified scientific classifier. Its wording is implementation context, not scientific authority.
 
-## 3. Controlling ownership boundaries
-
-Task 5.3 preserves the following owners exactly.
+## 3. Locked ownership boundaries preserved
 
 | Scientific dimension | Controlling owner | Task 5.3 rule |
 |---|---|---|
 | PINN type/family | Task 4 / L4-P8 | Reference only; no second PINN hierarchy |
-| Neural/model architecture | MDC-01 / `PINN_architecture[]` | Architecture-family coordination |
-| Model-variable representation | MDC-02 / `model_variable_representation[]` | Scientific representation only |
-| Network configuration | MDC-03 / `network_configuration[]` | Depth, width, branch/subnetwork count and sharing do not become architecture families |
-| Physics/knowledge integration | Task 5.2 | Cross-reference only |
-| General ML learning paradigm | Task 5.2B | Cross-reference only |
-| Training protocol | MDC-15 / `training_protocol[]` | Never architecture by default |
-| Numerical/solver coupling | Task 5.2 F4 and related methodology owners | Coupling, not backbone |
-| Application/equation specialization | Task 4 specialization relations and application/problem/task owners | Never architecture identity by name alone |
+| Neural/model architecture | MDC-01 / `PINN_architecture[]` | Evidence-backed architecture-family identity |
+| Explicit model input/output representation | MDC-02 / `model_variable_representation[]` | Scientific model-interface representation |
+| Network configuration | MDC-03 / `network_configuration[]` | Depth, width, branch/subnetwork count, sharing and numeric latent dimension do not become architecture families |
+| Learning/integration | Tasks 5.2 and 5.2B | Cross-reference only |
+| Training protocol | MDC-13 / `training_protocol[]` | Training is not architecture |
+| Numerical/solver coupling | Task 5.2 F4 + existing methodology owners | Coupling is not backbone identity |
+| Application/equation specialization | Task 4 + application/problem/task owners | Specialization is not architecture identity |
+| Internal learned latent semantics | Dynamic L5 coordination pending Task 5.4 | Do not force into `model_variable_representation[]` unless the latent/code variable is an explicit model interface |
 
-This means the locked field name `PINN_architecture[]` remains the current storage owner for evidence-supported architecture terms, but Task 5.3 does **not** use that field name to collapse PINN family, backbone, representation, composition or learning mode into one concept.
+A critical refinement is therefore explicit: `model_variable_representation[]` owns scientifically meaningful **model inputs and outputs**. `network_configuration.latent_dimension` can store a numeric latent dimension. Neither field, by itself, fully owns the semantic meaning/objective of an internal learned latent space. That structural question is deferred to Task 5.4.
 
-## 4. Six-facet architecture coordination model
+## 4. Task 5.2C handoff resolved
 
-A flat list is scientifically insufficient. Task 5.3 therefore defines six orthogonal coordination facets.
+Task 5.3 uses the Task 5.2C coverage audit as a controlling input and resolves its architecture-side coordination for:
+
+- `MDC-01` — architecture family;
+- `MDC-31` — operator-learning integration;
+- `EX-07` — model compression/efficiency transformations;
+- `EX-08` — automated architecture/hyperparameter search;
+- `EX-09` — data modality/structural form, kept distinct from architecture identity;
+- `EX-10` — ML task/output type/system role, kept distinct from architecture identity;
+- `EX-13` — model combination/mixture/ensemble organization;
+- `EX-14` — representation-learning/latent-representation objective;
+- `EX-15` — surrogate/reduced-order/learned-model role.
+
+Task 5.3 does **not** convert those externally emphasized dimensions into locked-v0.7 fields.
+
+## 5. Six-facet architecture coordination model
+
+A flat list is scientifically insufficient. Task 5.3 defines six orthogonal coordination facets.
 
 ### MRF-01 — Backbone model architecture
 
-A reusable structural model family defining the connectivity/operator form of the learned approximator. Paper assignment requires explicit primary-source naming or unambiguous implementation evidence.
-
-Examples investigated: dense feed-forward/MLP, CNN, recurrent/RNN, LSTM, GRU, Transformer, GNN/GCN, KAN, RBF networks, SIREN-like architectures and existing source-supported Atlas architecture concepts.
+The actual reusable structural model family defining the connectivity/operator form of the learned approximator. Paper assignment requires explicit primary-source naming or unambiguous implementation evidence.
 
 ### MRF-02 — Model composition pattern
 
-How multiple learned components are organized. Examples include encoder–decoder, generator–discriminator, mixture of experts, ensemble and role-specific multi-network systems.
-
-Composition is not inferred from `subnetwork_count`, branch count or a plural network label. Component roles and coupling must be evidenced.
+How multiple learned components are organized and what roles they play. Component roles and coupling must be evidenced; component counts alone are insufficient.
 
 ### MRF-03 — Scientific representation choice
 
-The scientific form represented at model inputs, outputs or latent interfaces: coordinate, grid/tensor, sequence, graph, function-valued or latent/code representations, for example.
+The scientific representation at explicit model interfaces, plus separately governed internal latent semantics. Representation never determines architecture automatically.
 
-This facet remains owned by `model_variable_representation[]`. Representation does not automatically determine architecture: graph data do not prove GNN use, sequence data do not prove an RNN/LSTM/Transformer, and gridded fields do not prove a CNN.
+### MRF-04 — Generative / latent model system
 
-### MRF-04 — Generative or latent model system
+Multi-axis systems whose identity depends on composition, latent representation, objective and/or inference semantics. Autoencoders, VAEs, GANs and diffusion models cannot be represented faithfully as interchangeable backbone labels.
 
-Some named model families cannot be represented faithfully as one backbone node. Autoencoders, VAEs, GANs and diffusion models combine composition, representation, objectives and/or statistical/inference semantics.
+### MRF-05 — Coupled external ML / operator method
 
-Task 5.3 therefore treats them as **multi-axis model-system patterns**, not as simple interchangeable architecture labels.
+An external learned model or ML/operator method coupled to a PINN/physics-informed workflow while retaining its own identity.
 
-### MRF-05 — Coupled external ML or operator method
+### MRF-06 — Architecture lifecycle / search / transformation process
 
-External learned models or ML methods may be coupled to a PINN/physics-informed workflow while retaining their own identity. Neural operators, learned differential operators, Neural ODE-like components and symbolic-neural components fall under this coordination facet when supported.
+NAS, HPO, pruning, quantization, distillation and related processes. These act on architectures/model realizations but do not automatically define the final architecture identity.
 
-A coupled model does not become a PINN by adjacency.
+## 6. Backbone-family decisions
 
-### MRF-06 — Architecture lifecycle/search/transformation process
+The validated machine specification contains **13 architecture coordination nodes**. They are coordination concepts, not new locked ontology promotions.
 
-NAS/HPO, pruning, quantization and distillation describe search, selection, transformation, transfer or deployment processes. They do not by themselves define the final architecture identity.
-
-This facet is carried to Task 5.4 because locked v0.7 does not currently have one dedicated owner for every lifecycle process discovered by Task 5.2C.
-
-## 5. Backbone-family decisions
-
-The following are **coordination concepts**, not new locked-v0.7 ontology promotions.
-
-| Family | Task 5.3 disposition | Atlas consequence |
+| Family / node | Task 5.3 disposition | Scientific boundary |
 |---|---|---|
-| Dense feed-forward / MLP | Backbone family concept | Do not infer from generic `DNN` alone |
-| CNN | Backbone family concept | Convolution-related Atlas acronyms remain collision/paper scoped until verified |
-| Recurrent neural network | Backbone family umbrella | PI-RNN/PIRNN/recurrent-PINN wording is not a global alias set |
-| LSTM | Recurrent subfamily | Related to RNN but not equivalent to generic recurrent wording |
-| GRU | Recurrent subfamily | Investigated because roadmap named it; Task 5.3 found no verified Atlas paper assignment and creates none |
-| Transformer | Backbone family | Attention mechanism alone is insufficient to classify a Transformer |
-| GNN | Backbone family | Graph representation alone is insufficient |
-| GCN | GNN subtype | `GCN-PINN` occurrence remains primary-source dependent |
-| KAN | Backbone family | Shared KAN ancestry does not make PIKAN/KAN-PINN/Physics-KAN aliases |
-| PIKAN | Existing locked v0.7 architecture concept, Atlas 150 | Preserved; no new promotion or PINN-type recasting |
-| Stacked residual PINN architecture | Existing locked v0.7 architecture concept, Atlas 238 | Preserved; no universal benefit claim |
-| RBF neural network | Atlas architecture candidate | Primary-source verification required for paper mappings |
-| SIREN | Atlas architecture candidate | Sinusoidal activation alone does not prove SIREN architecture |
-| GPT-PINN network-as-activation architecture | Existing locked provisional/source-specific concept | Remains provisional/source-specific pending independent recurrence |
+| Dense feed-forward / MLP | Coordination family | Generic `DNN` wording alone is insufficient |
+| CNN | Coordination family | Grid/tensor representation does not imply CNN; C018 remains controlling |
+| Recurrent neural network | Coordination family | Sequence data do not imply a recurrent architecture |
+| LSTM | Recurrent subfamily | Not a global alias for generic recurrent wording; C013 retained |
+| GRU | Recurrent subfamily | External coverage node; no automatic Atlas assignment |
+| Transformer | Coordination family | Attention mechanism alone does not establish Transformer architecture |
+| GNN / GCN | GNN family with GCN subtype | Graph representation alone does not establish GNN |
+| KAN | Coordination family | C012 prohibits global merging of PIKAN/KAN-PINN/Physics-KAN |
+| PIKAN architecture family | Existing locked v0.7 concept | Atlas 150 preserved unchanged |
+| Stacked residual PINN architecture | Existing locked v0.7 concept | Atlas 238 preserved; network residual/skip structure ≠ physics residual |
+| RBF neural network | Atlas architecture candidate | Paper mappings require primary-source verification |
+| SIREN | Coordination family with Atlas candidate | Sinusoidal activation occurrence alone does not prove SIREN architecture |
+| GPT-PINN network-as-activation architecture | Existing locked provisional/source-specific concept | Remains source-specific pending independent recurrence |
 
-The taxonomy is deliberately extensible. It does not claim these 14 entries exhaust model architectures relevant to PINNs.
-
-## 6. Generative, latent and composition decisions
-
-### 6.1 Autoencoder
-
-An autoencoder is represented as an encoder–decoder model system with a reconstruction/representation-learning objective. It is **not** reduced to one generic backbone family. The encoder and decoder may themselves use different backbone architectures.
-
-### 6.2 Variational autoencoder
-
-A VAE adds probabilistic latent-variable and inference semantics to an autoencoding model system. `PI-VAE` and `PIVAE` remain governed by collision C017: possible source-scoped orthographic equivalence does not authorize a global alias.
-
-### 6.3 GAN
-
-A GAN is represented as generator–discriminator composition plus an adversarial objective. Generator/discriminator backbones remain separately classifiable. Collision C016 is retained: `PI-GAN`, `PIGAN`, `GAN-PINN` and `PIG-GAN` are not automatic aliases, and exact PINN/generative integration must remain source-scoped.
-
-### 6.4 Diffusion models
-
-Diffusion models are treated as a generative training/inference process with a separately classifiable model backbone. The word `diffusion` therefore does not become an architecture-family assignment automatically.
-
-### 6.5 Ensemble, mixture of experts and multi-network systems
-
-These are deliberately separated:
-
-- **ensemble**: model-combination semantics; primary general-learning owner remains Task 5.2B;
-- **mixture of experts**: experts plus a routing/gating mechanism;
-- **role-specific multi-network**: multiple learned components with explicit scientific roles.
-
-None is equivalent to the others. `subnetwork_count > 1` is not enough to classify any of them.
-
-Locked relation R-C21 is retained exactly: an unknown parameter/coefficient field may be represented by a dedicated parameter/coefficient network. That relation does **not** imply a generic `multi-network PINN` architecture class.
+This set is a governed baseline, **not an exhaustive vocabulary ceiling**.
 
 ## 7. Representation decisions
 
-Task 5.3 establishes the following coordination semantics without adding locked controlled-vocabulary values:
+Task 5.3 distinguishes the following representation concepts without adding locked controlled-vocabulary values:
 
-- coordinate / independent-variable representation;
-- grid/tensor field representation;
-- sequential/temporal representation;
+- coordinate / field-variable representation;
+- grid/tensor/image-like representation;
+- sequential/temporal-state representation;
 - graph-structured representation;
-- function-valued input/output representation;
-- latent/code representation.
+- function-valued/operator input-output representation;
+- internal latent/code representation;
+- basis/spectral/Fourier representation;
+- geometry/constraint representation.
 
-Two important negative placements are explicit:
+Mandatory negative placements:
 
-1. **Fourier features** remain a transformation/encoding concern under MDC-29 unless evidence demonstrates a separate architecture identity. Raw `Fourier Feature PINN` terminology is not enough to create one.
-2. **phi-functions, R-functions and TFC geometry/constraint representations** remain geometry/constraint representation concepts, not neural/model architecture.
+- grid/tensor representation ≠ CNN;
+- sequence representation ≠ RNN/LSTM/GRU/Transformer;
+- graph representation ≠ GNN;
+- function-valued input/output ≠ neural-operator identity;
+- latent representation ≠ autoencoder/VAE/generative learning automatically;
+- Fourier-feature encoding ≠ FNO architecture;
+- phi-function / R-function / TFC geometry representation ≠ neural architecture.
 
-## 8. Coupled-method decisions
+## 8. Composition and generative-model decisions
 
-### 8.1 Neural operators
+### 8.1 Autoencoder
 
-Neural operators retain their own operator-learning identity. Locked R-C03 remains controlling: a neural operator learns an operator between function spaces / a solution operator. Collision C014 is preserved for `PINO`, `PI-DeepONet`, `PINN-DeepONet`, `PI-FNO` and `DeepONet`.
+An autoencoder is an encoder–decoder model system with a reconstruction/representation-learning objective. Encoder and decoder backbones remain separately classifiable.
+
+`AutoPINN` is **not** interpreted as “autoencoder PINN” from its name.
+
+### 8.2 Variational autoencoder
+
+A VAE adds probabilistic latent-variable/inference semantics to an autoencoding system. `PI-VAE` and `PIVAE` remain governed by collision C017; Task 5.3 creates no global alias.
+
+### 8.3 GAN
+
+A GAN is generator–discriminator composition plus adversarial objective semantics. Generator and discriminator backbones can differ and remain separately classifiable.
+
+Collision C016 remains controlling: `PI-GAN`, `PIGAN`, `GAN-PINN` and `PIG-GAN` are not automatic aliases.
+
+### 8.4 Diffusion / score-based generative model
+
+Diffusion denotes a generative process/model system with a separately classifiable backbone. “Diffusion” is therefore not treated as a unique neural backbone label.
+
+### 8.5 Ensemble, mixture of experts and multi-network systems
+
+The following remain non-equivalent:
+
+- ensemble — model-combination semantics, with Task 5.2B as the primary learning-paradigm owner;
+- mixture of experts — experts plus routing/gating;
+- role-specific multi-network system — multiple learned components with explicit scientific roles.
+
+`subnetwork_count > 1` is not sufficient to classify any of them.
+
+Locked relation R-C21 remains exact for an unknown parameter/coefficient field represented by a dedicated parameter/coefficient network. It does not imply a generic “multi-network PINN” architecture family.
+
+## 9. Coupled-method decisions
+
+### 9.1 Neural operators
+
+Neural operators retain their own operator-learning identity. Locked R-C03 remains controlling: `neural_operator → learns → solution_operator`.
+
+Task 4 collision C014 remains unchanged for `PINO`, `PI-DeepONet`, `PINN-DeepONet`, `PI-FNO` and `DeepONet`.
 
 Therefore:
 
-`neural operator ≠ PINN` and `DeepONet/FNO ≠ PINN alias`.
+- neural operator ≠ PINN;
+- DeepONet/FNO ≠ PINN alias;
+- operator-learning task ≠ neural-operator architecture;
+- Fourier-feature input encoding ≠ Fourier neural operator;
+- hybrid PINN/operator linkage requires source evidence.
 
-A physics-informed neural operator may have an evidence-backed physics-integration relation, but that does not erase operator identity.
+### 9.2 Learned differential/operator evaluators
 
-### 8.2 Learned differential/operator evaluators
+The locked learned-differential-operator concept remains differentiation/operator-evaluation methodology by default. An architecture role requires independent source evidence.
 
-The locked learned-differential-operator concept remains differentiation/operator-evaluation methodology unless a source independently establishes a model-architecture role.
+### 9.3 Reinforcement learning
 
-### 8.3 Reinforcement learning
+Reinforcement learning / deep reinforcement learning remains a Task 5.2B learning/decision/control paradigm, **not a neural architecture**. A policy/value/function-approximator architecture is classified separately when evidence supports it.
 
-Reinforcement learning remains a Task 5.2B **learning/decision/control paradigm**, not a neural architecture. A deep-RL workflow must classify its policy/value/function-approximator architecture separately when evidence supports it.
+Thus `CNN-PINN-DRL` cannot be normalized into one architecture class from its compound name.
 
-Consequently, `CNN-PINN-DRL` cannot be normalized into one architecture class merely from the compound label.
-
-### 8.4 Numerical solvers
+### 9.4 Numerical solvers
 
 Classical numerical/solver coupling remains Task 5.2 F4 integration semantics, not an external ML architecture.
 
-### 8.5 Neural ODE and symbolic-neural candidates
+### 9.5 Neural ODE and symbolic-neural candidates
 
-Current raw Atlas terms such as `PiNODE (NeuralODE with PINN)` and `SyCo-PINN (Symbolic-Neural Collaboration PINN)` are useful discovery evidence but remain source-local/candidate evidence. Task 5.3 creates no global family assignment from them.
+Raw Atlas terms such as `PiNODE (NeuralODE with PINN)` and `SyCo-PINN (Symbolic-Neural Collaboration PINN)` remain source-local/candidate evidence. Task 5.3 creates no global family assignment from the terms.
 
-## 9. Search/compression decisions
+## 10. Search/compression decisions
 
-The 5.2C gaps around NAS/HPO and model efficiency are resolved semantically without premature schema promotion:
+The Task 5.2C process gaps are positioned as follows:
 
-- neural architecture search / DARTS-like search → architecture-search process;
-- hyperparameter optimization → search process;
-- pruning → compression/transformation process;
-- quantization → compression/deployment transformation;
-- knowledge distillation → training/model-transfer/compression process.
+- neural architecture search / DARTS-like search → architecture-search process (`EX-08`);
+- hyperparameter optimization → search process (`EX-08`);
+- pruning → compression/transformation process (`EX-07`);
+- quantization → compression/deployment transformation (`EX-07`);
+- knowledge distillation → training/model-transfer/compression process (`EX-07`).
 
 The final selected architecture, teacher architecture and student architecture remain separately represented when evidence exists.
 
-## 10. Collision and governed-review decisions
+## 11. Collision and governed-review decisions
 
 Six existing Task 4 collision classes are carried forward unchanged:
 
@@ -255,132 +281,157 @@ Six existing Task 4 collision classes are carried forward unchanged:
 
 No collision is force-resolved.
 
-Four Task 5.3 governed-review flags are registered:
+Four Task 5.3 governed-review flags are retained:
 
-1. **GR-5.3-001 — `DARTS-PINN`, Atlas 247.** Task 4 currently preserves it as a likely PINN-variant candidate needing primary-source verification, while DARTS terminology ordinarily denotes architecture search. Task 5.3 does not overwrite the historical disposition. The primary source must determine whether the paper names a final architecture, a search process or a paper-specific method.
-2. **GR-5.3-002 — `AutoPINN`, Atlas 383.** `Auto` must not be interpreted as autoencoder, architecture search or generic automation without evidence.
-3. **GR-5.3-003 — `attention-based PINN`, Atlas 794.** Attention does not establish Transformer architecture.
-4. **GR-5.3-004 — `CNN-PINN-DRL`, Atlas 695.** The label spans CNN architecture and deep-RL learning paradigm; it must be decomposed across dimensions after primary-source verification.
+1. **GR-5.3-001 — `DARTS-PINN`, Atlas 247.** Task 4 historical disposition is preserved; primary-source review must determine architecture-search versus final-architecture versus paper-specific-method semantics.
+2. **GR-5.3-002 — `AutoPINN`, Atlas 383.** Lexical `Auto` does not prove autoencoder, NAS or generic automation.
+3. **GR-5.3-003 — `attention-based PINN`, Atlas 794.** Attention does not prove Transformer architecture.
+4. **GR-5.3-004 — `CNN-PINN-DRL`, Atlas 695.** The name spans architecture and RL-learning semantics; decomposition requires primary-source verification.
 
-These flags are coordination records only. They do not modify historical Task 4 decisions.
+These records do not rewrite Task 4 history.
 
-## 11. Cross-dimensional link contract
+## 12. Cross-dimensional link contract
 
-Task 5.3 permits ten typed coordination links. None is promoted to the locked relationship registry by this task.
+Task 5.3 defines ten non-authoritative coordination link types:
 
-| ID | Coordination link | Rule |
-|---|---|---|
-| XDL-01 | PINN type/family → uses architecture → architecture concept | Reuse Task 4 coordination semantics; evidence required |
-| XDL-02 | architecture/model component → represented through → scientific representation record | Evidence required; no `is_a` implication |
-| XDL-03 | architecture/model component → configured by → network-configuration record | Record association only |
-| XDL-04 | model system → uses learning paradigm → Task 5.2B facet value | Cross-reference only |
-| XDL-05 | coupled model/operator → integrated via → Task 5.2 integration facet | Cross-reference only |
-| XDL-06 | model system → has composition pattern → composition concept | Coordination only pending Task 5.4 |
-| XDL-07 | search process → selects/configures → candidate/final architecture | Process ≠ architecture |
-| XDL-08 | compression/transformation → transforms → model realization | Process ≠ architecture |
-| XDL-09 | PINN/method → specialized for → application/equation context | Reuse Task 4 specialization semantics |
-| XDL-10 | parameter/coefficient field → represented by → dedicated parameter/coefficient network | Reuse locked R-C21 exactly |
+1. PINN type/family → `uses_architecture` → architecture concept;
+2. model/component → `represented_through` → representation record or governed latent relation;
+3. model/component → `configured_by` → network configuration;
+4. model system → `uses_learning_paradigm` → Task 5.2B facet;
+5. coupled model/operator → `integrated_via` → Task 5.2 facet;
+6. model system → `has_composition_pattern` → composition concept;
+7. search process → `selects_or_configures` → candidate/final architecture;
+8. compression process → `transforms` → model realization;
+9. PINN/method → `specialized_for` → application/equation context;
+10. parameter/coefficient field → `represented_by` → dedicated network, reusing locked R-C21 exactly.
 
-Any paper-level use of these links requires evidence and provenance. A link cannot be inferred from name co-occurrence.
+None is promoted to the locked relationship registry by Task 5.3.
 
-## 12. Mandatory no-merge rules
+## 13. Mandatory no-merge rules
 
-The machine-readable specification records 34 no-merge rules. The highest-risk rules are:
+The validated machine contract records **35 explicit no-merge rules**. High-risk boundaries include:
 
-- PINN type/family ≠ neural/model architecture;
+- PINN type/family ≠ architecture;
 - architecture ≠ network configuration;
 - architecture ≠ scientific representation;
-- representation ≠ feature transformation;
+- representation ≠ transformation/encoding;
 - architecture ≠ learning paradigm;
-- reinforcement learning ≠ architecture;
+- RL/DRL ≠ architecture;
 - physics-integration mode ≠ architecture;
 - training protocol ≠ architecture;
-- numerical-solver coupling ≠ architecture;
+- optimizer ≠ architecture;
+- solver coupling ≠ architecture;
 - application/equation specialization ≠ architecture;
-- attention mechanism ≠ Transformer;
-- LSTM ≠ generic RNN alias and GRU ≠ LSTM;
-- CNN ≠ gridded/tensor representation;
+- attention ≠ Transformer;
+- generic recurrent wording ≠ LSTM alias;
+- GRU ≠ LSTM;
+- CNN ≠ grid/tensor representation;
 - GNN ≠ graph representation;
+- Transformer ≠ sequential representation;
 - GAN ≠ generator backbone and GAN ≠ PINN;
-- autoencoder ≠ VAE and VAE ≠ GAN;
-- diffusion process ≠ backbone architecture;
-- ensemble ≠ MoE ≠ generic multi-network;
+- autoencoder ≠ VAE;
+- VAE ≠ GAN;
+- diffusion process ≠ backbone;
+- ensemble ≠ mixture of experts ≠ generic multi-network;
 - multi-output ≠ multi-network;
 - neural operator ≠ PINN;
 - NAS/HPO ≠ final architecture;
 - pruning/quantization/distillation ≠ architecture identity;
-- Fourier-feature encoding ≠ architecture;
-- geometry representation ≠ architecture;
-- sinusoidal activation ≠ SIREN architecture;
-- terminology occurrence ≠ verified classification.
+- Fourier features ≠ architecture family;
+- geometry/constraint representation ≠ neural architecture;
+- sinusoidal activation occurrence ≠ SIREN classification;
+- terminology occurrence ≠ scientifically verified classification.
 
-## 13. Evidence basis and external-definition check
+## 14. Paper-classification gate
 
-Task 5.3 used locked Atlas evidence for Atlas-specific meanings/collisions and external primary literature only to establish generic ML/model-family semantics. Generic model definitions do not create Atlas paper assignments.
+A paper receives an architecture classification only when eligible evidence establishes the actual model structure.
 
-External sources checked include:
+Minimum requirements:
 
-1. LeCun, Y.; Bottou, L.; Bengio, Y.; Haffner, P. Gradient-Based Learning Applied to Document Recognition. *Proc. IEEE* **1998**, *86*, 2278–2324. DOI: 10.1109/5.726791.
-2. Hochreiter, S.; Schmidhuber, J. Long Short-Term Memory. *Neural Comput.* **1997**, *9*, 1735–1780. DOI: 10.1162/neco.1997.9.8.1735.
-3. Cho, K.; van Merrienboer, B.; Gulcehre, C.; Bahdanau, D.; Bougares, F.; Schwenk, H.; Bengio, Y. Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation. **2014**. arXiv:1406.1078.
-4. Vaswani, A.; et al. Attention Is All You Need. *NeurIPS* **2017**. arXiv:1706.03762.
-5. Scarselli, F.; Gori, M.; Tsoi, A.C.; Hagenbuchner, M.; Monfardini, G. The Graph Neural Network Model. *IEEE Trans. Neural Netw.* **2009**, *20*, 61–80. DOI: 10.1109/TNN.2008.2005605.
-6. Liu, Z.; et al. KAN: Kolmogorov-Arnold Networks. **2024**. arXiv:2404.19756.
-7. Raissi, M.; Perdikaris, P.; Karniadakis, G.E. Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. *J. Comput. Phys.* **2019**, *378*, 686–707. DOI: 10.1016/j.jcp.2018.10.045.
-8. Hinton, G.E.; Salakhutdinov, R.R. Reducing the Dimensionality of Data with Neural Networks. *Science* **2006**, *313*, 504–507. DOI: 10.1126/science.1127647.
-9. Kingma, D.P.; Welling, M. Auto-Encoding Variational Bayes. **2013/2014**. arXiv:1312.6114.
-10. Goodfellow, I.J.; et al. Generative Adversarial Nets. *NeurIPS* **2014**. arXiv:1406.2661.
-11. Ho, J.; Jain, A.; Abbeel, P. Denoising Diffusion Probabilistic Models. *NeurIPS* **2020**. arXiv:2006.11239.
-12. Jacobs, R.A.; Jordan, M.I.; Nowlan, S.J.; Hinton, G.E. Adaptive Mixtures of Local Experts. *Neural Comput.* **1991**, *3*, 79–87. DOI: 10.1162/neco.1991.3.1.79.
-13. Lu, L.; Jin, P.; Pang, G.; Zhang, Z.; Karniadakis, G.E. Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators. *Nat. Mach. Intell.* **2021**, *3*, 218–229. DOI: 10.1038/s42256-021-00302-5.
-14. Kovachki, N.; Li, Z.; Liu, B.; Azizzadenesheli, K.; Bhattacharya, K.; Stuart, A.; Anandkumar, A. Neural Operator: Learning Maps Between Function Spaces With Applications to PDEs. *J. Mach. Learn. Res.* **2023**, *24*(89), 1–97.
-15. Sagi, O.; Rokach, L. Ensemble learning: A survey. *WIREs Data Min. Knowl. Discov.* **2018**, *8*, e1249. DOI: 10.1002/widm.1249. This reference is inherited from the Task 5.2B checked register.
+1. preserve exact raw terminology and paper association;
+2. treat names/acronyms/title occurrences/review lists as candidate signals only;
+3. verify actual model structure from eligible evidence;
+4. separate architecture, configuration, representation, activation, transformation, learning, training, solver and application dimensions;
+5. for hybrids classify only evidenced component families while preserving compound raw wording;
+6. apply collision/no-merge rules before alias normalization;
+7. route contradictions to governed review rather than force-fitting;
+8. make any new alias, relationship or family placement evidence-backed, explicit, versioned and traceable.
 
-## 14. Machine-readable artifact
+Task 5.3 creates **zero automatic paper assignments**.
+
+## 15. External semantic anchors
+
+External primary/peer-reviewed sources were used to stabilize generic model-family semantics; they do not override locked Atlas evidence and do not create paper assignments.
+
+The checked semantic anchors include:
+
+- LeCun et al., 1998 — convolutional neural networks;
+- Hochreiter and Schmidhuber, 1997 — LSTM;
+- Cho et al., 2014 — GRU;
+- Vaswani et al., 2017 — Transformer;
+- Scarselli et al., 2009 — graph neural networks;
+- Liu et al., arXiv 2024 / ICLR 2025 — KAN;
+- Sitzmann et al., 2020 — SIREN;
+- Hinton and Salakhutdinov, 2006 — autoencoder/learned code representation;
+- Kingma and Welling, 2014 — VAE;
+- Goodfellow et al., 2014 — GAN;
+- Ho et al., 2020 — diffusion probabilistic models;
+- Jacobs et al., 1991 — mixture of experts;
+- Lu et al., 2021 — DeepONet;
+- Kovachki et al., 2023 — neural operator;
+- Chen et al., 2018 — Neural ODE;
+- Liu et al., 2019 — DARTS architecture search.
+
+The external set is a semantic cross-check, not an exhaustive architecture bibliography.
+
+## 16. Machine-readable result and validation
 
 The coordination taxonomy is serialized in:
 
 `atlas-model-representation-coupled-ml-taxonomy-spec.json`
 
-The machine artifact contains:
+Validated version: `task-5.3-v1.0.1`.
 
-- 6 taxonomy facets;
-- 14 backbone/architecture coordination entries;
-- 8 composition/generative dispositions;
-- 8 representation dispositions;
-- 6 coupled-method dispositions;
-- 5 search/compression dispositions;
-- 6 carried-forward collision decisions;
-- 4 governed-review flags;
-- 10 typed cross-dimensional coordination links;
-- 34 no-merge rules;
-- a versioned evidence register and zero-promotion acceptance boundary.
+The specification contains:
 
-A focused runtime parse/consistency validation is recorded separately in `TASK-5.3-MACHINE-READABLE-VALIDATION.md` after the repository copy is written and re-read.
+- **6** facets;
+- **13** architecture nodes;
+- **8** representation nodes;
+- **8** organization/composition nodes;
+- **6** coupled-method nodes;
+- **5** search/compression process nodes;
+- **6** carried collision dependencies;
+- **4** governed-review flags;
+- **10** cross-dimensional link types;
+- **35** explicit no-merge rules.
 
-## 15. Scientific conclusion
+A focused runtime JSON parse and consistency validation was actually executed and returned **0 errors**. GitHub post-write readback confirmed the corrected specification version, ownership/crosswalk values and blob SHA. Full record: `TASK-5.3-MACHINE-READABLE-VALIDATION.md`.
 
-Task 5.3 finds that **model architecture cannot be represented scientifically by one flat controlled vocabulary**. The correct coordination model is faceted:
+No GitHub Actions/CI run, production deployment or production-page runtime validation is claimed.
 
-**PINN family + backbone architecture + model composition + scientific representation + learning/integration mode + coupled external method + training/numerical coupling + application specialization** must remain separable and linkable.
+## 17. Scientific conclusion
 
-This structure is compatible with the existing L1–L8 architecture and the locked v0.7 ownership model. Task 5.3 therefore identifies **no evidence requiring immediate locked-v0.7 schema mutation**.
+Task 5.3 finds that model architecture cannot be represented scientifically by one flat controlled vocabulary. The appropriate coordination model is faceted:
 
-The principal unresolved structural question is not scientific classification but storage specialization: whether composition patterns, architecture roles and lifecycle/search/compression processes should remain dynamic taxonomy/link records or receive specialized future structure. That decision belongs exclusively to Task 5.4.
+**PINN family + backbone architecture + composition + scientific representation + learning/integration + coupled external method + training/numerical coupling + application specialization** remain separable and linkable.
 
-## 16. Change boundary
+The existing L1–L8 architecture, L5 taxonomy/relationship controls, evidence/provenance model and locked v0.7 owners can coordinate this space without immediate schema mutation.
+
+The main unresolved question is structural specialization, not taxonomy existence: whether internal latent semantics, reusable component roles, architecture-search/compression processes, and surrogate/ROM/learned-component system roles should remain dynamic taxonomy/link records or receive specialized future storage. That question belongs to Task 5.4.
+
+## 18. Change boundary
 
 - New locked-v0.7 scientific fields/entities: **0**.
 - Automatic canonical ontology promotions: **0**.
 - Automatic global alias promotions: **0**.
 - Automatic paper-level architecture/method assignments: **0**.
 - Locked scientific evidence modified: **0**.
-- Production `main` changes: **0**.
-- Computational Resources Stage 1/2/3 changes: **0**.
+- Production `main` changes from Task 5.3: **0**.
+- Computational Resources Stage 1/2/3 changes from Task 5.3: **0**.
 - Task 5.4 work performed: **0**.
 
-## 17. Stop boundary
+## 19. Stop boundary
 
-**Task 5.3 stops here. Task 5.4 has not started.**
+**Task 5.3 is complete. Task 5.4 has not started.**
 
-Exact next substantive roadmap action: **Task 5.4 — decide which concepts require specialized structure versus dynamic taxonomy/linking records, using Tasks 5.1–5.3 as controlling inputs.**
+Exact next substantive roadmap action, only when separately authorized: **Task 5.4 — decide which concepts require specialized structure versus dynamic taxonomy/linking records, using Tasks 5.1–5.3 as controlling inputs.**
