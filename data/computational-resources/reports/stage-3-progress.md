@@ -5,37 +5,37 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S169`
-- Latest completed resource: `CR000189`
+- Latest completed checkpoint: `Stage3-S170`
+- Latest completed resource: `CR000190`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **1/10**
+- Current batch: `SOB019` — **2/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000190`
-- Exact next checkpoint: `Stage3-S170`
+- Exact next independently extractable resource: `CR000191`
+- Exact next checkpoint: `Stage3-S171`
 
-## Cumulative counts through S169
+## Cumulative counts through S170
 
-- Resources: **191**
-- Experiments: **276**
-- Configurations: **491**
-- Technical-evidence records: **2095**
-- Reproducibility assessments: **191**
-- Unresolved findings: **1168**
-- Explicit conflicts: **131**
-- Independently extractable resources remaining: **172**
+- Resources: **192**
+- Experiments: **279**
+- Configurations: **496**
+- Technical-evidence records: **2107**
+- Reproducibility assessments: **192**
+- Unresolved findings: **1175**
+- Explicit conflicts: **133**
+- Independently extractable resources remaining: **171**
 
-## S169
+## S170
 
-CR000189 preserves the Stage-2-authoritative `wanghui589/FENet` repository at pinned SHA `df6b10a27f717ae59e130557f9fcc9cd40391290`, its MIT license, non-PINN classification, paper title and no-Atlas-relationship boundary.
+CR000190 preserves the Stage-2-authoritative `xzhao399/DEM_TO` snapshot at `a946ba6cc0ed7016eedbd5f00c3a7391c6e3ca03` as adjacent physics-informed deep-energy topology-optimization code, not a conventional PINN. Three workflows and five configurations cover heat grids at 100×50, 200×100, and 400×200 plus compliant inverter and gripper cases.
 
-The complete pinned tree contains only `README.md`, `LICENSE`, and `environment.yml`. No source, model, data, entrypoint, experiment or configuration is invented. The static level is **R1**. Four discrepancies remain explicit: present/future artifact claims versus the empty artifact surface, FENet versus BioMime environment identity, Python 3.7.11 versus 3.7.16, and mixed CUDA/ROCm PyTorch package builds. SOB019 opens at 1/10.
+The static level is **R1**. No license, citation, dependency manifest, or portable environment exists. Google Drive/Colab coupling, compiled MMA objects, one Heat_400_200 path mismatch, absent model-save targets, bounded binary lineage, and the unexecuted workflow block higher levels. Two path/artifact conflicts remain explicit. SOB019 advances to 2/10.
 
 No scientific workload was executed.
 
 ## Reconciled baseline
 
-Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility records. Stage3-RC03 remains authoritative for repaired S129/S132 enum labels. Accepted methodology and schemas are unchanged.
+Stage3-RC02 and Stage3-RC03 remain authoritative. Accepted methodology and schemas are unchanged.
 
 ## Continuation
 
-Continue with `Stage3-S170` at `CR000190` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S171` at `CR000191` after published-head and checkpoint-QA readback.

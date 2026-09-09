@@ -1,26 +1,26 @@
 # Computational Resources Stage 3 Unresolved Findings
 
 Date: 2026-09-09
-Latest checkpoint: `Stage3-S169`
+Latest checkpoint: `Stage3-S170`
 Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-Current batch: `SOB019` — **1/10**
+Current batch: `SOB019` — **2/10**
 
 ## Cumulative status
 
-- Unresolved findings: **1168**
-- Explicit conflicts: **131**
-- Next unresolved identifier: `S3U-1169`
+- Unresolved findings: **1175**
+- Explicit conflicts: **133**
+- Next unresolved identifier: `S3U-1176`
 
-## New findings in S169
+## New findings in S170
 
-- `S3U-1164` — medium — No Atlas-paper relationship is asserted for this non-PINN resource.
-- `S3U-1165` — high — Implementation/model and future-release claims conflict with the three-file artifact surface.
-- `S3U-1166` — high — The environment is named and prefixed for BioMime rather than FENet.
-- `S3U-1167` — medium — README Python 3.7.11 conflicts with environment Python 3.7.16.
-- `S3U-1168` — high — CUDA torch/torchvision builds are combined with a ROCm torchaudio build.
-
-Four new explicit conflicts are introduced (`S3U-1165`–`S3U-1168`). Full evidence links and scopes are retained in the S169 extraction log.
+- `S3U-1169` — medium — No Atlas-paper relationship is asserted.
+- `S3U-1170` — high — No repository license is identified.
+- `S3U-1171` — high — The environment is unpinned and Colab/Drive/Linux-binary coupled.
+- `S3U-1172` — high — Heat_400_200 uses a mismatched Drive directory; explicit conflict.
+- `S3U-1173` — medium — Several implemented model-save targets are absent; explicit conflict.
+- `S3U-1174` — medium — Bundled binary/model/result lineage remains bounded.
+- `S3U-1175` — medium — Citation, numeric acceptance targets, and execution are absent.
 
 ## Continuation
 
-Exact next resource: `CR000190`. Exact next checkpoint: `Stage3-S170`.
+Exact next resource: `CR000191`. Exact next checkpoint: `Stage3-S171`.
