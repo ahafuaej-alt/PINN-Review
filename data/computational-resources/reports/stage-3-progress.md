@@ -5,30 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S161`
-- Latest completed resource: `CR000180`
+- Latest completed checkpoint: `Stage3-S162`
+- Latest completed resource: `CR000181`
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **2/10**
+- Current batch: `SOB018` — **3/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000181`
-- Exact next checkpoint: `Stage3-S162`
+- Exact next independently extractable resource: `CR000182`
+- Exact next checkpoint: `Stage3-S163`
 
-## Cumulative counts through S161
+## Cumulative counts through S162
 
-- Resources: **182**
-- Experiments: **267**
-- Configurations: **476**
-- Technical-evidence records: **2005**
-- Reproducibility assessments: **182**
-- Unresolved findings: **1123**
+- Resources: **183**
+- Experiments: **268**
+- Configurations: **477**
+- Technical-evidence records: **2015**
+- Reproducibility assessments: **183**
+- Unresolved findings: **1128**
 - Explicit conflicts: **124**
-- Independently extractable resources remaining: **181**
+- Independently extractable resources remaining: **180**
 
-## S161
+## S162
 
-CR000180 preserves the Stage-2-authoritative `dyelax/Adversarial_Video_Generation` repository at pinned SHA `458cef18dca1b5d13bee10f5ae39b85d602698f3`, its MIT license and the explicit no-Atlas-relationship boundary. It remains non-PINN research code.
+CR000181 preserves the Stage-2-authoritative `fastai/fastai` repository at pinned SHA `517e68da4779897e6d2668f07aa9aed52e0e4a89`, its Apache-2.0 license, peer-reviewed software citation and explicit no-Atlas-relationship boundary. It remains a general-purpose supporting deep-learning library rather than PINN code.
 
-Bounded static extraction maps the documented Ms. Pac-Man adversarial future-frame prediction workflow. The repository provides the TensorFlow-era runner, multiscale generator/discriminator configuration, external-data instructions and bundled historical result summaries. No formal dependency versions or installation procedure are provided, limiting static reproducibility to **R1**. The source default generator learning rate `0.00004` conflicts explicitly with its adjacent comment stating the paper value `0.04`; both values are retained without resolution.
+Bounded static extraction follows the original Stage-1 deep link to the current pinned one-cycle scheduling implementation. One experiment and one configuration capture the `Learner.fit_one_cycle` learning-rate/momentum schedule, exact defaults, callback integration and notebook assertions. Formal dependency declarations, installation instructions and test commands support **R3**; compatible ranges rather than a lockfile and the unexecuted boundary block R4. SOB018 advances to 3/10.
 
 No scientific workload was executed.
 
@@ -38,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S162` at `CR000181` after published-head and checkpoint-QA readback. CR000181 is a large general-purpose framework/library and should receive the accepted single-resource treatment.
+Continue with `Stage3-S163` at `CR000182` after published-head and checkpoint-QA readback. CR000182 is a large general-purpose framework/library and should receive the accepted single-resource treatment.

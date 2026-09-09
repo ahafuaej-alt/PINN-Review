@@ -5,42 +5,38 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S161`
-- Resources: CR000180
+- Checkpoint: `Stage3-S162`
+- Resources: CR000181
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **2/10**
+- Current batch: `SOB018` — **3/10**
 - Checkpoint QA: **PASS**
 
-All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, source-scope, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. CR000180 remains non-PINN research code and its generator learning-rate discrepancy remains explicit conflicting evidence.
+All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. The extraction preserves fastai's supporting-library identity and bounds experiment normalization to the one-cycle scheduling feature identified by the original resource link.
 
 ## Checkpoint counts
 
 - Resources: **1**
 - Experiments: **1**
 - Configurations: **1**
-- Technical-evidence records: **8**
+- Technical-evidence records: **10**
 - Reproducibility assessments: **1**
 - New unresolved findings: **5**
-- New explicit conflicts: **1**
+- New explicit conflicts: **0**
 
 ## Cumulative counts
 
-- Resources: **182**
-- Experiments: **267**
-- Configurations: **476**
-- Technical-evidence records: **2005**
-- Reproducibility assessments: **182**
-- Unresolved findings: **1123**
+- Resources: **183**
+- Experiments: **268**
+- Configurations: **477**
+- Technical-evidence records: **2015**
+- Reproducibility assessments: **183**
+- Unresolved findings: **1128**
 - Explicit conflicts: **124**
-
-## Aggregate QA
-
-No aggregate batch QA is due at S161. `SOB017` remains the latest completed aggregate batch and is **PASS (10/10)**. `SOB018` is **2/10**.
 
 ## Scientific boundary
 
-Only Stage-2 authority, exact pinned repository content and static source/documentation were inspected. No dataset, model, training, evaluation, test or runtime environment was executed.
+The exact pinned tree, Stage-2 authority, documentation, manifests, one-cycle scheduler source and notebook assertions were inspected statically. No package was installed, test or notebook run, schedule trace generated or scientific workload executed.
 
 ## Continuation
 
-Exact next resource: `CR000181`. Exact next checkpoint: `Stage3-S162`. Independently extractable resources remaining: **181**.
+Exact next resource: `CR000182`. Exact next checkpoint: `Stage3-S163`. Independently extractable resources remaining: **180**.
