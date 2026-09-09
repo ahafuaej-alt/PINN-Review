@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S152`
-- Latest completed resource: `CR000170`
+- Latest completed checkpoint: `Stage3-S153`
+- Latest completed resource: `CR000171`
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **2/10**
+- Current batch: `SOB017` — **3/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000171`
-- Exact next checkpoint: `Stage3-S153`
+- Exact next independently extractable resource: `CR000172`
+- Exact next checkpoint: `Stage3-S154`
 
-## Cumulative counts through S152
+## Cumulative counts through S153
 
-- Resources: **172**
+- Resources: **173**
 - Experiments: **259**
 - Configurations: **464**
-- Technical-evidence records: **1902**
-- Reproducibility assessments: **172**
-- Unresolved findings: **1066**
+- Technical-evidence records: **1912**
+- Reproducibility assessments: **173**
+- Unresolved findings: **1071**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **191**
+- Independently extractable resources remaining: **190**
 
-## S152
+## S153
 
-CR000170 preserves the official non-PINN MRI super-resolution repository and exact pinned snapshot. Static extraction maps the five compared 3D CNN architectures, external IXI data, versioned Conda environment, split manifests, representative training settings and inference path. A gradient-update defect and an evaluation model-label mismatch remain explicit conflicts, constraining reproducibility to **R2**. SOB017 advances to 2/10.
+CR000171 preserves the non-PINN CAD Solid and Field identity and supporting paper-software relationship. Static extraction bounds its Windows pre/post-processing workflow, six documented solver-module families, 621 bundled artifacts and cardiac geometry/input surface. The absence of licensing, complete source/build provenance and an exact paper configuration constrains reproducibility to **R2**. SOB017 advances to 3/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S153` at `CR000171` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S154` at `CR000172` after published-head and checkpoint-QA readback.
