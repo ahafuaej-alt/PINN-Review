@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S156`
-- Latest completed resource: `CR000174`
+- Latest completed checkpoint: `Stage3-S157`
+- Latest completed resource: `CR000175`
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **6/10**
+- Current batch: `SOB017` — **7/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000175`
-- Exact next checkpoint: `Stage3-S157`
+- Exact next independently extractable resource: `CR000176`
+- Exact next checkpoint: `Stage3-S158`
 
-## Cumulative counts through S156
+## Cumulative counts through S157
 
-- Resources: **176**
-- Experiments: **261**
-- Configurations: **467**
-- Technical-evidence records: **1946**
-- Reproducibility assessments: **176**
-- Unresolved findings: **1088**
+- Resources: **177**
+- Experiments: **263**
+- Configurations: **469**
+- Technical-evidence records: **1961**
+- Reproducibility assessments: **177**
+- Unresolved findings: **1095**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **187**
+- Independently extractable resources remaining: **186**
 
-## S156
+## S157
 
-CR000174 remains a profile-only identity. The accepted Stage2-RC01 closure is preserved: EquiNO and KPCA-DeepONet are separate promoted resources, Enhancement-of-PIV-via-PINNs reuses CR000024, and four unavailable or out-of-scope discoveries are not materialized. No experiment, repository-level paper relationship or duplicate identity is invented. Profile-level reproducibility is **R0**. SOB017 advances to 6/10.
+CR000175 preserves the corrected energy_PINN_Contact identity and repository-scoped paper citation without creating an Atlas relationship. Static extraction maps two large-deformation frictionless-contact experiments, two active configurations, prepared coordinate inputs, hard-boundary displacement networks, neo-Hookean energy and exponential contact potentials. Detailed version and training information supports **R3**; missing licensing, reference artifacts and deterministic controls block R4. SOB017 advances to 7/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S157` at `CR000175` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S158` at `CR000176` after published-head and checkpoint-QA readback.

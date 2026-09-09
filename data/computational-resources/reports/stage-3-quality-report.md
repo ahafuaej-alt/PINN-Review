@@ -5,38 +5,38 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S156`
-- Resources: CR000174
+- Checkpoint: `Stage3-S157`
+- Resources: CR000175
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **6/10**
+- Current batch: `SOB017` — **7/10**
 - Checkpoint QA: **PASS**
 
-All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. The profile closure is represented without duplicating promoted resources or assigning unsupported Atlas relationships.
+All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. Two independently extractable contact cases are retained without treating prepared coordinate inputs as a standalone research dataset or converting the repository citation into an Atlas relationship.
 
 ## Checkpoint counts
 
 - Resources: **1**
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **6**
+- Experiments: **2**
+- Configurations: **2**
+- Technical-evidence records: **15**
 - Reproducibility assessments: **1**
-- New unresolved findings: **5**
+- New unresolved findings: **7**
 - New explicit conflicts: **0**
 
 ## Cumulative counts
 
-- Resources: **176**
-- Experiments: **261**
-- Configurations: **467**
-- Technical-evidence records: **1946**
-- Reproducibility assessments: **176**
-- Unresolved findings: **1088**
+- Resources: **177**
+- Experiments: **263**
+- Configurations: **469**
+- Technical-evidence records: **1961**
+- Reproducibility assessments: **177**
+- Unresolved findings: **1095**
 - Explicit conflicts: **123**
 
 ## Scientific boundary
 
-Only accepted Stage-2 profile and discovery-closure records were inspected. The live profile was not refreshed, repository experiments were not attributed to the profile, and no scientific workload was executed.
+The exact pinned tree, README and two case source directories were inspected statically. Coordinate MAT files were not loaded, TensorFlow models were not built, and no training or visualization was executed.
 
 ## Continuation
 
-Exact next resource: `CR000175`. Exact next checkpoint: `Stage3-S157`. Independently extractable resources remaining: **187**.
+Exact next resource: `CR000176`. Exact next checkpoint: `Stage3-S158`. Independently extractable resources remaining: **186**.
