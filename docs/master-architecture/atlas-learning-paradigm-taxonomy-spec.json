@@ -1,0 +1,324 @@
+{
+  "spec_id": "atlas-learning-paradigm-taxonomy-spec",
+  "task": "5.2B",
+  "date": "2026-09-09",
+  "status": "PASS_COMPLETE",
+  "scientific_authority": false,
+  "may_define_scientific_meaning": false,
+  "may_modify_locked_v0_7": false,
+  "locked_scientific_authority": "Google Drive v0.7-pilot-atlas-prefreeze",
+  "implementation_contract": "Master Plan v1.0",
+  "purpose": "Non-authoritative coordination taxonomy for general machine-learning learning paradigms as orthogonal evidence-backed facets.",
+  "core_rule": "Do not force one scalar learning_type. A paper may carry multiple evidence-backed paradigm assignments across independent facets.",
+  "controlling_inputs": [
+    "TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md",
+    "TASK-5.2-LEARNING-INTEGRATION-TYPE-TAXONOMY.md",
+    "TASK-3 Paper Profile PP-08 methodology contract",
+    "Task 4 PINN-type boundaries",
+    "Master Memory Sections 57-58"
+  ],
+  "external_sources": [
+    {
+      "id": "EXT-LP-01",
+      "type": "standard_terminology",
+      "citation": "NIST AI 100-2 E2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "url": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+      "supports": ["supervised_learning", "unsupervised_learning", "semi_supervised_learning", "self_supervised_learning", "reinforcement_learning", "federated_learning", "ensemble_learning"]
+    },
+    {
+      "id": "EXT-LP-02",
+      "type": "peer_reviewed_taxonomy",
+      "citation": "Emmert-Streib et al. (2022), Taxonomy of machine learning paradigms: A data-centric perspective, WIREs Data Mining and Knowledge Discovery",
+      "doi": "10.1002/widm.1470",
+      "supports": ["supervised_learning", "unsupervised_learning", "reinforcement_learning", "semi_supervised_learning", "transfer_learning", "multi_task_learning", "one_shot_learning", "positive_unlabeled_learning", "inductive_learning", "transductive_learning"]
+    },
+    {
+      "id": "EXT-LP-03",
+      "type": "peer_reviewed_survey",
+      "citation": "Hoi et al. (2021), Online learning: A comprehensive survey, Neurocomputing",
+      "doi": "10.1016/j.neucom.2021.04.112",
+      "supports": ["batch_offline_learning", "online_learning", "incremental_learning"]
+    },
+    {
+      "id": "EXT-LP-04",
+      "type": "peer_reviewed_survey",
+      "citation": "Wang et al. (2024), A Comprehensive Survey of Continual Learning: Theory, Method and Application, IEEE TPAMI",
+      "doi": "10.1109/TPAMI.2024.3367329",
+      "supports": ["continual_learning", "incremental_learning"]
+    },
+    {
+      "id": "EXT-LP-05",
+      "type": "peer_reviewed_survey",
+      "citation": "Cacciarelli and Kulahci (2024), Active learning for data streams: a survey, Machine Learning",
+      "doi": "10.1007/s10994-023-06454-2",
+      "supports": ["active_learning", "online_active_learning"]
+    },
+    {
+      "id": "EXT-LP-06",
+      "type": "peer_reviewed_survey",
+      "citation": "Bekker and Davis (2020), Learning from positive and unlabeled data: a survey, Machine Learning",
+      "doi": "10.1007/s10994-020-05877-5",
+      "supports": ["positive_unlabeled_learning"]
+    },
+    {
+      "id": "EXT-LP-07",
+      "type": "peer_reviewed_taxonomy",
+      "citation": "Hernandez-Gonzalez et al. (2016), Weak supervision and other non-standard classification problems: A taxonomy, Pattern Recognition Letters",
+      "doi": "10.1016/j.patrec.2015.10.008",
+      "supports": ["weak_supervision"]
+    },
+    {
+      "id": "EXT-LP-08",
+      "type": "peer_reviewed_survey",
+      "citation": "Tian et al. (2022), Meta-learning approaches for learning-to-learn in deep learning: A survey, Neurocomputing",
+      "doi": "10.1016/j.neucom.2022.04.078",
+      "supports": ["meta_learning"]
+    },
+    {
+      "id": "EXT-LP-09",
+      "type": "peer_reviewed_review",
+      "citation": "Zhang and Yang (2018), An overview of multi-task learning, National Science Review",
+      "doi": "10.1093/nsr/nwx105",
+      "supports": ["multi_task_learning", "multi_label_multi_output_learning"]
+    },
+    {
+      "id": "EXT-LP-10",
+      "type": "peer_reviewed_survey",
+      "citation": "Liu et al. (2023), A survey on federated learning: a perspective from multi-party computation, Frontiers of Computer Science",
+      "doi": "10.1007/s11704-023-3282-7",
+      "supports": ["federated_learning"]
+    },
+    {
+      "id": "EXT-LP-11",
+      "type": "peer_reviewed_survey",
+      "citation": "Sagi and Rokach (2018), Ensemble learning: A survey, WIREs Data Mining and Knowledge Discovery",
+      "doi": "10.1002/widm.1249",
+      "supports": ["ensemble_learning", "bagging_family", "boosting_family", "stacking_meta_ensemble"]
+    },
+    {
+      "id": "EXT-LP-12",
+      "type": "peer_reviewed_review",
+      "citation": "Kouw and Loog (2021), A Review of Domain Adaptation without Target Labels, IEEE TPAMI",
+      "doi": "10.1109/TPAMI.2019.2945942",
+      "supports": ["domain_adaptation"]
+    },
+    {
+      "id": "EXT-LP-13",
+      "type": "peer_reviewed_survey",
+      "citation": "Zhou et al. (2023), Domain Generalization: A Survey, IEEE TPAMI",
+      "doi": "10.1109/TPAMI.2022.3195549",
+      "supports": ["domain_generalization"]
+    },
+    {
+      "id": "EXT-LP-14",
+      "type": "peer_reviewed_review",
+      "citation": "Pourpanah et al. (2023), A Review of Generalized Zero-Shot Learning Methods, IEEE TPAMI",
+      "doi": "10.1109/TPAMI.2022.3191696",
+      "supports": ["zero_shot_learning"]
+    },
+    {
+      "id": "EXT-LP-15",
+      "type": "reference_encyclopedia",
+      "citation": "Liu and Webb (2017), Generative and Discriminative Learning, Encyclopedia of Machine Learning and Data Mining",
+      "doi": "10.1007/978-1-4899-7687-1_113",
+      "supports": ["generative_learning", "discriminative_learning"]
+    }
+  ],
+  "facets": [
+    {
+      "id": "LP-F1",
+      "label": "supervision_feedback_paradigm",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F1-01", "key": "supervised_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01", "EXT-LP-02"]},
+        {"id": "LP-F1-02", "key": "unsupervised_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01", "EXT-LP-02"]},
+        {"id": "LP-F1-03", "key": "semi_supervised_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01", "EXT-LP-02"]},
+        {"id": "LP-F1-04", "key": "self_supervised_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01"]},
+        {"id": "LP-F1-05", "key": "reinforcement_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01", "EXT-LP-02"]}
+      ],
+      "atlas_context_owners": ["PAPER_PROBLEMS.data_regime[]", "evidence/provenance", "Task 5.2 physics_integration_mode[] projection"],
+      "owner_gap": "No explicit locked-v0.7 general supervision-paradigm owner.",
+      "guard": "Do not infer unsupervised or self-supervised identity from absence of observational labels or from PINN residual training alone."
+    },
+    {
+      "id": "LP-F2",
+      "label": "label_availability_acquisition_paradigm",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F2-01", "key": "active_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-05"]},
+        {"id": "LP-F2-02", "key": "weak_supervision", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-07"]},
+        {"id": "LP-F2-03", "key": "positive_unlabeled_learning", "coordination_status": "specialized_candidate", "sources": ["EXT-LP-02", "EXT-LP-06"]},
+        {"id": "LP-F2-04", "key": "one_class_learning", "coordination_status": "specialized_candidate", "sources": ["EXT-LP-02"]}
+      ],
+      "atlas_context_owners": ["PAPER_PROBLEMS.data_regime[]", "METHODOLOGICAL_FEATURES.sampling_strategy[]", "evidence/provenance"],
+      "owner_gap": "No explicit locked-v0.7 label-acquisition paradigm owner.",
+      "guard": "Adaptive collocation or residual sampling is not automatically active learning; semi-supervised, weak supervision and positive-unlabeled learning are not automatic synonyms."
+    },
+    {
+      "id": "LP-F3",
+      "label": "learning_update_regime",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F3-01", "key": "batch_offline_learning", "coordination_status": "coordination_baseline", "sources": ["EXT-LP-03"]},
+        {"id": "LP-F3-02", "key": "online_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-03"]},
+        {"id": "LP-F3-03", "key": "incremental_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-03", "EXT-LP-04"]},
+        {"id": "LP-F3-04", "key": "continual_lifelong_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-04"]}
+      ],
+      "atlas_context_owners": ["METHODOLOGICAL_FEATURES.training_protocol[]", "task/time/component evidence"],
+      "owner_gap": "No explicit locked-v0.7 update-regime owner.",
+      "guard": "Online, incremental and continual/lifelong learning overlap in literature but are not globally interchangeable."
+    },
+    {
+      "id": "LP-F4",
+      "label": "adaptation_reuse_paradigm",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F4-01", "key": "transfer_learning", "coordination_status": "existing_atlas_dimension_anchor", "sources": ["EXT-LP-02"]},
+        {"id": "LP-F4-02", "key": "domain_adaptation", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-12"]},
+        {"id": "LP-F4-03", "key": "domain_generalization", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-13"]},
+        {"id": "LP-F4-04", "key": "meta_learning", "coordination_status": "existing_atlas_dimension_anchor", "sources": ["EXT-LP-08"]},
+        {"id": "LP-F4-05", "key": "warm_start_continuation_reuse", "coordination_status": "existing_task5_2_control", "sources": []}
+      ],
+      "atlas_context_owners": ["Task 5.2 transfer/reuse facet", "METHODOLOGICAL_FEATURES.training_protocol[]", "Taxonomy/Relationship Registry"],
+      "owner_gap": "Transfer/meta are recognized dimensions but no dedicated locked-v0.7 top-level paradigm field exists.",
+      "guard": "Transfer learning is not equivalent to fine-tuning scheduling, domain adaptation, domain generalization, meta-learning or warm-start reuse."
+    },
+    {
+      "id": "LP-F5",
+      "label": "target_support_sample_scarcity_regime",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F5-01", "key": "few_shot_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-02"]},
+        {"id": "LP-F5-02", "key": "one_shot_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-02"]},
+        {"id": "LP-F5-03", "key": "zero_shot_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-14"]}
+      ],
+      "atlas_context_owners": ["PAPER_PROBLEMS.data_regime[]", "task/domain evidence"],
+      "owner_gap": "No explicit locked-v0.7 few/one/zero-shot owner.",
+      "guard": "Sparse or zero observational data does not establish few-shot, one-shot or zero-shot learning."
+    },
+    {
+      "id": "LP-F6",
+      "label": "task_organization_paradigm",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F6-01", "key": "multi_task_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-02", "EXT-LP-09"]},
+        {"id": "LP-F6-02", "key": "single_task_learning", "coordination_status": "coordination_baseline", "sources": []},
+        {"id": "LP-F6-03", "key": "multi_label_multi_output_learning", "coordination_status": "related_not_equivalent_candidate", "sources": ["EXT-LP-09"]}
+      ],
+      "atlas_context_owners": ["computational task records", "study design/context associations", "evidence/relationships"],
+      "owner_gap": "No explicit locked-v0.7 multi-task-learning identity owner.",
+      "guard": "Multiple physical outputs or multiple loss components do not automatically establish multi-task learning."
+    },
+    {
+      "id": "LP-F7",
+      "label": "distributed_collaborative_learning_paradigm",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F7-01", "key": "federated_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01", "EXT-LP-10"]},
+        {"id": "LP-F7-02", "key": "decentralized_federated_learning", "coordination_status": "specialized_candidate", "sources": ["EXT-LP-10"]},
+        {"id": "LP-F7-03", "key": "other_decentralized_collaborative_learning", "coordination_status": "extension_slot", "sources": []}
+      ],
+      "atlas_context_owners": ["METHODOLOGICAL_FEATURES.parallel_execution[]", "evidence/relationships"],
+      "owner_gap": "parallel_execution[] stores execution mode, not federated/collaborative-learning identity.",
+      "guard": "Federated learning is not equivalent to generic distributed training, data parallelism, domain decomposition or distributed inference."
+    },
+    {
+      "id": "LP-F8",
+      "label": "model_combination_ensemble_paradigm",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F8-01", "key": "ensemble_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-01", "EXT-LP-11"]},
+        {"id": "LP-F8-02", "key": "bagging_family_ensemble", "coordination_status": "subtype_candidate", "sources": ["EXT-LP-11"]},
+        {"id": "LP-F8-03", "key": "boosting_family_ensemble", "coordination_status": "subtype_candidate", "sources": ["EXT-LP-11"]},
+        {"id": "LP-F8-04", "key": "stacking_meta_ensemble", "coordination_status": "subtype_candidate", "sources": ["EXT-LP-11"]}
+      ],
+      "atlas_context_owners": ["architecture/model evidence", "METHODOLOGICAL_FEATURES.uncertainty_method[] when UQ-specific"],
+      "owner_gap": "No explicit locked-v0.7 general ensemble-learning owner.",
+      "guard": "Ensemble learning is not automatically UQ; mixture-of-experts is not automatically an ensemble-learning synonym and its architecture belongs to Task 5.3."
+    },
+    {
+      "id": "LP-F9",
+      "label": "statistical_learning_character",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F9-01", "key": "generative_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-15"]},
+        {"id": "LP-F9-02", "key": "discriminative_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-15"]},
+        {"id": "LP-F9-03", "key": "hybrid_generative_discriminative", "coordination_status": "extension_slot", "sources": ["EXT-LP-15"]}
+      ],
+      "atlas_context_owners": ["model/objective evidence", "architecture relation where applicable"],
+      "owner_gap": "No explicit locked-v0.7 statistical-learning-character owner.",
+      "guard": "Generative/discriminative character is not identical to model family; GAN, VAE, diffusion and flow identities belong to Task 5.3."
+    },
+    {
+      "id": "LP-F10",
+      "label": "inference_generalization_regime",
+      "cardinality": "0..N",
+      "terms": [
+        {"id": "LP-F10-01", "key": "inductive_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-02"]},
+        {"id": "LP-F10-02", "key": "transductive_learning", "coordination_status": "externally_supported_candidate", "sources": ["EXT-LP-02"]}
+      ],
+      "atlas_context_owners": ["task/data/generalization evidence"],
+      "owner_gap": "No explicit locked-v0.7 inductive/transductive owner.",
+      "guard": "Inductive/transductive learning must not be inferred from interpolation/extrapolation evaluation labels."
+    }
+  ],
+  "global_no_merge_guards": [
+    "general_learning_paradigm != physics_knowledge_integration_mode",
+    "general_learning_paradigm != PINN_type_family",
+    "learning_paradigm != representation_model_architecture",
+    "reinforcement_learning != architecture_family",
+    "deep_learning != one_learning_paradigm_or_one_architecture_family",
+    "self_supervised_learning != generic_unsupervised_automatic_alias",
+    "semi_supervised != weak_supervision != positive_unlabeled_learning",
+    "active_learning != adaptive_collocation_or_sampling_by_default",
+    "online_learning != incremental_learning != continual_learning_globally",
+    "transfer_learning != fine_tuning_schedule_by_default",
+    "transfer_learning != domain_adaptation != domain_generalization",
+    "meta_learning != transfer_learning != few_shot_learning",
+    "few_shot_learning != sparse_data",
+    "zero_shot_learning != zero_observational_data",
+    "multi_task_learning != multiple_outputs != multiple_loss_components",
+    "multi_task_learning != multi_label_multi_output_globally",
+    "federated_learning != distributed_parallel_execution",
+    "ensemble_learning != uncertainty_quantification",
+    "mixture_of_experts != ensemble_learning_automatic_alias",
+    "generative_discriminative_character != model_family_identity",
+    "GAN_VAE_diffusion != generic_generative_learning_synonym",
+    "inductive_transductive != interpolation_extrapolation_evaluation_label"
+  ],
+  "paper_assignment_requirements": [
+    "paper_id",
+    "exact_source_terminology_if_available",
+    "facet_id",
+    "normalized_concept_or_provisional_term",
+    "evidence_id",
+    "verified_locator_when_available",
+    "source_role_and_scope",
+    "verification_status",
+    "support_status",
+    "taxonomy_status_and_alias_scope",
+    "relation_context_where_needed",
+    "reviewer_version_change_history"
+  ],
+  "paper_profile_implication": {
+    "future_projection": "PP-08 Learning Paradigms",
+    "cardinality": "multi_faceted_0_to_N",
+    "current_locked_field_added": false,
+    "scalar_learning_type_allowed": false,
+    "structural_owner_decision_task": "5.4"
+  },
+  "acceptance": {
+    "minimum_roadmap_axes_covered": "8/8",
+    "inference_generalization_axis_covered": true,
+    "facet_count": 10,
+    "new_locked_v0_7_fields_entities": 0,
+    "automatic_canonical_promotions": 0,
+    "automatic_paper_assignments": 0,
+    "task_5_2_redefinitions": 0,
+    "task_5_3_work_performed": 0,
+    "production_main_changes": 0,
+    "computational_resources_changes": 0
+  },
+  "stop_boundary": "Task 5.2C was not started.",
+  "next_action": "Task 5.2C — External Methodology Coverage / Gap Audit using the X -> Y -> Z traceability gate."
+}
