@@ -5,30 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S166`
-- Latest completed resource: `CR000186`
+- Latest completed checkpoint: `Stage3-S167`
+- Latest completed resource: `CR000187`
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **8/10**
+- Current batch: `SOB018` — **9/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000187`
-- Exact next checkpoint: `Stage3-S167`
+- Exact next independently extractable resource: `CR000188`
+- Exact next checkpoint: `Stage3-S168`
 
-## Cumulative counts through S166
+## Cumulative counts through S167
 
-- Resources: **188**
-- Experiments: **274**
-- Configurations: **483**
-- Technical-evidence records: **2067**
-- Reproducibility assessments: **188**
-- Unresolved findings: **1153**
-- Explicit conflicts: **125**
-- Independently extractable resources remaining: **175**
+- Resources: **189**
+- Experiments: **275**
+- Configurations: **490**
+- Technical-evidence records: **2078**
+- Reproducibility assessments: **189**
+- Unresolved findings: **1158**
+- Explicit conflicts: **126**
+- Independently extractable resources remaining: **174**
 
-## S166
+## S167
 
-CR000186 preserves the Stage-2-authoritative `google/jax-cfd` repository at pinned SHA `f5c779228d5cbd877cfd0c1cadbb8d337290b224`, its Apache-2.0 license, research-paper citations and no-Atlas-relationship boundary. It remains differentiable CFD/ML supporting software rather than a PINN implementation.
+CR000187 preserves the Stage-2-authoritative `ms140429/PIML_Converter` repository at pinned SHA `90ac1bfe954b93dfce9f27d1de5ae912d9a66682`, its MIT license, paper DOI and no-Atlas-relationship boundary. It is a PINN/PIML implementation for estimating ten DC-DC buck-converter parameters.
 
-Bounded static extraction maps one seeded 256-by-256 finite-volume turbulence demonstration, JAX-CFD's numerical methods, package extras, six notebooks, 31-test surface and external PNAS data/model boundary. This supports **R3**; unversioned dependencies, external artifacts and the unexecuted boundary block R4. README's “no longer maintained” statement and GitHub's `archived=false` flag are retained as one explicit provider-status conflict. SOB018 advances to 8/10.
+Bounded static extraction maps one seven-case experiment, seven dataset-linked configurations, the five-input/tanh/implicit-Runge-Kutta architecture, fixed NumPy and TensorFlow seeds, Adam plus L-BFGS-B training controls, MATLAB data generation and reported per-case errors. The static level is **R1**: the accepted hierarchical model blocks R2 and higher because no installation workflow or substantially specified environment exists. The unused declared Adam learning rate, unproven result provenance and unexecuted workload add further limits. Documentation's “six files” statement conflicts with the seven named and bundled datasets and is retained explicitly. SOB018 advances to 9/10.
 
 No scientific workload was executed.
 
@@ -38,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S167` at `CR000187` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S168` at `CR000188` after published-head and checkpoint-QA readback.
