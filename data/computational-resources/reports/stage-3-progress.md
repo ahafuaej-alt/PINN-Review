@@ -5,28 +5,32 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S158`
-- Latest completed resource: `CR000176`
-- Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **8/10**
+- Latest completed checkpoint: `Stage3-S159`
+- Latest completed resource: `CR000178`
+- Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
+- Current batch: `SOB018` — **0/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000177`
-- Exact next checkpoint: `Stage3-S159`
+- Exact next independently extractable resource: `CR000179`
+- Exact next checkpoint: `Stage3-S160`
 
-## Cumulative counts through S158
+## Cumulative counts through S159
 
-- Resources: **178**
-- Experiments: **264**
-- Configurations: **473**
-- Technical-evidence records: **1975**
-- Reproducibility assessments: **178**
-- Unresolved findings: **1102**
+- Resources: **180**
+- Experiments: **265**
+- Configurations: **474**
+- Technical-evidence records: **1988**
+- Reproducibility assessments: **180**
+- Unresolved findings: **1112**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **185**
+- Independently extractable resources remaining: **183**
 
-## S158
+## S159
 
-CR000176 remains supporting Parareal theory software rather than PINN code. Static extraction maps its core iteration/matrix library, 169-line Linux/Dedalus environment, 16-test surface, and one paper-figure experiment grouped into four workflow configurations covering all 16 documented figures. The detailed environment, tests and figure mapping support **R3**; manual parameter edits and absent reference outputs block R4. SOB017 advances to 8/10.
+CR000177 preserves the Stage-2-authoritative A-PINN repository at its pinned snapshot. Static extraction maps one representative 1D forward Volterra integro-differential workflow: a 1-60-60-60-60-2 multi-output network, auxiliary integral state, L-BFGS default training controls, bundled model checkpoint and relative-L2 evaluation against the exact solution. Missing dependency versions, installation instructions, license, seed and immutable expected metric limit the static assessment to **R2**.
+
+CR000178 remains the Stage-2-authoritative GitHub profile identity. Observed owned repositories are not promoted and no paper relationship is inferred; no executable artifact belongs to the profile record, so **R0** applies.
+
+S159 completes `SOB017` at 10/10. Mandatory aggregate QA is **PASS**.
 
 No scientific workload was executed.
 
@@ -36,4 +40,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S159` at `CR000177` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S160` at `CR000179` after published-head and checkpoint-QA readback.

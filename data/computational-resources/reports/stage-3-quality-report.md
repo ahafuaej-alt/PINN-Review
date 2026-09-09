@@ -5,38 +5,42 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S158`
-- Resources: CR000176
-- Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **8/10**
+- Checkpoint: `Stage3-S159`
+- Resources: CR000177, CR000178
+- Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
+- Current batch: `SOB018` — **0/10**
 - Checkpoint QA: **PASS**
 
-All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. Sixteen paper figures are represented by four coherent configuration families without reclassifying the supporting library as PINN software.
+All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. CR000177 is bounded to one representative A-PINN workflow without multiplying every example into experiments; CR000178 remains a profile identity rather than an inferred software relationship.
 
 ## Checkpoint counts
 
-- Resources: **1**
+- Resources: **2**
 - Experiments: **1**
-- Configurations: **4**
-- Technical-evidence records: **14**
-- Reproducibility assessments: **1**
-- New unresolved findings: **7**
+- Configurations: **1**
+- Technical-evidence records: **13**
+- Reproducibility assessments: **2**
+- New unresolved findings: **10**
 - New explicit conflicts: **0**
 
 ## Cumulative counts
 
-- Resources: **178**
-- Experiments: **264**
-- Configurations: **473**
-- Technical-evidence records: **1975**
-- Reproducibility assessments: **178**
-- Unresolved findings: **1102**
+- Resources: **180**
+- Experiments: **265**
+- Configurations: **474**
+- Technical-evidence records: **1988**
+- Reproducibility assessments: **180**
+- Unresolved findings: **1112**
 - Explicit conflicts: **123**
+
+## Aggregate QA
+
+`SOB017` contains CR000169–CR000178 exactly and passes membership, count reconciliation, identifier, orphan-reference, source-scope, missing-value, methodology/schema-drift, stage-boundary, execution-boundary and provenance-text checks.
 
 ## Scientific boundary
 
-The exact pinned tree, documentation, environment, core source, representative tests and figure scripts were inspected statically. No environment was created, tests run, Dedalus workload imported or figure generated.
+Only Stage-2 authority, exact pinned repository content and static source/documentation were inspected. No environment, model, training, evaluation or scientific workload was executed.
 
 ## Continuation
 
-Exact next resource: `CR000177`. Exact next checkpoint: `Stage3-S159`. Independently extractable resources remaining: **185**.
+Exact next resource: `CR000179`. Exact next checkpoint: `Stage3-S160`. Independently extractable resources remaining: **183**.
