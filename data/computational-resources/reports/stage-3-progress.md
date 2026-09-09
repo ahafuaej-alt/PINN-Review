@@ -5,30 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S168`
-- Latest completed resource: `CR000188`
+- Latest completed checkpoint: `Stage3-S169`
+- Latest completed resource: `CR000189`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **0/10**
+- Current batch: `SOB019` — **1/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000189`
-- Exact next checkpoint: `Stage3-S169`
+- Exact next independently extractable resource: `CR000190`
+- Exact next checkpoint: `Stage3-S170`
 
-## Cumulative counts through S168
+## Cumulative counts through S169
 
-- Resources: **190**
+- Resources: **191**
 - Experiments: **276**
 - Configurations: **491**
-- Technical-evidence records: **2088**
-- Reproducibility assessments: **190**
-- Unresolved findings: **1163**
-- Explicit conflicts: **127**
-- Independently extractable resources remaining: **173**
+- Technical-evidence records: **2095**
+- Reproducibility assessments: **191**
+- Unresolved findings: **1168**
+- Explicit conflicts: **131**
+- Independently extractable resources remaining: **172**
 
-## S168
+## S169
 
-CR000188 preserves the Stage-2-authoritative `scikit-fmm/scikit-fmm` repository at pinned SHA `3618765f26fe469163840dd0d9775848ec379c3e`, its supporting-library identity, exact BSD-3-Clause license text and no-Atlas-relationship boundary. It is a compiled Python/C++ fast-marching implementation for Eikonal boundary-value problems, not a PINN.
+CR000189 preserves the Stage-2-authoritative `wanghui589/FENet` repository at pinned SHA `df6b10a27f717ae59e130557f9fcc9cd40391290`, its MIT license, non-PINN classification, paper title and no-Atlas-relationship boundary.
 
-Bounded static extraction maps one exact-output three-by-three distance/travel-time quick start, the distance/travel-time/extension-velocity API, first- and second-order stencils, masked/narrow-band/periodic capabilities, Meson build metadata and extensive doctest surface. This supports **R3**; unpinned build dependencies/toolchain and the unexecuted boundary block R4. GitHub's NOASSERTION license metadata and exact BSD text are retained as one explicit conflict. S168 completes SOB018 at **PASS (10/10)**.
+The complete pinned tree contains only `README.md`, `LICENSE`, and `environment.yml`. No source, model, data, entrypoint, experiment or configuration is invented. The static level is **R1**. Four discrepancies remain explicit: present/future artifact claims versus the empty artifact surface, FENet versus BioMime environment identity, Python 3.7.11 versus 3.7.16, and mixed CUDA/ROCm PyTorch package builds. SOB019 opens at 1/10.
 
 No scientific workload was executed.
 
@@ -38,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S169` at `CR000189` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S170` at `CR000190` after published-head and checkpoint-QA readback.

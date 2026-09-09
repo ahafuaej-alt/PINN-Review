@@ -1,26 +1,26 @@
 # Computational Resources Stage 3 Unresolved Findings
 
 Date: 2026-09-09
-Latest checkpoint: `Stage3-S168`
+Latest checkpoint: `Stage3-S169`
 Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-Current batch: `SOB019` — **0/10**
+Current batch: `SOB019` — **1/10**
 
 ## Cumulative status
 
-- Unresolved findings: **1163**
-- Explicit conflicts: **127**
-- Next unresolved identifier: `S3U-1164`
+- Unresolved findings: **1168**
+- Explicit conflicts: **131**
+- Next unresolved identifier: `S3U-1169`
 
-## New findings in S168
+## New findings in S169
 
-- `S3U-1159` — medium — No Atlas-paper relationship is asserted for this supporting library.
-- `S3U-1160` — low — GitHub reports NOASSERTION while exact license text is BSD-3-Clause; both signals are retained as explicit conflict.
-- `S3U-1161` — medium — Build requirements/toolchain are unpinned and no resolved environment lock exists.
-- `S3U-1162` — low — Software-use publications exist, but canonical project citation metadata is absent.
-- `S3U-1163` — medium — Exact outputs and doctests exist, but the build, tests and examples remain unexecuted.
+- `S3U-1164` — medium — No Atlas-paper relationship is asserted for this non-PINN resource.
+- `S3U-1165` — high — Implementation/model and future-release claims conflict with the three-file artifact surface.
+- `S3U-1166` — high — The environment is named and prefixed for BioMime rather than FENet.
+- `S3U-1167` — medium — README Python 3.7.11 conflicts with environment Python 3.7.16.
+- `S3U-1168` — high — CUDA torch/torchvision builds are combined with a ROCm torchaudio build.
 
-One new explicit conflict is introduced (`S3U-1160`). Full evidence links and scopes are retained in the S168 extraction log.
+Four new explicit conflicts are introduced (`S3U-1165`–`S3U-1168`). Full evidence links and scopes are retained in the S169 extraction log.
 
 ## Continuation
 
-Exact next resource: `CR000189`. Exact next checkpoint: `Stage3-S169`.
+Exact next resource: `CR000190`. Exact next checkpoint: `Stage3-S170`.
