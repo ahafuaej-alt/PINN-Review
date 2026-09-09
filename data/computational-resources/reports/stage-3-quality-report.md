@@ -5,28 +5,38 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S153`
-- Resources: CR000171
-- Status: **PASS**
-- Current batch: `SOB017` — **3/10**
-- Latest aggregate: **SOB016 PASS (10/10)**
+- Checkpoint: `Stage3-S154`
+- Resources: CR000172
+- Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
+- Current batch: `SOB017` — **4/10**
+- Checkpoint QA: **PASS**
 
-All accepted schemas, cumulative identifier uniqueness, hierarchy links, evidence ownership/reference integrity, evidence-use completeness and inference pairing pass. Missing-value states and reproducibility gates remain evidence-scoped; no R5 assessment is assigned. CR000171 preserves the supporting-software relationship without manufacturing a paper experiment or treating bundled simulation-support files as a reusable dataset.
+All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, execution-boundary and repository-scope checks pass. CR000172 remains a classical non-PINN constitutive solver; the linked paper's neural-network implementation is not inferred into this resource.
 
-Checkpoint counts: {"configurations": 0, "experiments": 0, "new_conflicting_evidence_findings": 0, "new_unresolved_findings": 5, "reproducibility_assessments": 1, "resources": 1, "technical_evidence_records": 10}.
+## Checkpoint counts
+
+- Resources: **1**
+- Experiments: **1**
+- Configurations: **1**
+- Technical-evidence records: **13**
+- Reproducibility assessments: **1**
+- New unresolved findings: **6**
+- New explicit conflicts: **0**
 
 ## Cumulative counts
 
-- Resources: **173**
-- Experiments: **259**
-- Configurations: **464**
-- Technical-evidence records: **1912**
-- Reproducibility assessments: **173**
-- Unresolved findings: **1071**
+- Resources: **174**
+- Experiments: **260**
+- Configurations: **465**
+- Technical-evidence records: **1925**
+- Reproducibility assessments: **174**
+- Unresolved findings: **1077**
 - Explicit conflicts: **123**
 
-## Scientific scope
+## Scientific boundary
 
-The exact pinned tree, README, manual text, registration instructions and representative cardiac configuration text were inspected statically. None of the 21 executables ran; no geometry, input, result or scientific workload was loaded. Stage-1/Stage-2, public Atlas, curated data, methodology and schema write boundaries are preserved.
+The exact pinned seven-file source tree was inspected statically. No module was imported, environment created, data generated or serialized output loaded. One source-defined active configuration is recorded without asserting that it reproduces the linked paper's complete synthetic-data campaign.
 
-Next resource: `CR000172`. Next checkpoint: `Stage3-S154`. Remaining identities: **190**.
+## Continuation
+
+Exact next resource: `CR000173`. Exact next checkpoint: `Stage3-S155`. Independently extractable resources remaining: **189**.

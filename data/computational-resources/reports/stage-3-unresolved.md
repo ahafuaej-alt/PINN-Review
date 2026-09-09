@@ -1,27 +1,27 @@
-# Computational Resources Stage 3 Unresolved Register
+# Computational Resources Stage 3 Unresolved Findings
 
 Date: 2026-09-09
-Current checkpoint: `Stage3-S153`
-Latest completed batch: **SOB016 PASS**
-Current batch: `SOB017` (3/10)
-Current unresolved count: **1071**
-Next unresolved ID: `S3U-1072`
-Explicit conflict count: **123**
+Latest checkpoint: `Stage3-S154`
+Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
+Current batch: `SOB017` — **4/10**
 
-## Stage3-S153 additions
+## Cumulative status
 
-- `S3U-1067` — CR000171; resource; high: No repository license or citation metadata is provided.
-- `S3U-1068` — CR000171; resource; high: Primary CAD and PAK applications are distributed as prebuilt executables without complete source, build recipe, version identifiers, checksums or release attestations.
-- `S3U-1069` — CR000171; resource; medium: No formal dependency manifest exists; documented setup includes privileged x86 chart-control registration and lacks a complete dependency set.
-- `S3U-1070` — CR000171; evidence/source relationship; high: The paper relationship is supporting-software use, but no exact paper-specific cardiomyopathy input configuration is identified.
-- `S3U-1071` — CR000171; resource; medium: Provenance and runtime behavior of bundled third-party libraries and executables were not validated within the static-only boundary.
+- Unresolved findings: **1077**
+- Explicit conflicts: **123**
+- Next unresolved identifier: `S3U-1078`
 
-This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-153-extraction-log.jsonl`.
+## New findings in S154
 
-## Audit continuity
+- `S3U-1072` — low — Repository citation metadata is absent.
+- `S3U-1073` — high — No formal dependency manifest, Python version, NumPy version or installation instructions are provided.
+- `S3U-1074` — medium — The README is only a one-line description; scientific inputs and parameters must be edited directly in source.
+- `S3U-1075` — high — No tests, reference outputs, validation data or quantitative acceptance criteria are bundled.
+- `S3U-1076` — high — The linked paper's exact synthetic-data generation configuration and random seed are not identified.
+- `S3U-1077` — medium — Runtime behavior and numerical outputs remain unvalidated within the static-only boundary.
 
-Prior findings through S122 are retained in the S122 register snapshot and historical checkpoint records. S123 onward stores each new finding and identifier in its immutable checkpoint extraction log. No earlier ID is reused or silently removed. Stage3-RC02 and Stage3-RC03 remain authoritative for prior count-neutral reconciliations.
+No new explicit conflict is introduced. Full evidence links and scopes are retained in the S154 extraction log.
 
 ## Continuation
 
-Exact next resource: `CR000172`. Exact next checkpoint: `Stage3-S154`.
+Exact next resource: `CR000173`. Exact next checkpoint: `Stage3-S155`.

@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S153`
-- Latest completed resource: `CR000171`
+- Latest completed checkpoint: `Stage3-S154`
+- Latest completed resource: `CR000172`
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **3/10**
+- Current batch: `SOB017` — **4/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000172`
-- Exact next checkpoint: `Stage3-S154`
+- Exact next independently extractable resource: `CR000173`
+- Exact next checkpoint: `Stage3-S155`
 
-## Cumulative counts through S153
+## Cumulative counts through S154
 
-- Resources: **173**
-- Experiments: **259**
-- Configurations: **464**
-- Technical-evidence records: **1912**
-- Reproducibility assessments: **173**
-- Unresolved findings: **1071**
+- Resources: **174**
+- Experiments: **260**
+- Configurations: **465**
+- Technical-evidence records: **1925**
+- Reproducibility assessments: **174**
+- Unresolved findings: **1077**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **190**
+- Independently extractable resources remaining: **189**
 
-## S153
+## S154
 
-CR000171 preserves the non-PINN CAD Solid and Field identity and supporting paper-software relationship. Static extraction bounds its Windows pre/post-processing workflow, six documented solver-module families, 621 bundled artifacts and cardiac geometry/input surface. The absence of licensing, complete source/build provenance and an exact paper configuration constrains reproducibility to **R2**. SOB017 advances to 3/10.
+CR000172 preserves the non-PINN identity of the classical WG elastoplasticity solver and its supporting paper-software relationship. Static extraction maps one constitutive-response experiment, the single active Ottawa-sand proportional-strain configuration, five source-module roles and the serialized output surface. Missing environment versions, installation guidance, validation artifacts and the linked paper's exact synthetic-data campaign constrain reproducibility to **R1**. SOB017 advances to 4/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S154` at `CR000172` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S155` at `CR000173` after published-head and checkpoint-QA readback.
