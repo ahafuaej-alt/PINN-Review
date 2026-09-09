@@ -5,30 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S160`
-- Latest completed resource: `CR000179`
+- Latest completed checkpoint: `Stage3-S161`
+- Latest completed resource: `CR000180`
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **1/10**
+- Current batch: `SOB018` — **2/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000180`
-- Exact next checkpoint: `Stage3-S161`
+- Exact next independently extractable resource: `CR000181`
+- Exact next checkpoint: `Stage3-S162`
 
-## Cumulative counts through S160
+## Cumulative counts through S161
 
-- Resources: **181**
-- Experiments: **266**
-- Configurations: **475**
-- Technical-evidence records: **1997**
-- Reproducibility assessments: **181**
-- Unresolved findings: **1118**
-- Explicit conflicts: **123**
-- Independently extractable resources remaining: **182**
+- Resources: **182**
+- Experiments: **267**
+- Configurations: **476**
+- Technical-evidence records: **2005**
+- Reproducibility assessments: **182**
+- Unresolved findings: **1123**
+- Explicit conflicts: **124**
+- Independently extractable resources remaining: **181**
 
-## S160
+## S161
 
-CR000179 preserves the Stage-2-authoritative `bawalla2/JMLR-2024` repository at pinned SHA `f73f2fc5c1ba2484e60e3db101bff18139fd1cef` and the official relationship to Atlas paper 314. Its accepted role remains adjacent physics-informed continuous-time reinforcement-learning research code rather than a PINN implementation.
+CR000180 preserves the Stage-2-authoritative `dyelax/Adversarial_Video_Generation` repository at pinned SHA `458cef18dca1b5d13bee10f5ae39b85d602698f3`, its MIT license and the explicit no-Atlas-relationship boundary. It remains non-PINN research code.
 
-Bounded static extraction maps the default inverted-pendulum RCI modeling-error training sweep selected by `main.m`. The pinned workflow uses the RCI-only training-group path, bundled model/data products and documented loop controls. Missing MATLAB/toolbox environment specifications, installation instructions and repository license limit the static reproducibility assessment to **R1**.
+Bounded static extraction maps the documented Ms. Pac-Man adversarial future-frame prediction workflow. The repository provides the TensorFlow-era runner, multiscale generator/discriminator configuration, external-data instructions and bundled historical result summaries. No formal dependency versions or installation procedure are provided, limiting static reproducibility to **R1**. The source default generator learning rate `0.00004` conflicts explicitly with its adjacent comment stating the paper value `0.04`; both values are retained without resolution.
 
 No scientific workload was executed.
 
@@ -38,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S161` at `CR000180` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S162` at `CR000181` after published-head and checkpoint-QA readback. CR000181 is a large general-purpose framework/library and should receive the accepted single-resource treatment.
