@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S155`
-- Latest completed resource: `CR000173`
+- Latest completed checkpoint: `Stage3-S156`
+- Latest completed resource: `CR000174`
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **5/10**
+- Current batch: `SOB017` — **6/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000174`
-- Exact next checkpoint: `Stage3-S156`
+- Exact next independently extractable resource: `CR000175`
+- Exact next checkpoint: `Stage3-S157`
 
-## Cumulative counts through S155
+## Cumulative counts through S156
 
-- Resources: **175**
+- Resources: **176**
 - Experiments: **261**
 - Configurations: **467**
-- Technical-evidence records: **1940**
-- Reproducibility assessments: **175**
-- Unresolved findings: **1083**
+- Technical-evidence records: **1946**
+- Reproducibility assessments: **176**
+- Unresolved findings: **1088**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **188**
+- Independently extractable resources remaining: **187**
 
-## S155
+## S156
 
-CR000173 preserves the corrected physics-informed identity of the official EPNN implementation for Atlas paper 539. Static extraction maps one training experiment, the active 16e-4 and documented 4e-4 synthetic-data configurations, three coupled subnetworks, the physics-constructed stress increment, pinned dependencies and evaluation protocol. Bundled data and detailed training controls support **R3**; missing reference outputs and complete paper-to-command mapping block R4. SOB017 advances to 5/10.
+CR000174 remains a profile-only identity. The accepted Stage2-RC01 closure is preserved: EquiNO and KPCA-DeepONet are separate promoted resources, Enhancement-of-PIV-via-PINNs reuses CR000024, and four unavailable or out-of-scope discoveries are not materialized. No experiment, repository-level paper relationship or duplicate identity is invented. Profile-level reproducibility is **R0**. SOB017 advances to 6/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S156` at `CR000174` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S157` at `CR000175` after published-head and checkpoint-QA readback.
