@@ -83,8 +83,8 @@ Task 4.5 future explorer coordination source: `atlas-pinn-type-explorer-spec.jso
 - 5.2B Define the General Machine-Learning Learning-Paradigm Taxonomy. — **PASS / COMPLETE**
 - 5.2C Perform the External Methodology Coverage / Gap Audit. — **PASS / COMPLETE**
 - 5.3 Define the Model / Representation / Coupled-ML Architecture Taxonomy, informed by 5.2C. — **PASS / COMPLETE**
-- 5.4 Decide which concepts require specialized structure versus dynamic taxonomy/linking records. — **NEXT / NOT STARTED**
-- 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8). — **NOT STARTED**
+- 5.4 Decide which concepts require specialized structure versus dynamic taxonomy/linking records. — **PASS / COMPLETE**
+- 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8). — **NEXT / NOT STARTED**
 
 Task 5.1 human-readable catalogue: `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md`.
 
@@ -110,15 +110,27 @@ Task 5.3 machine-readable coordination taxonomy: `atlas-model-representation-cou
 
 Task 5.3 machine-readable validation: `TASK-5.3-MACHINE-READABLE-VALIDATION.md`.
 
+Task 5.4 human-readable structural decision: `TASK-5.4-STRUCTURAL-SPECIALIZATION-VS-DYNAMIC-TAXONOMY-DECISION.md`.
+
+Task 5.4 machine-readable structural-decision contract: `atlas-structural-specialization-decision-spec.json`.
+
+Task 5.4 machine-readable validation: `TASK-5.4-MACHINE-READABLE-VALIDATION.md`.
+
 Task 5.2B defines general learning paradigms as orthogonal facets rather than one scalar `learning_type`. Its ten facets cover supervision/feedback, label availability/acquisition, learning/update regime, adaptation/reuse, target-support/sample-scarcity, task organization, distributed/collaborative learning, model combination/ensemble, statistical learning character, and inference/generalization. Terms remain evidence-governed and extensible rather than exhaustively pre-enumerated.
 
 Task 5.2C completed the methodology-comprehensiveness gate under the mandatory X → Y → Z protocol. All **37/37** internal Task 5.1 methodology dimensions were mapped to at least one external-search axis and received a final coverage disposition. The audit used **16** external search axes and explicitly dispositioned **15/15** materially new or externally emphasized dimensions discovered beyond the original X baseline.
 
-The main 5.2C result is that the Atlas has **taxonomy/coordination gaps rather than a foundational architecture failure**. Important externally emphasized facets include prior/domain-knowledge source, knowledge representation, knowledge-integration locus, distributed-learning topology/aggregation/partition, lifecycle/deployment/inference organization, compression/efficiency transformations, NAS/HPO, and several cross-cutting method families. These do not authorize immediate locked-v0.7 fields; Task 5.4 decides whether dynamic taxonomy/relations remain sufficient or recurring evidence warrants specialized future structure.
+The main 5.2C result is that the Atlas has **taxonomy/coordination gaps rather than a foundational architecture failure**. Important externally emphasized facets include prior/domain-knowledge source, knowledge representation, knowledge-integration locus, distributed-learning topology/aggregation/partition, lifecycle/deployment/inference organization, compression/efficiency transformations, NAS/HPO, and several cross-cutting method families. These do not authorize immediate locked-v0.7 fields; Task 5.4 has now determined their structural treatment.
 
 Controlling principle for Tasks 5.2B–5.5: **comprehensive architecture = complete semantic dimensions + extensible vocabularies + extensible typed relations + controlled structural extension; it does not mean enumerating every known ML method.**
 
-Task 5.3 formalizes model/representation/coupled-ML semantics as six orthogonal coordination facets: backbone model architecture; model composition; scientific representation; generative/latent model systems; coupled external ML/operator methods; and architecture lifecycle/search/transformation processes. It preserves the controlling separation **PINN type/family ≠ architecture family ≠ network configuration ≠ representation ≠ learning paradigm ≠ training protocol ≠ solver coupling ≠ application/equation specialization**. It creates no locked-v0.7 field, canonical promotion, global alias promotion, or paper-level assignment. Task 5.3 runtime machine validation passed with 0 errors; Task 5.4 now owns the structural-specialization decision.
+Task 5.3 formalizes model/representation/coupled-ML semantics as six orthogonal coordination facets: backbone model architecture; model composition; scientific representation; generative/latent model systems; coupled external ML/operator methods; and architecture lifecycle/search/transformation processes. It preserves the controlling separation **PINN type/family ≠ architecture family ≠ network configuration ≠ representation ≠ learning paradigm ≠ training protocol ≠ solver coupling ≠ application/equation specialization**. It creates no locked-v0.7 field, canonical promotion, global alias promotion, or paper-level assignment. Task 5.3 runtime machine validation passed with 0 errors.
+
+Task 5.4 resolves the structural-specialization question with five disposition classes: retain existing specialized owner (`E1`), dynamic taxonomy assignment (`D1`), dynamic taxonomy plus typed/evidence-scoped relations (`D2`), derived projection (`P1`), and other established owner (`O1`). It explicitly dispositioned **37/37** Task 5.1 dimensions, **6/6** Task 5.2 integration/derived dimensions, **10/10** Task 5.2B facets, **15/15** Task 5.2C external dimensions, and **4/4** Task 5.3 handoffs.
+
+Task 5.4 finds **no demonstrated X6 structural defect** in the Tasks 5.1–5.3 evidence package and therefore authorizes **0** new locked-v0.7 fields/entities and **0** v0.8 schema proposals. Seven monitor-only structural-watch sentinels are retained for future evidence: internal latent semantics; learned-model/component identity; temporal decomposition; collaborative/federated workflow; formulation detail; domain-decomposition enrichment; and transfer/adaptation event structure. These are reopening sentinels, not schema approvals. Task 5.5 remains responsible for future evidence/recurrence promotion criteria.
+
+Task 5.4 also requires future implementation to support evidence-backed N:M taxonomy assignments and evidence-scoped relation instances without treating their physical tables as new scientific authority. Physical relational design remains Task 12 work.
 
 ### Task 6 — Define the complete Cross-Paper Intelligence system
 - 6.1 Define the dimension catalogue.
@@ -308,7 +320,7 @@ Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
 Task 4 is **COMPLETE / PASS**. Tasks 4.1–4.5 are **PASS / COMPLETE**.
 
-Task 5 is **IN PROGRESS**. Tasks 5.1–5.3 are **PASS / COMPLETE**; Task 5.4 is **NEXT / NOT STARTED**.
+Task 5 is **IN PROGRESS**. Tasks 5.1–5.4 are **PASS / COMPLETE**; Task 5.5 is **NEXT / NOT STARTED**.
 
 Task 5.1 catalogues the existing methodology ownership surface without changing science: locked PP-08/data-context owners, the 25 controlled-vocabulary method-dimension labels, consolidated training-protocol subdimensions, physical-constraint and reproducibility boundaries, and composite/deferred dimensions that later Task 5 work must resolve without premature schema promotion.
 
@@ -320,7 +332,9 @@ Task 5.2C completed the entire Atlas methodology external-coverage audit against
 
 Task 5.3 completed the model/representation/coupled-ML architecture taxonomy using six orthogonal coordination facets. It preserves backbone architecture, composition, representation, generative/latent system semantics, coupled external ML/operator methods, and lifecycle/search/transformation processes as separable concepts. It also preserves the corrected ownership/crosswalk rules: training protocol is `MDC-13`; Task 5.2C compression is `EX-07`; NAS/HPO is `EX-08`; and internal learned latent semantics are not forced into `model_variable_representation[]` unless they are explicit model interfaces. The corrected machine-readable contract passed runtime parse/consistency validation with **0 errors**.
 
-The future Paper Profile may expose evidence-backed derived methodology facets under PP-08, including learning paradigm, knowledge source/representation/integration locus, architecture/model family and distributed-learning organization, if later Task 5.4 determines the correct structural owner. No silent `learning_type` or other locked-v0.7 structural change is authorized.
+Task 5.4 completed the specialized-structure decision. It retains locked v0.7 specialized owners where structural need has already been proved and otherwise uses governed dynamic taxonomy assignments, evidence-scoped typed/provisional relations, derived projections or another existing scientific owner. It found **0 demonstrated X6 schema defects**, authorizes **0 v0.8 schema proposals**, and preserves seven explicit structural-watch sentinels with evidence-based reopening conditions. The Task 5.4 machine-readable payload passed runtime validation with **0 errors** and its computed Git blob SHA matched GitHub readback byte-for-byte.
+
+The future Paper Profile may expose evidence-backed derived methodology facets under PP-08, including learning paradigm, knowledge source/representation/integration locus, architecture/model family and distributed-learning organization. These are projections over governed owners; no silent `learning_type` or other locked-v0.7 structural change is authorized.
 
 Task 5.1 coordination sources are `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md` and `atlas-methodology-dimension-catalogue.json`.
 
@@ -330,10 +344,14 @@ Task 5.2B coordination sources are `TASK-5.2B-GENERAL-ML-LEARNING-PARADIGM-TAXON
 
 Task 5.2C coordination sources are `TASK-5.2C-EXTERNAL-METHODOLOGY-COVERAGE-GAP-AUDIT.md` and `atlas-external-methodology-coverage-gap-audit.json`.
 
-Task 5.3 coordination sources are `TASK-5.3-MODEL-REPRESENTATION-COUPLED-ML-ARCHITECTURE-TAXONOMY.md`, `atlas-model-representation-coupled-ml-taxonomy-spec.json` and `TASK-5.3-MACHINE-READABLE-VALIDATION.md`. These coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments or relations.
+Task 5.3 coordination sources are `TASK-5.3-MODEL-REPRESENTATION-COUPLED-ML-ARCHITECTURE-TAXONOMY.md`, `atlas-model-representation-coupled-ml-taxonomy-spec.json` and `TASK-5.3-MACHINE-READABLE-VALIDATION.md`.
+
+Task 5.4 coordination sources are `TASK-5.4-STRUCTURAL-SPECIALIZATION-VS-DYNAMIC-TAXONOMY-DECISION.md`, `atlas-structural-specialization-decision-spec.json` and `TASK-5.4-MACHINE-READABLE-VALIDATION.md`.
+
+These Task 5 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments or relations.
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-**STOP boundary:** Task 5.3 is PASS / COMPLETE. Task 5.4 has not started.
+**STOP boundary:** Task 5.4 is PASS / COMPLETE. Task 5.5 has not started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 5.4 — decide which concepts require specialized structure versus dynamic taxonomy/linking records, using Tasks 5.1–5.3 as controlling inputs**.
+The exact next substantive roadmap task, only when separately authorized, is **Task 5.5 — define evidence/recurrence criteria for future ontology promotion, using Task 5.4's structural decisions and watch register as controlling inputs**.
