@@ -1,0 +1,639 @@
+{
+  "specification": "Task 5.4 structural specialization versus dynamic taxonomy/linking decision",
+  "version": "task-5.4-v1.0.0",
+  "date": "2026-09-09",
+  "branch": "docs/master-atlas-roadmap",
+  "starting_branch_head": "c30f5079fa61b0673dfba682533b85aacfd34515",
+  "authority": {
+    "scientific_authority": "locked Google Drive v0.7-pilot-atlas-prefreeze",
+    "implementation_contract": "frozen Master Plan v1.0",
+    "scientific_authority_flag": false,
+    "may_modify_locked_v0_7": false,
+    "may_reopen_tasks_1_to_4": false,
+    "may_define_task_5_5_promotion_thresholds": false,
+    "may_create_paper_assignments": false
+  },
+  "governing_decision_rule": {
+    "default": "Prefer existing specialized owners or dynamic taxonomy/typed relations when they preserve scientific meaning.",
+    "X6_only_if": "A new/generalized structure is considered only when existing fields, repeatable records, scoped evidence, taxonomy and typed/provisional relations cannot preserve identity, multiplicity, attributes or stable cross-record linking without irreducible scientific loss or ambiguity.",
+    "convenience_is_not_X6": true,
+    "recurrence_alone_is_not_X6": true
+  },
+  "decision_classes": [
+    {
+      "code": "E1",
+      "label": "retain_existing_specialized_owner",
+      "meaning": "A locked v0.7 field/entity/repeatable record already provides the scientifically correct structural home. Task 5.4 retains that owner; vocabulary inside it may still evolve dynamically."
+    },
+    {
+      "code": "D1",
+      "label": "dynamic_taxonomy_assignment",
+      "meaning": "The concept is primarily a classification/facet value. Preserve it through governed taxonomy/source-local/provisional assignment with evidence and scope; do not add a dedicated paper field."
+    },
+    {
+      "code": "D2",
+      "label": "dynamic_taxonomy_plus_typed_relations",
+      "meaning": "The concept requires identity plus scientifically meaningful links among existing records/components/tasks/sources. Use governed taxonomy plus evidence-scoped typed/provisional relations; do not add a dedicated concept-specific field."
+    },
+    {
+      "code": "P1",
+      "label": "derived_projection",
+      "meaning": "The concept is best exposed as a deterministic/query projection over existing owners and evidence-backed links rather than as a second authoritative stored fact."
+    },
+    {
+      "code": "O1",
+      "label": "other_existing_owner",
+      "meaning": "The concept is important but its scientific owner is outside PP-08 Methodology (for example problem/task, validation, reproducibility, implementation/deployment, synthesis, or Computational Resources)."
+    }
+  ],
+  "dynamic_assignment_link_contract": {
+    "status": "logical coordination requirement only; physical database/table design deferred to Task 12",
+    "taxonomy_assignment_minimum_capabilities": [
+      "paper identity",
+      "taxonomy dimension/facet",
+      "canonical/provisional/paper-specific term reference or preserved source wording",
+      "evidence pointer(s)",
+      "scope/component context",
+      "origin class",
+      "verification status",
+      "semantic support status",
+      "ontology/normalization version",
+      "review/history trace"
+    ],
+    "typed_relation_instance_minimum_capabilities": [
+      "source governed identity or scoped record",
+      "relation type reference/status",
+      "target governed identity or scoped record",
+      "evidence pointer(s)",
+      "material context/scope",
+      "verification/support state",
+      "ontology/normalization version",
+      "review/history trace"
+    ],
+    "prohibitions": [
+      "no page-local scientific authority",
+      "no unscoped automatic aliases",
+      "no inferred assignments from terminology alone",
+      "no context-free performance edges",
+      "no scalar generic learning_type field"
+    ]
+  },
+  "task_5_1_dimension_decisions": [
+    {
+      "id": "MDC-01",
+      "dimension": "Architecture family",
+      "primary_disposition": "E1",
+      "rationale": "PINN_architecture[] remains the architecture-family owner; family vocabulary is dynamic and evidence-governed."
+    },
+    {
+      "id": "MDC-02",
+      "dimension": "Model variable representation",
+      "primary_disposition": "E1",
+      "rationale": "model_variable_representation[] remains the structured owner for explicit model inputs/outputs."
+    },
+    {
+      "id": "MDC-03",
+      "dimension": "Network configuration",
+      "primary_disposition": "E1",
+      "rationale": "network_configuration[] remains the structured owner for numeric/topological configuration."
+    },
+    {
+      "id": "MDC-04",
+      "dimension": "Physical constraints",
+      "primary_disposition": "E1",
+      "rationale": "PAPER_PROBLEMS.physical_constraints[] remains the repeatable owner for what condition is imposed."
+    },
+    {
+      "id": "MDC-05",
+      "dimension": "Physics enforcement",
+      "primary_disposition": "E1",
+      "rationale": "physics_enforcement[] remains the owner for enforcement mechanism; term set can extend under governance."
+    },
+    {
+      "id": "MDC-06",
+      "dimension": "Physics integration mode",
+      "primary_disposition": "E1",
+      "rationale": "physics_integration_mode[] remains the owner for physics incorporation mode; Task 5.2 adds semantic coordination without a competing field."
+    },
+    {
+      "id": "MDC-07",
+      "dimension": "Strong/weak/variational formulation",
+      "primary_disposition": "D2",
+      "rationale": "Represent formulation identity as a governed methodology taxonomy concept linked to relevant constraint/enforcement/integration evidence; no dedicated field is justified now.",
+      "structural_watch": "SW-05"
+    },
+    {
+      "id": "MDC-08",
+      "dimension": "Loss construction/components",
+      "primary_disposition": "E1",
+      "rationale": "loss_components[] remains the owner for objective composition."
+    },
+    {
+      "id": "MDC-09",
+      "dimension": "Loss weighting/balancing",
+      "primary_disposition": "E1",
+      "rationale": "loss_weighting_method[] remains the generalized structured owner."
+    },
+    {
+      "id": "MDC-10",
+      "dimension": "Sampling/adaptive sampling",
+      "primary_disposition": "E1",
+      "rationale": "sampling_strategy[] remains the owner; technique vocabulary remains extensible."
+    },
+    {
+      "id": "MDC-11",
+      "dimension": "Data/collocation/observation regime",
+      "primary_disposition": "E1",
+      "rationale": "PAPER_PROBLEMS.data_regime[] remains the structured data-condition owner; it must not be used as a proxy for learning paradigm."
+    },
+    {
+      "id": "MDC-12",
+      "dimension": "Optimizer identity/strategy",
+      "primary_disposition": "E1",
+      "rationale": "optimizer[] remains the owner; optimizer taxonomy may extend dynamically."
+    },
+    {
+      "id": "MDC-13",
+      "dimension": "Training protocol umbrella",
+      "primary_disposition": "E1",
+      "rationale": "training_protocol[] remains the umbrella structured owner for scheduling/application controls."
+    },
+    {
+      "id": "MDC-14",
+      "dimension": "Learning-rate control",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=learning_rate rather than a new top-level field."
+    },
+    {
+      "id": "MDC-15",
+      "dimension": "Initialization",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=initialization."
+    },
+    {
+      "id": "MDC-16",
+      "dimension": "Stabilization/regularization",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=stabilization_regularization."
+    },
+    {
+      "id": "MDC-17",
+      "dimension": "Batching",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=batching."
+    },
+    {
+      "id": "MDC-18",
+      "dimension": "Stopping/restart",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=stopping_restart."
+    },
+    {
+      "id": "MDC-19",
+      "dimension": "Curriculum/continuation",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=curriculum_continuation; learning-paradigm identity, if any, is separate."
+    },
+    {
+      "id": "MDC-20",
+      "dimension": "Staged training",
+      "primary_disposition": "E1",
+      "rationale": "Keep as training_protocol[].protocol_type=staged_training."
+    },
+    {
+      "id": "MDC-21",
+      "dimension": "Pretraining/fine-tuning control",
+      "primary_disposition": "E1",
+      "rationale": "Keep schedule/control in training_protocol[]; transfer/adaptation identity is a separate D2 taxonomy/relation assignment."
+    },
+    {
+      "id": "MDC-22",
+      "dimension": "Optimizer transition",
+      "primary_disposition": "E1",
+      "rationale": "Keep optimizer identity in optimizer[] and transition event/control in training_protocol[]."
+    },
+    {
+      "id": "MDC-23",
+      "dimension": "Activation strategy",
+      "primary_disposition": "E1",
+      "rationale": "activation_function[] remains the owner; activation is not architecture or transformation."
+    },
+    {
+      "id": "MDC-24",
+      "dimension": "Differentiation/operator evaluation",
+      "primary_disposition": "E1",
+      "rationale": "differentiation_method[] remains the owner, including governed optional scheme-detail enrichment."
+    },
+    {
+      "id": "MDC-25",
+      "dimension": "Geometry representation",
+      "primary_disposition": "E1",
+      "rationale": "geometry_representation[] remains the owner; geometry representation is not architecture identity."
+    },
+    {
+      "id": "MDC-26",
+      "dimension": "Domain decomposition",
+      "primary_disposition": "E1",
+      "rationale": "domain_decomposition_method[] remains the owner; structured enrichment remains monitor-only, not reopened here.",
+      "structural_watch": "SW-06"
+    },
+    {
+      "id": "MDC-27",
+      "dimension": "Time decomposition/time partitioning",
+      "primary_disposition": "D2",
+      "rationale": "Represent temporal decomposition through source-faithful decomposition taxonomy plus temporal segment/initialization/training/parallel relations as applicable; do not force it into spatial domain decomposition.",
+      "structural_watch": "SW-03"
+    },
+    {
+      "id": "MDC-28",
+      "dimension": "Parallel execution",
+      "primary_disposition": "E1",
+      "rationale": "parallel_execution[] remains the structured compute-execution owner; it is not federated learning."
+    },
+    {
+      "id": "MDC-29",
+      "dimension": "Transformation/encoding/normalization",
+      "primary_disposition": "E1",
+      "rationale": "transformation_method[] remains the role-aware owner for transformations/encoding/normalization."
+    },
+    {
+      "id": "MDC-30",
+      "dimension": "Uncertainty/UQ method",
+      "primary_disposition": "E1",
+      "rationale": "uncertainty_method[] remains the method owner; ensemble-learning identity remains separately classifiable."
+    },
+    {
+      "id": "MDC-31",
+      "dimension": "Operator-learning integration",
+      "primary_disposition": "D2",
+      "rationale": "Represent operator-learning integration through operator/model taxonomy, computational-task context and typed integration relations; no operator_integration field/entity is justified."
+    },
+    {
+      "id": "MDC-32",
+      "dimension": "Multi-fidelity integration",
+      "primary_disposition": "D2",
+      "rationale": "Use fidelity_source_role[] for source roles plus evidence-backed transfer/training/information-flow relations; do not add a generic multi_fidelity_method entity."
+    },
+    {
+      "id": "MDC-33",
+      "dimension": "Fidelity source role",
+      "primary_disposition": "E1",
+      "rationale": "fidelity_source_role[] remains the structured source/workflow role owner."
+    },
+    {
+      "id": "MDC-34",
+      "dimension": "Transfer/meta-learning",
+      "primary_disposition": "D2",
+      "rationale": "Represent transfer, domain adaptation/generalization and meta-learning as dynamic learning-paradigm concepts linked to source/target/task/model/training context; no generic learning_type field.",
+      "structural_watch": "SW-07"
+    },
+    {
+      "id": "MDC-35",
+      "dimension": "Software framework",
+      "primary_disposition": "E1",
+      "rationale": "software_framework[] remains the paper-level software-framework owner, distinct from Computational Resources identity."
+    },
+    {
+      "id": "MDC-36",
+      "dimension": "Derived scientific output method",
+      "primary_disposition": "E1",
+      "rationale": "derived_output_method[] remains the sole post-inference scientific derivation owner."
+    },
+    {
+      "id": "MDC-37",
+      "dimension": "Reproducibility/method-reporting context",
+      "primary_disposition": "O1",
+      "rationale": "REPRODUCIBILITY remains the owner for reporting/availability/hardware/training-cost context; do not turn reporting context into a method taxonomy field."
+    }
+  ],
+  "task_5_2_integration_decisions": [
+    {
+      "id": "T52-F1",
+      "dimension": "physics incorporation / integration mode",
+      "primary_disposition": "E1",
+      "rationale": "Existing physical_constraints[], physics_enforcement[] and physics_integration_mode[] owners preserve the structural distinction; taxonomy/relations coordinate finer semantics."
+    },
+    {
+      "id": "T52-F2",
+      "dimension": "transfer / reuse / adaptation",
+      "primary_disposition": "D2",
+      "rationale": "Dynamic paradigm taxonomy plus source/target/task/model/training relations preserves meaning without a new scalar or dedicated transfer field.",
+      "structural_watch": "SW-07"
+    },
+    {
+      "id": "T52-F3",
+      "dimension": "multi-source / multi-fidelity integration",
+      "primary_disposition": "D2",
+      "rationale": "fidelity_source_role[] supplies structured source roles; typed workflow/information-flow relations supply integration semantics. No method-specific entity is required."
+    },
+    {
+      "id": "T52-F4",
+      "dimension": "operator / solver integration",
+      "primary_disposition": "D2",
+      "rationale": "Operator/model identity, computational task, numerical/solver identity and integrated_via-style relations must remain separate but linkable."
+    },
+    {
+      "id": "T52-D1",
+      "dimension": "knowledge / integration locus",
+      "primary_disposition": "P1",
+      "rationale": "Expose locus as a derived crosswalk from physics-integration, enforcement, architecture, data/feature and training evidence; do not create a competing locus field."
+    },
+    {
+      "id": "T52-D2",
+      "dimension": "knowledge / source role",
+      "primary_disposition": "D2",
+      "rationale": "Represent source identity/role by governed taxonomy and evidence-scoped links to constraints, data, models or solvers; do not duplicate physical-constraint ownership."
+    }
+  ],
+  "task_5_2B_learning_paradigm_decisions": [
+    {
+      "id": "LP-F1",
+      "facet": "Supervision / feedback",
+      "primary_disposition": "D1",
+      "rationale": "Evidence-backed faceted taxonomy assignment; data_regime label status alone is insufficient."
+    },
+    {
+      "id": "LP-F2",
+      "facet": "Label availability / acquisition",
+      "primary_disposition": "D2",
+      "rationale": "Paradigm term plus links to data/sampling/acquisition evidence; adaptive collocation does not automatically equal active learning."
+    },
+    {
+      "id": "LP-F3",
+      "facet": "Learning / update regime",
+      "primary_disposition": "D2",
+      "rationale": "Paradigm term linked to training/time/task context; training_protocol scheduling alone does not establish online/continual learning."
+    },
+    {
+      "id": "LP-F4",
+      "facet": "Adaptation / reuse",
+      "primary_disposition": "D2",
+      "rationale": "Paradigm term plus source/target/task/model/training context; transfer/domain adaptation/domain generalization/meta-learning remain distinct."
+    },
+    {
+      "id": "LP-F5",
+      "facet": "Target-support / sample-scarcity",
+      "primary_disposition": "D1",
+      "rationale": "Taxonomy assignment with task/data evidence; sparse or zero observational data is not sufficient by itself."
+    },
+    {
+      "id": "LP-F6",
+      "facet": "Task organization",
+      "primary_disposition": "D2",
+      "rationale": "Taxonomy term linked to computational-task/model-output context; multiple outputs/losses do not establish multi-task learning."
+    },
+    {
+      "id": "LP-F7",
+      "facet": "Distributed / collaborative learning",
+      "primary_disposition": "D2",
+      "rationale": "Taxonomy plus participant/topology/aggregation/data-owner relations as evidence supports; compute parallelism remains separate.",
+      "structural_watch": "SW-04"
+    },
+    {
+      "id": "LP-F8",
+      "facet": "Model combination / ensemble",
+      "primary_disposition": "D2",
+      "rationale": "Taxonomy plus model-composition/component relations; ensemble, UQ and mixture-of-experts remain non-equivalent."
+    },
+    {
+      "id": "LP-F9",
+      "facet": "Statistical learning character",
+      "primary_disposition": "D2",
+      "rationale": "Taxonomy linked to model/objective/system evidence; generative character is not a GAN/VAE/diffusion backbone synonym."
+    },
+    {
+      "id": "LP-F10",
+      "facet": "Inference / generalization regime",
+      "primary_disposition": "D1",
+      "rationale": "Evidence-backed taxonomy assignment; interpolation/extrapolation evaluation labels do not prove inductive/transductive setup."
+    }
+  ],
+  "task_5_2C_external_gap_decisions": [
+    {
+      "id": "EX-01",
+      "dimension": "General learning paradigms",
+      "primary_disposition": "D1",
+      "rationale": "Use a generic evidence-backed faceted taxonomy assignment/link capability; no scalar learning_type field."
+    },
+    {
+      "id": "EX-02",
+      "dimension": "Prior/domain-knowledge source",
+      "primary_disposition": "D2",
+      "rationale": "Taxonomy + typed links to constraints/data/models/solvers; do not replace physical_constraints[]."
+    },
+    {
+      "id": "EX-03",
+      "dimension": "Knowledge representation",
+      "primary_disposition": "D2",
+      "rationale": "Use governed representation taxonomy and typed links to the represented knowledge/source/context; the previously rejected physical_knowledge_representation[] field is not reopened."
+    },
+    {
+      "id": "EX-04",
+      "dimension": "Knowledge-integration locus",
+      "primary_disposition": "P1",
+      "rationale": "Derived crosswalk over existing integration/enforcement/architecture/data/training relations; no second locus authority."
+    },
+    {
+      "id": "EX-05",
+      "dimension": "Distributed-learning topology / aggregation / partition",
+      "primary_disposition": "D2",
+      "rationale": "Dynamic collaborative-learning taxonomy and context-rich relations; keep parallel_execution[] separate.",
+      "structural_watch": "SW-04"
+    },
+    {
+      "id": "EX-06",
+      "dimension": "Model lifecycle / deployment / inference organization",
+      "primary_disposition": "O1",
+      "rationale": "Route to implementation/reproducibility/deployment/Computational Resources architecture as applicable, not PP-08 method fields."
+    },
+    {
+      "id": "EX-07",
+      "dimension": "Model compression / efficiency transformation",
+      "primary_disposition": "D2",
+      "rationale": "Represent pruning/quantization/distillation/compression as process taxonomy linked by transforms to model realizations; no dedicated compression field."
+    },
+    {
+      "id": "EX-08",
+      "dimension": "Automated architecture / hyperparameter search",
+      "primary_disposition": "D2",
+      "rationale": "Represent NAS/HPO as search-process taxonomy linked to selected/configured architecture/configuration; resulting architecture remains separately owned."
+    },
+    {
+      "id": "EX-09",
+      "dimension": "Data modality / structural form",
+      "primary_disposition": "O1",
+      "rationale": "Route to problem/data/representation context; use derived query facets rather than an architecture or generic method field."
+    },
+    {
+      "id": "EX-10",
+      "dimension": "ML task/output type / system role",
+      "primary_disposition": "O1",
+      "rationale": "computational_task and problem/application owners remain authoritative; do not duplicate task labels inside methodology."
+    },
+    {
+      "id": "EX-11",
+      "dimension": "Neuro-symbolic / differentiable-programming integration",
+      "primary_disposition": "D2",
+      "rationale": "Preserve as provisional/dynamic method concepts with typed integration links until corpus evidence justifies normalization."
+    },
+    {
+      "id": "EX-12",
+      "dimension": "Robustness / privacy / security / fairness-aware techniques",
+      "primary_disposition": "D2",
+      "rationale": "Specific training/method techniques may be dynamic methodology terms, while properties/constraints/evaluation/governance remain with their own owners."
+    },
+    {
+      "id": "EX-13",
+      "dimension": "Model combination / mixture / ensemble organization",
+      "primary_disposition": "D2",
+      "rationale": "Composition taxonomy + component relations; ensemble, mixture-of-experts and generic multi-network systems remain distinct.",
+      "structural_watch": "SW-02"
+    },
+    {
+      "id": "EX-14",
+      "dimension": "Representation-learning / latent-representation objective",
+      "primary_disposition": "D2",
+      "rationale": "Link objective/training/model-system evidence to governed latent/representation concepts; do not force internal latent semantics into explicit input/output representation.",
+      "structural_watch": "SW-01"
+    },
+    {
+      "id": "EX-15",
+      "dimension": "Surrogate / reduced-order / learned-model role",
+      "primary_disposition": "D2",
+      "rationale": "Keep task/system role separate from architecture; link model component to surrogate/ROM/operator role as evidence supports.",
+      "structural_watch": "SW-02"
+    }
+  ],
+  "task_5_3_handoff_decisions": [
+    {
+      "id": "T53-H1",
+      "concept": "internal learned latent semantics",
+      "primary_disposition": "D2",
+      "rationale": "Keep latent/code semantics as dynamic representation/objective concepts linked to the relevant model/component and evidence. model_variable_representation[] remains explicit interface only; latent_dimension remains numeric configuration only.",
+      "structural_watch": "SW-01"
+    },
+    {
+      "id": "T53-H2",
+      "concept": "reusable model/component roles and multi-network composition",
+      "primary_disposition": "D2",
+      "rationale": "Use composition taxonomy and typed component-role links; do not infer architecture class from component count. Stable component identity becomes structural only if linking demonstrably fails.",
+      "structural_watch": "SW-02"
+    },
+    {
+      "id": "T53-H3",
+      "concept": "architecture search / compression processes",
+      "primary_disposition": "D2",
+      "rationale": "Search/transformation process taxonomy plus selects_or_configures/transforms relations is sufficient; final architecture/configuration remains separately owned."
+    },
+    {
+      "id": "T53-H4",
+      "concept": "surrogate / ROM / learned-component system roles",
+      "primary_disposition": "D2",
+      "rationale": "Represent system role through computational-task context plus typed role/coupling relations; role is not a universal architecture family.",
+      "structural_watch": "SW-02"
+    }
+  ],
+  "structural_watch_register": [
+    {
+      "id": "SW-01",
+      "candidate": "internal latent semantic structure",
+      "current_treatment": "D2 dynamic representation/objective taxonomy + model/component relation",
+      "reopen_only_if": "verified paper evidence demonstrates one or more internal latent objects whose scientifically distinct role/objective/provenance cannot be represented or cross-linked without ambiguity through current configuration, evidence scope and dynamic relations",
+      "future_direction_if_X6_proven": "prefer a generalized component/representation record that distinguishes explicit interface variables from internal latent objects; do not silently broaden model_variable_representation[]"
+    },
+    {
+      "id": "SW-02",
+      "candidate": "stable learned-model/component identity and role structure",
+      "current_treatment": "D2 composition taxonomy + typed component-role relations + component_scope/evidence",
+      "reopen_only_if": "multiple scientifically distinct learned components in a paper require stable cross-record links to their own architecture, configuration, inputs/outputs, training, role or evidence and text/scope locators cannot preserve identity without ambiguity",
+      "future_direction_if_X6_proven": "consider one generalized model-component identity structure rather than separate encoder/generator/expert/operator-specific tables; preserve R-C21 as the dedicated parameter/coefficient relation"
+    },
+    {
+      "id": "SW-03",
+      "candidate": "time-decomposition / temporal-partition structure",
+      "current_treatment": "D2 source-faithful temporal-decomposition terms + R-C14/training/parallel/decomposition links as applicable",
+      "reopen_only_if": "temporal segments/windows require stable boundaries, ordering, interface/transfer links or segment-specific attributes that cannot be reconstructed from existing decomposition/protocol/parallel/evidence records",
+      "future_direction_if_X6_proven": "generalize decomposition structure with an explicit decomposition axis/scope rather than forcing temporal semantics into a spatial-only field"
+    },
+    {
+      "id": "SW-04",
+      "candidate": "collaborative/federated workflow structure",
+      "current_treatment": "D2 learning-paradigm taxonomy + participant/topology/aggregation/partition relations; parallel_execution[] remains compute-only",
+      "reopen_only_if": "verified collaborative-learning studies require repeatable participant/data-owner/topology/aggregation records with stable identity that cannot be represented safely through contextual relations and evidence",
+      "future_direction_if_X6_proven": "consider a generalized collaborative-learning workflow structure, never a reuse of parallel_execution[]"
+    },
+    {
+      "id": "SW-05",
+      "candidate": "strong/weak/variational formulation detail structure",
+      "current_treatment": "D2 formulation taxonomy linked to constraints/enforcement/integration/evidence",
+      "reopen_only_if": "verified papers require repeatable formulation-specific attributes or component-level links whose loss changes scientific interpretation and cannot be retained by taxonomy terms, relations and evidence scope",
+      "future_direction_if_X6_proven": "prefer one generalized formulation record rather than separate strong/weak/variational fields"
+    },
+    {
+      "id": "SW-06",
+      "candidate": "structured domain-decomposition enrichment",
+      "current_treatment": "E1 domain_decomposition_method[] with dynamic taxonomy; v0.6 defer decision remains in force",
+      "reopen_only_if": "later evidence demonstrates recurring decomposition attributes/linkages that cannot be reconstructed from current method terms, parallel_execution[], network configuration, relations and evidence",
+      "future_direction_if_X6_proven": "enrich the existing domain_decomposition_method[] owner losslessly rather than create a competing decomposition entity"
+    },
+    {
+      "id": "SW-07",
+      "candidate": "transfer/adaptation event structure",
+      "current_treatment": "D2 transfer/adaptation/meta-learning taxonomy + source/target/task/model/training relations",
+      "reopen_only_if": "a paper contains multiple transfer/adaptation events whose source, target, stage, model, domain/task and evidence must remain separately linked and relation/context representation becomes ambiguous or lossy",
+      "future_direction_if_X6_proven": "consider one repeatable transfer/adaptation event structure; do not introduce scalar transfer/meta-learning or generic learning_type fields"
+    }
+  ],
+  "no_merge_guards": [
+    "taxonomy term != database field or entity",
+    "learning paradigm != physics/knowledge integration mode",
+    "learning paradigm != architecture family",
+    "learning paradigm != data regime",
+    "transfer/adaptation identity != pretraining/fine-tuning schedule",
+    "federated/collaborative learning != parallel execution",
+    "architecture-search process != resulting architecture",
+    "compression/transformation process != architecture family",
+    "internal latent semantics != explicit model input/output representation",
+    "numeric latent_dimension != semantic latent representation/objective",
+    "model role != architecture family",
+    "surrogate/ROM role != computational task identity and != architecture family",
+    "ensemble != mixture of experts != generic multi-network composition",
+    "strong/weak/variational formulation != physics enforcement != physics integration mode",
+    "time decomposition != generic spatial domain decomposition",
+    "knowledge representation != physical constraint identity",
+    "knowledge-integration locus != physics_integration_mode field by automatic equivalence",
+    "operator learning != PINN type/family",
+    "data modality != model architecture",
+    "deployment/lifecycle organization != PP-08 methodology by default",
+    "dynamic assignment/link implementation != new scientific authority",
+    "terminology occurrence != verified classification"
+  ],
+  "future_version_disposition": {
+    "new_v0_7_fields_or_entities": 0,
+    "locked_v0_7_mutations": 0,
+    "current_demonstrated_X6_candidates_requiring_schema_change": 0,
+    "future_v0_8_schema_proposals_authorized_by_task_5_4": 0,
+    "structural_watch_items": 7,
+    "decision": "No future-version structural proposal is scientifically required by the Tasks 5.1-5.3 evidence package at this checkpoint. Watch items may be reopened only by governed evidence; promotion/recurrence criteria remain Task 5.5."
+  },
+  "change_boundary": {
+    "canonical_ontology_promotions": 0,
+    "global_alias_promotions": 0,
+    "paper_level_assignments": 0,
+    "locked_scientific_evidence_modifications": 0,
+    "production_main_changes": 0,
+    "computational_resources_stage_changes": 0,
+    "task_5_5_started": false
+  },
+  "acceptance": {
+    "task_5_1_dimensions_dispositioned": 37,
+    "task_5_2_integration_dimensions_dispositioned": 6,
+    "task_5_2B_facets_dispositioned": 10,
+    "task_5_2C_external_dimensions_dispositioned": 15,
+    "task_5_3_handoffs_dispositioned": 4,
+    "structural_watch_items": 7,
+    "decision_classes": 5,
+    "no_merge_guards": 22,
+    "validation_errors_expected": 0
+  }
+}
