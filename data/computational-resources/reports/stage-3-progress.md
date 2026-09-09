@@ -5,37 +5,31 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S170`
-- Latest completed resource: `CR000190`
+- Latest completed checkpoint: `Stage3-S171`
+- Latest completed resource: `CR000192`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **2/10**
+- Current batch: `SOB019` — **3/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC04` — **PASS (count-neutral CR000191 duplicate skip)**
-- Exact next independently extractable resource: `CR000192`
-- Exact next checkpoint: `Stage3-S171`
+- Exact next independently extractable resource: `CR000193`
+- Exact next checkpoint: `Stage3-S172`
 
-## Cumulative counts through S170 / RC04
+## Cumulative counts through S171 / RC04
 
-- Resources: **192**
-- Experiments: **279**
-- Configurations: **496**
-- Technical-evidence records: **2107**
-- Reproducibility assessments: **192**
-- Unresolved findings: **1175**
-- Explicit conflicts: **133**
-- Independently extractable resources remaining: **171**
+- Resources: **193**
+- Experiments: **280**
+- Configurations: **497**
+- Technical-evidence records: **2116**
+- Reproducibility assessments: **193**
+- Unresolved findings: **1181**
+- Explicit conflicts: **135**
+- Independently extractable resources remaining: **170**
 
-## RC04
+## S171
 
-CR000191 is a Stage-2-authoritative `duplicate_identity_observation` for canonical CR000153 (`jzhange/AAF-for-PINNs`). It is not independently extracted or counted in Stage 3. PRL000312 remains solely on CR000153. The continuation pointer advances count-neutrally to CR000192; SOB019 remains 2/10.
+CR000192 preserves the Stage-2-authoritative distinct fork `Steph-Yhf/NSFnets` pinned at `e64132cbb7fb48cd3ad6d40e0986fb72f15bf5cb`, with no inferred Atlas-paper relationship. The bounded representative extraction maps the 3D time-dependent Beltrami VP-NSFnet: 4 inputs, 10 hidden tanh layers of width 100, 4 outputs, Re=1 momentum/continuity residuals, weighted initial/boundary losses, four Adam stages and L-BFGS-B refinement.
 
-CR000192 (`Steph-Yhf/NSFnets`) is Stage-2-authoritative as a distinct GitHub fork with its own immutable repository identity and is eligible for independent extraction.
-
-## S170
-
-CR000190 preserves the Stage-2-authoritative `xzhao399/DEM_TO` snapshot at `a946ba6cc0ed7016eedbd5f00c3a7391c6e3ca03` as adjacent physics-informed deep-energy topology-optimization code, not a conventional PINN. Three workflows and five configurations cover heat grids at 100×50, 200×100, and 400×200 plus compliant inverter and gripper cases.
-
-The static level is **R1**. No license, citation, dependency manifest, or portable environment exists. Google Drive/Colab coupling, compiled MMA objects, one Heat_400_200 path mismatch, absent model-save targets, bounded binary lineage, and the unexecuted workflow block higher levels. Two path/artifact conflicts remain explicit. SOB019 advances to 2/10.
+Static reproducibility is **R1**. No pinned environment, installation procedure, license, project citation, hardware description, checkpoint, or immutable expected metric is available. Two consequential source-level inconsistencies are explicit: boundary y/z/t/u/v/w arrays are reshaped from `train1x`, and evaluation combines 1000-row spatial arrays with only 100 time rows. No intended correction or runtime consequence is inferred beyond the static source evidence.
 
 No scientific workload was executed.
 
@@ -45,4 +39,4 @@ Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative for their accepted
 
 ## Continuation
 
-Continue with `Stage3-S171` at `CR000192` after published-head and reconciliation-QA readback.
+Continue with `Stage3-S172` at `CR000193` after published-head and checkpoint-QA readback.

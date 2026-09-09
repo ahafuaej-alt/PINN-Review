@@ -1,26 +1,25 @@
 # Computational Resources Stage 3 Unresolved Findings
 
 Date: 2026-09-09
-Latest checkpoint: `Stage3-S170`
+Latest checkpoint: `Stage3-S171`
 Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-Current batch: `SOB019` — **2/10**
+Current batch: `SOB019` — **3/10**
 
 ## Cumulative status
 
-- Unresolved findings: **1175**
-- Explicit conflicts: **133**
-- Next unresolved identifier: `S3U-1176`
+- Unresolved findings: **1181**
+- Explicit conflicts: **135**
+- Next unresolved identifier: `S3U-1182`
 
-## New findings in S170
+## New findings in S171
 
-- `S3U-1169` — medium — No Atlas-paper relationship is asserted.
-- `S3U-1170` — high — No repository license is identified.
-- `S3U-1171` — high — The environment is unpinned and Colab/Drive/Linux-binary coupled.
-- `S3U-1172` — high — Heat_400_200 uses a mismatched Drive directory; explicit conflict.
-- `S3U-1173` — medium — Several implemented model-save targets are absent; explicit conflict.
-- `S3U-1174` — medium — Bundled binary/model/result lineage remains bounded.
-- `S3U-1175` — medium — Citation, numeric acceptance targets, and execution are absent.
+- `S3U-1176` — medium — No Atlas-paper relationship is asserted for the distinct NSFnets fork.
+- `S3U-1177` — high — No repository license is identified at the pinned snapshot.
+- `S3U-1178` — high — TensorFlow/NumPy environment and installation are unpinned; TensorFlow 1.x Session/contrib compatibility remains unspecified.
+- `S3U-1179` — high — Beltrami boundary y/z/t/u/v/w arrays are constructed from `train1x`; explicit conflict.
+- `S3U-1180` — high — Evaluation combines 1000 spatial rows with 100 time rows; explicit conflict.
+- `S3U-1181` — medium — Checkpoint, immutable expected metric, hardware description, and executed validation are absent.
 
 ## Continuation
 
-Exact next resource: `CR000191`. Exact next checkpoint: `Stage3-S171`.
+Exact next resource: `CR000193`. Exact next checkpoint: `Stage3-S172`.
