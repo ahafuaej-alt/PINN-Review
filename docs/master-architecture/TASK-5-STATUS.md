@@ -39,6 +39,8 @@ Implementation contract: frozen Master Plan v1.0.
 
 - `TASK-5.2C-EXTERNAL-METHODOLOGY-COVERAGE-GAP-AUDIT.md`
 - `atlas-external-methodology-coverage-gap-audit.json` — non-authoritative machine-readable X→Y→Z audit register
+- `TASK-5.2C-REFERENCE-QA-ADDENDUM.md`
+- `TASK-5.2C-MACHINE-READABLE-VALIDATION.md` — runtime syntax/consistency validation record
 
 ## Task 5.1 result
 
@@ -89,6 +91,14 @@ The main externally emphasized gaps are **semantic/taxonomic coordination gaps r
 15. surrogate/reduced-order/learned-model role.
 
 No discovered external dimension was ignored merely because it was absent from X.
+
+### Machine-readable validation
+
+A focused runtime validation of `atlas-external-methodology-coverage-gap-audit.json` was executed after Task 5.2C. Result: **PASS with 0 validation errors**.
+
+Verified conditions include valid JSON syntax; required top-level keys; unique `Y01`–`Y16`, `MDC-01`–`MDC-37` and `EX-01`–`EX-15` identifiers; 37/37 internal Y mappings; 15/15 external dispositions; valid declared coverage states; unique source-registry IDs; safety/authority flags remaining false; recomputed acceptance counts matching the human audit; and `task_5_3_started=false`.
+
+No defect required modification of the JSON artifact. The complete validation record is `TASK-5.2C-MACHINE-READABLE-VALIDATION.md`.
 
 ### Structural conclusion
 
@@ -151,6 +161,6 @@ Later authoritative external research, Task 5.3–5.5 findings or primary-source
 
 ## Stop boundary
 
-**Task 5.3 was not started by Task 5.2C.**
+**Task 5.3 was not started by Task 5.2C or its machine-readable validation.**
 
 Exact next action, only when separately authorized: **Task 5.3 — define the Model / Representation / Coupled-ML Architecture Taxonomy using Task 5.2C as a controlling coverage input.**
