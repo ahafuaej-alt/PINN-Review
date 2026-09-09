@@ -1,22 +1,21 @@
 # Computational Resources Stage 3 Unresolved Register
 
 Date: 2026-09-09
-Current checkpoint: `Stage3-S149`
-Latest completed batch: **SOB015 PASS**
-Current batch: `SOB016` (9/10)
-Current unresolved count: **1051**
-Next unresolved ID: `S3U-1052`
-Explicit conflict count: **120**
+Current checkpoint: `Stage3-S150`
+Latest completed batch: **SOB016 PASS**
+Current batch: `SOB017` (0/10)
+Current unresolved count: **1055**
+Next unresolved ID: `S3U-1056`
+Explicit conflict count: **121**
 
-## Stage3-S149 additions
+## Stage3-S150 additions
 
-- `S3U-1047` — CR000167; resource; high: No repository license, CITATION file or formal dependency manifest was identified.
-- `S3U-1048` — CR000167; resource; high: The README explicitly describes the implementation as coarse and not fully tested and states uncertainty about correctness.
-- `S3U-1049` — CR000167; resource; high: The MNIST example downloads its benchmark data at runtime; no reusable research dataset is bundled.
-- `S3U-1050` — CR000167; resource; high: PyTorch, torchvision and NumPy versions, hardware requirements and random seeds are not pinned.
-- `S3U-1051` — CR000167; resource; medium: Stored example outputs are not accompanied by numerical acceptance thresholds or released checkpoints.
+- `S3U-1052` — CR000168; resource; high: The exact pinned repository contains only a 15-byte README and no code or dataset.
+- `S3U-1053` — CR000168; resource; high: The paper's Data Availability Statement points to the repository, but the current pinned snapshot contains no data.
+- `S3U-1054` — CR000168; resource; high: No repository license, citation metadata, dependency declaration or installation instructions are present.
+- `S3U-1055` — CR000168; resource; high: No entrypoint, architecture, training, evaluation, seed, hardware, checkpoint or expected-result surface can be assessed.
 
-This checkpoint adds **0 explicit conflicts**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-149-extraction-log.jsonl`.
+This checkpoint adds **1 explicit conflict**. Structured scope, severity and evidence links are retained in `04-evidence/extraction-log/scaleout-checkpoint-150-extraction-log.jsonl`.
 
 ## Audit continuity
 
@@ -24,4 +23,4 @@ Prior findings through S122 are retained in the S122 register snapshot and histo
 
 ## Continuation
 
-Exact next resource: `CR000168`. Exact next checkpoint: `Stage3-S150`.
+Exact next resource: `CR000169`. Exact next checkpoint: `Stage3-S151`.

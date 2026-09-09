@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S149`
-- Latest completed resource: `CR000167`
-- Latest completed aggregate batch: `SOB015` — **PASS (10/10)**
-- Current batch: `SOB016` — **9/10**
+- Latest completed checkpoint: `Stage3-S150`
+- Latest completed resource: `CR000168`
+- Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
+- Current batch: `SOB017` — **0/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000168`
-- Exact next checkpoint: `Stage3-S150`
+- Exact next independently extractable resource: `CR000169`
+- Exact next checkpoint: `Stage3-S151`
 
-## Cumulative counts through S149
+## Cumulative counts through S150
 
-- Resources: **169**
+- Resources: **170**
 - Experiments: **255**
 - Configurations: **454**
-- Technical-evidence records: **1870**
-- Reproducibility assessments: **169**
-- Unresolved findings: **1051**
-- Explicit conflicts: **120**
-- Independently extractable resources remaining: **194**
+- Technical-evidence records: **1875**
+- Reproducibility assessments: **170**
+- Unresolved findings: **1055**
+- Explicit conflicts: **121**
+- Independently extractable resources remaining: **193**
 
-## S149
+## S150
 
-CR000167 preserves the pinned generic non-PINN ChebyKAN software identity and its paper-software-mention relationship. Static inspection identifies optimized and recurrent Chebyshev layers plus MNIST and interpolation examples. Unpinned dependencies/data and the author's explicit not-fully-tested correctness warning keep static reproducibility at **R1**.
+CR000168 preserves the corrected official non-PINN repository identity and exact README-only snapshot. The paper's data-availability statement conflicts with the absence of code and data at the pinned commit. Static reproducibility is **R0**. SOB016 passes aggregate reconciliation at 10/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S150` at `CR000168` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S151` at `CR000169` after published-head, checkpoint-QA and SOB016 aggregate-QA readback.
