@@ -1,0 +1,42 @@
+{
+  "register_id": "atlas-learning-paradigm-reference-register",
+  "task": "5.2B",
+  "date": "2026-09-09",
+  "status": "PASS_BIBLIOGRAPHIC_QA",
+  "scientific_authority": false,
+  "may_modify_locked_v0_7": false,
+  "format_basis": "MDPI/ACS-style human bibliography; DOI retained for auditability",
+  "supersedes_bibliographic_shorthand_when_conflicting": true,
+  "corrections": [
+    {
+      "reference_id": "EXT-LP-10",
+      "field": "bibliographic_year",
+      "old_shorthand": "2023",
+      "corrected_issue_citation": "2024",
+      "note": "Online publication occurred in December 2023; version-of-record issue citation is Frontiers of Computer Science 2024, 18, 181336."
+    }
+  ],
+  "references": [
+    {"id":"EXT-LP-01","authors":["Vassilev, A.","Oprea, A.","Fordyce, A.","Anderson, H.","Davies, X.","Hamin, M."],"title":"Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations","type":"NIST_report","year":2025,"report_number":"NIST AI 100-2e2025","publisher":"National Institute of Standards and Technology","location":"Gaithersburg, MD, USA","doi":"10.6028/NIST.AI.100-2e2025"},
+    {"id":"EXT-LP-02","authors":["Emmert-Streib, F.","Dehmer, M."],"title":"Taxonomy of machine learning paradigms: A data-centric perspective","journal":"WIREs Data Mining and Knowledge Discovery","year":2022,"volume":"12","article":"e1470","doi":"10.1002/widm.1470"},
+    {"id":"EXT-LP-03","authors":["Hoi, S.C.H.","Sahoo, D.","Lu, J.","Zhao, P."],"title":"Online learning: A comprehensive survey","journal":"Neurocomputing","year":2021,"volume":"459","pages":"249-289","doi":"10.1016/j.neucom.2021.04.112"},
+    {"id":"EXT-LP-04","authors":["Wang, L.","Zhang, X.","Su, H.","Zhu, J."],"title":"A comprehensive survey of continual learning: Theory, method and application","journal":"IEEE Transactions on Pattern Analysis and Machine Intelligence","year":2024,"volume":"46","pages":"5362-5383","doi":"10.1109/TPAMI.2024.3367329"},
+    {"id":"EXT-LP-05","authors":["Cacciarelli, D.","Kulahci, M."],"title":"Active learning for data streams: A survey","journal":"Machine Learning","year":2024,"volume":"113","pages":"185-239","doi":"10.1007/s10994-023-06454-2"},
+    {"id":"EXT-LP-06","authors":["Bekker, J.","Davis, J."],"title":"Learning from positive and unlabeled data: A survey","journal":"Machine Learning","year":2020,"volume":"109","pages":"719-760","doi":"10.1007/s10994-020-05877-5"},
+    {"id":"EXT-LP-07","authors":["Hernández-González, J.","Inza, I.","Lozano, J.A."],"title":"Weak supervision and other non-standard classification problems: A taxonomy","journal":"Pattern Recognition Letters","year":2016,"volume":"69","pages":"49-55","doi":"10.1016/j.patrec.2015.10.008"},
+    {"id":"EXT-LP-08","authors":["Tian, Y.","Zhao, X.","Huang, W."],"title":"Meta-learning approaches for learning-to-learn in deep learning: A survey","journal":"Neurocomputing","year":2022,"volume":"494","pages":"203-223","doi":"10.1016/j.neucom.2022.04.078"},
+    {"id":"EXT-LP-09","authors":["Zhang, Y.","Yang, Q."],"title":"An overview of multi-task learning","journal":"National Science Review","year":2018,"volume":"5","pages":"30-43","doi":"10.1093/nsr/nwx105"},
+    {"id":"EXT-LP-10","authors":["Liu, F.","Zheng, Z.","Shi, Y.","Tong, Y.","Zhang, Y."],"title":"A survey on federated learning: A perspective from multi-party computation","journal":"Frontiers of Computer Science","year":2024,"volume":"18","article":"181336","doi":"10.1007/s11704-023-3282-7"},
+    {"id":"EXT-LP-11","authors":["Sagi, O.","Rokach, L."],"title":"Ensemble learning: A survey","journal":"WIREs Data Mining and Knowledge Discovery","year":2018,"volume":"8","article":"e1249","doi":"10.1002/widm.1249"},
+    {"id":"EXT-LP-12","authors":["Kouw, W.M.","Loog, M."],"title":"A review of domain adaptation without target labels","journal":"IEEE Transactions on Pattern Analysis and Machine Intelligence","year":2021,"volume":"43","pages":"766-785","doi":"10.1109/TPAMI.2019.2945942"},
+    {"id":"EXT-LP-13","authors":["Zhou, K.","Liu, Z.","Qiao, Y.","Xiang, T.","Loy, C.C."],"title":"Domain generalization: A survey","journal":"IEEE Transactions on Pattern Analysis and Machine Intelligence","year":2023,"volume":"45","pages":"4396-4415","doi":"10.1109/TPAMI.2022.3195549"},
+    {"id":"EXT-LP-14","authors":["Pourpanah, F.","Abdar, M.","Luo, Y.","Zhou, X.","Wang, R.","Lim, C.P.","Wang, X.-Z.","Wu, Q.M.J."],"title":"A review of generalized zero-shot learning methods","journal":"IEEE Transactions on Pattern Analysis and Machine Intelligence","year":2023,"volume":"45","pages":"4051-4070","doi":"10.1109/TPAMI.2022.3191696"},
+    {"id":"EXT-LP-15","authors":["Liu, B.","Webb, G.I."],"title":"Generative and discriminative learning","type":"book_chapter","book":"Encyclopedia of Machine Learning and Data Mining","edition":"2nd","editors":["Sammut, C.","Webb, G.I."],"publisher":"Springer","location":"New York, NY, USA","year":2017,"pages":"565-566","doi":"10.1007/978-1-4899-7687-1_113"},
+    {"id":"PINN-REL-01","authors":["Zhang, C.","Shafieezadeh, A."],"title":"Simulation-free reliability analysis with active learning and Physics-Informed Neural Network","journal":"Reliability Engineering & System Safety","year":2022,"volume":"226","article":"108716","doi":"10.1016/j.ress.2022.108716"},
+    {"id":"PINN-REL-02","authors":["Li, C.","Zeng, R."],"title":"AW-EL-PINNs: A multi-task learning physics-informed neural network for Euler-Lagrange systems in optimal control problems","journal":"Neural Networks","year":2026,"volume":"199","article":"108694","doi":"10.1016/j.neunet.2026.108694"},
+    {"id":"PINN-REL-03","authors":["Alfano, G.","Greco, S.","Mandaglio, D.","Parisi, F.","Shahbazian, R.","Trubitsyna, I."],"title":"Decentralized federated learning meets Physics-Informed Neural Networks","journal":"Knowledge-Based Systems","year":2025,"volume":"323","article":"113717","doi":"10.1016/j.knosys.2025.113717"}
+  ],
+  "full_text_helpful_not_blocking": ["EXT-LP-07","EXT-LP-08","EXT-LP-12","PINN-REL-02","PINN-REL-03"],
+  "scope_rule": "Task 5.2B covers general learning paradigms only. Full X/Y/Z methodology coverage remains Task 5.2C.",
+  "stop_boundary": "Task 5.2C not started by this reference audit."
+}
