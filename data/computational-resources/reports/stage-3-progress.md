@@ -5,30 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S162`
-- Latest completed resource: `CR000181`
+- Latest completed checkpoint: `Stage3-S163`
+- Latest completed resource: `CR000182`
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **3/10**
+- Current batch: `SOB018` — **4/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000182`
-- Exact next checkpoint: `Stage3-S163`
+- Exact next independently extractable resource: `CR000183`
+- Exact next checkpoint: `Stage3-S164`
 
-## Cumulative counts through S162
+## Cumulative counts through S163
 
-- Resources: **183**
-- Experiments: **268**
-- Configurations: **477**
-- Technical-evidence records: **2015**
-- Reproducibility assessments: **183**
-- Unresolved findings: **1128**
+- Resources: **184**
+- Experiments: **269**
+- Configurations: **478**
+- Technical-evidence records: **2025**
+- Reproducibility assessments: **184**
+- Unresolved findings: **1133**
 - Explicit conflicts: **124**
-- Independently extractable resources remaining: **180**
+- Independently extractable resources remaining: **179**
 
-## S162
+## S163
 
-CR000181 preserves the Stage-2-authoritative `fastai/fastai` repository at pinned SHA `517e68da4779897e6d2668f07aa9aed52e0e4a89`, its Apache-2.0 license, peer-reviewed software citation and explicit no-Atlas-relationship boundary. It remains a general-purpose supporting deep-learning library rather than PINN code.
+CR000182 preserves the verified transfer of the immutable Keras repository from `fchollet/keras` to `keras-team/keras` at pinned SHA `37e91d59b957b57b9961d97bd120499ddfb36841`, together with its Apache-2.0 license and no-Atlas-relationship boundary. It remains a general-purpose multi-backend deep-learning framework rather than PINN code.
 
-Bounded static extraction follows the original Stage-1 deep link to the current pinned one-cycle scheduling implementation. One experiment and one configuration capture the `Learner.fit_one_cycle` learning-rate/momentum schedule, exact defaults, callback integration and notebook assertions. Formal dependency declarations, installation instructions and test commands support **R3**; compatible ranges rather than a lockfile and the unexecuted boundary block R4. SOB018 advances to 3/10.
+Bounded static extraction maps the framework's TensorFlow, JAX, PyTorch and OpenVINO surfaces and one bundled MNIST convolutional-classifier demonstration. Backend-specific manifests, installation and test instructions, 282 test modules and a complete example support **R3**; nonlocked environments, absent deterministic controls and the unexecuted boundary block R4. SOB018 advances to 4/10.
 
 No scientific workload was executed.
 
@@ -38,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S163` at `CR000182` after published-head and checkpoint-QA readback. CR000182 is a large general-purpose framework/library and should receive the accepted single-resource treatment.
+Continue with `Stage3-S164` at `CR000183` after published-head and checkpoint-QA readback.

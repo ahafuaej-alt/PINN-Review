@@ -5,13 +5,13 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S162`
-- Resources: CR000181
+- Checkpoint: `Stage3-S163`
+- Resources: CR000182
 - Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **3/10**
+- Current batch: `SOB018` — **4/10**
 - Checkpoint QA: **PASS**
 
-All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. The extraction preserves fastai's supporting-library identity and bounds experiment normalization to the one-cycle scheduling feature identified by the original resource link.
+All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 authority, missing-value, inference-labeling, reproducibility, execution-boundary and repository-scope checks pass. The extraction retains the verified repository transfer and supporting-framework classification while bounding experimental normalization to one complete bundled demonstration.
 
 ## Checkpoint counts
 
@@ -25,18 +25,18 @@ All schema, cross-reference, evidence-use, identifier-uniqueness, Stage-2 author
 
 ## Cumulative counts
 
-- Resources: **183**
-- Experiments: **268**
-- Configurations: **477**
-- Technical-evidence records: **2015**
-- Reproducibility assessments: **183**
-- Unresolved findings: **1128**
+- Resources: **184**
+- Experiments: **269**
+- Configurations: **478**
+- Technical-evidence records: **2025**
+- Reproducibility assessments: **184**
+- Unresolved findings: **1133**
 - Explicit conflicts: **124**
 
 ## Scientific boundary
 
-The exact pinned tree, Stage-2 authority, documentation, manifests, one-cycle scheduler source and notebook assertions were inspected statically. No package was installed, test or notebook run, schedule trace generated or scientific workload executed.
+The exact pinned tree, repository transfer, documentation, manifests, test surface and bundled MNIST example were inspected statically. No environment was created, test run, dataset downloaded, model trained or scientific workload executed.
 
 ## Continuation
 
-Exact next resource: `CR000182`. Exact next checkpoint: `Stage3-S163`. Independently extractable resources remaining: **180**.
+Exact next resource: `CR000183`. Exact next checkpoint: `Stage3-S164`. Independently extractable resources remaining: **179**.
