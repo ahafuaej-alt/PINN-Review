@@ -5,30 +5,30 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S167`
-- Latest completed resource: `CR000187`
-- Latest completed aggregate batch: `SOB017` — **PASS (10/10)**
-- Current batch: `SOB018` — **9/10**
+- Latest completed checkpoint: `Stage3-S168`
+- Latest completed resource: `CR000188`
+- Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
+- Current batch: `SOB019` — **0/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000188`
-- Exact next checkpoint: `Stage3-S168`
+- Exact next independently extractable resource: `CR000189`
+- Exact next checkpoint: `Stage3-S169`
 
-## Cumulative counts through S167
+## Cumulative counts through S168
 
-- Resources: **189**
-- Experiments: **275**
-- Configurations: **490**
-- Technical-evidence records: **2078**
-- Reproducibility assessments: **189**
-- Unresolved findings: **1158**
-- Explicit conflicts: **126**
-- Independently extractable resources remaining: **174**
+- Resources: **190**
+- Experiments: **276**
+- Configurations: **491**
+- Technical-evidence records: **2088**
+- Reproducibility assessments: **190**
+- Unresolved findings: **1163**
+- Explicit conflicts: **127**
+- Independently extractable resources remaining: **173**
 
-## S167
+## S168
 
-CR000187 preserves the Stage-2-authoritative `ms140429/PIML_Converter` repository at pinned SHA `90ac1bfe954b93dfce9f27d1de5ae912d9a66682`, its MIT license, paper DOI and no-Atlas-relationship boundary. It is a PINN/PIML implementation for estimating ten DC-DC buck-converter parameters.
+CR000188 preserves the Stage-2-authoritative `scikit-fmm/scikit-fmm` repository at pinned SHA `3618765f26fe469163840dd0d9775848ec379c3e`, its supporting-library identity, exact BSD-3-Clause license text and no-Atlas-relationship boundary. It is a compiled Python/C++ fast-marching implementation for Eikonal boundary-value problems, not a PINN.
 
-Bounded static extraction maps one seven-case experiment, seven dataset-linked configurations, the five-input/tanh/implicit-Runge-Kutta architecture, fixed NumPy and TensorFlow seeds, Adam plus L-BFGS-B training controls, MATLAB data generation and reported per-case errors. The static level is **R1**: the accepted hierarchical model blocks R2 and higher because no installation workflow or substantially specified environment exists. The unused declared Adam learning rate, unproven result provenance and unexecuted workload add further limits. Documentation's “six files” statement conflicts with the seven named and bundled datasets and is retained explicitly. SOB018 advances to 9/10.
+Bounded static extraction maps one exact-output three-by-three distance/travel-time quick start, the distance/travel-time/extension-velocity API, first- and second-order stencils, masked/narrow-band/periodic capabilities, Meson build metadata and extensive doctest surface. This supports **R3**; unpinned build dependencies/toolchain and the unexecuted boundary block R4. GitHub's NOASSERTION license metadata and exact BSD text are retained as one explicit conflict. S168 completes SOB018 at **PASS (10/10)**.
 
 No scientific workload was executed.
 
@@ -38,4 +38,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S168` at `CR000188` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S169` at `CR000189` after published-head and checkpoint-QA readback.
