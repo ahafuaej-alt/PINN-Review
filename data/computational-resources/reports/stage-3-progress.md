@@ -5,28 +5,28 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S154`
-- Latest completed resource: `CR000172`
+- Latest completed checkpoint: `Stage3-S155`
+- Latest completed resource: `CR000173`
 - Latest completed aggregate batch: `SOB016` — **PASS (10/10)**
-- Current batch: `SOB017` — **4/10**
+- Current batch: `SOB017` — **5/10**
 - Checkpoint QA: **PASS**
-- Exact next independently extractable resource: `CR000173`
-- Exact next checkpoint: `Stage3-S155`
+- Exact next independently extractable resource: `CR000174`
+- Exact next checkpoint: `Stage3-S156`
 
-## Cumulative counts through S154
+## Cumulative counts through S155
 
-- Resources: **174**
-- Experiments: **260**
-- Configurations: **465**
-- Technical-evidence records: **1925**
-- Reproducibility assessments: **174**
-- Unresolved findings: **1077**
+- Resources: **175**
+- Experiments: **261**
+- Configurations: **467**
+- Technical-evidence records: **1940**
+- Reproducibility assessments: **175**
+- Unresolved findings: **1083**
 - Explicit conflicts: **123**
-- Independently extractable resources remaining: **189**
+- Independently extractable resources remaining: **188**
 
-## S154
+## S155
 
-CR000172 preserves the non-PINN identity of the classical WG elastoplasticity solver and its supporting paper-software relationship. Static extraction maps one constitutive-response experiment, the single active Ottawa-sand proportional-strain configuration, five source-module roles and the serialized output surface. Missing environment versions, installation guidance, validation artifacts and the linked paper's exact synthetic-data campaign constrain reproducibility to **R1**. SOB017 advances to 4/10.
+CR000173 preserves the corrected physics-informed identity of the official EPNN implementation for Atlas paper 539. Static extraction maps one training experiment, the active 16e-4 and documented 4e-4 synthetic-data configurations, three coupled subnetworks, the physics-constructed stress increment, pinned dependencies and evaluation protocol. Bundled data and detailed training controls support **R3**; missing reference outputs and complete paper-to-command mapping block R4. SOB017 advances to 5/10.
 
 No scientific workload was executed.
 
@@ -36,4 +36,4 @@ Stage3-RC02 remains authoritative for repaired pre-S123 metadata/reproducibility
 
 ## Continuation
 
-Continue with `Stage3-S155` at `CR000173` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S156` at `CR000174` after published-head and checkpoint-QA readback.
