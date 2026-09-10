@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "id": "TASK-4.1C-TERMINOLOGY-COLLISION-REGISTER",
+    "date": "2026-09-08",
+    "branch": "docs/master-atlas-roadmap",
+    "role": "collision_non_equivalence_audit_register",
+    "scientific_authority": false,
+    "may_define_final_taxonomy": false,
+    "may_promote_global_aliases": false,
+    "may_modify_locked_v0_7": false,
+    "raw_source": "data/reference-pinn-abbreviations.txt",
+    "raw_source_blob_sha": "c712b9625d4a4dd838bba582d0bafe56a79c6350",
+    "controlling_triage_policy": "task-4.1b-pinn-candidate-triage-policy.json",
+    "downstream_inventory_owner": "Task 4.1D",
+    "final_taxonomy_owner": "Task 4.2"
+  },
+  "decision_states": [
+    "hard_no_merge",
+    "same_form_homograph",
+    "case_sensitive_non_equivalence",
+    "scoped_alias_candidate",
+    "source_scoped_meaning_only",
+    "orthographic_candidate_unresolved",
+    "adjacent_concept_non_equivalence",
+    "source_text_anomaly_preserve_exactly"
+  ],
+  "rules": [
+    "Every exact raw form and paper association remains preserved even when a later scoped alias is approved.",
+    "Case, punctuation, hyphenation, pluralization, word order, and prefix/suffix similarity never prove identity by themselves.",
+    "The same abbreviation may legitimately have multiple paper-scoped meanings; such homographs require paper-scoped resolution rather than a corpus-global expansion.",
+    "A shared methodological parent, architecture relation, training relation, decomposition relation, application relation, or operator-learning relation is not an alias/equivalence relation.",
+    "No final parent/child PINN taxonomy placement is created by this register.",
+    "Unresolved collisions remain unresolved and visible rather than being normalized to the nearest familiar term.",
+    "Task 4.1D must carry collision_id and decision_state into materialized candidate rows wherever applicable.",
+    "Task 4.2 may supersede only normalization/taxonomy decisions through governed versioned review; raw terminology and historical collision provenance remain immutable."
+  ],
+  "collisions": [
+    {
+      "collision_id": "C001",
+      "forms": ["cPINN", "CPINN"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 628, "form": "cPINN", "meaning": "Conservative PINN", "verification": "primary_source_verified"},
+        {"paper_id": 791, "form": "cPINN", "meaning": "Conservative PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 707, "form": "CPINN", "meaning": "Coupled PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 708, "form": "CPINN", "meaning": "Coupled physics informed neural network", "verification": "primary_source_verified"}
+      ],
+      "decision": "Lowercase cPINN and uppercase CPINN are scientifically non-equivalent in verified scopes. Case-folding is prohibited. Review-paper occurrences remain paper-scoped until individually verified."
+    },
+    {
+      "collision_id": "C002",
+      "forms": ["DD-PINN"],
+      "decision_state": "same_form_homograph",
+      "basis": [
+        {"paper_id": 548, "form": "DD-PINN", "meaning": "Domain-discretized PINN", "verification": "primary_source_verified_abstract"},
+        {"paper_id": 651, "form": "DD-PINN", "meaning": "Domain-decoupled PINN", "verification": "primary_source_verified_title_and_raw_expansion"},
+        {"paper_id": 740, "form": "DD-PINN", "meaning": "Data-driven PINN", "verification": "primary_source_verified_abstract_and_method"}
+      ],
+      "decision": "DD-PINN is a confirmed three-way homograph in the current corpus. A single corpus-global expansion or canonical alias target is prohibited. Task 4.1D must resolve by paper_id."
+    },
+    {
+      "collision_id": "C003",
+      "forms": ["B-PINN", "BPINN", "B-PINNs"],
+      "decision_state": "scoped_alias_candidate",
+      "basis": [
+        {"paper_id": 410, "form": "B-PINN", "meaning": "Bayesian Physics-Informed Neural Network", "verification": "primary_source_verified"},
+        {"paper_id": 616, "form": "BPINN", "meaning": "Bayesian Physics Informed Neural Network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 618, "form": "BPINN", "meaning": "Bayesian Physics Informed Neural Network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 503, "form": "B-PINNs", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "B-PINN and BPINN are compatible Bayesian forms in verified scopes, but Task 4.1C does not promote a corpus-global alias. B-PINNs remains an orthographic/plural candidate pending source verification."
+    },
+    {
+      "collision_id": "C004",
+      "forms": ["IPINN", "iPINN", "IPINNs", "Improved PINN", "Improved PINN (with conservation laws)", "IPINN (conservation law constraint)"],
+      "decision_state": "same_form_homograph",
+      "basis": [
+        {"paper_id": 489, "form": "IPINN", "meaning": "Improved physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 629, "form": "IPINN (conservation law constraint)", "meaning": "Improved PINN with conservation-law constraint", "verification": "raw_expansion_supported"},
+        {"paper_id": 632, "form": "IPINN", "meaning": "Improved PINN with conservation laws", "verification": "raw_expansion_supported"},
+        {"paper_id": 66, "form": "iPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 581, "form": "IPINNs", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "IPINN cannot receive one global meaning from lexical similarity. Lowercase iPINN and plural IPINNs are not automatically aliases. Generic Improved PINN wording remains source-local unless independently stabilized."
+    },
+    {
+      "collision_id": "C005",
+      "forms": ["SPINN", "sPINN"],
+      "decision_state": "case_sensitive_non_equivalence",
+      "basis": [
+        {"paper_id": 609, "form": "SPINN", "meaning": "Soft-constraint physics-informed neural network", "verification": "current_Atlas_meaning_map_source_scoped"},
+        {"paper_id": 150, "form": "sPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 84, "form": "SPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 367, "form": "SPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 495, "form": "SPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 506, "form": "SPINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "The paper-609 SPINN meaning is explicitly source-scoped and must not propagate to other SPINN occurrences. sPINN is case-distinct and unresolved."
+    },
+    {
+      "collision_id": "C006",
+      "forms": ["E-PINN", "e-PINN", "EP-PINNs"],
+      "decision_state": "case_sensitive_non_equivalence",
+      "basis": [
+        {"paper_id": 659, "form": "E-PINN", "meaning": "Explicit-time-domain physics-informed neural network", "verification": "current_Atlas_meaning_map_source_scoped"},
+        {"paper_id": 291, "form": "E-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 221, "form": "e-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 834, "form": "EP-PINNs", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "No case-folding, punctuation stripping, or prefix collapse is permitted. The explicit-time-domain meaning is restricted to its verified source scope."
+    },
+    {
+      "collision_id": "C007",
+      "forms": ["PiNN", "PINN", "PiNN package", "trapz-PiNN", "Defect-driven PiNN"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 744, "form": "PiNN package", "meaning": "software/package identity", "verification": "raw_expansion_supported"},
+        {"paper_id": 838, "form": "PiNN", "meaning": "physics-informed neural networks", "verification": "raw_expansion_supported"},
+        {"paper_id": 681, "form": "PiNN", "meaning": "scientific method label in Defect-driven PiNN context", "verification": "raw_context_supported"},
+        {"paper_id": 549, "form": "trapz-PiNN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "PiNN has mixed scientific and software identity. It cannot be globally normalized to PINN or to the PiNN package. Compound PiNN names remain source-scoped."
+    },
+    {
+      "collision_id": "C008",
+      "forms": ["hp-VPINN", "HP-VPINN"],
+      "decision_state": "orthographic_candidate_unresolved",
+      "basis": [
+        {"paper_id": 493, "form": "hp-VPINN", "meaning": "hp-variational physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 3, "form": "HP-VPINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "These forms are a plausible orthographic/case candidate but are not automatically merged. Exact source form remains preserved until source-by-source equivalence is established."
+    },
+    {
+      "collision_id": "C009",
+      "forms": ["PPINN"],
+      "decision_state": "source_scoped_meaning_only",
+      "basis": [
+        {"paper_id": 413, "form": "PPINN", "meaning": "Parareal physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 3, "form": "PPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 172, "form": "PPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 367, "form": "PPINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "Parareal meaning is verified for paper 413 only. Other PPINN occurrences must not inherit it automatically."
+    },
+    {
+      "collision_id": "C010",
+      "forms": ["fPINN", "fPINNs", "gfPINNs"],
+      "decision_state": "scoped_alias_candidate",
+      "basis": [
+        {"paper_id": 470, "form": "fPINN", "meaning": "Fractional physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 505, "form": "fPINNs", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 505, "form": "gfPINNs", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "fPINN and fPINNs may be orthographic/plural equivalents in some sources, but gfPINNs is not reducible to fPINN by string stripping. No global alias is promoted."
+    },
+    {
+      "collision_id": "C011",
+      "forms": ["SA-PINN", "SAPINN", "SAS-PINN"],
+      "decision_state": "scoped_alias_candidate",
+      "basis": [
+        {"paper_id": 541, "form": "SA-PINN", "meaning": "Self-adaptive physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 700, "form": "SAPINN", "meaning": "Self-Adaptive PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 231, "form": "SAS-PINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "SA-PINN and SAPINN are plausible scoped aliases under self-adaptive PINN evidence, but global alias promotion is deferred. SAS-PINN remains distinct until verified."
+    },
+    {
+      "collision_id": "C012",
+      "forms": ["PIKAN", "KAN-PINN", "Physics-KAN"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 150, "form": "PIKAN", "meaning": "Physics-informed Kolmogorov-Arnold network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 230, "form": "KAN-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 41, "form": "Physics-KAN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "These names may share KAN ancestry but are not lexical aliases. Future Task 4.2/5 relations must preserve architecture/integration distinctions."
+    },
+    {
+      "collision_id": "C013",
+      "forms": ["PI-LSTM", "PILSTM", "LSTM-PINN", "PI-RNN", "PIRNN", "recurrent PINN"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 557, "form": "PI-LSTM", "meaning": "Physics-informed long short-term memory network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 142, "form": "PILSTM", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 844, "form": "LSTM-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 332, "form": "PI-RNN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 699, "form": "PIRNN", "meaning": "recurrent PINN context", "verification": "raw_context_supported"}
+      ],
+      "decision": "Recurrent/LSTM physics-informed models and LSTM-backed PINNs are related architecture/integration concepts, not automatic aliases or one PINN type."
+    },
+    {
+      "collision_id": "C014",
+      "forms": ["PINO", "PI-DeepONet", "PINN-DeepONet", "PI-FNO", "DeepONet"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 149, "form": "PINO", "meaning": "Physics-informed neural operator", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 600, "form": "PI-DeepONet", "meaning": "Physics-informed DeepONet", "verification": "raw_context_supported"},
+        {"paper_id": 596, "form": "PINN-DeepONet", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 622, "form": "PI-FNO", "meaning": "physics-informed Fourier neural operators", "verification": "raw_expansion_supported"}
+      ],
+      "decision": "Neural operator/operator-learning methods remain distinct from PINN identity. Hybrid relations can be recorded later, but no alias or automatic PINN-type assignment is allowed."
+    },
+    {
+      "collision_id": "C015",
+      "forms": ["PIML", "PgNN", "PeNN", "PiNN", "PINN"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 818, "form": "PIML", "meaning": "Physics-informed machine learning", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 815, "form": "PgNN", "meaning": "Physics-guided Neural Network", "verification": "raw_expansion_supported"},
+        {"paper_id": 838, "form": "PeNN", "meaning": "physics-encoded neural networks", "verification": "raw_expansion_supported"},
+        {"paper_id": 838, "form": "PiNN", "meaning": "physics-informed neural networks", "verification": "raw_expansion_supported"}
+      ],
+      "decision": "Physics-informed ML, physics-guided NN, physics-encoded NN, PiNN terminology and canonical PINN are neighboring paradigms/labels, not globally interchangeable synonyms."
+    },
+    {
+      "collision_id": "C016",
+      "forms": ["PI-GAN", "PIGAN", "GAN-PINN", "PIG-GAN"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 499, "form": "PI-GAN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 566, "form": "PIGAN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 787, "form": "GAN-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 798, "form": "PIG-GAN", "meaning": "Physics-Informed Generator GAN", "verification": "raw_expansion_supported"}
+      ],
+      "decision": "GAN-related physics-informed methods and GAN-PINN hybrids are not automatically aliases. Exact generative/PINN integration semantics must remain source-scoped."
+    },
+    {
+      "collision_id": "C017",
+      "forms": ["PI-VAE", "PIVAE"],
+      "decision_state": "scoped_alias_candidate",
+      "basis": [
+        {"paper_id": 508, "form": "PIVAE", "meaning": "Physics-informed VAE", "verification": "raw_expansion_supported"},
+        {"paper_id": 635, "form": "PI-VAE", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "Possible punctuation/orthographic equivalence exists, but no global alias is promoted without per-source verification."
+    },
+    {
+      "collision_id": "C018",
+      "forms": ["PI-CNN", "PICNN", "CNN-PINN", "PIDCNN", "PiCNN"],
+      "decision_state": "same_form_homograph",
+      "basis": [
+        {"paper_id": 316, "form": "PI-CNN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 802, "form": "PICNN", "meaning": "convolutional PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 251, "form": "CNN-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 801, "form": "PIDCNN", "meaning": "deep convolutional PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 563, "form": "PiCNN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "Convolution-related physics-informed acronyms are collision-prone and cannot be normalized by punctuation/case similarity. PICNN is especially homograph-prone across ML literature; paper scope is mandatory."
+    },
+    {
+      "collision_id": "C019",
+      "forms": ["HPINN", "HWPINN", "HCPINN", "hp-VPINN", "KKT-hPINN"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 609, "form": "HWPINN", "meaning": "Hard-constraint wide-body physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 609, "form": "HPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 234, "form": "HCPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 493, "form": "hp-VPINN", "meaning": "hp-variational physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"},
+        {"paper_id": 61, "form": "KKT-hPINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "Visual H/h/HP similarity is not evidence of equivalence. These forms retain independent source identities unless future evidence proves scoped aliasing."
+    },
+    {
+      "collision_id": "C020",
+      "forms": ["MPINN", "mp-PINN", "MTL-PINN"],
+      "decision_state": "case_sensitive_non_equivalence",
+      "basis": [
+        {"paper_id": 420, "form": "MPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 31, "form": "mp-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 26, "form": "MTL-PINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "No case/hyphen normalization or acronym-stem collapse is permitted."
+    },
+    {
+      "collision_id": "C021",
+      "forms": ["APINN", "A-PINN", "AT-PINN", "AW-PINN"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 612, "form": "APINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 369, "form": "A-PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 773, "form": "AT-PINN", "meaning": "Advanced time-marching PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 774, "form": "AW-PINN", "meaning": "Adaptive Weight PINN", "verification": "raw_expansion_supported"}
+      ],
+      "decision": "Similar A-prefixed acronyms represent different or unresolved concepts and must remain distinct."
+    },
+    {
+      "collision_id": "C022",
+      "forms": ["CPNN", "CPINN", "cPINN"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 602, "form": "CPNN", "meaning": "composite PINN context", "verification": "raw_context_supported"},
+        {"paper_id": 708, "form": "CPINN", "meaning": "Coupled physics informed neural network", "verification": "primary_source_verified"},
+        {"paper_id": 628, "form": "cPINN", "meaning": "Conservative PINN", "verification": "primary_source_verified"}
+      ],
+      "decision": "CPNN, CPINN and cPINN are a high-risk visual collision triad with distinct meanings."
+    },
+    {
+      "collision_id": "C023",
+      "forms": ["DPINN", "dPINN", "DD-PINN", "PINN-DD", "dmPINNs"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 648, "form": "DPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 673, "form": "dPINN", "meaning": "discrete PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 548, "form": "DD-PINN", "meaning": "Domain-discretized PINN", "verification": "primary_source_verified_abstract"},
+        {"paper_id": 781, "form": "PINN-DD", "meaning": "domain decomposition PINN", "verification": "raw_expansion_supported"},
+        {"paper_id": 848, "form": "dmPINNs", "meaning": "data-driven and mechanism-based PINN", "verification": "raw_expansion_supported"}
+      ],
+      "decision": "D-prefixed PINN forms encode different scientific ideas. Prefix/suffix rearrangement is not an alias rule."
+    },
+    {
+      "collision_id": "C024",
+      "forms": ["GPINN", "gPINNs", "GatedPINN", "Gated-PINN"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 78, "form": "GPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 479, "form": "gPINNs", "meaning": "gradient-enhanced PINNs", "verification": "raw_expansion_supported"},
+        {"paper_id": 367, "form": "GatedPINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 652, "form": "Gated-PINN", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "Gradient-enhanced and gated concepts must not be collapsed under capitalization/punctuation normalization."
+    },
+    {
+      "collision_id": "C025",
+      "forms": ["NSFnet", "NSfNet", "NSFnets"],
+      "decision_state": "orthographic_candidate_unresolved",
+      "basis": [
+        {"paper_id": 367, "form": "NSFnet", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 3, "form": "NSfNet", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 84, "form": "NSFnets", "meaning": null, "verification": "needs_primary_source_verification"}
+      ],
+      "decision": "These forms may be orthographic/plural variants but must remain exact until source equivalence is established; they are not automatically PINN taxonomy nodes."
+    },
+    {
+      "collision_id": "C026",
+      "forms": ["DD-PINN", "PINN-DD"],
+      "decision_state": "hard_no_merge",
+      "basis": [
+        {"paper_id": 548, "form": "DD-PINN", "meaning": "Domain-discretized PINN", "verification": "primary_source_verified_abstract"},
+        {"paper_id": 651, "form": "DD-PINN", "meaning": "Domain-decoupled PINN", "verification": "primary_source_verified_title_and_raw_expansion"},
+        {"paper_id": 740, "form": "DD-PINN", "meaning": "Data-driven PINN", "verification": "primary_source_verified_abstract"},
+        {"paper_id": 781, "form": "PINN-DD", "meaning": "domain decomposition PINN", "verification": "raw_expansion_supported"}
+      ],
+      "decision": "Reversing token order is not a safe alias transformation, especially because DD-PINN is already a confirmed homograph."
+    },
+    {
+      "collision_id": "C027",
+      "forms": ["PINN-RANS", "RANS-based PINN", "PINN-Euler", "PINN"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 545, "form": "PINN-RANS", "meaning": "RANS-conditioned PINN label", "verification": "raw_context_supported"},
+        {"paper_id": 347, "form": "RANS-based PINN", "meaning": "RANS-based PINN label", "verification": "raw_context_supported"},
+        {"paper_id": 545, "form": "PINN-Euler", "meaning": "Euler-equation-conditioned PINN label", "verification": "raw_context_supported"}
+      ],
+      "decision": "Equation/application-conditioned names are source-level specializations/relations, not aliases of core PINN and not automatically global families."
+    },
+    {
+      "collision_id": "C028",
+      "forms": ["forward PINN", "reverse PINN", "Inverse PINN", "PINN"],
+      "decision_state": "adjacent_concept_non_equivalence",
+      "basis": [
+        {"paper_id": 668, "form": "forward PINN", "meaning": "forward-role label", "verification": "raw_expansion_supported"},
+        {"paper_id": 668, "form": "reverse PINN", "meaning": "reverse-role label", "verification": "raw_expansion_supported"},
+        {"paper_id": 841, "form": "Inverse PINN", "meaning": "inverse-task-conditioned label", "verification": "raw_context_supported"}
+      ],
+      "decision": "Forward/reverse/inverse labels primarily encode computational role/task and are not separate aliases for the core PINN concept."
+    },
+    {
+      "collision_id": "C029",
+      "forms": ["Improved PINN", "improved PINNs", "IPINN"],
+      "decision_state": "source_scoped_meaning_only",
+      "basis": [
+        {"paper_id": 629, "form": "Improved PINN", "meaning": "improved PINN with conservation-law constraint", "verification": "raw_context_supported"},
+        {"paper_id": 779, "form": "Improved PINN", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 810, "form": "improved PINNs", "meaning": null, "verification": "needs_primary_source_verification"},
+        {"paper_id": 489, "form": "IPINN", "meaning": "Improved physics-informed neural network", "verification": "current_Atlas_meaning_map_supported"}
+      ],
+      "decision": "Generic improvement wording is not a stable global type name and must not automatically normalize to IPINN."
+    },
+    {
+      "collision_id": "C030",
+      "forms": ["HFD-PINN", "PIONN"],
+      "decision_state": "source_text_anomaly_preserve_exactly",
+      "basis": [
+        {"paper_id": 839, "form": "HFD-PINN", "meaning": "High-Fidelity Data-Driven PIONN", "verification": "raw_source_supplied_expansion"}
+      ],
+      "decision": "The raw expansion contains PIONN. Task 4.1C does not silently correct this to PINN or PINO. The exact source text is preserved and primary-source verification is required before normalization."
+    }
+  ],
+  "acceptance": {
+    "collision_classes_registered": 30,
+    "hard_or_explicit_non_merge_classes": 13,
+    "confirmed_same_form_homograph_classes": 4,
+    "scoped_alias_or_orthographic_candidate_classes": 6,
+    "adjacent_non_equivalence_classes": 6,
+    "source_text_anomaly_classes": 1,
+    "global_aliases_promoted": 0,
+    "final_taxonomy_nodes_created": 0,
+    "raw_source_changes": 0,
+    "locked_v0_7_changes": 0,
+    "production_main_changes": 0,
+    "computational_resources_changes": 0
+  }
+}

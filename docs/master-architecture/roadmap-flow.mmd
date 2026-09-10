@@ -1,0 +1,87 @@
+flowchart TD
+
+  subgraph F0[Foundation and Scientific Control]
+    T0[Task 0\nPreserve authority and project memory]
+    T1[Task 1\nFormal Master Atlas Scientific Database & Implementation Plan]
+    T2[Task 2\nPermanent Atlas Architecture system]
+    T3[Task 3\nComplete Paper Profile]
+    T4[Task 4\nPINN Type / Variant classification]
+    T5[Task 5\nMethodological extensibility]
+    T6[Task 6\nCross-Paper Intelligence system]
+    T7[Task 7\nFour frameworks + 98-cell matrix]
+    T8[Task 8\nFramework Builder exploration]
+    T9[Task 9\nAudit every existing Atlas page]
+    T10[Task 10\nMetadata history + correction propagation]
+  end
+
+  subgraph F1[Infrastructure Design and Prototype Database]
+    T11[Task 11\nChoose database platform]
+    T12[Task 12\nPostgreSQL relational model]
+    T13[Task 13\nNon-production database prototype]
+  end
+
+  subgraph F2[Tool and UI Prototypes]
+    T14[Task 14\nAutomated paper ingestion / extraction / review]
+    T15[Task 15\nPrototype Architecture / Data Map page]
+    T16[Task 16\nPrototype Paper Profile page]
+    T17[Task 17\nPrototype synthesis / explorer system]
+    T18[Task 18\nReconcile prototype against existing Atlas]
+  end
+
+  subgraph F3[Production Migration and Scale-Out]
+    T19[Task 19\nProduction migration plan]
+    T20[Task 20\n36-paper production pilot]
+    T21[Task 21\nFull 853-paper controlled extraction]
+  end
+
+  subgraph F4[Continuous Lifecycle]
+    T22[Task 22\nOngoing Atlas lifecycle]
+  end
+
+  T0 --> T1
+  T1 --> T2
+  T1 --> T3
+  T1 --> T4
+  T1 --> T5
+  T1 --> T6
+  T1 --> T7
+  T1 --> T8
+  T1 --> T9
+  T1 --> T10
+
+  T2 --> T3
+  T2 --> T6
+  T2 --> T7
+  T2 --> T9
+  T3 --> T12
+  T4 --> T12
+  T5 --> T12
+  T6 --> T12
+  T7 --> T12
+  T9 --> T10
+
+  T1 --> T11
+  T9 --> T11
+  T10 --> T11
+  T11 --> T12
+  T12 --> T13
+
+  T13 --> T14
+  T13 --> T15
+  T13 --> T16
+  T13 --> T17
+  T14 --> T18
+  T15 --> T18
+  T16 --> T18
+  T17 --> T18
+
+  T18 --> T19
+  T19 --> T20
+  T20 --> T21
+  T21 --> T22
+
+  T8 -. optional / post-v1 .-> T15
+  T8 -. optional / post-v1 .-> T17
+
+  classDef current stroke-width:3px;
+  class T1 current;

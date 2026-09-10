@@ -1,0 +1,34 @@
+{
+  "id": "TASK-4.1D-ABBREVIATION-REGISTRY-CANDIDATE-INVENTORY",
+  "date": "2026-09-08",
+  "branch": "docs/master-atlas-roadmap",
+  "scientific_authority": false,
+  "role": "derived_candidate_inventory",
+  "raw_source": "data/reference-pinn-abbreviations.txt",
+  "raw_source_blob_sha": "c712b9625d4a4dd838bba582d0bafe56a79c6350",
+  "scope_note": "Materialized candidate inventory derived from the preserved legacy terminology source. It is NOT yet the complete all-review abbreviation registry; future paper extraction must add all abbreviations with exact evidence/locators.",
+  "counts": {
+    "paper_rows": 618,
+    "raw_term_occurrences": 1019,
+    "materialized_rows": 501,
+    "effective_distinct_exact_strings_after_Task4_1D_QA": 500,
+    "legacy_abbreviations_page_declared_exact_forms": 501,
+    "task4_1b_selected_unique_forms_as_pre_QA_generation_count": 327,
+    "task4_1b_selected_occurrences": 838
+  },
+  "qa_note": "Task 4.1D readback detected one duplicate materialized row: AR4D-0252 and AR4D-0253 both encode nPINN for paper 495. AR4D-0253 is therefore tombstoned in the QA exception register and must be ignored by downstream consumers. The resulting 500-distinct-string count does not match the existing page-declared 501 forms; Task 4.1E must reconcile that implementation-count discrepancy rather than silently forcing either number.",
+  "qa_exception_register": "task-4.1d-inventory-quality-exceptions.json",
+  "schema_fields": ["inventory_row_id","raw_reported_form","paper_ids","occurrence_count","candidate_selected_for_task_4_1b","task4_1b_disposition","verification_state","collision_ids","collision_decision_states","abbreviation_registry_candidate_state","raw_parenthetical_text"],
+  "parts": [
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-001.tsv","row_start":1,"row_end":84,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-002.tsv","row_start":85,"row_end":168,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-003.tsv","row_start":169,"row_end":252,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-004.tsv","row_start":253,"row_end":336,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-005.tsv","row_start":337,"row_end":420,"rows":84},
+    {"file":"task-4.1d-abbreviation-registry-candidate-inventory-part-006.tsv","row_start":421,"row_end":501,"rows":81}
+  ],
+  "evidence_locator_status": "The raw TXT carries paper/reference identity but no formal evidence IDs or exact source locators. Task 4.1D does not invent them.",
+  "future_extraction_rule": "Future extraction must gather all abbreviations found in every paper, preserve exact form, attach expansion only when evidenced, attach paper/evidence/locator, and keep ambiguity/aliases explicit.",
+  "evidence_driven_revision_rule": "Later primary-source evidence may revise meaning, disposition, alias/collision interpretation, or taxonomy eligibility. Revisions must be explicit, evidence-backed, versioned, and historically traceable; exact raw wording and prior decisions must never be silently deleted or rewritten.",
+  "canonicalization_rule": "No entry in this inventory is a canonical taxonomy term merely because it appears here."
+}

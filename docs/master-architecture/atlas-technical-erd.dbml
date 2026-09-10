@@ -1,0 +1,1353 @@
+Project PINN_Review_Atlas_Technical_ERD {
+  database_type: 'Provider-neutral relational model'
+  Note: '''
+  Task 2.4 technical ERD. Scientific authority remains locked Drive v0.7-pilot-atlas-prefreeze.
+  This DBML is an implementation serialization contract, not a new ontology version.
+  IDs use provider-neutral varchar placeholders; concrete SQL types, indexes, triggers, partitioning,
+  RLS, generated columns, search infrastructure, and provider extensions are deferred.
+  Polymorphic scientific links are governed by entity_type + record_id plus QA because DBML cannot
+  express cross-table polymorphic foreign keys.
+  '''
+}
+
+Table source_artifacts {
+  source_artifact_id varchar [pk]
+  artifact_type varchar [not null]
+  source_role varchar [not null]
+  title_or_label text
+  source_uri_or_drive_reference text
+  access_state varchar [not null]
+  content_version_or_fingerprint varchar
+  retrieved_or_associated_at datetime
+  source_notes text
+}
+
+Table paper_sources {
+  paper_source_id varchar [pk]
+  paper_id varchar [not null]
+  source_artifact_id varchar [not null]
+  association_role varchar [not null]
+  is_primary_full_text boolean
+  association_verification_status varchar [not null]
+  association_provenance text
+}
+
+Table papers {
+  paper_id varchar [pk]
+  atlas_reference_id varchar [not null, unique]
+  title text [not null]
+  publication_year int [not null]
+  doi varchar
+  bibliographic_link text
+  publication_document_type varchar [not null]
+  publisher_article_label text
+  record_version varchar [not null]
+  canonical_normalization_version varchar [not null]
+  corpus_status varchar
+}
+
+Table paper_authors {
+  paper_author_id varchar [pk]
+  paper_id varchar [not null]
+  author_order int [not null]
+  author_name text [not null]
+  persistent_author_id varchar
+}
+
+Table paper_bibliographic_metadata {
+  paper_id varchar [pk]
+  venue text
+  publisher text
+  publication_type varchar
+  access_state varchar
+  bibliographic_verification_status varchar
+  bibliographic_verified_by varchar
+  bibliographic_verified_at datetime
+  unresolved_bibliographic_conflict text
+}
+
+Table bibliographic_history {
+  history_id varchar [pk]
+  paper_id varchar [not null]
+  field_name varchar [not null]
+  old_value text
+  new_value text
+  change_reason text [not null]
+  source_reference text
+  reviewed_by varchar
+  changed_at datetime [not null]
+  verification_status varchar [not null]
+  downstream_rebuild_status varchar
+}
+
+Table paper_study_design_components {
+  paper_study_design_component_id varchar [pk]
+  paper_id varchar [not null]
+  component_key varchar [not null]
+  component_scope text
+  ontology_version varchar [not null]
+}
+
+Table review_synthesis_scopes {
+  review_scope_id varchar [pk]
+  paper_id varchar [not null]
+  review_time_window text
+  search_strategy text
+  screening_method text
+  included_study_count_if_stated int
+  last_search_date date
+  reporting_guideline text
+  screening_roles text
+  quality_appraisal_method text
+  risk_of_bias_method text
+  certainty_assessment_method text
+  origin_class varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table review_scope_items {
+  review_scope_item_id varchar [pk]
+  review_scope_id varchar [not null]
+  item_role varchar [not null, note: 'domain|problem_family|task|method_family|source|analysis_method']
+  item_value text [not null]
+  taxonomy_term_id varchar
+}
+
+Table evidence {
+  evidence_id varchar [pk]
+  paper_id varchar [not null]
+  source_artifact_id varchar
+  evidence_category varchar [not null]
+  linked_entity_type varchar [not null]
+  linked_record_id varchar [not null]
+  normalized_statement text [not null]
+  verbatim_evidence text [not null, note: 'Immutable after capture']
+  source_section text [not null]
+  source_subsection text
+  page varchar
+  paragraph varchar
+  figure varchar
+  table_locator varchar
+  appendix varchar
+  scope_locator text
+  evidence_type varchar [not null]
+  statement_strength varchar [not null]
+  origin_class varchar [not null]
+  evidence_source_role varchar [not null]
+  verification_status varchar [not null]
+  support_status varchar [not null]
+  verified_by varchar
+  verification_date datetime
+  verification_notes text
+  ontology_version varchar [not null]
+}
+
+Table evidence_classification_history {
+  evidence_history_id varchar [pk]
+  evidence_id varchar [not null]
+  prior_normalized_statement text
+  prior_classification text
+  new_normalized_statement text
+  new_classification text
+  change_reason text [not null]
+  changed_by varchar [not null]
+  changed_at datetime [not null]
+  ontology_version varchar [not null]
+  note text [note: 'Never rewrites verbatim_evidence or original locator/source role']
+}
+
+Table scientific_conflicts {
+  conflict_id varchar [pk]
+  paper_id varchar
+  affected_entity_type varchar [not null]
+  affected_record_id varchar [not null]
+  conflict_type varchar [not null]
+  description text [not null]
+  resolution_state varchar [not null]
+  no_merge_rule_id varchar
+  created_at datetime
+  updated_at datetime
+}
+
+Table conflict_evidence {
+  conflict_evidence_id varchar [pk]
+  conflict_id varchar [not null]
+  evidence_id varchar [not null]
+  role varchar [not null, note: 'supporting|contradicting|mismatched|context']
+}
+
+Table paper_applications {
+  application_id varchar [pk]
+  paper_id varchar [not null]
+  primary_application_domain varchar [not null]
+  application_subdomain varchar
+  specific_application text
+  physical_system text
+  application_context text
+  origin_class varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table application_associations {
+  application_association_id varchar [pk]
+  application_id varchar [not null]
+  association_role varchar [not null, note: 'secondary_demonstrated|related|potential']
+  application_value text [not null]
+  taxonomy_term_id varchar
+}
+
+Table paper_problems {
+  problem_id varchar [pk]
+  paper_id varchar [not null]
+  physical_problem text [not null]
+  equation_family varchar
+  boundary_conditions text
+  initial_conditions text
+  computational_task varchar [not null]
+  problem_class varchar
+  forward_inverse_classification varchar
+  scientific_objective text [not null]
+  engineering_objective text
+  origin_class varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table governing_equations {
+  governing_equation_id varchar [pk]
+  problem_id varchar [not null]
+  equation_text text [not null]
+  equation_role varchar
+  evidence_id varchar
+}
+
+Table physical_constraints {
+  physical_constraint_id varchar [pk]
+  problem_id varchar [not null]
+  constraint_type varchar [not null]
+  target_or_quantity text
+  mathematical_statement_or_description text [not null]
+  scope text
+  evidence_id varchar
+}
+
+Table problem_characteristics {
+  problem_characteristic_id varchar [pk]
+  problem_id varchar [not null]
+  taxonomy_term_id varchar
+  provisional_term_id varchar
+  source_label text [not null]
+  evidence_id varchar
+}
+
+Table data_regimes {
+  data_regime_id varchar [pk]
+  problem_id varchar [not null]
+  data_role varchar
+  amount_or_density text
+  quality_or_noise text
+  label_status varchar
+  evidence_id varchar
+}
+
+Table paper_pinn_problem_links {
+  pinn_problem_link_id varchar [pk]
+  problem_id varchar [not null]
+  link_role varchar [not null, note: 'pinn_problem_addressed|pinn_challenge_addressed']
+  taxonomy_term_id varchar
+  provisional_term_id varchar
+  source_label text [not null]
+  evidence_id varchar
+}
+
+Table paper_contributions {
+  contribution_id varchar [pk]
+  paper_id varchar [not null]
+  main_contribution text [not null]
+  methodological_innovation text
+  algorithmic_innovation text
+  architectural_innovation text
+  problem_claimed_to_be_solved text
+  problem_actually_demonstrated text
+  solution_mechanism text
+  generality_claim text
+  generality_evidence text
+  origin_class varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table contribution_items {
+  contribution_item_id varchar [pk]
+  contribution_id varchar [not null]
+  item_role varchar [not null, note: 'contribution_type|comparison_baseline']
+  item_value text [not null]
+  taxonomy_term_id varchar
+}
+
+Table paper_outcomes {
+  outcome_id varchar [pk]
+  paper_id varchar [not null]
+  problem_outcome text [not null]
+  degree_of_resolution varchar [not null]
+  reported_improvement text
+  origin_class varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table outcome_items {
+  outcome_item_id varchar [pk]
+  outcome_id varchar [not null]
+  item_role varchar [not null, note: 'advantage|disadvantage|failure_case']
+  item_value text [not null]
+  evidence_id varchar
+}
+
+Table paper_validation {
+  validation_id varchar [pk]
+  paper_id varchar [not null]
+  benchmark_type varchar
+  comparison_result text
+  experimental_validation text
+  numerical_validation text
+  analytical_validation text
+  real_world_validation text
+  generalization_tested varchar [not null]
+  robustness_tested varchar [not null]
+  noise_tested varchar [not null]
+  scalability_tested varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table validation_items {
+  validation_item_id varchar [pk]
+  validation_id varchar [not null]
+  item_role varchar [not null, note: 'validation_type|data_source|baseline_method']
+  item_value text [not null]
+  taxonomy_term_id varchar
+  evidence_id varchar
+}
+
+Table methodological_feature_sets {
+  feature_set_id varchar [pk]
+  paper_id varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table method_terms {
+  method_term_link_id varchar [pk]
+  feature_set_id varchar [not null]
+  method_dimension varchar [not null, note: 'PINN_architecture|physics_enforcement|physics_integration_mode|loss_component|sampling_strategy|optimizer|activation_function|geometry_representation|domain_decomposition_method|uncertainty_method|software_framework']
+  taxonomy_term_id varchar
+  provisional_term_id varchar
+  source_label text [not null]
+  evidence_id varchar
+}
+
+Table model_variable_representations {
+  model_variable_id varchar [pk]
+  feature_set_id varchar [not null]
+  direction varchar [not null]
+  quantity_or_variable text [not null]
+  scientific_role text
+  representation_type varchar
+  network_component_or_scope text
+  evidence_id varchar
+}
+
+Table network_configurations {
+  network_configuration_id varchar [pk]
+  feature_set_id varchar [not null]
+  component_scope text
+  hidden_layers_or_depth varchar
+  width_or_neurons varchar
+  subnetwork_count int
+  branch_count int
+  latent_dimension varchar
+  parameter_count varchar
+  connectivity_or_parameter_sharing text
+  topology_notes text
+  evidence_id varchar
+}
+
+Table training_protocols {
+  training_protocol_id varchar [pk]
+  feature_set_id varchar [not null]
+  protocol_type varchar [not null]
+  method_or_strategy text [not null]
+  target_or_scope text
+  stage_or_order varchar
+  schedule_or_trigger text
+  parameters_or_values text
+  evidence_id varchar
+}
+
+Table differentiation_methods {
+  differentiation_method_id varchar [pk]
+  feature_set_id varchar [not null]
+  method text [not null]
+  operator_or_derivative_target text
+  spatial_or_temporal_role varchar
+  scheme_family varchar
+  stencil_or_support text
+  formal_order varchar
+  spacing_or_scale text
+  operator_specific_composition text
+  evidence_id varchar
+}
+
+Table differentiation_component_methods {
+  differentiation_component_method_id varchar [pk]
+  differentiation_method_id varchar [not null]
+  component_method text [not null]
+}
+
+Table parallel_executions {
+  parallel_execution_id varchar [pk]
+  feature_set_id varchar [not null]
+  execution_phase varchar [not null]
+  parallelism_mode varchar [not null]
+  decomposition_or_model_scope text
+  distributed_or_shared_memory_context text
+  scale_or_worker_count_when_reported varchar
+  coordination_or_communication_notes text
+  evidence_id varchar
+}
+
+Table loss_weighting_methods {
+  loss_weighting_method_id varchar [pk]
+  feature_set_id varchar [not null]
+  method_or_mode varchar [not null]
+  weighting_rule_or_update_rule text
+  schedule_or_stage text
+  reported_values_or_parameters text
+  evidence_id varchar
+}
+
+Table loss_weighting_targets {
+  loss_weighting_target_id varchar [pk]
+  loss_weighting_method_id varchar [not null]
+  target_loss_component text [not null]
+}
+
+Table transformation_methods {
+  transformation_method_id varchar [pk]
+  feature_set_id varchar [not null]
+  role varchar [not null]
+  method text [not null]
+  target text
+  basis text
+  evidence_id varchar
+}
+
+Table fidelity_source_roles {
+  fidelity_source_role_id varchar [pk]
+  feature_set_id varchar [not null]
+  fidelity_level varchar
+  source_type varchar [not null]
+  workflow_role varchar [not null]
+  evidence_id varchar
+}
+
+Table derived_output_methods {
+  derived_output_method_id varchar [pk]
+  feature_set_id varchar [not null]
+  derived_quantity text [not null]
+  derivation_method text [not null]
+  operation_type varchar
+  pipeline_stage varchar
+  evidence_id varchar
+}
+
+Table derived_output_sources {
+  derived_output_source_id varchar [pk]
+  derived_output_method_id varchar [not null]
+  source_output text [not null]
+}
+
+Table evaluation_results {
+  result_id varchar [pk]
+  paper_id varchar [not null]
+  metric varchar [not null]
+  value text
+  baseline_value text
+  improvement text
+  test_case text [not null]
+  conditions text
+  reference_solution_type varchar
+  performance_summary text
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table evaluation_result_items {
+  evaluation_result_item_id varchar [pk]
+  result_id varchar [not null]
+  item_role varchar [not null, note: 'comparison_method|advantage|disadvantage']
+  item_value text [not null]
+}
+
+Table reproducibility {
+  reproducibility_id varchar [pk]
+  paper_id varchar [not null, unique]
+  code_available varchar [not null]
+  code_url text
+  data_available varchar [not null]
+  data_url text
+  model_available varchar
+  reproducibility_information text
+  hyperparameters_reported varchar [not null]
+  random_seed_reported varchar [not null]
+  hardware_reported varchar [not null]
+  training_cost_reported varchar [not null]
+}
+
+Table reproduction_attempts {
+  reproduction_attempt_id varchar [pk]
+  paper_id varchar [not null]
+  attempt_scope text [not null]
+  attempt_status varchar [not null]
+  attempted_by varchar
+  attempted_at datetime
+  environment_summary text
+  result_summary text
+  evidence_or_artifact_reference text
+  note text [note: 'Operational record; does not rewrite author-reported reproducibility']
+}
+
+Table paper_diagnostic_pathways {
+  diagnostic_id varchar [pk]
+  paper_id varchar [not null]
+  failure_mode_or_problem text [not null]
+  scope_notes text
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table diagnostic_components {
+  diagnostic_component_id varchar [pk]
+  diagnostic_id varchar [not null]
+  component_type varchar [not null, note: 'symptom|cause_or_mechanism|check_or_analysis|intervention_or_response|targeted_improvement|tradeoff']
+  component_text text [not null]
+  component_order int
+}
+
+Table diagnostic_component_evidence {
+  diagnostic_component_evidence_id varchar [pk]
+  diagnostic_component_id varchar [not null]
+  evidence_id varchar [not null]
+  support_status varchar [not null]
+}
+
+Table diagnostic_verification_links {
+  diagnostic_verification_link_id varchar [pk]
+  diagnostic_id varchar [not null]
+  verification_entity_type varchar [not null, note: 'evaluation_result|paper_validation|reported_metric']
+  verification_record_id varchar
+  verification_metric text
+}
+
+Table limitations {
+  limitation_id varchar [pk]
+  paper_id varchar [not null]
+  limitation_category varchar [not null]
+  limitation_statement text [not null]
+  limitation_scope text [not null]
+  limitation_severity varchar
+  limitation_source varchar [not null]
+  explicit_or_inferred varchar [not null]
+  evidence_location text [not null]
+  evidence_text text [not null]
+  origin_class varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table open_problems {
+  open_problem_id varchar [pk]
+  paper_id varchar [not null]
+  open_problem_category varchar [not null]
+  open_problem_statement text [not null]
+  research_gap_scope text [not null]
+  problem_scope text [not null]
+  explicit_or_inferred varchar [not null]
+  author_stated_or_atlas_inferred varchar [not null]
+  persistence_status varchar
+  evidence_location text [not null]
+  evidence_text text [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table future_work {
+  future_work_id varchar [pk]
+  paper_id varchar [not null]
+  future_work_statement text [not null]
+  future_work_type varchar [not null]
+  future_work_target text [not null]
+  future_work_scope text [not null]
+  priority_if_stated varchar
+  timeframe_if_stated varchar
+  explicit_or_inferred varchar [not null]
+  evidence_location text [not null]
+  evidence_text text [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table extraction_control {
+  paper_id varchar [pk]
+  extraction_status varchar [not null]
+  extracted_by varchar [not null]
+  extraction_date datetime [not null]
+  last_verified_date datetime
+  verification_status varchar [not null]
+  verification_notes text
+  ontology_version_used varchar [not null]
+}
+
+Table controlled_vocabulary_dimensions {
+  vocabulary_dimension_id varchar [pk]
+  dimension_key varchar [not null, unique]
+  definition text [not null]
+  extensibility_policy varchar [not null]
+  current_version varchar [not null]
+}
+
+Table controlled_vocabulary_values {
+  vocabulary_value_id varchar [pk]
+  vocabulary_dimension_id varchar [not null]
+  value_key varchar [not null]
+  definition text [not null]
+  status varchar [not null]
+  version_added varchar [not null]
+  version_deprecated varchar
+}
+
+Table taxonomy_terms {
+  term_id varchar [pk]
+  taxonomy_dimension varchar [not null]
+  canonical_label text [not null]
+  parent_term_id varchar
+  definition text [not null]
+  status varchar [not null]
+  first_seen_paper_id varchar [not null]
+  first_seen_evidence_id varchar [not null]
+  version_added varchar [not null]
+  version_deprecated varchar
+  replaced_by_term_id varchar
+  review_notes text
+  review_status varchar [not null]
+}
+
+Table taxonomy_aliases {
+  taxonomy_alias_id varchar [pk]
+  term_id varchar [not null]
+  alias text [not null]
+  alias_scope varchar [not null]
+  source_paper_id varchar
+  source_evidence_id varchar
+  status varchar [not null]
+}
+
+Table provisional_terms {
+  provisional_term_id varchar [pk]
+  taxonomy_dimension varchar [not null]
+  source_label text [not null]
+  source_paper_id varchar [not null]
+  source_evidence_id varchar [not null]
+  proposed_mapping_term_id varchar
+  proposal_status varchar [not null]
+  review_notes text
+}
+
+Table relationship_registry {
+  relation_id varchar [pk]
+  source_entity_type varchar [not null]
+  relation_type varchar [not null]
+  target_entity_type varchar [not null]
+  definition text [not null]
+  status varchar [not null]
+  first_seen_paper_id varchar [not null]
+  first_seen_evidence_id varchar
+  version_added varchar [not null]
+  version_deprecated varchar
+  inverse_relation_id varchar
+  review_notes text
+}
+
+Table scientific_relationships {
+  scientific_relationship_id varchar [pk]
+  relation_id varchar [not null]
+  paper_id varchar
+  source_entity_type varchar [not null]
+  source_record_id varchar [not null]
+  target_entity_type varchar [not null]
+  target_record_id varchar [not null]
+  scope_or_condition text
+  status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table scientific_relationship_evidence {
+  scientific_relationship_evidence_id varchar [pk]
+  scientific_relationship_id varchar [not null]
+  evidence_id varchar [not null]
+  support_status varchar [not null]
+}
+
+Table no_merge_rules {
+  no_merge_rule_id varchar [pk]
+  rule_key varchar [not null, unique]
+  left_concept text [not null]
+  right_concept text [not null]
+  prohibited_generalization text [not null]
+  rationale text [not null]
+  sentinel_reference text
+  status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table extension_proposals {
+  extension_proposal_id varchar [pk]
+  extension_class varchar [not null, note: 'X1-X9']
+  owner_domain varchar [not null]
+  source_paper_id varchar
+  source_evidence_id varchar
+  source_term_relation_or_structure text [not null]
+  proposed_mapping_or_change text
+  recurrence_summary text
+  generalizability_summary text
+  review_status varchar [not null]
+  disposition varchar
+  candidate_future_version varchar
+}
+
+Table ontology_changelog {
+  change_id varchar [pk]
+  ontology_version varchar [not null]
+  change_type varchar [not null]
+  affected_record_type varchar [not null]
+  affected_record_id varchar [not null]
+  change_rationale text [not null]
+  reviewed_by varchar [not null]
+  review_date datetime [not null]
+  migration_notes text
+}
+
+Table ontology_change_papers {
+  ontology_change_paper_id varchar [pk]
+  change_id varchar [not null]
+  paper_id varchar [not null]
+}
+
+Table ontology_change_evidence {
+  ontology_change_evidence_id varchar [pk]
+  change_id varchar [not null]
+  evidence_id varchar [not null]
+}
+
+Table dimension_catalog {
+  dimension_id varchar [pk]
+  dimension_key varchar [not null, unique]
+  definition text [not null]
+  upstream_owner varchar [not null]
+  eligibility_rule text [not null]
+  valid_filters text
+  invalid_comparison_constraints text
+  provenance_drilldown_rule text [not null]
+  version varchar [not null]
+  status varchar [not null]
+}
+
+Table analysis_specs {
+  analysis_id varchar [pk]
+  analysis_type varchar [not null]
+  selected_dimensions text [not null]
+  inclusion_rule text [not null]
+  aggregation_method text [not null]
+  invalid_combination_rule text
+  evidence_drilldown_rule text [not null]
+  version varchar [not null]
+  status varchar [not null]
+}
+
+Table analysis_results {
+  analysis_result_id varchar [pk]
+  analysis_id varchar [not null]
+  measure_name varchar [not null]
+  measure_value text [not null]
+  denominator text
+  scope_context text
+  coverage_note text
+  generated_at datetime [not null]
+  data_version varchar [not null]
+}
+
+Table analysis_result_support {
+  analysis_result_support_id varchar [pk]
+  analysis_result_id varchar [not null]
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null, note: 'supporting|contradicting|mismatched|excluded_context']
+}
+
+Table analytical_integrity_findings {
+  analytical_integrity_finding_id varchar [pk]
+  analysis_id varchar
+  finding_type varchar [not null]
+  affected_dimension varchar
+  description text [not null]
+  scope text
+  resolution_state varchar [not null]
+}
+
+Table research_candidate_signals {
+  candidate_signal_id varchar [pk]
+  candidate_type varchar [not null, note: 'gap|opportunity']
+  source_analysis_id varchar [not null]
+  normalized_candidate text [not null]
+  supporting_independent_paper_count int
+  contradictory_evidence_summary text
+  review_state varchar [not null]
+}
+
+Table atlas_syntheses {
+  synthesis_id varchar [pk]
+  synthesis_type varchar [not null]
+  normalized_synthesis_statement text [not null]
+  scope_context text [not null]
+  confidence_or_strength varchar
+  verification_status varchar [not null]
+  synthesis_version varchar [not null]
+  ontology_version varchar [not null]
+  created_at datetime
+  reviewed_at datetime
+}
+
+Table atlas_synthesis_support {
+  atlas_synthesis_support_id varchar [pk]
+  synthesis_id varchar [not null]
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null]
+}
+
+Table atlas_research_gaps {
+  gap_id varchar [pk]
+  normalized_gap text [not null]
+  gap_category varchar [not null]
+  gap_scope text [not null]
+  evidence_strength varchar [not null]
+  independent_support_count int [not null]
+  atlas_interpretation text [not null]
+  reviewer_confidence varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table atlas_gap_support {
+  atlas_gap_support_id varchar [pk]
+  gap_id varchar [not null]
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null, note: 'derived_from|supporting|contradictory']
+}
+
+Table atlas_research_opportunities {
+  opportunity_id varchar [pk]
+  normalized_opportunity text [not null]
+  opportunity_category varchar [not null]
+  opportunity_scope text [not null]
+  evidence_strength varchar [not null]
+  independent_support_count int [not null]
+  atlas_interpretation text [not null]
+  reviewer_confidence varchar [not null]
+  verification_status varchar [not null]
+  ontology_version varchar [not null]
+}
+
+Table atlas_opportunity_support {
+  atlas_opportunity_support_id varchar [pk]
+  opportunity_id varchar [not null]
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null, note: 'derived_from|supporting|contradictory']
+}
+
+Table framework_definitions {
+  framework_id varchar [pk]
+  framework_key varchar [not null, unique]
+  framework_name text [not null]
+  framework_type varchar [not null]
+  purpose text [not null]
+  status varchar [not null]
+  synthesis_version varchar [not null]
+}
+
+Table framework_nodes {
+  framework_node_id varchar [pk]
+  framework_id varchar [not null]
+  node_key varchar [not null]
+  node_label text [not null]
+  semantic_role varchar
+  scope_context text
+}
+
+Table framework_edges {
+  framework_edge_id varchar [pk]
+  framework_id varchar [not null]
+  source_node_id varchar [not null]
+  target_node_id varchar [not null]
+  edge_semantics text [not null]
+  scope_context text
+  confidence varchar
+  synthesis_status varchar [not null]
+}
+
+Table framework_edge_support {
+  framework_edge_support_id varchar [pk]
+  framework_edge_id varchar [not null]
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null]
+}
+
+Table design_performance_cells {
+  cell_id varchar [pk]
+  framework_id varchar [not null]
+  design_variable varchar [not null]
+  performance_dimension varchar [not null]
+  qualitative_influence_classification varchar [not null]
+  scope_context text
+  tradeoff_notes text
+  synthesis_version varchar [not null]
+  review_status varchar [not null]
+}
+
+Table design_performance_cell_support {
+  cell_support_id varchar [pk]
+  cell_id varchar [not null]
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null]
+}
+
+Table diagnostic_synthesis_items {
+  diagnostic_synthesis_id varchar [pk]
+  framework_id varchar [not null]
+  diagnostic_category varchar [not null]
+  diagnostic_mode varchar
+  normalized_semantics text [not null]
+  recommendation text
+  synthesis_version varchar [not null]
+}
+
+Table diagnostic_synthesis_support {
+  diagnostic_synthesis_support_id varchar [pk]
+  diagnostic_synthesis_id varchar [not null]
+  diagnostic_id varchar
+  paper_id varchar
+  evidence_id varchar
+  support_role varchar [not null]
+}
+
+Table surface_registry {
+  surface_id varchar [pk]
+  route_or_family varchar [not null]
+  title text [not null]
+  purpose text [not null]
+  audience varchar
+  surface_class varchar [not null]
+  current_or_future varchar [not null]
+  source_authority_summary text [not null]
+  evidence_provenance_requirement text
+  lifecycle_state varchar [not null]
+  target_disposition varchar
+  task9_audit_status varchar [not null]
+}
+
+Table surface_dependencies {
+  surface_dependency_id varchar [pk]
+  surface_id varchar [not null]
+  upstream_object_type varchar [not null]
+  upstream_object_id varchar
+  dependency_type varchar [not null]
+  regeneration_requirement text
+  regression_requirement text
+}
+
+Table interface_registry {
+  interface_id varchar [pk]
+  interface_type varchar [not null, note: 'API|view|export|search_index|machine_consumer']
+  interface_name text [not null]
+  version varchar [not null]
+  purpose text [not null]
+  upstream_authority text [not null]
+  provenance_returned boolean [not null]
+  compatibility_policy text
+  status varchar [not null]
+}
+
+Table review_requests {
+  review_request_id varchar [pk]
+  requested_object_type varchar [not null]
+  requested_object_id varchar
+  proposal_type varchar [not null]
+  requested_by varchar
+  requested_at datetime
+  review_status varchar [not null]
+  disposition text
+  owning_authority varchar [not null]
+}
+
+Table bounded_subsystems {
+  subsystem_id varchar [pk]
+  subsystem_key varchar [not null, unique]
+  subsystem_name text [not null]
+  independent_authority_reference text [not null]
+  current_version varchar
+  integration_policy text [not null]
+  status varchar [not null]
+}
+
+Table subsystem_entity_links {
+  subsystem_entity_link_id varchar [pk]
+  subsystem_id varchar [not null]
+  atlas_paper_id varchar
+  atlas_entity_type varchar
+  atlas_entity_id varchar
+  subsystem_entity_type varchar [not null]
+  subsystem_entity_id varchar [not null]
+  relationship_semantics varchar [not null]
+  evidence_or_provenance_reference text
+  verification_status varchar [not null]
+}
+
+Table authority_registry {
+  authority_id varchar [pk]
+  authority_key varchar [not null, unique]
+  scope text [not null]
+  current_authoritative_version varchar [not null]
+  owner_document_or_location text [not null]
+  precedence_rule text [not null]
+  status varchar [not null]
+}
+
+Table requirement_registry {
+  requirement_id varchar [pk]
+  source_contract varchar [not null]
+  description text [not null]
+  owning_layer varchar [not null]
+  owning_authority varchar
+  implementation_status varchar [not null]
+}
+
+Table qa_test_registry {
+  qa_test_id varchar [pk]
+  test_key varchar [not null, unique]
+  test_class varchar [not null]
+  description text [not null]
+  pass_criteria text [not null]
+  hard_gate boolean [not null]
+}
+
+Table qa_test_requirements {
+  qa_test_requirement_id varchar [pk]
+  qa_test_id varchar [not null]
+  requirement_id varchar [not null]
+}
+
+Table qa_runs {
+  qa_run_id varchar [pk]
+  qa_test_id varchar [not null]
+  object_type varchar
+  object_id varchar
+  run_version varchar
+  result varchar [not null]
+  evidence_log_reference text
+  run_at datetime [not null]
+  disposition text
+}
+
+Table human_reviews {
+  review_id varchar [pk]
+  object_type varchar [not null]
+  object_id varchar [not null]
+  reviewer varchar [not null]
+  review_state varchar [not null]
+  decision varchar
+  review_notes text
+  reviewed_at datetime
+  next_required_action text
+}
+
+Table version_registry {
+  version_id varchar [pk]
+  version_type varchar [not null]
+  version_key varchar [not null]
+  parent_version_id varchar
+  status varchar [not null]
+  effective_date datetime
+  changelog_reference text
+  migration_required boolean [not null]
+}
+
+Table migrations {
+  migration_id varchar [pk]
+  migration_type varchar [not null]
+  owner_layer varchar [not null]
+  from_version_id varchar
+  to_version_id varchar [not null]
+  description text [not null]
+  rollback_plan text [not null]
+  approval_state varchar [not null]
+  qa_status varchar [not null]
+}
+
+Table migration_impacts {
+  migration_impact_id varchar [pk]
+  migration_id varchar [not null]
+  impacted_object_type varchar [not null]
+  impacted_object_id varchar
+  required_action text [not null]
+  completion_status varchar [not null]
+}
+
+Table batches {
+  batch_id varchar [pk]
+  batch_type varchar [not null]
+  ontology_version varchar [not null]
+  data_version varchar
+  extraction_review_state varchar [not null]
+  hard_gate_status varchar [not null]
+  clean_mapping_rate decimal
+  active_major_structural_gaps int [not null]
+  disposition varchar [not null, note: 'GO|CONDITIONAL_GO|STOP|ROLLBACK_REQUIRED']
+  checkpoint_at datetime
+}
+
+Table batch_papers {
+  batch_paper_id varchar [pk]
+  batch_id varchar [not null]
+  paper_id varchar [not null]
+  paper_status varchar [not null]
+}
+
+Table correction_history {
+  correction_id varchar [pk]
+  object_type varchar [not null]
+  object_id varchar [not null]
+  field_name varchar
+  old_value text
+  new_value text
+  reason text [not null]
+  source_reference text
+  reviewed_by varchar
+  corrected_at datetime [not null]
+  rollback_target text
+  downstream_status varchar
+}
+
+Table dependency_edges {
+  dependency_edge_id varchar [pk]
+  source_object_type varchar [not null]
+  source_object_id varchar [not null]
+  dependent_object_type varchar [not null]
+  dependent_object_id varchar [not null]
+  dependency_type varchar [not null]
+  last_synchronized_version varchar
+  regression_required boolean [not null]
+}
+
+Table role_registry {
+  role_id varchar [pk]
+  role_key varchar [not null, unique]
+  description text [not null]
+}
+
+Table role_permissions {
+  role_permission_id varchar [pk]
+  role_id varchar [not null]
+  permission_scope varchar [not null]
+  permission_action varchar [not null]
+  authoritative_write_allowed boolean [not null]
+  approval_requirement text
+}
+
+Table knowledge_builds {
+  build_id varchar [pk]
+  build_type varchar [not null]
+  definition_version varchar [not null]
+  exact_input_versions text [not null]
+  exact_transformation_or_query text [not null]
+  generated_at datetime [not null]
+  output_reference text
+  qa_status varchar [not null]
+  reproducibility_notes text
+}
+
+Ref: paper_sources.paper_id > papers.paper_id
+Ref: paper_sources.source_artifact_id > source_artifacts.source_artifact_id
+Ref: paper_authors.paper_id > papers.paper_id
+Ref: paper_bibliographic_metadata.paper_id - papers.paper_id
+Ref: bibliographic_history.paper_id > papers.paper_id
+Ref: paper_study_design_components.paper_id > papers.paper_id
+Ref: review_synthesis_scopes.paper_id > papers.paper_id
+Ref: review_scope_items.review_scope_id > review_synthesis_scopes.review_scope_id
+Ref: review_scope_items.taxonomy_term_id > taxonomy_terms.term_id
+
+Ref: evidence.paper_id > papers.paper_id
+Ref: evidence.source_artifact_id > source_artifacts.source_artifact_id
+Ref: evidence_classification_history.evidence_id > evidence.evidence_id
+Ref: scientific_conflicts.paper_id > papers.paper_id
+Ref: scientific_conflicts.no_merge_rule_id > no_merge_rules.no_merge_rule_id
+Ref: conflict_evidence.conflict_id > scientific_conflicts.conflict_id
+Ref: conflict_evidence.evidence_id > evidence.evidence_id
+
+Ref: paper_applications.paper_id > papers.paper_id
+Ref: application_associations.application_id > paper_applications.application_id
+Ref: application_associations.taxonomy_term_id > taxonomy_terms.term_id
+Ref: paper_problems.paper_id > papers.paper_id
+Ref: governing_equations.problem_id > paper_problems.problem_id
+Ref: governing_equations.evidence_id > evidence.evidence_id
+Ref: physical_constraints.problem_id > paper_problems.problem_id
+Ref: physical_constraints.evidence_id > evidence.evidence_id
+Ref: problem_characteristics.problem_id > paper_problems.problem_id
+Ref: problem_characteristics.taxonomy_term_id > taxonomy_terms.term_id
+Ref: problem_characteristics.provisional_term_id > provisional_terms.provisional_term_id
+Ref: problem_characteristics.evidence_id > evidence.evidence_id
+Ref: data_regimes.problem_id > paper_problems.problem_id
+Ref: data_regimes.evidence_id > evidence.evidence_id
+Ref: paper_pinn_problem_links.problem_id > paper_problems.problem_id
+Ref: paper_pinn_problem_links.taxonomy_term_id > taxonomy_terms.term_id
+Ref: paper_pinn_problem_links.provisional_term_id > provisional_terms.provisional_term_id
+Ref: paper_pinn_problem_links.evidence_id > evidence.evidence_id
+
+Ref: paper_contributions.paper_id > papers.paper_id
+Ref: contribution_items.contribution_id > paper_contributions.contribution_id
+Ref: contribution_items.taxonomy_term_id > taxonomy_terms.term_id
+Ref: paper_outcomes.paper_id > papers.paper_id
+Ref: outcome_items.outcome_id > paper_outcomes.outcome_id
+Ref: outcome_items.evidence_id > evidence.evidence_id
+Ref: paper_validation.paper_id > papers.paper_id
+Ref: validation_items.validation_id > paper_validation.validation_id
+Ref: validation_items.taxonomy_term_id > taxonomy_terms.term_id
+Ref: validation_items.evidence_id > evidence.evidence_id
+
+Ref: methodological_feature_sets.paper_id > papers.paper_id
+Ref: method_terms.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: method_terms.taxonomy_term_id > taxonomy_terms.term_id
+Ref: method_terms.provisional_term_id > provisional_terms.provisional_term_id
+Ref: method_terms.evidence_id > evidence.evidence_id
+Ref: model_variable_representations.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: model_variable_representations.evidence_id > evidence.evidence_id
+Ref: network_configurations.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: network_configurations.evidence_id > evidence.evidence_id
+Ref: training_protocols.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: training_protocols.evidence_id > evidence.evidence_id
+Ref: differentiation_methods.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: differentiation_methods.evidence_id > evidence.evidence_id
+Ref: differentiation_component_methods.differentiation_method_id > differentiation_methods.differentiation_method_id
+Ref: parallel_executions.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: parallel_executions.evidence_id > evidence.evidence_id
+Ref: loss_weighting_methods.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: loss_weighting_methods.evidence_id > evidence.evidence_id
+Ref: loss_weighting_targets.loss_weighting_method_id > loss_weighting_methods.loss_weighting_method_id
+Ref: transformation_methods.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: transformation_methods.evidence_id > evidence.evidence_id
+Ref: fidelity_source_roles.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: fidelity_source_roles.evidence_id > evidence.evidence_id
+Ref: derived_output_methods.feature_set_id > methodological_feature_sets.feature_set_id
+Ref: derived_output_methods.evidence_id > evidence.evidence_id
+Ref: derived_output_sources.derived_output_method_id > derived_output_methods.derived_output_method_id
+
+Ref: evaluation_results.paper_id > papers.paper_id
+Ref: evaluation_result_items.result_id > evaluation_results.result_id
+Ref: reproducibility.paper_id - papers.paper_id
+Ref: reproduction_attempts.paper_id > papers.paper_id
+Ref: paper_diagnostic_pathways.paper_id > papers.paper_id
+Ref: diagnostic_components.diagnostic_id > paper_diagnostic_pathways.diagnostic_id
+Ref: diagnostic_component_evidence.diagnostic_component_id > diagnostic_components.diagnostic_component_id
+Ref: diagnostic_component_evidence.evidence_id > evidence.evidence_id
+Ref: diagnostic_verification_links.diagnostic_id > paper_diagnostic_pathways.diagnostic_id
+Ref: limitations.paper_id > papers.paper_id
+Ref: open_problems.paper_id > papers.paper_id
+Ref: future_work.paper_id > papers.paper_id
+Ref: extraction_control.paper_id - papers.paper_id
+
+Ref: controlled_vocabulary_values.vocabulary_dimension_id > controlled_vocabulary_dimensions.vocabulary_dimension_id
+Ref: taxonomy_terms.parent_term_id > taxonomy_terms.term_id
+Ref: taxonomy_terms.first_seen_paper_id > papers.paper_id
+Ref: taxonomy_terms.first_seen_evidence_id > evidence.evidence_id
+Ref: taxonomy_terms.replaced_by_term_id > taxonomy_terms.term_id
+Ref: taxonomy_aliases.term_id > taxonomy_terms.term_id
+Ref: taxonomy_aliases.source_paper_id > papers.paper_id
+Ref: taxonomy_aliases.source_evidence_id > evidence.evidence_id
+Ref: provisional_terms.source_paper_id > papers.paper_id
+Ref: provisional_terms.source_evidence_id > evidence.evidence_id
+Ref: provisional_terms.proposed_mapping_term_id > taxonomy_terms.term_id
+Ref: relationship_registry.first_seen_paper_id > papers.paper_id
+Ref: relationship_registry.first_seen_evidence_id > evidence.evidence_id
+Ref: relationship_registry.inverse_relation_id > relationship_registry.relation_id
+Ref: scientific_relationships.relation_id > relationship_registry.relation_id
+Ref: scientific_relationships.paper_id > papers.paper_id
+Ref: scientific_relationship_evidence.scientific_relationship_id > scientific_relationships.scientific_relationship_id
+Ref: scientific_relationship_evidence.evidence_id > evidence.evidence_id
+Ref: extension_proposals.source_paper_id > papers.paper_id
+Ref: extension_proposals.source_evidence_id > evidence.evidence_id
+Ref: ontology_change_papers.change_id > ontology_changelog.change_id
+Ref: ontology_change_papers.paper_id > papers.paper_id
+Ref: ontology_change_evidence.change_id > ontology_changelog.change_id
+Ref: ontology_change_evidence.evidence_id > evidence.evidence_id
+
+Ref: analysis_results.analysis_id > analysis_specs.analysis_id
+Ref: analysis_result_support.analysis_result_id > analysis_results.analysis_result_id
+Ref: analysis_result_support.paper_id > papers.paper_id
+Ref: analysis_result_support.evidence_id > evidence.evidence_id
+Ref: analytical_integrity_findings.analysis_id > analysis_specs.analysis_id
+Ref: research_candidate_signals.source_analysis_id > analysis_specs.analysis_id
+
+Ref: atlas_synthesis_support.synthesis_id > atlas_syntheses.synthesis_id
+Ref: atlas_synthesis_support.paper_id > papers.paper_id
+Ref: atlas_synthesis_support.evidence_id > evidence.evidence_id
+Ref: atlas_gap_support.gap_id > atlas_research_gaps.gap_id
+Ref: atlas_gap_support.paper_id > papers.paper_id
+Ref: atlas_gap_support.evidence_id > evidence.evidence_id
+Ref: atlas_opportunity_support.opportunity_id > atlas_research_opportunities.opportunity_id
+Ref: atlas_opportunity_support.paper_id > papers.paper_id
+Ref: atlas_opportunity_support.evidence_id > evidence.evidence_id
+Ref: framework_nodes.framework_id > framework_definitions.framework_id
+Ref: framework_edges.framework_id > framework_definitions.framework_id
+Ref: framework_edges.source_node_id > framework_nodes.framework_node_id
+Ref: framework_edges.target_node_id > framework_nodes.framework_node_id
+Ref: framework_edge_support.framework_edge_id > framework_edges.framework_edge_id
+Ref: framework_edge_support.paper_id > papers.paper_id
+Ref: framework_edge_support.evidence_id > evidence.evidence_id
+Ref: design_performance_cells.framework_id > framework_definitions.framework_id
+Ref: design_performance_cell_support.cell_id > design_performance_cells.cell_id
+Ref: design_performance_cell_support.paper_id > papers.paper_id
+Ref: design_performance_cell_support.evidence_id > evidence.evidence_id
+Ref: diagnostic_synthesis_items.framework_id > framework_definitions.framework_id
+Ref: diagnostic_synthesis_support.diagnostic_synthesis_id > diagnostic_synthesis_items.diagnostic_synthesis_id
+Ref: diagnostic_synthesis_support.diagnostic_id > paper_diagnostic_pathways.diagnostic_id
+Ref: diagnostic_synthesis_support.paper_id > papers.paper_id
+Ref: diagnostic_synthesis_support.evidence_id > evidence.evidence_id
+
+Ref: surface_dependencies.surface_id > surface_registry.surface_id
+Ref: subsystem_entity_links.subsystem_id > bounded_subsystems.subsystem_id
+Ref: subsystem_entity_links.atlas_paper_id > papers.paper_id
+
+Ref: qa_test_requirements.qa_test_id > qa_test_registry.qa_test_id
+Ref: qa_test_requirements.requirement_id > requirement_registry.requirement_id
+Ref: qa_runs.qa_test_id > qa_test_registry.qa_test_id
+Ref: version_registry.parent_version_id > version_registry.version_id
+Ref: migrations.from_version_id > version_registry.version_id
+Ref: migrations.to_version_id > version_registry.version_id
+Ref: migration_impacts.migration_id > migrations.migration_id
+Ref: batch_papers.batch_id > batches.batch_id
+Ref: batch_papers.paper_id > papers.paper_id
+Ref: role_permissions.role_id > role_registry.role_id

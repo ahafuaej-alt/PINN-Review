@@ -1,0 +1,347 @@
+{
+  "specification": "Task 5.5 evidence and recurrence criteria for future ontology promotion",
+  "version": "task-5.5-v1.0.0",
+  "date": "2026-09-10",
+  "branch": "docs/master-atlas-roadmap",
+  "starting_branch_head": "5fe6eb09c270ddc252198f8ce6f6a0abc89dba5f",
+  "authority": {
+    "scientific_authority": "locked Google Drive v0.7-pilot-atlas-prefreeze",
+    "implementation_contract": "frozen Master Plan v1.0",
+    "scientific_authority_flag": false,
+    "may_modify_locked_v0_7": false,
+    "may_promote_any_candidate_in_task_5_5": false,
+    "may_create_paper_assignments": false,
+    "may_reopen_tasks_1_to_4": false,
+    "task_6_started": false
+  },
+  "governing_principles": [
+    "Promotion is a governed scientific decision, never a frequency threshold executed automatically.",
+    "Frequency is not evidence strength.",
+    "Count independent evidence-bearing study families, not repeated mentions within one paper or duplicate publication versions of one study.",
+    "A single clear source may justify paper-specific, source-local or provisional representation but not automatic corpus-global canonicalization.",
+    "Canonical promotion requires independent recurrence and/or a documented cross-paper generalizability pathway plus semantic distinctness, owner correctness, collision review, human approval and versioned change control.",
+    "Structural promotion has a higher burden than taxonomy, vocabulary, alias or relation promotion and must first satisfy the Task 5.4 X6 structural-loss test.",
+    "Contradictory, mismatched and negative evidence remains visible and is never deleted to satisfy a threshold.",
+    "External authoritative literature may establish stable semantics or generalizability but cannot create Atlas paper-level assignments without paper-scoped Atlas evidence.",
+    "No promotion can violate Task 1.3 R1–R48, Task 1.4 X1–X9, Task 1.5 H1–H11, or locked v0.7 no-merge boundaries."
+  ],
+  "promotion_evidence_unit": {
+    "name": "Promotion Evidence Unit",
+    "abbreviation": "PEU",
+    "definition": "One deduplicated study-family-scoped, evidence-backed support instance for one candidate meaning or relation after repeated mentions and duplicate publication versions of the same underlying study are collapsed for recurrence counting.",
+    "counting_rules": [
+      "At most one positive recurrence count per independent study family for the same candidate meaning and promotion question.",
+      "Multiple experiments/components within one paper may prove multiplicity or structural severity but do not become multiple independent recurrence counts.",
+      "Preprint, conference and journal versions of substantially the same study count as one study family unless they contain independently evidenced scientific developments material to the promotion question.",
+      "A review that only repeats a cited primary-study claim does not add an independent primary recurrence count.",
+      "A review or standard may contribute external/generalizability evidence when it explicitly defines or independently synthesizes the concept; that role is recorded separately from Atlas primary-paper recurrence.",
+      "Paper identity, source role, scope and evidence lineage must remain explicit."
+    ],
+    "positive_eligibility": {
+      "paper_identity_resolved": true,
+      "workflow_verification_required": "verified",
+      "semantic_support": [
+        "supporting",
+        "partially_supporting_if_candidate_scope_is_narrowed_to_supported_content"
+      ],
+      "evidence_locator": "as precise as available; never invented",
+      "source_role": "must be appropriate to the promotion question and preserved",
+      "mismatched_or_conflict_as_positive": false,
+      "unreviewed_ai_as_positive": false
+    }
+  },
+  "universal_promotion_gates": [
+    {
+      "id": "PG-01",
+      "name": "owner_correctness",
+      "rule": "Identify the single scientific owner. A new term/value/relation/structure cannot be promoted into the wrong owner for implementation or UI convenience."
+    },
+    {
+      "id": "PG-02",
+      "name": "definition_and_distinctness",
+      "rule": "Candidate definition must be precise enough to distinguish neighboring concepts and preserve Task 1.3 no-merge boundaries."
+    },
+    {
+      "id": "PG-03",
+      "name": "evidence_traceability",
+      "rule": "All positive PEUs require traceable verified evidence, source role and scope; raw evidence remains immutable."
+    },
+    {
+      "id": "PG-04",
+      "name": "independence_audit",
+      "rule": "Deduplicate repeated mentions and publication versions; report independent study-family count separately from raw occurrence count."
+    },
+    {
+      "id": "PG-05",
+      "name": "collision_and_counterevidence",
+      "rule": "Search known collisions, incompatible meanings, negative/counterevidence and authoritative conflicting taxonomies; retain them explicitly."
+    },
+    {
+      "id": "PG-06",
+      "name": "analytical_or_scientific_utility",
+      "rule": "Promotion must improve scientifically valid normalization, interpretation, querying or linking; mere visibility or popularity is insufficient."
+    },
+    {
+      "id": "PG-07",
+      "name": "human_scientific_review",
+      "rule": "A human scientific reviewer must approve the promotion decision and its scope. AI/extractor proposals cannot self-promote."
+    },
+    {
+      "id": "PG-08",
+      "name": "version_and_history",
+      "rule": "Approved changes enter only through the correct candidate future ontology version with changelog, prior-state preservation and explicit effective version."
+    },
+    {
+      "id": "PG-09",
+      "name": "migration_and_regression",
+      "rule": "If linked normalized records or structure change, define migration and rerun applicable 36-paper, sentinel, no-merge, evidence, crosswalk and dependent-contract regression before lock/promotion."
+    },
+    {
+      "id": "PG-10",
+      "name": "no_automatic_threshold_action",
+      "rule": "Meeting a numeric recurrence minimum makes a candidate eligible for governed review; it never automatically makes the candidate canonical."
+    }
+  ],
+  "promotion_classes": [
+    {
+      "code": "PR-TAX",
+      "label": "canonical_taxonomy_term_or_global_hierarchy",
+      "scope": "provisional/paper-specific concept to canonical term, or global is_a/parent placement",
+      "minimum_recurrence_path": {
+        "atlas_independent_PEUs": 2,
+        "meaning_consistency_required": true
+      },
+      "generalizability_path": {
+        "atlas_independent_PEUs_min": 1,
+        "external_semantic_support": "either one formal/consensus standard plus one independent peer-reviewed source, or two independent peer-reviewed taxonomy/review/method sources",
+        "cross_paper_applicability_must_be_reasoned": true
+      },
+      "additional_gates": [
+        "candidate is scientifically distinct and not merely alternate wording",
+        "global hierarchy requires semantic entailment, not co-occurrence or source-specific taxonomy preference",
+        "known authoritative hierarchy disagreement blocks forced global is_a and may require source-local or related-concept representation",
+        "no unresolved collision that would make one canonical meaning unsafe"
+      ],
+      "automatic_promotion": false
+    },
+    {
+      "code": "PR-ALIAS",
+      "label": "alias_scope_promotion",
+      "scope": "source-local/author-defined/unresolved alias to corpus-global alias",
+      "source_local_rule": "One explicit source may justify a source-local or author-defined alias when equivalence is directly evidenced in that scope.",
+      "corpus_global_minimum": {
+        "independent_equivalence_contexts": 2,
+        "corpus_collision_search_required": true,
+        "known_incompatible_usages_allowed": 0
+      },
+      "additional_gates": [
+        "equivalence must concern meaning, not only spelling/case/hyphen similarity",
+        "all known high-risk homographs/case-sensitive collisions remain scoped",
+        "a corpus-global alias is blocked if any unresolved incompatible meaning remains"
+      ],
+      "automatic_promotion": false
+    },
+    {
+      "code": "PR-CV",
+      "label": "controlled_vocabulary_value",
+      "scope": "other-explicit/provisional/scoped value to canonical controlled value in an existing owner",
+      "minimum_recurrence_path": {
+        "atlas_independent_PEUs": 2
+      },
+      "generalizability_path": {
+        "atlas_independent_PEUs_min": 1,
+        "external_semantic_support": "one formal/consensus standard or two independent peer-reviewed sources defining a stable general value"
+      },
+      "additional_gates": [
+        "existing field/entity is already the correct scientific owner",
+        "value has an operational definition and is not a proxy for another dimension",
+        "adding the value does not silently broaden field meaning"
+      ],
+      "automatic_promotion": false
+    },
+    {
+      "code": "PR-REL",
+      "label": "canonical_relation_type_or_relation_generalization",
+      "scope": "provisional relation to canonical relation type, or governed broadening of an existing relation domain",
+      "minimum_recurrence": {
+        "atlas_independent_direct_relation_PEUs": 2
+      },
+      "additional_gates": [
+        "direction, source class, target class and semantic meaning are consistent across supporting PEUs",
+        "material context remains instance-scoped; promotion of a relation type never creates a context-free universal assertion",
+        "performance, superiority, causality, mitigation and improvement remain paper/test-case scoped",
+        "broadening an existing relation domain requires at least one adversarial/negative boundary sentinel in addition to positive recurrence"
+      ],
+      "automatic_promotion": false
+    },
+    {
+      "code": "PR-STRUCT",
+      "label": "schema_field_entity_or_generalization",
+      "scope": "Task 5.4 structural watch or new X6 candidate to a candidate future-version structural change",
+      "trigger_paths": [
+        {
+          "name": "single_case_severity",
+          "criterion": "One adversarial verified paper demonstrates that current structure cannot preserve a mandatory Task 1.3 distinction, evidence/provenance, stable identity, required multiplicity or scientifically necessary linkage without information loss."
+        },
+        {
+          "name": "independent_recurrence",
+          "criterion": "The same irreducible X6 deficiency recurs in at least two independent paper study families and cannot be reconstructed through existing fields, repeatable records, taxonomy, scoped aliases, typed relations, evidence locators or synthesis objects."
+        }
+      ],
+      "promotion_requirements_after_trigger": [
+        "Task 5.4 structural-home-first test is re-run and documented",
+        "irreducible loss/ambiguity/linking failure is demonstrated, not merely better queryability",
+        "correct owner is adjudicated",
+        "generalization-before-duplication is tested",
+        "minimal additive/backward-compatible structure is preferred where scientifically sufficient",
+        "migration is lossless and does not rewrite raw evidence",
+        "applicable H1–H11 gates pass",
+        "active major structural gaps are resolved by the candidate design",
+        "36-paper regression, applicable targeted sentinels, A6 migration/no-merge/evidence checks, 31-field/four-framework crosswalk and dependent architecture/profile contracts are rerun as applicable before promotion",
+        "candidate future ontology version is explicitly approved and locked"
+      ],
+      "recurrence_alone_without_X6_loss": "never sufficient",
+      "automatic_promotion": false
+    },
+    {
+      "code": "PR-SEM",
+      "label": "merge_reparent_deprecate_or_semantic_refactor",
+      "scope": "change to an existing canonical term, hierarchy, alias target or relation meaning",
+      "fixed_recurrence_minimum": null,
+      "decision_basis": "semantic correction/equivalence/entailment evidence and affected-record audit rather than popularity",
+      "additional_gates": [
+        "full collision/no-merge audit",
+        "no unresolved incompatible usages for a global merge",
+        "all affected normalized records inventoried",
+        "old IDs/labels/history remain resolvable",
+        "replacement/re-parent rationale is explicit",
+        "migration is lossless or explicitly scoped; rollback path exists",
+        "regression suite covers previous and new semantics"
+      ],
+      "automatic_promotion": false
+    }
+  ],
+  "decision_states": [
+    "captured",
+    "evidence_incomplete",
+    "keep_paper_specific_or_source_local",
+    "keep_provisional",
+    "monitor_recurrence",
+    "eligible_for_promotion_review",
+    "blocked_by_collision_or_counterevidence",
+    "approved_for_candidate_version",
+    "candidate_version_regression_passed",
+    "promoted_and_locked",
+    "rejected_or_deferred"
+  ],
+  "structural_watch_criteria": [
+    {
+      "id": "SW-01",
+      "candidate": "internal latent semantic structure",
+      "current_treatment": "D2 dynamic representation/objective taxonomy plus model/component relations",
+      "promotion_evidence_needed": "Verified evidence must show latent objects with scientifically distinct role/objective/provenance whose identities or links cannot be preserved by current configuration, evidence scope and dynamic relations.",
+      "threshold_rule": "Use PR-STRUCT: one hard single-case semantic/identity/provenance failure or the same irreducible deficiency in at least two independent study families."
+    },
+    {
+      "id": "SW-02",
+      "candidate": "stable learned-model/component identity and role structure",
+      "current_treatment": "D2 composition taxonomy plus typed component-role relations and scope/evidence",
+      "promotion_evidence_needed": "Distinct learned components must require stable cross-record links to architecture, configuration, inputs/outputs, training, role or evidence, with current scope/context representation demonstrably ambiguous or lossy.",
+      "threshold_rule": "Use PR-STRUCT; multiple components inside one paper may prove severity/multiplicity failure but count as one independent recurrence unit."
+    },
+    {
+      "id": "SW-03",
+      "candidate": "time-decomposition / temporal-partition structure",
+      "current_treatment": "D2 temporal-decomposition taxonomy plus decomposition/training/parallel/transfer relations",
+      "promotion_evidence_needed": "Temporal windows/segments require stable boundaries, ordering, interfaces/transfers or segment-specific attributes not reconstructable from current records and evidence.",
+      "threshold_rule": "Use PR-STRUCT; otherwise remain dynamic even if temporally decomposed methods recur."
+    },
+    {
+      "id": "SW-04",
+      "candidate": "collaborative/federated workflow structure",
+      "current_treatment": "D2 learning-paradigm taxonomy plus participant/topology/aggregation/partition relations; parallel_execution remains separate",
+      "promotion_evidence_needed": "Repeatable participant/data-owner/topology/aggregation identities must be scientifically necessary and current contextual relations must fail to preserve them without ambiguity.",
+      "threshold_rule": "Use PR-STRUCT; recurrence of the word federated alone is not structural evidence."
+    },
+    {
+      "id": "SW-05",
+      "candidate": "strong/weak/variational formulation detail structure",
+      "current_treatment": "D2 formulation taxonomy linked to constraints/enforcement/integration/evidence",
+      "promotion_evidence_needed": "Formulation-specific repeatable attributes or component-level links must materially change interpretation and be unreconstructable through taxonomy, relations and evidence scope.",
+      "threshold_rule": "Use PR-STRUCT; simple recurrence of strong/weak/variational labels remains PR-TAX/PR-REL territory, not schema promotion."
+    },
+    {
+      "id": "SW-06",
+      "candidate": "structured domain-decomposition enrichment",
+      "current_treatment": "E1 domain_decomposition_method[] plus dynamic taxonomy",
+      "promotion_evidence_needed": "Recurring decomposition attributes/linkages must be scientifically necessary and unreconstructable from method terms, parallel_execution, network configuration, relations and evidence.",
+      "threshold_rule": "Use PR-STRUCT; preserves the v0.6/v0.7 defer/monitor decision until X6 evidence exists."
+    },
+    {
+      "id": "SW-07",
+      "candidate": "transfer/adaptation event structure",
+      "current_treatment": "D2 transfer/adaptation/meta-learning taxonomy plus source/target/task/model/training relations",
+      "promotion_evidence_needed": "Multiple transfer/adaptation events must require separately stable source, target, stage, model, domain/task and evidence linkage, with current relation/context representation demonstrably ambiguous or lossy.",
+      "threshold_rule": "Use PR-STRUCT; multiple events in one paper can establish severity but do not inflate independent recurrence."
+    }
+  ],
+  "candidate_promotion_packet": [
+    "candidate_id and promotion_class",
+    "current status and proposed status",
+    "single scientific owner",
+    "precise definition and neighboring/no-merge distinctions",
+    "exact source wording preserved",
+    "positive PEU table with paper/study-family identities and evidence IDs/locators",
+    "raw occurrence count reported separately from independent PEU count",
+    "external semantic/generalizability evidence reported separately",
+    "collision/counterevidence/negative-evidence audit",
+    "analytical/scientific utility rationale",
+    "affected records/relations/aliases",
+    "migration and backward-compatibility plan if applicable",
+    "regression/sentinel plan",
+    "reviewer decision and rationale",
+    "candidate ontology version and changelog entry if approved"
+  ],
+  "anti_gaming_rules": [
+    "Do not split one paper into multiple PEUs merely because it contains multiple mentions.",
+    "Do not count duplicate/preprint/journal versions of one study as independent recurrence without independently material scientific content.",
+    "Do not count review repetition of cited primary claims as independent primary recurrence.",
+    "Do not suppress collisions, mismatches, negative results or unresolved states to satisfy thresholds.",
+    "Do not promote because a term appears in an external taxonomy if Atlas evidence does not require or use it.",
+    "Do not infer unreported classifications retroactively after a term or field becomes available.",
+    "Do not convert page/filter demand into scientific structural need.",
+    "Do not use raw frequency, citation count or popularity as a substitute for semantic evidence."
+  ],
+  "version_promotion_gate": {
+    "candidate_version_required_for_scientific_change": true,
+    "required_before_lock": [
+      "correct owner document/registry updated only in candidate version",
+      "versioned changelog complete",
+      "migration specification complete where records change",
+      "raw evidence/history immutability confirmed",
+      "collision/no-merge and contradiction preservation confirmed",
+      "human scientific review complete",
+      "applicable regression and sentinel suites pass",
+      "serialization/architecture/profile contracts synchronized if affected",
+      "no unresolved major structural gap created by the change",
+      "explicit lock/promotion decision recorded"
+    ]
+  },
+  "task_5_5_conclusion": {
+    "criteria_defined": true,
+    "promotion_classes_defined": 6,
+    "universal_gates_defined": 10,
+    "structural_watch_items_bound": 7,
+    "automatic_promotions_authorized": 0,
+    "canonical_terms_promoted": 0,
+    "global_aliases_promoted": 0,
+    "relations_promoted": 0,
+    "controlled_values_promoted": 0,
+    "schema_changes_promoted": 0,
+    "locked_v0_7_changes": 0,
+    "production_main_changes": 0,
+    "computational_resources_stage_changes": 0,
+    "task_5_complete_after_5_5": true,
+    "next_roadmap_task": "Task 6 — Define the complete Cross-Paper Intelligence system"
+  }
+}

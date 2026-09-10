@@ -1,0 +1,36 @@
+{
+  "id": "TASK-4.1D-PINN-TYPE-CANDIDATE-INVENTORY",
+  "date": "2026-09-08",
+  "branch": "docs/master-atlas-roadmap",
+  "scientific_authority": false,
+  "role": "derived_candidate_inventory",
+  "raw_source": "data/reference-pinn-abbreviations.txt",
+  "raw_source_blob_sha": "c712b9625d4a4dd838bba582d0bafe56a79c6350",
+  "controlling_triage_policy": "task-4.1b-pinn-candidate-triage-policy.json",
+  "controlling_collision_register": "task-4.1c-terminology-collision-register.json",
+  "scope_note": "This inventory contains scientifically eligible or conditionally eligible PINN type/variant candidates carried forward from Task 4.1B. It is not a canonical taxonomy and does not create pinn_type_id or parent/child placement.",
+  "counts": {
+    "candidate_unique_forms": 268,
+    "candidate_occurrences": 746,
+    "eligible_verified_candidate": 9,
+    "eligible_unverified_candidate": 164,
+    "conditional_method_dimension_candidate": 64,
+    "conditional_source_specialization_candidate": 13,
+    "conditional_source_local_candidate": 8,
+    "conditional_collision_candidate": 6,
+    "conditional_alias_candidate": 4
+  },
+  "excluded_selected_adjacent_or_non_type_forms": 59,
+  "excluded_note": "The 59 other Task-4.1B-selected forms remain in the Abbreviation Registry Candidate Inventory because they currently represent adjacent/non-type concepts such as operator-learning, broader PIML, software, or negative labels rather than candidates for direct PINN type taxonomy placement.",
+  "schema_fields": ["inventory_row_id","raw_reported_form","paper_ids","disposition","verification_state","verified_expansion_if_supported","collision_ids","alias_collision_state","source_local_scope","PINN_type_eligibility","raw_parenthetical_text"],
+  "parts": [
+    {"file":"task-4.1d-pinn-type-candidate-inventory-part-001.tsv","row_start":1,"row_end":67,"rows":67},
+    {"file":"task-4.1d-pinn-type-candidate-inventory-part-002.tsv","row_start":68,"row_end":134,"rows":67},
+    {"file":"task-4.1d-pinn-type-candidate-inventory-part-003.tsv","row_start":135,"row_end":201,"rows":67},
+    {"file":"task-4.1d-pinn-type-candidate-inventory-part-004.tsv","row_start":202,"row_end":268,"rows":67}
+  ],
+  "collision_rule": "Applicable Task 4.1C collision IDs C001-C030 are retained on candidate rows; no collision is silently normalized away.",
+  "evidence_locator_status": "Evidence IDs and exact source locators are included only when already available from prior verified work; Task 4.1D does not invent missing locators.",
+  "evidence_driven_revision_rule": "Later primary-source evidence may revise meaning, classification, alias/collision interpretation, family/variant placement, or eligibility. Any revision must be explicit, evidence-backed, versioned and historically traceable; raw wording and prior decisions remain preserved.",
+  "canonicalization_rule": "Candidate membership is not canonical taxonomy membership. Final classification remains Task 4.2."
+}

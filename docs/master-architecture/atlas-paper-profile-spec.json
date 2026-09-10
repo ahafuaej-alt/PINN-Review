@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "id": "PINN-ATLAS-PAPER-PROFILE",
+    "schema": "1.0.0",
+    "version": "1.0.0",
+    "date": "2026-09-07",
+    "branch": "docs/master-atlas-roadmap",
+    "role": "paper_profile_coordination_metadata",
+    "scientific_authority": false,
+    "may_define_scientific_meaning": false,
+    "may_modify_locked_v0_7": false
+  },
+  "authority": {
+    "science": "Google Drive v0.7-pilot-atlas-prefreeze",
+    "implementation": "Master Plan v1.0",
+    "architecture_registry": "docs/master-architecture/atlas-architecture-registry.json",
+    "profile_spec": "non_authoritative_L8_coordination_contract"
+  },
+  "source_contracts": [
+    "docs/master-architecture/TASK-3.1-FIRST-CLASS-PAPER-PROFILE-SECTIONS.md",
+    "docs/master-architecture/TASK-3.2-PAPER-PROFILE-FIELD-SPECIFICATION.md",
+    "docs/master-architecture/TASK-3.3-CONDITIONAL-PROFILE-SECTIONS-AND-DISPLAY-LOGIC.md",
+    "docs/master-architecture/TASK-3.4-EVIDENCE-PROVENANCE-DRILLDOWN-BEHAVIOR.md"
+  ],
+  "id_policy": {
+    "section_ids": "PP-01..PP-19 are stable profile architecture IDs, not ontology IDs",
+    "explicit_field_id_regex": "^PP-[0-9]{2}\\.(F|R|X|D|M)[0-9]{2}$",
+    "explicit_field_metadata_source": "Task 3.2 table row with the same coordinate; Owner/Multiplicity/Evidence/Semantic control/Applicability/Serialization columns remain controlling",
+    "nested_field_id": "<parent_coordinate>.<normalized_source_key>; remove [] only for identifier spelling",
+    "nested_field_metadata_source": "Task 3.2 nested-arrow row under the parent coordinate",
+    "ids_are_scientific_entities": false
+  },
+  "field_inventory": {
+    "explicit_coordinates_expected": 274,
+    "nested_subfields_expected": 73,
+    "profile_field_ids_expected": 347,
+    "locked_top_level_mappings_expected": 244,
+    "locked_structured_subfield_mappings_expected": 73,
+    "locked_field_subfield_mappings_expected": 317,
+    "non_locked_profile_coordinates_expected": 30,
+    "nested_subfields": {
+      "PP-04.F08": ["constraint_type", "target_or_quantity", "mathematical_statement_or_description", "scope", "evidence_locator"],
+      "PP-08.D02": ["data_role", "amount_or_density", "quality_or_noise", "label_status", "evidence_locator"],
+      "PP-08.M04": ["direction", "quantity_or_variable", "scientific_role", "representation_type", "network_component_or_scope", "evidence_locator"],
+      "PP-08.M05": ["component_scope", "hidden_layers_or_depth", "width_or_neurons", "subnetwork_count", "branch_count", "latent_dimension", "parameter_count", "connectivity_or_parameter_sharing", "topology_notes", "evidence_locator"],
+      "PP-08.M11": ["protocol_type", "method_or_strategy", "target_or_scope", "stage_or_order", "schedule_or_trigger", "parameters_or_values", "evidence_locator"],
+      "PP-08.M13": ["method", "operator_or_derivative_target", "spatial_or_temporal_role", "component_methods", "scheme_family", "stencil_or_support", "formal_order", "spacing_or_scale", "operator_specific_composition", "evidence_locator"],
+      "PP-08.M16": ["execution_phase", "parallelism_mode", "decomposition_or_model_scope", "distributed_or_shared_memory_context", "scale_or_worker_count_when_reported", "coordination_or_communication_notes", "evidence_locator"],
+      "PP-08.M17": ["method_or_mode", "target_loss_components", "weighting_rule_or_update_rule", "schedule_or_stage", "reported_values_or_parameters", "evidence_locator"],
+      "PP-08.M18": ["role", "method", "target", "basis"],
+      "PP-08.M21": ["fidelity_level", "source_type", "workflow_role", "evidence_locator"],
+      "PP-08.M22": ["derived_quantity", "source_output", "derivation_method", "operation_type", "pipeline_stage", "evidence_locator"],
+      "PP-18.F12": ["component_type", "evidence_id", "support_status"]
+    }
+  },
+  "presentation": {
+    "section_index_always_contains_all_sections": true,
+    "core_body_sections": ["PP-01", "PP-02", "PP-19"],
+    "conditional_body_sections": ["PP-03", "PP-04", "PP-05", "PP-06", "PP-07", "PP-08", "PP-09", "PP-10", "PP-11", "PP-12", "PP-13", "PP-14", "PP-15", "PP-16", "PP-17", "PP-18"],
+    "applicability_axis": ["A-APPLICABLE", "A-NOT-APPLICABLE", "A-UNRESOLVED"],
+    "content_axis": ["C-POPULATED", "C-EXPLICIT-STATE", "C-UNREPRESENTED", "C-PENDING"],
+    "integrity_modifiers": ["I-VERIFIED", "I-NEEDS-REVIEW", "I-CONFLICT", "I-MISMATCHED", "I-PROVISIONAL", "I-SOURCE-LOCAL", "I-UNCLEAR"],
+    "derived_states_are_persisted_science": false,
+    "rules": ["R-D01", "R-D02", "R-D03", "R-D04", "R-D05", "R-D06", "R-D07", "R-D08", "R-D09", "R-D10", "R-D11", "R-D12", "R-D13", "R-D14", "R-D15", "R-D16", "R-D17", "R-D18"],
+    "modes": ["public_verified", "review_maintenance"]
+  },
+  "evidence_drilldown": {
+    "field_evidence_classes": ["BIB-PROV", "E-LINK", "E-INLINE", "E-DIRECT", "PROV", "N/A"],
+    "entry_points": ["record", "component_or_substructure", "PP-19_index", "integrity_warning"],
+    "stages": ["record_context", "linked_evidence_set", "evidence_record", "source_context", "semantic_provenance_trace"],
+    "verification_status": ["unverified", "partially_verified", "verified", "needs_review", "conflict_found"],
+    "support_status": ["supported", "partially_supported", "mismatched", "unverified", "conflict_found", "not_applicable"],
+    "evidence_source_role": ["current_paper_original", "current_paper_reanalysis", "review_synthesis", "cited_primary_study", "adapted_from_cited_study", "unclear"],
+    "evidence_type": ["explicit_statement", "explicit_result", "explicit_limitation", "explicit_future_work", "explicit_open_problem", "strongly_implied", "atlas_inference"],
+    "statement_strength": ["direct", "strong", "moderate", "weak", "ambiguous"],
+    "verification_and_support_independent": true,
+    "positive_only_filter_default": false,
+    "double_count_inline_direct_and_L3": false,
+    "source_locator_invention_allowed": false,
+    "logical_deep_link_keys": ["paper_id", "section_id", "record_or_component_id", "evidence_id"]
+  },
+  "no_merge_guards": [
+    "problem != computational_task != PINN_challenge",
+    "demonstrated_application != related_application != potential_application",
+    "contribution != outcome",
+    "claim != demonstration",
+    "validation != evaluation",
+    "limitation != open_problem != future_work != Atlas_research_gap",
+    "paper_diagnostic_pathway != L7_failure_diagnostics_synthesis",
+    "raw_evidence != normalized_record != Atlas_inference != Atlas_synthesis",
+    "data_regime != fidelity_source_role",
+    "model_variable_identity != transformation_method != derived_output_method",
+    "physical_constraint != physics_enforcement",
+    "network_configuration != architecture_family",
+    "loss_component != loss_weighting != training_protocol",
+    "parallel_execution != hardware_reporting"
+  ],
+  "prohibited_additions": [
+    "mandatory study_component_id",
+    "physical_knowledge_representation[]",
+    "competing solution_postprocessing[]",
+    "competing adaptive_weighting[]",
+    "premature pinn_type_id/pinn_type_assignment",
+    "framework synthesis as paper fields",
+    "Computational Resources fields copied into Paper Profile"
+  ],
+  "sections": [
+    {"id":"PP-01","order":1,"title":"Bibliographic Identity","architecture_refs":["L2-B1","L2-B2","L2-B3","L2-B4","L2-B5"],"body_policy":"always","render_condition":"always","field_coordinate_ranges":[{"prefix":"F","start":1,"end":16}]},
+    {"id":"PP-02","order":2,"title":"Study / Extraction Identity","architecture_refs":["L4-P1","L4-P2"],"body_policy":"always","render_condition":"always","field_coordinate_ranges":[{"prefix":"F","start":1,"end":5},{"prefix":"R","start":1,"end":21},{"prefix":"X","start":1,"end":8}]},
+    {"id":"PP-03","order":3,"title":"Application","architecture_refs":["L4-P3"],"body_policy":"conditional","render_condition":"applications[] records or explicit applicable state","field_coordinate_ranges":[{"prefix":"F","start":1,"end":13}]},
+    {"id":"PP-04","order":4,"title":"Problem","architecture_refs":["L4-P4"],"body_policy":"conditional","render_condition":"applicable problem-definition facets","field_coordinate_ranges":[{"prefix":"F","start":1,"end":13}]},
+    {"id":"PP-05","order":5,"title":"Computational Task","architecture_refs":["L4-P5"],"body_policy":"conditional","render_condition":"computational_task/scientific_objective in applicable problem record","field_coordinate_ranges":[{"prefix":"F","start":1,"end":6}]},
+    {"id":"PP-06","order":6,"title":"PINN Problem / Challenge","architecture_refs":["L4-P7"],"body_policy":"conditional","render_condition":"PINN_problem_addressed[] or PINN_challenge_addressed[]","field_coordinate_ranges":[{"prefix":"F","start":1,"end":5}]},
+    {"id":"PP-07","order":7,"title":"PINN Type / Family","architecture_refs":["L4-P8"],"body_policy":"conditional","render_condition":"governed type/family projection from existing concepts/PINN_architecture[]","field_coordinate_ranges":[{"prefix":"F","start":1,"end":6}]},
+    {"id":"PP-08","order":8,"title":"Methodology","architecture_refs":["L4-P6","L4-P9"],"body_policy":"conditional","render_condition":"methodological_features[] and/or applicable data_regime[]","field_coordinate_ranges":[{"prefix":"D","start":1,"end":2},{"prefix":"M","start":1,"end":23}]},
+    {"id":"PP-09","order":9,"title":"Contribution","architecture_refs":["L4-P10"],"body_policy":"conditional","render_condition":"contributions[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":12}]},
+    {"id":"PP-10","order":10,"title":"Claim vs Demonstration","architecture_refs":["L4-P11"],"body_policy":"conditional","render_condition":"claim/demonstration/generality fields or mismatch/conflict","field_coordinate_ranges":[{"prefix":"F","start":1,"end":7}]},
+    {"id":"PP-11","order":11,"title":"Outcome","architecture_refs":["L4-P12"],"body_policy":"conditional","render_condition":"outcomes[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":11}]},
+    {"id":"PP-12","order":12,"title":"Validation","architecture_refs":["L4-P13"],"body_policy":"conditional","render_condition":"validation[] records or explicit governed test state","field_coordinate_ranges":[{"prefix":"F","start":1,"end":16}]},
+    {"id":"PP-13","order":13,"title":"Evaluation","architecture_refs":["L4-P14"],"body_policy":"conditional","render_condition":"evaluation_results[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":16}]},
+    {"id":"PP-14","order":14,"title":"Reproducibility","architecture_refs":["L4-P15"],"body_policy":"conditional","render_condition":"reproducibility object, including explicit reporting/availability states","field_coordinate_ranges":[{"prefix":"F","start":1,"end":14}]},
+    {"id":"PP-15","order":15,"title":"Limitations","architecture_refs":["L4-P16"],"body_policy":"conditional","render_condition":"limitations[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":13}]},
+    {"id":"PP-16","order":16,"title":"Open Problems","architecture_refs":["L4-P17"],"body_policy":"conditional","render_condition":"open_problems[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":13}]},
+    {"id":"PP-17","order":17,"title":"Future Work","architecture_refs":["L4-P18"],"body_policy":"conditional","render_condition":"future_work[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":13}]},
+    {"id":"PP-18","order":18,"title":"Diagnostic Pathways","architecture_refs":["L4-P19"],"body_policy":"conditional","render_condition":"diagnostic_pathways[] records","field_coordinate_ranges":[{"prefix":"F","start":1,"end":15}]},
+    {"id":"PP-19","order":19,"title":"Evidence / Provenance","architecture_refs":["L3-E1","L3-E2","L3-E3","L3-E4","L3-E5","L3-E6","L3-E7","L4-P20"],"body_policy":"always","render_condition":"always","field_coordinate_ranges":[{"prefix":"F","start":1,"end":26}]}
+  ],
+  "validation_expectations": {
+    "sections": 19,
+    "core_sections": 3,
+    "conditional_sections": 16,
+    "task32_locked_mappings": 317,
+    "task34_pp19_locked_fields": 24,
+    "task34_pp19_derived_fields": 2,
+    "new_locked_v0_7_fields": 0,
+    "computational_resources_boundary_violations": 0
+  },
+  "stop_boundary": "Task 3.6 not started"
+}

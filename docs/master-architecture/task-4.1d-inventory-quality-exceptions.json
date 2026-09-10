@@ -1,0 +1,30 @@
+{
+  "id": "TASK-4.1D-INVENTORY-QUALITY-EXCEPTIONS",
+  "date": "2026-09-08",
+  "branch": "docs/master-atlas-roadmap",
+  "scientific_authority": false,
+  "purpose": "Make materialization defects/count discrepancies explicit without rewriting the preserved raw terminology source.",
+  "exceptions": [
+    {
+      "exception_id": "QX-001",
+      "inventory": "Abbreviation Registry Candidate Inventory",
+      "type": "duplicate_materialized_row",
+      "rows": ["AR4D-0252", "AR4D-0253"],
+      "raw_reported_form": "nPINN",
+      "paper_ids": [495],
+      "decision": "AR4D-0252 remains the active row; AR4D-0253 is tombstoned and must be ignored by downstream consumers.",
+      "raw_source_changed": false
+    },
+    {
+      "exception_id": "QX-002",
+      "inventory": "Abbreviation Registry Candidate Inventory",
+      "type": "count_discrepancy",
+      "legacy_page_declared_exact_forms": 501,
+      "materialized_rows": 501,
+      "effective_distinct_exact_strings_after_QX_001": 500,
+      "decision": "Do not force a reconciliation in Task 4.1D. Task 4.1E must inspect the current abbreviations implementation/parser and determine why the page declares 501 exact forms.",
+      "scientific_effect": "none; this is an implementation/counting discrepancy, not a taxonomy decision"
+    }
+  ],
+  "evidence_driven_revision_rule": "If later primary-source or implementation evidence explains or supersedes an exception, update the normalized decision through explicit history/versioning; never rewrite raw source provenance silently."
+}
