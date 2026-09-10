@@ -5,10 +5,10 @@ Branch: `data/computational-resources-stage3`
 
 ## Latest checkpoint
 
-- Checkpoint: `Stage3-S176`
-- Resources: CR000198
-- Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **9/10**
+- Checkpoint: `Stage3-S177`
+- Resources: CR000199
+- Latest completed aggregate batch: `SOB019` — **PASS (10/10)**
+- Current batch: `SOB020` — **0/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral)**
 
@@ -17,27 +17,27 @@ All required schema, cumulative uniqueness, evidence-reference, resource→exper
 ## Checkpoint counts
 
 - Resources: **1**
-- Experiments: **4**
-- Configurations: **4**
-- Technical-evidence records: **12**
+- Experiments: **1**
+- Configurations: **1**
+- Technical-evidence records: **11**
 - Reproducibility assessments: **1**
 - New unresolved findings: **5**
 - New explicit conflicts: **0**
 
 ## Cumulative counts
 
-- Resources: **199**
-- Experiments: **292**
-- Configurations: **513**
-- Technical-evidence records: **2164**
-- Reproducibility assessments: **199**
-- Unresolved findings: **1204**
+- Resources: **200**
+- Experiments: **293**
+- Configurations: **514**
+- Technical-evidence records: **2175**
+- Reproducibility assessments: **200**
+- Unresolved findings: **1209**
 - Explicit conflicts: **137**
 
 ## Scientific boundary
 
-Stage-2 authority, the pinned repository tree, README, environment manifest and four course notebook source surfaces were inspected statically. Bundled NPY arrays were identified by path and notebook use only and were not loaded. Stored notebook outputs were treated as historical repository evidence. No scientific software, environment, dependency installation, training, inference, prediction, evaluation, test, dataset workload, notebook execution, container, accelerator or scientific workload was executed.
+Stage-2 authority, the pinned repository tree, root documentation, packaging and container surfaces, and the representative lid-driven-cavity PINN README, configuration and source were inspected statically. No scientific software, environment, dependency installation, training, inference, prediction, evaluation, test, dataset workload, container, accelerator or scientific workload was executed.
 
 ## Continuation
 
-Exact next resource: `CR000199`. Exact next checkpoint: `Stage3-S177`. Independently extractable resources remaining: **164**.
+Exact next resource: `CR000200`. Exact next checkpoint: `Stage3-S178`. Independently extractable resources remaining: **163**.

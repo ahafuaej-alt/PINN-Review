@@ -5,31 +5,31 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S176`
-- Latest completed resource: `CR000198`
-- Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **9/10**
+- Latest completed checkpoint: `Stage3-S177`
+- Latest completed resource: `CR000199`
+- Latest completed aggregate batch: `SOB019` — **PASS (10/10)**
+- Current batch: `SOB020` — **0/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000199`
-- Exact next checkpoint: `Stage3-S177`
+- Exact next independently extractable resource: `CR000200`
+- Exact next checkpoint: `Stage3-S178`
 
-## Cumulative counts through S176 / RC04
+## Cumulative counts through S177 / RC05
 
-- Resources: **199**
-- Experiments: **292**
-- Configurations: **513**
-- Technical-evidence records: **2164**
-- Reproducibility assessments: **199**
-- Unresolved findings: **1204**
+- Resources: **200**
+- Experiments: **293**
+- Configurations: **514**
+- Technical-evidence records: **2175**
+- Reproducibility assessments: **200**
+- Unresolved findings: **1209**
 - Explicit conflicts: **137**
-- Independently extractable resources remaining: **164**
+- Independently extractable resources remaining: **163**
 
-## S176
+## S177
 
-CR000198 preserves the Stage-2-authoritative `fperiago/pinn_deeponet_for_beginners` fork pinned at `5c3ea1b41d563ca969925cd20fcbdbde430e9026`, licensed CC-BY-SA-4.0, with course citation metadata and no inferred Atlas-paper relationship. The pinned course repository covers PINN and DeepONet methods for PDE control and optimization using DeepXDE.
+CR000199 preserves the Stage-2-authoritative `RishikeshRanade/modulus` fork pinned at `fb4f15956dbb32ed83082a99f9b99471874ab7b5`, licensed Apache-2.0, with PhysicsNeMo citation metadata and no inferred Atlas-paper relationship. The broad framework supports multiple Physics-AI model families.
 
-Four course surfaces are mapped as experiments with four source-level configurations: a 2D Laplace-Poisson PINN, a 1D wave exact-boundary-control PINN, reproducible wave-control operator data generation, and a DeepONet learning the minimum-L2 control operator. The resource receives **R1** conservatively: an environment manifest, bundled arrays, notebook configurations, training procedures and stored outputs are present, but sufficiently complete installation information is not established within the bounded static evidence for the R2 gate. No scientific workload was executed.
+One directly extractable, dataset-free lid-driven-cavity PINN workflow is mapped as one experiment and one active configuration. The 2,348-file Stage-2 framework tree remains bounded; unrelated examples are not manufactured into experiments. The resource receives **R3** because locked root packaging, installation surfaces, an entrypoint, model configuration, physics losses, sampling, training and output instructions are substantially available. Missing deterministic controls, example-local PhysicsNeMo-Sym compatibility and quantitative expected results block R4. No scientific workload was executed.
 
 ## Reconciled baseline
 
@@ -37,4 +37,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative for t
 
 ## Continuation
 
-Continue with `Stage3-S177` at `CR000199` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S178` at `CR000200` after published-head and checkpoint-QA readback.
