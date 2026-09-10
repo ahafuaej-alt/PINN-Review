@@ -1,8 +1,8 @@
 # Task 5 — Methodological Extensibility Status
 
-Status: **IN PROGRESS — Tasks 5.1–5.4 PASS / COMPLETE; 5.5 NEXT**
+Status: **COMPLETE / PASS — Tasks 5.1–5.5 PASS / COMPLETE**
 
-Date: 2026-09-09
+Date: 2026-09-10
 
 Scientific authority: locked Google Drive `v0.7-pilot-atlas-prefreeze`.
 
@@ -16,7 +16,7 @@ Implementation contract: frozen Master Plan v1.0.
 - **Task 5.2C — External Methodology Coverage / Gap Audit: PASS / COMPLETE**
 - **Task 5.3 — Model / Representation / Coupled-ML Architecture Taxonomy: PASS / COMPLETE**
 - **Task 5.4 — Decide specialized structure versus dynamic taxonomy/linking: PASS / COMPLETE**
-- **Task 5.5 — Define evidence/recurrence criteria for future ontology promotion: NEXT / NOT STARTED**
+- **Task 5.5 — Define evidence/recurrence criteria for future ontology promotion: PASS / COMPLETE**
 
 ## Task 5.1 artifacts
 
@@ -53,6 +53,12 @@ Implementation contract: frozen Master Plan v1.0.
 - `TASK-5.4-STRUCTURAL-SPECIALIZATION-VS-DYNAMIC-TAXONOMY-DECISION.md`
 - `atlas-structural-specialization-decision-spec.json` — non-authoritative machine-readable structural-decision contract
 - `TASK-5.4-MACHINE-READABLE-VALIDATION.md` — executed runtime syntax/consistency and byte-readback validation record
+
+## Task 5.5 artifacts
+
+- `TASK-5.5-EVIDENCE-RECURRENCE-ONTOLOGY-PROMOTION-CRITERIA.md`
+- `atlas-ontology-promotion-criteria-spec.json` — non-authoritative machine-readable ontology-promotion criteria contract
+- `TASK-5.5-MACHINE-READABLE-VALIDATION.md` — executed runtime syntax/consistency and byte-readback validation record
 
 ## Task 5.1 result
 
@@ -96,7 +102,7 @@ No defect required modification of the Task 5.2C JSON artifact. The complete val
 
 ### Structural conclusion from Task 5.2C
 
-The audit did **not** identify evidence requiring Tasks 1–4 to be reopened or the locked v0.7 schema to be mutated immediately. Existing L1–L8 architecture, evidence/provenance, L5 dynamic taxonomy, typed relations and governed extension rules can accommodate the discovered space; Task 5.4 has now adjudicated the remaining specialized-structure question.
+The audit did **not** identify evidence requiring Tasks 1–4 to be reopened or the locked v0.7 schema to be mutated immediately. Existing L1–L8 architecture, evidence/provenance, L5 dynamic taxonomy, typed relations and governed extension rules can accommodate the discovered space; Task 5.4 adjudicated the remaining specialized-structure question.
 
 Thus:
 
@@ -131,7 +137,7 @@ The controlling scientific boundary is:
 
 **PINN type/family ≠ architecture family ≠ network configuration ≠ scientific representation ≠ learning paradigm ≠ training protocol ≠ numerical/solver coupling ≠ application/equation specialization.**
 
-Task 5.3 preserves `MDC-01 / PINN_architecture[]` as the current architecture-family owner, `MDC-02 / model_variable_representation[]` for explicit scientific model-interface representation, `MDC-03 / network_configuration[]` for configuration, and `MDC-13 / training_protocol[]` for training protocol. Internal learned latent semantics are not forced into `model_variable_representation[]` unless they are an explicit model interface; Task 5.4 has now resolved their current structural treatment as dynamic representation/objective taxonomy plus evidence-scoped model/component relations, under structural watch rather than immediate schema promotion.
+Task 5.3 preserves `MDC-01 / PINN_architecture[]` as the current architecture-family owner, `MDC-02 / model_variable_representation[]` for explicit scientific model-interface representation, `MDC-03 / network_configuration[]` for configuration, and `MDC-13 / training_protocol[]` for training protocol. Internal learned latent semantics are not forced into `model_variable_representation[]` unless they are an explicit model interface; Task 5.4 resolved their current structural treatment as dynamic representation/objective taxonomy plus evidence-scoped model/component relations, under structural watch rather than immediate schema promotion.
 
 The taxonomy coordinates evidence-supported architecture concepts including MLP/feed-forward networks, CNN, recurrent/RNN, LSTM, GRU, Transformer, GNN, KAN/PIKAN, stacked-residual architecture, RBF neural networks, SIREN and source-specific architecture concepts without creating automatic Atlas paper assignments. Generative/latent systems such as autoencoders, VAEs, GANs and diffusion models remain multi-axis systems rather than interchangeable backbone labels. Neural operators retain operator-learning identity; reinforcement learning remains a learning paradigm; numerical solvers remain coupling/integration methods. NAS/HPO and pruning/quantization/distillation remain search/transformation processes rather than final architecture identities.
 
@@ -198,7 +204,7 @@ Task 5.4 also defines seven **structural-watch** sentinels, none of which is an 
 6. structured domain-decomposition enrichment;
 7. transfer/adaptation event structure.
 
-Each watch has an explicit reopening condition based on demonstrated structural loss, ambiguity or linking failure. Task 5.4 does not define recurrence/promotion thresholds; that remains Task 5.5.
+Each watch has an explicit reopening condition based on demonstrated structural loss, ambiguity or linking failure. Task 5.5 now defines the future evidence/recurrence promotion criteria governing those watches.
 
 ### Dynamic assignment/linking consequence
 
@@ -217,31 +223,70 @@ Validated payload:
 
 The computed Git blob SHA matched GitHub readback exactly, confirming byte-level identity between the runtime-validated payload and the repository payload.
 
-Validation also confirmed zero locked-v0.7 mutations, zero canonical/global-alias promotions, zero paper assignments, zero production/Stage changes and `task_5_5_started=false`.
+Validation also confirmed zero locked-v0.7 mutations, zero canonical/global-alias promotions, zero paper assignments and zero production/Stage changes.
+
+## Task 5.5 result
+
+Task 5.5 defines a **Promotion Evidence Unit (PEU)** so recurrence is measured by independent evidence-bearing study families rather than repeated mentions. Duplicate publication versions of substantially the same study do not automatically create independent recurrence, and a review repeating a cited primary-study claim does not add an independent primary recurrence count. External standards/reviews may provide separately labelled semantic/generalizability evidence but cannot manufacture Atlas paper assignments.
+
+Ten universal gates `PG-01`–`PG-10` govern owner correctness, definition/distinctness, evidence traceability, independence, collisions/counterevidence, scientific utility, human review, version/history, migration/regression and the prohibition on automatic threshold promotion.
+
+Six promotion classes are defined:
+
+- `PR-TAX`: standard path requires **≥2 independent Atlas PEUs**; an alternative generalizability path requires ≥1 Atlas PEU plus independent authoritative external semantic support and explicit cross-paper applicability reasoning.
+- `PR-ALIAS`: source-local aliases may be evidenced in one source scope; a corpus-global alias requires **≥2 independent equivalence contexts**, a corpus collision search and **0 known incompatible usages**.
+- `PR-CV`: standard path requires **≥2 independent Atlas PEUs** or the defined Atlas-plus-authoritative-generalizability alternative; the existing field must already be the correct owner.
+- `PR-REL`: requires **≥2 independent direct-relation Atlas PEUs** with consistent semantics; broadening an existing relation domain additionally requires an adversarial/negative boundary sentinel.
+- `PR-STRUCT`: follows Task 1.5 H9 / Task 5.4 X6. Either one adversarial hard semantic/provenance/identity/multiplicity/linkage failure or the same irreducible deficiency in **≥2 independent study families** may trigger structural review, but recurrence without X6 loss is never sufficient and promotion still requires owner/migration/H1–H11/regression/future-version approval.
+- `PR-SEM`: merge/re-parent/deprecate/semantic refactor has no fixed recurrence minimum; semantic correction, collision/no-merge audit, affected-record inventory, lossless/reversible migration and regression govern the decision.
+
+All **7/7** Task 5.4 structural watches are bound to `PR-STRUCT`; none is promoted. Numeric thresholds create review eligibility only. They never automatically create canonical scientific status.
+
+### Task 5.5 machine-readable validation
+
+`atlas-ontology-promotion-criteria-spec.json` was runtime-parsed and consistency-validated before repository write and then verified by GitHub byte readback. Result: **PASS with 0 validation errors**.
+
+Validated payload:
+
+- specification version: `task-5.5-v1.0.0`;
+- payload size: **20,148 bytes**;
+- payload SHA-256: `d8270fd8368b9fcd14c5f0817e45e61109bab76bd8538244b01f16314ae5d6f0`;
+- computed/readback Git blob SHA: `5382eb6bbed3ee71b25678f956a81bd4aac25ab5`.
+
+Validation confirms **10/10** universal gates, **6/6** promotion classes, **7/7** structural-watch bindings, all authority/change flags false, automatic promotions = 0, and Task 6 remains unstarted. No GitHub Actions/CI run is claimed.
 
 ## Evidence basis
 
-Tasks 5.2B–5.4 use authoritative/publisher-verified external evidence plus curated Drive full texts for generic scientific/ML semantics and locked Atlas evidence for Atlas-specific meaning, collisions, ownership and structural governance. Generic external definitions do not create paper-level Atlas assignments.
+Tasks 5.2B–5.5 use authoritative/publisher-verified external evidence plus curated Drive full texts for generic scientific/ML semantics and locked Atlas evidence for Atlas-specific meaning, collisions, ownership and structural governance. Generic external definitions do not create paper-level Atlas assignments.
 
 General web pages and AI/checklist files are discovery aids only and are not scientific authority.
 
 ## Governing revision rule
 
-Later authoritative external research, Task 5.5 findings or primary-source evidence may revise candidate dimensions, normalization, relationships, applicability, model-family placement or structural-promotion judgments. Any correction must be explicit, evidence-backed, versioned and history-preserving. Raw wording, locators, prior decisions, contradictions and deferred/rejected alternatives must remain traceable.
+Later authoritative external research or primary-source evidence may revise candidate dimensions, normalization, relationships, applicability, model-family placement or structural-promotion judgment. Any correction must be explicit, evidence-backed, versioned and history-preserving. Raw wording, locators, prior decisions, contradictions and deferred/rejected alternatives must remain traceable.
 
-## Change boundary through Task 5.4
+## Change boundary through Task 5.5
 
 - New locked-v0.7 scientific fields/entities: **0**.
-- Automatic canonical ontology promotions: **0**.
-- Automatic global alias promotions: **0**.
+- Canonical taxonomy terms promoted: **0**.
+- Global aliases promoted: **0**.
+- Controlled values promoted: **0**.
+- Canonical relations promoted: **0**.
+- Schema changes promoted: **0**.
 - Automatic paper-level methodology/learning/architecture assignments: **0**.
 - Tasks 1–4 reopened: **0**.
 - Production `main` changes: **0**.
 - Computational Resources Stage 1/2/3 changes: **0**.
-- Task 5.5 work performed: **0**.
+- Task 6 work performed: **0**.
+
+## Final status
+
+**TASK 5.5 FINAL RESULT: PASS / COMPLETE.**
+
+**TASK 5 FINAL RESULT: COMPLETE / PASS.**
 
 ## Stop boundary
 
-**Task 5.4 is PASS / COMPLETE. Task 5.5 has not started.**
+**Task 6 was not started.**
 
-Exact next substantive action, only when separately authorized: **Task 5.5 — define evidence/recurrence criteria for future ontology promotion, using Task 5.4's structural decisions and watch register as controlling inputs.**
+Exact next substantive action, only when separately authorized: **Task 6 — Define the complete Cross-Paper Intelligence system, beginning with Task 6.1: define the dimension catalogue.**
