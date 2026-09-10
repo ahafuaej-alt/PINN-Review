@@ -2,33 +2,22 @@
 
 Date: 2026-09-10
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S179`
+Latest checkpoint: `Stage3-S180`
 Status: **PASS**
 
-## S179 checkpoint counts
+## Checkpoint S180
 
-- Resources: 1
-- Experiments: 4
-- Configurations: 4
-- Technical-evidence records: 10
-- Reproducibility assessments: 1
-- New unresolved findings: 6
-- New explicit conflicts: 0
+- Resources: **1** (`CR000202`)
+- Experiments: **7**
+- Configurations: **22**
+- Technical-evidence records: **13**
+- Reproducibility assessments: **1**
+- New unresolved findings: **6**
+- New explicit conflicts: **0**
+- Reproducibility: **R2**
 
-## Cumulative validated counts
+Schema validation, cumulative identifier uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, evidence-use completeness, Stage-2 authority resolution, source-scope discipline, missing-value semantics, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, protected write boundaries, static-execution boundary, provenance-text screening and branch-head stability all pass.
 
-- Resources: 202
-- Experiments: 301
-- Configurations: 523
-- Technical-evidence records: 2199
-- Reproducibility assessments: 202
-- Unresolved findings: 1223
-- Explicit conflicts: 138
+Stage-2 authority, the exact pinned NABLA-SciML tree, root/module documentation and dependency metadata were inspected statically. External code repositories and historical stored results/post-processing artifacts were not promoted into CR000202 experiments. No scientific workload was executed.
 
-## QA gates
-
-All applicable accepted Stage-3 schemas validate. New identifiers are unique within the cumulative namespace. Evidence references resolve, resource-to-experiment-to-configuration relationships are reciprocal, and every new evidence record has an incoming factual or assessment use. Stage-2 authority and the pinned repository SHA are preserved. Source-scope, missing-value, inference-labeling and reproducibility semantics pass. `R5` is absent.
-
-The checkpoint touches only intended Stage-3 technical/evidence/report paths. Stage 1, historical Stage 2, public Atlas/site files, `05-curated/`, accepted methodology and schemas are unchanged. No scientific workload was executed. Provenance-text screening passes.
-
-`SOB020` is 2/10, so aggregate batch QA is not triggered. `SOB019` remains the latest completed aggregate batch and remains PASS.
+`SOB020` is 3/10, so aggregate batch QA is not triggered. `SOB019` remains the latest completed aggregate batch and remains PASS.

@@ -2,21 +2,21 @@
 
 Date: 2026-09-10
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S179`
+Latest checkpoint: `Stage3-S180`
 
 ## Current totals
 
-- Unresolved findings: **1223**
+- Unresolved findings: **1229**
 - Explicit conflicts: **138**
-- Next unresolved ID: `S3U-1224`
+- Next unresolved ID: `S3U-1230`
 
-## New findings in S179
+## New findings in S180
 
-- `S3U-1218` — CR000201 / relationship / medium: Stage 2 asserts no Atlas-paper relationship for CR000201; none is inferred.
-- `S3U-1219` — CR000201 / legal / medium: No repository license is identified at the pinned commit.
-- `S3U-1220` — CR000201 / environment / medium: README lists broad course requirements but no formal dependency manifest, exact versions, or installation workflow is identified.
-- `S3U-1221` — CR000201 / reproducibility / medium: Bundled saved models, logs and notebook outputs are historical static artifacts; their runtime validity and numerical reproducibility were not assessed.
-- `S3U-1222` — CR000201 / scope / low: Duplicate notebook checkpoints, logs, PDFs and binary artifacts are retained as supporting course artifacts rather than counted as independent experiments.
-- `S3U-1223` — CR000201 / hardware / medium: Original hardware, accelerator environment and seed controls are not consistently documented across the mapped tutorial surfaces.
+- `S3U-1224` — CR000202 / legal / medium: No repository-level license was identified at the pinned commit.
+- `S3U-1225` — CR000202 / relationship / medium: Stage 2 asserts no Atlas-paper relationship for CR000202; none is inferred.
+- `S3U-1226` — CR000202 / scope / medium: AIVT and MR-AIV code are hosted in separate repositories and are excluded from CR000202 experiment scope.
+- `S3U-1227` — CR000202 / environment / medium: Root installation is documented, but module-level dependency versions remain incompletely pinned and are not normalized independently.
+- `S3U-1228` — CR000202 / reproducibility / medium: Historical result arrays and post-processing artifacts are static evidence only; their numerical validity was not revalidated.
+- `S3U-1229` — CR000202 / scope / low: Caches, stored result variants and post-processing artifacts are retained as supporting evidence rather than independent experiments.
 
-No new explicit conflict is introduced by S179. Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
+No new explicit conflict is introduced by S180. Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
