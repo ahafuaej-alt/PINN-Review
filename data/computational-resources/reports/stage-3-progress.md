@@ -5,35 +5,33 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S172`
-- Latest completed resource: `CR000193`
+- Latest completed checkpoint: `Stage3-S173`
+- Latest completed resource: `CR000195`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **4/10**
+- Current batch: `SOB019` — **6/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC04` — **PASS (count-neutral CR000191 duplicate skip)**
-- Exact next independently extractable resource: `CR000194`
-- Exact next checkpoint: `Stage3-S173`
+- Exact next independently extractable resource: `CR000196`
+- Exact next checkpoint: `Stage3-S174`
 
-## Cumulative counts through S172 / RC04
+## Cumulative counts through S173 / RC04
 
-- Resources: **194**
+- Resources: **196**
 - Experiments: **283**
 - Configurations: **500**
-- Technical-evidence records: **2126**
-- Reproducibility assessments: **194**
-- Unresolved findings: **1187**
+- Technical-evidence records: **2134**
+- Reproducibility assessments: **196**
+- Unresolved findings: **1191**
 - Explicit conflicts: **137**
-- Independently extractable resources remaining: **169**
+- Independently extractable resources remaining: **167**
 
-## S172
+## S173
 
-CR000193 preserves the Stage-2-authoritative `Scien42/NSFnet` repository pinned at `b6ff7f79e2319e5efac89678c6230b9471b13e10`, GPL-3.0, with no inferred Atlas-paper relationship. The bounded extraction maps three repository-defined implementation surfaces under the single authoritative resource: baseline NSFnet, entropy-viscosity-regularized ev-NSFnet, and the physics-informed KAN notebook.
+CR000194 preserves the Stage-2-authoritative `Steph-Yhf/PINNpapers` fork pinned at `058306e57ccf22c5e5aee09e9279f69cd6a823c8`, MIT licensed, with upstream identity CR000196 retained separately and no inferred Atlas-paper relationship. The pinned surface is a curated PINN bibliography plus `ref_convert.py`, a BibTeX-to-Markdown formatting helper. It contains no scientific PINN model or experiment surface.
 
-The baseline cavity-flow NSFnet maps the steady 2D incompressible Navier–Stokes problem at Re=2000, a four-hidden-layer width-120 tanh network, 40,000 equation points, 10:1 boundary/equation weighting, and five Adam training stages. The ev-NSFnet surface maps Re=5000, 120,000 equation points, a width-120 main network plus width-40 viscosity network, staged entropy-viscosity controls, capped effective viscosity, and the documented freeze/defreeze schedule.
+CR000195 preserves the Stage-2-authoritative `Event-AHU/PINN_Paper_List` repository pinned at `e1ecc362aa811736284b6fb9fb83e9d8a42dd14d`, MIT licensed, with two Stage-1 mentions collapsed into the single Stage-2 identity and no inferred Atlas-paper relationship. The pinned surface is a curated PINN paper/software/tutorial/video catalog with bundled review/tutorial documents and no executable scientific project code.
 
-Static reproducibility is **R1**. The KAN notebook contains two consequential source-level conflicts: first-derivative viscous terms in the momentum residual and an upper-lid loss that enforces `u=1` without an explicit `v=0` penalty while other walls enforce both components. These are preserved without repairing or inferring intended runtime behavior. Stored notebook outputs are historical static repository evidence only.
-
-No scientific workload was executed.
+Both resources receive role-aware **R0** reproducibility assessments with zero experiments and zero configurations. Missing scientific workflow fields are `not_applicable`, not silently converted to `unknown` or `false`. No helper script, scientific workload, bundled document, environment, dependency, training, inference, evaluation, test, model, notebook, dataset, container, or accelerator workload was executed.
 
 ## Reconciled baseline
 
@@ -41,4 +39,4 @@ Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative for their accepted
 
 ## Continuation
 
-Continue with `Stage3-S173` at `CR000194` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S174` at `CR000196` after published-head and checkpoint-QA readback.
