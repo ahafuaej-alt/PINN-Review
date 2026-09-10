@@ -10,8 +10,9 @@ Branch: `data/computational-resources-stage3`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
 - Current batch: `SOB019` — **9/10**
 - Checkpoint QA: **PASS**
+- Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral)**
 
-All required schema, cumulative uniqueness, evidence-reference, resource→experiment→configuration, evidence-use, Stage-2 authority, source-scope, missing-value, inference, reproducibility, R5-exclusion, execution-boundary, write-boundary, provenance-text, branch-head-stability and repository-scope checks pass.
+All required schema, cumulative uniqueness, evidence-reference, resource→experiment→configuration, evidence-use, Stage-2 authority, source-scope, missing-value, inference, reproducibility, R5-exclusion, execution-boundary, write-boundary, provenance-text, branch-head-stability and repository-scope checks pass after the count-neutral RC05 validation repair.
 
 ## Checkpoint counts
 

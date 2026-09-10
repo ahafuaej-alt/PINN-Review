@@ -10,7 +10,7 @@ Branch: `data/computational-resources-stage3`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
 - Current batch: `SOB019` — **9/10**
 - Checkpoint QA: **PASS**
-- Latest reconciliation: `Stage3-RC04` — **PASS (count-neutral CR000191 duplicate skip)**
+- Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
 - Exact next independently extractable resource: `CR000199`
 - Exact next checkpoint: `Stage3-S177`
 
@@ -33,7 +33,7 @@ Four course surfaces are mapped as experiments with four source-level configurat
 
 ## Reconciled baseline
 
-Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative for their accepted scopes. Accepted methodology and schemas are unchanged.
+Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative for their accepted scopes. Accepted methodology and schemas are unchanged.
 
 ## Continuation
 
