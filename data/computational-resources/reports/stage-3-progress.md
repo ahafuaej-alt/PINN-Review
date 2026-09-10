@@ -5,31 +5,31 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S177`
-- Latest completed resource: `CR000199`
+- Latest completed checkpoint: `Stage3-S178`
+- Latest completed resource: `CR000200`
 - Latest completed aggregate batch: `SOB019` — **PASS (10/10)**
-- Current batch: `SOB020` — **0/10**
+- Current batch: `SOB020` — **1/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000200`
-- Exact next checkpoint: `Stage3-S178`
+- Exact next independently extractable resource: `CR000201`
+- Exact next checkpoint: `Stage3-S179`
 
-## Cumulative counts through S177 / RC05
+## Cumulative counts through S178 / RC05
 
-- Resources: **200**
-- Experiments: **293**
-- Configurations: **514**
-- Technical-evidence records: **2175**
-- Reproducibility assessments: **200**
-- Unresolved findings: **1209**
-- Explicit conflicts: **137**
-- Independently extractable resources remaining: **163**
+- Resources: **201**
+- Experiments: **297**
+- Configurations: **519**
+- Technical-evidence records: **2189**
+- Reproducibility assessments: **201**
+- Unresolved findings: **1217**
+- Explicit conflicts: **138**
+- Independently extractable resources remaining: **162**
 
-## S177
+## S178
 
-CR000199 preserves the Stage-2-authoritative `RishikeshRanade/modulus` fork pinned at `fb4f15956dbb32ed83082a99f9b99471874ab7b5`, licensed Apache-2.0, with PhysicsNeMo citation metadata and no inferred Atlas-paper relationship. The broad framework supports multiple Physics-AI model families.
+CR000200 preserves the Stage-2-authoritative `PredictiveIntelligenceLab/CausalPINNs` repository pinned at `0d1d83f87f6fa2d6756d0e35cac94a7be6183841`, licensed CC-BY-NC-SA-4.0, with the causal-PINN paper citation and no inferred Atlas-paper relationship. The separate patent/noncommercial warning is retained without legal interpretation.
 
-One directly extractable, dataset-free lid-driven-cavity PINN workflow is mapped as one experiment and one active configuration. The 2,348-file Stage-2 framework tree remains bounded; unrelated examples are not manufactured into experiments. The resource receives **R3** because locked root packaging, installation surfaces, an entrypoint, model configuration, physics losses, sampling, training and output instructions are substantially available. Missing deterministic controls, example-local PhysicsNeMo-Sym compatibility and quantitative expected results block R4. No scientific workload was executed.
+Four benchmark families are mapped as experiments: Allen-Cahn, Lorenz, Kuramoto-Sivashinsky and Navier-Stokes. Simple and chaotic Kuramoto-Sivashinsky workflows are separate configurations, giving five configurations total. The resource receives **R2**: exact dependencies, bundled inputs, mathematics, configurations, training and evaluation logic are present, but undocumented installation, pervasive bundled-data path mismatches and a blocking Navier-Stokes name-resolution defect prevent R3/R4. The README's request-only data statement conflicts with the bundled tree and is preserved explicitly. No scientific workload was executed.
 
 ## Reconciled baseline
 
@@ -37,4 +37,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative for t
 
 ## Continuation
 
-Continue with `Stage3-S178` at `CR000200` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S179` at `CR000201` after published-head and checkpoint-QA readback.
