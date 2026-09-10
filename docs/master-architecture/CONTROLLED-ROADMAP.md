@@ -145,8 +145,8 @@ Task 5.5 closes the promotion-governance layer by defining the **Promotion Evide
 - 6.2 Define a complete single-dimension explorer for each principal dimension. — **PASS / COMPLETE**
 - 6.3 Implement/specify the current 20 synthesis families. — **PASS / COMPLETE**
 - 6.4 Map all scientifically meaningful cross-dimensional comparison choices. — **PASS / COMPLETE**
-- 6.5 Define invalid or misleading combinations explicitly. — **NEXT / NOT STARTED**
-- 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical. — **NOT STARTED**
+- 6.5 Define invalid or misleading combinations explicitly. — **PASS / COMPLETE**
+- 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical. — **NEXT / NOT STARTED**
 - 6.7 Design the interactive comparison/explorer UI. — **NOT STARTED**
 
 Task 6.1 human-readable catalogue: `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-CATALOGUE.md`.
@@ -193,9 +193,17 @@ Task 6.4 human-readable comparison-choice map: `TASK-6.4-CROSS-DIMENSIONAL-COMPA
 
 Task 6.4 coverage validation: `TASK-6.4-COMPARISON-CHOICE-COVERAGE-VALIDATION.md`.
 
-Task 6.4 reviews the complete **703 unordered XPD-pair universe** and maps **667** scientifically meaningful comparison choices: **347 directly admissible descriptive (`D`)**, **265 conditional (`C`)**, and **55 curated Level-7 contextual (`L7`)** pairs. The remaining **36** pairs are explicitly reserved for Task 6.5 and are not prematurely labelled invalid by Task 6.4.
+Task 6.4 reviews the complete **703 unordered XPD-pair universe** and maps **667** scientifically meaningful comparison choices: **347 directly admissible descriptive (`D`)**, **265 conditional (`C`)**, and **55 curated Level-7 contextual (`L7`)** pairs. The remaining **36** pairs were explicitly reserved for Task 6.5 and were not prematurely labelled invalid by Task 6.4.
 
-Task 6.4 defines nine governed comparison modes and requires every executed comparison to disclose both scientific owners, join path, analytical unit, numerator/denominator, eligibility/missingness policy, scope/context, evidence/provenance, integrity state, and ontology/normalization versions. N:M Cartesian inflation, paper-co-membership-as-scoped-linkage, incompatible metric/result pooling, frequency-as-strength, association-as-causality, co-occurrence-as-relation, geographic/network prominence-as-quality and L6-to-L7 automatic synthesis are prohibited. Task 6.4 validation passed with **0 errors**. Task 6.6 serialization remains deliberately unstarted.
+Task 6.4 defines nine governed comparison modes and requires every executed comparison to disclose both scientific owners, join path, analytical unit, numerator/denominator, eligibility/missingness policy, scope/context, evidence/provenance, integrity state, and ontology/normalization versions. N:M Cartesian inflation, paper-co-membership-as-scoped-linkage, incompatible metric/result pooling, frequency-as-strength, association-as-causality, co-occurrence-as-relation, geographic/network prominence-as-quality and L6-to-L7 automatic synthesis are prohibited. Task 6.4 validation passed with **0 errors**.
+
+Task 6.5 human-readable invalid/misleading catalogue: `TASK-6.5-INVALID-MISLEADING-COMBINATION-CATALOGUE.md`.
+
+Task 6.5 validation record: `TASK-6.5-INVALID-MISLEADING-VALIDATION.md`.
+
+Task 6.5 classifies all **36/36** Task-6.4 residual pairs exactly once: **0 intrinsically invalid (`I`)**, **12 misleading by default (`M`)**, **6 narrowly recoverable (`K`)**, and **18 redirect/better-governed-path (`R`)**. The zero `I` count is intentional: no residual pair is scientifically meaningless under every conceivable governed question; hard invalidity is stated precisely at operation/inference level rather than invented at pair-label level.
+
+Task 6.5 additionally defines **35** operation-level safeguards: **26 hard blocks (`HB-01..HB-26`)** and **9 misleading-unless-guarded rules (`MG-01..MG-09`)**. These govern denominator/unit substitution, N:M inflation, unscoped joins, independent-recurrence inflation, missing-state collapse, metric/result/context compatibility, claim/demonstration and generality evidence, owner/no-merge boundaries, methodology pooling, relation inference, evidence scope/support, L6/L7 separation, versioning, qualified export, temporal semantics, frequency/association interpretation, ecological/quality inference, sparse strata and edge/event-count interpretation. Validation passed with **0 errors**. Task 6.6 serialization remains deliberately unstarted.
 
 ### Task 7 — Fully specify the four Atlas frameworks and matrix connection
 - 7.1 Map Design Stack & Feedback Loops.
@@ -412,7 +420,7 @@ These Task 5 coordination sources are not scientific authority and cannot indepe
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-Task 6 is **IN PROGRESS**. Tasks 6.1–6.4 are **PASS / COMPLETE**. Task 6.5 is **NEXT / NOT STARTED**; Tasks 6.6–6.7 are **NOT STARTED**.
+Task 6 is **IN PROGRESS**. Tasks 6.1–6.5 are **PASS / COMPLETE**. Task 6.6 is **NEXT / NOT STARTED**; Task 6.7 is **NOT STARTED**.
 
 Task 6.1 defines 38 principal analytical dimensions across nine semantic groups while preserving the 20 frozen Master Plan intelligence families as higher-order families rather than forcing a one-family/one-field model. Every material future L6 aggregate must preserve its upstream owner/evidence, declare its analytical unit and denominator, retain multiplicity and conflict states, and support evidence-capable drill-down.
 
@@ -426,12 +434,16 @@ Task 6.3 specifies the 20 frozen intelligence families as synthesis workspaces o
 
 Task 6.3 coordination sources are `TASK-6.3-CROSS-PAPER-INTELLIGENCE-SYNTHESIS-FAMILY-SPECIFICATION.md`, `atlas-cross-paper-intelligence-synthesis-family-spec.json` and `TASK-6.3-MACHINE-READABLE-VALIDATION.md`.
 
-Task 6.4 maps the complete cross-dimensional pair universe at the human-readable governance layer. Of 703 unordered XPD pairs, 667 are currently mapped as scientifically meaningful under direct-descriptive, conditional, or curated-Level-7 semantics; 36 are explicitly reserved for Task 6.5 classification. Every comparison retains owner, join, unit, denominator, eligibility, scope, provenance and warning metadata, and no Task 6.6 serialized map has yet been created.
+Task 6.4 maps the complete cross-dimensional pair universe at the human-readable governance layer. Of 703 unordered XPD pairs, 667 are mapped as scientifically meaningful under direct-descriptive, conditional, or curated-Level-7 semantics; 36 were reserved for Task 6.5 classification. Every comparison retains owner, join, unit, denominator, eligibility, scope, provenance and warning metadata.
 
-Task 6.4 coordination sources are `TASK-6.4-CROSS-DIMENSIONAL-COMPARISON-CHOICE-MAP.md` and `TASK-6.4-COMPARISON-CHOICE-COVERAGE-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
+Task 6.4 coordination sources are `TASK-6.4-CROSS-DIMENSIONAL-COMPARISON-CHOICE-MAP.md` and `TASK-6.4-COMPARISON-CHOICE-COVERAGE-VALIDATION.md`.
 
-These Task 6.1–6.4 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+Task 6.5 resolves the complete residual surface without weakening Task 6.4. The 36 residual pairs are classified as 12 misleading-by-default, 6 narrowly recoverable and 18 redirect/better-governed-path cases; no pair-level intrinsic-invalid classification is fabricated. Separately, 26 hard-block operations and 9 misleading-inference guards prevent unsafe denominator, unit, linkage, metric, evidence, relation, owner, temporal, bibliographic and Level-7 interpretations even for otherwise admissible pairs.
 
-**STOP boundary:** Tasks 6.1–6.4 are COMPLETE / PASS. Task 6.5 has not started.
+Task 6.5 coordination sources are `TASK-6.5-INVALID-MISLEADING-COMBINATION-CATALOGUE.md` and `TASK-6.5-INVALID-MISLEADING-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 6.5 — define invalid or misleading cross-dimensional combinations and operations explicitly**.
+These Task 6.1–6.5 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+
+**STOP boundary:** Tasks 6.1–6.5 are COMPLETE / PASS. Task 6.6 has not started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 6.6 — store the complete comparison-choice and guard map in version-controlled, machine-readable form**.
