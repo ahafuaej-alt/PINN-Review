@@ -140,14 +140,14 @@ Task 5.4 also requires future implementation to support evidence-backed N:M taxo
 
 Task 5.5 closes the promotion-governance layer by defining the **Promotion Evidence Unit (PEU)**, ten universal promotion gates `PG-01`–`PG-10`, six promotion classes (`PR-TAX`, `PR-ALIAS`, `PR-CV`, `PR-REL`, `PR-STRUCT`, `PR-SEM`), anti-inflation/anti-gaming rules, candidate-version lock requirements, and explicit criteria for all seven Task 5.4 structural watches. Standard taxonomy/value/relation promotion uses independent evidence-bearing study-family recurrence rather than mention frequency; global aliasing additionally requires no incompatible corpus usage; relation-domain broadening adds an adversarial/negative sentinel. Structural promotion is stricter: it requires an actual H9/X6 representational failure, triggered either by one adversarial hard semantic/provenance/identity/multiplicity/linkage failure or by the same irreducible deficiency recurring in at least two independent study families. **Recurrence without X6 loss never justifies a schema field/entity.** Numeric thresholds create review eligibility only and never automatic canonicalization. Task 5.5 promotes nothing and creates no v0.8 candidate version.
 
-### Task 6 — Define the complete Cross-Paper Intelligence system — IN PROGRESS
+### Task 6 — Define the complete Cross-Paper Intelligence system — COMPLETE / PASS
 - 6.1 Define the dimension catalogue. — **PASS / COMPLETE**
 - 6.2 Define a complete single-dimension explorer for each principal dimension. — **PASS / COMPLETE**
 - 6.3 Implement/specify the current 20 synthesis families. — **PASS / COMPLETE**
 - 6.4 Map all scientifically meaningful cross-dimensional comparison choices. — **PASS / COMPLETE**
 - 6.5 Define invalid or misleading combinations explicitly. — **PASS / COMPLETE**
 - 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical. — **PASS / COMPLETE**
-- 6.7 Design the interactive comparison/explorer UI. — **NEXT / NOT STARTED**
+- 6.7 Design the interactive comparison/explorer UI. — **PASS / COMPLETE**
 
 Task 6.1 human-readable catalogue: `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-CATALOGUE.md`.
 
@@ -211,7 +211,17 @@ Task 6.6 machine-readable validation: `TASK-6.6-MACHINE-READABLE-COMPARISON-GUAR
 
 Task 6.6 serializes the complete sealed Task-6.4/6.5 governance surface in a compact higher-ID adjacency-row encoding. Expansion yields exactly **703/703** unordered pairs: **347 D**, **265 C**, **55 L7**, **0 I**, **12 M**, **6 K**, and **18 R**, with no duplicates, self-pairs, out-of-range IDs or source-decision mismatches. The contract also serializes `CM-01..CM-09`, `JP-01..JP-07`, `HB-01..HB-26`, `MG-01..MG-09`, residual recovery/redirect profiles, owner/grain/denominator source references, execution qualifiers and Task 6.7 handoff constraints.
 
-The final Task 6.6 JSON is **15,713 bytes**, Git blob SHA `27d28653e9d7e5d845f75255839cbc13db3cbce4`, SHA-256 `668c823a757526fb1bf615c1080f8a93ef535af8015c03e6b77113a9add6bb6e`. GitHub readback matched the pre-write Git blob SHA exactly. Deterministic validation executed **4,253 assertions** with **0 errors**. Task 6.7 UI/routes remain deliberately unstarted.
+The final Task 6.6 JSON is **15,713 bytes**, Git blob SHA `27d28653e9d7e5d845f75255839cbc13db3cbce4`, SHA-256 `668c823a757526fb1bf615c1080f8a93ef535af8015c03e6b77113a9add6bb6e`. GitHub readback matched the pre-write Git blob SHA exactly. Deterministic validation executed **4,253 assertions** with **0 errors**.
+
+Task 6.7 human-readable UI specification: `TASK-6.7-INTERACTIVE-CROSS-PAPER-INTELLIGENCE-UI-SPECIFICATION.md`.
+
+Task 6.7 machine-readable UI contract: `atlas-cross-paper-intelligence-ui-spec.json` (`task-6.7-v1.0.0`).
+
+Task 6.7 validation: `TASK-6.7-UI-SPECIFICATION-VALIDATION.md`.
+
+Task 6.7 non-production mockup: `mockups/cross-paper-intelligence-ui-mockup.html`.
+
+Task 6.7 defines one governance-aware Cross-Paper Intelligence workspace with `Explore`, `Compare`, and `Family` modes; a scientific query-preflight state machine; distinct `D/C/L7/I/M/K/R` interaction paths; non-bypassable `HB-01..HB-26` handling; visible `MG-01..MG-09` interpretation guards; evidence/provenance drill-down; qualified export; shareable analytical state with revalidation; and accessible desktop/tablet/mobile behavior. Final production routes remain deliberately undefined pending Task 9. The synthetic mockup demonstrates representative governed states without embedding a second 703-pair scientific map. Task 6.7 validation passed with **0 errors**.
 
 ### Task 7 — Fully specify the four Atlas frameworks and matrix connection
 - 7.1 Map Design Stack & Feedback Loops.
@@ -428,7 +438,7 @@ These Task 5 coordination sources are not scientific authority and cannot indepe
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-Task 6 is **IN PROGRESS**. Tasks 6.1–6.6 are **PASS / COMPLETE**. Task 6.7 is **NEXT / NOT STARTED**.
+Task 6 is **COMPLETE / PASS**. Tasks 6.1–6.7 are **PASS / COMPLETE**.
 
 Task 6.1 defines 38 principal analytical dimensions across nine semantic groups while preserving the 20 frozen Master Plan intelligence families as higher-order families rather than forcing a one-family/one-field model. Every material future L6 aggregate must preserve its upstream owner/evidence, declare its analytical unit and denominator, retain multiplicity and conflict states, and support evidence-capable drill-down.
 
@@ -452,10 +462,14 @@ Task 6.5 coordination sources are `TASK-6.5-INVALID-MISLEADING-COMBINATION-CATAL
 
 Task 6.6 serializes the complete Task 6.4/6.5 comparison and guard system in `atlas-cross-paper-intelligence-comparison-guard-map.json` (`task-6.6-v1.0.0`). The compact higher-ID adjacency encoding represents every one of the 703 unordered pairs exactly once and preserves the seven pair classes, comparison modes, join policies, residual recovery/redirect behavior, hard blocks, misleading guards, source pins and execution qualifiers without creating a new scientific owner.
 
-Task 6.6 validation is recorded in `TASK-6.6-MACHINE-READABLE-COMPARISON-GUARD-VALIDATION.md`: **4,253 deterministic assertions, 0 errors**, with repository Git blob SHA `27d28653e9d7e5d845f75255839cbc13db3cbce4` matching the pre-write computed Git blob exactly. `TASK-6-STATUS.md` is the current Task 6 progress register.
+Task 6.6 validation is recorded in `TASK-6.6-MACHINE-READABLE-COMPARISON-GUARD-VALIDATION.md`: **4,253 deterministic assertions, 0 errors**, with repository Git blob SHA `27d28653e9d7e5d845f75255839cbc13db3cbce4` matching the pre-write computed Git blob exactly.
 
-These Task 6.1–6.6 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+Task 6.7 completes the interactive design layer. The governed workspace has three conceptual modes (`Explore`, `Compare`, `Family`) and an explicit scientific preflight/state machine. Pair classes `D/C/L7/I/M/K/R`, comparison modes, hard blocks, misleading guards, owner/unit/denominator/join/scope requirements, high-risk XPD boundaries, evidence drill-down, qualified export, shareable-state revalidation, empty-state semantics and responsive/accessibility behavior are all represented without front-end reinterpretation of science or creation of final production routes.
 
-**STOP boundary:** Tasks 6.1–6.6 are COMPLETE / PASS. Task 6.7 has not started.
+Task 6.7 coordination sources are `TASK-6.7-INTERACTIVE-CROSS-PAPER-INTELLIGENCE-UI-SPECIFICATION.md`, `atlas-cross-paper-intelligence-ui-spec.json`, `TASK-6.7-UI-SPECIFICATION-VALIDATION.md` and `mockups/cross-paper-intelligence-ui-mockup.html`. `TASK-6-STATUS.md` is the closed Task 6 status register.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 6.7 — design the interactive comparison/explorer UI that consumes the sealed Task 6.1–6.6 contracts without reinterpreting scientific ownership, pair admissibility, operation guards, denominators, evidence/provenance or Level-7 boundaries**.
+These Task 6.1–6.7 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+
+**STOP boundary:** Task 6 is COMPLETE / PASS. Tasks 6.1–6.7 are COMPLETE / PASS. Task 7 has not started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 7.1 — map the Design Stack & Feedback Loops framework while preserving the paper-evidence versus Atlas-synthesis boundary and reusing completed Cross-Paper Intelligence contracts where applicable**.
