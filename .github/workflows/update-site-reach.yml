@@ -5,8 +5,7 @@ on:
     - cron: '27 3 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: write
+permissions: {}
 
 concurrency:
   group: atlas-reach-refresh
@@ -17,6 +16,9 @@ jobs:
     if: github.repository == 'ahafuaej-alt/PINN-Review'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
     outputs:
       configured: ${{ steps.configuration.outputs.configured }}
       published_sha: ${{ steps.publish.outputs.sha }}
@@ -56,22 +58,56 @@ jobs:
           node --check scripts/update-site-reach.mjs
           node scripts/validate-site-reach.mjs
           node --test scripts/site-reach.test.mjs
-      - name: Publish refreshed aggregate snapshot
+      - name: Publish refreshed aggregate snapshot through controlled integration
         id: publish
         if: steps.configuration.outputs.configured == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- data/site-reach.json; then
             echo "No aggregate reach changes to publish."
             echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/site-reach.json
           git commit -m "Refresh aggregate Atlas reach"
-          git pull --rebase origin main
-          git push origin HEAD:main
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+          release_branch="ci/atlas-reach-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          candidate_sha="$(git rev-parse HEAD)"
+          git push origin "HEAD:refs/heads/${release_branch}"
+
+          pr_body="$(printf 'Validated aggregate Atlas reach release.\n\nSource workflow run: %s/%s/actions/runs/%s' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")"
+          pr_number="$(gh api --method POST "repos/${GITHUB_REPOSITORY}/pulls" \
+            -f title='Refresh aggregate Atlas reach' \
+            -f head="$release_branch" \
+            -f base='main' \
+            -f body="$pr_body" \
+            --jq '.number')"
+
+          merge_response="$(gh api --method PUT "repos/${GITHUB_REPOSITORY}/pulls/${pr_number}/merge" \
+            -f sha="$candidate_sha" \
+            -f merge_method='merge' \
+            -f commit_title='Refresh aggregate Atlas reach [skip pages]' \
+            -f commit_message='Promote the validated aggregate reach snapshot through the controlled release pull request.')"
+          merged="$(jq -r '.merged // false' <<< "$merge_response")"
+          merge_sha="$(jq -r '.sha // empty' <<< "$merge_response")"
+          if [[ "$merged" != "true" || -z "$merge_sha" ]]; then
+            echo "::error::Controlled Atlas reach integration did not merge."
+            echo "$merge_response"
+            exit 1
+          fi
+
+          git fetch origin main
+          if ! git merge-base --is-ancestor "$merge_sha" origin/main; then
+            echo "::error::Merged Atlas reach commit is not reachable from current main."
+            exit 1
+          fi
+
+          git push origin --delete "$release_branch" || echo "::warning::Merged release branch could not be deleted automatically."
+          echo "sha=$merge_sha" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: update

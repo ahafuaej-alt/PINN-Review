@@ -5,6 +5,8 @@ import { pathToFileURL } from 'node:url';
 
 const outputPath = path.resolve(process.env.SITE_REACH_OUTPUT || 'data/site-reach.json');
 const apiTimeoutMs = 20_000;
+const defaultMaxAttempts = 4;
+const defaultRetryDelayMs = 1_000;
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -30,16 +32,32 @@ const roundToUtcHour = (date) => {
 
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
-async function requestJson(url, token) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    },
-    signal: AbortSignal.timeout(apiTimeoutMs)
-  });
-  if (!response.ok) {
+const isRetryableStatus = (status) => status === 404
+  || status === 408
+  || status === 425
+  || status === 429
+  || status >= 500;
+
+export async function requestJson(
+  url,
+  token,
+  { maxAttempts = defaultMaxAttempts, retryDelayMs = defaultRetryDelayMs } = {}
+) {
+  assert(Number.isSafeInteger(maxAttempts) && maxAttempts >= 1, 'maxAttempts must be a positive integer.');
+  assert(Number.isFinite(retryDelayMs) && retryDelayMs >= 0, 'retryDelayMs must be non-negative.');
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const response = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      signal: AbortSignal.timeout(apiTimeoutMs)
+    });
+
+    if (response.ok) return response.json();
+
     const detail = (await response.text())
       .replaceAll(token, '[redacted]')
       .replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -47,9 +65,21 @@ async function requestJson(url, token) {
       .replace(/\s+/g, ' ')
       .trim()
       .slice(0, 600);
-    throw new Error(`GoatCounter returned ${response.status} for ${url.pathname}: ${detail}`);
+
+    const retryable = isRetryableStatus(response.status) && attempt < maxAttempts;
+    if (!retryable) {
+      throw new Error(`GoatCounter returned ${response.status} for ${url.pathname}: ${detail}`);
+    }
+
+    const delay = retryDelayMs * (2 ** (attempt - 1));
+    console.warn(
+      `GoatCounter returned ${response.status} for ${url.pathname}; retrying in ${delay} ms `
+      + `(attempt ${attempt + 1}/${maxAttempts}).`
+    );
+    await wait(delay);
   }
-  return response.json();
+
+  throw new Error(`GoatCounter request retry loop exhausted unexpectedly for ${url.pathname}.`);
 }
 
 async function getTotal(apiBase, token, start, end) {
