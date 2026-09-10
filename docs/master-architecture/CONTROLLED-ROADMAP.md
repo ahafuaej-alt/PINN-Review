@@ -77,14 +77,14 @@ Task 4.4 cross-dimensional linkage coordination source: `atlas-pinn-type-cross-d
 
 Task 4.5 future explorer coordination source: `atlas-pinn-type-explorer-spec.json`.
 
-### Task 5 — Formalize methodological extensibility — IN PROGRESS
+### Task 5 — Formalize methodological extensibility — COMPLETE / PASS
 - 5.1 Catalogue existing methodology dimensions. — **PASS / COMPLETE**
 - 5.2 Define learning/integration-type taxonomy. — **PASS / COMPLETE**
 - 5.2B Define the General Machine-Learning Learning-Paradigm Taxonomy. — **PASS / COMPLETE**
 - 5.2C Perform the External Methodology Coverage / Gap Audit. — **PASS / COMPLETE**
 - 5.3 Define the Model / Representation / Coupled-ML Architecture Taxonomy, informed by 5.2C. — **PASS / COMPLETE**
 - 5.4 Decide which concepts require specialized structure versus dynamic taxonomy/linking records. — **PASS / COMPLETE**
-- 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8). — **NEXT / NOT STARTED**
+- 5.5 Define evidence/recurrence criteria for future ontology promotion (for example v0.8). — **PASS / COMPLETE**
 
 Task 5.1 human-readable catalogue: `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md`.
 
@@ -116,11 +116,17 @@ Task 5.4 machine-readable structural-decision contract: `atlas-structural-specia
 
 Task 5.4 machine-readable validation: `TASK-5.4-MACHINE-READABLE-VALIDATION.md`.
 
+Task 5.5 human-readable promotion criteria: `TASK-5.5-EVIDENCE-RECURRENCE-ONTOLOGY-PROMOTION-CRITERIA.md`.
+
+Task 5.5 machine-readable promotion criteria: `atlas-ontology-promotion-criteria-spec.json`.
+
+Task 5.5 machine-readable validation: `TASK-5.5-MACHINE-READABLE-VALIDATION.md`.
+
 Task 5.2B defines general learning paradigms as orthogonal facets rather than one scalar `learning_type`. Its ten facets cover supervision/feedback, label availability/acquisition, learning/update regime, adaptation/reuse, target-support/sample-scarcity, task organization, distributed/collaborative learning, model combination/ensemble, statistical learning character, and inference/generalization. Terms remain evidence-governed and extensible rather than exhaustively pre-enumerated.
 
 Task 5.2C completed the methodology-comprehensiveness gate under the mandatory X → Y → Z protocol. All **37/37** internal Task 5.1 methodology dimensions were mapped to at least one external-search axis and received a final coverage disposition. The audit used **16** external search axes and explicitly dispositioned **15/15** materially new or externally emphasized dimensions discovered beyond the original X baseline.
 
-The main 5.2C result is that the Atlas has **taxonomy/coordination gaps rather than a foundational architecture failure**. Important externally emphasized facets include prior/domain-knowledge source, knowledge representation, knowledge-integration locus, distributed-learning topology/aggregation/partition, lifecycle/deployment/inference organization, compression/efficiency transformations, NAS/HPO, and several cross-cutting method families. These do not authorize immediate locked-v0.7 fields; Task 5.4 has now determined their structural treatment.
+The main 5.2C result is that the Atlas has **taxonomy/coordination gaps rather than a foundational architecture failure**. Important externally emphasized facets include prior/domain-knowledge source, knowledge representation, knowledge-integration locus, distributed-learning topology/aggregation/partition, lifecycle/deployment/inference organization, compression/efficiency transformations, NAS/HPO, and several cross-cutting method families. These do not authorize immediate locked-v0.7 fields; Task 5.4 determined their structural treatment.
 
 Controlling principle for Tasks 5.2B–5.5: **comprehensive architecture = complete semantic dimensions + extensible vocabularies + extensible typed relations + controlled structural extension; it does not mean enumerating every known ML method.**
 
@@ -128,11 +134,13 @@ Task 5.3 formalizes model/representation/coupled-ML semantics as six orthogonal 
 
 Task 5.4 resolves the structural-specialization question with five disposition classes: retain existing specialized owner (`E1`), dynamic taxonomy assignment (`D1`), dynamic taxonomy plus typed/evidence-scoped relations (`D2`), derived projection (`P1`), and other established owner (`O1`). It explicitly dispositioned **37/37** Task 5.1 dimensions, **6/6** Task 5.2 integration/derived dimensions, **10/10** Task 5.2B facets, **15/15** Task 5.2C external dimensions, and **4/4** Task 5.3 handoffs.
 
-Task 5.4 finds **no demonstrated X6 structural defect** in the Tasks 5.1–5.3 evidence package and therefore authorizes **0** new locked-v0.7 fields/entities and **0** v0.8 schema proposals. Seven monitor-only structural-watch sentinels are retained for future evidence: internal latent semantics; learned-model/component identity; temporal decomposition; collaborative/federated workflow; formulation detail; domain-decomposition enrichment; and transfer/adaptation event structure. These are reopening sentinels, not schema approvals. Task 5.5 remains responsible for future evidence/recurrence promotion criteria.
+Task 5.4 finds **no demonstrated X6 structural defect** in the Tasks 5.1–5.3 evidence package and therefore authorizes **0** new locked-v0.7 fields/entities and **0** v0.8 schema proposals. Seven monitor-only structural-watch sentinels are retained for future evidence: internal latent semantics; learned-model/component identity; temporal decomposition; collaborative/federated workflow; formulation detail; domain-decomposition enrichment; and transfer/adaptation event structure. These are reopening sentinels, not schema approvals.
 
 Task 5.4 also requires future implementation to support evidence-backed N:M taxonomy assignments and evidence-scoped relation instances without treating their physical tables as new scientific authority. Physical relational design remains Task 12 work.
 
-### Task 6 — Define the complete Cross-Paper Intelligence system
+Task 5.5 closes the promotion-governance layer by defining the **Promotion Evidence Unit (PEU)**, ten universal promotion gates `PG-01`–`PG-10`, six promotion classes (`PR-TAX`, `PR-ALIAS`, `PR-CV`, `PR-REL`, `PR-STRUCT`, `PR-SEM`), anti-inflation/anti-gaming rules, candidate-version lock requirements, and explicit criteria for all seven Task 5.4 structural watches. Standard taxonomy/value/relation promotion uses independent evidence-bearing study-family recurrence rather than mention frequency; global aliasing additionally requires no incompatible corpus usage; relation-domain broadening adds an adversarial/negative sentinel. Structural promotion is stricter: it requires an actual H9/X6 representational failure, triggered either by one adversarial hard semantic/provenance/identity/multiplicity/linkage failure or by the same irreducible deficiency recurring in at least two independent study families. **Recurrence without X6 loss never justifies a schema field/entity.** Numeric thresholds create review eligibility only and never automatic canonicalization. Task 5.5 promotes nothing and creates no v0.8 candidate version.
+
+### Task 6 — Define the complete Cross-Paper Intelligence system — NEXT / NOT STARTED
 - 6.1 Define the dimension catalogue.
 - 6.2 Define a complete single-dimension explorer for each principal dimension.
 - 6.3 Implement/specify the current 20 synthesis families.
@@ -320,7 +328,7 @@ Task 3 is **COMPLETE / PASS**. Tasks 3.1–3.6 are **PASS / COMPLETE**.
 
 Task 4 is **COMPLETE / PASS**. Tasks 4.1–4.5 are **PASS / COMPLETE**.
 
-Task 5 is **IN PROGRESS**. Tasks 5.1–5.4 are **PASS / COMPLETE**; Task 5.5 is **NEXT / NOT STARTED**.
+Task 5 is **COMPLETE / PASS**. Tasks 5.1–5.5 are **PASS / COMPLETE**.
 
 Task 5.1 catalogues the existing methodology ownership surface without changing science: locked PP-08/data-context owners, the 25 controlled-vocabulary method-dimension labels, consolidated training-protocol subdimensions, physical-constraint and reproducibility boundaries, and composite/deferred dimensions that later Task 5 work must resolve without premature schema promotion.
 
@@ -334,13 +342,15 @@ Task 5.3 completed the model/representation/coupled-ML architecture taxonomy usi
 
 Task 5.4 completed the specialized-structure decision. It retains locked v0.7 specialized owners where structural need has already been proved and otherwise uses governed dynamic taxonomy assignments, evidence-scoped typed/provisional relations, derived projections or another existing scientific owner. It found **0 demonstrated X6 schema defects**, authorizes **0 v0.8 schema proposals**, and preserves seven explicit structural-watch sentinels with evidence-based reopening conditions. The Task 5.4 machine-readable payload passed runtime validation with **0 errors** and its computed Git blob SHA matched GitHub readback byte-for-byte.
 
+Task 5.5 completed the evidence/recurrence promotion criteria. Recurrence is now counted through independent study-family-scoped PEUs rather than raw term mentions; six promotion classes and ten universal gates distinguish taxonomy/value/alias/relation promotion from semantic refactoring and the much stricter X6 structural path. All seven Task 5.4 structural watches are bound to the H9/X6 structural rule. Meeting a numeric recurrence minimum creates eligibility for governed scientific review only; it never automatically promotes a concept. No taxonomy term, alias, value, relation, schema object, paper assignment or v0.8 candidate version was promoted by Task 5.5. The machine-readable Task 5.5 payload passed runtime parse/consistency validation with **0 errors** and byte-level Git readback matched the computed blob SHA.
+
 The future Paper Profile may expose evidence-backed derived methodology facets under PP-08, including learning paradigm, knowledge source/representation/integration locus, architecture/model family and distributed-learning organization. These are projections over governed owners; no silent `learning_type` or other locked-v0.7 structural change is authorized.
 
 Task 5.1 coordination sources are `TASK-5.1-METHODOLOGY-DIMENSION-CATALOGUE.md` and `atlas-methodology-dimension-catalogue.json`.
 
 Task 5.2 coordination sources are `TASK-5.2-LEARNING-INTEGRATION-TYPE-TAXONOMY.md` and `atlas-learning-integration-taxonomy-spec.json`.
 
-Task 5.2B coordination sources are `TASK-5.2B-GENERAL-ML-LEARNING-PARADIGM-TAXONOMY.md`, `atlas-learning-paradigm-taxonomy-spec.json`, `TASK-5.2B-REFERENCE-AUDIT-AND-MDPI-BIBLIOGRAPHY.md` and `atlas-learning-paradigm-reference-register.json`.
+Task 5.2B coordination sources are `TASK-5.2B-GENERAL-ML-LEARNING-PARADIGM-TAXONOMY.md`, `atlas-learning-parADIGM-taxonomy-spec.json`, `TASK-5.2B-REFERENCE-AUDIT-AND-MDPI-BIBLIOGRAPHY.md` and `atlas-learning-paradigm-reference-register.json`.
 
 Task 5.2C coordination sources are `TASK-5.2C-EXTERNAL-METHODOLOGY-COVERAGE-GAP-AUDIT.md` and `atlas-external-methodology-coverage-gap-audit.json`.
 
@@ -348,10 +358,12 @@ Task 5.3 coordination sources are `TASK-5.3-MODEL-REPRESENTATION-COUPLED-ML-ARCH
 
 Task 5.4 coordination sources are `TASK-5.4-STRUCTURAL-SPECIALIZATION-VS-DYNAMIC-TAXONOMY-DECISION.md`, `atlas-structural-specialization-decision-spec.json` and `TASK-5.4-MACHINE-READABLE-VALIDATION.md`.
 
+Task 5.5 coordination sources are `TASK-5.5-EVIDENCE-RECURRENCE-ONTOLOGY-PROMOTION-CRITERIA.md`, `atlas-ontology-promotion-criteria-spec.json` and `TASK-5.5-MACHINE-READABLE-VALIDATION.md`.
+
 These Task 5 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments or relations.
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-**STOP boundary:** Task 5.4 is PASS / COMPLETE. Task 5.5 has not started.
+**STOP boundary:** Task 5 is COMPLETE / PASS. Task 6 has not started.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 5.5 — define evidence/recurrence criteria for future ontology promotion, using Task 5.4's structural decisions and watch register as controlling inputs**.
+The exact next substantive roadmap task, only when separately authorized, is **Task 6 — define the complete Cross-Paper Intelligence system, beginning with Task 6.1: define the dimension catalogue**.
