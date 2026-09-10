@@ -1,35 +1,37 @@
 # Computational Resources Stage 3 Progress
 
-Date: 2026-09-09
+Date: 2026-09-10
 Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S171`
-- Latest completed resource: `CR000192`
+- Latest completed checkpoint: `Stage3-S172`
+- Latest completed resource: `CR000193`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **3/10**
+- Current batch: `SOB019` — **4/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC04` — **PASS (count-neutral CR000191 duplicate skip)**
-- Exact next independently extractable resource: `CR000193`
-- Exact next checkpoint: `Stage3-S172`
+- Exact next independently extractable resource: `CR000194`
+- Exact next checkpoint: `Stage3-S173`
 
-## Cumulative counts through S171 / RC04
+## Cumulative counts through S172 / RC04
 
-- Resources: **193**
-- Experiments: **280**
-- Configurations: **497**
-- Technical-evidence records: **2116**
-- Reproducibility assessments: **193**
-- Unresolved findings: **1181**
-- Explicit conflicts: **135**
-- Independently extractable resources remaining: **170**
+- Resources: **194**
+- Experiments: **283**
+- Configurations: **500**
+- Technical-evidence records: **2126**
+- Reproducibility assessments: **194**
+- Unresolved findings: **1187**
+- Explicit conflicts: **137**
+- Independently extractable resources remaining: **169**
 
-## S171
+## S172
 
-CR000192 preserves the Stage-2-authoritative distinct fork `Steph-Yhf/NSFnets` pinned at `e64132cbb7fb48cd3ad6d40e0986fb72f15bf5cb`, with no inferred Atlas-paper relationship. The bounded representative extraction maps the 3D time-dependent Beltrami VP-NSFnet: 4 inputs, 10 hidden tanh layers of width 100, 4 outputs, Re=1 momentum/continuity residuals, weighted initial/boundary losses, four Adam stages and L-BFGS-B refinement.
+CR000193 preserves the Stage-2-authoritative `Scien42/NSFnet` repository pinned at `b6ff7f79e2319e5efac89678c6230b9471b13e10`, GPL-3.0, with no inferred Atlas-paper relationship. The bounded extraction maps three repository-defined implementation surfaces under the single authoritative resource: baseline NSFnet, entropy-viscosity-regularized ev-NSFnet, and the physics-informed KAN notebook.
 
-Static reproducibility is **R1**. No pinned environment, installation procedure, license, project citation, hardware description, checkpoint, or immutable expected metric is available. Two consequential source-level inconsistencies are explicit: boundary y/z/t/u/v/w arrays are reshaped from `train1x`, and evaluation combines 1000-row spatial arrays with only 100 time rows. No intended correction or runtime consequence is inferred beyond the static source evidence.
+The baseline cavity-flow NSFnet maps the steady 2D incompressible Navier–Stokes problem at Re=2000, a four-hidden-layer width-120 tanh network, 40,000 equation points, 10:1 boundary/equation weighting, and five Adam training stages. The ev-NSFnet surface maps Re=5000, 120,000 equation points, a width-120 main network plus width-40 viscosity network, staged entropy-viscosity controls, capped effective viscosity, and the documented freeze/defreeze schedule.
+
+Static reproducibility is **R1**. The KAN notebook contains two consequential source-level conflicts: first-derivative viscous terms in the momentum residual and an upper-lid loss that enforces `u=1` without an explicit `v=0` penalty while other walls enforce both components. These are preserved without repairing or inferring intended runtime behavior. Stored notebook outputs are historical static repository evidence only.
 
 No scientific workload was executed.
 
@@ -39,4 +41,4 @@ Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative for their accepted
 
 ## Continuation
 
-Continue with `Stage3-S172` at `CR000193` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S173` at `CR000194` after published-head and checkpoint-QA readback.
