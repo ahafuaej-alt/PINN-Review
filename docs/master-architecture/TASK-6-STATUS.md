@@ -1,6 +1,6 @@
 # Task 6 Status — Complete Cross-Paper Intelligence System
 
-Status: **IN PROGRESS — Tasks 6.1–6.5 PASS / COMPLETE; Task 6.6 NEXT / NOT STARTED**
+Status: **IN PROGRESS — Tasks 6.1–6.6 PASS / COMPLETE; Task 6.7 NEXT / NOT STARTED**
 
 Date: 2026-09-10
 
@@ -21,8 +21,8 @@ The frozen Task 6 sequence is:
 3. Task 6.3 — implement/specify the current 20 synthesis/intelligence families. — **PASS / COMPLETE**
 4. Task 6.4 — map scientifically meaningful cross-dimensional comparison choices. — **PASS / COMPLETE**
 5. Task 6.5 — define invalid/misleading combinations explicitly. — **PASS / COMPLETE**
-6. Task 6.6 — store the comparison-choice map in machine-readable/version-controlled form. — **NEXT / NOT STARTED**
-7. Task 6.7 — design the interactive comparison/explorer UI. — **NOT STARTED**
+6. Task 6.6 — store the comparison-choice map in machine-readable/version-controlled form. — **PASS / COMPLETE**
+7. Task 6.7 — design the interactive comparison/explorer UI. — **NEXT / NOT STARTED**
 
 ## Task 6.1 — PASS / COMPLETE
 
@@ -121,7 +121,7 @@ Coverage validation:
 
 Validation result: **PASS — 0 validation errors**.
 
-Task 6.4 intentionally creates **no Task 6.6 machine-readable comparison map**.
+At its own stop boundary, Task 6.4 intentionally created no Task 6.6 machine-readable comparison map.
 
 ## Task 6.5 — PASS / COMPLETE
 
@@ -166,28 +166,57 @@ Validation record:
 
 Validation result: **PASS — 0 validation errors**.
 
-Task 6.5 intentionally creates **no Task 6.6 machine-readable comparison map** and **no Task 6.7 UI/routes**.
+At its own stop boundary, Task 6.5 intentionally created no Task 6.6 machine-readable comparison map and no Task 6.7 UI/routes.
 
-## Task 6.6 — NEXT / NOT STARTED
+## Task 6.6 — PASS / COMPLETE
 
-Task 6.6 must store the complete Task-6.4/6.5 comparison-choice and guard map in version-controlled, machine-readable form, preserving:
+Task 6.6 stores the complete sealed Task-6.4/6.5 comparison-choice and operation-guard system in version-controlled machine-readable form without changing scientific meaning.
 
-- all 703 unordered pair identities;
-- `D`, `C`, `L7`, `M`, `K`, `R` dispositions and the intentional zero `I` count;
-- comparison modes and required join/unit/denominator/eligibility/evidence constraints;
-- all `HB-01..HB-26` hard blocks and `MG-01..MG-09` misleading guards;
-- Level-7 redirects/read-only ownership;
-- owner, multiplicity, missingness, provenance and qualified-export requirements.
+Machine-readable contract:
 
-Task 6.6 must not design the final interactive UI/routes.
+`docs/master-architecture/atlas-cross-paper-intelligence-comparison-guard-map.json`
 
-## Task 6.7 — NOT STARTED
+Version: `task-6.6-v1.0.0`.
 
-No final interactive cross-dimensional explorer/UI/routes have been defined.
+The contract uses a compact **higher-ID adjacency-row encoding**: each unordered XPD pair occurs exactly once under its lower-numbered dimension and one class list. Expansion reproduces the complete **703/703** pair universe exactly:
+
+- `D`: **347**;
+- `C`: **265**;
+- `L7`: **55**;
+- `I`: **0**;
+- `M`: **12**;
+- `K`: **6**;
+- `R`: **18**.
+
+The serialization also records the nine `CM` comparison modes, seven governed join policies, all `HB-01..HB-26` hard blocks, all `MG-01..MG-09` misleading guards, residual recovery/redirect profiles, execution qualifiers and Task 6.7 handoff constraints.
+
+Scientific ownership is not duplicated: Task 6.1 remains the owner/evidence/no-merge reference and Task 6.2 remains the grain/denominator reference for each XPD. The machine contract pins their exact source blobs together with the Task 6.4 and 6.5 human-readable governance blobs.
+
+Final machine payload:
+
+- UTF-8 bytes: **15,713**;
+- Git blob SHA: `27d28653e9d7e5d845f75255839cbc13db3cbce4`;
+- SHA-256: `668c823a757526fb1bf615c1080f8a93ef535af8015c03e6b77113a9add6bb6e`.
+
+The pre-write Git-blob SHA and GitHub repository readback SHA match exactly.
+
+Machine-readable validation:
+
+`docs/master-architecture/TASK-6.6-MACHINE-READABLE-COMPARISON-GUARD-VALIDATION.md`
+
+Validation result: **PASS — 0 validation errors**.
+
+Validation executed **4,253 deterministic assertions**: 35 global contract assertions plus six checks for each of 703 pairs (`703 × 6 = 4,218`). Checks covered valid XPD IDs, canonical pair order, governed class, exact Task-6.4/6.5 source-class match, exactly-once representation, source pins, class totals, comparison/join/guard identifier completeness, zero authority changes and the Task 6.7 stop boundary.
+
+Task 6.6 does not implement UI/routes and does not make machine selectability equivalent to scientific validity. Pair classes remain subordinate to owner, unit, denominator, evidence, no-merge and operation-guard rules.
+
+## Task 6.7 — NEXT / NOT STARTED
+
+Task 6.7 must design the interactive comparison/explorer UI using the sealed Task 6.1–6.6 contracts. No final interactive cross-dimensional explorer/UI/routes have yet been defined.
 
 ## Change boundary
 
-Tasks 6.1–6.5 remain architecture/planning coordination only:
+Tasks 6.1–6.6 remain architecture/planning coordination only:
 
 - locked-v0.7 field/entity changes: **0**;
 - canonical taxonomy promotions: **0**;
@@ -199,9 +228,10 @@ Tasks 6.1–6.5 remain architecture/planning coordination only:
 - Computational Resources Stage 1/2/3 changes: **0**;
 - Task 6.5 residual-pair classifications: **36** governance dispositions only;
 - Task 6.5 operation guards: **35** governance rules only;
-- Task 6.6 machine-readable comparison map: **0**;
+- Task 6.6 machine-readable comparison/guard contract: **1** coordination artifact;
+- Task 6.6 machine validation record: **1** coordination artifact;
 - Task 6.7 final UI/routes: **0**.
 
 ## Current stop boundary
 
-**Task 6 is IN PROGRESS. Tasks 6.1–6.5 are PASS / COMPLETE. Task 6.6 is NEXT / NOT STARTED.**
+**Task 6 is IN PROGRESS. Tasks 6.1–6.6 are PASS / COMPLETE. Task 6.7 is NEXT / NOT STARTED.**
