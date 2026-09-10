@@ -140,14 +140,28 @@ Task 5.4 also requires future implementation to support evidence-backed N:M taxo
 
 Task 5.5 closes the promotion-governance layer by defining the **Promotion Evidence Unit (PEU)**, ten universal promotion gates `PG-01`–`PG-10`, six promotion classes (`PR-TAX`, `PR-ALIAS`, `PR-CV`, `PR-REL`, `PR-STRUCT`, `PR-SEM`), anti-inflation/anti-gaming rules, candidate-version lock requirements, and explicit criteria for all seven Task 5.4 structural watches. Standard taxonomy/value/relation promotion uses independent evidence-bearing study-family recurrence rather than mention frequency; global aliasing additionally requires no incompatible corpus usage; relation-domain broadening adds an adversarial/negative sentinel. Structural promotion is stricter: it requires an actual H9/X6 representational failure, triggered either by one adversarial hard semantic/provenance/identity/multiplicity/linkage failure or by the same irreducible deficiency recurring in at least two independent study families. **Recurrence without X6 loss never justifies a schema field/entity.** Numeric thresholds create review eligibility only and never automatic canonicalization. Task 5.5 promotes nothing and creates no v0.8 candidate version.
 
-### Task 6 — Define the complete Cross-Paper Intelligence system — NEXT / NOT STARTED
-- 6.1 Define the dimension catalogue.
-- 6.2 Define a complete single-dimension explorer for each principal dimension.
-- 6.3 Implement/specify the current 20 synthesis families.
-- 6.4 Map all scientifically meaningful cross-dimensional comparison choices.
-- 6.5 Define invalid or misleading combinations explicitly.
-- 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical.
-- 6.7 Design the interactive comparison/explorer UI.
+### Task 6 — Define the complete Cross-Paper Intelligence system — IN PROGRESS
+- 6.1 Define the dimension catalogue. — **PASS / COMPLETE**
+- 6.2 Define a complete single-dimension explorer for each principal dimension. — **NEXT / NOT STARTED**
+- 6.3 Implement/specify the current 20 synthesis families. — **NOT STARTED**
+- 6.4 Map all scientifically meaningful cross-dimensional comparison choices. — **NOT STARTED**
+- 6.5 Define invalid or misleading combinations explicitly. — **NOT STARTED**
+- 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical. — **NOT STARTED**
+- 6.7 Design the interactive comparison/explorer UI. — **NOT STARTED**
+
+Task 6.1 human-readable catalogue: `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-CATALOGUE.md`.
+
+Task 6.1 machine-readable coordination catalogue: `atlas-cross-paper-intelligence-dimension-catalogue.json`.
+
+Task 6.1 machine-readable validation: `TASK-6.1-MACHINE-READABLE-VALIDATION.md`.
+
+Task 6.1 defines **38 principal Cross-Paper Intelligence dimensions** (`XPD-01`..`XPD-38`) grouped into **9 semantic groups** (`DG-01`..`DG-09`) and maps all **20/20 frozen Master Plan intelligence families** (`IF-01`..`IF-20`) to one or more dimensions. Intelligence family, principal dimension, scientific field/entity, taxonomy term, relation type and page remain distinct concepts.
+
+The dimension catalogue is analytical coordination metadata only. Each principal dimension retains its upstream scientific owner, evidence rule, analytical grain, value shape, denominator rule, drill-down path, multiplicity and invalid/misleading no-merge constraints. The global Atlas corpus size is not an automatic denominator for every analysis. Paper, record, assignment, result, relation, evidence, collaboration-edge and independent-study/PEU counts remain distinct.
+
+`XPD-17 Methodology` is a composite analytical parent that reuses all **37/37** Task 5.1 methodology owner dimensions and references Task 5.2, 5.2B, 5.2C and 5.3 faceted coordination layers without introducing a scalar `learning_type`, a generic stored methodology field, or duplicate scientific authority. `XPD-37` Atlas Research Gap and `XPD-38` Atlas Research Opportunity remain governed Level-7 synthesis owners: L6 may analyze approved objects/candidate signals but cannot auto-create official gaps/opportunities.
+
+Task 6.1 formalizes **15 Level-6 analytical invariants**, including frequency ≠ evidence strength, qualitative association ≠ effect size/causality, contradiction visibility, evidence-capable drill-down, explicit numerator/denominator/unit/scope/version, and continued Task 5.5 control over any ontology promotion. Machine-readable validation passed with **0 errors**; the repository payload is **67,614 bytes** with Git blob SHA `355bd6bca5d25c41e23c263176cf9bcf09fdc6d4`. A separate SHA-256 is not claimed because the connector did not expose an independently retrievable raw byte stream.
 
 ### Task 7 — Fully specify the four Atlas frameworks and matrix connection
 - 7.1 Map Design Stack & Feedback Loops.
@@ -364,6 +378,14 @@ These Task 5 coordination sources are not scientific authority and cannot indepe
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-**STOP boundary:** Task 5 is COMPLETE / PASS. Task 6 has not started.
+Task 6 is **IN PROGRESS**. Task 6.1 is **PASS / COMPLETE**. Task 6.2 is **NEXT / NOT STARTED**; Tasks 6.3–6.7 are **NOT STARTED**.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 6 — define the complete Cross-Paper Intelligence system, beginning with Task 6.1: define the dimension catalogue**.
+Task 6.1 defines 38 principal analytical dimensions across nine semantic groups while preserving the 20 frozen Master Plan intelligence families as higher-order families rather than forcing a one-family/one-field model. Every material future L6 aggregate must preserve its upstream owner/evidence, declare its analytical unit and denominator, retain multiplicity and conflict states, and support evidence-capable drill-down.
+
+Task 6.1 coordination sources are `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-CATALOGUE.md`, `atlas-cross-paper-intelligence-dimension-catalogue.json` and `TASK-6.1-MACHINE-READABLE-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
+
+These Task 6.1 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+
+**STOP boundary:** Task 6.1 is COMPLETE / PASS. Task 6.2 has not started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 6.2 — define a complete single-dimension explorer for each principal dimension**.
