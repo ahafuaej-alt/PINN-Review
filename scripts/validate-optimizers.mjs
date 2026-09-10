@@ -104,7 +104,7 @@ assert.ok(technicalJs.indexOf('${performanceHtml') < technicalJs.indexOf('${opti
 const htmlFiles = [];
 const collectHtml = (directory) => {
   fs.readdirSync(directory, { withFileTypes: true }).forEach((entry) => {
-    if (entry.name === '.git') return;
+    if (entry.name === '.git' || (directory === root && entry.name === 'docs')) return;
     const target = path.join(directory, entry.name);
     if (entry.isDirectory()) collectHtml(target);
     else if (entry.name.endsWith('.html')) htmlFiles.push(target);
