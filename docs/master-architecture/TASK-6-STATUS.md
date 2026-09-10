@@ -1,6 +1,6 @@
 # Task 6 Status — Complete Cross-Paper Intelligence System
 
-Status: **IN PROGRESS — Tasks 6.1–6.6 PASS / COMPLETE; Task 6.7 NEXT / NOT STARTED**
+Status: **COMPLETE / PASS — Tasks 6.1–6.7 PASS / COMPLETE**
 
 Date: 2026-09-10
 
@@ -22,7 +22,7 @@ The frozen Task 6 sequence is:
 4. Task 6.4 — map scientifically meaningful cross-dimensional comparison choices. — **PASS / COMPLETE**
 5. Task 6.5 — define invalid/misleading combinations explicitly. — **PASS / COMPLETE**
 6. Task 6.6 — store the comparison-choice map in machine-readable/version-controlled form. — **PASS / COMPLETE**
-7. Task 6.7 — design the interactive comparison/explorer UI. — **NEXT / NOT STARTED**
+7. Task 6.7 — design the interactive comparison/explorer UI. — **PASS / COMPLETE**
 
 ## Task 6.1 — PASS / COMPLETE
 
@@ -210,13 +210,45 @@ Validation executed **4,253 deterministic assertions**: 35 global contract asser
 
 Task 6.6 does not implement UI/routes and does not make machine selectability equivalent to scientific validity. Pair classes remain subordinate to owner, unit, denominator, evidence, no-merge and operation-guard rules.
 
-## Task 6.7 — NEXT / NOT STARTED
+## Task 6.7 — PASS / COMPLETE
 
-Task 6.7 must design the interactive comparison/explorer UI using the sealed Task 6.1–6.6 contracts. No final interactive cross-dimensional explorer/UI/routes have yet been defined.
+Task 6.7 specifies the complete interactive Level-6 Cross-Paper Intelligence user-interface contract as a **governance-aware analytical workspace** rather than a generic multidimensional dashboard.
+
+Three workspace modes are defined:
+
+- `WM-01 Explore` — one governed Task-6.2 XPD explorer;
+- `WM-02 Compare` — one unordered XPD pair governed by Tasks 6.4–6.6;
+- `WM-03 Family` — one Task-6.3 intelligence-family workspace without a pooled family denominator.
+
+The UI state machine separates selection, preflight, execution, result inspection, evidence drill-down, hard-block, guarded, recovery, redirect and read-only Level-7 states. All seven pair classes are represented with distinct interaction behavior: `D`, `C`, `L7`, `I`, `M`, `K`, and `R`.
+
+The query preflight requires scientific owners, analytical unit, numerator/denominator, eligibility, missingness, multiplicity, join/scope, metric/test-case compatibility where applicable, evidence/provenance, active `HB`/`MG` rules, versions and qualified export metadata before execution.
+
+`HB-01..HB-26` are non-bypassable execution blocks. `MG-01..MG-09` remain visible interpretation guards adjacent to affected output and in qualified export metadata. `XPD-17` requires child-owner selection; `XPD-25/26` require quantitative compatibility preflight; evidence/integrity facets remain orthogonal; typed relations require explicit relation instances; and `XPD-37/38` remain read-only Level-7 curated objects.
+
+Task 6.7 also defines evidence/provenance drill-down, shareable analytical state with mandatory revalidation, qualified scientific export, distinct empty/missing/unresolved states, accessibility requirements and desktop/tablet/mobile interaction behavior. Final production routes/query-string information architecture remain deliberately undefined pending Task 9.
+
+Task 6.7 human-readable specification:
+
+`docs/master-architecture/TASK-6.7-INTERACTIVE-CROSS-PAPER-INTELLIGENCE-UI-SPECIFICATION.md`
+
+Task 6.7 machine-readable UI contract:
+
+`docs/master-architecture/atlas-cross-paper-intelligence-ui-spec.json` (`task-6.7-v1.0.0`).
+
+Task 6.7 validation:
+
+`docs/master-architecture/TASK-6.7-UI-SPECIFICATION-VALIDATION.md` — **PASS / 0 errors**.
+
+Task 6.7 non-production synthetic interaction mockup:
+
+`docs/master-architecture/mockups/cross-paper-intelligence-ui-mockup.html`.
+
+The mockup demonstrates representative `D/C/L7/M/K/R` interaction states but deliberately does not hard-code a competing 703-pair map; future implementation must consume Task 6.6.
 
 ## Change boundary
 
-Tasks 6.1–6.6 remain architecture/planning coordination only:
+Tasks 6.1–6.7 are architecture/planning/UI-design coordination only:
 
 - locked-v0.7 field/entity changes: **0**;
 - canonical taxonomy promotions: **0**;
@@ -225,13 +257,15 @@ Tasks 6.1–6.6 remain architecture/planning coordination only:
 - paper assignments: **0**;
 - official Level-7 synthesis objects: **0**;
 - production `main` changes: **0**;
+- live Atlas route/page changes: **0**;
+- database/SQL changes: **0**;
 - Computational Resources Stage 1/2/3 changes: **0**;
 - Task 6.5 residual-pair classifications: **36** governance dispositions only;
 - Task 6.5 operation guards: **35** governance rules only;
 - Task 6.6 machine-readable comparison/guard contract: **1** coordination artifact;
 - Task 6.6 machine validation record: **1** coordination artifact;
-- Task 6.7 final UI/routes: **0**.
+- Task 6.7 UI design artifacts: **4** non-production coordination artifacts.
 
 ## Current stop boundary
 
-**Task 6 is IN PROGRESS. Tasks 6.1–6.6 are PASS / COMPLETE. Task 6.7 is NEXT / NOT STARTED.**
+**Task 6 is COMPLETE / PASS. Tasks 6.1–6.7 are PASS / COMPLETE. Task 7 has not started.**
