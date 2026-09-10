@@ -1,6 +1,6 @@
 # Task 6 Status — Complete Cross-Paper Intelligence System
 
-Status: **IN PROGRESS — Tasks 6.1–6.2 PASS / COMPLETE; Task 6.3 NEXT / NOT STARTED**
+Status: **IN PROGRESS — Tasks 6.1–6.3 PASS / COMPLETE; Task 6.4 NEXT / NOT STARTED**
 
 Date: 2026-09-10
 
@@ -18,8 +18,8 @@ The frozen Task 6 sequence is:
 
 1. Task 6.1 — define the dimension catalogue. — **PASS / COMPLETE**
 2. Task 6.2 — define a complete single-dimension explorer for each principal dimension. — **PASS / COMPLETE**
-3. Task 6.3 — implement/specify the current 20 synthesis/intelligence families. — **NEXT / NOT STARTED**
-4. Task 6.4 — map scientifically meaningful cross-dimensional comparison choices. — **NOT STARTED**
+3. Task 6.3 — implement/specify the current 20 synthesis/intelligence families. — **PASS / COMPLETE**
+4. Task 6.4 — map scientifically meaningful cross-dimensional comparison choices. — **NEXT / NOT STARTED**
 5. Task 6.5 — define invalid/misleading combinations explicitly. — **NOT STARTED**
 6. Task 6.6 — store the comparison-choice map in machine-readable/version-controlled form. — **NOT STARTED**
 7. Task 6.7 — design the interactive comparison/explorer UI. — **NOT STARTED**
@@ -41,115 +41,125 @@ Task 6.1 machine contract: `atlas-cross-paper-intelligence-dimension-catalogue.j
 
 Task 6.2 defines a complete single-dimension explorer contract for every `XPD-01`–`XPD-38`.
 
-### Shared explorer contract
+Every explorer has an explicit archetype, principal analytical grain, denominator basis, evidence drill-down, qualified export and accessibility contract. Scientific cross-dimension filters/comparisons remain zero. `XPD-17 Methodology` retains its owner-preserving child-dimension selector and does not expose a pooled methodology frequency.
 
-Every principal-dimension explorer now requires:
+Task 6.2 machine contract: `atlas-cross-paper-intelligence-single-dimension-explorer-spec.json` (`task-6.2-v1.0.0`).
+
+## Task 6.3 — PASS / COMPLETE
+
+Task 6.3 specifies the frozen **20/20 Cross-Paper Intelligence synthesis families** `IF-01`–`IF-20` using exactly the Task 6.1 member-dimension map and reusing the Task 6.2 explorer contracts.
+
+### Controlling distinction
+
+**intelligence family ≠ principal dimension ≠ scientific field/entity ≠ taxonomy term ≠ relation type ≠ comparison choice ≠ page.**
+
+A family is a Level-6 synthesis workspace over already governed constituent dimensions. It is not a new scientific owner or paper-level fact.
+
+### Shared family contract
+
+Every family provides:
 
 1. identity/scope header;
-2. coverage and eligibility summary;
-3. dimension-appropriate primary visualization/structure;
-4. ranked or structured result table;
-5. integrity/status panel;
-6. evidence drill-down;
+2. exact member-dimension register;
+3. constituent Task 6.2 explorer panels;
+4. dimension-specific coverage ledger;
+5. evidence/integrity ledger;
+6. qualified family narrative;
 7. provenance/version footer;
 8. scientifically qualified export.
 
-The shared counting contract requires explicit numerator, denominator, principal unit, eligibility, scope and ontology/normalization version. Unique papers remain separate from records, assignments, evaluation observations, evidence objects, relation edges, collaboration edges and curated Level-7 objects. Independent study-family/PEU counts remain separate whenever recurrence/independent support is asserted.
+There is **no default family-wide pooled denominator**. Every member XPD retains its own numerator, denominator, grain, eligibility, multiplicity, missingness and evidence semantics. Family narrative may synthesize explicit constituent results only when the supporting XPD(s), scope and evidence basis remain identifiable.
 
-### Complete explorer coverage
+### Complete family coverage
 
-- principal dimensions expected: **38**;
-- explorer contracts present: **38/38**;
-- explorer IDs: `EXP-01`–`EXP-38`;
-- every explorer has a principal grain, denominator basis and default primary view;
-- non-table visualizations require an accessible table alternative;
-- all explorers inherit common evidence drill-down, export and accessibility requirements.
+- expected frozen families: **20**;
+- families specified: **20/20**;
+- IDs: `IF-01`–`IF-20` with no gaps;
+- member mappings match Task 6.1 exactly;
+- single-dimension families reuse their one XPD explorer;
+- multi-dimension families coordinate constituent views without authorizing scientific intersections/comparisons.
 
 ### High-risk safeguards
 
-Task 6.2 explicitly preserves:
+Task 6.3 explicitly preserves:
 
-- date-semantic separation in `XPD-01`;
-- association/edge counts versus papers in `XPD-04`/`XPD-06`;
-- demonstrated/related/potential/review-scoped application roles in `XPD-07`;
-- Task 4.5 taxonomy/lifecycle/collision safeguards in `XPD-16`;
-- owner-preserving child methodology behavior in `XPD-17`;
-- claim ≠ demonstration in `XPD-19`;
-- metric identity ≠ metric result and no naive heterogeneous pooling in `XPD-25`/`XPD-26`;
-- record/paper/independent-recurrence separation in `XPD-29`–`XPD-31`;
-- pathway/component/edge unit disclosure in `XPD-32`;
-- evidence count ≠ independent support and verification ≠ semantic support in `XPD-33`/`XPD-34`;
-- contradiction/counterevidence visibility in `XPD-35`;
-- paper scientific relation ≠ taxonomy hierarchy ≠ bibliographic collaboration ≠ Level-7 framework edge in `XPD-36`;
-- read-only Level-6 exploration of already governed Level-7 gap/opportunity objects in `XPD-37`/`XPD-38`.
+- application role ≠ taxonomy ≠ physical system in `IF-01`;
+- physical system/problem/equation/problem-characteristic/data-regime/PINN-challenge separation in `IF-02`;
+- computational task ≠ physical problem ≠ PINN challenge in `IF-03`;
+- PINN type ≠ architecture and raw occurrence ≠ verified assignment in `IF-04`;
+- owner-specific methodology and no scalar `learning_type`/pooled methodology frequency in `IF-05`;
+- contribution ≠ claim/outcome in `IF-06`;
+- claim ≠ demonstration, generality claim ≠ evidence, and reported failure ≠ diagnostic cause in `IF-07`;
+- validation ≠ evaluation in `IF-08`;
+- metric identity ≠ result and no naive heterogeneous pooling in `IF-09`;
+- reproducibility reporting ≠ scientific quality in `IF-10`;
+- limitation/open-problem/future-work recurrence separated from official Level-7 synthesis in `IF-11`–`IF-15`;
+- symptom ≠ diagnosis, failure statement ≠ cause, intervention ≠ verified improvement and paper pathway ≠ Level-7 framework in `IF-16`;
+- verification ≠ support, evidence count ≠ independent support and no scalar evidence-quality score in `IF-17`;
+- co-occurrence ≠ typed scientific relation and graph semantics remain separate in `IF-18`;
+- no source-by-time comparison before Task 6.4 in `IF-19`;
+- application domain/geography/institution/collaboration remain distinct and network centrality ≠ scientific quality in `IF-20`.
 
-### XPD-17 Methodology special contract
+### Task 6.3 boundary
 
-`XPD-17` does not expose one pooled methodology frequency. It starts from an owner-preserving child-dimension selector and exposes one child owner at a time by default.
+Task 6.3 permits coordinated constituent panels, dimension-specific coverage, evidence/integrity ledgers, qualified narrative synthesis and qualified export.
 
-The child catalogue references:
+It defines:
 
-- Task 5.1 `MDC-01`–`MDC-37` — **37** owner dimensions;
-- Task 5.2 `LIT-F1`–`LIT-F4` + `LIT-DQ1`–`LIT-DQ2` — **6** facets;
-- Task 5.2B `LP-F1`–`LP-F10` — **10** facets;
-- Task 5.3 `MRF-01`–`MRF-06` — **6** facets;
-- Task 5.2C `EX-01`–`EX-15` — **15** externally emphasized dimensions, exposed only according to Task 5.4 disposition/existing-owner rules.
+- family-wide default pooled denominators: **0**;
+- arbitrary cross-dimensional scientific filters: **0**;
+- Task 6.4 comparison choices: **0**;
+- Task 6.5 invalid-combination catalogue entries: **0**;
+- Task 6.6 comparison-choice map entries: **0**;
+- Task 6.7 final UI/routes: **0**.
 
-Each child retains its scientific owner, evidence, applicability and denominator. There is no generic stored methodology field and no scalar generic `learning_type`. Cross-child scientific comparison is Task 6.4 work.
-
-### Single-dimension boundary
-
-Task 6.2 allows only interpretive/non-scientific controls such as search, sorting, pagination, display density, verification/support/status visibility, missingness visibility and export format.
-
-Task 6.2 defines:
-
-- scientific cross-dimension filters: **0**;
-- scientific cross-dimension comparisons: **0**;
-- family-level synthesis specifications: **0**;
-- final UI routes: **0**.
-
-### Task 6.2 artifacts
+### Task 6.3 artifacts
 
 Human-readable specification:
 
-`docs/master-architecture/TASK-6.2-SINGLE-DIMENSION-EXPLORER-SPECIFICATION.md`
+`docs/master-architecture/TASK-6.3-CROSS-PAPER-INTELLIGENCE-SYNTHESIS-FAMILY-SPECIFICATION.md`
 
 Machine-readable specification:
 
-`docs/master-architecture/atlas-cross-paper-intelligence-single-dimension-explorer-spec.json`
+`docs/master-architecture/atlas-cross-paper-intelligence-synthesis-family-spec.json`
 
 Machine-readable validation:
 
-`docs/master-architecture/TASK-6.2-MACHINE-READABLE-VALIDATION.md`
+`docs/master-architecture/TASK-6.3-MACHINE-READABLE-VALIDATION.md`
 
-Machine-readable contract version: `task-6.2-v1.0.0`.
+Machine-readable contract version: `task-6.3-v1.0.0`.
 
-Repository readback Git blob SHA: `267bcf0b25b03776442a0b3bdd6f450966a228df`.
+Repository readback Git blob SHA: `a577010efbd613fb6cc4ce37e342327471a4bf91`.
+
+Serialized UTF-8 payload: **13,585 bytes**.
+
+Local serialization SHA-256: `4c5e7bf3d64f482216893b1365ab2629f6146a6bc20d8856eb967a71289c9e1a`.
 
 Validation result: **PASS — 0 validation errors**.
 
-## Task 6.3 — NEXT / NOT STARTED
+## Task 6.4 — NEXT / NOT STARTED
 
-Task 6.3 must implement/specify the current **20 Cross-Paper Intelligence families** using the Task 6.1 family/dimension map and Task 6.2 explorer contracts.
+Task 6.4 must map all scientifically meaningful cross-dimensional comparison choices using Tasks 6.1–6.3 as controlling inputs.
 
-Controlling handoff:
+The comparison-choice work must explicitly preserve:
 
-- intelligence family ≠ principal dimension;
-- family synthesis may combine multiple dimensions but must not erase their individual grains/denominators;
-- paper evidence/extraction remains distinct from Atlas synthesis;
-- qualitative recurrence/association remains distinct from effect size or causality;
-- contradictions/counterevidence remain visible;
-- official Level-7 gap/opportunity/framework synthesis cannot be generated silently from Level-6 frequency.
+- each XPD/IF scientific owner;
+- compatible analytical grains and denominator semantics;
+- eligibility and missingness states;
+- evidence/provenance and contradiction visibility;
+- metric/test-case compatibility requirements;
+- application-role, claim/demonstration, validation/evaluation, evidence-state and graph-semantic no-merge boundaries;
+- the prohibition on frequency-as-quality and association-as-causality/effect size.
 
-Task 6.3 has not been started by Task 6.2.
+Task 6.4 has not been started by Task 6.3.
 
-## Tasks 6.4–6.7 — NOT STARTED
+## Tasks 6.5–6.7 — NOT STARTED
 
-No cross-dimensional comparison-choice map, invalid-combination catalogue, serialized comparison map or final interactive comparison/explorer UI has been defined.
+No invalid-combination catalogue, serialized comparison-choice map or final interactive comparison/explorer UI has been defined.
 
 ## Change boundary
 
-Tasks 6.1–6.2 remain architecture/planning coordination only:
+Tasks 6.1–6.3 remain architecture/planning coordination only:
 
 - locked-v0.7 field/entity changes: **0**;
 - canonical taxonomy promotions: **0**;
@@ -159,8 +169,8 @@ Tasks 6.1–6.2 remain architecture/planning coordination only:
 - official Level-7 synthesis objects: **0**;
 - production `main` changes: **0**;
 - Computational Resources Stage 1/2/3 changes: **0**;
-- Task 6.3 work: **0**.
+- Task 6.4 work: **0**.
 
 ## Current stop boundary
 
-**Task 6 is IN PROGRESS. Tasks 6.1–6.2 are PASS / COMPLETE. Task 6.3 is NEXT / NOT STARTED.**
+**Task 6 is IN PROGRESS. Tasks 6.1–6.3 are PASS / COMPLETE. Task 6.4 is NEXT / NOT STARTED.**
