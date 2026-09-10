@@ -5,31 +5,31 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S174`
-- Latest completed resource: `CR000196`
+- Latest completed checkpoint: `Stage3-S175`
+- Latest completed resource: `CR000197`
 - Latest completed aggregate batch: `SOB018` — **PASS (10/10)**
-- Current batch: `SOB019` — **7/10**
+- Current batch: `SOB019` — **8/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC04` — **PASS (count-neutral CR000191 duplicate skip)**
-- Exact next independently extractable resource: `CR000197`
-- Exact next checkpoint: `Stage3-S175`
+- Exact next independently extractable resource: `CR000198`
+- Exact next checkpoint: `Stage3-S176`
 
-## Cumulative counts through S174 / RC04
+## Cumulative counts through S175 / RC04
 
-- Resources: **197**
-- Experiments: **283**
-- Configurations: **500**
-- Technical-evidence records: **2138**
-- Reproducibility assessments: **197**
-- Unresolved findings: **1193**
+- Resources: **198**
+- Experiments: **288**
+- Configurations: **509**
+- Technical-evidence records: **2152**
+- Reproducibility assessments: **198**
+- Unresolved findings: **1199**
 - Explicit conflicts: **137**
-- Independently extractable resources remaining: **166**
+- Independently extractable resources remaining: **165**
 
-## S174
+## S175
 
-CR000196 preserves the Stage-2-authoritative upstream `idrl-lab/PINNpapers` repository pinned at `058306e57ccf22c5e5aee09e9279f69cd6a823c8`, MIT licensed, with the distinct CR000194 fork retained separately and no inferred Atlas-paper relationship. The pinned surface matches the upstream bibliography identity: LICENSE, README and `ref_convert.py`, a BibTeX-to-Markdown formatting helper. No scientific PINN model, experiment, configuration, research dataset, or scientific execution surface is present.
+CR000197 preserves the Stage-2-authoritative `maziarraissi/DeepHPMs` repository pinned at `7b579dbdcf5be4969ebefd32e65f709a8b20ec44`, MIT licensed, with project citation metadata for *Deep Hidden Physics Models: Deep Learning of Nonlinear Partial Differential Equations* and no inferred Atlas-paper relationship. The pinned repository implements data-driven hidden-physics discovery and learned-equation solution across Burgers, KdV, Kuramoto-Sivashinsky, nonlinear Schrodinger and Navier-Stokes families.
 
-The resource receives a role-aware **R0** reproducibility assessment with zero experiments and zero configurations. Scientific workflow fields are `not_applicable`; absence of repository citation metadata remains `not_available`. No helper script, scientific software, environment, dependency, training, inference, evaluation, test, model, notebook, dataset, container, accelerator, or scientific workload was executed.
+Five equation families are mapped as experiments and nine source-level workflows as configurations, preserving same/different-data transfer variants and the standard/chaotic KS distinction. The resource receives **R1**: source, bundled data, mathematics, architecture, training and result documentation are substantial, but there is no formal dependency manifest, pinned environment, installation procedure or reusable checkpoint. No scientific workload was executed.
 
 ## Reconciled baseline
 
@@ -37,4 +37,4 @@ Stage3-RC02, Stage3-RC03 and Stage3-RC04 remain authoritative for their accepted
 
 ## Continuation
 
-Continue with `Stage3-S175` at `CR000197` after published-head and checkpoint-QA readback.
+Continue with `Stage3-S176` at `CR000198` after published-head and checkpoint-QA readback.
