@@ -2,42 +2,33 @@
 
 Date: 2026-09-10
 Branch: `data/computational-resources-stage3`
+Latest checkpoint: `Stage3-S179`
+Status: **PASS**
 
-## Latest checkpoint
+## S179 checkpoint counts
 
-- Checkpoint: `Stage3-S178`
-- Resources: CR000200
-- Latest completed aggregate batch: `SOB019` — **PASS (10/10)**
-- Current batch: `SOB020` — **1/10**
-- Checkpoint QA: **PASS**
-- Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral)**
+- Resources: 1
+- Experiments: 4
+- Configurations: 4
+- Technical-evidence records: 10
+- Reproducibility assessments: 1
+- New unresolved findings: 6
+- New explicit conflicts: 0
 
-All required schema, cumulative uniqueness, evidence-reference, resource→experiment→configuration, evidence-use, Stage-2 authority, source-scope, missing-value, inference, reproducibility, R5-exclusion, execution-boundary, write-boundary, provenance-text, branch-head-stability and repository-scope checks pass after the count-neutral RC05 validation repair.
+## Cumulative validated counts
 
-## Checkpoint counts
+- Resources: 202
+- Experiments: 301
+- Configurations: 523
+- Technical-evidence records: 2199
+- Reproducibility assessments: 202
+- Unresolved findings: 1223
+- Explicit conflicts: 138
 
-- Resources: **1**
-- Experiments: **4**
-- Configurations: **5**
-- Technical-evidence records: **14**
-- Reproducibility assessments: **1**
-- New unresolved findings: **8**
-- New explicit conflicts: **1**
+## QA gates
 
-## Cumulative counts
+All applicable accepted Stage-3 schemas validate. New identifiers are unique within the cumulative namespace. Evidence references resolve, resource-to-experiment-to-configuration relationships are reciprocal, and every new evidence record has an incoming factual or assessment use. Stage-2 authority and the pinned repository SHA are preserved. Source-scope, missing-value, inference-labeling and reproducibility semantics pass. `R5` is absent.
 
-- Resources: **201**
-- Experiments: **297**
-- Configurations: **519**
-- Technical-evidence records: **2189**
-- Reproducibility assessments: **201**
-- Unresolved findings: **1217**
-- Explicit conflicts: **138**
+The checkpoint touches only intended Stage-3 technical/evidence/report paths. Stage 1, historical Stage 2, public Atlas/site files, `05-curated/`, accepted methodology and schemas are unchanged. No scientific workload was executed. Provenance-text screening passes.
 
-## Scientific boundary
-
-Stage-2 authority, the pinned repository tree, README, exact license and requirements, Allen-Cahn notebook source, Lorenz source, two Kuramoto-Sivashinsky sources and Navier-Stokes source were inspected statically. Bundled data and animations were identified by path only. No scientific software, environment, dependency installation, training, inference, prediction, evaluation, test, dataset workload, notebook execution, media playback, accelerator or scientific workload was executed.
-
-## Continuation
-
-Exact next resource: `CR000201`. Exact next checkpoint: `Stage3-S179`. Independently extractable resources remaining: **162**.
+`SOB020` is 2/10, so aggregate batch QA is not triggered. `SOB019` remains the latest completed aggregate batch and remains PASS.
