@@ -143,8 +143,8 @@ Task 5.5 closes the promotion-governance layer by defining the **Promotion Evide
 ### Task 6 — Define the complete Cross-Paper Intelligence system — IN PROGRESS
 - 6.1 Define the dimension catalogue. — **PASS / COMPLETE**
 - 6.2 Define a complete single-dimension explorer for each principal dimension. — **PASS / COMPLETE**
-- 6.3 Implement/specify the current 20 synthesis families. — **NEXT / NOT STARTED**
-- 6.4 Map all scientifically meaningful cross-dimensional comparison choices. — **NOT STARTED**
+- 6.3 Implement/specify the current 20 synthesis families. — **PASS / COMPLETE**
+- 6.4 Map all scientifically meaningful cross-dimensional comparison choices. — **NEXT / NOT STARTED**
 - 6.5 Define invalid or misleading combinations explicitly. — **NOT STARTED**
 - 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical. — **NOT STARTED**
 - 6.7 Design the interactive comparison/explorer UI. — **NOT STARTED**
@@ -176,6 +176,18 @@ Task 6.2 uses dimension-appropriate explorer archetypes rather than a universal 
 `XPD-17 Methodology` receives a mandatory owner-preserving child-dimension selector. It reuses Task 5.1 `MDC-01`..`MDC-37`, Task 5.2 integration facets, Task 5.2B learning-paradigm facets, Task 5.3 model/representation facets and Task 5.2C externally emphasized dimensions under Task 5.4 disposition rules. Every child keeps its own owner and denominator; pooled methodology frequency and a scalar generic `learning_type` are prohibited.
 
 Task 6.2 further preserves high-risk no-merge/counting boundaries for dates, application roles, PINN types, claims/demonstrations, metrics/results, limitations/open problems/future work, diagnostic pathways, evidence states, conflicts, scientific relation types and Level-7 research-gap/opportunity objects. Machine-readable validation passed with **0 validation errors**; repository readback Git blob SHA is `267bcf0b25b03776442a0b3bdd6f450966a228df`.
+
+Task 6.3 human-readable family specification: `TASK-6.3-CROSS-PAPER-INTELLIGENCE-SYNTHESIS-FAMILY-SPECIFICATION.md`.
+
+Task 6.3 machine-readable family contract: `atlas-cross-paper-intelligence-synthesis-family-spec.json`.
+
+Task 6.3 machine-readable validation: `TASK-6.3-MACHINE-READABLE-VALIDATION.md`.
+
+Task 6.3 specifies all **20/20** frozen Cross-Paper Intelligence families (`IF-01`..`IF-20`) as Level-6 synthesis workspaces over the exact Task 6.1 member-dimension map and Task 6.2 constituent explorers. Families may coordinate dimension-specific coverage, evidence/integrity views and qualified narrative synthesis, but they create no new scientific owner and no paper-level scientific fact.
+
+There is no default family-wide pooled denominator. Each constituent XPD retains its own owner, numerator, denominator, grain, eligibility, multiplicity and evidence semantics. Family narrative must identify the supporting member dimensions and evidence basis. Frequency, prominence and network centrality remain distinct from evidence strength/quality; contradictions and counterevidence remain visible; Task 5.5 remains the ontology-promotion gate.
+
+Task 6.3 explicitly defines **0** arbitrary cross-dimensional scientific filters, **0** Task 6.4 comparison choices, **0** Task 6.5 invalid-combination entries, **0** Task 6.6 comparison-map entries and **0** Task 6.7 final UI routes. Machine validation passed with **0 errors**. The machine payload is **13,585 bytes**, repository Git blob SHA `a577010efbd613fb6cc4ce37e342327471a4bf91`, with local serialization SHA-256 `4c5e7bf3d64f482216893b1365ab2629f6146a6bc20d8856eb967a71289c9e1a`.
 
 ### Task 7 — Fully specify the four Atlas frameworks and matrix connection
 - 7.1 Map Design Stack & Feedback Loops.
@@ -392,7 +404,7 @@ These Task 5 coordination sources are not scientific authority and cannot indepe
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-Task 6 is **IN PROGRESS**. Tasks 6.1–6.2 are **PASS / COMPLETE**. Task 6.3 is **NEXT / NOT STARTED**; Tasks 6.4–6.7 are **NOT STARTED**.
+Task 6 is **IN PROGRESS**. Tasks 6.1–6.3 are **PASS / COMPLETE**. Task 6.4 is **NEXT / NOT STARTED**; Tasks 6.5–6.7 are **NOT STARTED**.
 
 Task 6.1 defines 38 principal analytical dimensions across nine semantic groups while preserving the 20 frozen Master Plan intelligence families as higher-order families rather than forcing a one-family/one-field model. Every material future L6 aggregate must preserve its upstream owner/evidence, declare its analytical unit and denominator, retain multiplicity and conflict states, and support evidence-capable drill-down.
 
@@ -400,10 +412,14 @@ Task 6.1 coordination sources are `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-C
 
 Task 6.2 defines one complete owner-preserving explorer contract for each `XPD-01`..`XPD-38`, with dimension-appropriate visualization archetypes, explicit count/denominator semantics, evidence drill-down, qualified export and accessibility. Scientific cross-dimension filtering/comparison remains outside Task 6.2. `XPD-17 Methodology` is implemented conceptually as a child-owner selector, never as pooled methodology frequency.
 
-Task 6.2 coordination sources are `TASK-6.2-SINGLE-DIMENSION-EXPLORER-SPECIFICATION.md`, `atlas-cross-paper-intelligence-single-dimension-explorer-spec.json` and `TASK-6.2-MACHINE-READABLE-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
+Task 6.2 coordination sources are `TASK-6.2-SINGLE-DIMENSION-EXPLORER-SPECIFICATION.md`, `atlas-cross-paper-intelligence-single-dimension-explorer-spec.json` and `TASK-6.2-MACHINE-READABLE-VALIDATION.md`.
 
-These Task 6.1–6.2 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+Task 6.3 specifies the 20 frozen intelligence families as synthesis workspaces over the Task 6.1 dimension map and Task 6.2 explorers. It preserves per-dimension denominators and evidence, permits only qualified family-level synthesis, and explicitly defers cross-dimensional comparison choices to Task 6.4.
 
-**STOP boundary:** Tasks 6.1–6.2 are COMPLETE / PASS. Task 6.3 has not started.
+Task 6.3 coordination sources are `TASK-6.3-CROSS-PAPER-INTELLIGENCE-SYNTHESIS-FAMILY-SPECIFICATION.md`, `atlas-cross-paper-intelligence-synthesis-family-spec.json` and `TASK-6.3-MACHINE-READABLE-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 6.3 — implement/specify the current 20 Cross-Paper Intelligence synthesis families**.
+These Task 6.1–6.3 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+
+**STOP boundary:** Tasks 6.1–6.3 are COMPLETE / PASS. Task 6.4 has not started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 6.4 — map all scientifically meaningful cross-dimensional comparison choices**.
