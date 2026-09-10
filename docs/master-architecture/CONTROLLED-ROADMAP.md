@@ -245,7 +245,7 @@ Task 9 must use `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as the current-surface ba
 ### Task 14 — Build the automated Paper Ingestion / Extraction / Review tool
 - 14.1 Add-paper workflow.
 - 14.2 Locate/link source PDF.
-- 14.3 AI-assisted structured extraction against current ontology.
+- 14.3 AI-assisted structured extraction against the current ontology.
 - 14.4 Exact provenance extraction.
 - 14.5 Canonical ontology matching.
 - 14.6 Alias/new-term/relationship proposals.
