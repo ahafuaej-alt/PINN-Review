@@ -142,8 +142,8 @@ Task 5.5 closes the promotion-governance layer by defining the **Promotion Evide
 
 ### Task 6 — Define the complete Cross-Paper Intelligence system — IN PROGRESS
 - 6.1 Define the dimension catalogue. — **PASS / COMPLETE**
-- 6.2 Define a complete single-dimension explorer for each principal dimension. — **NEXT / NOT STARTED**
-- 6.3 Implement/specify the current 20 synthesis families. — **NOT STARTED**
+- 6.2 Define a complete single-dimension explorer for each principal dimension. — **PASS / COMPLETE**
+- 6.3 Implement/specify the current 20 synthesis families. — **NEXT / NOT STARTED**
 - 6.4 Map all scientifically meaningful cross-dimensional comparison choices. — **NOT STARTED**
 - 6.5 Define invalid or misleading combinations explicitly. — **NOT STARTED**
 - 6.6 Store the comparison-choice map in version-controlled, machine-readable form where practical. — **NOT STARTED**
@@ -162,6 +162,20 @@ The dimension catalogue is analytical coordination metadata only. Each principal
 `XPD-17 Methodology` is a composite analytical parent that reuses all **37/37** Task 5.1 methodology owner dimensions and references Task 5.2, 5.2B, 5.2C and 5.3 faceted coordination layers without introducing a scalar `learning_type`, a generic stored methodology field, or duplicate scientific authority. `XPD-37` Atlas Research Gap and `XPD-38` Atlas Research Opportunity remain governed Level-7 synthesis owners: L6 may analyze approved objects/candidate signals but cannot auto-create official gaps/opportunities.
 
 Task 6.1 formalizes **15 Level-6 analytical invariants**, including frequency ≠ evidence strength, qualitative association ≠ effect size/causality, contradiction visibility, evidence-capable drill-down, explicit numerator/denominator/unit/scope/version, and continued Task 5.5 control over any ontology promotion. Machine-readable validation passed with **0 errors**; the repository payload is **67,614 bytes** with Git blob SHA `355bd6bca5d25c41e23c263176cf9bcf09fdc6d4`. A separate SHA-256 is not claimed because the connector did not expose an independently retrievable raw byte stream.
+
+Task 6.2 human-readable explorer specification: `TASK-6.2-SINGLE-DIMENSION-EXPLORER-SPECIFICATION.md`.
+
+Task 6.2 machine-readable explorer specification: `atlas-cross-paper-intelligence-single-dimension-explorer-spec.json`.
+
+Task 6.2 machine-readable validation: `TASK-6.2-MACHINE-READABLE-VALIDATION.md`.
+
+Task 6.2 defines **38/38 single-dimension explorer contracts** (`EXP-01`..`EXP-38`) aligned one-to-one with the principal `XPD-01`..`XPD-38` analytical dimensions while preserving their upstream scientific ownership. Each explorer declares or inherits its analytical grain, denominator basis, primary view, counting rules, evidence drill-down, provenance/version disclosure, qualified export and accessibility requirements.
+
+Task 6.2 uses dimension-appropriate explorer archetypes rather than a universal chart. Temporal, geographic, network, taxonomy, structured-record, metric/result, evidence/integrity, typed-relation, diagnostic-pathway and curated-Level-7 dimensions therefore retain the counting and display semantics appropriate to their scientific unit. Status/provenance controls are interpretive controls only; scientific cross-dimension filters and comparisons remain explicitly zero until Task 6.4.
+
+`XPD-17 Methodology` receives a mandatory owner-preserving child-dimension selector. It reuses Task 5.1 `MDC-01`..`MDC-37`, Task 5.2 integration facets, Task 5.2B learning-paradigm facets, Task 5.3 model/representation facets and Task 5.2C externally emphasized dimensions under Task 5.4 disposition rules. Every child keeps its own owner and denominator; pooled methodology frequency and a scalar generic `learning_type` are prohibited.
+
+Task 6.2 further preserves high-risk no-merge/counting boundaries for dates, application roles, PINN types, claims/demonstrations, metrics/results, limitations/open problems/future work, diagnostic pathways, evidence states, conflicts, scientific relation types and Level-7 research-gap/opportunity objects. Machine-readable validation passed with **0 validation errors**; repository readback Git blob SHA is `267bcf0b25b03776442a0b3bdd6f450966a228df`.
 
 ### Task 7 — Fully specify the four Atlas frameworks and matrix connection
 - 7.1 Map Design Stack & Feedback Loops.
@@ -231,7 +245,7 @@ Task 9 must use `ATLAS-PRODUCTION-SURFACE-REGISTER.md` as the current-surface ba
 ### Task 14 — Build the automated Paper Ingestion / Extraction / Review tool
 - 14.1 Add-paper workflow.
 - 14.2 Locate/link source PDF.
-- 14.3 AI-assisted structured extraction against the current ontology.
+- 14.3 AI-assisted structured extraction against current ontology.
 - 14.4 Exact provenance extraction.
 - 14.5 Canonical ontology matching.
 - 14.6 Alias/new-term/relationship proposals.
@@ -378,14 +392,18 @@ These Task 5 coordination sources are not scientific authority and cannot indepe
 
 Evidence-driven revision remains controlling: later authoritative external research or primary-source evidence may revise the candidate dimension universe, normalization, dimension placement, relationships, applicability or structural-promotion judgment, but any revision must be evidence-backed, explicit, versioned/history-preserving and traceable; raw wording, locators and prior decisions must not be silently erased.
 
-Task 6 is **IN PROGRESS**. Task 6.1 is **PASS / COMPLETE**. Task 6.2 is **NEXT / NOT STARTED**; Tasks 6.3–6.7 are **NOT STARTED**.
+Task 6 is **IN PROGRESS**. Tasks 6.1–6.2 are **PASS / COMPLETE**. Task 6.3 is **NEXT / NOT STARTED**; Tasks 6.4–6.7 are **NOT STARTED**.
 
 Task 6.1 defines 38 principal analytical dimensions across nine semantic groups while preserving the 20 frozen Master Plan intelligence families as higher-order families rather than forcing a one-family/one-field model. Every material future L6 aggregate must preserve its upstream owner/evidence, declare its analytical unit and denominator, retain multiplicity and conflict states, and support evidence-capable drill-down.
 
-Task 6.1 coordination sources are `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-CATALOGUE.md`, `atlas-cross-paper-intelligence-dimension-catalogue.json` and `TASK-6.1-MACHINE-READABLE-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
+Task 6.1 coordination sources are `TASK-6.1-CROSS-PAPER-INTELLIGENCE-DIMENSION-CATALOGUE.md`, `atlas-cross-paper-intelligence-dimension-catalogue.json` and `TASK-6.1-MACHINE-READABLE-VALIDATION.md`.
 
-These Task 6.1 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+Task 6.2 defines one complete owner-preserving explorer contract for each `XPD-01`..`XPD-38`, with dimension-appropriate visualization archetypes, explicit count/denominator semantics, evidence drill-down, qualified export and accessibility. Scientific cross-dimension filtering/comparison remains outside Task 6.2. `XPD-17 Methodology` is implemented conceptually as a child-owner selector, never as pooled methodology frequency.
 
-**STOP boundary:** Task 6.1 is COMPLETE / PASS. Task 6.2 has not started.
+Task 6.2 coordination sources are `TASK-6.2-SINGLE-DIMENSION-EXPLORER-SPECIFICATION.md`, `atlas-cross-paper-intelligence-single-dimension-explorer-spec.json` and `TASK-6.2-MACHINE-READABLE-VALIDATION.md`. `TASK-6-STATUS.md` is the current Task 6 progress register.
 
-The exact next substantive roadmap task, only when separately authorized, is **Task 6.2 — define a complete single-dimension explorer for each principal dimension**.
+These Task 6.1–6.2 coordination sources are not scientific authority and cannot independently create locked scientific fields, terms, assignments, relations or Level-7 synthesis objects.
+
+**STOP boundary:** Tasks 6.1–6.2 are COMPLETE / PASS. Task 6.3 has not started.
+
+The exact next substantive roadmap task, only when separately authorized, is **Task 6.3 — implement/specify the current 20 Cross-Paper Intelligence synthesis families**.
