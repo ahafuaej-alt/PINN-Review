@@ -5,37 +5,35 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S188`
-- Latest completed resource: `CR000210`
+- Latest completed checkpoint: `Stage3-S189`
+- Latest completed resource: `CR000211`
 - Latest completed aggregate batch: `SOB020` — **PASS (10/10)**
-- Current batch: `SOB021` — **1/10**
+- Current batch: `SOB021` — **2/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000211`
-- Exact next checkpoint: `Stage3-S189`
+- Exact next independently extractable resource: `CR000212`
+- Exact next checkpoint: `Stage3-S190`
 
-## Cumulative counts through S188 / RC05
+## Cumulative counts through S189 / RC05
 
-- Resources: **211**
+- Resources: **212**
 - Experiments: **335**
 - Configurations: **605**
-- Technical-evidence records: **2301**
-- Reproducibility assessments: **211**
-- Unresolved findings: **1275**
+- Technical-evidence records: **2309**
+- Reproducibility assessments: **212**
+- Unresolved findings: **1280**
 - Explicit conflicts: **141**
-- Independently extractable resources remaining: **152**
+- Independently extractable resources remaining: **151**
 
-## S188
+## S189
 
-`CR000210` preserves the Stage-2-authoritative FEniCS Project web-resource identity and the verified software-use relationships to Atlas papers 752 and 836. It is represented as an aggregate finite-element PDE software platform/documentation resource, not a PINN implementation and not paper-owned code.
+`CR000211` preserves the Stage-2-authoritative `tum-pbs/PhiFlow` supporting-software identity at pinned commit `7569231f0604dce9239afe55f9a671324dbe8f9d`. It is represented as a reusable differentiable PDE/simulation framework rather than a paper-specific PINN implementation, and no Atlas-paper relationship is inferred.
 
-Bounded static extraction records current FEniCSx component structure and provider documentation while preserving the absence of a single immutable site-level source target. No paper-specific configuration is inferred from current provider documentation. Static reproducibility is `R2`.
-
-No scientific software, solver, model, notebook, dataset, environment, training, inference, evaluation, or test was executed.
+Bounded static extraction records PhiFlow version 3.4.0, NumPy/PyTorch/JAX/TensorFlow backend scope, core package dependencies, optional backend/UI/GPU layers, and the pinned PhiML submodule identity. Repository examples remain capability evidence and are not manufactured into research experiments. Static reproducibility is `R2`.
 
 ## Aggregate batch QA
 
-`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 1/10.
+`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 2/10.
 
 ## Reconciled baseline
 
@@ -43,4 +41,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative and c
 
 ## Continuation
 
-Continue with `Stage3-S189` at `CR000211`. Re-read the live branch, current reports, accepted scale-out plan, reconciliation authorities and latest checkpoint QA before starting.
+Continue with `Stage3-S190` at `CR000212`.

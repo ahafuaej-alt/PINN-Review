@@ -2,12 +2,12 @@
 
 Date: 2026-09-11
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S188`
+Latest checkpoint: `Stage3-S189`
 Status: **PASS**
 
-## Checkpoint S188
+## Checkpoint S189
 
-- Resources: **1** (`CR000210`)
+- Resources: **1** (`CR000211`)
 - Experiments: **0**
 - Configurations: **0**
 - Technical-evidence records: **8**
@@ -16,10 +16,8 @@ Status: **PASS**
 - New explicit conflicts: **0**
 - Reproducibility: **R2**
 
-Schema validation, cumulative identifier uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, evidence-use completeness, Stage-2 authority resolution, source-scope discipline, missing-value semantics, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, protected write boundaries, static-execution boundary, provenance-text screening and branch-head stability all pass.
-
-Stage-2 authority and verified paper-software relationships were preserved. Current FEniCSx provider documentation was inspected statically and kept source-scoped; current component versions were not attributed to the linked Atlas papers.
+All required checkpoint validation gates pass. Stage-2 authority and source scope are preserved. The pinned PhiFlow snapshot was inspected statically, and repository examples remain framework capability evidence rather than research experiments.
 
 ## Aggregate batch QA
 
-`SOB020` remains **10/10 — PASS**. `SOB021` advances to **1/10** with exact next resource `CR000211`.
+`SOB020` remains **10/10 — PASS**. `SOB021` advances to **2/10** with exact next resource `CR000212`.
