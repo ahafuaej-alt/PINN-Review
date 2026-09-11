@@ -2,20 +2,21 @@
 
 Date: 2026-09-11
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S197`
+Latest checkpoint: `Stage3-S198`
 
 ## Current totals
 
-- Unresolved findings: **1326**
+- Unresolved findings: **1332**
 - Explicit conflicts: **145**
-- Next unresolved ID: `S3U-1327`
+- Next unresolved ID: `S3U-1333`
 
-## New findings in S197
+## New findings in S198
 
-- `S3U-1322` — CR000222 / relationship_scope / medium: CR000222 remains only a related-paper candidate from the MULTIPINN source context; no current Atlas reference ID or paper relationship is created.
-- `S3U-1323` — CR000222 / license / medium: The accepted Stage-2 authority establishes a Creative Commons license family but not the exact variant; SPDX remains `NOASSERTION`.
-- `S3U-1324` — CR000222 / computational_assets / medium: Accessible Stage-2 metadata does not establish a separate reusable code or dataset resource for this article.
-- `S3U-1325` — CR000222 / reproducibility_scope / medium: No scientific environment, executable entrypoint, configuration, checkpoint, or independently reproducible computational package is established for this web research artifact.
-- `S3U-1326` — CR000222 / source_snapshot / low: The publisher web resource has no immutable repository commit SHA; Stage 3 preserves a bounded metadata-level assessment.
+- `S3U-1327` — CR000223 / framework_scope / medium: The current PhysicsNeMo framework is substantially broader than the historical PINN-toolbox scope associated with Atlas review paper 367; Stage 3 preserves that scope distinction.
+- `S3U-1328` — CR000223 / source_snapshot / low: The product web resource has no immutable commit SHA; technical source claims are bounded to the Stage-2-authoritative linked repository snapshot.
+- `S3U-1329` — CR000223 / environment / medium: The package supports multiple CUDA and optional-dependency variants, so the root manifest does not define one universal runtime for every component.
+- `S3U-1330` — CR000223 / example_dependencies / medium: Example-specific requirement files and optional feature groups are not normalized into a single environment specification.
+- `S3U-1331` — CR000223 / data_assets / medium: Examples, tests, reference values, normalization files, model/test assets, and external dataset workflows are heterogeneous support materials and cannot be represented as one standalone dataset.
+- `S3U-1332` — CR000223 / reproducibility_scope / medium: No framework-wide experiment, hyperparameter set, seed, expected-result target, or benchmark execution is established by the bounded static assessment.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
