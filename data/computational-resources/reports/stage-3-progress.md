@@ -5,35 +5,35 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S189`
-- Latest completed resource: `CR000211`
+- Latest completed checkpoint: `Stage3-S190`
+- Latest completed resource: `CR000212`
 - Latest completed aggregate batch: `SOB020` — **PASS (10/10)**
-- Current batch: `SOB021` — **2/10**
+- Current batch: `SOB021` — **3/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000212`
-- Exact next checkpoint: `Stage3-S190`
+- Exact next independently extractable resource: `CR000213`
+- Exact next checkpoint: `Stage3-S191`
 
-## Cumulative counts through S189 / RC05
+## Cumulative counts through S190 / RC05
 
-- Resources: **212**
+- Resources: **213**
 - Experiments: **335**
 - Configurations: **605**
-- Technical-evidence records: **2309**
-- Reproducibility assessments: **212**
-- Unresolved findings: **1280**
-- Explicit conflicts: **141**
-- Independently extractable resources remaining: **151**
+- Technical-evidence records: **2317**
+- Reproducibility assessments: **213**
+- Unresolved findings: **1286**
+- Explicit conflicts: **142**
+- Independently extractable resources remaining: **150**
 
-## S189
+## S190
 
-`CR000211` preserves the Stage-2-authoritative `tum-pbs/PhiFlow` supporting-software identity at pinned commit `7569231f0604dce9239afe55f9a671324dbe8f9d`. It is represented as a reusable differentiable PDE/simulation framework rather than a paper-specific PINN implementation, and no Atlas-paper relationship is inferred.
+`CR000212` preserves the Stage-2-authoritative transferred `taichi-dev/difftaichi` supporting-software identity at pinned commit `9f4ee522a0a01e6b1aae1d3551c7fd1f6ed56081`; Stage 2 establishes continuity with the former `yuanming-hu/difftaichi` path. No Atlas-paper relationship is inferred.
 
-Bounded static extraction records PhiFlow version 3.4.0, NumPy/PyTorch/JAX/TensorFlow backend scope, core package dependencies, optional backend/UI/GPU layers, and the pinned PhiML submodule identity. Repository examples remain capability evidence and are not manufactured into research experiments. Static reproducibility is `R2`.
+Bounded static extraction records the repository's examples-only role after DiffTaichi functionality moved into Taichi, ICLR 2020 project citation, installation guidance, dependency manifest and documented differentiable-simulator breadth. README Taichi v0.8.3 compatibility guidance conflicts with the same-snapshot `taichi>=1.1.0` requirement and is preserved explicitly. Static reproducibility is `R1`.
 
 ## Aggregate batch QA
 
-`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 2/10.
+`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 3/10.
 
 ## Reconciled baseline
 
@@ -41,4 +41,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative and c
 
 ## Continuation
 
-Continue with `Stage3-S190` at `CR000212`.
+Continue with `Stage3-S191` at `CR000213`.

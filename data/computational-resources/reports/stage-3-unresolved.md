@@ -2,20 +2,21 @@
 
 Date: 2026-09-11
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S189`
+Latest checkpoint: `Stage3-S190`
 
 ## Current totals
 
-- Unresolved findings: **1280**
-- Explicit conflicts: **141**
-- Next unresolved ID: `S3U-1281`
+- Unresolved findings: **1286**
+- Explicit conflicts: **142**
+- Next unresolved ID: `S3U-1287`
 
-## New findings in S189
+## New findings in S190
 
-- `S3U-1276` — CR000211 / environment / medium: The repository declares bounded core dependencies but does not provide one exact environment lock spanning PhiFlow, PhiML and all optional backends.
-- `S3U-1277` — CR000211 / backend_versions / medium: PyTorch, TensorFlow and JAX are documented as supported optional backends, but their compatible versions are not fixed by the repository-level setup metadata.
-- `S3U-1278` — CR000211 / dependency_identity / medium: PhiML appears as both a package dependency with minimum version 1.14.0 and a repository submodule pinned to a specific commit; both observations are preserved without asserting equivalence.
-- `S3U-1279` — CR000211 / gpu_environment / low: GPU execution and optional custom CUDA operators are documented, but no single GPU/CUDA environment is pinned at repository scope.
-- `S3U-1280` — CR000211 / examples / low: The repository contains broad simulation, optimization and learning examples; they demonstrate framework capabilities but do not establish independent paper-specific experiments or Atlas relationships.
+- `S3U-1281` — CR000212 / environment / medium: The dependency manifest provides `taichi>=1.1.0` and otherwise unpinned package names rather than an exact environment lock.
+- `S3U-1282` — CR000212 / version_guidance / high / **explicit conflict**: At the same pinned snapshot, README states example compatibility with Taichi v0.8.3 while `requirements.txt` requires `taichi>=1.1.0`; the discrepancy is preserved without reconciliation.
+- `S3U-1283` — CR000212 / license / medium: No repository license is identified at the pinned commit, and no license is inherited from the broader Taichi project.
+- `S3U-1284` — CR000212 / example_environment / medium: Repository-level requirements do not establish exact compatible runtime or hardware requirements for every simulator example.
+- `S3U-1285` — CR000212 / resource_role / low: README states DiffTaichi framework functionality has moved into Taichi and this repository now contains examples; the repository is therefore retained as historical supporting software rather than treated as the current framework implementation.
+- `S3U-1286` — CR000212 / examples / low: The repository documents multiple differentiable simulator examples, but these do not establish independent Atlas-paper experiments or relationships and are not promoted to Stage-3 experiments.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
