@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S199`
-- Latest completed resource: `CR000225`
+- Latest completed checkpoint: `Stage3-S200`
+- Latest completed resource: `CR000228`
 - Latest completed aggregate batch: `SOB021` — **PASS (10/10)**
-- Current batch: `SOB022` — **4/10**
+- Current batch: `SOB022` — **6/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000226`
-- Exact next checkpoint: `Stage3-S200`
+- Exact next independently extractable resource: `CR000229`
+- Exact next checkpoint: `Stage3-S201`
 
-## Cumulative counts through S199 / RC05
+## Cumulative counts through S200 / RC05
 
-- Resources: **224**
+- Resources: **226**
 - Experiments: **339**
 - Configurations: **609**
-- Technical-evidence records: **2402**
-- Reproducibility assessments: **224**
-- Unresolved findings: **1336**
+- Technical-evidence records: **2414**
+- Reproducibility assessments: **226**
+- Unresolved findings: **1342**
 - Explicit conflicts: **145**
-- Independently extractable resources remaining: **139**
+- Independently extractable resources remaining: **137**
 
-## S199
+## S200
 
-`CR000224` preserves the Stage-2-resolved `sciann/sciann` one-README project-move pointer at pinned commit `ed06ee3c05bd79ec3db344e54334355941d5c618`. Canonical SciANN technical authority remains `CR000062`; `PRL000080` retains canonical-resource provenance. Static reproducibility for the pointer identity is `R1`.
+`CR000226` preserves the unavailable Stage-1 `analysis-bear/PyDEns` alias and accepted `VA000039` resolution to canonical `CR000057` (`analysiscenter/pydens`). Canonical technical authority remains on CR000057; `PRL000082` retains canonical-resource provenance. Static reproducibility for the unavailable alias artifact is `R0`.
 
-`CR000225` preserves the unavailable historical NeuroDiffEq alias and accepted `VA000002` resolution to canonical `CR000137` (`NeuroDiffGym/neurodiffeq`). Canonical technical authority remains on CR000137; `PRL000081` retains canonical-resource provenance. Static reproducibility for the unavailable alias artifact is `R0`.
+`CR000228` preserves ADCME as a supporting scientific-computing library at pinned commit `074c84443cfe89b66a1b8900a83d60f81d4fbc03`. Static evidence establishes its graph-mode TensorFlow backend, physics-constrained/inverse-modeling capabilities, Julia package manifest (`0.7.3`, Julia `^1.3`), documented package/Docker installation paths, and MIT license. It remains broader than a PINN-specific framework and receives static reproducibility `R2`.
 
-Neither alias is expanded into duplicate experiments, configurations, environments, licenses, datasets, or canonical reproducibility claims.
+`CR000227` is pilot-complete and remains excluded from scale-out re-extraction under accepted Stage3-SO-D01.
 
 ## Continuation
 
-Continue with `Stage3-S200` at `CR000226`.
+Continue with `Stage3-S201` at `CR000229`.
