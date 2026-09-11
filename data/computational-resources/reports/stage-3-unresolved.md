@@ -2,21 +2,20 @@
 
 Date: 2026-09-11
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S187`
+Latest checkpoint: `Stage3-S188`
 
 ## Current totals
 
-- Unresolved findings: **1270**
+- Unresolved findings: **1275**
 - Explicit conflicts: **141**
-- Next unresolved ID: `S3U-1271`
+- Next unresolved ID: `S3U-1276`
 
-## New findings in S187
+## New findings in S188
 
-- `S3U-1265` — CR000209 / license / high: No repository license is identified at the pinned commit.
-- `S3U-1266` — CR000209 / environment / high: No formal dependency/environment manifest, version pins, or repository installation procedure is present for the eighteen notebooks.
-- `S3U-1267` — CR000209 / data / high: README directs users to external Google Drive datasets that are not bundled in the pinned repository; external payload inspection is outside this checkpoint.
-- `S3U-1268` — CR000209 / archive / medium: Posting.zip is bundled at the pinned commit but remains uninspected; its contents are not promoted to experiments, datasets, or results.
-- `S3U-1269` — CR000209 / citation / medium: No project self-citation metadata is identified in final Stage-2 authority.
-- `S3U-1270` — CR000209 / reproducibility / medium: Notebook-specific seeds, device metadata and hyperparameters are not established consistently across all eighteen configurations; repository-wide hardware provenance remains unknown.
+- `S3U-1271` — CR000210 / versioning / medium: The Stage-2 resource is an aggregate project website with no single immutable source commit or site snapshot suitable as a universal reproduction target.
+- `S3U-1272` — CR000210 / environment / medium: FEniCSx is componentized and no single site-level dependency/environment manifest applies across the aggregate project; concrete reproduction requires component/version selection.
+- `S3U-1273` — CR000210 / paper_relationship / medium: Verified relationships to Atlas papers 752 and 836 establish software use only; the Stage-2 relationship evidence does not establish one shared paper-specific FEniCS configuration.
+- `S3U-1274` — CR000210 / license / low: A single aggregate-project SPDX license is not applicable at the website-resource level; component-level licensing remains the correct normalization scope.
+- `S3U-1275` — CR000210 / reproducibility / low: Current provider component versions are documented, but they must not be retroactively attributed to Atlas papers 752 or 836 without paper-specific evidence.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
