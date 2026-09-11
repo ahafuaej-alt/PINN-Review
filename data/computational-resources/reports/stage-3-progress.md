@@ -5,34 +5,32 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S200`
-- Latest completed resource: `CR000228`
+- Latest completed checkpoint: `Stage3-S201`
+- Latest completed resource: `CR000229`
 - Latest completed aggregate batch: `SOB021` — **PASS (10/10)**
-- Current batch: `SOB022` — **6/10**
+- Current batch: `SOB022` — **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000229`
-- Exact next checkpoint: `Stage3-S201`
+- Exact next independently extractable resource: `CR000230`
+- Exact next checkpoint: `Stage3-S202`
 
-## Cumulative counts through S200 / RC05
+## Cumulative counts through S201 / RC05
 
-- Resources: **226**
+- Resources: **227**
 - Experiments: **339**
 - Configurations: **609**
-- Technical-evidence records: **2414**
-- Reproducibility assessments: **226**
-- Unresolved findings: **1342**
+- Technical-evidence records: **2422**
+- Reproducibility assessments: **227**
+- Unresolved findings: **1346**
 - Explicit conflicts: **145**
-- Independently extractable resources remaining: **137**
+- Independently extractable resources remaining: **136**
 
-## S200
+## S201
 
-`CR000226` preserves the unavailable Stage-1 `analysis-bear/PyDEns` alias and accepted `VA000039` resolution to canonical `CR000057` (`analysiscenter/pydens`). Canonical technical authority remains on CR000057; `PRL000082` retains canonical-resource provenance. Static reproducibility for the unavailable alias artifact is `R0`.
+`CR000229` preserves the Stage-2-repaired Nangs identity at canonical `juansensio/nangs` and pinned commit `8c9be2fb0d2f1901b515aea87c16ea0f5dca2164`; the unavailable Stage-1 `juanpedro/nangs` path remains provenance under accepted `VA000040`. Static evidence establishes a PyTorch-based neural PDE/PINN library, package version `2021.12.06`, Python `>=3.6`, `pip install nangs`, Apache-2.0 licensing, and `PRL000085` for Atlas 367. PyTorch remains an unversioned separately installed backend dependency, so static reproducibility is bounded at `R2`.
 
-`CR000228` preserves ADCME as a supporting scientific-computing library at pinned commit `074c84443cfe89b66a1b8900a83d60f81d4fbc03`. Static evidence establishes its graph-mode TensorFlow backend, physics-constrained/inverse-modeling capabilities, Julia package manifest (`0.7.3`, Julia `^1.3`), documented package/Docker installation paths, and MIT license. It remains broader than a PINN-specific framework and receives static reproducibility `R2`.
-
-`CR000227` is pilot-complete and remains excluded from scale-out re-extraction under accepted Stage3-SO-D01.
+Tutorials/examples are retained as framework documentation and are not manufactured into Stage-3 experiments.
 
 ## Continuation
 
-Continue with `Stage3-S201` at `CR000229`.
+Continue with `Stage3-S202` at `CR000230`.
