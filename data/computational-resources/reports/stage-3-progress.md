@@ -5,35 +5,37 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S194`
-- Latest completed resource: `CR000216`
+- Latest completed checkpoint: `Stage3-S195`
+- Latest completed resource: `CR000219`
 - Latest completed aggregate batch: `SOB020` — **PASS (10/10)**
-- Current batch: `SOB021` — **7/10**
+- Current batch: `SOB021` — **9/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000217`
-- Exact next checkpoint: `Stage3-S195`
+- Exact next independently extractable resource: `CR000220`
+- Exact next checkpoint: `Stage3-S196`
 
-## Cumulative counts through S194 / RC05
+## Cumulative counts through S195 / RC05
 
-- Resources: **217**
+- Resources: **219**
 - Experiments: **339**
 - Configurations: **609**
-- Technical-evidence records: **2357**
-- Reproducibility assessments: **217**
-- Unresolved findings: **1308**
+- Technical-evidence records: **2369**
+- Reproducibility assessments: **219**
+- Unresolved findings: **1316**
 - Explicit conflicts: **144**
-- Independently extractable resources remaining: **146**
+- Independently extractable resources remaining: **144**
 
-## S194
+## S195
 
-`CR000216` preserves the Stage-2-authoritative `https://gradsim.github.io` web-resource identity, with official website-source commit `ebf56cc95eb7c51d2de0bbc2947e396c3006e43c` and separately linked code commit `abe8008e9559957f84a67b06208600cb66de3be2`. No Atlas-paper relationship is inferred.
+`CR000217` is not re-extracted because the accepted Stage3-SO-D01 scale-out plan marks it pilot-complete. `CR000218` and `CR000219` are therefore the next two independently extractable resources.
 
-Bounded static extraction maps only the explicitly paper-support `exp01`, `exp02`, and `exp03` linked-code workflows to three experiments/configurations. General demos remain resource-level support evidence. Website CC-BY-4.0 licensing remains website-scoped; the linked-code repository has no root license and conflicting setup metadata (`(TBD)` versus an MIT classifier), preserved as explicit conflict. Static reproducibility is `R2`.
+`CR000218` preserves the Stage-2-authoritative `thunil/Physics-Based-Deep-Learning` repository at pinned commit `b901b50c7dccbb56d6ada2b621cdce57ef3f84e3`. It remains a book/bibliography/tutorial landing collection with no paper-specific local experiment promotion. Static reproducibility is `R1`.
+
+`CR000219` preserves the Stage-2-authoritative archived `AndreWeiner/machine-learning-applied-to-cfd` repository at pinned commit `4c48c4aafe61f199ad68e89b1615bbbed7086904`. Its heterogeneous ML-for-CFD examples remain collection-level evidence and are not promoted into paper-specific experiments. Static reproducibility is `R2`.
 
 ## Aggregate batch QA
 
-`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 7/10.
+`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 9/10.
 
 ## Reconciled baseline
 
@@ -41,4 +43,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative and c
 
 ## Continuation
 
-Continue with `Stage3-S195` at `CR000217`.
+Continue with `Stage3-S196` at `CR000220`.
