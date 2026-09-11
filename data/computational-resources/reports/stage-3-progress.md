@@ -5,35 +5,35 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S190`
-- Latest completed resource: `CR000212`
+- Latest completed checkpoint: `Stage3-S191`
+- Latest completed resource: `CR000213`
 - Latest completed aggregate batch: `SOB020` — **PASS (10/10)**
-- Current batch: `SOB021` — **3/10**
+- Current batch: `SOB021` — **4/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000213`
-- Exact next checkpoint: `Stage3-S191`
+- Exact next independently extractable resource: `CR000214`
+- Exact next checkpoint: `Stage3-S192`
 
-## Cumulative counts through S190 / RC05
+## Cumulative counts through S191 / RC05
 
-- Resources: **213**
+- Resources: **214**
 - Experiments: **335**
 - Configurations: **605**
-- Technical-evidence records: **2317**
-- Reproducibility assessments: **213**
-- Unresolved findings: **1286**
+- Technical-evidence records: **2325**
+- Reproducibility assessments: **214**
+- Unresolved findings: **1291**
 - Explicit conflicts: **142**
-- Independently extractable resources remaining: **150**
+- Independently extractable resources remaining: **149**
 
-## S190
+## S191
 
-`CR000212` preserves the Stage-2-authoritative transferred `taichi-dev/difftaichi` supporting-software identity at pinned commit `9f4ee522a0a01e6b1aae1d3551c7fd1f6ed56081`; Stage 2 establishes continuity with the former `yuanming-hu/difftaichi` path. No Atlas-paper relationship is inferred.
+`CR000213` preserves the Stage-2-authoritative transferred `jax-md/jax-md` supporting-software identity at pinned commit `a41c7d19f6468f4e5263c32c12c9ed6cba26ebff`; Stage 2 establishes continuity with the former `google/jax-md` path. No Atlas-paper relationship is inferred.
 
-Bounded static extraction records the repository's examples-only role after DiffTaichi functionality moved into Taichi, ICLR 2020 project citation, installation guidance, dependency manifest and documented differentiable-simulator breadth. README Taichi v0.8.3 compatibility guidance conflicts with the same-snapshot `taichi>=1.1.0` requirement and is preserved explicitly. Static reproducibility is `R1`.
+Bounded static extraction records JAX-MD 0.2.29, Apache-2.0 licensing, documented installation and Zenodo citation, JAX/XLA CPU/GPU/TPU scope, ranged dependency groups, and heterogeneous notebooks/examples/model assets. These remain supporting-software capability evidence rather than Atlas-paper experiments. Static reproducibility is `R2`.
 
 ## Aggregate batch QA
 
-`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 3/10.
+`SOB020` remains complete at 10/10 and **PASS**. `SOB021` is now 4/10.
 
 ## Reconciled baseline
 
@@ -41,4 +41,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative and c
 
 ## Continuation
 
-Continue with `Stage3-S191` at `CR000213`.
+Continue with `Stage3-S192` at `CR000214`.
