@@ -2,21 +2,20 @@
 
 Date: 2026-09-11
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S192`
+Latest checkpoint: `Stage3-S193`
 
 ## Current totals
 
-- Unresolved findings: **1297**
+- Unresolved findings: **1302**
 - Explicit conflicts: **143**
-- Next unresolved ID: `S3U-1298`
+- Next unresolved ID: `S3U-1303`
 
-## New findings in S192
+## New findings in S193
 
-- `S3U-1292` — CR000214 / legacy_environment / medium: The documented workflow targets Ubuntu 18.04, Python 3.6.9, OpenFOAM 5 and TensorFlow 1.15; compatibility with newer TensorFlow/OpenFOAM stacks is not established.
-- `S3U-1293` — CR000214 / archive_scope / medium: Three bundled ZIP archives and the TensorFlow C-API tarball are inventoried statically but their archive internals were not unpacked in Stage 3.
-- `S3U-1294` — CR000214 / binary_provenance / medium: Bundled protobuf, HDF5, TensorBoard and compiled-object artifacts are present, but their exact build/training provenance is not independently reconstructed by static inspection.
-- `S3U-1295` — CR000214 / workflow_maturity / low: The ML_LES workflow is explicitly marked work in progress and is therefore not promoted to a completed experiment/configuration.
-- `S3U-1296` — CR000214 / in_situ_stability / medium: The IN_SITU workflow is explicitly work in progress and the root documentation warns that some training instances can segfault for unfavorable randomized initial weights/biases; no runtime incidence rate is established.
-- `S3U-1297` — CR000214 / activation_conflict / medium / **explicit conflict**: The ML_RANS README documents a ReLU network example while the pinned active `ML_Model.py` uses tanh hidden activations.
+- `S3U-1298` — CR000215 / aggregate_target / medium: The Stage-2 resource is an aggregate SciML ecosystem website and does not provide one immutable implementation commit suitable as a universal reproduction target.
+- `S3U-1299` — CR000215 / license_scope / medium: The MIT license in the pinned `SciML/sciml.ai` website-source repository applies to the website source and must not be propagated as an aggregate SciML ecosystem or component-package license.
+- `S3U-1300` — CR000215 / environment_scope / medium: The Franklin dependency in the website `Project.toml` describes the website build environment and does not define a common SciML software runtime or dependency environment.
+- `S3U-1301` — CR000215 / citation_scope / low: Provider guidance is component-specific; no single aggregate SciML software DOI is established for the ecosystem resource.
+- `S3U-1302` — CR000215 / component_normalization / low: Component packages have independent versions, licenses, environments and workflows; they are not collapsed into synthetic Stage-3 experiments or configurations for this aggregate resource.
 
-Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
+Existing findings and conflicts remain preserved; no historical unresolved ID is reused and no new explicit conflict is introduced.
