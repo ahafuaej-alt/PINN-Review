@@ -5,33 +5,37 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S186`
-- Latest completed resource: `CR000208`
-- Latest completed aggregate batch: `SOB019` — **PASS (10/10)**
-- Current batch: `SOB020` — **9/10**
+- Latest completed checkpoint: `Stage3-S187`
+- Latest completed resource: `CR000209`
+- Latest completed aggregate batch: `SOB020` — **PASS (10/10)**
+- Current batch: `SOB021` — **0/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000209`
-- Exact next checkpoint: `Stage3-S187`
+- Exact next independently extractable resource: `CR000210`
+- Exact next checkpoint: `Stage3-S188`
 
-## Cumulative counts through S186 / RC05
+## Cumulative counts through S187 / RC05
 
-- Resources: **209**
-- Experiments: **329**
-- Configurations: **587**
-- Technical-evidence records: **2281**
-- Reproducibility assessments: **209**
-- Unresolved findings: **1264**
+- Resources: **210**
+- Experiments: **335**
+- Configurations: **605**
+- Technical-evidence records: **2293**
+- Reproducibility assessments: **210**
+- Unresolved findings: **1270**
 - Explicit conflicts: **141**
-- Independently extractable resources remaining: **154**
+- Independently extractable resources remaining: **153**
 
-## S186
+## S187
 
-`CR000208` preserves the Stage-2-authoritative `maryamTolou/Learning-Python-Physics-Informed-Machine-Learning-PINNs-DeepONets` identity at pinned SHA `08fd3ac1714fa4ccd5b7b4b430a08bd7ee1adcd0`. GitHub records it as a distinct fork of `CR000202`; the fork predates the current upstream snapshot and neither later upstream content nor upstream relationships are inherited. No repository license, project self-citation metadata, or asserted Atlas-paper relationship is present.
+`CR000209` preserves the Stage-2-authoritative `hl4220/Extended-Physics-Informed-Neural-Operator` identity at pinned SHA `006fec6b3e5babf1723caf746e2f2f20b2d0f3c8`. The exact pinned tree contains 18 notebooks across six problem directories plus README and `Posting.zip`. README directs users to external Google Drive datasets.
 
-The exact pinned 12-file tree contains nine tutorial notebooks: six under `PINNs/` and three under `DeepONets/`, plus bundled `Data/Burgers.mat` and `Data/Euler.mat`. README describes step-by-step coverage of function approximation, ODE/PDE PINNs, inverse PINNs, DeepONets, and physics-informed DeepONets.
+Bounded static extraction maps six experiment families and eighteen notebook configurations across advection, Allen-Cahn, antiderivative, Burgers, Darcy flow and pendulum workflows. No formal dependency/environment manifest, repository license, or project self-citation metadata is present. `Posting.zip` remains uninspected and is not promoted to a dataset, result set, or experiment.
 
-No formal dependency/environment manifest, package-version pins, or installation procedure is present. Repository-level seed and hardware provenance remain unknown. The static reproducibility level is `R1`; scientific execution, notebook execution, and MAT-data loading were not performed.
+Static reproducibility is `R1`. No notebook, model, scientific dataset, archive payload, training, inference, evaluation, dependency environment, or scientific workload was executed.
+
+## Aggregate batch QA
+
+`SOB020` is complete at 10/10 and **PASS**. Membership, cumulative counts, identifiers, orphan references, source-scope sampling, missing-value semantics, methodology/schema drift, stage boundaries, execution boundary and provenance text all pass.
 
 ## Reconciled baseline
 
@@ -39,4 +43,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative and c
 
 ## Continuation
 
-Continue with `Stage3-S187` at `CR000209`. Re-read the live branch, current reports, accepted scale-out plan, reconciliation authorities and latest checkpoint QA before starting.
+Continue with `Stage3-S188` at `CR000210`. Re-read the live branch, current reports, accepted scale-out plan, reconciliation authorities and latest checkpoint and aggregate QA before starting.
