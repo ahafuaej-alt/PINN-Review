@@ -22,4 +22,6 @@ All required checkpoint validation gates pass. Stage-2 authority and pinned SHA 
 
 `SOB021` is **10/10 — PASS**. Membership is `CR000210–CR000216`, `CR000218`, `CR000219`, `CR000220`; the accepted Stage3-SO-D01 pilot-complete exclusion for CR000217 is enforced. Cumulative identifiers, references, counts, source-scope discipline, missing-value semantics, methodology/schema stability, protected write boundaries, execution boundary and provenance screening pass.
 
+Aggregate Stage-2 authority readback identified one count-neutral CR000219 license-label transcription defect in `TE-CR000219-0005`: the final Stage-2 authority is **MIT**, not GPL-3.0-or-later. The evidence record has been corrected without changing identifiers, counts, resource scope, reproducibility level, unresolved findings, or conflicts.
+
 `SOB022` starts at 0/10. Exact continuation: `CR000222 → Stage3-S197`.
