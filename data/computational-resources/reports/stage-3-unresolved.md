@@ -1,21 +1,21 @@
 # Computational Resources Stage 3 Unresolved Register
 
-Date: 2026-09-11
+Date: 2026-09-12
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S204`
+Latest checkpoint: `Stage3-S205`
 
 ## Current totals
 
-- Unresolved findings: **1363**
+- Unresolved findings: **1368**
 - Explicit conflicts: **146**
-- Next unresolved ID: `S3U-1364`
+- Next unresolved ID: `S3U-1369`
 
-## New findings in S204
+## New findings in S205
 
-- `S3U-1359` — CR000233 / dependency_pinning / low: Core requirements use minimum/range constraints and scikit-learn is unversioned; no fully immutable transitive environment is established.
-- `S3U-1360` — CR000233 / optional_environment / low: Optional dev/docs/examples/KeOps/Pyro/test groups have heterogeneous version constraints and were not normalized into one environment.
-- `S3U-1361` — CR000233 / runtime_validation / low: GPU acceleration and scalable GP inference claims remain documentation-scoped; no scientific workload was executed.
-- `S3U-1362` — CR000233 / example_scope / low: Repository examples/tutorials remain library documentation and are not promoted to standalone Stage-3 experiments.
-- `S3U-1363` — CR000233 / dataset_scope / low: Bundled example/test archives and model assets remain support material rather than a standalone PINN research dataset.
+- `S3U-1364` — CR000234 / license / medium: No repository license file or repository license metadata is available at the pinned source; no SPDX license is inferred.
+- `S3U-1365` — CR000234 / dependency_manifest / low: README documents three exact runtime versions, but setup.py declares no install_requires dependency set, so the package manifest is incomplete.
+- `S3U-1366` — CR000234 / runtime_validation / low: Documented NeuralUQ UQ methods and PINN/operator support remain source-scoped; no scientific workload was executed.
+- `S3U-1367` — CR000234 / example_scope / low: Numerous example scripts and notebooks remain documentation/support material and are not promoted to standalone Stage-3 experiments.
+- `S3U-1368` — CR000234 / dataset_asset_scope / low: Bundled SciML benchmark data and pretrained model arrays remain heterogeneous support assets rather than a separately normalized standalone research dataset.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
