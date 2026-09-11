@@ -5,35 +5,33 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S185`
-- Latest completed resource: `CR000207`
+- Latest completed checkpoint: `Stage3-S186`
+- Latest completed resource: `CR000208`
 - Latest completed aggregate batch: `SOB019` — **PASS (10/10)**
-- Current batch: `SOB020` — **8/10**
+- Current batch: `SOB020` — **9/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC05` — **PASS (count-neutral cumulative validation repair)**
-- Exact next independently extractable resource: `CR000208`
-- Exact next checkpoint: `Stage3-S186`
+- Exact next independently extractable resource: `CR000209`
+- Exact next checkpoint: `Stage3-S187`
 
-## Cumulative counts through S185 / RC05
+## Cumulative counts through S186 / RC05
 
-- Resources: **208**
-- Experiments: **320**
-- Configurations: **578**
-- Technical-evidence records: **2269**
-- Reproducibility assessments: **208**
-- Unresolved findings: **1258**
+- Resources: **209**
+- Experiments: **329**
+- Configurations: **587**
+- Technical-evidence records: **2281**
+- Reproducibility assessments: **209**
+- Unresolved findings: **1264**
 - Explicit conflicts: **141**
-- Independently extractable resources remaining: **155**
+- Independently extractable resources remaining: **154**
 
-## S185
+## S186
 
-`CR000207` preserves the Stage-2-authoritative `lmandl/PITI-DeepONet` identity at pinned SHA `4f95fb526113956c20330a75bf282715e1290aeb`, no repository-level license, project citation DOI `10.1016/j.cma.2026.118917`, and no asserted Atlas-paper relationship.
+`CR000208` preserves the Stage-2-authoritative `maryamTolou/Learning-Python-Physics-Informed-Machine-Learning-PINNs-DeepONets` identity at pinned SHA `08fd3ac1714fa4ccd5b7b4b430a08bd7ee1adcd0`. GitHub records it as a distinct fork of `CR000202`; the fork predates the current upstream snapshot and neither later upstream content nor upstream relationships are inherited. No repository license, project self-citation metadata, or asserted Atlas-paper relationship is present.
 
-The bounded extraction contains four PDE experiment families—Heat, Burgers, Allen-Cahn, and Kuramoto-Sivashinsky—and preserves all 17 explicit training-script variants in the pinned 38-file tree as configurations. README documents the time-integrated tangent-operator formulation and explicit Euler, RK4, ABM2, and implicit Euler inference schemes.
+The exact pinned 12-file tree contains nine tutorial notebooks: six under `PINNs/` and three under `DeepONets/`, plus bundled `Data/Burgers.mat` and `Data/Euler.mat`. README describes step-by-step coverage of function approximation, ODE/PDE PINNs, inverse PINNs, DeepONets, and physics-informed DeepONets.
 
-`requirements.txt` provides a fully pinned JAX/CUDA-oriented environment and README documents `pip install -r requirements.txt`. The pinned snapshot contains no data, model checkpoint, or result file, while representative training scripts reference local problem-data paths. Hardware provenance is unknown.
-
-The static reproducibility level is `R2`: environment versions and installation are documented, but missing scientific inputs and the static-execution boundary prevent a stronger classification. No scientific workload was executed.
+No formal dependency/environment manifest, package-version pins, or installation procedure is present. Repository-level seed and hardware provenance remain unknown. The static reproducibility level is `R1`; scientific execution, notebook execution, and MAT-data loading were not performed.
 
 ## Reconciled baseline
 
@@ -41,4 +39,4 @@ Stage3-RC02, Stage3-RC03, Stage3-RC04 and Stage3-RC05 remain authoritative and c
 
 ## Continuation
 
-Continue with `Stage3-S186` at `CR000208`. Re-read the live branch, current reports, accepted scale-out plan, reconciliation authorities and latest checkpoint QA before starting.
+Continue with `Stage3-S187` at `CR000209`. Re-read the live branch, current reports, accepted scale-out plan, reconciliation authorities and latest checkpoint QA before starting.
