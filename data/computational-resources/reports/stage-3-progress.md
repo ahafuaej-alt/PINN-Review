@@ -10,11 +10,11 @@ Branch: `data/computational-resources-stage3`
 - Latest completed aggregate batch: `SOB023` — **PASS (10/10)**
 - Current batch: `SOB024` — **8/10**
 - Checkpoint QA: **PASS**
-- Latest reconciliation: `Stage3-RC06` — **PASS**
+- Latest reconciliation: `Stage3-RC07` — **PASS**
 - Exact next independently extractable resource: `CR000251`
 - Exact next checkpoint: `Stage3-S217`
 
-## Cumulative counts through S216 / RC06
+## Cumulative counts through S216 / RC07
 
 - Resources: **248**
 - Experiments: **339**
@@ -34,5 +34,7 @@ Branch: `data/computational-resources-stage3`
 `SOB023` remains **PASS (10/10)**. `SOB024` is now **8/10**; aggregate QA is not yet due.
 
 ## Continuation
+
+Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes. RC07 normalizes 58 enum-invalid values in 35 records from S183–S202 without changing counts or scientific facts.
 
 Continue with `Stage3-S217` at `CR000251`.
