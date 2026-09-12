@@ -5,9 +5,9 @@ Branch: `data/computational-resources-stage3`
 
 ## Status
 
-- Latest completed checkpoint: `Stage3-S234`
+- Latest completed checkpoint: `Stage3-S235`
 - Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
-- Total unresolved findings: **1573**
+- Total unresolved findings: **1574**
 - Explicit conflicts: **146**
 
 Unresolved findings are bounded evidence gaps, not permission to infer missing technical facts. They remain attached to the resource/evidence scope that created them and may be closed only by stronger authoritative evidence or an accepted reconciliation.
@@ -16,6 +16,7 @@ Unresolved findings are bounded evidence gaps, not permission to infer missing t
 
 | ID | Resource | Finding | Status |
 |---|---|---|---|
+| S3U-1574 | CR000277 | The final Stage-2 AIAA supplementary archive locator is blocked/unverified; the archive was not retrieved, so payload contents, licence, checksum and file manifest remain unknown. | OPEN |
 | S3U-1573 | CR000276 | The final Stage-2 OSF project record establishes public project metadata but not a reusable license or archive/file-level technical manifest; project payload was not downloaded or opened. | OPEN |
 | S3U-1572 | CR000275 | The final Stage-2 Zenodo record identifies the provider-reported RAR archive and checksum metadata, but Stage 3 did not open the archive or independently recompute the checksum, and no reusable license is established by the Stage-2 record. | OPEN |
 | S3U-1571 | CR000274 | The authoritative Stage-2 identity is a public GitHub repository, but it is archived and its declared dependencies target TensorFlow 1.3.0 and Python 3.5; Stage 3 performed static inspection only and did not establish present-day executability. | OPEN |
@@ -25,7 +26,6 @@ Unresolved findings are bounded evidence gaps, not permission to infer missing t
 | S3U-1567 | CR000270 | The provider page documents acquisition, operating conditions, CSV structure, download mirrors and recommended citation, but no explicit reusable dataset licence or version identifier was established and no dataset archive was downloaded or opened. | OPEN |
 | S3U-1566 | CR000269 | The provider documents EN.4.2.2 and the paper documents its collocation use, but Stage 3 did not identify the exact monthly EN4 files or bias-adjustment ensemble member used by the paper and did not download/open any NetCDF payload. | OPEN |
 | S3U-1565 | CR000268 | The paper documents the Kaggle/Hugging Face image sources and subset counts, but Stage 3 did not enumerate exact image IDs, resolve dataset versions, or establish explicit reusable licences for the Kaggle or Hugging Face datasets. | OPEN |
-| S3U-1564 | CR000267 | The official download page documents the 12 test cases and downloadable OpenDSS payloads, but Stage 3 did not download or inspect those payloads and the page exposes no explicit version identifier, checksum, or reusable dataset licence. | OPEN |
 
 ## Conflict policy
 

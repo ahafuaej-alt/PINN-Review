@@ -5,11 +5,11 @@ Branch: `data/computational-resources-stage3`
 
 ## Current status
 
-- Latest completed checkpoint: `Stage3-S234`
+- Latest completed checkpoint: `Stage3-S235`
 - Latest checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral CR000274 provenance/evidence-use normalization)**
 - Latest completed aggregate batch: `SOB026` — **PASS (10/10)**
-- Current aggregate batch: `SOB027` — **3/10**
+- Current aggregate batch: `SOB027` — **4/10**
 - Schema drift: **none detected**
 - Methodology drift: **none detected**
 - Stage-boundary violations: **none detected**
@@ -20,15 +20,15 @@ Branch: `data/computational-resources-stage3`
 
 | Item | Count |
 |---|---:|
-| Resources | 273 |
+| Resources | 274 |
 | Experiments | 368 |
 | Configurations | 649 |
-| Technical evidence | 2740 |
-| Reproducibility assessments | 273 |
-| Unresolved findings | 1573 |
+| Technical evidence | 2745 |
+| Reproducibility assessments | 274 |
+| Unresolved findings | 1574 |
 | Explicit conflicts | 146 |
 
-## Latest checkpoint QA — Stage3-S234
+## Latest checkpoint QA — Stage3-S235
 
 | Gate | Result |
 |---|---|
@@ -49,8 +49,8 @@ Branch: `data/computational-resources-stage3`
 | Provenance-text screening | PASS |
 | Branch-head stability before publication | PASS |
 
-S234 adds `CR000275` and `CR000276` as bounded provider-hosted dataset/project records. Provider metadata and final Stage-2 identity/relationship state are preserved without opening dataset payloads or inferring unavailable licenses. Both reproducibility assessments are `R2`. No new explicit conflict is introduced.
+S235 adds `CR000277` as a bounded unavailable/blocked supplementary-archive resource. The final Stage-2 locator and bibliographic URL metadata are preserved while archive contents, licence, checksum and manifest remain unknown. Reproducibility is `R0`. No new explicit conflict is introduced.
 
 ## Aggregate status
 
-`SOB026` remains **PASS (10/10)**. `SOB027` now contains three independently extractable resources and therefore does not yet require aggregate closure QA.
+`SOB026` remains **PASS (10/10)**. `SOB027` now contains four independently extractable resources and therefore does not yet require aggregate closure QA.
