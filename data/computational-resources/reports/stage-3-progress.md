@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S215`
-- Latest completed resource: `CR000248`
+- Latest completed checkpoint: `Stage3-S216`
+- Latest completed resource: `CR000250`
 - Latest completed aggregate batch: `SOB023` — **PASS (10/10)**
-- Current batch: `SOB024` — **6/10**
+- Current batch: `SOB024` — **8/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC06` — **PASS**
-- Exact next independently extractable resource: `CR000249`
-- Exact next checkpoint: `Stage3-S216`
+- Exact next independently extractable resource: `CR000251`
+- Exact next checkpoint: `Stage3-S217`
 
-## Cumulative counts through S215 / RC06
+## Cumulative counts through S216 / RC06
 
-- Resources: **246**
+- Resources: **248**
 - Experiments: **339**
 - Configurations: **609**
-- Technical-evidence records: **2540**
-- Reproducibility assessments: **246**
-- Unresolved findings: **1382**
+- Technical-evidence records: **2550**
+- Reproducibility assessments: **248**
+- Unresolved findings: **1384**
 - Explicit conflicts: **146**
-- Independently extractable resources remaining: **117**
+- Independently extractable resources remaining: **115**
 
-## S215
+## S216
 
-`CR000248` preserves the Yin Zhu researcher profile/software-download index, `VA000049`, `PRL000284`, and the linked `htl4ic.zip` archive without promoting the uninspected archive to repository or dataset status. Archive-internal license, dependencies, entrypoint and data contents remain bounded unknowns. The resource is assessed at `R1`.
+`CR000249` preserves the historical TrAdaBoost repository provenance and `PRL000285` while keeping unavailable source metadata unknown and assigning `R0`. `CR000250` preserves the historical EasyAdapt compressed-script endpoint and `PRL000286`; retrieval-blocked artifact contents remain bounded unknowns and the resource is assessed at `R0`. Neither resource creates experiment or configuration records.
 
 ## Aggregate batch QA
 
-`SOB023` remains **PASS (10/10)**. `SOB024` is now **6/10**.
+`SOB023` remains **PASS (10/10)**. `SOB024` is now **8/10**; aggregate QA is not yet due.
 
 ## Continuation
 
-Continue with `Stage3-S216` at `CR000249`.
+Continue with `Stage3-S217` at `CR000251`.
