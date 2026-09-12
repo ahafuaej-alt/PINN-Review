@@ -5,38 +5,36 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S222`
-- Latest completed resource: `CR000258`
+- Latest completed checkpoint: `Stage3-S223`
+- Latest completed resource: `CR000259`
 - Latest completed aggregate batch: `SOB024` — **PASS (10/10)**
-- Current batch: `SOB025` — **6/10**
+- Current batch: `SOB025` — **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC07` — **PASS**
-- Exact next independently extractable resource: `CR000259`
-- Exact next checkpoint: `Stage3-S223`
+- Exact next independently extractable resource: `CR000260`
+- Exact next checkpoint: `Stage3-S224`
 
-## Cumulative counts through S222 / RC07
+## Cumulative counts through S223 / RC07
 
-- Resources: **256**
+- Resources: **257**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2615**
-- Reproducibility assessments: **256**
-- Unresolved findings: **1402**
+- Technical-evidence records: **2620**
+- Reproducibility assessments: **257**
+- Unresolved findings: **1403**
 - Explicit conflicts: **146**
-- Independently extractable resources remaining: **107**
+- Independently extractable resources remaining: **106**
 
-## S222
+## S223
 
-`CR000257` preserves the exact Leon Bottou Oquab-2014 publication-page identity and `PRL000293`. Static inspection confirms the author-hosted paper title, authorship, CVPR 2014 bibliographic record, abstract, BibTeX, and publication files, but no current code or executable-software link. It is therefore retained as a publication resource with no promoted experiment or configuration and an `R0` reproducibility assessment.
-
-`CR000258` preserves the historical HKUST transfer-learning resource/software-index identity and `PRL000294`. The authoritative Stage-2 redirect state remains Page Not Found; the failed target is not promoted as an alias and no replacement artifact is inferred. It remains `R0` with no experiments or configurations.
+`CR000259` preserves the exact SlideShare presentation identity and `PRL000295`. Static metadata confirm the 28-slide **Heterogeneous Defect Prediction (ESEC/FSE 2015)** presentation attributed to Sung Kim. The presentation remains a documentation resource: no source code, executable workflow, hosted research dataset, experiment, or configuration is promoted. Reproducibility is `R0`.
 
 ## Aggregate batch QA
 
-`SOB024` remains **10/10 — PASS**. `SOB025` is now **6/10**; aggregate QA is not yet due.
+`SOB024` remains **10/10 — PASS**. `SOB025` is now **7/10**; aggregate QA is not yet due.
 
 ## Continuation
 
 Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes. RC07 normalizes 58 enum-invalid values in 35 records from S183–S202 without changing counts or scientific facts.
 
-Continue with `Stage3-S223` at `CR000259`.
+Continue with `Stage3-S224` at `CR000260`.
