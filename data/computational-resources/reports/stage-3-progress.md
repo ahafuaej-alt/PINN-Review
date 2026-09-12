@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S211`
-- Latest completed resource: `CR000243`
+- Latest completed checkpoint: `Stage3-S212`
+- Latest completed resource: `CR000244`
 - Latest completed aggregate batch: `SOB023` — **PASS (10/10)**
-- Current batch: `SOB024` — **1/10**
+- Current batch: `SOB024` — **2/10**
 - Checkpoint QA: **PASS**
-- Latest reconciliation: `Stage3-RC06` — **PASS (count-neutral accepted-schema artifact-form normalization)**
-- Exact next independently extractable resource: `CR000244`
-- Exact next checkpoint: `Stage3-S212`
+- Latest reconciliation: `Stage3-RC06` — **PASS**
+- Exact next independently extractable resource: `CR000245`
+- Exact next checkpoint: `Stage3-S213`
 
-## Cumulative counts through S211 / RC06
+## Cumulative counts through S212 / RC06
 
-- Resources: **241**
+- Resources: **242**
 - Experiments: **339**
 - Configurations: **609**
-- Technical-evidence records: **2504**
-- Reproducibility assessments: **241**
-- Unresolved findings: **1377**
+- Technical-evidence records: **2511**
+- Reproducibility assessments: **242**
+- Unresolved findings: **1378**
 - Explicit conflicts: **146**
-- Independently extractable resources remaining: **122**
+- Independently extractable resources remaining: **121**
 
-## S211
+## S212
 
-`CR000243` preserves the historical NVIDIA SimNet web-resource alias, accepted `VA000047` identity resolution, canonical delegation to `CR000223` (PhysicsNeMo), and `PRL000104` for Atlas reference 401. It is bounded as a provenance/alias artifact with no duplicated canonical experiments, configurations, environment, license, or executable-resource metadata and is assessed at `R1`.
+`CR000244` preserves the TensorFlow project/documentation web resource and `PRL000105`. Repository-level static evidence is scoped to the linked pinned official source snapshot. No separate repository identity, experiment/configuration set, or standalone research dataset is created for CR000244. The resource is assessed at `R1`.
 
 ## Aggregate batch QA
 
-`SOB023` remains **PASS (10/10)** after RC06 revalidation. `SOB024` is now **1/10**.
+`SOB023` remains **PASS (10/10)**. `SOB024` is now **2/10**.
 
 ## Continuation
 
-Continue with `Stage3-S212` at `CR000244`.
+Continue with `Stage3-S213` at `CR000245`.
