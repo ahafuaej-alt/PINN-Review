@@ -5,36 +5,36 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S224`
-- Latest completed resource: `CR000260`
+- Latest completed checkpoint: `Stage3-S225`
+- Latest completed resource: `CR000261`
 - Latest completed aggregate batch: `SOB024` — **PASS (10/10)**
-- Current batch: `SOB025` — **8/10**
+- Current batch: `SOB025` — **9/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC07` — **PASS**
-- Exact next independently extractable resource: `CR000261`
-- Exact next checkpoint: `Stage3-S225`
+- Exact next independently extractable resource: `CR000262`
+- Exact next checkpoint: `Stage3-S226`
 
-## Cumulative counts through S224 / RC07
+## Cumulative counts through S225 / RC07
 
-- Resources: **258**
+- Resources: **259**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2632**
-- Reproducibility assessments: **258**
-- Unresolved findings: **1406**
+- Technical-evidence records: **2643**
+- Reproducibility assessments: **259**
+- Unresolved findings: **1410**
 - Explicit conflicts: **146**
-- Independently extractable resources remaining: **105**
+- Independently extractable resources remaining: **104**
 
-## S224
+## S225
 
-`CR000260` preserves the NTU LIBSVM project identity, `PRL000296`, and the Stage-2-pinned `cjlin1/libsvm` snapshot at `6b907139084abf2da4d6d3cb10dc3b7eaffa2fbb`. Static inspection records LIBSVM 3.37 capabilities, BSD-3-Clause licensing, C/C++ CLI/library builds, Python 3.37.0 bindings, Java release-11 build metadata, MATLAB/Octave interfaces, the bounded `heart_scale` example-data role, documented use paths, and evaluation outputs. Library examples are not promoted to synthetic experiments or configurations. Reproducibility is `R2`.
+`CR000261` preserves `VA000052`, the relocated Judy Hoffman Domain Adaptation Project identity, and `PRL000297`. The official project page documents transformation learning, MMDT, latent-domain/multi-source adaptation, associated Office/Office-Caltech/Bing-Caltech datasets, standard semi-supervised evaluation protocols, three code-download families, and their dependency/data boundaries. The official `jhoffman/MaxMarginDomainTransforms` repository at observed head `73fed23388ea8c0794976cf0d5f908637502ca1a` is retained only as source-scoped MMDT corroboration, not as a Stage-2 pin, alias, replacement resource, or asserted exact equivalent of the linked MMDT ZIP. Exact archive-level licensing/environment and external-dataset payload validation remain bounded gaps. Reproducibility is `R1`.
 
 ## Aggregate batch QA
 
-`SOB024` remains **10/10 — PASS**. `SOB025` is now **8/10**; aggregate QA is not yet due.
+`SOB024` remains **10/10 — PASS**. `SOB025` is now **9/10**; aggregate QA is not yet due.
 
 ## Continuation
 
 Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes. RC07 normalizes 58 enum-invalid values in 35 records from S183–S202 without changing counts or scientific facts.
 
-Continue with `Stage3-S225` at `CR000261`.
+Continue with `Stage3-S226` at `CR000262`.
