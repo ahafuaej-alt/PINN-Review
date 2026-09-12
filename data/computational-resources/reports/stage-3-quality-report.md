@@ -2,29 +2,29 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S232`
+Latest checkpoint: `Stage3-S233`
 Latest reconciliation: `Stage3-RC07`
 Status: **PASS**
 
-## Checkpoint S232
+## Checkpoint S233
 
-- Resources: **2** (`CR000272`, `CR000273`)
+- Resources: **1** (`CR000274`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **16**
-- Reproducibility assessments: **2**
-- New unresolved findings: **4**
+- Technical-evidence records: **8**
+- Reproducibility assessments: **1**
+- New unresolved findings: **2**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000272 R2; CR000273 R2**
+- Reproducibility: **CR000274 R3**
 
-All required checkpoint validation gates pass. CR000272 preserves `VA000053`, `PRL000022`, immutable repository identity `635501712`, and the exact Stage-2 pin; successor MagNet services are retained only as documented successors and are not asserted equivalent to the historical Challenge 2023 payload. CR000273 preserves `PRL000023`, its exact pinned repository, bundled data-artifact names/sizes, and the documented BeltClip/Digimat-AM generation path without inferring unuploaded model contents or licensing.
+All required checkpoint validation gates pass. CR000274 preserves the final Stage-2 KIT/RADAR4KIT dataset identity and explicitly preserves the absence of an Atlas-paper relationship. Current KIT provider metadata corroborates DOI `10.35097/mmnxkbqqeye8p5tx`, research-data title/creator/date, CC BY-SA 4.0 licensing, and the experimental-image plus trained-network-weight scope.
 
-The pre-checkpoint temporary-file incident is count-neutral: the temporary root file was removed before S232 scientific publication, and restoration commit `9028b16fae62e2a8dcd9ea73720be35330f39ce1` has the exact S231 tree SHA `87585ff1e3a465a38671d7a958ff40da5ed77ac2`.
+R3 is supported by the persistent DOI, explicit open licence, public official record, citation metadata and provider-documented dataset identity. R4 is withheld because the approximately 13.1 GB archived payload was not downloaded/opened, its file-level inventory was not normalized, and provider checksum metadata was not independently recomputed.
 
 ## Aggregate batch QA
 
-`SOB026` is **10/10 — PASS**. Membership reconciliation, cumulative counts, identifier uniqueness, orphan-reference checks, source-scope sampling, missing-value semantics, methodology/schema drift, stage boundaries, execution boundaries, provenance text, R5 exclusion, and Stage-2 authority readback all pass. `CR000268` is an authoritative pilot-complete exclusion and is not duplicated.
+`SOB026` remains **10/10 — PASS**. `SOB027` is **1/10**; aggregate QA is not yet due.
 
-Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes.
+Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes. Cumulative schemas, identifiers, evidence references, inference labeling, R5 exclusion, stage boundaries and repository-scope controls pass.
 
-Exact continuation: `CR000274 → Stage3-S233`.
+Exact continuation: `CR000275 → Stage3-S234`.
