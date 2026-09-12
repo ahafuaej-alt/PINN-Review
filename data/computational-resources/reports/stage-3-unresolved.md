@@ -2,16 +2,17 @@
 
 Date: 2026-09-12
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S213`
+Latest checkpoint: `Stage3-S214`
 
 ## Current totals
 
-- Unresolved findings: **1379**
+- Unresolved findings: **1381**
 - Explicit conflicts: **146**
-- Next unresolved ID: `S3U-1380`
+- Next unresolved ID: `S3U-1382`
 
-## New findings in S213
+## New findings in S214
 
-- `S3U-1379` — CR000245 / multi_interface_runtime_scope / low: ALE documents Python, C++, Gymnasium and WebAssembly interfaces with partially bounded dependencies, but cross-interface runtime compatibility and bundled ROM/test assets were not executed or normalized.
+- `S3U-1380` — CR000246 / supporting_framework_source_scope / low: CR000246 is the Darknet project-site/supporting-framework resource; linked source build options are statically bounded, but repository runtime versions and bundled assets were not executed and the paper's public code remains a separate resource.
+- `S3U-1381` — CR000247 / legacy_runtime_compatibility / low: Bolt targets Python 2.5/2.6 and an old NumPy/Cython toolchain; setup.py also retains hard-coded platform paths, so modern compatibility remains untested.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.

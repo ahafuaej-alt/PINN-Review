@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S213`
-- Latest completed resource: `CR000245`
+- Latest completed checkpoint: `Stage3-S214`
+- Latest completed resource: `CR000247`
 - Latest completed aggregate batch: `SOB023` — **PASS (10/10)**
-- Current batch: `SOB024` — **3/10**
+- Current batch: `SOB024` — **5/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC06` — **PASS**
-- Exact next independently extractable resource: `CR000246`
-- Exact next checkpoint: `Stage3-S214`
+- Exact next independently extractable resource: `CR000248`
+- Exact next checkpoint: `Stage3-S215`
 
-## Cumulative counts through S213 / RC06
+## Cumulative counts through S214 / RC06
 
-- Resources: **243**
+- Resources: **245**
 - Experiments: **339**
 - Configurations: **609**
-- Technical-evidence records: **2520**
-- Reproducibility assessments: **243**
-- Unresolved findings: **1379**
+- Technical-evidence records: **2534**
+- Reproducibility assessments: **245**
+- Unresolved findings: **1381**
 - Explicit conflicts: **146**
-- Independently extractable resources remaining: **120**
+- Independently extractable resources remaining: **118**
 
-## S213
+## S214
 
-`CR000245` preserves the transferred Arcade Learning Environment repository through immutable repository identity and accepted `VA000048`, retains `PRL000275`, and uses the Stage-2 pinned source snapshot. Static inspection confirms documented Python, C++, Gymnasium and WebAssembly interfaces, clear GPL-2.0 licensing, installation paths, partially bounded dependencies, and bundled ROM/runtime assets that are not promoted to a standalone research dataset. The resource is assessed at `R2`.
+`CR000246` preserves the Darknet project-site/supporting-framework scope with linked pinned source evidence and is assessed at `R1`. `CR000247` preserves the legacy Bolt source repository, explicit historical environment/install requirements and bounded portability limits and is assessed at `R2`. Neither resource creates an experiment or configuration record.
 
 ## Aggregate batch QA
 
-`SOB023` remains **PASS (10/10)**. `SOB024` is now **3/10**.
+`SOB023` remains **PASS (10/10)**. `SOB024` is now **5/10**.
 
 ## Continuation
 
-Continue with `Stage3-S214` at `CR000246`.
+Continue with `Stage3-S215` at `CR000248`.
