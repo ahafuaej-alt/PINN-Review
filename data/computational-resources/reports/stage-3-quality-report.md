@@ -2,29 +2,29 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S231`
+Latest checkpoint: `Stage3-S232`
 Latest reconciliation: `Stage3-RC07`
 Status: **PASS**
 
-## Checkpoint S231
+## Checkpoint S232
 
-- Resources: **1** (`CR000271`)
+- Resources: **2** (`CR000272`, `CR000273`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **8**
-- Reproducibility assessments: **1**
-- New unresolved findings: **2**
-- New explicit conflicts: **1**
-- Reproducibility: **CR000271 R1**
+- Technical-evidence records: **16**
+- Reproducibility assessments: **2**
+- New unresolved findings: **4**
+- New explicit conflicts: **0**
+- Reproducibility: **CR000272 R2; CR000273 R2**
 
-All required checkpoint validation gates pass. Final Stage-2 authority is preserved as `CR000271 / PRL000021 / Atlas reference 110`. The primary paper's exact PlantVillage/Kaggle citation, 1,550-image rice-disease claim and preprocessing details are retained. Current/canonical PlantVillage evidence is also retained, including the absence of a matching rice class path in the inspected canonical class tree. The resulting source-identity mismatch is explicitly represented as conflicting evidence; no Stage-2 record or alternate dataset identity is manufactured.
+All required checkpoint validation gates pass. CR000272 preserves `VA000053`, `PRL000022`, immutable repository identity `635501712`, and the exact Stage-2 pin; successor MagNet services are retained only as documented successors and are not asserted equivalent to the historical Challenge 2023 payload. CR000273 preserves `PRL000023`, its exact pinned repository, bundled data-artifact names/sizes, and the documented BeltClip/Digimat-AM generation path without inferring unuploaded model contents or licensing.
 
-The current Kaggle CC BY-NC-SA 4.0 licence observation is a Stage-3 evidence update only and does not retroactively rewrite Stage-2's historical unknown-licence field. R1 is conservative because the general dataset record is accessible, but the paper-specific data subset cannot be reconstructed from the bounded static evidence.
+The pre-checkpoint temporary-file incident is count-neutral: the temporary root file was removed before S232 scientific publication, and restoration commit `9028b16fae62e2a8dcd9ea73720be35330f39ce1` has the exact S231 tree SHA `87585ff1e3a465a38671d7a958ff40da5ed77ac2`.
 
 ## Aggregate batch QA
 
-`SOB025` remains **10/10 — PASS**. `SOB026` is **8/10**; aggregate QA is not yet due.
+`SOB026` is **10/10 — PASS**. Membership reconciliation, cumulative counts, identifier uniqueness, orphan-reference checks, source-scope sampling, missing-value semantics, methodology/schema drift, stage boundaries, execution boundaries, provenance text, R5 exclusion, and Stage-2 authority readback all pass. `CR000268` is an authoritative pilot-complete exclusion and is not duplicated.
 
-Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes. Cumulative schemas, identifiers, hierarchy, evidence references, inference labeling, R5 exclusion and repository-scope controls pass.
+Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000272 → Stage3-S232`.
+Exact continuation: `CR000274 → Stage3-S233`.
