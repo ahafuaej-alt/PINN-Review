@@ -5,9 +5,9 @@ Branch: `data/computational-resources-stage3`
 
 ## Status
 
-- Latest completed checkpoint: `Stage3-S236`
+- Latest completed checkpoint: `Stage3-S237`
 - Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
-- Total unresolved findings: **1576**
+- Total unresolved findings: **1577**
 - Explicit conflicts: **146**
 
 Unresolved findings are bounded evidence gaps, not permission to infer missing technical facts. They remain attached to the resource/evidence scope that created them and may be closed only by stronger authoritative evidence or an accepted reconciliation.
@@ -16,6 +16,7 @@ Unresolved findings are bounded evidence gaps, not permission to infer missing t
 
 | ID | Resource | Finding | Status |
 |---|---|---|---|
+| S3U-1577 | CR000280 | The product DOI, official Copernicus Marine product identity and service terms are verified, but direct DOI-resolver redirect semantics, the exact product version/time-series subset used for comparison, and file-level payload provenance were not independently normalized; no data payload was downloaded or opened. | OPEN |
 | S3U-1576 | CR000279 | The authoritative Copernicus Marine product identity, DOI and service terms are verified, but Stage 3 did not normalize the exact file/version/time subset used by paper 153 and did not download, open, subset or parse any product payload. | OPEN |
 | S3U-1575 | CR000278 | The exact EIRIE item URL is verified from paper 146, but current direct item transport did not resolve; authentication/access requirements, item-level licence, standalone dataset citation and payload metadata remain bounded unknowns. | OPEN |
 | S3U-1574 | CR000277 | The final Stage-2 AIAA supplementary archive locator is blocked/unverified; the archive was not retrieved, so payload contents, licence, checksum and file manifest remain unknown. | OPEN |
@@ -25,7 +26,6 @@ Unresolved findings are bounded evidence gaps, not permission to infer missing t
 | S3U-1570 | CR000273 | The repository exposes the spreadsheet/archive names and describes the Digimat-AM generation workflow, but the bundled spreadsheet/archives were not opened and the corresponding Digimat-AM models are not in the repository; no reusable repository licence is established. | OPEN |
 | S3U-1569 | CR000272 | The historical MagNet Challenge 2023 repository points to successor data/tool services, but exact payload/version equivalence between those successors and the paper-used challenge dataset was not established; evaluation archives and submitted models were not opened or executed. | OPEN |
 | S3U-1568 | CR000271 | The pinned repository contains subject ZIP archives and states that subjects 1–10 are for training and 11–15 for testing, but Stage 3 did not open the archives, reconstruct the full 15-subject metadata table, or execute preprocessing/training; no reusable repository licence is established. | OPEN |
-| S3U-1567 | CR000270 | The provider page documents acquisition, operating conditions, CSV structure, download mirrors and recommended citation, but no explicit reusable dataset licence or version identifier was established and no dataset archive was downloaded or opened. | OPEN |
 
 ## Conflict policy
 

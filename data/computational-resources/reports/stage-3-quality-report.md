@@ -5,11 +5,11 @@ Branch: `data/computational-resources-stage3`
 
 ## Current status
 
-- Latest completed checkpoint: `Stage3-S236`
+- Latest completed checkpoint: `Stage3-S237`
 - Latest checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
 - Latest completed aggregate batch: `SOB026` — **PASS (10/10)**
-- Current aggregate batch: `SOB027` — **6/10**
+- Current aggregate batch: `SOB027` — **7/10**
 - Schema drift: **none detected**
 - Methodology drift: **none detected**
 - Stage-boundary violations: **none detected**
@@ -20,15 +20,15 @@ Branch: `data/computational-resources-stage3`
 
 | Item | Count |
 |---|---:|
-| Resources | 276 |
+| Resources | 277 |
 | Experiments | 368 |
 | Configurations | 649 |
-| Technical evidence | 2757 |
-| Reproducibility assessments | 276 |
-| Unresolved findings | 1576 |
+| Technical evidence | 2763 |
+| Reproducibility assessments | 277 |
+| Unresolved findings | 1577 |
 | Explicit conflicts | 146 |
 
-## Latest checkpoint QA — Stage3-S236
+## Latest checkpoint QA — Stage3-S237
 
 | Gate | Result |
 |---|---|
@@ -49,8 +49,8 @@ Branch: `data/computational-resources-stage3`
 | Provenance-text screening | PASS |
 | Branch-head stability before publication | PASS |
 
-S236 adds CR000278 and CR000279 as bounded dataset/web-resource records. CR000278 retains unresolved current item-level access and licence/citation semantics at R1. CR000279 preserves the official GLORYS12V1 product identity, DOI and custom Copernicus Marine service terms at R2. No new explicit conflict is introduced.
+S237 adds CR000280 as a bounded DOI-identified Copernicus Marine data product. The official Black Sea mean-sea-level indicator DOI, product identity, paper relationship and custom service terms are preserved at `R2`; direct DOI redirect semantics and exact file/version/time-series provenance remain bounded. No new explicit conflict is introduced.
 
 ## Aggregate status
 
-`SOB026` remains **PASS (10/10)**. `SOB027` now contains six independently extractable resources and therefore does not yet require aggregate closure QA.
+`SOB026` remains **PASS (10/10)**. `SOB027` now contains seven independently extractable resources and therefore does not yet require aggregate closure QA.
