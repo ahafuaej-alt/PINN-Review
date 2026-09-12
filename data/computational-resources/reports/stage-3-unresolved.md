@@ -2,17 +2,31 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S233`
 
-## Current totals
+## Status
 
-- Unresolved findings: **1431**
-- Explicit conflicts: **147**
-- Next unresolved ID: `S3U-1432`
+- Latest completed checkpoint: `Stage3-S234`
+- Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
+- Total unresolved findings: **1573**
+- Explicit conflicts: **146**
 
-## New findings in S233
+Unresolved findings are bounded evidence gaps, not permission to infer missing technical facts. They remain attached to the resource/evidence scope that created them and may be closed only by stronger authoritative evidence or an accepted reconciliation.
 
-- `S3U-1430` — CR000274 / archive_payload_and_file_inventory_not_inspected / low: The provider reports an approximately 13.1 GB archived dataset containing experimental image data and trained neural-network weights, but the archive was not downloaded or opened; file-level inventory, image/weight schema, and payload completeness therefore remain unverified.
-- `S3U-1431` — CR000274 / provider_checksum_not_independently_recomputed / low: The authoritative dataset record includes checksum metadata, but no archive payload was retrieved and the provider checksum was not independently recomputed during Stage 3.
+## Recent unresolved findings
 
-Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
+| ID | Resource | Finding | Status |
+|---|---|---|---|
+| S3U-1573 | CR000276 | The final Stage-2 OSF project record establishes public project metadata but not a reusable license or archive/file-level technical manifest; project payload was not downloaded or opened. | OPEN |
+| S3U-1572 | CR000275 | The final Stage-2 Zenodo record identifies the provider-reported RAR archive and checksum metadata, but Stage 3 did not open the archive or independently recompute the checksum, and no reusable license is established by the Stage-2 record. | OPEN |
+| S3U-1571 | CR000274 | The authoritative Stage-2 identity is a public GitHub repository, but it is archived and its declared dependencies target TensorFlow 1.3.0 and Python 3.5; Stage 3 performed static inspection only and did not establish present-day executability. | OPEN |
+| S3U-1570 | CR000273 | The repository exposes the spreadsheet/archive names and describes the Digimat-AM generation workflow, but the bundled spreadsheet/archives were not opened and the corresponding Digimat-AM models are not in the repository; no reusable repository licence is established. | OPEN |
+| S3U-1569 | CR000272 | The historical MagNet Challenge 2023 repository points to successor data/tool services, but exact payload/version equivalence between those successors and the paper-used challenge dataset was not established; evaluation archives and submitted models were not opened or executed. | OPEN |
+| S3U-1568 | CR000271 | The pinned repository contains subject ZIP archives and states that subjects 1–10 are for training and 11–15 for testing, but Stage 3 did not open the archives, reconstruct the full 15-subject metadata table, or execute preprocessing/training; no reusable repository licence is established. | OPEN |
+| S3U-1567 | CR000270 | The provider page documents acquisition, operating conditions, CSV structure, download mirrors and recommended citation, but no explicit reusable dataset licence or version identifier was established and no dataset archive was downloaded or opened. | OPEN |
+| S3U-1566 | CR000269 | The provider documents EN.4.2.2 and the paper documents its collocation use, but Stage 3 did not identify the exact monthly EN4 files or bias-adjustment ensemble member used by the paper and did not download/open any NetCDF payload. | OPEN |
+| S3U-1565 | CR000268 | The paper documents the Kaggle/Hugging Face image sources and subset counts, but Stage 3 did not enumerate exact image IDs, resolve dataset versions, or establish explicit reusable licences for the Kaggle or Hugging Face datasets. | OPEN |
+| S3U-1564 | CR000267 | The official download page documents the 12 test cases and downloadable OpenDSS payloads, but Stage 3 did not download or inspect those payloads and the page exposes no explicit version identifier, checksum, or reusable dataset licence. | OPEN |
+
+## Conflict policy
+
+Explicit source conflicts remain preserved in their checkpoint evidence and quality records. A conflict is never silently resolved by preference, convenience, or inferred chronology. RC02–RC07 remain authoritative only for their explicitly accepted count-neutral reconciliation scopes.
