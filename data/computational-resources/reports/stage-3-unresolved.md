@@ -2,17 +2,19 @@
 
 Date: 2026-09-12
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S227`
+Latest checkpoint: `Stage3-S228`
 
 ## Current totals
 
-- Unresolved findings: **1413**
+- Unresolved findings: **1417**
 - Explicit conflicts: **146**
-- Next unresolved ID: `S3U-1414`
+- Next unresolved ID: `S3U-1418`
 
-## New findings in S227
+## New findings in S228
 
-- `S3U-1412` — CR000263 / historical_survey_page_unavailable_supporting_copy_not_promoted / medium: The Stage-2-authoritative Illinois survey page remains unavailable. A current indexed Jing Jiang faculty-hosted PDF appears to preserve the same survey, but direct retrieval failed in this checkpoint and it is not promoted as a Stage-2 alias or replacement resource; document-level reuse terms and exact content parity therefore remain unverified.
-- `S3U-1413` — CR000264 / exact_historical_poster_unavailable / medium: The exact historical poster remains unavailable. The Columbia institutional publication index and full paper verify the associated CVPR 2012 work but do not establish an exact replacement poster, poster-specific content, or poster reuse terms.
+- `S3U-1414` — CR000265 / exact_era5_product_request_not_identified / medium: The exact CDS dataset short name, variable/request selection, spatial/temporal subset, and output payload used by Atlas reference 60 are not established.
+- `S3U-1415` — CR000265 / paper_specific_era5_payload_not_inspected / low: No study-specific ERA5 file was downloaded or inspected, so file-level identifiers and checksums remain unverified.
+- `S3U-1416` — CR000266 / exact_sentinel_wave_mode_product_request_not_identified / medium: The exact Copernicus collection/product identifiers and query or processing request used by Atlas reference 60 are not established.
+- `S3U-1417` — CR000266 / paper_specific_sentinel_payload_not_inspected / low: No study-specific Sentinel-1 product was downloaded or inspected, so file-level identifiers and checksums remain unverified.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
