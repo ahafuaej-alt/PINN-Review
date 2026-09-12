@@ -5,34 +5,38 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S235`
-- Latest completed resource: `CR000277`
+- Latest completed checkpoint: `Stage3-S236`
+- Latest completed resource: `CR000279`
 - Latest completed aggregate batch: `SOB026` — **PASS (10/10)**
-- Current batch: `SOB027` — **4/10**
+- Current batch: `SOB027` — **6/10**
 - Checkpoint QA: **PASS**
-- Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral CR000274 provenance/evidence-use normalization)**
-- Exact next independently extractable resource: `CR000278`
-- Exact next checkpoint: `Stage3-S236`
+- Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
+- Exact next independently extractable resource: `CR000280`
+- Exact next checkpoint: `Stage3-S237`
 
-## Cumulative counts through S235 / RC07
+## Cumulative counts through S236 / RC07
 
-- Resources: **274**
+- Resources: **276**
 - Experiments: **368**
 - Configurations: **649**
-- Technical-evidence records: **2745**
-- Reproducibility assessments: **274**
-- Unresolved findings: **1574**
+- Technical-evidence records: **2757**
+- Reproducibility assessments: **276**
+- Unresolved findings: **1576**
 - Explicit conflicts: **146**
-- Independently extractable resources remaining: **89**
+- Independently extractable resources remaining: **87**
 
-## S235
+## S236
 
-`CR000277` preserves the final Stage-2 AIAA supplementary-archive locator for article DOI `10.2514/1.J055101` and its `unverified_blocked` status. The URL identifies the supplementary archive name, but the archive was not retrieved; contents, licence, checksum and file manifest remain bounded unknowns. No Atlas-paper relationship is asserted by final Stage-2 authority. The resource is assessed at `R0`; no payload was downloaded, opened, or executed.
+`CR000278` preserves the exact EIRIE research-data location and `PRL000029` for Atlas paper 146 while keeping current direct item transport, item-level licence and standalone citation semantics bounded where Stage-2 authority could not resolve them. It is assessed at `R1`.
+
+`CR000279` preserves the official Copernicus Marine `GLOBAL_MULTIYEAR_PHY_001_030` / GLORYS12V1 product, DOI `10.48670/moi-00021`, custom service licence scope and `PRL000031` for Atlas paper 153. It is assessed at `R2`.
+
+No scientific workload was executed.
 
 ## Aggregate batch QA
 
-`SOB026` remains **PASS (10/10)**. `SOB027` is now **4/10**.
+`SOB026` remains **PASS (10/10)**. `SOB027` is now **6/10**.
 
 ## Continuation
 
-Continue with `Stage3-S236` at `CR000278`.
+Continue with `Stage3-S237` at `CR000280`.

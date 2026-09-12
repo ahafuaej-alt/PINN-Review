@@ -5,9 +5,9 @@ Branch: `data/computational-resources-stage3`
 
 ## Status
 
-- Latest completed checkpoint: `Stage3-S235`
+- Latest completed checkpoint: `Stage3-S236`
 - Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
-- Total unresolved findings: **1574**
+- Total unresolved findings: **1576**
 - Explicit conflicts: **146**
 
 Unresolved findings are bounded evidence gaps, not permission to infer missing technical facts. They remain attached to the resource/evidence scope that created them and may be closed only by stronger authoritative evidence or an accepted reconciliation.
@@ -16,6 +16,8 @@ Unresolved findings are bounded evidence gaps, not permission to infer missing t
 
 | ID | Resource | Finding | Status |
 |---|---|---|---|
+| S3U-1576 | CR000279 | The authoritative Copernicus Marine product identity, DOI and service terms are verified, but Stage 3 did not normalize the exact file/version/time subset used by paper 153 and did not download, open, subset or parse any product payload. | OPEN |
+| S3U-1575 | CR000278 | The exact EIRIE item URL is verified from paper 146, but current direct item transport did not resolve; authentication/access requirements, item-level licence, standalone dataset citation and payload metadata remain bounded unknowns. | OPEN |
 | S3U-1574 | CR000277 | The final Stage-2 AIAA supplementary archive locator is blocked/unverified; the archive was not retrieved, so payload contents, licence, checksum and file manifest remain unknown. | OPEN |
 | S3U-1573 | CR000276 | The final Stage-2 OSF project record establishes public project metadata but not a reusable license or archive/file-level technical manifest; project payload was not downloaded or opened. | OPEN |
 | S3U-1572 | CR000275 | The final Stage-2 Zenodo record identifies the provider-reported RAR archive and checksum metadata, but Stage 3 did not open the archive or independently recompute the checksum, and no reusable license is established by the Stage-2 record. | OPEN |
@@ -24,8 +26,6 @@ Unresolved findings are bounded evidence gaps, not permission to infer missing t
 | S3U-1569 | CR000272 | The historical MagNet Challenge 2023 repository points to successor data/tool services, but exact payload/version equivalence between those successors and the paper-used challenge dataset was not established; evaluation archives and submitted models were not opened or executed. | OPEN |
 | S3U-1568 | CR000271 | The pinned repository contains subject ZIP archives and states that subjects 1–10 are for training and 11–15 for testing, but Stage 3 did not open the archives, reconstruct the full 15-subject metadata table, or execute preprocessing/training; no reusable repository licence is established. | OPEN |
 | S3U-1567 | CR000270 | The provider page documents acquisition, operating conditions, CSV structure, download mirrors and recommended citation, but no explicit reusable dataset licence or version identifier was established and no dataset archive was downloaded or opened. | OPEN |
-| S3U-1566 | CR000269 | The provider documents EN.4.2.2 and the paper documents its collocation use, but Stage 3 did not identify the exact monthly EN4 files or bias-adjustment ensemble member used by the paper and did not download/open any NetCDF payload. | OPEN |
-| S3U-1565 | CR000268 | The paper documents the Kaggle/Hugging Face image sources and subset counts, but Stage 3 did not enumerate exact image IDs, resolve dataset versions, or establish explicit reusable licences for the Kaggle or Hugging Face datasets. | OPEN |
 
 ## Conflict policy
 
