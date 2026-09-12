@@ -2,27 +2,27 @@
 
 Date: 2026-09-12
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S217`
+Latest checkpoint: `Stage3-S218`
 Latest reconciliation: `Stage3-RC07`
 Status: **PASS**
 
-## Checkpoint S217
+## Checkpoint S218
 
-- Resources: **1** (`CR000251`)
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **6**
+- Resources: **1** (`CR000252`)
+- Experiments: **1**
+- Configurations: **8**
+- Technical-evidence records: **13**
 - Reproducibility assessments: **1**
-- New unresolved findings: **1**
+- New unresolved findings: **4**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000251 R0**
+- Reproducibility: **CR000252 R2**
 
-All required checkpoint validation gates pass. The authoritative HFA archive identity, PRL000287 relationship, authentication-gated access state, missing-value semantics, no-authentication boundary and static-only rules are preserved.
+All required checkpoint validation gates pass. The authoritative project-page identity and PRL000288 relationship are preserved, the survey's ARC-t scope remains distinct from the linked archive's ECCV 2010 lineage, and only explicit static source/configuration evidence is promoted.
 
 ## Aggregate batch QA
 
-`SOB023` remains **10/10 — PASS**. `SOB024` is **9/10**; aggregate QA is not yet due.
+Mandatory `SOB024` aggregate QA is **10/10 — PASS**. Membership, batch deltas, cumulative counts, identifiers, references, source scope, missing-value semantics, protected boundaries, provenance text and R5 exclusion all pass.
 
 Stage3-RC02 through Stage3-RC07 remain authoritative and count-neutral for their accepted scopes. RC07 restores full-corpus accepted-schema validity for the affected S183–S202 records; cumulative schemas, identifiers, hierarchy, evidence references, inference pairing and R5 exclusion pass.
 
-Exact continuation: `CR000252 → Stage3-S218`.
+Exact continuation: `CR000253 → Stage3-S219`.
