@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S278`
-- Latest completed resource: `CR000327`
+- Latest completed checkpoint: `Stage3-S279`
+- Latest completed resource: `CR000328`
 - Latest completed aggregate batch: `SOB031` - **PASS (10/10)**
-- Current batch: `SOB032` - **4/10**
+- Current batch: `SOB032` - **5/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000328`
-- Exact next checkpoint: `Stage3-S279`
+- Exact next independently extractable resource: `CR000329`
+- Exact next checkpoint: `Stage3-S280`
 
-## Cumulative counts through S278 / RC09
+## Cumulative counts through S279 / RC09
 
-- Resources: **324**
+- Resources: **325**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3182**
-- Reproducibility assessments: **324**
-- Unresolved findings: **1546**
+- Technical-evidence records: **3192**
+- Reproducibility assessments: **325**
+- Unresolved findings: **1550**
 - Explicit conflicts: **156**
-- Independently extractable resources remaining: **39**
+- Independently extractable resources remaining: **38**
 
-## S278
+## S279
 
-`CR000327` preserves the Stage-2 correction that DOI `10.1016/j.ijnonlinmec.2024.104988` is Atlas paper 692 itself, not a dataset. Consequently, `PRL000225` remains not verified and the Stage-1 paper-dataset assertion is recorded as explicit conflicting evidence. The actual JHTDB data remain under `CR000307/PRL000224`; the separate DG-PINN repository is not conflated. The article licence is not transferred to data or software. No payload was opened and no scientific workflow was executed. The resource is assessed at `R0`.
+`CR000328` preserves the EyePACS/Kaggle diabetic-retinopathy competition identity and verified `PRL000229` relationship for Atlas paper 706. Provider evidence establishes clinician-graded high-resolution fundus images on the five-class 0-4 severity scale and competition-rule-controlled access. The paper reports EyePACS use and a 70:30 split, but the exact subset, preprocessing, class-imbalance handling and split lineage remain unresolved. No competition rules were accepted, no payload was opened and no clinical or scientific workflow was executed. The resource is assessed at `R1`.
 
 ## Aggregate batch QA
 
-`SOB031` remains **PASS (10/10)**. `SOB032` is now **4/10** with `CR000324–CR000327`.
+`SOB031` remains **PASS (10/10)**. `SOB032` is now **5/10** with `CR000324–CR000328`.
 
 ## Continuation
 
-Continue with `Stage3-S279` at `CR000328`.
+Continue with `Stage3-S280` at `CR000329`.
