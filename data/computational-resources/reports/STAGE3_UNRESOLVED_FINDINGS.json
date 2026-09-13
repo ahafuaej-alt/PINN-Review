@@ -2,22 +2,23 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S291`
+Latest checkpoint: `Stage3-S292`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1593**
+- Unresolved findings: **1597**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1594`
+- Next unresolved ID: `S3U-1598`
 
-## New findings in S291
+## New findings in S292
 
-- `S3U-1591` — CR000342 / archive_internal_manifest_and_experiment_file_mapping_unresolved / medium: the two Zenodo archives were not opened, so exact internal filenames, directory structure, format-note contents and archive-to-configuration mapping remain unverified.
-- `S3U-1592` — CR000342 / exact_code_snapshot_binding_to_zenodo_v1_unresolved / medium: the deposit and paper point to a separate GitLab code resource, but an exact commit/tag cryptographically bound to Zenodo v1 is not established within CR000342 and is not inferred across resource identities.
-- `S3U-1593` — CR000342 / stochastic_seed_lineage_unresolved / medium: ten-run evaluations document randomized initialization, mini-batches and Gaussian-noise sampling, but exact random seeds are not reported.
+- `S3U-1594` — CR000343 / supporting_information_payload_not_opened_or_page_local_details_unresolved / medium: the ACS landing page describes the free Supporting Information, but the PDF was not downloaded or opened, so exact page-local equations, tables and POLLU training-result details remain unverified beyond the publisher description and primary-paper text.
+- `S3U-1595` — CR000343 / exact_implementation_snapshot_binding_for_reported_results_unresolved / medium: the primary paper identifies the separate `DENG-MIT/Stiff-PINN` GitHub implementation, but CR000343 does not establish an exact commit, tag or release bound to the reported results and no cross-resource snapshot is inferred.
+- `S3U-1596` — CR000343 / supporting_information_license_and_reuse_terms_unresolved / medium: the ACS Supporting Information is free to access, but an explicit open licence for that PDF was not established and free access is not treated as open licensing.
+- `S3U-1597` — CR000343 / exact_environment_hardware_and_stochastic_seed_lineage_unresolved / medium: exact software-environment versions, hardware lineage and random seeds for the reported Stiff-PINN results are not established within this documentary resource.
 
-## New explicit conflicts in S291
+## New explicit conflicts in S292
 
 None. Existing conflicts remain preserved.
 
