@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S249`
-- Latest completed resource: `CR000296`
+- Latest completed checkpoint: `Stage3-S250`
+- Latest completed resource: `CR000297`
 - Latest completed aggregate batch: `SOB028` — **PASS (10/10)**
-- Current batch: `SOB029` — **3/10**
+- Current batch: `SOB029` — **4/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000297`
-- Exact next checkpoint: `Stage3-S250`
+- Exact next independently extractable resource: `CR000298`
+- Exact next checkpoint: `Stage3-S251`
 
-## Cumulative counts through S249 / RC08
+## Cumulative counts through S250 / RC08
 
-- Resources: **293**
+- Resources: **294**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2860**
-- Reproducibility assessments: **293**
-- Unresolved findings: **1453**
+- Technical-evidence records: **2866**
+- Reproducibility assessments: **294**
+- Unresolved findings: **1454**
 - Explicit conflicts: **148**
-- Independently extractable resources remaining: **70**
+- Independently extractable resources remaining: **69**
 
-## S249
+## S250
 
-`CR000296` preserves the Stage-2 legacy `cfd-benchmarks.com` identity, `PRL000067`, Atlas paper 328, and the authoritative current Aalborg University CFD benchmark location. The provider documents the two-dimensional benchmark as the `IEA 2D test case`, defined in 1990 for IEA Annex 20, and exposes benchmark-report and measurement links. Those linked payloads were not downloaded or opened; detailed measurement schema, boundary-condition values, item-level licence and paper-specific sampling remain bounded. The resource is assessed at `R1`.
+`CR000297` preserves the Stage-2 legacy NASA PCoE repository identity, `PRL000068`, Atlas paper 332, and the authoritative current NASA PCoE/Open Data locations for Data Set 8, the IGBT Accelerated Aging Data Set. Official provider metadata documents six devices, thermal-overstress aging, available electrical measurements, a public ZIP download, and the non-SPDX U.S. Government Works licence label already accepted in Stage 2. The archive was not downloaded or opened; device-level file inventory, signal schemas, failure-point preprocessing, and the paper-specific devices 2–5 selection remain bounded. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB028` remains **PASS (10/10)**. `SOB029` is now **3/10**.
+`SOB028` remains **PASS (10/10)**. `SOB029` is now **4/10**.
 
 ## Continuation
 
-Continue with `Stage3-S250` at `CR000297`.
+Continue with `Stage3-S251` at `CR000298`.
