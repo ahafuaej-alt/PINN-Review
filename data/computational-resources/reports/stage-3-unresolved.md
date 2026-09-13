@@ -3,7 +3,7 @@
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
 Latest checkpoint: `Stage3-S263`
-Latest reconciliation: `Stage3-RC08` — PASS
+Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
@@ -20,5 +20,9 @@ Latest reconciliation: `Stage3-RC08` — PASS
 - `S3U-1501` — CR000312 / derived_bathymetric_label_payload_unresolved / medium: the paper documents AE-DBSCAN, refraction and tide corrections used to derive ATL03 reference bathymetric points, but an exact deposited payload of the processed points/training labels was not identified.
 
 The Stage-2 geolocation-advisory exposure question is resolved for the paper-reported study dates: the latest listed ICESat-2 acquisition is 15 September 2021, before the provider-documented issue onset of 24 October 2021.
+
+## RC09
+
+RC09 is count-neutral and adds no unresolved finding or explicit conflict. It normalizes the reproducibility-record structure for CR000275–CR000312 without changing their published R-levels, evidence links, gaps, or scientific conclusions. Next unresolved ID remains `S3U-1502`.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
