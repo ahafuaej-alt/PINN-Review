@@ -2,22 +2,22 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S290`
+Latest checkpoint: `Stage3-S291`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1590**
+- Unresolved findings: **1593**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1591`
+- Next unresolved ID: `S3U-1594`
 
-## New findings in S290
+## New findings in S291
 
-- `S3U-1588` — CR000341 / deposit_level_license_and_reuse_terms_unresolved / medium: the verified Zenodo record does not establish deposit-level licence/reuse terms, and the associated article licence is not inferred as a dataset licence.
-- `S3U-1589` — CR000341 / archive_internal_file_mapping_to_fibernet_geometries_unresolved / medium: `Fibre_Files.zip` was not opened, so exact internal filenames/subsets corresponding to the seven left-atrial FiberNet benchmark geometries remain unverified.
-- `S3U-1590` — CR000341 / exact_archive_to_benchmark_preprocessing_and_seed_lineage_unresolved / medium: the paper documents the benchmark protocol, but complete archive-to-input preprocessing details and random seeds are not independently pinned.
+- `S3U-1591` — CR000342 / archive_internal_manifest_and_experiment_file_mapping_unresolved / medium: the two Zenodo archives were not opened, so exact internal filenames, directory structure, format-note contents and archive-to-configuration mapping remain unverified.
+- `S3U-1592` — CR000342 / exact_code_snapshot_binding_to_zenodo_v1_unresolved / medium: the deposit and paper point to a separate GitLab code resource, but an exact commit/tag cryptographically bound to Zenodo v1 is not established within CR000342 and is not inferred across resource identities.
+- `S3U-1593` — CR000342 / stochastic_seed_lineage_unresolved / medium: ten-run evaluations document randomized initialization, mini-batches and Gaussian-noise sampling, but exact random seeds are not reported.
 
-## New explicit conflicts in S290
+## New explicit conflicts in S291
 
 None. Existing conflicts remain preserved.
 
