@@ -2,19 +2,19 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S268`
+Latest checkpoint: `Stage3-S269`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1517**
+- Unresolved findings: **1520**
 - Explicit conflicts: **155**
-- Next unresolved ID: `S3U-1518`
+- Next unresolved ID: `S3U-1521`
 
-## New findings in S268
+## New findings in S269
 
-- `S3U-1515` — CR000317 / paper_specific_pretraining_subset_and_split_unresolved / medium: the exact version-1 images/classes used for NeuroNet57 pre-training and the paper-specific train/validation/test handling are not independently established by the bounded source set.
-- `S3U-1516` — CR000317 / paper_specific_pretraining_recipe_unresolved / medium: the exact cropping or margin removal, resize dimensions, normalization, augmentation and pre-training optimization schedule used by Atlas paper 582 are not independently established by the bounded source set.
-- `S3U-1517` — CR000317 / payload_file_count_and_integrity_verification_deferred / medium: no Kaggle payload, archive or image was downloaded/opened, so file-level integrity and checksums were not independently verified; the provider narrative reports 7023 images while the current Data Explorer summary displays 7022 files, and that presentation difference remains unresolved rather than silently reconciled.
+- `S3U-1518` — CR000318 / paper_specific_deposit_file_case_mapping_unresolved / medium: the paper documents the 30,000-point HAWC2 simulation source database and its model variables, but the exact DTU deposit input files/cases and subset mapping used for Atlas paper 590 are not independently established at file level.
+- `S3U-1519` — CR000318 / deposited_postprocessing_schema_unresolved / medium: 10-minute statistical post-processing is documented in the primary paper, but the exact deposited post-processed file schema, column names, units and file-level variable mapping are not independently verified.
+- `S3U-1520` — CR000318 / dataset_license_and_payload_verification_deferred / medium: no explicit dataset licence was independently verified for the DTU deposit and no dataset payload, HAWC2 input/output file or archive was downloaded/opened, so file manifests and checksums remain unverified.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused. RC09 remains count-neutral and adds no unresolved finding or explicit conflict.
