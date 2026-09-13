@@ -2,39 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S263`
+Latest checkpoint: `Stage3-S264`
 Latest reconciliation: `Stage3-RC09`
 Status: **PASS**
 
-## Reconciliation RC09
+## Checkpoint S264
 
-- Scope: reproducibility records from `Stage3-S234` through `Stage3-S263`
-- Affected files: **30**
-- Affected records: **38** (`CR000275–CR000312`)
-- R-level changes: **0**
-- Evidence-ID changes: **0**
-- Count changes: **0**
-- Methodology/schema changes: **0**
-
-All affected records are normalized to the accepted reproducibility structure with `components`, `reproducibility_gaps`, `assessment_evidence_ids`, and `assessment_status`. Published R-levels and evidence links are preserved. Existing scientific gaps remain explicit, R5 remains excluded, and no scientific workload was executed. Historical S234–S263 checkpoint QA records remain historical publication records; RC09 supersedes only their affected reproducibility-schema PASS assertions.
-
-## Checkpoint S263
-
-- Resources: **1** (`CR000312`)
+- Resources: **1** (`CR000313`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **14**
+- Technical-evidence records: **11**
 - Reproducibility assessments: **1**
-- New unresolved findings: **5**
+- New unresolved findings: **4**
 - New explicit conflicts: **1**
-- Reproducibility: **CR000312 R2**
+- Reproducibility: **CR000313 R2**
 
-The exact historical ATL03 Version-5 identity remains preserved. The NSIDC geolocation advisory is checked against the paper's reported study dates and does not overlap them. Provider retirement timing and the paper's later stated URL-access date remain source-scoped conflicting evidence. Exact granule identifiers, current access to the retired V5 payload, item-level reuse terms and the derived bathymetric-label payload remain bounded gaps.
+All required checkpoint validation gates pass. The Stage-2 EarthExplorer identity and PRL000176 relationship are preserved. USGS product metadata and paper-specific scene dates/preprocessing remain source scoped. The primary paper's USGS-versus-ESA acquisition-route disagreement is explicit conflicting evidence rather than silently reconciled. Exact Entity IDs, tile/orbit identifiers, processing baselines and scene-level payloads remain bounded gaps. The reproducibility record conforms directly to the accepted schema restored by RC09. No Sentinel-2 payload was opened and no scientific workflow was executed.
 
 ## Aggregate batch QA
 
-`SOB029` remains **10/10 — PASS**. `SOB030` is **9/10**.
+`SOB030` is **10/10 — PASS**. Membership is exactly `CR000304–CR000313`; aggregate counts, identifiers, evidence references, inference pairing, source-scope sampling, Stage-2 authority resolution, RC09 reproducibility-schema conformance, protected boundaries and R5 exclusion pass. `SOB031` starts at **0/10**.
 
 Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000313 → Stage3-S264`.
+Exact continuation: `CR000314 → Stage3-S265`.

@@ -2,27 +2,20 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S263`
+Latest checkpoint: `Stage3-S264`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1501**
-- Explicit conflicts: **154**
-- Next unresolved ID: `S3U-1502`
+- Unresolved findings: **1505**
+- Explicit conflicts: **155**
+- Next unresolved ID: `S3U-1506`
 
-## New findings in S263
+## New findings in S264
 
-- `S3U-1497` — CR000312 / retired_version5_payload_unavailable / high: ATL03 Version 5 is retired and NSIDC states that data access is no longer available; the exact historical HDF5 payload used by the paper therefore cannot be obtained from the authoritative Version-5 portal for static end-to-end reconstruction.
-- `S3U-1498` — CR000312 / exact_granule_subset_identity_unresolved / medium: the paper documents study regions and acquisition dates but does not provide a complete set of ATL03 granule filenames or RGT/cycle/region and beam identifiers sufficient to reconstruct the exact subset unambiguously.
-- `S3U-1499` — CR000312 / retirement_access_date_timing_conflict / medium: NSIDC announced ATL03 Version-5 payload retirement for 19 December 2023 with data access unavailable thereafter, while the paper states that the Version-5 URL was accessed on 21 January 2024 and describes the data as available there; documentation-page access versus payload access is not distinguishable from the paper statement.
-- `S3U-1500` — CR000312 / item_level_reuse_license_unresolved / medium: NSIDC requires dataset citation but no explicit item-level reuse licence for the exact historical Version-5 resource was established from the verified record.
-- `S3U-1501` — CR000312 / derived_bathymetric_label_payload_unresolved / medium: the paper documents AE-DBSCAN, refraction and tide corrections used to derive ATL03 reference bathymetric points, but an exact deposited payload of the processed points/training labels was not identified.
+- `S3U-1502` — CR000313 / exact_sentinel2_scene_identity_unresolved / medium: the paper reports four study-site acquisition dates but does not provide the exact Sentinel-2 Entity IDs, tile IDs, orbit identifiers, processing baselines or SAFE/GMLJP2 filenames needed to identify the source scenes unambiguously.
+- `S3U-1503` — CR000313 / acquisition_route_conflict / medium: paper Section 2.2 and the Data Availability Statement attribute Sentinel-2 acquisition to USGS/EarthExplorer, while Section 3.2.2 states that the original Level-1C image was downloaded from the ESA website. The exact original acquisition route is therefore unresolved and retained as explicit conflicting evidence.
+- `S3U-1504` — CR000313 / preprocessing_version_and_selection_detail_unresolved / medium: Sen2Cor, SNAP v9.0, 10 m resampling, ROI clipping, SRTM land masking and the less-than-10-percent cloud criterion are documented, but the Sen2Cor version/processing baseline and exact cloud-filter/product-selection implementation are not reported.
+- `S3U-1505` — CR000313 / exact_scene_payload_retrieval_unverified / medium: current EarthExplorer product-family access is documented, but no paper-specific Sentinel-2 scene was downloaded and no SAFE/GMLJP2 payload was opened, so exact current scene-level retrievability and file integrity were not independently established.
 
-The Stage-2 geolocation-advisory exposure question is resolved for the paper-reported study dates: the latest listed ICESat-2 acquisition is 15 September 2021, before the provider-documented issue onset of 24 October 2021.
-
-## RC09
-
-RC09 is count-neutral and adds no unresolved finding or explicit conflict. It normalizes the reproducibility-record structure for CR000275–CR000312 without changing their published R-levels, evidence links, gaps, or scientific conclusions. Next unresolved ID remains `S3U-1502`.
-
-Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
+RC09 remains count-neutral and adds no unresolved finding or explicit conflict. Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
