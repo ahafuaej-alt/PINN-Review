@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S269`
-- Latest completed resource: `CR000318`
+- Latest completed checkpoint: `Stage3-S270`
+- Latest completed resource: `CR000319`
 - Latest completed aggregate batch: `SOB030` - **PASS (10/10)**
-- Current batch: `SOB031` - **5/10**
+- Current batch: `SOB031` - **6/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000319`
-- Exact next checkpoint: `Stage3-S270`
+- Exact next independently extractable resource: `CR000320`
+- Exact next checkpoint: `Stage3-S271`
 
-## Cumulative counts through S269 / RC09
+## Cumulative counts through S270 / RC09
 
-- Resources: **315**
-- Experiments: **353**
-- Configurations: **628**
-- Technical-evidence records: **3069**
-- Reproducibility assessments: **315**
-- Unresolved findings: **1520**
+- Resources: **316**
+- Experiments: **358**
+- Configurations: **637**
+- Technical-evidence records: **3088**
+- Reproducibility assessments: **316**
+- Unresolved findings: **1524**
 - Explicit conflicts: **155**
-- Independently extractable resources remaining: **48**
+- Independently extractable resources remaining: **47**
 
-## S269
+## S270
 
-`CR000318` preserves the exact DTU DOI `10.11583/DTU.12245978` and verified `PRL000182` relationship for Atlas paper 590. The deposit is documented as a HAWC2 simulation database containing the turbine model, HAWC2 input files and post-processed simulation results. The primary paper documents a 30,000-point Monte Carlo source database simulated in HAWC2 under normal operating conditions, with wind speed, wind-speed standard deviation, row spacing, wake incidence angle and number of disturbing turbines as selected model inputs and electrical power as output. It further documents Mann-turbulence/DWM simulation context, post-processing to 10-minute statistics, and simulation-domain pre-training followed by SCADA recalibration through transfer learning for feed-forward ANN and autoencoder normal-behavior models. Exact DTU deposit file/case mapping, deposited post-processed file schema/units and an explicit dataset licence are not independently established by the bounded source set. No DTU payload, HAWC2 input/output file or archive was downloaded/opened and no scientific workflow was executed. The resource is assessed at `R2`.
+`CR000319` preserves the exact Zenodo DOI `10.5281/zenodo.5206676` and verified `PRL000191` relationship for Atlas paper 603. The DOI archive remains authoritative; a paper-linked GitHub snapshot at commit `469cfc23fd34ff4ed8673281ec213a6d0f35920b` from 15 August 2021 is used only as supporting static evidence and is not asserted to be byte-equivalent to the Zenodo ZIP. The snapshot exposes five numerical-study families—antiderivative, diffusion-reaction, advection, Burgers and Eikonal—and nine materially distinct notebook configurations, including data-driven baselines, physics-informed variants and an antiderivative Fourier-feature variant. The notebooks implement physics-informed DeepONets with automatic differentiation, problem-specific residual losses, explicit architecture/training settings, data generators and selected bundled trained-parameter/data artifacts. The historical snapshot has no dependency manifest with version pins or installation procedure, and no explicit licence was independently verified. No Zenodo ZIP, binary data/checkpoint or notebook was opened/executed. The resource is assessed at `R1`.
 
 ## Aggregate batch QA
 
-`SOB030` remains **PASS (10/10)**. `SOB031` is now **5/10**.
+`SOB030` remains **PASS (10/10)**. `SOB031` is now **6/10**.
 
 ## Continuation
 
-Continue with `Stage3-S270` at `CR000319`.
+Continue with `Stage3-S271` at `CR000320`.
