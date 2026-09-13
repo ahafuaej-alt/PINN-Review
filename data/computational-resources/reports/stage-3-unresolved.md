@@ -2,21 +2,20 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S260`
+Latest checkpoint: `Stage3-S261`
 Latest reconciliation: `Stage3-RC08` - PASS
 
 ## Current totals
 
-- Unresolved findings: **1488**
-- Explicit conflicts: **151**
-- Next unresolved ID: `S3U-1489`
+- Unresolved findings: **1492**
+- Explicit conflicts: **152**
+- Next unresolved ID: `S3U-1493`
 
-## New findings in S260
+## New findings in S261
 
-- `S3U-1484` - CR000309 / artifact_role_conflict / high: the primary-paper relationship and `CITATION.cff` label the resource as a dataset, while the pinned root contains four executable notebooks plus citation/licence files and no standalone dataset file visible at root. Stage 3 preserves the historical label but profiles the actual pinned artifact as `pinn_implementation`. **Explicit conflict.**
-- `S3U-1485` - CR000309 / citation_doi_placeholder / medium: `CITATION.cff` declares `10.5281/zenodo.1234`; Stage 2 identified it as placeholder/defective metadata and no verified replacement resource DOI is established.
-- `S3U-1486` - CR000309 / environment_not_fully_pinned / medium: notebook imports establish the dependency family and one Plotly version is explicitly documented, but most dependency versions are unpinned and no dependency/environment manifest exists.
-- `S3U-1487` - CR000309 / standalone_dataset_payload_unresolved / medium: no standalone dataset file is visible at the pinned repository root, and the exact location or generation path of the dataset named by the paper/citation metadata remains unresolved.
-- `S3U-1488` - CR000309 / paper_to_notebook_mapping_incomplete / medium: the pinned notebooks implement trapz-PiNN and supporting reference calculations, but the exact mapping of every numerical example in the paper to a repository notebook is not fully normalized.
+- `S3U-1489` - CR000310 / acquisition_duration_version_conflict / high: the paper cites Mendeley Version 1 but reports 11-second acquisitions; the Version-1 provider record reports 10 seconds, while Version 2 later reports 11 seconds. The sources are preserved separately and Version 2 is not silently substituted. **Explicit conflict.**
+- `S3U-1490` - CR000310 / version_file_continuity_unresolved / medium: file-level continuity or difference between Mendeley Versions 1 and 2 has not been established because no versioned payload was opened.
+- `S3U-1491` - CR000310 / dataset_internal_schema_not_inspected / medium: the provider points to an internal readme, but dataset files and the readme were not downloaded or opened; file names, variables and detailed schema are not normalized.
+- `S3U-1492` - CR000310 / paper_split_to_raw_file_mapping_unresolved / medium: the paper documents pitting levels and training/validation/testing segment counts, but the exact mapping from those segments to raw Mendeley files is not reconstructed.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
