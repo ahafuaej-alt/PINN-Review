@@ -2,23 +2,23 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S285`
+Latest checkpoint: `Stage3-S286`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1576**
+- Unresolved findings: **1580**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1577`
+- Next unresolved ID: `S3U-1581`
 
-## New findings in S285
+## New findings in S286
 
-- `S3U-1573` — CR000336 / exact_ntl_lter_lake_and_edi_package_unresolved / medium: the paper-used lake and dataset-specific EDI package are not independently identified.
-- `S3U-1574` — CR000336 / exact_ntl_lter_fields_and_time_range_unresolved / medium: the input/target fields, temporal interval, sampling frequency and spatial scope are not independently pinned.
-- `S3U-1575` — CR000336 / paper_specific_ntl_lter_preprocessing_unresolved / medium: filtering, aggregation, normalization, missing-data handling and split or sequence construction are not independently mapped.
-- `S3U-1576` — CR000336 / ntl_lter_license_version_and_package_lineage_unresolved / low: the portal states CC-BY without a version, and the exact package-specific license/version lineage is not independently recovered.
+- `S3U-1577` — CR000337 / zenodo_deposit_license_unresolved / medium: deposit-specific licence metadata was not independently recovered, and no repository default is applied.
+- `S3U-1578` — CR000337 / sample_spcam_file_manifest_and_structure_unresolved / medium: exact deposited files, checksums, variables, dimensions and temporal coverage were not independently inspected.
+- `S3U-1579` — CR000337 / sample_full_preprocessed_spcam_mapping_unresolved / medium: the relationship among this sample deposit, the full raw archive and the later preprocessed collection is bounded but not fully mapped for paper 716.
+- `S3U-1580` — CR000337 / paper_specific_sample_spcam_use_unresolved / medium: exact transformations, splits and whether the sample rather than full data supported the discussed case study remain unknown.
 
-## New explicit conflicts in S285
+## New explicit conflicts in S286
 
 None. Existing conflicts remain preserved.
 
