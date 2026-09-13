@@ -27,11 +27,16 @@ Branch: `data/computational-resources-stage3`
 
 ## S259
 
-`CR000308` preserves the exact Zenodo deposit `10.5281/zenodo.2634098` and verified `PRL000149` relationship for the PiNN liqui]Ø]\ˆØ\ÙHİYKˆH›İšY\ˆ™XÛÜ™^ÜÙ\ÈÛ™HLËPˆ\˜Ú]™H
-˜Z[š[™ËY]WÒ“Ë\‹™Ş˜
-HÚ]QHÚXÚÜİ[H[™İ]\È]]Z[YØİ[Y[][Ûˆ\È[ˆ[ˆ[\›˜[‘PQQKœ˜ˆHš[X\H\\ˆ\Ù\ÈH[Ü˜]ÚY]¸ $Ğ™Z\ˆ“È]\Ù]›ÜˆH”“ˆ\]ZY]Ø]\ˆØ\ÙH]H“T]™[ˆ]Èİ\Ü[™È[™›Ü›X][ÛˆÙ\\˜][H™\ÜÈ]YÛY[][ÛˆÚ]‹HY][Û˜[İXİ\™\ÈÙ[™\˜]Yœ›ÛH[ÛXİ[\‹Y[˜[ZXÜÈÛ˜\ÚİÈ\Ú[™ÈHÜšYÚ[˜[”“‹ÔS“™\ˆÛÜšÙ›İÎÈİYÙHÈÙ\È›İ\Üİ[YHÜÙHYYİXİ\™\È\™H\ÙˆH™[›ÙÈ\˜Ú]™KˆH\˜Ú]™H[™[\›˜[‘PQQHÙ\™H›İÜ[™Y[™H™XÛÜ™[]™[™]\ÙHXÙ[˜ÙHØ\È›İ[™\[™[H\İX›\ÚYˆH™\Ûİ\˜ÙH\È\ÜÙ\ÜÙY]Œ˜‚‚ˆÈÈYÙÜ™YØ]H˜]ÚPB‚˜ÓĞŒX™[XZ[œÈ
-Š”TÔÈ
-LÌL
-JŠ‹ˆÓĞŒÌ\È›İÈ
-ŠKÌL
-Š‹‚‚ˆÈÈÛÛ[X][Û‚‚ÛÛ[YHÚ]İYÙLËTÌŒ]ÔŒÌX‚
+`CR000308` preserves the exact Zenodo deposit `10.5281/zenodo.2634098` and verified `PRL000149` relationship for the PiNN liquid-water case study. The provider record exposes one 103.8 MB archive (`training-data_H2O.tar.gz`) with MD5 checksum and states that detailed documentation is in an internal `README.pdf`. The primary paper uses the Morawietzâ€“Behler H2O dataset for a BPNN liquid-water case at the BLYP level. Its Supporting Information separately reports augmentation with 2,841 additional structures generated from molecular-dynamics snapshots using the original BPNN/RuNNer workflow; Stage 3 does not assume those added structures are part of the Zenodo archive. The archive and internal README were not opened, and a record-level reuse licence was not independently established. The resource is assessed at `R2`.
+
+## Post-publication record repair
+
+A count-neutral integrity repair after S259 publication restored this progress report text and corrected the CR000308 `final_url` to `https://zenodo.org/records/2634098`. Evidence, counts, reproducibility classification, unresolved IDs, SOB membership, and continuation pointers were unchanged.
+
+## Aggregate batch QA
+
+`SOB029` remains **PASS (10/10)**. `SOB030` is now **5/10**.
+
+## Continuation
+
+Continue with `Stage3-S260` at `CR000309`.
