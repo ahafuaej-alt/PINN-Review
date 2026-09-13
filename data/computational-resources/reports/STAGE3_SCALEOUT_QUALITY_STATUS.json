@@ -2,27 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S286`
+Latest checkpoint: `Stage3-S287`
 Latest reconciliation: `Stage3-RC09`
 Status: **PASS**
 
-## Checkpoint S286
+## Checkpoint S287
 
-- Resources: **1** (`CR000337`)
+- Resources: **1** (`CR000338`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **8**
+- Technical-evidence records: **16**
 - Reproducibility assessments: **1**
 - New unresolved findings: **4**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000337 R1**
+- Reproducibility: **CR000338 R1**
 
-All required gates pass. Final Stage-2 CR000337/PRL000246 identity and relationship authority is preserved. The sample deposit remains distinct from the full raw and later preprocessed SPCAM collections. Deposit-level licence, file-manifest details and paper-specific use remain unknown; no Zenodo default licence is inferred. RC09 is satisfied and no payload or workflow was executed.
+All required gates pass. Final Stage-2 CR000338/PRL000248 identity and corrected relationship authority is preserved. Official raw ERA5 documentation remains distinct from the WeatherBench-preprocessed experiment dataset used by paper 717. Detailed paper-scoped data and workflow facts are retained without manufacturing experiment/configuration mappings under CR000338. Exact processed artifact/version, transformation lineage, licence version and scaler details remain unknown. RC09 is satisfied; no payload or workflow was executed.
 
 ## Aggregate batch QA
 
-`SOB032` remains **10/10 — PASS**. `SOB033` is **4/10** with `CR000334–CR000337`.
+`SOB032` remains **10/10 — PASS**. `SOB033` is **5/10** with `CR000334–CR000338`.
 
 Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000338 → Stage3-S287`.
+Exact continuation: `CR000339 → Stage3-S288`.

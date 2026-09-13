@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S286`
-- Latest completed resource: `CR000337`
+- Latest completed checkpoint: `Stage3-S287`
+- Latest completed resource: `CR000338`
 - Latest completed aggregate batch: `SOB032` - **PASS (10/10)**
-- Current batch: `SOB033` - **4/10**
+- Current batch: `SOB033` - **5/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000338`
-- Exact next checkpoint: `Stage3-S287`
+- Exact next independently extractable resource: `CR000339`
+- Exact next checkpoint: `Stage3-S288`
 
-## Cumulative counts through S286 / RC09
+## Cumulative counts through S287 / RC09
 
-- Resources: **334**
+- Resources: **335**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3279**
-- Reproducibility assessments: **334**
-- Unresolved findings: **1580**
+- Technical-evidence records: **3295**
+- Reproducibility assessments: **335**
+- Unresolved findings: **1584**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **29**
+- Independently extractable resources remaining: **28**
 
-## S286
+## S287
 
-`CR000337` preserves the persistent DOI for Stephan Rasp's 2019 Sample spcam dataset and verified `PRL000246` relationship for Atlas paper 716. The resource is bounded as sample/example SPCAM data rather than the full several-terabyte raw archive or later approximately one-terabyte preprocessed collection. Deposit-level licence, file manifest, variables, dimensions, temporal coverage and paper-specific use remain unresolved; no repository default is inferred. The resource is assessed at `R1`; no payload was opened.
+`CR000338` preserves the official raw ERA5 documentation/source context and corrected `PRL000248` paper-resource relationship for Atlas paper 717. Current provider documentation establishes ERA5 coverage, production system, resolution, access formats and provisional ERA5T replacement behavior. The paper instead uses WeatherBench-preprocessed ERA5 at 5.625°; its variables, years, normalization, tasks, metrics and training context are recorded as paper-scoped facts without assigning experiments/configurations to the wrong artifact. The exact processed artifact/version and complete lineage remain unresolved. CR000338 is assessed at `R1`; no payload or workflow was executed.
 
 ## Aggregate batch QA
 
-`SOB032` remains **PASS (10/10)**. `SOB033` is now **4/10** with `CR000334–CR000337`.
+`SOB032` remains **PASS (10/10)**. `SOB033` is now **5/10** with `CR000334–CR000338`.
 
 ## Continuation
 
-Continue with `Stage3-S287` at `CR000338`.
+Continue with `Stage3-S288` at `CR000339`.
