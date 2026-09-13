@@ -2,21 +2,20 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S288`
+Latest checkpoint: `Stage3-S289`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1586**
+- Unresolved findings: **1587**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1587`
+- Next unresolved ID: `S3U-1588`
 
-## New findings in S288
+## New findings in S289
 
-- `S3U-1585` — CR000339 / exact_imagenet_release_subset_and_manifest_unresolved / low: the generic project portal does not identify one exact release, challenge subset, manifest or checksum relevant to the conceptual mention.
-- `S3U-1586` — CR000339 / complete_per_image_rights_lineage_unresolved / medium: access terms are documented, but image copyrights remain with original owners and no single dataset-wide open licence resolves every asset.
+- `S3U-1587` — CR000340 / complete_dependency_lock_and_optional_backend_compatibility_unresolved / medium: the pinned Gym source contains mixed exact, lower-bound and range constraints across base and optional environment families, but no complete resolved transitive lock or platform-specific compatibility matrix was established statically.
 
-## New explicit conflicts in S288
+## New explicit conflicts in S289
 
 None. Existing conflicts remain preserved.
 
