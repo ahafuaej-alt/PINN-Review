@@ -5,11 +5,11 @@ Branch: `data/computational-resources-stage3`
 
 ## Current status
 
-- Latest completed checkpoint: `Stage3-S238`
+- Latest completed checkpoint: `Stage3-S239`
 - Latest checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Latest completed aggregate batch: `SOB026` — **PASS (10/10)**
-- Current aggregate batch: `SOB027` — **9/10**
+- Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
+- Current aggregate batch: `SOB028` — **0/10**
 - Schema drift: **none detected**
 - Methodology drift: **none detected**
 - Stage-boundary violations: **none detected**
@@ -20,20 +20,20 @@ Branch: `data/computational-resources-stage3`
 
 | Item | Count |
 |---|---:|
-| Resources | 279 |
+| Resources | 280 |
 | Experiments | 343 |
 | Configurations | 622 |
-| Technical evidence | 2775 |
-| Reproducibility assessments | 279 |
-| Unresolved findings | 1439 |
+| Technical evidence | 2781 |
+| Reproducibility assessments | 280 |
+| Unresolved findings | 1440 |
 | Explicit conflicts | 147 |
 
-## Latest checkpoint QA — Stage3-S238
+## Latest checkpoint QA — Stage3-S239
 
-All required gates PASS: schema validation, cumulative ID uniqueness, evidence-reference integrity, resource→experiment→configuration cross-references, evidence-use completeness, Stage-2 authority resolution, source-scope discipline, missing-value semantics, inference labeling, reproducibility classification, R5 exclusion, repository-scope safety, protected write boundaries, static-execution boundary, provenance-text screening, and branch-head stability.
+All required checkpoint gates PASS. CR000283 preserves the Stage-2 legacy/current swisstopo location distinction, Atlas-paper relationship, release-specific product scope and custom OGD terms without downloading or opening payload data. Reproducibility is R2 and R5 remains prohibited.
 
-S238 adds CR000281 and CR000282 as bounded glacier dataset/data-portal resources. Final Stage-2 identity, paper relationships, persistent dataset identifiers and provider rights are preserved without downloading or opening payload data. Both resources are assessed R2.
+## Aggregate QA — SOB027
 
-## Aggregate status
+SOB027 is **PASS (10/10)** for membership CR000274–CR000283. Membership, cumulative counts, identifier uniqueness, orphan-reference checks, source-scope sampling, missing-value semantics, methodology/schema drift, stage boundaries, execution boundary, provenance screening, R5 exclusion and Stage-2 authority readback all pass. Stage3-RC08 is included as the governing report-state continuity reconciliation.
 
-`SOB026` remains **PASS (10/10)**. `SOB027` is now **9/10**; mandatory aggregate QA is due when CR000283 is published.
+Exact continuation: `CR000284 → Stage3-S240`.

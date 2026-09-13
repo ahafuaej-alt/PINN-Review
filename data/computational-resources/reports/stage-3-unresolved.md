@@ -2,18 +2,17 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S238`
+Latest checkpoint: `Stage3-S239`
 Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
 
 ## Current totals
 
-- Unresolved findings: **1439**
+- Unresolved findings: **1440**
 - Explicit conflicts: **147**
-- Next unresolved ID: `S3U-1440`
+- Next unresolved ID: `S3U-1441`
 
-## New findings in S238
+## New finding in S239
 
-- `S3U-1438` — CR000281 / observation_subset_and_payload_schema_not_normalized / low: GlaThiDa 3.1.0 identity, DOI, access and CC BY 4.0 rights are verified, but observation-level schema, quality flags, exact paper subset and payload-level provenance were not normalized because no archive or CSV payload was opened.
-- `S3U-1439` — CR000282 / regional_file_and_geospatial_schema_not_normalized / low: RGI 7.0 identity, DOI, access and CC BY 4.0 rights are verified, but regional file inventory, exact paper subset and outline/attribute schema were not normalized because no archive or geospatial payload was opened.
+- `S3U-1440` — CR000283 / release_tile_subset_and_resampling_not_normalized / low: The exact paper-stated legacy swissALTI3D location, current official product authority, 2019 release and OGD terms are verified, but legacy redirect semantics, exact glacier-area tile inventory, release-specific spatial coverage and resampling to model input resolution remain bounded because no raster payload was downloaded or opened.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
