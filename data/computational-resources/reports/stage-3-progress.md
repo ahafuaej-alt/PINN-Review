@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S272`
-- Latest completed resource: `CR000321`
+- Latest completed checkpoint: `Stage3-S273`
+- Latest completed resource: `CR000322`
 - Latest completed aggregate batch: `SOB030` - **PASS (10/10)**
-- Current batch: `SOB031` - **8/10**
+- Current batch: `SOB031` - **9/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000322`
-- Exact next checkpoint: `Stage3-S273`
+- Exact next independently extractable resource: `CR000323`
+- Exact next checkpoint: `Stage3-S274`
 
-## Cumulative counts through S272 / RC09
+## Cumulative counts through S273 / RC09
 
-- Resources: **318**
+- Resources: **319**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3111**
-- Reproducibility assessments: **318**
-- Unresolved findings: **1530**
+- Technical-evidence records: **3123**
+- Reproducibility assessments: **319**
+- Unresolved findings: **1533**
 - Explicit conflicts: **155**
-- Independently extractable resources remaining: **45**
+- Independently extractable resources remaining: **44**
 
-## S272
+## S273
 
-`CR000321` preserves the corrected official SCEDC portal identity, archive citation DOI `10.7909/C3WD3xH1`, and verified `PRL000204` relationship for Atlas paper 634. The primary paper defines the observational sample as the first 10,000 SCEDC events beginning `2019-01-01`, using detections and phase picks from the SCEDC phase-arrival observational catalogue; the paper states that these events and phase picks were manually reviewed by Southern California Seismic Network analysts. The case study reports approximately 30 observations per event and applies the same observational catalogue to 1-D and 3-D velocity-model inversions. Official SCEDC documentation confirms event/phase catalogue access, event-phase files keyed by SCSN event identifier, station metadata through FDSN/StationXML services, and the archive citation DOI. However, the exact historical event list, terminal timestamp, retrieval query/catalog snapshot, station subset and file-level phase manifest used by the paper are not independently frozen by the bounded source set. No SCEDC data payload or scientific workflow was executed. The resource is assessed at `R1`.
+`CR000322` preserves the exact versioned Zenodo DOI `10.5281/zenodo.6637469` and verified `PRL000205` relationship for Atlas paper 646. Zenodo identifies the record as dataset version `v2` and exposes a single file, `figures-pinnup.zip` (178.5 MB), with provider-reported MD5 `55a668609ada1d952c034870d29becdf`. The primary paper explicitly states that its datasets are available at this DOI. The paper documents a 2.5 × 2.5 km Marmousi-derived layered-model study with 2 Hz and 4 Hz training, frequency upscaling and neuron splitting, plus a 12.5 × 4.0 km Overthrust study with 4/8/16 Hz stages and increasing training-sample/network sizes. These publication-level study details are retained as dataset context, but no experiment/configuration records are created because the ZIP-internal file/figure/reference-solution mapping was not opened or independently verified. No explicit deposit-level licence value was independently resolved from the retrieved Zenodo record. No archive or dataset file was opened and no scientific workflow was executed. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB030` remains **PASS (10/10)**. `SOB031` is now **8/10**.
+`SOB030` remains **PASS (10/10)**. `SOB031` is now **9/10**.
 
 ## Continuation
 
-Continue with `Stage3-S273` at `CR000322`.
+Continue with `Stage3-S274` at `CR000323`.

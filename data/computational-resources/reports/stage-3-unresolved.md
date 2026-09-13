@@ -2,19 +2,19 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S272`
+Latest checkpoint: `Stage3-S273`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1530**
+- Unresolved findings: **1533**
 - Explicit conflicts: **155**
-- Next unresolved ID: `S3U-1531`
+- Next unresolved ID: `S3U-1534`
 
-## New findings in S272
+## New findings in S273
 
-- `S3U-1528` — CR000321 / exact_event_selection_snapshot_unresolved / high: the paper defines the observational sample as the first 10,000 SCEDC events beginning 2019-01-01, but the exact event list, terminal timestamp, retrieval query and contemporaneous catalogue/version snapshot are not independently preserved.
-- `S3U-1529` — CR000321 / phase_station_file_mapping_unresolved / medium: the paper and provider establish phase-arrival observations and station locations, but the exact phase-pick file manifest/fields, station subset and file-level mapping used for the manuscript case study are not independently reconstructed.
-- `S3U-1530` — CR000321 / data_use_terms_and_payload_verification_deferred / medium: SCEDC provides public access and an archive citation DOI, while Stage 2 records SCEDC public-data use terms, but no SPDX-standard licence was independently resolved for this portal-level resource and no phase/station payload was opened.
+- `S3U-1531` — CR000322 / archive_internal_manifest_and_schema_unresolved / medium: Zenodo pins the v2 ZIP name, size and MD5, but the archive was not opened, so its internal file inventory, schemas and internal checksums remain unverified.
+- `S3U-1532` — CR000322 / paper_experiment_to_archive_mapping_unresolved / medium: the primary paper documents Marmousi and Overthrust studies and states that paper datasets are at the exact DOI, but the ZIP-internal mapping to individual figures, reference solutions and numerical-study datasets is not independently established.
+- `S3U-1533` — CR000322 / dataset_license_unresolved / medium: the retrieved Zenodo record exposes a Rights/License section but no explicit licence value was independently available in the bounded evidence; publication licence terms are not transferred to the dataset by inference.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused. RC09 remains count-neutral and adds no unresolved finding or explicit conflict.
