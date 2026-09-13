@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S244`
-- Latest completed resource: `CR000290`
+- Latest completed checkpoint: `Stage3-S245`
+- Latest completed resource: `CR000291`
 - Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
-- Current batch: `SOB028` — **7/10**
+- Current batch: `SOB028` — **8/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000291`
-- Exact next checkpoint: `Stage3-S245`
+- Exact next independently extractable resource: `CR000292`
+- Exact next checkpoint: `Stage3-S246`
 
-## Cumulative counts through S244 / RC08
+## Cumulative counts through S245 / RC08
 
-- Resources: **287**
+- Resources: **288**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2822**
-- Reproducibility assessments: **287**
-- Unresolved findings: **1447**
+- Technical-evidence records: **2828**
+- Reproducibility assessments: **288**
+- Unresolved findings: **1448**
 - Explicit conflicts: **147**
-- Independently extractable resources remaining: **76**
+- Independently extractable resources remaining: **75**
 
-## S244
+## S245
 
-`CR000290` preserves the HUST Mendeley Data record, DOI `10.17632/nsc7hnsg4s.2`, version 2, 77-cell LFP/graphite experimental context, CC BY 4.0 licence and `PRL000057` for Atlas paper 299. No dataset payload was downloaded or opened; file-level schema, discharge-policy mapping, preprocessing and paper-specific splits remain bounded. The resource is assessed at `R2`.
+`CR000291` preserves the historical MATR project identity, `PRL000058` and primary-paper description of the MIT/TRI 124-cell, 72-fast-charging-policy dataset. The historical project URL now resolves only to the MATR platform root; the item-level record, files, documentation and licence remain unavailable or unknown. The resource is assessed at `R0`.
 
 ## Aggregate batch QA
 
-`SOB027` remains **PASS (10/10)**. `SOB028` is now **7/10**.
+`SOB027` remains **PASS (10/10)**. `SOB028` is now **8/10**.
 
 ## Continuation
 
-Continue with `Stage3-S245` at `CR000291`.
+Continue with `Stage3-S246` at `CR000292`.
