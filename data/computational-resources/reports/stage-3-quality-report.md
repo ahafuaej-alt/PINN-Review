@@ -2,22 +2,14 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
+Latest checkpoint: `Stage3-S241`
+Latest checkpoint QA: **PASS**
+Latest reconciliation: `Stage3-RC08` — **PASS**
+Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
+Current aggregate batch: `SOB028` — **3/10**
 
-- Latest completed checkpoint: `Stage3-S240`
-- Latest checkpoint QA: **PASS**
-- Latest reconciliation: `Stage3-RC08` — **PASS**
-- Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
-- Current aggregate batch: `SOB028` — **2/10**
-- Schema drift: none detected
-- Methodology drift: none detected
-- Stage-boundary violations: none detected
-- Scientific execution: none performed
-- R5 records: 0
+Cumulative counts: 283 resources; 343 experiments; 622 configurations; 2799 technical-evidence records; 283 reproducibility assessments; 1443 unresolved findings; 147 explicit conflicts.
 
-Cumulative counts: 282 resources; 343 experiments; 622 configurations; 2793 technical-evidence records; 282 reproducibility assessments; 1442 unresolved findings; 147 explicit conflicts.
+S241 preserves CR000286 final Stage-2 identity and paper relationship. Public directory evidence is retained, unknown licence/documentation details remain bounded, and the resource is assessed R1. Required checkpoint gates pass.
 
-S240 QA PASS: CR000284 and CR000285 preserve final Stage-2 identity, paper relationships, provider dataset metadata and bounded static treatment. Both are R2. No experiments or configurations are introduced.
-
-`SOB027` remains PASS (10/10). `SOB028` is 2/10.
-
-Exact continuation: `CR000286 → Stage3-S241`.
+Exact continuation: `CR000287 → Stage3-S242`.

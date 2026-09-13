@@ -2,18 +2,17 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S240`
+Latest checkpoint: `Stage3-S241`
 Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
 
 ## Current totals
 
-- Unresolved findings: **1442**
+- Unresolved findings: **1443**
 - Explicit conflicts: **147**
-- Next unresolved ID: `S3U-1443`
+- Next unresolved ID: `S3U-1444`
 
-## New findings in S240
+## New finding in S241
 
-- `S3U-1441` — CR000284 / exact_release_tile_subset_and_resampling_not_normalized / low: GLO-30 identity, DOI, paper relationship, provider access conditions and licensing scope are verified, but the exact release/tile selection, HMA subset, geospatial transformations and resampling remain bounded.
-- `S3U-1442` — CR000285 / file_schema_and_split_mapping_not_normalized / low: OEDI dataset identity, DOI, public access, item-level CC BY 4.0 and paper relationship are verified, but exact time-series fields, feeder modifications, file inventory and train/validation/test mapping remain bounded.
+- `S3U-1443` — CR000286 / licence_schema_and_preprocessing_bounded / medium: ASSISTment2012 and ASSIST chall identities, public directory access and paper relationship are verified, but no item-level reuse licence, formal dataset DOI or standalone data dictionary is established; exact file schemas, preprocessing, filtering, feature construction and train/test handling remain bounded.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
