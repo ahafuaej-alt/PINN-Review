@@ -2,31 +2,24 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
+Latest checkpoint: `Stage3-S237`
+Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
 
-## Status
+## Current totals
 
-- Latest completed checkpoint: `Stage3-S237`
-- Latest reconciliation: `Stage3-RC07` — **PASS (count-neutral)**
-- Total unresolved findings: **1577**
-- Explicit conflicts: **146**
+- Unresolved findings: **1437**
+- Explicit conflicts: **147**
+- Next unresolved ID: `S3U-1438`
 
-Unresolved findings are bounded evidence gaps, not permission to infer missing technical facts. They remain attached to the resource/evidence scope that created them and may be closed only by stronger authoritative evidence or an accepted reconciliation.
+## Recent findings
 
-## Recent unresolved findings
+- `S3U-1430` — CR000274 / archive_payload_and_file_inventory_not_inspected / low: The provider reports an archived dataset containing experimental image data and trained neural-network weights, but the archive was not downloaded or opened; file-level inventory and payload completeness remain unverified.
+- `S3U-1431` — CR000274 / provider_checksum_not_independently_recomputed / low: Provider checksum metadata are present, but the payload was not retrieved and the checksum was not independently recomputed.
+- `S3U-1432` — CR000275 / archive_payload_and_license_bounded / low: The final Stage-2 Zenodo record identifies the provider-reported RAR archive and checksum metadata, but Stage 3 did not open the archive or independently recompute the checksum, and no reusable license is established by the Stage-2 record.
+- `S3U-1433` — CR000276 / project_payload_and_license_bounded / low: The final Stage-2 OSF project record establishes public project metadata but not a reusable license or archive/file-level technical manifest; project payload was not downloaded or opened.
+- `S3U-1434` — CR000277 / supplementary_archive_unretrieved / medium: The final Stage-2 AIAA supplementary archive locator is blocked/unverified; the archive was not retrieved, so payload contents, licence, checksum and file manifest remain unknown.
+- `S3U-1435` — CR000278 / direct_item_transport_and_item_metadata_bounded / medium: The exact EIRIE item URL is verified from paper 146, but current direct item transport did not resolve; authentication/access requirements, item-level licence, standalone dataset citation and payload metadata remain bounded unknowns.
+- `S3U-1436` — CR000279 / product_file_and_subset_provenance_not_normalized / low: The authoritative Copernicus Marine product identity, DOI and service terms are verified, but the exact file/version/time subset used by paper 153 was not normalized and no product payload was downloaded or opened.
+- `S3U-1437` — CR000280 / product_file_and_redirect_provenance_not_normalized / low: The product DOI, official Copernicus Marine product identity and service terms are verified, but direct DOI-resolver semantics, exact product version/time-series subset and file-level payload provenance remain bounded; no data payload was downloaded or opened.
 
-| ID | Resource | Finding | Status |
-|---|---|---|---|
-| S3U-1577 | CR000280 | The product DOI, official Copernicus Marine product identity and service terms are verified, but direct DOI-resolver redirect semantics, the exact product version/time-series subset used for comparison, and file-level payload provenance were not independently normalized; no data payload was downloaded or opened. | OPEN |
-| S3U-1576 | CR000279 | The authoritative Copernicus Marine product identity, DOI and service terms are verified, but Stage 3 did not normalize the exact file/version/time subset used by paper 153 and did not download, open, subset or parse any product payload. | OPEN |
-| S3U-1575 | CR000278 | The exact EIRIE item URL is verified from paper 146, but current direct item transport did not resolve; authentication/access requirements, item-level licence, standalone dataset citation and payload metadata remain bounded unknowns. | OPEN |
-| S3U-1574 | CR000277 | The final Stage-2 AIAA supplementary archive locator is blocked/unverified; the archive was not retrieved, so payload contents, licence, checksum and file manifest remain unknown. | OPEN |
-| S3U-1573 | CR000276 | The final Stage-2 OSF project record establishes public project metadata but not a reusable license or archive/file-level technical manifest; project payload was not downloaded or opened. | OPEN |
-| S3U-1572 | CR000275 | The final Stage-2 Zenodo record identifies the provider-reported RAR archive and checksum metadata, but Stage 3 did not open the archive or independently recompute the checksum, and no reusable license is established by the Stage-2 record. | OPEN |
-| S3U-1571 | CR000274 | The authoritative Stage-2 identity is a public GitHub repository, but it is archived and its declared dependencies target TensorFlow 1.3.0 and Python 3.5; Stage 3 performed static inspection only and did not establish present-day executability. | OPEN |
-| S3U-1570 | CR000273 | The repository exposes the spreadsheet/archive names and describes the Digimat-AM generation workflow, but the bundled spreadsheet/archives were not opened and the corresponding Digimat-AM models are not in the repository; no reusable repository licence is established. | OPEN |
-| S3U-1569 | CR000272 | The historical MagNet Challenge 2023 repository points to successor data/tool services, but exact payload/version equivalence between those successors and the paper-used challenge dataset was not established; evaluation archives and submitted models were not opened or executed. | OPEN |
-| S3U-1568 | CR000271 | The pinned repository contains subject ZIP archives and states that subjects 1–10 are for training and 11–15 for testing, but Stage 3 did not open the archives, reconstruct the full 15-subject metadata table, or execute preprocessing/training; no reusable repository licence is established. | OPEN |
-
-## Conflict policy
-
-Explicit source conflicts remain preserved in their checkpoint evidence and quality records. A conflict is never silently resolved by preference, convenience, or inferred chronology. RC02–RC07 remain authoritative only for their explicitly accepted count-neutral reconciliation scopes.
+RC08 supersedes the report-only `S3U-1572`–`S3U-1577` labels introduced after S233 and restores continuity from S233's authoritative next ID `S3U-1432`. No extraction-log record used the superseded labels. Existing earlier findings and conflicts remain preserved; no historical scientific evidence is changed.
