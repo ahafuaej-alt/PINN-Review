@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S273`
-- Latest completed resource: `CR000322`
-- Latest completed aggregate batch: `SOB030` - **PASS (10/10)**
-- Current batch: `SOB031` - **9/10**
+- Latest completed checkpoint: `Stage3-S274`
+- Latest completed resource: `CR000323`
+- Latest completed aggregate batch: `SOB031` - **PASS (10/10)**
+- Current batch: `SOB032` - **0/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000323`
-- Exact next checkpoint: `Stage3-S274`
+- Exact next independently extractable resource: `CR000324`
+- Exact next checkpoint: `Stage3-S275`
 
-## Cumulative counts through S273 / RC09
+## Cumulative counts through S274 / RC09
 
-- Resources: **319**
+- Resources: **320**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3123**
-- Reproducibility assessments: **319**
-- Unresolved findings: **1533**
+- Technical-evidence records: **3135**
+- Reproducibility assessments: **320**
+- Unresolved findings: **1536**
 - Explicit conflicts: **155**
-- Independently extractable resources remaining: **44**
+- Independently extractable resources remaining: **43**
 
-## S273
+## S274
 
-`CR000322` preserves the exact versioned Zenodo DOI `10.5281/zenodo.6637469` and verified `PRL000205` relationship for Atlas paper 646. Zenodo identifies the record as dataset version `v2` and exposes a single file, `figures-pinnup.zip` (178.5 MB), with provider-reported MD5 `55a668609ada1d952c034870d29becdf`. The primary paper explicitly states that its datasets are available at this DOI. The paper documents a 2.5 × 2.5 km Marmousi-derived layered-model study with 2 Hz and 4 Hz training, frequency upscaling and neuron splitting, plus a 12.5 × 4.0 km Overthrust study with 4/8/16 Hz stages and increasing training-sample/network sizes. These publication-level study details are retained as dataset context, but no experiment/configuration records are created because the ZIP-internal file/figure/reference-solution mapping was not opened or independently verified. No explicit deposit-level licence value was independently resolved from the retrieved Zenodo record. No archive or dataset file was opened and no scientific workflow was executed. The resource is assessed at `R2`.
+`CR000323` preserves the exact Figshare `Defect design` collection identity and verified `PRL000211` relationship for Atlas paper 657. The primary paper explicitly states that its structure graphs and defect structures are available at the collection and documents the upstream C2DB screening, defect generation, DFT protocol and graph-generation context. The same paper separately places trained graph-network models and an example Jupyter notebook in a GitHub repository; that software is not conflated with the Figshare dataset resource. The Figshare collection landing remains access-limited to the verifier, so exact collection item identifiers, versions, filenames, formats, checksums and collection/item licence remain unresolved. No collection payload or item was opened and no scientific workflow was executed. The resource is assessed at `R1`.
 
 ## Aggregate batch QA
 
-`SOB030` remains **PASS (10/10)**. `SOB031` is now **9/10**.
+`SOB031` is **PASS (10/10)** for `CR000314` through `CR000323`. Aggregate reconciliation includes the accepted S273 alternate technical-evidence filename `scaleout-checkpoint-273-evidence.jsonl`; no S273 evidence is omitted by filename convention. `SOB032` is now **0/10**.
 
 ## Continuation
 
-Continue with `Stage3-S274` at `CR000323`.
+Continue with `Stage3-S275` at `CR000324`.
