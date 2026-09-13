@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S280`
-- Latest completed resource: `CR000330`
+- Latest completed checkpoint: `Stage3-S281`
+- Latest completed resource: `CR000331`
 - Latest completed aggregate batch: `SOB031` - **PASS (10/10)**
-- Current batch: `SOB032` - **7/10**
+- Current batch: `SOB032` - **8/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000331`
-- Exact next checkpoint: `Stage3-S281`
+- Exact next independently extractable resource: `CR000332`
+- Exact next checkpoint: `Stage3-S282`
 
-## Cumulative counts through S280 / RC09
+## Cumulative counts through S281 / RC09
 
-- Resources: **327**
+- Resources: **328**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3212**
-- Reproducibility assessments: **327**
-- Unresolved findings: **1557**
-- Explicit conflicts: **156**
-- Independently extractable resources remaining: **36**
+- Technical-evidence records: **3221**
+- Reproducibility assessments: **328**
+- Unresolved findings: **1560**
+- Explicit conflicts: **157**
+- Independently extractable resources remaining: **35**
 
-## S280
+## S281
 
-`CR000329–CR000330` form one declared joint-source checkpoint for Atlas paper 714. The paper attributes cumulative/current infected, recovered and deceased Italy data for 20 February–30 June 2020 jointly to Italian Civil Protection and the Ministry of Health and applies a 7-day moving average. CR000329 preserves the corrected current Civil Protection press-area route without substituting its separate structured repository; CR000330 preserves the cited Ministry portal without bypassing browser validation. Exact files, snapshots, field definitions, licences and per-value cross-source attribution remain unresolved. Both resources are assessed at `R1`; no payload was opened or scientific workflow executed.
+`CR000331` preserves the verified `PRL000233` citation for Atlas paper 714 while correcting Stage-1 dataset semantics to a government intervention-news source. The official archive describes Minnesota COVID-19 actions, but the paper places its URL immediately after an Italy lockdown/NPI timeline claim. The citation provenance is verified; its scientific/geographic applicability to Italy is not, and one explicit conflict records that mismatch. Italy-specific official sources, exact cited items, an immutable archive snapshot and reuse licence remain unresolved. The resource is assessed at `R0`; no linked item or payload was opened and no scientific workflow executed.
 
 ## Aggregate batch QA
 
-`SOB031` remains **PASS (10/10)**. `SOB032` is now **7/10** with `CR000324–CR000330`.
+`SOB031` remains **PASS (10/10)**. `SOB032` is now **8/10** with `CR000324–CR000331`.
 
 ## Continuation
 
-Continue with `Stage3-S281` at `CR000331`.
+Continue with `Stage3-S282` at `CR000332`.
