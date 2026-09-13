@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S243`
-- Latest completed resource: `CR000289`
+- Latest completed checkpoint: `Stage3-S244`
+- Latest completed resource: `CR000290`
 - Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
-- Current batch: `SOB028` — **6/10**
+- Current batch: `SOB028` — **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000290`
-- Exact next checkpoint: `Stage3-S244`
+- Exact next independently extractable resource: `CR000291`
+- Exact next checkpoint: `Stage3-S245`
 
-## Cumulative counts through S243 / RC08
+## Cumulative counts through S244 / RC08
 
-- Resources: **286**
+- Resources: **287**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2816**
-- Reproducibility assessments: **286**
-- Unresolved findings: **1446**
+- Technical-evidence records: **2822**
+- Reproducibility assessments: **287**
+- Unresolved findings: **1447**
 - Explicit conflicts: **147**
-- Independently extractable resources remaining: **77**
+- Independently extractable resources remaining: **76**
 
-## S243
+## S244
 
-`CR000288` preserves XJTU battery dataset DOI `10.5281/zenodo.10963339`, version V1, CC BY 4.0 metadata, public archive listing, and `PRL000055`. `CR000289` preserves TJU dataset DOI `10.5281/zenodo.6405084`, version v2, CC BY 4.0 metadata, four public archive listings, and `PRL000056`. Both remain metadata-only static extractions with no archive opening and are assessed at `R2`.
+`CR000290` preserves the HUST Mendeley Data record, DOI `10.17632/nsc7hnsg4s.2`, version 2, 77-cell LFP/graphite experimental context, CC BY 4.0 licence and `PRL000057` for Atlas paper 299. No dataset payload was downloaded or opened; file-level schema, discharge-policy mapping, preprocessing and paper-specific splits remain bounded. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB027` remains **PASS (10/10)**. `SOB028` is now **6/10**.
+`SOB027` remains **PASS (10/10)**. `SOB028` is now **7/10**.
 
 ## Continuation
 
-Continue with `Stage3-S244` at `CR000290`.
+Continue with `Stage3-S245` at `CR000291`.
