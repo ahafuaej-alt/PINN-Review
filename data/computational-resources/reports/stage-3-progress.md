@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S266`
-- Latest completed resource: `CR000315`
+- Latest completed checkpoint: `Stage3-S267`
+- Latest completed resource: `CR000316`
 - Latest completed aggregate batch: `SOB030` - **PASS (10/10)**
-- Current batch: `SOB031` - **2/10**
+- Current batch: `SOB031` - **3/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000316`
-- Exact next checkpoint: `Stage3-S267`
+- Exact next independently extractable resource: `CR000317`
+- Exact next checkpoint: `Stage3-S268`
 
-## Cumulative counts through S266 / RC09
+## Cumulative counts through S267 / RC09
 
-- Resources: **312**
+- Resources: **313**
 - Experiments: **353**
 - Configurations: **628**
-- Technical-evidence records: **3035**
-- Reproducibility assessments: **312**
-- Unresolved findings: **1511**
+- Technical-evidence records: **3046**
+- Reproducibility assessments: **313**
+- Unresolved findings: **1514**
 - Explicit conflicts: **155**
-- Independently extractable resources remaining: **51**
+- Independently extractable resources remaining: **50**
 
-## S266
+## S267
 
-`CR000315` preserves the official PHM Society 2010 Conference Data Challenge identity and verified `PRL000178` relationship for Atlas paper 572. The provider documents six CNC cutter records, the c1/c4/c6 training and c2/c3/c5 test partition, per-training-record wear labels and approximately 300 per-cut CSV acquisitions, seven force/vibration/AE-RMS channels, and 50 kHz/channel acquisition under specified milling conditions. The primary paper directly identifies this challenge as its experimental data source and gives the exact Stage-1 URL. Exact paper-specific cut selections/task partitioning and preprocessing/feature handling are not independently established in the bounded source set, and the verified official challenge page does not expose an explicit dataset licence. No cutter archive, CSV or wear file was downloaded or opened; no preprocessing or model execution was performed. The resource is assessed at `R2`.
+`CR000316` preserves the exact Mendeley Data version-1 record `10.17632/v43hmbwxpm.1` and verified `PRL000179` relationship for Atlas paper 577. Provider metadata documents 36 datasets spanning three bearing health conditions and four time-varying speed profiles with three trials per setting, two channels (accelerometer vibration and encoder rotational speed), 200 kHz sampling, 10 s duration, CC BY 4.0 licensing, and a 458 MB ZIP with a published SHA-256 checksum. A later version 2 expands the dataset to 60 records and is not substituted for the Stage-1/Stage-2 version-1 identity. The exact files/subsets, paper-specific train/validation/test handling, preprocessing, resampling/order handling and feature representation used by Atlas paper 577 are not independently established by the bounded source set. No archive or MAT file was downloaded or opened and the provider checksum was not independently recomputed. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB030` remains **PASS (10/10)**. `SOB031` is now **2/10**.
+`SOB030` remains **PASS (10/10)**. `SOB031` is now **3/10**.
 
 ## Continuation
 
-Continue with `Stage3-S267` at `CR000316`.
+Continue with `Stage3-S268` at `CR000317`.
