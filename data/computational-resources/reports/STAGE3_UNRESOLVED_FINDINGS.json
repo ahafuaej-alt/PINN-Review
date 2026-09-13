@@ -2,23 +2,21 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S287`
+Latest checkpoint: `Stage3-S288`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1584**
+- Unresolved findings: **1586**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1585`
+- Next unresolved ID: `S3U-1587`
 
-## New findings in S287
+## New findings in S288
 
-- `S3U-1581` — CR000338 / exact_weatherbench_artifact_version_and_checksum_unresolved / medium: paper 717 identifies WeatherBench-preprocessed 5.625-degree ERA5 but does not pin an exact processed artifact, version, download locator or checksum to CR000338.
-- `S3U-1582` — CR000338 / raw_era5_to_weatherbench_lineage_unresolved / medium: regridding from raw ERA5 is reported, but the complete transformation manifest and provenance chain are not independently mapped.
-- `S3U-1583` — CR000338 / era5_cc_by_version_and_historical_terms_unresolved / low: the retrieved catalogue label states CC-BY without a version, and paper-period applicable terms are not independently recovered.
-- `S3U-1584` — CR000338 / climode_scaler_parameters_and_data_handling_unresolved / medium: min-max scaling is documented, but exact fitted parameters, missing-data handling and random-seed details remain unknown.
+- `S3U-1585` — CR000339 / exact_imagenet_release_subset_and_manifest_unresolved / low: the generic project portal does not identify one exact release, challenge subset, manifest or checksum relevant to the conceptual mention.
+- `S3U-1586` — CR000339 / complete_per_image_rights_lineage_unresolved / medium: access terms are documented, but image copyrights remain with original owners and no single dataset-wide open licence resolves every asset.
 
-## New explicit conflicts in S287
+## New explicit conflicts in S288
 
 None. Existing conflicts remain preserved.
 

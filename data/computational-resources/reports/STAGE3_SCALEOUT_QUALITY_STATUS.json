@@ -2,27 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S287`
+Latest checkpoint: `Stage3-S288`
 Latest reconciliation: `Stage3-RC09`
 Status: **PASS**
 
-## Checkpoint S287
+## Checkpoint S288
 
-- Resources: **1** (`CR000338`)
+- Resources: **1** (`CR000339`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **16**
+- Technical-evidence records: **8**
 - Reproducibility assessments: **1**
-- New unresolved findings: **4**
+- New unresolved findings: **2**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000338 R1**
+- Reproducibility: **CR000339 R1**
 
-All required gates pass. Final Stage-2 CR000338/PRL000248 identity and corrected relationship authority is preserved. Official raw ERA5 documentation remains distinct from the WeatherBench-preprocessed experiment dataset used by paper 717. Detailed paper-scoped data and workflow facts are retained without manufacturing experiment/configuration mappings under CR000338. Exact processed artifact/version, transformation lineage, licence version and scaler details remain unknown. RC09 is satisfied; no payload or workflow was executed.
+All required gates pass. Final Stage-2 CR000339/PRL000251 identity and corrected relationship authority is preserved. ImageNet remains a conceptual benchmark-library analogy rather than paper-used data. Current provider metadata and controlled-access terms are recorded without treating the generic portal as a pinned dataset release or inferring a dataset-wide open licence. RC09 is satisfied; no payload or workflow was executed.
 
 ## Aggregate batch QA
 
-`SOB032` remains **10/10 — PASS**. `SOB033` is **5/10** with `CR000334–CR000338`.
+`SOB032` remains **10/10 — PASS**. `SOB033` is **6/10** with `CR000334–CR000339`.
 
 Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000339 → Stage3-S288`.
+Exact continuation: `CR000340 → Stage3-S289`.
