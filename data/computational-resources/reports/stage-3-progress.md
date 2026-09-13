@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S239`
-- Latest completed resource: `CR000283`
+- Latest completed checkpoint: `Stage3-S240`
+- Latest completed resource: `CR000285`
 - Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
-- Current batch: `SOB028` — **0/10**
+- Current batch: `SOB028` — **2/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000284`
-- Exact next checkpoint: `Stage3-S240`
+- Exact next independently extractable resource: `CR000286`
+- Exact next checkpoint: `Stage3-S241`
 
-## Cumulative counts through S239 / RC08
+## Cumulative counts through S240 / RC08
 
-- Resources: **280**
+- Resources: **282**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2781**
-- Reproducibility assessments: **280**
-- Unresolved findings: **1440**
+- Technical-evidence records: **2793**
+- Reproducibility assessments: **282**
+- Unresolved findings: **1442**
 - Explicit conflicts: **147**
-- Independently extractable resources remaining: **83**
+- Independently extractable resources remaining: **81**
 
-## S239
+## S240
 
-`CR000283` preserves the exact paper-stated legacy swissALTI3D data location, current official swisstopo product authority, `PRL000035`, the paper-used 2019 release and custom swisstopo OGD terms. It is assessed `R2`; no raster payload was downloaded, opened or processed.
+`CR000284` preserves Copernicus DEM GLO-30, DOI `10.5270/ESA-c5d3d65`, `PRL000036`, provider access conditions and custom licensing scope. `CR000285` preserves OEDI submission 5773, DOI `10.25984/2228282`, item-level CC BY 4.0 and `PRL000039`. Both are assessed `R2`; payload-level processing remains bounded.
 
 ## Aggregate batch QA
 
-`SOB027` is **PASS (10/10)** with authoritative membership `CR000274` through `CR000283`. `SOB028` starts at **0/10**.
+`SOB027` remains **PASS (10/10)**. `SOB028` is now **2/10**.
 
 ## Continuation
 
-Continue with `Stage3-S240` at `CR000284`.
+Continue with `Stage3-S241` at `CR000286`.
