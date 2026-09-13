@@ -2,27 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S257`
+Latest checkpoint: `Stage3-S258`
 Latest reconciliation: `Stage3-RC08`
 Status: **PASS**
 
-## Checkpoint S257
+## Checkpoint S258
 
-- Resources: **1** (`CR000306`)
+- Resources: **1** (`CR000307`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **8**
+- Technical-evidence records: **10**
 - Reproducibility assessments: **1**
-- New unresolved findings: **4**
+- New unresolved findings: **3**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000306 R0**
+- Reproducibility: **CR000307 R3**
 
-All required checkpoint validation gates pass. Historical identity and PRL000133 are supported directly by the primary paper, while current source availability is kept separate: the historical generator page is unavailable and no authoritative maintained mirror/source snapshot was identified. Paper-documented Shapeset-3×2 semantics are retained without inventing generator implementation details, dependencies, versioning or licence. No source or generated images were downloaded or executed.
+All required checkpoint validation gates pass. The Stage-2 relationship authority is preserved exactly: `PRL000137` and `PRL000224` are verified, while `PRL000001`–`PRL000003` remain explicitly non-verified parser leakage. Official JHTDB channel-flow metadata and the two primary papers support the dataset identity and scientific role without manufacturing exact paper-specific cutout requests or preprocessing. No dataset field or service payload was downloaded or opened and no scientific workload was executed.
 
 ## Aggregate batch QA
 
-`SOB029` remains **10/10 — PASS**. `SOB030` is **3/10**.
+`SOB029` remains **10/10 — PASS**. `SOB030` is **4/10**.
 
 Stage3-RC02 through Stage3-RC08 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000307 → Stage3-S258`.
+Exact continuation: `CR000308 → Stage3-S259`.
