@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S265`
-- Latest completed resource: `CR000314`
+- Latest completed checkpoint: `Stage3-S266`
+- Latest completed resource: `CR000315`
 - Latest completed aggregate batch: `SOB030` - **PASS (10/10)**
-- Current batch: `SOB031` - **1/10**
+- Current batch: `SOB031` - **2/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000315`
-- Exact next checkpoint: `Stage3-S266`
+- Exact next independently extractable resource: `CR000316`
+- Exact next checkpoint: `Stage3-S267`
 
-## Cumulative counts through S265 / RC09
+## Cumulative counts through S266 / RC09
 
-- Resources: **311**
+- Resources: **312**
 - Experiments: **353**
 - Configurations: **628**
-- Technical-evidence records: **3025**
-- Reproducibility assessments: **311**
-- Unresolved findings: **1508**
+- Technical-evidence records: **3035**
+- Reproducibility assessments: **312**
+- Unresolved findings: **1511**
 - Explicit conflicts: **155**
-- Independently extractable resources remaining: **52**
+- Independently extractable resources remaining: **51**
 
-## S265
+## S266
 
-`CR000314` preserves the NOAA/NCEI CUDEM distribution identity and verified `PRL000177` relationship for Atlas paper 571. NOAA documents the U.S. Virgin Islands 1/9-arc-second CUDEM as a tiled bathymetric-topographic product with DOI `10.25921/ds9v-ky35`, public NetCDF/GeoTIFF distribution and an ongoing continuously-updated lifecycle. The paper uses CUDEM as independent validation data for St. Thomas and St. Croix and documents VIVD09-to-WGS84 conversion using NOAA VDatum. Exact historical tile identifiers, filenames, revision dates and a frozen paper-specific CUDEM snapshot are not reported; the exact VDatum software/model version and transformation parameters are also unresolved. Current CUDEM metadata is therefore not treated as an immutable copy of the historical paper files. No DEM tile was downloaded or opened and no datum transformation was executed. The resource is assessed at `R2`.
+`CR000315` preserves the official PHM Society 2010 Conference Data Challenge identity and verified `PRL000178` relationship for Atlas paper 572. The provider documents six CNC cutter records, the c1/c4/c6 training and c2/c3/c5 test partition, per-training-record wear labels and approximately 300 per-cut CSV acquisitions, seven force/vibration/AE-RMS channels, and 50 kHz/channel acquisition under specified milling conditions. The primary paper directly identifies this challenge as its experimental data source and gives the exact Stage-1 URL. Exact paper-specific cut selections/task partitioning and preprocessing/feature handling are not independently established in the bounded source set, and the verified official challenge page does not expose an explicit dataset licence. No cutter archive, CSV or wear file was downloaded or opened; no preprocessing or model execution was performed. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB030` remains **PASS (10/10)**. `SOB031` is now **1/10**.
+`SOB030` remains **PASS (10/10)**. `SOB031` is now **2/10**.
 
 ## Continuation
 
-Continue with `Stage3-S266` at `CR000315`.
+Continue with `Stage3-S267` at `CR000316`.
