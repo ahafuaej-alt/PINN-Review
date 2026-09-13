@@ -2,19 +2,21 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S259`
-Latest reconciliation: `Stage3-RC08` — PASS
+Latest checkpoint: `Stage3-S260`
+Latest reconciliation: `Stage3-RC08` - PASS
 
 ## Current totals
 
-- Unresolved findings: **1483**
-- Explicit conflicts: **150**
-- Next unresolved ID: `S3U-1484`
+- Unresolved findings: **1488**
+- Explicit conflicts: **151**
+- Next unresolved ID: `S3U-1489`
 
-## New findings in S259
+## New findings in S260
 
-- `S3U-1481` — CR000308 / archive_internal_schema_not_inspected / medium: the public record exposes `training-data_H2O.tar.gz` and states that documentation is in an internal `README.pdf`, but the archive and README were not opened; structure count, file formats and field schema remain unresolved.
-- `S3U-1482` — CR000308 / record_level_reuse_license_unresolved / medium: no explicit record-level reuse license was independently established, and no licence is inferred from Zenodo defaults, the associated paper, or platform policy.
-- `S3U-1483` — CR000308 / paper_augmentation_to_deposit_mapping_unresolved / medium: the PiNN Supporting Information reports 2,841 additional liquid-water structures generated from molecular-dynamics snapshots using the original BPNN/RuNNer workflow, but their exact relationship to the original Zenodo archive is not established.
+- `S3U-1484` - CR000309 / artifact_role_conflict / high: the primary-paper relationship and `CITATION.cff` label the resource as a dataset, while the pinned root contains four executable notebooks plus citation/licence files and no standalone dataset file visible at root. Stage 3 preserves the historical label but profiles the actual pinned artifact as `pinn_implementation`. **Explicit conflict.**
+- `S3U-1485` - CR000309 / citation_doi_placeholder / medium: `CITATION.cff` declares `10.5281/zenodo.1234`; Stage 2 identified it as placeholder/defective metadata and no verified replacement resource DOI is established.
+- `S3U-1486` - CR000309 / environment_not_fully_pinned / medium: notebook imports establish the dependency family and one Plotly version is explicitly documented, but most dependency versions are unpinned and no dependency/environment manifest exists.
+- `S3U-1487` - CR000309 / standalone_dataset_payload_unresolved / medium: no standalone dataset file is visible at the pinned repository root, and the exact location or generation path of the dataset named by the paper/citation metadata remains unresolved.
+- `S3U-1488` - CR000309 / paper_to_notebook_mapping_incomplete / medium: the pinned notebooks implement trapz-PiNN and supporting reference calculations, but the exact mapping of every numerical example in the paper to a repository notebook is not fully normalized.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
