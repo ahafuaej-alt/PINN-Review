@@ -2,17 +2,17 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S247`
+Latest checkpoint: `Stage3-S248`
 Latest reconciliation: `Stage3-RC08` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1451**
-- Explicit conflicts: **147**
-- Next unresolved ID: `S3U-1452`
+- Unresolved findings: **1452**
+- Explicit conflicts: **148**
+- Next unresolved ID: `S3U-1453`
 
-## New findings in S247
+## New findings in S248
 
-- `S3U-1451` — CR000294 / hdf5_payload_schema_license_and_processing_bounded / medium: The exact public folder and provider-listed 29.36 GB HDF5 data product are established, but the payload was not opened; HDF5 schema, exact array dimensions, simulator settings, paper-specific partitions/preprocessing, item-level licence and standalone dataset DOI remain bounded.
+- `S3U-1452` — CR000295 / readme_50_vs_pinned_tree_51_training_inventory_conflict / high: The pinned README states that 50 instants were used for training, while the same pinned `DNS_Data` tree contains 51 PNG files (`f.0000.png`–`f.0050.png`). The extra-file role and exact paper-specific training selection cannot be resolved from static metadata alone; both authoritative observations are preserved as conflicting evidence.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.

@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S247`
-- Latest completed resource: `CR000294`
+- Latest completed checkpoint: `Stage3-S248`
+- Latest completed resource: `CR000295`
 - Latest completed aggregate batch: `SOB028` — **PASS (10/10)**
-- Current batch: `SOB029` — **1/10**
+- Current batch: `SOB029` — **2/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000295`
-- Exact next checkpoint: `Stage3-S248`
+- Exact next independently extractable resource: `CR000296`
+- Exact next checkpoint: `Stage3-S249`
 
-## Cumulative counts through S247 / RC08
+## Cumulative counts through S248 / RC08
 
-- Resources: **291**
+- Resources: **292**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2847**
-- Reproducibility assessments: **291**
-- Unresolved findings: **1451**
-- Explicit conflicts: **147**
-- Independently extractable resources remaining: **72**
+- Technical-evidence records: **2854**
+- Reproducibility assessments: **292**
+- Unresolved findings: **1452**
+- Explicit conflicts: **148**
+- Independently extractable resources remaining: **71**
 
-## S247
+## S248
 
-`CR000294` preserves the exact public Google Drive dataset folder, `PRL000060`, paper reference `[17]`, and the provider-listed `CMAME_40x40x20_case` HDF5 data product. Primary-paper/Stage-2 metadata establish 2923 realizations, a 40×40×20 grid and 21 timesteps. The 29.36 GB HDF5 payload was not downloaded or opened; item-level licence, standalone DOI, file schema, simulator settings and paper-specific processing remain bounded. The resource is assessed at `R1`.
+`CR000295` preserves the Stage-2 dataset-repository identity, `PRL000061`, Atlas paper 305, and pinned commit `1d4fe8d37a238a9329da2e43e13f9bdecec14d32`. The pinned README documents two-dimensional instantaneous velocity contours in the X–Y plane for open-channel flow at turbulent Re = 11200 and states that 50 instants were used for convolutional-network training. The same pinned Git tree contains 51 PNG files, `f.0000.png` through `f.0050.png`. The 50-versus-51 discrepancy is retained as explicit conflicting evidence and remains unresolved; no PNG payload was downloaded or opened. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB028` remains **PASS (10/10)**. `SOB029` is now **1/10**.
+`SOB028` remains **PASS (10/10)**. `SOB029` is now **2/10**.
 
 ## Continuation
 
-Continue with `Stage3-S248` at `CR000295`.
+Continue with `Stage3-S249` at `CR000296`.
