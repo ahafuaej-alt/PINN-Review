@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S262`
-- Latest completed resource: `CR000311`
+- Latest completed checkpoint: `Stage3-S263`
+- Latest completed resource: `CR000312`
 - Latest completed aggregate batch: `SOB029` - **PASS (10/10)**
-- Current batch: `SOB030` - **8/10**
+- Current batch: `SOB030` - **9/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` - **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000312`
-- Exact next checkpoint: `Stage3-S263`
+- Exact next independently extractable resource: `CR000313`
+- Exact next checkpoint: `Stage3-S264`
 
-## Cumulative counts through S262 / RC08
+## Cumulative counts through S263 / RC08
 
-- Resources: **308**
+- Resources: **309**
 - Experiments: **353**
 - Configurations: **628**
-- Technical-evidence records: **2991**
-- Reproducibility assessments: **308**
-- Unresolved findings: **1496**
-- Explicit conflicts: **153**
-- Independently extractable resources remaining: **55**
+- Technical-evidence records: **3005**
+- Reproducibility assessments: **309**
+- Unresolved findings: **1501**
+- Explicit conflicts: **154**
+- Independently extractable resources remaining: **54**
 
-## S262
+## S263
 
-`CR000311` preserves the LIAS MCSA-DC dataset identity and verified `PRL000172` relationship for Atlas paper 563. Current LIAS documentation exposes the induction-motor rotor-bar-failure data as a CC-BY-4.0 CSV package labelled Version 1 (2023), with explicit measurement order and filename ranges for healthy, one-broken-bar and two-broken-bar cases. The 2022 paper accessed the portal on 20 October 2022 and reports 132 recordings across the same three speed/health-class count pattern. File-level continuity between the paper-accessed dataset and the later Version-1 package is not inferred. A new explicit source conflict is preserved: the paper reports 380 V and 1435 rpm nominal motor ratings, while current provider documentation reports 400 V and 1425 rpm. Paper preprocessing/use and current data organization are substantially documented, but exact historical package continuity and paper train/test filename assignment remain unresolved. No archive, CSV or descriptive file was opened. The resource is assessed at `R3`.
+`CR000312` preserves the exact historical ATL03 Version-5 identity, DOI `10.5067/ATLAS/ATL03.005`, and verified `PRL000175` relationship for Atlas paper 571. NSIDC documents ATL03 V5 as an HDF5 global geolocated-photon product with WGS84 coordinates and 70 cm spatial resolution; the V5 payload is now retired while documentation remains available. The provider's V5 geolocation-error advisory begins on 24 October 2021. Every ICESat-2 acquisition date listed by the paper precedes that onset, with the latest reported study acquisition on 15 September 2021, so the paper-reported study dates are outside the affected interval. The paper substantially documents AE-DBSCAN photon extraction, outlier removal, Parrish refraction correction and GOT4.8 tide correction before using processed ATL03 bathymetric points as PI-CNN labels/reference data. Exact ATL03 granule identities and the derived processed-point payload remain unresolved. NSIDC announced V5 payload retirement for 19 December 2023, while the paper records the V5 URL as accessed on 21 January 2024; Stage 3 retains this as an explicit timing conflict because the paper statement does not distinguish documentation-page access from payload access. No HDF5 granule was opened or processed. The resource is assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB029` remains **PASS (10/10)**. `SOB030` is now **8/10**.
+`SOB029` remains **PASS (10/10)**. `SOB030` is now **9/10**.
 
 ## Continuation
 
-Continue with `Stage3-S263` at `CR000312`.
+Continue with `Stage3-S264` at `CR000313`.
