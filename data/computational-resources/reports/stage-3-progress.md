@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S277`
-- Latest completed resource: `CR000326`
+- Latest completed checkpoint: `Stage3-S278`
+- Latest completed resource: `CR000327`
 - Latest completed aggregate batch: `SOB031` - **PASS (10/10)**
-- Current batch: `SOB032` - **3/10**
+- Current batch: `SOB032` - **4/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000327`
-- Exact next checkpoint: `Stage3-S278`
+- Exact next independently extractable resource: `CR000328`
+- Exact next checkpoint: `Stage3-S279`
 
-## Cumulative counts through S277 / RC09
+## Cumulative counts through S278 / RC09
 
-- Resources: **323**
+- Resources: **324**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3175**
-- Reproducibility assessments: **323**
+- Technical-evidence records: **3182**
+- Reproducibility assessments: **324**
 - Unresolved findings: **1546**
-- Explicit conflicts: **155**
-- Independently extractable resources remaining: **40**
+- Explicit conflicts: **156**
+- Independently extractable resources remaining: **39**
 
-## S277
+## S278
 
-`CR000326` preserves the versioned Kaggle DOI `10.34740/kaggle/dsv/2637500`, version-3 identity and verified `PRL000222` relationship for Atlas paper 691. The record establishes a CC BY 4.0 curated RANS/DNS/LES turbulence dataset including five PHLL periodic-hill geometry cases. The paper uses periodic-hill data for physics-informed identification of standard k-omega coefficients, but the exact case, files, fields, point selection and preprocessing map remain unresolved. No payload was opened and no scientific workflow was executed. The resource is assessed at `R2`.
+`CR000327` preserves the Stage-2 correction that DOI `10.1016/j.ijnonlinmec.2024.104988` is Atlas paper 692 itself, not a dataset. Consequently, `PRL000225` remains not verified and the Stage-1 paper-dataset assertion is recorded as explicit conflicting evidence. The actual JHTDB data remain under `CR000307/PRL000224`; the separate DG-PINN repository is not conflated. The article licence is not transferred to data or software. No payload was opened and no scientific workflow was executed. The resource is assessed at `R0`.
 
 ## Aggregate batch QA
 
-`SOB031` remains **PASS (10/10)**. `SOB032` is now **3/10** with `CR000324–CR000326`.
+`SOB031` remains **PASS (10/10)**. `SOB032` is now **4/10** with `CR000324–CR000327`.
 
 ## Continuation
 
-Continue with `Stage3-S278` at `CR000327`.
+Continue with `Stage3-S279` at `CR000328`.
