@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S270`
-- Latest completed resource: `CR000319`
+- Latest completed checkpoint: `Stage3-S271`
+- Latest completed resource: `CR000320`
 - Latest completed aggregate batch: `SOB030` - **PASS (10/10)**
-- Current batch: `SOB031` - **6/10**
+- Current batch: `SOB031` - **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000320`
-- Exact next checkpoint: `Stage3-S271`
+- Exact next independently extractable resource: `CR000321`
+- Exact next checkpoint: `Stage3-S272`
 
-## Cumulative counts through S270 / RC09
+## Cumulative counts through S271 / RC09
 
-- Resources: **316**
+- Resources: **317**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3088**
-- Reproducibility assessments: **316**
-- Unresolved findings: **1524**
+- Technical-evidence records: **3099**
+- Reproducibility assessments: **317**
+- Unresolved findings: **1527**
 - Explicit conflicts: **155**
-- Independently extractable resources remaining: **47**
+- Independently extractable resources remaining: **46**
 
-## S270
+## S271
 
-`CR000319` preserves the exact Zenodo DOI `10.5281/zenodo.5206676` and verified `PRL000191` relationship for Atlas paper 603. The DOI archive remains authoritative; a paper-linked GitHub snapshot at commit `469cfc23fd34ff4ed8673281ec213a6d0f35920b` from 15 August 2021 is used only as supporting static evidence and is not asserted to be byte-equivalent to the Zenodo ZIP. The snapshot exposes five numerical-study families—antiderivative, diffusion-reaction, advection, Burgers and Eikonal—and nine materially distinct notebook configurations, including data-driven baselines, physics-informed variants and an antiderivative Fourier-feature variant. The notebooks implement physics-informed DeepONets with automatic differentiation, problem-specific residual losses, explicit architecture/training settings, data generators and selected bundled trained-parameter/data artifacts. The historical snapshot has no dependency manifest with version pins or installation procedure, and no explicit licence was independently verified. No Zenodo ZIP, binary data/checkpoint or notebook was opened/executed. The resource is assessed at `R1`.
+`CR000320` preserves the corrected official ESS-DIVE portal identity and verified `PRL000200` relationship for Atlas paper 615. The paper documents Quigley and Rock Creek as East River headwater catchments with short daily streamflow records: Quigley spans 1 September 2014 to 13 October 2016 with 774 observations, and Rock Creek spans 31 August 2014 to 4 October 2017 with 1131 observations. Pumphouse is also used in the study with a three-year record from 1 October 2014 to 30 September 2017, but the verified data-availability statement does not independently assign that record to a specific ESS-DIVE package. Meteorological forcing—precipitation and daily maximum/minimum temperature—is derived from 1-km Daymet data and is kept separate from the ESS-DIVE streamflow source. The paper reserves the last year of each short record for testing, uses the remaining data for calibration with a 90/10 training/validation split, and reports input sequence lengths of 60 days for Quigley/Pumphouse and 30 days for Rock Creek. Current ESS-DIVE documentation confirms the portal's repository role and its public-dataset licence policy, but the exact package DOI/version, file schema and package-specific licence for the cited headwater records remain unresolved. No payload, API response or dataset file was opened. The resource is assessed at `R1`.
 
 ## Aggregate batch QA
 
-`SOB030` remains **PASS (10/10)**. `SOB031` is now **6/10**.
+`SOB030` remains **PASS (10/10)**. `SOB031` is now **7/10**.
 
 ## Continuation
 
-Continue with `Stage3-S271` at `CR000320`.
+Continue with `Stage3-S272` at `CR000321`.
