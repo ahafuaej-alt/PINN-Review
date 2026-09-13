@@ -2,21 +2,20 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S254`
+Latest checkpoint: `Stage3-S255`
 Latest reconciliation: `Stage3-RC08` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1464**
+- Unresolved findings: **1468**
 - Explicit conflicts: **150**
-- Next unresolved ID: `S3U-1465`
+- Next unresolved ID: `S3U-1469`
 
-## New findings in S254
+## New findings in S255
 
-- `S3U-1460` — CR000302 / canonical_hostname_conflict / medium / **explicit conflict**: Stage 1 preserves `yan.cce.illinois.edu`, while the primary paper reports `yan.cee.illinois.edu`. Stage 3 preserves CR000302 and both source values; no silent canonical rewrite is made.
-- `S3U-1461` — CR000302 / resolution_folder_semantics_conflict / medium / **explicit conflict**: The pinned README says `resolution` contains PINN cases with different numbers of neurons, but the four pinned scripts all use four hidden layers of width 200 and vary `N_f` from 10,000 to 40,000.
-- `S3U-1462` — CR000302 / complete_paper_level_artifact_bundle_not_verified / medium: The paper promises datasets and PINN code at the corrected group hostname, while the verified supporting repository exposes only a 1D demo. A complete paper-level bundle is not established.
-- `S3U-1463` — CR000302 / environment_and_license_incomplete / low: The scripts import TensorFlow, NumPy, SciPy, pyDOE, and Matplotlib without version pins or an installation manifest, and Stage 2 identified no reusable repository licence.
-- `S3U-1464` — CR000302 / fem_mat_payload_not_independently_inspected / low: `1D/dat/thermal_fine.mat` is present and code accesses `x`, `tt`, and `Tem`, but the binary MAT payload was not opened; its internal schema and values are not independently verified.
+- `S3U-1465` — CR000303 / benchmark_payloads_not_opened / low: Five benchmark folders and their input files are verified from the pinned tree, but the large `.rea`, `.adr`, compressed archive, and other benchmark payloads were not opened or numerically inspected.
+- `S3U-1466` — CR000303 / build_dependency_versions_not_fully_pinned / low: Compilation instructions require architecture-specific flags, MPI and math libraries such as LAPACK/BLAS/ACML/MKL; successful Intel Compilers 2018 use is documented, but exact dependency/compiler versions and paths are not fully pinned.
+- `S3U-1467` — CR000303 / benchmark_specific_run_and_expected_output_mapping_incomplete / medium: A generic Nektar `mpirun` workflow is documented and benchmark inputs are present, but exact per-benchmark run commands, expected outputs, and evaluation/result mappings are not sufficiently normalized for R4.
+- `S3U-1468` — CR000303 / davinci_external_nektar_plus_plus_version_unpinned / low: The DaVinci case is supplied as a Nektar++ XML input, while Nektar++ is an external package and the exact release needed for this case is not pinned in the HFM v1.0 software record.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
