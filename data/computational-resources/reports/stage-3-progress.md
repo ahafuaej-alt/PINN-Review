@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S245`
-- Latest completed resource: `CR000291`
-- Latest completed aggregate batch: `SOB027` — **PASS (10/10)**
-- Current batch: `SOB028` — **8/10**
+- Latest completed checkpoint: `Stage3-S246`
+- Latest completed resource: `CR000293`
+- Latest completed aggregate batch: `SOB028` — **PASS (10/10)**
+- Current batch: `SOB029` — **0/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000292`
-- Exact next checkpoint: `Stage3-S246`
+- Exact next independently extractable resource: `CR000294`
+- Exact next checkpoint: `Stage3-S247`
 
-## Cumulative counts through S245 / RC08
+## Cumulative counts through S246 / RC08
 
-- Resources: **288**
+- Resources: **290**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2828**
-- Reproducibility assessments: **288**
-- Unresolved findings: **1448**
+- Technical-evidence records: **2841**
+- Reproducibility assessments: **290**
+- Unresolved findings: **1450**
 - Explicit conflicts: **147**
-- Independently extractable resources remaining: **75**
+- Independently extractable resources remaining: **73**
 
-## S245
+## S246
 
-`CR000291` preserves the historical MATR project identity, `PRL000058` and primary-paper description of the MIT/TRI 124-cell, 72-fast-charging-policy dataset. The historical project URL now resolves only to the MATR platform root; the item-level record, files, documentation and licence remain unavailable or unknown. The resource is assessed at `R0`.
+`CR000292` preserves the Beyond Nyquist pretrained-model collection and `PRL000050`; four collection entries are visible, with one individual model card statically inspected. Collection-level and cross-model licence uniformity remain bounded and no model files were opened. `CR000293` preserves the IXI dataset, `PRL000051`, public NIFTI modalities, acquisition-site metadata and CC BY-SA 3.0 licensing without downloading or parsing payloads. Both resources are assessed at `R2`.
 
 ## Aggregate batch QA
 
-`SOB027` remains **PASS (10/10)**. `SOB028` is now **8/10**.
+`SOB028` is **PASS (10/10)** with membership `CR000284` through `CR000293`. `SOB029` starts at **0/10**.
 
 ## Continuation
 
-Continue with `Stage3-S246` at `CR000292`.
+Continue with `Stage3-S247` at `CR000294`.
