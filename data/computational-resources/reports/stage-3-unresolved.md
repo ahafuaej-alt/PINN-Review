@@ -2,17 +2,17 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S248`
+Latest checkpoint: `Stage3-S249`
 Latest reconciliation: `Stage3-RC08` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1452**
+- Unresolved findings: **1453**
 - Explicit conflicts: **148**
-- Next unresolved ID: `S3U-1453`
+- Next unresolved ID: `S3U-1454`
 
-## New findings in S248
+## New findings in S249
 
-- `S3U-1452` — CR000295 / readme_50_vs_pinned_tree_51_training_inventory_conflict / high: The pinned README states that 50 instants were used for training, while the same pinned `DNS_Data` tree contains 51 PNG files (`f.0000.png`–`f.0050.png`). The extra-file role and exact paper-specific training selection cannot be resolved from static metadata alone; both authoritative observations are preserved as conflicting evidence.
+- `S3U-1453` — CR000296 / benchmark_measurement_payload_and_paper_specific_sampling_bounded / low: The authoritative current Aalborg University page identifies the IEA 2D benchmark and links a benchmark report and measurements, but Stage 3 did not download or open those payloads. Measurement schema, coordinates, exact boundary-condition values, item-level licence and the subset/sampling used by Atlas paper 328 remain bounded.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
