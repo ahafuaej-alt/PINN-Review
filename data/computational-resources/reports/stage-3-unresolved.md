@@ -2,20 +2,20 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S261`
-Latest reconciliation: `Stage3-RC08` - PASS
+Latest checkpoint: `Stage3-S262`
+Latest reconciliation: `Stage3-RC08` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1492**
-- Explicit conflicts: **152**
-- Next unresolved ID: `S3U-1493`
+- Unresolved findings: **1496**
+- Explicit conflicts: **153**
+- Next unresolved ID: `S3U-1497`
 
-## New findings in S261
+## New findings in S262
 
-- `S3U-1489` - CR000310 / acquisition_duration_version_conflict / high: the paper cites Mendeley Version 1 but reports 11-second acquisitions; the Version-1 provider record reports 10 seconds, while Version 2 later reports 11 seconds. The sources are preserved separately and Version 2 is not silently substituted. **Explicit conflict.**
-- `S3U-1490` - CR000310 / version_file_continuity_unresolved / medium: file-level continuity or difference between Mendeley Versions 1 and 2 has not been established because no versioned payload was opened.
-- `S3U-1491` - CR000310 / dataset_internal_schema_not_inspected / medium: the provider points to an internal readme, but dataset files and the readme were not downloaded or opened; file names, variables and detailed schema are not normalized.
-- `S3U-1492` - CR000310 / paper_split_to_raw_file_mapping_unresolved / medium: the paper documents pitting levels and training/validation/testing segment counts, but the exact mapping from those segments to raw Mendeley files is not reconstructed.
+- `S3U-1493` — CR000311 / motor_rating_cross_source_conflict / high: the 2022 paper reports a 1.1 kW induction motor rated 380 V and 1435 rpm, while current LIAS MCSA-DC provider documentation reports 1.1 kW, 400 V, 50 Hz and 1425 rpm for the rotor-bar-failure bench; the discrepancy is preserved as explicit conflicting evidence.
+- `S3U-1494` — CR000311 / historical_to_current_package_continuity_unresolved / medium: the paper accessed the dataset on 20 October 2022, whereas the current download is labelled Version 1 (2023); matching class/speed record counts do not establish file-level identity.
+- `S3U-1495` — CR000311 / archive_internal_files_not_inspected / medium: the current tar.gz package, CSV payloads and included descriptive file were not downloaded or opened, so byte-level/file-level continuity and internal metadata remain unverified.
+- `S3U-1496` — CR000311 / paper_split_to_current_csv_mapping_unresolved / medium: the paper states a half-training/half-testing split and three speed-based test groups, but it does not identify which current `ccs*.csv` files belong to each train/test subset.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
