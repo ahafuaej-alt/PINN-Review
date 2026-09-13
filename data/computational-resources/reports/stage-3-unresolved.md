@@ -2,18 +2,17 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S251`
+Latest checkpoint: `Stage3-S252`
 Latest reconciliation: `Stage3-RC08` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1456**
+- Unresolved findings: **1457**
 - Explicit conflicts: **148**
-- Next unresolved ID: `S3U-1457`
+- Next unresolved ID: `S3U-1458`
 
-## New findings in S251
+## New findings in S252
 
-- `S3U-1455` — CR000298 / figshare_payload_inventory_and_figure_mapping_bounded / low: The versioned DOI and current Figshare metadata verify the TgCNN figure-data item and CC BY 4.0 licence, but Stage 3 did not download or open the payload. File names, checksums, figure-to-experiment mapping, and numeric contents remain bounded.
-- `S3U-1456` — CR000299 / figshare_payload_inventory_and_figure_mapping_bounded / low: The Figshare article identity and current provider metadata verify the same underlying TgCNN figure-data item as CR000298, but the stable CR000299 identity is preserved separately and no payload was opened. File names, checksums, figure-to-experiment mapping, and numeric contents remain bounded.
+- `S3U-1457` — CR000300 / historical_gimias_dataset_current_access_and_metadata_unavailable / medium: Atlas paper 378 directly verifies historical use of public human-subject computed-tomography data from the exact GIMIAS URL, but final Stage-2 authority records that the original item page now redirects to an empty lander. Current item title, creator, access path, file inventory, and reuse licence are unavailable; no medical-image payload was downloaded or opened.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.

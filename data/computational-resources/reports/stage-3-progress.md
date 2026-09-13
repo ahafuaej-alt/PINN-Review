@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S251`
-- Latest completed resource: `CR000299`
+- Latest completed checkpoint: `Stage3-S252`
+- Latest completed resource: `CR000300`
 - Latest completed aggregate batch: `SOB028` — **PASS (10/10)**
-- Current batch: `SOB029` — **6/10**
+- Current batch: `SOB029` — **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` — **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000300`
-- Exact next checkpoint: `Stage3-S252`
+- Exact next independently extractable resource: `CR000301`
+- Exact next checkpoint: `Stage3-S253`
 
-## Cumulative counts through S251 / RC08
+## Cumulative counts through S252 / RC08
 
-- Resources: **296**
+- Resources: **297**
 - Experiments: **343**
 - Configurations: **622**
-- Technical-evidence records: **2876**
-- Reproducibility assessments: **296**
-- Unresolved findings: **1456**
+- Technical-evidence records: **2881**
+- Reproducibility assessments: **297**
+- Unresolved findings: **1457**
 - Explicit conflicts: **148**
-- Independently extractable resources remaining: **67**
+- Independently extractable resources remaining: **66**
 
-## S251
+## S252
 
-`CR000298` and `CR000299` preserve two distinct Stage-1/Stage-2 resource identities and relationships (`PRL000075` and `PRL000076`) while explicitly retaining the accepted Stage-2 finding that both resolve to the same underlying Figshare item for Atlas paper 363. Current Figshare metadata verifies the `TgCNN for two-phase flow` item, its manuscript-specific figure-data description, Nanzhe Wang authorship, 2021-10-06 posting date, 19.22 MB download size, and CC BY 4.0 licence. No payload was downloaded or opened; filenames, checksums, figure-to-experiment mapping, and numeric contents remain bounded. Both resources are assessed at `R2`.
+`CR000300` preserves the historically verified GIMIAS dataset identity and `PRL000090` relationship for Atlas paper 378. The primary paper explicitly reports public computed-tomography data of a human subject from the exact GIMIAS URL for ventricular-structure visualization in Figure 1, while final Stage-2 authority records that the original item page is no longer available and redirects to an empty lander. Current item title, creator, file inventory, access path, and reuse licence therefore remain unavailable rather than inferred. No medical-image payload was downloaded or opened. The resource is assessed at `R0` because the historical identity and use are established but no usable current source/equivalent technical artifact is available.
 
 ## Aggregate batch QA
 
-`SOB028` remains **PASS (10/10)**. `SOB029` is now **6/10**.
+`SOB028` remains **PASS (10/10)**. `SOB029` is now **7/10**.
 
 ## Continuation
 
-Continue with `Stage3-S252` at `CR000300`.
+Continue with `Stage3-S253` at `CR000301`.
