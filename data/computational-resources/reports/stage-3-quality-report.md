@@ -2,27 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S281`
+Latest checkpoint: `Stage3-S282`
 Latest reconciliation: `Stage3-RC09`
 Status: **PASS**
 
-## Checkpoint S281
+## Checkpoint S282
 
-- Resources: **1** (`CR000331`)
+- Resources: **1** (`CR000332`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **9**
+- Technical-evidence records: **11**
 - Reproducibility assessments: **1**
-- New unresolved findings: **3**
-- New explicit conflicts: **1**
-- Reproducibility: **CR000331 R0**
+- New unresolved findings: **4**
+- New explicit conflicts: **0**
+- Reproducibility: **CR000332 R1**
 
-All required gates pass. Final Stage-2 CR000331/PRL000233 authority is preserved: the paper cites the Minnesota Governor COVID-19 News archive, and the relationship is a verified `paper_resource_mention`, not a dataset relationship. Official archive scope is Minnesota, so it does not substantiate the paper's adjacent Italy intervention-timeline claim; that geographic mismatch is retained as one explicit conflict. R0 and not-applicable component semantics conform to RC09. No linked item, payload or scientific workflow was opened or executed.
+All required gates pass. Final Stage-2 CR000332/PRL000241 authority is preserved. The paper-cited legacy product is mapped to the official current GLO12 product and persistent DOI without treating current operational files as the exact historical paper inputs. Provider product, documentation, licence, access, spatial, temporal, variable and format scope are recorded; exact historical file/version, subset and preprocessing lineage remain unknown. RC09 is satisfied. No registration, payload access or scientific workflow was performed.
 
 ## Aggregate batch QA
 
-`SOB031` remains **10/10 — PASS**. `SOB032` is **8/10** with `CR000324–CR000331`.
+`SOB031` remains **10/10 — PASS**. `SOB032` is **9/10** with `CR000324–CR000332`.
 
 Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000332 → Stage3-S282`.
+Exact continuation: `CR000333 → Stage3-S283`.

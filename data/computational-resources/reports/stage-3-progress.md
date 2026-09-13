@@ -5,34 +5,34 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S281`
-- Latest completed resource: `CR000331`
+- Latest completed checkpoint: `Stage3-S282`
+- Latest completed resource: `CR000332`
 - Latest completed aggregate batch: `SOB031` - **PASS (10/10)**
-- Current batch: `SOB032` - **8/10**
+- Current batch: `SOB032` - **9/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000332`
-- Exact next checkpoint: `Stage3-S282`
+- Exact next independently extractable resource: `CR000333`
+- Exact next checkpoint: `Stage3-S283`
 
-## Cumulative counts through S281 / RC09
+## Cumulative counts through S282 / RC09
 
-- Resources: **328**
+- Resources: **329**
 - Experiments: **358**
 - Configurations: **637**
-- Technical-evidence records: **3221**
-- Reproducibility assessments: **328**
-- Unresolved findings: **1560**
+- Technical-evidence records: **3232**
+- Reproducibility assessments: **329**
+- Unresolved findings: **1564**
 - Explicit conflicts: **157**
-- Independently extractable resources remaining: **35**
+- Independently extractable resources remaining: **34**
 
-## S281
+## S282
 
-`CR000331` preserves the verified `PRL000233` citation for Atlas paper 714 while correcting Stage-1 dataset semantics to a government intervention-news source. The official archive describes Minnesota COVID-19 actions, but the paper places its URL immediately after an Italy lockdown/NPI timeline claim. The citation provenance is verified; its scientific/geographic applicability to Italy is not, and one explicit conflict records that mismatch. Italy-specific official sources, exact cited items, an immutable archive snapshot and reuse licence remain unresolved. The resource is assessed at `R0`; no linked item or payload was opened and no scientific workflow executed.
+`CR000332` preserves Atlas paper 716's verified citation of the legacy Copernicus Marine global-ocean analysis/forecast product and its current `GLOBAL_ANALYSISFORECAST_PHY_001_024` / DOI `10.48670/moi-00016` GLO12 lineage. Provider documentation establishes global 1/12-degree coverage, 50 vertical levels, hourly/daily/monthly products, physical variable families, NetCDF distribution, registered access and the Copernicus Marine licence framework. Exact historical files, revisions, timestamps, checksums, paper-specific subset and preprocessing remain unresolved. The resource is assessed at `R1`; no data payload was opened or scientific workflow executed.
 
 ## Aggregate batch QA
 
-`SOB031` remains **PASS (10/10)**. `SOB032` is now **8/10** with `CR000324–CR000331`.
+`SOB031` remains **PASS (10/10)**. `SOB032` is now **9/10** with `CR000324–CR000332`.
 
 ## Continuation
 
-Continue with `Stage3-S282` at `CR000332`.
+Continue with `Stage3-S283` at `CR000333`.
