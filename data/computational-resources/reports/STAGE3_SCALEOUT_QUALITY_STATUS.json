@@ -2,27 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S284`
+Latest checkpoint: `Stage3-S285`
 Latest reconciliation: `Stage3-RC09`
 Status: **PASS**
 
-## Checkpoint S284
+## Checkpoint S285
 
-- Resources: **1** (`CR000335`)
+- Resources: **1** (`CR000336`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **11**
+- Technical-evidence records: **10**
 - Reproducibility assessments: **1**
 - New unresolved findings: **4**
-- New explicit conflicts: **1**
-- Reproducibility: **CR000335 R1**
+- New explicit conflicts: **0**
+- Reproducibility: **CR000336 R1**
 
-All required gates pass. Final Stage-2 CR000335/PRL000244 identity and relationship authority is preserved. Current provider scope, access and mutability documentation is recorded separately from the paper and Stage-2 record. The difference between Stage-2's non-commercial licence interpretation and the current official free-reproduction/distribution language remains explicit. Exact paper subset/version/preprocessing and applicable historical terms remain unknown. RC09 is satisfied; no payload or workflow was executed.
+All required gates pass. Final Stage-2 CR000336/PRL000245 identity and relationship authority is preserved. Current provider catalogue scale, categories, EDI package access, citation and licensing documentation are recorded separately from the paper-specific mapping. CC-BY is retained with its version unspecified and no SPDX version is guessed. Exact paper-used package, fields, time range, version and preprocessing remain unknown. RC09 is satisfied; no payload or workflow was executed.
 
 ## Aggregate batch QA
 
-`SOB032` remains **10/10 — PASS**. `SOB033` is **2/10** with `CR000334–CR000335`.
+`SOB032` remains **10/10 — PASS**. `SOB033` is **3/10** with `CR000334–CR000336`.
 
 Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000336 → Stage3-S285`.
+Exact continuation: `CR000337 → Stage3-S286`.
