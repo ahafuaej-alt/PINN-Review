@@ -2,27 +2,27 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S256`
+Latest checkpoint: `Stage3-S257`
 Latest reconciliation: `Stage3-RC08`
 Status: **PASS**
 
-## Checkpoint S256
+## Checkpoint S257
 
-- Resources: **2** (`CR000304`, `CR000305`)
+- Resources: **1** (`CR000306`)
 - Experiments: **0**
 - Configurations: **0**
-- Technical-evidence records: **15**
-- Reproducibility assessments: **2**
-- New unresolved findings: **5**
+- Technical-evidence records: **8**
+- Reproducibility assessments: **1**
+- New unresolved findings: **4**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000304 R3; CR000305 R1**
+- Reproducibility: **CR000306 R0**
 
-All required checkpoint validation gates pass. CR000304 preserves the exact Figshare deposit, licence and paper relationship while keeping the paper-specific MRI example/file selection unresolved. CR000305 preserves the NOAA portal relationship and paper-reported SST selection without substituting a modern NOAA product for the unidentified historical product/version. Dataset/paper/provider scopes remain distinct. No dataset payload was downloaded or opened and no scientific workload was executed.
+All required checkpoint validation gates pass. Historical identity and PRL000133 are supported directly by the primary paper, while current source availability is kept separate: the historical generator page is unavailable and no authoritative maintained mirror/source snapshot was identified. Paper-documented Shapeset-3×2 semantics are retained without inventing generator implementation details, dependencies, versioning or licence. No source or generated images were downloaded or executed.
 
 ## Aggregate batch QA
 
-`SOB029` remains **10/10 — PASS**. `SOB030` is **2/10**.
+`SOB029` remains **10/10 — PASS**. `SOB030` is **3/10**.
 
 Stage3-RC02 through Stage3-RC08 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000306 → Stage3-S257`.
+Exact continuation: `CR000307 → Stage3-S258`.

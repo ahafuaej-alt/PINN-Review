@@ -2,21 +2,20 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S256`
+Latest checkpoint: `Stage3-S257`
 Latest reconciliation: `Stage3-RC08` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1473**
+- Unresolved findings: **1477**
 - Explicit conflicts: **150**
-- Next unresolved ID: `S3U-1474`
+- Next unresolved ID: `S3U-1478`
 
-## New findings in S256
+## New findings in S257
 
-- `S3U-1469` — CR000304 / paper_specific_mri_example_and_file_mapping_unresolved / medium: Atlas paper 432 states that the personalized left-atrium mesh came from one MRI-derived MICCAI challenge example, but the exact Figshare subject/example and exact mesh/file path were not identified without manufacturing a selection.
-- `S3U-1470` — CR000304 / dataset_payload_not_opened / low: The public Figshare record, file roles, DOI and licence are documented, but MRI/segmentation/mesh payloads were not downloaded or opened and file-level integrity was not independently checked.
-- `S3U-1471` — CR000305 / exact_noaa_sst_product_and_version_unresolved / medium: The paper identifies NOAA daily SST data and the official legacy portal redirects to NOAA PSL, but the paper does not name the exact NOAA product/version and Stage 3 does not substitute a current product by inference.
-- `S3U-1472` — CR000305 / paper_specific_spatial_temporal_preprocessing_unresolved / medium: The paper documents Gulf of Mexico, 2012–2018, 2190 snapshots and 64×64 resolution, but the exact bounding box, extraction method, temporal handling and preprocessing remain unresolved.
-- `S3U-1473` — CR000305 / paper_subset_reuse_license_not_identified / low: No item/subset reuse licence was identified for the exact NOAA data selection used by the paper.
+- `S3U-1474` — CR000306 / historical_generator_source_currently_unavailable / medium: The primary paper provides the exact Shapeset-3×2 generator URL and verifies its historical role, but the Stage-2/current access state is unavailable and no usable source artifact was recovered.
+- `S3U-1475` — CR000306 / authoritative_generator_mirror_or_snapshot_not_identified / medium: A bounded Stage-3 search did not identify an authoritative maintained mirror or source snapshot that could replace the unavailable page without changing evidence provenance.
+- `S3U-1476` — CR000306 / generator_license_and_dependency_environment_unavailable / low: No generator reuse licence, dependency manifest, environment versioning or source version/commit can be verified while the authoritative artifact is unavailable.
+- `S3U-1477` — CR000306 / implementation_level_sampling_parameters_unavailable / medium: The paper documents Shapeset-3×2 concepts and constraints, but implementation-level random-sampling behavior and generator code cannot be inspected from the unavailable source.
 
 Existing findings and conflicts remain preserved; no historical unresolved ID is reused.
