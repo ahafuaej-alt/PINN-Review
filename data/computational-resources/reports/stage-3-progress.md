@@ -5,34 +5,33 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S258`
-- Latest completed resource: `CR000307`
+- Latest completed checkpoint: `Stage3-S259`
+- Latest completed resource: `CR000308`
 - Latest completed aggregate batch: `SOB029` â€” **PASS (10/10)**
-- Current batch: `SOB030` â€” **4/10**
+- Current batch: `SOB030` â€” **5/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC08` â€” **PASS (count-neutral report-state continuity repair)**
-- Exact next independently extractable resource: `CR000308`
-- Exact next checkpoint: `Stage3-S259`
+- Exact next independently extractable resource: `CR000309`
+- Exact next checkpoint: `Stage3-S260`
 
-## Cumulative counts through S258 / RC08
+## Cumulative counts through S259 / RC08
 
-- Resources: **304**
+- Resources: **305**
 - Experiments: **349**
 - Configurations: **628**
-- Technical-evidence records: **2950**
-- Reproducibility assessments: **304**
-- Unresolved findings: **1480**
+- Technical-evidence records: **2958**
+- Reproducibility assessments: **305**
+- Unresolved findings: **1483**
 - Explicit conflicts: **150**
-- Independently extractable resources remaining: **59**
+- Independently extractable resources remaining: **58**
 
-## S258
+## S259
 
-`CR000307` preserves the Johns Hopkins Turbulence Databases turbulent-channel-flow dataset and its two verified Atlas-paper relationships (`PRL000137` for Atlas paper 476 and `PRL000224` for Atlas paper 692). The three Stage-1 links `PRL000001`â€“`PRL000003` remain explicitly excluded from verified scope because Stage 2 established them as parser leakage from paper-internal bibliography markers. Official JHTDB documentation resolves the channel-flow dataset DOI, open-data licence, domain, grid, stored velocity/pressure fields, 4,000 frames, DNS/database time steps, viscosity, pressure gradient and friction Reynolds number. The two primary papers confirm use of this dataset, but exact paper-specific cutout requests, subdomain/time-window selections and preprocessing are not fully reconstructed. No JHTDB field or data-service payload was downloaded or opened. The resource is assessed at `R3`.
-
-## Aggregate batch QA
-
-`SOB029` remains **PASS (10/10)**. `SOB030` is now **4/10**.
-
-## Continuation
-
-Continue with `Stage3-S259` at `CR000308`.
+`CR000308` preserves the exact Zenodo deposit `10.5281/zenodo.2634098` and verified `PRL000149` relationship for the PiNN liqui]Ø]\ˆØ\ÙHİYKˆH›İšY\ˆ™XÛÜ™^ÜÙ\ÈÛ™HLËPˆ\˜Ú]™H
+˜Z[š[™ËY]WÒ“Ë\‹™Ş˜
+HÚ]QHÚXÚÜİ[H[™İ]\È]]Z[YØİ[Y[][Ûˆ\È[ˆ[ˆ[\›˜[‘PQQKœ˜ˆHš[X\H\\ˆ\Ù\ÈH[Ü˜]ÚY]¸ $Ğ™Z\ˆ“È]\Ù]›ÜˆH”“ˆ\]ZY]Ø]\ˆØ\ÙH]H“T]™[ˆ]Èİ\Ü[™È[™›Ü›X][ÛˆÙ\\˜][H™\ÜÈ]YÛY[][ÛˆÚ]‹HY][Û˜[İXİ\™\ÈÙ[™\˜]Yœ›ÛH[ÛXİ[\‹Y[˜[ZXÜÈÛ˜\ÚİÈ\Ú[™ÈHÜšYÚ[˜[”“‹ÔS“™\ˆÛÜšÙ›İÎÈİYÙHÈÙ\È›İ\Üİ[YHÜÙHYYİXİ\™\È\™H\ÙˆH™[›ÙÈ\˜Ú]™KˆH\˜Ú]™H[™[\›˜[‘PQQHÙ\™H›İÜ[™Y[™H™XÛÜ™[]™[™]\ÙHXÙ[˜ÙHØ\È›İ[™\[™[H\İX›\ÚYˆH™\Ûİ\˜ÙH\È\ÜÙ\ÜÙY]Œ˜‚‚ˆÈÈYÙÜ™YØ]H˜]ÚPB‚˜ÓĞŒX™[XZ[œÈ
+Š”TÔÈ
+LÌL
+JŠ‹ˆÓĞŒÌ\È›İÈ
+ŠKÌL
+Š‹‚‚ˆÈÈÛÛ[X][Û‚‚ÛÛ[YHÚ]İYÙLËTÌŒ]ÔŒÌX‚
