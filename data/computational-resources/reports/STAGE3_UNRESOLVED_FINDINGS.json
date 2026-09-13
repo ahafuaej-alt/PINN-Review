@@ -2,23 +2,22 @@
 
 Date: 2026-09-13
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S292`
+Latest checkpoint: `Stage3-S293`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1597**
+- Unresolved findings: **1600**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1598`
+- Next unresolved ID: `S3U-1601`
 
-## New findings in S292
+## New findings in S293
 
-- `S3U-1594` — CR000343 / supporting_information_payload_not_opened_or_page_local_details_unresolved / medium: the ACS landing page describes the free Supporting Information, but the PDF was not downloaded or opened, so exact page-local equations, tables and POLLU training-result details remain unverified beyond the publisher description and primary-paper text.
-- `S3U-1595` — CR000343 / exact_implementation_snapshot_binding_for_reported_results_unresolved / medium: the primary paper identifies the separate `DENG-MIT/Stiff-PINN` GitHub implementation, but CR000343 does not establish an exact commit, tag or release bound to the reported results and no cross-resource snapshot is inferred.
-- `S3U-1596` — CR000343 / supporting_information_license_and_reuse_terms_unresolved / medium: the ACS Supporting Information is free to access, but an explicit open licence for that PDF was not established and free access is not treated as open licensing.
-- `S3U-1597` — CR000343 / exact_environment_hardware_and_stochastic_seed_lineage_unresolved / medium: exact software-environment versions, hardware lineage and random seeds for the reported Stiff-PINN results are not established within this documentary resource.
+- `S3U-1598` — CR000344 / exact_archive_internal_mesh_file_mapping_unresolved / medium: the public PhysioNet listing establishes the versioned challenge resource, but the 97.5 MB archive was not downloaded or opened, so exact internal geometry-file mapping remains unverified.
+- `S3U-1599` — CR000344 / paper_837_geometry_preprocessing_mapping_unresolved / medium: paper 837 reports using body and heart geometry, but exact transformation from challenge geometry files to the paper-specific computational meshes is not fully established from provider metadata alone.
+- `S3U-1600` — CR000344 / paper_specific_case_and_mesh_selection_unresolved / medium: the provider exposes multiple cases and case-3 customized geometry; the exact challenge case/file subset used to produce paper 837's reported geometry remains bounded unless explicitly established by the paper.
 
-## New explicit conflicts in S292
+## New explicit conflicts in S293
 
 None. Existing conflicts remain preserved.
 

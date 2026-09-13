@@ -5,38 +5,38 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S292`
-- Latest completed resource: `CR000343`
+- Latest completed checkpoint: `Stage3-S293`
+- Latest completed resource: `CR000344`
 - Latest completed aggregate batch: `SOB033` - **PASS (10/10)**
-- Current batch: `SOB034` - **0/10**
+- Current batch: `SOB034` - **1/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000344`
-- Exact next checkpoint: `Stage3-S293`
+- Exact next independently extractable resource: `CR000345`
+- Exact next checkpoint: `Stage3-S294`
 
-## Cumulative counts through S292 / RC09
+## Cumulative counts through S293 / RC09
 
-- Resources: **340**
+- Resources: **341**
 - Experiments: **361**
 - Configurations: **651**
-- Technical-evidence records: **3362**
-- Reproducibility assessments: **340**
-- Unresolved findings: **1597**
+- Technical-evidence records: **3370**
+- Reproducibility assessments: **341**
+- Unresolved findings: **1600**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **23**
+- Independently extractable resources remaining: **22**
 
-## S292
+## S293
 
-`CR000343` preserves the final Stage-2 correction of the ACS Stiff-PINN article and Supporting Information landing page from a dataset classification to `publication_and_supporting_information_landing_page`, with `PRL000260` retained as a verified `paper_resource_mention` for Atlas paper 739. The publisher describes free Supporting Information containing the POLLU full model, QSSA reduction and regular-PINN training results; the primary paper documents the Stiff-PINN QSSA strategy and the POLLU stiff-kinetics case. The separately identified `DENG-MIT/Stiff-PINN` GitHub implementation remains a distinct resource identity. Because CR000343 is a documentary publication/SI landing page rather than an executable or structured data artifact, S292 creates no experiment or configuration identities. CR000343 is assessed at `R1`; the Supporting Information PDF was not downloaded or opened, no cross-resource implementation state was borrowed, and no scientific workflow was executed.
+`CR000344` preserves the final Stage-2 narrowing from the PhysioNet root to the exact versioned PhysioNet/Computing in Cardiology Challenge 2007 v1.0.0 resource and retains verified `PRL000323` for Atlas paper 837. Official PhysioNet documentation establishes two training and two test cases, BSPM data at 352 torso-surface sites sampled at 2 kHz, 120 anatomical recording-electrode locations, cardiac MRI material and heart/torso geometry, with customized geometry for case 3. Paper 837 specifically uses body and heart geometry, so the broader challenge corpus is not imported into the paper-specific scope. The provider exposes a 97.5 MB archive and public file listing under ODC-By-1.0; the archive was not downloaded or opened. CR000344 is assessed at `R2`; no scientific workflow was executed.
 
 ## Aggregate batch QA
 
-`SOB033` is now **PASS (10/10)** with `CR000334–CR000343`. `SOB034` is **0/10** and starts at `CR000344`.
+`SOB033` remains **PASS (10/10)**. `SOB034` is now **1/10** with `CR000344`.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S292.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S293.
 
 ## Continuation
 
-Continue with `Stage3-S293` at `CR000344`.
+Continue with `Stage3-S294` at `CR000345`.
