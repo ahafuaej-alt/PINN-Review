@@ -2,33 +2,33 @@
 
 Date: 2026-09-14
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S306`
+Latest checkpoint: `Stage3-S307`
 Latest reconciliation: `Stage3-RC09`
 Status: **PASS**
 
-## Checkpoint S306
+## Checkpoint S307
 
-- Resources: **1** (`CR000357`)
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **10**
+- Resources: **1** (`CR000358`)
+- Experiments: **4**
+- Configurations: **9**
+- Technical-evidence records: **14**
 - Reproducibility assessments: **1**
-- New unresolved findings: **1**
+- New unresolved findings: **5**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000357 R1**
+- Reproducibility: **CR000358 R2**
 
-All required gates pass. Final Stage-2 CR000357 tutorial authority is preserved. The canonical post's author, date, mathematical convolution coverage, image-processing examples and CNN interpretation are source-bounded. The absence of an Atlas reference ID and PRL assertion is preserved without inventing a paper relationship, and public access is not converted into a reusable-content licence. No dataset, software, experiment or configuration identity was manufactured, RC09 remains satisfied, and no code or scientific workload was executed.
+All required gates pass. Final Stage-2 CR000358 identity, pinned SHA and Stage2-RC01 relationship closure are preserved. Four source-defined workflow families and nine configurations are represented without assigning the repository to Atlas paper 778 or promoting bundled outputs to a reusable dataset. Architecture, training, seed and archive claims remain code-scoped; licensing and environment gaps remain explicit. RC09 remains satisfied, and no repository content or scientific workload was executed.
 
 ## Count-neutral S297 authority readback correction
 
 Final Stage-2 readback establishes CR000348/`PRL000330` as the SDC3a Foregrounds dataset relationship for Atlas paper **853**, with relationship `paper_dataset_mention`. SKAO's explicit unrestricted data-challenge usage statement is preserved while SPDX licensing remains unresolved. The S297 resource, evidence, extraction and reproducibility records are corrected accordingly; counts, IDs, checkpoint membership, SOB034 membership and R2 classification are unchanged.
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility report family remain synchronized at S306, including SOB034 aggregate closure and this count-neutral correction.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility report family remain synchronized at S307, including SOB034 aggregate closure and this count-neutral correction.
 
 ## Aggregate batch QA
 
-`SOB034` remains **PASS (10/10)**. `SOB035` is **4/10** with `CR000354`, `CR000355`, `CR000356` and `CR000357`.
+`SOB034` remains **PASS (10/10)**. `SOB035` is **5/10** with `CR000354` through `CR000358`.
 
 Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000358 → Stage3-S307`.
+Exact continuation: `CR000359 → Stage3-S308`.
