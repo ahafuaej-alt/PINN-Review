@@ -2,22 +2,20 @@
 
 Date: 2026-09-14
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S304`
+Latest checkpoint: `Stage3-S305`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1633**
+- Unresolved findings: **1634**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1634`
+- Next unresolved ID: `S3U-1635`
 
-## New findings in S304
+## New findings in S305
 
-- `S3U-1631` — CR000355 / paper_722_networkx_version_unresolved / medium: the exact NetworkX version used by paper 722 is not independently established.
-- `S3U-1632` — CR000355 / paper_722_graph_generation_parameters_unresolved / medium: graph-generation API calls, parameters and random seeds are not reconstructed by the verified relationship record.
-- `S3U-1633` — CR000355 / paper_722_environment_unresolved / medium: current NetworkX 3.6.1 Python, dependency and backend requirements are not historical evidence for the paper-specific environment.
+- `S3U-1634` — CR000356 / tutorial_reusable_content_license_unresolved / medium: no explicit reusable-content or SPDX licence for the tutorial was independently verified.
 
-## New explicit conflicts in S304
+## New explicit conflicts in S305
 
 None. Existing conflicts remain preserved.
 
