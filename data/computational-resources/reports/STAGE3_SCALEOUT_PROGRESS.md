@@ -5,29 +5,29 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S298`
-- Latest completed resource: `CR000349`
+- Latest completed checkpoint: `Stage3-S299`
+- Latest completed resource: `CR000350`
 - Latest completed aggregate batch: `SOB033` - **PASS (10/10)**
-- Current batch: `SOB034` - **6/10**
+- Current batch: `SOB034` - **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000350`
-- Exact next checkpoint: `Stage3-S299`
+- Exact next independently extractable resource: `CR000351`
+- Exact next checkpoint: `Stage3-S300`
 
-## Cumulative counts through S298 / RC09
+## Cumulative counts through S299 / RC09
 
-- Resources: **346**
+- Resources: **347**
 - Experiments: **361**
 - Configurations: **651**
-- Technical-evidence records: **3402**
-- Reproducibility assessments: **346**
-- Unresolved findings: **1614**
+- Technical-evidence records: **3410**
+- Reproducibility assessments: **347**
+- Unresolved findings: **1618**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **17**
+- Independently extractable resources remaining: **16**
 
-## S298
+## S299
 
-`CR000349` preserves final Stage-2 identity as the canonical Labeled Faces in the Wild (LFW) face benchmark and verified `PRL000269` for Atlas paper 760. Stage-2 authority documents 13,233 images representing 5,749 people and verifies paper 760's face-verification use. Public availability is not converted into a licence claim. The exact pair/split protocol, selected image variant/alignment and paper-specific preprocessing remain unresolved. CR000349 is assessed at `R2`; no image archive, protocol/pair file or aligned-image variant was downloaded or opened and no scientific workload was executed.
+`CR000350` preserves final Stage-2 identity as the canonical University of Toronto CIFAR-10/CIFAR-100 benchmark resource and all five verified relationships (`PRL000270`, `PRL000272`, `PRL000273`, `PRL000278`, `PRL000282`) for Atlas papers 761, 762, 763, 765 and 767. Provider documentation establishes the CIFAR-10 and CIFAR-100 population, train/test structure, formats, record layouts, distribution checksums and citation guidance. Public downloads are not converted into a dataset-level licence claim. Paper-specific archive variants, preprocessing, augmentation, validation splits, architectures and training/evaluation configurations remain unresolved. CR000350 is assessed at `R2`; no dataset archive or batch file was downloaded or opened and no scientific workload was executed.
 
 ## Count-neutral authority readback correction
 
@@ -35,12 +35,12 @@ Post-S298 readback corrected S297/CR000348 to the final Stage-2 authority: `PRL0
 
 ## Aggregate batch QA
 
-`SOB033` remains **PASS (10/10)**. `SOB034` is now **6/10** with `CR000344`, `CR000345`, `CR000346`, `CR000347`, `CR000348` and `CR000349`.
+`SOB033` remains **PASS (10/10)**. `SOB034` is now **7/10** with `CR000344`, `CR000345`, `CR000346`, `CR000347`, `CR000348`, `CR000349` and `CR000350`.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S298, including the count-neutral S297 authority readback correction.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S299, including the count-neutral S297 authority readback correction.
 
 ## Continuation
 
-Continue with `Stage3-S299` at `CR000350`.
+Continue with `Stage3-S300` at `CR000351`.
