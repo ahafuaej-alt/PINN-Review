@@ -5,29 +5,29 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S303`
-- Latest completed resource: `CR000354`
+- Latest completed checkpoint: `Stage3-S304`
+- Latest completed resource: `CR000355`
 - Latest completed aggregate batch: `SOB034` - **PASS (10/10)**
-- Current batch: `SOB035` - **1/10**
+- Current batch: `SOB035` - **2/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000355`
-- Exact next checkpoint: `Stage3-S304`
+- Exact next independently extractable resource: `CR000356`
+- Exact next checkpoint: `Stage3-S305`
 
-## Cumulative counts through S303 / RC09
+## Cumulative counts through S304 / RC09
 
-- Resources: **351**
+- Resources: **352**
 - Experiments: **361**
 - Configurations: **651**
-- Technical-evidence records: **3439**
-- Reproducibility assessments: **351**
-- Unresolved findings: **1630**
+- Technical-evidence records: **3447**
+- Reproducibility assessments: **352**
+- Unresolved findings: **1633**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **12**
+- Independently extractable resources remaining: **11**
 
-## S303
+## S304
 
-`CR000354` preserves the corrected PlotNeuralNet repository identity, Stage-2 pinned SHA `e96bc852189c2089dd500527a0a01a5a36e8977e` and verified `PRL000331` software relationship for Atlas paper 853. The repository documents LaTeX and Python/TikZ interfaces, platform-specific TeX dependencies, an executable shell workflow, MIT licensing and DOI citation metadata. PlotNeuralNet remains supporting visualization software, not a PINN implementation or dataset. The paper-specific revision, modifications and invocation remain unresolved. CR000354 is assessed at `R2`; no repository clone, Python, shell, LaTeX or figure-generation workflow was executed.
+`CR000355` preserves final Stage-2 identity as the NetworkX scientific software library and verified `PRL000253` software relationship for Atlas paper 722. Current 3.6.1 provider documentation establishes complex-network creation/manipulation/analysis capabilities, installation routes, optional dependencies/backends, BSD-3-Clause licensing and citation metadata. Current documentation is not substituted for the unresolved paper-specific NetworkX version or environment. Exact graph-generation API calls, parameters and seeds remain unresolved. CR000355 is assessed at `R2`; no repository, package, test, graph or simulation was executed.
 
 ## Count-neutral authority readback correction
 
@@ -35,12 +35,12 @@ Post-S298 readback corrected S297/CR000348 to the final Stage-2 authority: `PRL0
 
 ## Aggregate batch QA
 
-`SOB034` remains **PASS (10/10)**. `SOB035` is now **1/10** with `CR000354`.
+`SOB034` remains **PASS (10/10)**. `SOB035` is now **2/10** with `CR000354` and `CR000355`.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S303, including SOB034 aggregate closure and the count-neutral S297 authority readback correction.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S304, including SOB034 aggregate closure and the count-neutral S297 authority readback correction.
 
 ## Continuation
 
-Continue with `Stage3-S304` at `CR000355`.
+Continue with `Stage3-S305` at `CR000356`.

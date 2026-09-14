@@ -2,22 +2,22 @@
 
 Date: 2026-09-14
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S303`
+Latest checkpoint: `Stage3-S304`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1630**
+- Unresolved findings: **1633**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1631`
+- Next unresolved ID: `S3U-1634`
 
-## New findings in S303
+## New findings in S304
 
-- `S3U-1628` — CR000354 / paper_853_plotneuralnet_revision_modifications_unresolved / medium: the exact PlotNeuralNet revision and local modifications used for paper 853's visualization are not independently established.
-- `S3U-1629` — CR000354 / dependency_version_portability_unresolved / medium: TeX, Python and shell dependencies are documented but not version-locked, and portability outside the named environments is not fully specified.
-- `S3U-1630` — CR000354 / paper_853_visualization_invocation_output_unresolved / medium: the paper-specific architecture file, shell invocation and expected generated figure are not available as a reconstructable configuration.
+- `S3U-1631` — CR000355 / paper_722_networkx_version_unresolved / medium: the exact NetworkX version used by paper 722 is not independently established.
+- `S3U-1632` — CR000355 / paper_722_graph_generation_parameters_unresolved / medium: graph-generation API calls, parameters and random seeds are not reconstructed by the verified relationship record.
+- `S3U-1633` — CR000355 / paper_722_environment_unresolved / medium: current NetworkX 3.6.1 Python, dependency and backend requirements are not historical evidence for the paper-specific environment.
 
-## New explicit conflicts in S303
+## New explicit conflicts in S304
 
 None. Existing conflicts remain preserved.
 
