@@ -2,25 +2,23 @@
 
 Date: 2026-09-14
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S309`
+Latest checkpoint: `Stage3-S310`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1652**
+- Unresolved findings: **1656**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1653`
+- Next unresolved ID: `S3U-1657`
 
-## New findings in S309
+## New findings in S310
 
-- `S3U-1647` — CR000360 / dependency_environment_unresolved / high: imported packages are visible, but no dependency manifest or exact package-version environment is present at the pinned snapshot.
-- `S3U-1648` — CR000360 / cavity_mat_provenance_unresolved / high: bundled cavity-flow MAT filenames are inventoried, while payload semantics, generation provenance and transformations were not inspected.
-- `S3U-1649` — CR000360 / external_checkpoints_unresolved / high: test scripts reference result and model-checkpoint paths that are not bundled in the pinned repository.
-- `S3U-1650` — CR000360 / seed_result_mapping_unresolved / high: the README reports five independent initializations, but exact seeds and a seed-to-result mapping are unavailable.
-- `S3U-1651` — CR000360 / publication_lineage_unresolved / medium: Stage 2 establishes an independent implementation without an Atlas relationship, while exact publication and implementation lineage remain unresolved.
-- `S3U-1652` — CR000360 / notebook_scope_unresolved / medium: the root notebook's internal workflow and dependency surface were not inspected within the static boundary.
+- `S3U-1653` — CR000361 / external_reference_environment_unresolved / high: the documented PowerModelsACDC/PowerModels/Ipopt reference workflow is external to the repository and compatible package versions are not pinned.
+- `S3U-1654` — CR000361 / case_generation_provenance_unresolved / medium: benchmark cases are documented and pinned, but exact generation/transformation provenance for every case is not fully encoded in the repository snapshot.
+- `S3U-1655` — CR000362 / external_reference_environment_unresolved / high: the documented EGRET and psst reference implementations are external and compatible versions are not pinned in the benchmark repository.
+- `S3U-1656` — CR000362 / case_source_reconciliation_unresolved / medium: CA, FERC and RTS-GMLC source families are documented, but exact source-to-case transformations were not independently reconciled for every JSON instance.
 
-## New explicit conflicts in S309
+## New explicit conflicts in S310
 
 None. Existing conflicts remain preserved.
 
