@@ -11,6 +11,7 @@ Branch: `data/computational-resources-stage3`
 - Current batch: **none — scale-out extraction complete**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC10` - **PASS (count-neutral independently-extractable-corpus reconciliation)**
+- Final Stage-3 closure audit: **PASS for scientific extraction closure; integration conditional**
 - Exact next independently extractable resource: **none**
 - Exact next checkpoint: **none**
 
@@ -35,12 +36,23 @@ RC10 remains count-neutral for Stage-3 extraction records. The nominal 364-ID re
 
 ## Aggregate batch QA
 
-`SOB036` closes **PASS (1/1)** with `CR000364`. All independently extractable resources in the corrected Stage-3 corpus have now been processed.
+`SOB035` and terminal `SOB036` now have dedicated aggregate-QA artifacts, restoring the same explicit audit surface used for the earlier scale-out batches.
+
+- `SOB035`: `CR000354–CR000363` — **PASS (10/10)**
+- `SOB036`: `CR000364` — **PASS (1/1)**
+
+All independently extractable resources in the corrected Stage-3 corpus have been processed.
+
+## Final closure audit
+
+The count-neutral Stage-3 closure audit passes scientific extraction closure. Checkpoint and batch accounting, cumulative counts, Stage-2 authority preservation, source-scope discipline, schema/methodology continuity, report synchronization, unresolved-register continuity and static-only boundaries are consistent.
+
+Repository integration remains a separate operation. At the pre-closure audit point, the Stage-3 branch was **361 commits ahead / 235 commits behind** current `main`; no merge or rebase was performed.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S312 / RC10.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S312 / RC10 and the final closure-audit state.
 
 ## Continuation
 
-No further scale-out resource or checkpoint remains. The next repository-level action is a final Stage-3 closure audit/integration-readiness review; extraction completion does not by itself clear the preserved unresolved register.
+No further scale-out resource or checkpoint remains. Scientific Stage-3 extraction is closed. The next repository-level action is branch integration reconciliation with current `main`; the preserved unresolved register remains scientific audit history and is not cleared by closure.
