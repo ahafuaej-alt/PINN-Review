@@ -5,42 +5,42 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S311`
-- Latest completed resource: `CR000363`
-- Latest completed aggregate batch: `SOB035` - **PASS (10/10)**
-- Current batch: `SOB036` - **0/1**
+- Latest completed checkpoint: `Stage3-S312`
+- Latest completed resource: `CR000364`
+- Latest completed aggregate batch: `SOB036` - **PASS (1/1)**
+- Current batch: **none — scale-out extraction complete**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC10` - **PASS (count-neutral independently-extractable-corpus reconciliation)**
-- Exact next independently extractable resource: `CR000364`
-- Exact next checkpoint: `Stage3-S312`
+- Exact next independently extractable resource: **none**
+- Exact next checkpoint: **none**
 
-## Cumulative counts through S311 / RC10
+## Cumulative counts through S312 / RC10
 
-- Resources: **360**
-- Experiments: **371**
-- Configurations: **670**
-- Technical-evidence records: **3538**
-- Reproducibility assessments: **360**
-- Unresolved findings: **1662**
+- Resources: **361**
+- Experiments: **374**
+- Configurations: **673**
+- Technical-evidence records: **3552**
+- Reproducibility assessments: **361**
+- Unresolved findings: **1669**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **1**
+- Independently extractable resources remaining: **0**
 
-## S311
+## S312
 
-`CR000363` preserves the final Stage-2 EquiNO identity at pinned SHA `be71c1f872c84eaf43ddadba01c8dd54d9c4f544` as a promoted CR000174 profile discovery with no Atlas-paper relationship. Static inspection resolves three executable RVE3 training workflows—EquiNO, PINN and VPIOnet—plus the shared configuration, evaluation path, bundled RVE data, pretrained artifacts and substantially pinned TensorFlow environment. The resource is assessed at `R2`; exact data/artifact lineage, hardware requirements, runtime reproduction and two unpinned packages remain bounded gaps. No dependency installation, training, inference or scientific workload was executed.
+`CR000364` preserves the final Stage-2 `HamidrezaEiv/KPCA-DeepONet` identity at pinned SHA `ad7d52e41e96bd86dacad770cfd396969be96aa4` as a promoted `CR000174` profile discovery with no Atlas-paper relationship. Static inspection resolves three distinct operator-learning example workflows: synthetic nonlinear 1D, steady cavity flow and Navier–Stokes. The nonlinear-1D data are generated from repository code; the cavity and Navier–Stokes workflows reference external data paths that are absent from the pinned tree. The environment manifest names the required packages but does not pin dependency versions. The resource is assessed at `R2`. README comparative-performance statements and `examples/results.png` remain documentation/result artifacts only; no scientific workload or reported result was independently reproduced.
 
 ## Stage3-RC10 corpus reconciliation
 
-RC10 is count-neutral for Stage-3 extraction records. The nominal 364-ID registry contains three entries that are not separate independently extractable resources: `CR000021` aliases `CR000184`, `CR000191` aliases `CR000153`, and `CR000221` has no final authoritative Stage-2 extractable record. The corrected independently extractable corpus is therefore **361**. With S311 complete, **360/361** independently extractable resources are complete and only `CR000364` remains. Historical checkpoint counts, IDs and accepted scientific records are unchanged.
+RC10 remains count-neutral for Stage-3 extraction records. The nominal 364-ID registry contains three entries that are not separate independently extractable resources: `CR000021` aliases `CR000184`, `CR000191` aliases `CR000153`, and `CR000221` has no final authoritative Stage-2 extractable record. The corrected independently extractable corpus is therefore **361**. With S312 complete, **361/361** independently extractable resources are complete.
 
 ## Aggregate batch QA
 
-`SOB035` closes **PASS (10/10)** with `CR000354` through `CR000363`. `SOB036` is the terminal one-resource batch containing only `CR000364`; it has not started.
+`SOB036` closes **PASS (1/1)** with `CR000364`. All independently extractable resources in the corrected Stage-3 corpus have now been processed.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S311 / RC10.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S312 / RC10.
 
 ## Continuation
 
-Continue with `Stage3-S312` at `CR000364`.
+No further scale-out resource or checkpoint remains. The next repository-level action is a final Stage-3 closure audit/integration-readiness review; extraction completion does not by itself clear the preserved unresolved register.
