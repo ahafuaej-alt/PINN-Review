@@ -2,22 +2,22 @@
 
 Date: 2026-09-14
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S296`
+Latest checkpoint: `Stage3-S297`
 Latest reconciliation: `Stage3-RC09` — PASS
 
 ## Current totals
 
-- Unresolved findings: **1608**
+- Unresolved findings: **1611**
 - Explicit conflicts: **158**
-- Next unresolved ID: `S3U-1609`
+- Next unresolved ID: `S3U-1612`
 
-## New findings in S296
+## New findings in S297
 
-- `S3U-1606` — CR000347 / paper_853_wsclean_version_and_revision_unresolved / medium: Stage 2 verifies canonical WSClean software but does not establish the exact version or immutable source revision used by paper 853.
-- `S3U-1607` — CR000347 / paper_853_wsclean_cli_options_unresolved / medium: the canonical documentation establishes the `wsclean` CLI, but the exact command-line options used by paper 853 are not independently verified.
-- `S3U-1608` — CR000347 / paper_specific_dependency_environment_unresolved / medium: current installation documentation identifies build/dependency requirements, but no complete paper-specific dependency/version lock or hardware environment is established.
+- `S3U-1609` — CR000348 / immutable_release_version_unresolved / medium: the official SDC3a foregrounds release is verified, but no exact immutable release/version identifier is established.
+- `S3U-1610` — CR000348 / item_level_license_unresolved / medium: no item-level licence or reuse terms were independently verified for the paper-linked SDC3a foregrounds release.
+- `S3U-1611` — CR000348 / paper_854_file_subset_snapshot_unresolved / medium: the paper relationship is verified, but its exact file/subset selection, checksums and retrieval snapshot are not independently established.
 
-## New explicit conflicts in S296
+## New explicit conflicts in S297
 
 None. Existing conflicts remain preserved.
 
