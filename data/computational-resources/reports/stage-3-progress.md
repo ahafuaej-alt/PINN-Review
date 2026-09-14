@@ -29,13 +29,17 @@ Branch: `data/computational-resources-stage3`
 
 `CR000349` preserves final Stage-2 identity as the canonical Labeled Faces in the Wild (LFW) face benchmark and verified `PRL000269` for Atlas paper 760. Stage-2 authority documents 13,233 images representing 5,749 people and verifies paper 760's face-verification use. Public availability is not converted into a licence claim. The exact pair/split protocol, selected image variant/alignment and paper-specific preprocessing remain unresolved. CR000349 is assessed at `R2`; no image archive, protocol/pair file or aligned-image variant was downloaded or opened and no scientific workload was executed.
 
+## Count-neutral authority readback correction
+
+Post-S298 readback corrected S297/CR000348 to the final Stage-2 authority: `PRL000330` links the SDC3a Foregrounds resource to Atlas paper **853** with relationship `paper_dataset_mention`. Stage 2 also preserves SKAO's explicit statement that data-challenge usage is unrestricted while leaving the SPDX licence identifier unresolved. S297 counts, IDs, batch membership and R2 classification are unchanged.
+
 ## Aggregate batch QA
 
 `SOB033` remains **PASS (10/10)**. `SOB034` is now **6/10** with `CR000344`, `CR000345`, `CR000346`, `CR000347`, `CR000348` and `CR000349`.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S298.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S298, including the count-neutral S297 authority readback correction.
 
 ## Continuation
 

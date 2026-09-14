@@ -19,7 +19,11 @@ Status: **PASS**
 
 All required gates pass. Final Stage-2 CR000349/PRL000269 authority is preserved. LFW remains the canonical face-verification benchmark used by paper 760; dataset population and benchmark purpose are source-bounded, public availability is not treated as a licence, and paper-specific protocol/preprocessing are not inferred. No experiment/configuration identity was manufactured, RC09 remains satisfied, and no dataset payload or scientific workload was executed.
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility report family remain synchronized at S298.
+## Count-neutral S297 authority readback correction
+
+Final Stage-2 readback establishes CR000348/`PRL000330` as the SDC3a Foregrounds dataset relationship for Atlas paper **853**, with relationship `paper_dataset_mention`. SKAO's explicit unrestricted data-challenge usage statement is preserved while SPDX licensing remains unresolved. The S297 resource, evidence, extraction and reproducibility records are corrected accordingly; counts, IDs, checkpoint membership, SOB034 membership and R2 classification are unchanged.
+
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility report family remain synchronized at S298, including this count-neutral correction.
 
 ## Aggregate batch QA
 
