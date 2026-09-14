@@ -5,29 +5,29 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S301`
-- Latest completed resource: `CR000352`
-- Latest completed aggregate batch: `SOB033` - **PASS (10/10)**
-- Current batch: `SOB034` - **9/10**
+- Latest completed checkpoint: `Stage3-S302`
+- Latest completed resource: `CR000353`
+- Latest completed aggregate batch: `SOB034` - **PASS (10/10)**
+- Current batch: `SOB035` - **0/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000353`
-- Exact next checkpoint: `Stage3-S302`
+- Exact next independently extractable resource: `CR000354`
+- Exact next checkpoint: `Stage3-S303`
 
-## Cumulative counts through S301 / RC09
+## Cumulative counts through S302 / RC09
 
-- Resources: **349**
+- Resources: **350**
 - Experiments: **361**
 - Configurations: **651**
-- Technical-evidence records: **3425**
-- Reproducibility assessments: **349**
-- Unresolved findings: **1626**
+- Technical-evidence records: **3431**
+- Reproducibility assessments: **350**
+- Unresolved findings: **1627**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **14**
+- Independently extractable resources remaining: **13**
 
-## S301
+## S302
 
-`CR000352` preserves final Stage-2 identity as the canonical Microsoft COCO dataset portal and verified `PRL000280` for Atlas paper 765. The portal's dataset, task and evaluation surfaces document object detection, segmentation, keypoints, captions, stuff, panoptic and DensePose scopes together with data/result formats, test guidance and evaluation tracks. No paper-specific release is inferred from the current multi-year portal. No universal dataset licence is inferred from public availability or a Terms of Use surface; image and annotation rights remain uncollapsed. Exact release/year, split, augmentation, detector settings and evaluation preprocessing remain unresolved. CR000352 is assessed at `R2`; no image archive, annotation JSON or evaluation payload was downloaded or opened and no scientific workload was executed.
+`CR000353` preserves final Stage-2 identity as a provenance alias of canonical FCLAB institutional resource `CR000346`, not a second dataset. Verified `PRL000326` remains a `paper_resource_mention` for Atlas paper 842, which identifies FCLAB as the organization that collected and compiled the ageing-test data. Current institutional documentation confirms the FCLAB hydrogen-energy research/service identity but is not copied into a duplicate resource scope. Site-level reuse licensing remains unresolved. CR000353 is assessed at `R1`; no data file, archive, software or scientific workload was executed.
 
 ## Count-neutral authority readback correction
 
@@ -35,12 +35,12 @@ Post-S298 readback corrected S297/CR000348 to the final Stage-2 authority: `PRL0
 
 ## Aggregate batch QA
 
-`SOB033` remains **PASS (10/10)**. `SOB034` is now **9/10** with `CR000344`, `CR000345`, `CR000346`, `CR000347`, `CR000348`, `CR000349`, `CR000350`, `CR000351` and `CR000352`.
+`SOB034` is **PASS (10/10)** with `CR000344` through `CR000353`. Its aggregate delta is 10 resources, 0 experiments, 0 configurations, 69 technical-evidence records, 10 reproducibility assessments, 30 unresolved findings and 0 new conflicts. `SOB035` is now **0/10**.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S301, including the count-neutral S297 authority readback correction.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S302, including SOB034 aggregate closure and the count-neutral S297 authority readback correction.
 
 ## Continuation
 
-Continue with `Stage3-S302` at `CR000353`.
+Continue with `Stage3-S303` at `CR000354`.
