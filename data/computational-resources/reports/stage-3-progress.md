@@ -5,29 +5,29 @@ Branch: `data/computational-resources-stage3`
 
 ## Current authoritative state
 
-- Latest completed checkpoint: `Stage3-S308`
-- Latest completed resource: `CR000359`
+- Latest completed checkpoint: `Stage3-S309`
+- Latest completed resource: `CR000360`
 - Latest completed aggregate batch: `SOB034` - **PASS (10/10)**
-- Current batch: `SOB035` - **6/10**
+- Current batch: `SOB035` - **7/10**
 - Checkpoint QA: **PASS**
 - Latest reconciliation: `Stage3-RC09` - **PASS (count-neutral reproducibility-schema repair)**
-- Exact next independently extractable resource: `CR000360`
-- Exact next checkpoint: `Stage3-S309`
+- Exact next independently extractable resource: `CR000361`
+- Exact next checkpoint: `Stage3-S310`
 
-## Cumulative counts through S308 / RC09
+## Cumulative counts through S309 / RC09
 
-- Resources: **356**
-- Experiments: **366**
-- Configurations: **665**
-- Technical-evidence records: **3493**
-- Reproducibility assessments: **356**
-- Unresolved findings: **1646**
+- Resources: **357**
+- Experiments: **368**
+- Configurations: **667**
+- Technical-evidence records: **3508**
+- Reproducibility assessments: **357**
+- Unresolved findings: **1652**
 - Explicit conflicts: **158**
-- Independently extractable resources remaining: **7**
+- Independently extractable resources remaining: **6**
 
-## S308
+## S309
 
-`CR000359` preserves the final Stage-2 HFM repository identity, pinned SHA `08f595e5165686eb0023ea3c2780e070d82385f1`, verified `PRL000333` supplementary-code relationship to Atlas paper 431 and separate Zenodo alias `VA000045`. The repository provides Nektar-based synthetic-flow simulation support, build guidance, MPI execution and five benchmark input families represented as one experiment with five configurations. A complete HFM neural-network training package is not inferred from the solver tree, and repository GPL-3.0 licensing is not propagated to the archive. CR000359 is assessed at `R2`; no compilation, simulation, archive access or scientific workload was executed.
+`CR000360` preserves the final Stage-2 NSFnet repository identity at pinned SHA `b6ff7f79e2319e5efac89678c6230b9471b13e10`, including its status as an independent physics-informed implementation with no Atlas relationship and specifically no code relationship to Atlas paper 476. Static source inspection resolves two workflows: base NSFnet steady cavity flow at Re=2000 and entropy-viscosity ev-NSFnet at Re=5000. Architectures, residual formulations, sampling surfaces and staged training schedules are recorded without inventing seed configurations. Bundled MAT payloads and the root notebook were not opened, referenced checkpoints are absent, and README result claims were not independently validated. CR000360 is assessed at `R2`; no dependency installation, training, inference or scientific workload was executed.
 
 ## Count-neutral authority readback correction
 
@@ -35,12 +35,12 @@ Post-S298 readback corrected S297/CR000348 to the final Stage-2 authority: `PRL0
 
 ## Aggregate batch QA
 
-`SOB034` remains **PASS (10/10)**. `SOB035` is now **6/10** with `CR000354` through `CR000359`.
+`SOB034` remains **PASS (10/10)**. `SOB035` is now **7/10** with `CR000354` through `CR000360`.
 
 ## Report-state synchronization
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S308, including SOB034 aggregate closure and the count-neutral S297 authority readback correction.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility counterparts remain synchronized at S309, including SOB034 aggregate closure and the count-neutral S297 authority readback correction.
 
 ## Continuation
 
-Continue with `Stage3-S309` at `CR000360`.
+Continue with `Stage3-S310` at `CR000361`.
