@@ -2,33 +2,33 @@
 
 Date: 2026-09-14
 Branch: `data/computational-resources-stage3`
-Latest checkpoint: `Stage3-S310`
-Latest reconciliation: `Stage3-RC09`
+Latest checkpoint: `Stage3-S311`
+Latest reconciliation: `Stage3-RC10`
 Status: **PASS**
 
-## Checkpoint S310
+## Checkpoint S311
 
-- Resources: **2** (`CR000361`, `CR000362`)
-- Experiments: **0**
-- Configurations: **0**
-- Technical-evidence records: **16**
-- Reproducibility assessments: **2**
-- New unresolved findings: **4**
+- Resources: **1** (`CR000363`)
+- Experiments: **3**
+- Configurations: **3**
+- Technical-evidence records: **14**
+- Reproducibility assessments: **1**
+- New unresolved findings: **6**
 - New explicit conflicts: **0**
-- Reproducibility: **CR000361 R2; CR000362 R2**
+- Reproducibility: **CR000363 R2**
 
-All required gates pass. Final Stage-2 identities for the two Power Grid Lib benchmark repositories are preserved without creating an Atlas relationship and specifically without linking either sibling repository to Atlas paper 721. CR000361 resolves a pinned HVDC optimal-power-flow benchmark surface with six case files, an explicit nonlinear AC/DC formulation and a documented external PowerModelsACDC usage path. CR000362 resolves pinned unit-commitment JSON case families and an explicit MILP formulation with documented external EGRET/psst reference implementations. External solver versions and full source-to-case provenance remain explicit gaps. No scientific workload was executed.
+All required gates pass. Final Stage-2 identity is preserved as the MIT-licensed `HamidrezaEiv/EquiNO` profile discovery with no Atlas-paper relationship. Static inspection resolves three method-specific RVE3 training entrypoints, the shared seed/configuration surface, a substantially pinned TensorFlow environment, bundled RVE data, evaluation code and pretrained artifacts. Runtime reproduction, exact bundled-data and pretrained-artifact lineage, hardware requirements and two unpinned packages remain explicit gaps. No scientific workload was executed.
 
-## Count-neutral S297 authority readback correction
+## Stage3-RC10 corpus reconciliation
 
-Final Stage-2 readback establishes CR000348/`PRL000330` as the SDC3a Foregrounds dataset relationship for Atlas paper **853**, with relationship `paper_dataset_mention`. SKAO's explicit unrestricted data-challenge usage statement is preserved while SPDX licensing remains unresolved. The S297 resource, evidence, extraction and reproducibility records are corrected accordingly; counts, IDs, checkpoint membership, SOB034 membership and R2 classification are unchanged.
+RC10 is count-neutral for extracted scientific records. The 364-ID nominal registry contains three entries that are not separate independently extractable resources: `CR000021 → CR000184`, `CR000191 → CR000153`, and `CR000221` without a final authoritative Stage-2 extractable record. The corrected corpus is **361** independently extractable resources. S311 therefore leaves exactly one resource, `CR000364`.
 
-The lowercase Stage3-SO-D01 control reports and uppercase compatibility report family remain synchronized at S310, including SOB034 aggregate closure and this count-neutral correction.
+The lowercase Stage3-SO-D01 control reports and uppercase compatibility report family remain synchronized at S311 / RC10.
 
 ## Aggregate batch QA
 
-`SOB034` remains **PASS (10/10)**. `SOB035` is **9/10** with `CR000354` through `CR000362`.
+`SOB035` closes **PASS (10/10)** with `CR000354` through `CR000363`. `SOB036` is the terminal one-resource batch and has not started.
 
-Stage3-RC02 through Stage3-RC09 remain authoritative and count-neutral for their accepted scopes.
+Stage3-RC02 through Stage3-RC10 remain authoritative and count-neutral for their accepted scopes.
 
-Exact continuation: `CR000363 → Stage3-S311`.
+Exact continuation: `CR000364 → Stage3-S312`.
