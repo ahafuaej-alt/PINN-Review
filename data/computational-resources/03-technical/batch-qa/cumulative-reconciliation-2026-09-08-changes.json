@@ -1,0 +1,3710 @@
+{
+  "id": "Stage3-RC02",
+  "date": "2026-09-08",
+  "parent_commit": "ee70af66fa2a302a9333a147b2f7477930ba4f84",
+  "changes": [
+    {
+      "file": "data/computational-resources/03-technical/configurations/scaleout-checkpoint-035-configurations.jsonl",
+      "line": 6,
+      "record_id": "CR000042-E002-C002",
+      "json_pointer": "/facts/1/source_relation",
+      "before": "reported_in_repository",
+      "after": "documented_in_repository",
+      "reason": "Use the accepted source-relation label without changing the scientific value."
+    },
+    {
+      "file": "data/computational-resources/03-technical/experiments/scaleout-checkpoint-007-experiments.jsonl",
+      "line": 2,
+      "record_id": "CR000013-E002",
+      "json_pointer": "/facts",
+      "before": [
+        {
+          "technical_field": "scientific_problem.problem",
+          "value": "synthetic glacier-profile ice-thickness estimation comparing physics-aware and data-only loss weighting",
+          "field_status": "documented",
+          "confidence": "high",
+          "source_relation": "documented_in_repository",
+          "evidence_ids": [
+            "TE-CR000013-0003",
+            "TE-CR000013-0009"
+          ]
+        }
+      ],
+      "after": [
+        {
+          "technical_field": "scientific_problem.problem",
+          "value": "synthetic glacier-profile ice-thickness estimation comparing physics-aware and data-only loss weighting",
+          "field_status": "documented",
+          "confidence": "high",
+          "source_relation": "documented_in_repository",
+          "evidence_ids": [
+            "TE-CR000013-0003",
+            "TE-CR000013-0009"
+          ]
+        },
+        {
+          "technical_field": "execution.synthetic_entrypoint_complete",
+          "value": {
+            "trainer_hardcoded_config": "config_1d_nophysics.yaml",
+            "available_config": "config_nophysics.yaml",
+            "configured_data": "../data/synthetic_data/1dsynthetic_glacier_profile.csv",
+            "bundled_data_present": false,
+            "generator_creates_parent_directories": false,
+            "complete": false
+          },
+          "field_status": "partially_verified",
+          "confidence": "high",
+          "source_relation": "implemented_in_code",
+          "evidence_ids": [
+            "TE-CR000013-0010"
+          ]
+        }
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-005-reproducibility.jsonl",
+      "line": 2,
+      "record_id": "CR000009-E001-C001",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 is scoped to the bundled repository DNN analysis; dataset availability itself is stronger, but the executable environment is incomplete.",
+        "No execution was performed; R5 remains prohibited."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No execution was performed; R5 remains prohibited.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-005-reproducibility.jsonl",
+      "line": 2,
+      "record_id": "CR000009-E001-C001",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-038-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000045",
+      "json_pointer": "/assessment_evidence_ids",
+      "before": [
+        "TE-CR000045-0001",
+        "TE-CR000045-0002",
+        "TE-CR000045-0003",
+        "TE-CR000045-0004",
+        "TE-CR000045-0017",
+        "TE-CR000045-0018",
+        "TE-CR000045-0019",
+        "TE-CR000045-0020"
+      ],
+      "after": [
+        "TE-CR000045-0001",
+        "TE-CR000045-0002",
+        "TE-CR000045-0003",
+        "TE-CR000045-0004",
+        "TE-CR000045-0005",
+        "TE-CR000045-0017",
+        "TE-CR000045-0018",
+        "TE-CR000045-0019",
+        "TE-CR000045-0020"
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-038-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000045",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "The cumulative reconciliation links existing evidence for citation/method scope, framework evaluation capabilities or reproducibility limitations to this resource-level assessment; no component or level is increased."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-039-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000046",
+      "json_pointer": "/assessment_evidence_ids",
+      "before": [
+        "TE-CR000046-0001",
+        "TE-CR000046-0002",
+        "TE-CR000046-0003",
+        "TE-CR000046-0004",
+        "TE-CR000046-0018",
+        "TE-CR000046-0019",
+        "TE-CR000046-0020"
+      ],
+      "after": [
+        "TE-CR000046-0001",
+        "TE-CR000046-0002",
+        "TE-CR000046-0003",
+        "TE-CR000046-0004",
+        "TE-CR000046-0005",
+        "TE-CR000046-0018",
+        "TE-CR000046-0019",
+        "TE-CR000046-0020"
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-039-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000046",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "The cumulative reconciliation links existing evidence for citation/method scope, framework evaluation capabilities or reproducibility limitations to this resource-level assessment; no component or level is increased."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-040-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000047",
+      "json_pointer": "/assessment_evidence_ids",
+      "before": [
+        "TE-CR000047-0001",
+        "TE-CR000047-0002",
+        "TE-CR000047-0003",
+        "TE-CR000047-0004",
+        "TE-CR000047-0010"
+      ],
+      "after": [
+        "TE-CR000047-0001",
+        "TE-CR000047-0002",
+        "TE-CR000047-0003",
+        "TE-CR000047-0004",
+        "TE-CR000047-0007",
+        "TE-CR000047-0008",
+        "TE-CR000047-0010"
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-040-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000047",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "The cumulative reconciliation links existing evidence for citation/method scope, framework evaluation capabilities or reproducibility limitations to this resource-level assessment; no component or level is increased."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-041-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000048",
+      "json_pointer": "/assessment_evidence_ids",
+      "before": [
+        "TE-CR000048-0001",
+        "TE-CR000048-0002",
+        "TE-CR000048-0003",
+        "TE-CR000048-0004",
+        "TE-CR000048-0009",
+        "TE-CR000048-0010"
+      ],
+      "after": [
+        "TE-CR000048-0001",
+        "TE-CR000048-0002",
+        "TE-CR000048-0003",
+        "TE-CR000048-0004",
+        "TE-CR000048-0005",
+        "TE-CR000048-0009",
+        "TE-CR000048-0010"
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-041-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000048",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "The cumulative reconciliation links existing evidence for citation/method scope, framework evaluation capabilities or reproducibility limitations to this resource-level assessment; no component or level is increased."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-042-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000050",
+      "json_pointer": "/assessment_evidence_ids",
+      "before": [
+        "TE-CR000050-0001",
+        "TE-CR000050-0002",
+        "TE-CR000050-0003",
+        "TE-CR000050-0004",
+        "TE-CR000050-0009",
+        "TE-CR000050-0010"
+      ],
+      "after": [
+        "TE-CR000050-0001",
+        "TE-CR000050-0002",
+        "TE-CR000050-0003",
+        "TE-CR000050-0004",
+        "TE-CR000050-0008",
+        "TE-CR000050-0009",
+        "TE-CR000050-0010"
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-042-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000050",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "The cumulative reconciliation links existing evidence for citation/method scope, framework evaluation capabilities or reproducibility limitations to this resource-level assessment; no component or level is increased."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-047-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000055",
+      "json_pointer": "/assessment_evidence_ids",
+      "before": [
+        "TE-CR000055-0001",
+        "TE-CR000055-0002",
+        "TE-CR000055-0003",
+        "TE-CR000055-0004",
+        "TE-CR000055-0006",
+        "TE-CR000055-0007",
+        "TE-CR000055-0009",
+        "TE-CR000055-0010",
+        "TE-CR000055-0011",
+        "TE-CR000055-0012",
+        "TE-CR000055-0015",
+        "TE-CR000055-0017",
+        "TE-CR000055-0020"
+      ],
+      "after": [
+        "TE-CR000055-0001",
+        "TE-CR000055-0002",
+        "TE-CR000055-0003",
+        "TE-CR000055-0004",
+        "TE-CR000055-0006",
+        "TE-CR000055-0007",
+        "TE-CR000055-0009",
+        "TE-CR000055-0010",
+        "TE-CR000055-0011",
+        "TE-CR000055-0012",
+        "TE-CR000055-0013",
+        "TE-CR000055-0015",
+        "TE-CR000055-0016",
+        "TE-CR000055-0017",
+        "TE-CR000055-0018",
+        "TE-CR000055-0019",
+        "TE-CR000055-0020"
+      ],
+      "reason": "Connect previously uncited evidence to its applicable assessment or synthetic experiment; preserve source and configuration scope without creating evidence or changing scientific values."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-047-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000055",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "The cumulative reconciliation links existing evidence for citation/method scope, framework evaluation capabilities or reproducibility limitations to this resource-level assessment; no component or level is increased."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-050-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000058",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 applies to the paper-specific hp-VPINNs repository at the Stage-2-pinned commit.",
+        "Four active default case configurations are statically recoverable, but runtime reproduction is not claimed."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "Four active default case configurations are statically recoverable, but runtime reproduction is not claimed.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-050-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000058",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-053-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000062",
+      "json_pointer": "/notes/0",
+      "before": "R2 is assigned at reusable-framework scope because source, exact MIT license text, installation routes, public API, physics constraints, architecture surfaces, training/evaluation interfaces, tests and examples are statically recoverable.",
+      "after": "R1 at the recorded framework-wide scope: the environment component remains conflicting_evidence, with no single source-scoped compatible runtime selected for this assessment. Installation commands alone do not resolve that consequential prerequisite. Exact dependency locking is not required for R2; the unresolved runtime scope is the blocker.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-053-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000062",
+      "json_pointer": "/notes/1",
+      "before": "R3 is withheld because the environment declarations conflict, most dependencies are not locked, and no single end-to-end application contract is selected.",
+      "after": "The README Apache-2.0 badge remains an explicit documentation conflict but does not override the exact MIT license text.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-053-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000062",
+      "json_pointer": "/notes/2",
+      "before": "The README Apache-2.0 badge remains an explicit documentation conflict but does not override the exact MIT license text.",
+      "after": "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-053-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000062",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-054-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000063",
+      "json_pointer": "/notes/0",
+      "before": "R2 is assigned at reusable-framework scope because public source identity, MIT licensing, versioned PyPI source artifacts, installation instructions, API, mathematical method, architecture/training behavior, examples and evaluation interfaces are statically recoverable.",
+      "after": "R1 at the recorded framework-wide scope: the environment component remains conflicting_evidence, with no single source-scoped compatible runtime selected for this assessment. Installation commands alone do not resolve that consequential prerequisite. Exact dependency locking is not required for R2; the unresolved runtime scope is the blocker.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-054-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000063",
+      "json_pointer": "/notes/1",
+      "before": "R3 is withheld because no authoritative Stage-2 source commit exists, repository/release lineage was not byte-compared, TensorFlow generations conflict, and no exact transitive environment is fixed.",
+      "after": "The provider-reported passing 2025 pipeline is evidence of provider testing only; Stage 3 did not re-run it.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-054-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000063",
+      "json_pointer": "/notes/2",
+      "before": "The provider-reported passing 2025 pipeline is evidence of provider testing only; Stage 3 did not re-run it.",
+      "after": "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-054-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000063",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-055-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000064",
+      "json_pointer": "/notes/0",
+      "before": "R2 is assigned because the exact source snapshot, five case entrypoints, geometry/data preprocessing, PDE residuals, architecture, active hyperparameters, evaluation logic and substantial bundled checkpoints/results are statically recoverable.",
+      "after": "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-055-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000064",
+      "json_pointer": "/notes/1",
+      "before": "R3 is withheld for absent licensing/setup/version locks, CUDA/runtime incompleteness, case1 training provenance, and incomplete binary/result lineage.",
+      "after": "No scientific code, dependency, OpenFOAM case, checkpoint, training, prediction, evaluation, test or benchmark was executed.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-055-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000064",
+      "json_pointer": "/notes/2",
+      "before": "No scientific code, dependency, OpenFOAM case, checkpoint, training, prediction, evaluation, test or benchmark was executed.",
+      "after": "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-055-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000064",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-075-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000085",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects inspectable source notebooks, bundled data, mathematics, architectures, training and evaluation with substantial environment/provenance gaps; R3/R4 are not justified."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-075-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000085",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-076-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000086",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects inspectable source, explicit example entrypoints, numerical parameters, second-/fourth-order solver branches and output logic, while portable environment and Atlas-598-specific generation provenance remain incomplete."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-076-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000086",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-078-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000089",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects a verified pinned source repository with explicit notebook entrypoints, bundled data/generators, trained artifacts and a partially pinned JAX requirement, while environment/install/version/provenance gates remain incomplete. R3/R4 are not justified."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-078-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000089",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-081-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000093",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects pinned source with explicit scientific entrypoints, equations, architectures, training parameters and evaluation logic, but incomplete environment/data/result surfaces prevent a higher classification.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No scientific workload was executed.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-081-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000093",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-082-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000094",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects substantial pinned scientific notebooks and comparison artifacts, but incomplete environment, version, installation, seed, hardware and checkpoint provenance prevents a higher classification.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No scientific workload was executed.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-082-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000094",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-084-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000096",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects complete source availability with explicit PDE/model selectors, seeds, architectures, training hyperparameters and evaluation logic, but no reconstructable environment/install surface and incomplete data/runtime provenance.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No scientific workload was executed.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-084-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000096",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-086-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000098",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects bundled data, explicit mathematics, architectures, training controls, evaluation/result artifacts and a partially pinned deterministic-PINN environment, while the repository lacks a unified reconstructable environment and installation surface.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No scientific workload was executed.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-086-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000098",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-087-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000099",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects explicit source-level mathematics, architecture/training controls, deterministic sampling seed, bundled data/archive material and extensive precomputed result artifacts, while the environment and installation surface are not reconstructable from the pinned repository alone.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No scientific workload was executed.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-087-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000099",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-095-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000107",
+      "json_pointer": "/notes",
+      "before": [
+        "R2 reflects explicit source-level mathematics, architectures, training controls and environment-version documentation, while installation, seed, hardware and checkpoint provenance remain incomplete.",
+        "No scientific software or workflow was executed during assessment."
+      ],
+      "after": [
+        "R1: usable source is available, but the existing evidence does not satisfy the accepted R2 environment-and-installation gate. Detailed scientific source, bundled artifacts and use entrypoints do not replace that prerequisite.",
+        "No scientific software or workflow was executed during assessment.",
+        "The previous R2 interpretation is superseded by the 2026-09-08 cumulative reconciliation; existing gaps and source evidence are preserved."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-095-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000107",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-108-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000121",
+      "json_pointer": "/components/license_clear",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-109-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000122",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-109-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000122",
+      "json_pointer": "/components/installation_documented",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-109-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000122",
+      "json_pointer": "/components/source_available",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-109-reproducibility.jsonl",
+      "line": 2,
+      "record_id": "CR000123",
+      "json_pointer": "/components/installation_documented",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-109-reproducibility.jsonl",
+      "line": 2,
+      "record_id": "CR000123",
+      "json_pointer": "/components/license_clear",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-109-reproducibility.jsonl",
+      "line": 2,
+      "record_id": "CR000123",
+      "json_pointer": "/components/versions_pinned",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-110-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000124",
+      "json_pointer": "/components/checkpoints_available",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-110-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000124",
+      "json_pointer": "/components/installation_documented",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-110-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000124",
+      "json_pointer": "/components/license_clear",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-110-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000124",
+      "json_pointer": "/components/versions_pinned",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-112-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000126",
+      "json_pointer": "/components/data_available",
+      "before": "externally_available",
+      "after": "documented",
+      "reason": "The README documents an external ERA5/WeatherBench download and layout; payload availability was not independently verified (TE-CR000126-0004)."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-112-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000126",
+      "json_pointer": "/components/installation_documented",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-112-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000126",
+      "json_pointer": "/notes/0",
+      "before": "R2 reflects a pinned licensed source with explicit workflows, dependencies, seed, hyperparameters, evaluation entrypoints and a released checkpoint, while environment and data reconstruction remain incomplete.",
+      "after": "R1 reflects inspectable pinned source and documented use/evaluation commands, but the R2 environment-and-installation gate is not satisfied. The README lists prerequisites without an installation procedure; external data and a released checkpoint do not override that prerequisite.",
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-112-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000126",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "The pinned README has a prerequisites list but no installation procedure; R2 requires substantially specified environment and installation information."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-113-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000128",
+      "json_pointer": "/components/installation_documented",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-113-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000128",
+      "json_pointer": "/components/source_available",
+      "before": "unavailable",
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/checkpoints_available",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/environment_specified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/installation_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/license_clear",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/seeds_reported",
+      "before": true,
+      "after": "partially_verified",
+      "reason": "The default HeatEquation sampling ignores its random-seed argument; retain the existing source-scoped sampling conflict rather than treating a seed setting as complete control (TE-CR000129-0008)."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-114-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/components/versions_pinned",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/checkpoints_available",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/data_available",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/installation_documented",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/license_clear",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/seeds_reported",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-115-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/components/versions_pinned",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/checkpoints_available",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/installation_documented",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/license_clear",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-116-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/expected_results_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/hardware_reported",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/license_clear",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited mathematics, model, training, hardware and result information is reported by the primary paper (TE-CR000132-0004 through 0007); source-internal mapping remains unverified."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-117-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000132",
+      "json_pointer": "/notes",
+      "before": [
+        "R1 preserves the immutable source snapshot, clear license, paper methodology and reported hardware/results, while withholding stronger reproducibility claims because repository-internal execution provenance is incomplete.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1 preserves the immutable source snapshot, clear license, paper methodology and reported hardware/results, while withholding stronger reproducibility claims because repository-internal execution provenance is incomplete.",
+        "No scientific workload was executed.",
+        "Documented mathematics, architecture, training, hyperparameters, hardware and expected results are primary-paper claims; they do not verify repository implementation."
+      ],
+      "reason": "Preserve primary-paper scope when replacing component booleans."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/data_available",
+      "before": true,
+      "after": "unknown",
+      "reason": "The cited bounded tree and README identify PDE examples and notebooks, not a verified complete input-data or generation workflow; availability remains unknown."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "partially_verified",
+      "reason": "The tree establishes plotting notebooks, but their uninspected contents do not establish a complete evaluation procedure (TE-CR000133-0006)."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/installation_documented",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/license_clear",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-118-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/notes",
+      "before": [
+        "R1 preserves strong immutable source, license, architecture, problem-suite and example-workflow evidence while withholding stronger environment/execution reproducibility claims.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "R1 preserves strong immutable source, license, architecture, problem-suite and example-workflow evidence while withholding stronger environment/execution reproducibility claims.",
+        "No scientific workload was executed.",
+        "README method claims are documented; uninspected example/plot notebooks do not verify complete input availability or evaluation procedures."
+      ],
+      "reason": "Explain conservative component normalization."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/checkpoints_available",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/installation_documented",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/license_clear",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/preprocessing_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-119-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/checkpoints_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/data_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/environment_specified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/installation_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/license_clear",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/preprocessing_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/seeds_reported",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-120-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/components/versions_pinned",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/architecture_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/checkpoints_available",
+      "before": false,
+      "after": "not_available",
+      "reason": "The existing assessment gaps identify the absent license, manifest, instructions, confidential data or missing checkpoint; preserve that unavailable prerequisite as not_available."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/citation_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/data_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/entrypoint_identified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/environment_specified",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/evaluation_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/expected_results_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/hardware_reported",
+      "before": false,
+      "after": "unknown",
+      "reason": "The bounded evidence does not establish the value; an unreported seed or hardware detail is unknown, not an explicit negative scientific value."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/hyperparameters_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/installation_documented",
+      "before": true,
+      "after": "documented",
+      "reason": "The cited documentation describes this component; retain documentary rather than execution verification."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/license_clear",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/mathematics_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/preprocessing_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/seeds_reported",
+      "before": false,
+      "after": "unknown",
+      "reason": "The bounded evidence does not establish the value; an unreported seed or hardware detail is unknown, not an explicit negative scientific value."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/source_available",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-121-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/components/training_documented",
+      "before": true,
+      "after": "verified",
+      "reason": "The cited static evidence positively establishes this component; replace the boolean with the required field-status string, without claiming execution."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-034-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000041",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_or_physics_informed_implementation",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-035-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000042",
+      "json_pointer": "/resource_profile",
+      "before": "physics_informed_operator_or_operator_learning",
+      "after": "physics_informed_operator_learning",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-036-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000043",
+      "json_pointer": "/resource_profile",
+      "before": "supporting_software_or_library",
+      "after": "supporting_scientific_ml_library",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-037-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000044",
+      "json_pointer": "/resource_profile",
+      "before": "non_pinn",
+      "after": "non_pinn_research_code",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-058-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000067",
+      "json_pointer": "/resource_profile",
+      "before": "supporting_software",
+      "after": "supporting_scientific_ml_library",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-065-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000074",
+      "json_pointer": "/resource_profile",
+      "before": "supporting_software",
+      "after": "supporting_scientific_ml_library",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-069-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000079",
+      "json_pointer": "/resource_profile",
+      "before": "research_code",
+      "after": "non_pinn_research_code",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-112-resources.jsonl",
+      "line": 2,
+      "record_id": "CR000127",
+      "json_pointer": "/facts/1/source_relation",
+      "before": "documented_in_paper",
+      "after": "reported_in_primary_paper",
+      "reason": "Use the accepted source-relation label without changing the scientific value."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-113-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000128",
+      "json_pointer": "/artifact_form",
+      "before": "unavailable_repository",
+      "after": "source_repository",
+      "reason": "Artifact form describes delivery; explicit availability facts retain the unavailable status."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-114-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000129",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_research_code",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-115-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000130",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_research_code",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-116-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/facts/2/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence",
+      "reason": "Normalize the existing conflict to conflicting_evidence without altering either source value."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-116-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000131",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_research_code",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-118-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000133",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_variant_implementation",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-119-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000134",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_variant_implementation",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-120-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000135",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_or_physics_informed_implementation",
+      "after": "pinn_implementation",
+      "reason": "Use the accepted Stage-3 profile corresponding to the recorded scientific method and role; preserve Stage-2 classification in its authority record."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-121-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/notes",
+      "before": [
+        "Stage-2 pinned SHA, CC-BY-NC-SA-4.0 license and verified official Atlas-743 relationship are preserved.",
+        "The default antiderivative DeepONet workflow is recorded as the bounded representative experiment; the broader operator-learning suite remains resource-scoped.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "Stage-2 pinned SHA, CC-BY-NC-SA-4.0 license and verified official Atlas-743 relationship are preserved.",
+        "The default antiderivative DeepONet workflow is recorded as the bounded representative experiment; the broader operator-learning suite remains resource-scoped.",
+        "No scientific workload was executed.",
+        "The accepted non_pinn_research_code profile denotes data-driven nonlinear operator learning in the inspected pinned workflow. The Stage-2 umbrella classification is preserved; no PDE-residual physics loss or classical PINN semantics is implied."
+      ],
+      "reason": "Clarify the scientifically bounded profile mapping."
+    },
+    {
+      "file": "data/computational-resources/03-technical/resources/scaleout-checkpoint-121-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000136",
+      "json_pointer": "/resource_profile",
+      "before": "physics_informed_operator_or_operator_learning",
+      "after": "non_pinn_research_code",
+      "reason": "Pinned src/deeponet_pde.py trains an OpDataSet on generated labels; this is data-driven operator research code, without a PDE-residual physics loss. Do not imply physics enforcement solely from the Stage-2 umbrella classification."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-005-extraction-log.jsonl",
+      "line": 2,
+      "record_id": "CR000009",
+      "json_pointer": "/notes",
+      "before": [
+        "Dataset use by Atlas paper 130 remains separate from the repository DNN experiment.",
+        "Binary payloads were not opened."
+      ],
+      "after": [
+        "Dataset use by Atlas paper 130 remains separate from the repository DNN experiment.",
+        "Binary payloads were not opened.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-005-extraction-log.jsonl",
+      "line": 2,
+      "record_id": "CR000009",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-050-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000058",
+      "json_pointer": "/notes",
+      "before": [
+        "A pre-QA partial contents commit introduced the resource record before checkpoint completion; the final checkpoint commit completes the remaining artifacts without history rewrite."
+      ],
+      "after": [
+        "A pre-QA partial contents commit introduced the resource record before checkpoint completion; the final checkpoint commit completes the remaining artifacts without history rewrite.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-050-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000058",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-053-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000062",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-053-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000062",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-054-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000063",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-054-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000063",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-055-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000064",
+      "json_pointer": "/notes",
+      "before": null,
+      "after": [
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-055-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000064",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-075-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000085",
+      "json_pointer": "/notes",
+      "before": [
+        "Research workflows are represented as 1D relaxation, 2D Allen-Cahn and 1D Cahn-Hilliard experiments; tutorial notebooks remain capability evidence.",
+        "No scientific software, notebook, model, training, inference, evaluation, environment, dependency, dataset or benchmark workload was executed."
+      ],
+      "after": [
+        "Research workflows are represented as 1D relaxation, 2D Allen-Cahn and 1D Cahn-Hilliard experiments; tutorial notebooks remain capability evidence.",
+        "No scientific software, notebook, model, training, inference, evaluation, environment, dependency, dataset or benchmark workload was executed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-075-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000085",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-076-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000086",
+      "json_pointer": "/notes",
+      "before": [
+        "Single-resource checkpoint because CR000086 is a multi-dimensional numerical phase-field solver/toolkit with substantial example and utility surfaces.",
+        "The verified Atlas-598 relationship remains paper_dataset_mention; Stage 3 does not relabel this repository as the variational DeepONet implementation.",
+        "No scientific execution performed."
+      ],
+      "after": [
+        "Single-resource checkpoint because CR000086 is a multi-dimensional numerical phase-field solver/toolkit with substantial example and utility surfaces.",
+        "The verified Atlas-598 relationship remains paper_dataset_mention; Stage 3 does not relabel this repository as the variational DeepONet implementation.",
+        "No scientific execution performed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-076-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000086",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-078-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000089",
+      "json_pointer": "/notes",
+      "before": [
+        "Five workflow families are represented: antiderivative, advection, diffusion-reaction, Burgers and Eikonal.",
+        "Configuration identity is based on pinned notebook/file organization; repository naming is not expanded into unsupported runtime/result claims.",
+        "Inspection remained static; repository notebooks, data, and trained artifacts were not executed or loaded."
+      ],
+      "after": [
+        "Five workflow families are represented: antiderivative, advection, diffusion-reaction, Burgers and Eikonal.",
+        "Configuration identity is based on pinned notebook/file organization; repository naming is not expanded into unsupported runtime/result claims.",
+        "Inspection remained static; repository notebooks, data, and trained artifacts were not executed or loaded.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-078-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000089",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-081-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000093",
+      "json_pointer": "/notes",
+      "before": [
+        "Single-resource checkpoint due to material workflow multiplicity and unavailable Gray-Scott runtime data files.",
+        "No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed."
+      ],
+      "after": [
+        "Single-resource checkpoint due to material workflow multiplicity and unavailable Gray-Scott runtime data files.",
+        "No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-081-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000093",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-082-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000094",
+      "json_pointer": "/notes",
+      "before": [
+        "Single-resource checkpoint due to multi-dimensional notebook workflows and finite-difference comparison artifacts.",
+        "No scientific software, notebook, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed."
+      ],
+      "after": [
+        "Single-resource checkpoint due to multi-dimensional notebook workflows and finite-difference comparison artifacts.",
+        "No scientific software, notebook, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-082-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000094",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-084-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000096",
+      "json_pointer": "/notes",
+      "before": [
+        "Single-resource checkpoint due to six PDE/decomposition configurations and a consequential source-scoped device-control inconsistency.",
+        "No scientific software, notebook, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed."
+      ],
+      "after": [
+        "Single-resource checkpoint due to six PDE/decomposition configurations and a consequential source-scoped device-control inconsistency.",
+        "No scientific software, notebook, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-084-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000096",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-086-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000098",
+      "json_pointer": "/notes",
+      "before": [
+        "The analytical Bayesian-inference workflow remains source-scoped as a non-PINN comparator.",
+        "No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed."
+      ],
+      "after": [
+        "The analytical Bayesian-inference workflow remains source-scoped as a non-PINN comparator.",
+        "No scientific software, model, dataset, training, inference, evaluation, test, environment, dependency, container, accelerator or benchmark workload was executed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-086-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000098",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-112-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000126",
+      "json_pointer": "/notes",
+      "before": [
+        "Three source-explicit forecast workflows are represented.",
+        "No scientific workload was executed."
+      ],
+      "after": [
+        "Three source-explicit forecast workflows are represented.",
+        "No scientific workload was executed.",
+        "Reproducibility level reconciled to R1 on 2026-09-08 because the accepted R2 environment-and-installation prerequisite is not satisfied; extraction date and scientific scope are unchanged."
+      ],
+      "reason": "Align the assessment explanation or extraction log with the documented cumulative reconciliation; prior content is retained here."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/extraction-log/scaleout-checkpoint-112-extraction-log.jsonl",
+      "line": 1,
+      "record_id": "CR000126",
+      "json_pointer": "/reproducibility_level",
+      "before": "R2",
+      "after": "R1",
+      "reason": "Apply the gated R1 assessment: the recorded environment/installation prerequisite for R2 is not met. Existing evidence and gaps are unchanged."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-007-CR000013-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000013-0008",
+      "json_pointer": "/evidence_type",
+      "before": "environment_file",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-008-CR000014-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000014-0006",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-008-CR000014-evidence.jsonl",
+      "line": 7,
+      "record_id": "TE-CR000014-0007",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-008-CR000014-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000014-0008",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-029-CR000036-evidence.jsonl",
+      "line": 26,
+      "record_id": "TE-CR000036-0026",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-031-CR000038-evidence.jsonl",
+      "line": 2,
+      "record_id": "TE-CR000038-0002",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-035-CR000042-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000042-0004",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-036-CR000043-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000043-0005",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-036-CR000043-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000043-0008",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/0",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/1",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/10",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/11",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/12",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/13",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/14",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/15",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/16",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/17",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/18",
+      "before": "s",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/19",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/2",
+      "before": "c",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/20",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/21",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/22",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/23",
+      "before": "y",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/3",
+      "before": "u",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/4",
+      "before": "m",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/5",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/6",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/7",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/8",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/9",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000046-0003",
+      "json_pointer": "/source_relation",
+      "before": "implemented_in_code",
+      "after": "documented_in_repository",
+      "reason": "Restore the source relation encoded by the accidental character-index properties."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/0",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/1",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/10",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/11",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/12",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/13",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/14",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/15",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/16",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/17",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/18",
+      "before": "s",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/19",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/2",
+      "before": "c",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/20",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/21",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/22",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/23",
+      "before": "y",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/3",
+      "before": "u",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/4",
+      "before": "m",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/5",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/6",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/7",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/8",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/9",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000046-0004",
+      "json_pointer": "/source_relation",
+      "before": "implemented_in_code",
+      "after": "documented_in_repository",
+      "reason": "Restore the source relation encoded by the accidental character-index properties."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/0",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/1",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/10",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/11",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/12",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/13",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/14",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/15",
+      "before": "m",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/16",
+      "before": "a",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/17",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/18",
+      "before": "y",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/19",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/2",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/20",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/21",
+      "before": "a",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/22",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/23",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/24",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/3",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/4",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/5",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/6",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/7",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/8",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/9",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000046-0005",
+      "json_pointer": "/verified_commit_sha",
+      "before": "c28220a6558554a193303975adb60d8857d48c0c",
+      "after": null,
+      "reason": "Primary-paper evidence is not a repository snapshot; retain the original repository SHA in the reconciliation change log."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 9,
+      "record_id": "TE-CR000046-0009",
+      "json_pointer": "/configuration_id",
+      "before": "CR000046-E004",
+      "after": "CR000046-E001-C003",
+      "reason": "Match the existing configuration citation, entrypoint and n_train/n_test/depth/epochs/radius values; no new identifier is created."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 9,
+      "record_id": "TE-CR000046-0009",
+      "json_pointer": "/experiment_id",
+      "before": "CR000046-E002",
+      "after": "CR000046-E001",
+      "reason": "Pinned UAI8_kernel.py defines the KernelNN3 Darcy kernel-width case already represented by CR000046-E001-C003."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-039-CR000046-evidence.jsonl",
+      "line": 9,
+      "record_id": "TE-CR000046-0009",
+      "json_pointer": "/repository_path_or_paper_section",
+      "before": "CR000046 pinned snapshot; README.md; selected GKN/MGKN scripts",
+      "after": "graph-neural-operator/UAI8_kernel.py",
+      "reason": "Pin the repaired mapping to the directly re-inspected source location."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/0",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/1",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/10",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/11",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/12",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/13",
+      "before": "_",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/14",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/15",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/16",
+      "before": "p",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/17",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/18",
+      "before": "s",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/19",
+      "before": "i",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/2",
+      "before": "c",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/20",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/21",
+      "before": "o",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/22",
+      "before": "r",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/23",
+      "before": "y",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/3",
+      "before": "u",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/4",
+      "before": "m",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/5",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/6",
+      "before": "n",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/7",
+      "before": "t",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/8",
+      "before": "e",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/9",
+      "before": "d",
+      "after": null,
+      "reason": "Remove accidental character-index properties from a serialized source-relation string."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-041-CR000048-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000048-0004",
+      "json_pointer": "/source_relation",
+      "before": "implemented_in_code",
+      "after": "documented_in_repository",
+      "reason": "Restore the source relation encoded by the accidental character-index properties."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-047-CR000055-evidence.jsonl",
+      "line": 13,
+      "record_id": "TE-CR000055-0013",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-057-CR000066-evidence.jsonl",
+      "line": 9,
+      "record_id": "TE-CR000066-0009",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-058-CR000067-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000067-0004",
+      "json_pointer": "/evidence_type",
+      "before": "environment_manifest",
+      "after": "environment_file",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-058-CR000067-evidence.jsonl",
+      "line": 9,
+      "record_id": "TE-CR000067-0009",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-059-evidence.jsonl",
+      "line": 10,
+      "record_id": "TE-CR000068-0010",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-059-evidence.jsonl",
+      "line": 11,
+      "record_id": "TE-CR000068-0011",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-060-evidence.jsonl",
+      "line": 10,
+      "record_id": "TE-CR000069-0010",
+      "json_pointer": "/evidence_type",
+      "before": "archive_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-060-evidence.jsonl",
+      "line": 11,
+      "record_id": "TE-CR000069-0011",
+      "json_pointer": "/evidence_type",
+      "before": "README_and_source_code",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-065-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000074-0006",
+      "json_pointer": "/evidence_type",
+      "before": "notebook_source",
+      "after": "notebook",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-065-evidence.jsonl",
+      "line": 7,
+      "record_id": "TE-CR000074-0007",
+      "json_pointer": "/evidence_type",
+      "before": "notebook_source",
+      "after": "notebook",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-065-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000074-0008",
+      "json_pointer": "/evidence_type",
+      "before": "notebook_output",
+      "after": "notebook",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-065-evidence.jsonl",
+      "line": 10,
+      "record_id": "TE-CR000074-0010",
+      "json_pointer": "/evidence_type",
+      "before": "extraction_record",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-065-evidence.jsonl",
+      "line": 10,
+      "record_id": "TE-CR000074-0010",
+      "json_pointer": "/source_relation",
+      "before": "derived_from_static_inspection",
+      "after": "inferred_from_evidence",
+      "reason": "Use the accepted source-relation label."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-069-evidence.jsonl",
+      "line": 10,
+      "record_id": "TE-CR000079-0010",
+      "json_pointer": "/evidence_type",
+      "before": "conflicting_evidence",
+      "after": "repository_documented",
+      "reason": "Represent the underlying retained evidence source using an accepted type; conflict is represented independently by field_status."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-069-evidence.jsonl",
+      "line": 10,
+      "record_id": "TE-CR000079-0010",
+      "json_pointer": "/source_relation",
+      "before": "contradicted_by_repository",
+      "after": "documented_by_provider",
+      "reason": "Use the accepted source relation matching the retained provider, repository, paper or inference claim."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-109-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000122-0004",
+      "json_pointer": "/evidence_type",
+      "before": "citation_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-109-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000122-0005",
+      "json_pointer": "/evidence_type",
+      "before": "citation_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-109-evidence.jsonl",
+      "line": 12,
+      "record_id": "TE-CR000123-0007",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documented",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-110-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000124-0008",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documented",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-111-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000125-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-111-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000125-0003",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-111-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000125-0004",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "inferred",
+      "reason": "Preserve the explicit inference relation and label the derived claim as inferred; original source locations and values are retained."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000126-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000126-0003",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000126-0004",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 7,
+      "record_id": "TE-CR000126-0007",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000126-0008",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 12,
+      "record_id": "TE-CR000127-0003",
+      "json_pointer": "/source_relation",
+      "before": "documented_in_paper",
+      "after": "reported_in_primary_paper",
+      "reason": "Use the accepted source-relation label."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 13,
+      "record_id": "TE-CR000127-0004",
+      "json_pointer": "/source_relation",
+      "before": "documented_in_paper",
+      "after": "reported_in_primary_paper",
+      "reason": "Use the accepted source-relation label."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-112-technical-evidence.jsonl",
+      "line": 14,
+      "record_id": "TE-CR000127-0005",
+      "json_pointer": "/source_relation",
+      "before": "documented_in_paper",
+      "after": "reported_in_primary_paper",
+      "reason": "Use the accepted source-relation label."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-113-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000128-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-113-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000128-0003",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-114-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000129-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-114-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000129-0003",
+      "json_pointer": "/evidence_type",
+      "before": "license_text",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-114-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000129-0004",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-114-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000129-0006",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-114-technical-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000129-0008",
+      "json_pointer": "/evidence_type",
+      "before": "conflicting_source_evidence",
+      "after": "source_code",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-114-technical-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000129-0008",
+      "json_pointer": "/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence",
+      "reason": "Retain the existing conflict under the accepted status label."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-115-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000130-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-115-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000130-0003",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-115-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000130-0004",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-116-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000131-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-116-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000131-0003",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-116-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000131-0004",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-116-technical-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000131-0005",
+      "json_pointer": "/evidence_type",
+      "before": "repository_documentation",
+      "after": "README",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-116-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000131-0006",
+      "json_pointer": "/evidence_type",
+      "before": "conflicting_source_evidence",
+      "after": "source_code",
+      "reason": "Map the inspected source form to its accepted evidence-type enum; source locations preserve mixed-source details."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-116-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000131-0006",
+      "json_pointer": "/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence",
+      "reason": "Retain the existing conflict under the accepted status label."
+    },
+    {
+      "file": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-119-technical-evidence.jsonl",
+      "line": 9,
+      "record_id": "TE-CR000134-0009",
+      "json_pointer": "/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence",
+      "reason": "Retain the existing conflict under the accepted status label."
+    }
+  ]
+}

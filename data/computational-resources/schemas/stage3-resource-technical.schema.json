@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stage3-resource-technical.schema.json",
+  "title": "Stage 3 resource technical record",
+  "type": "object",
+  "required": ["schema_version", "resource_id", "resource_profile", "artifact_form", "applicable_modules", "facts", "experiment_ids", "configuration_ids", "extraction_status"],
+  "properties": {
+    "schema_version": {"const": "3.0.0-pilot"},
+    "resource_id": {"$ref": "stage3-common.schema.json#/$defs/resourceId"},
+    "resource_profile": {"$ref": "stage3-common.schema.json#/$defs/resourceProfile"},
+    "artifact_form": {"$ref": "stage3-common.schema.json#/$defs/artifactForm"},
+    "applicable_modules": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "facts": {"type": "array", "items": {"$ref": "stage3-common.schema.json#/$defs/fact"}},
+    "experiment_ids": {"type": "array", "items": {"$ref": "stage3-common.schema.json#/$defs/experimentId"}, "uniqueItems": true},
+    "configuration_ids": {"type": "array", "items": {"$ref": "stage3-common.schema.json#/$defs/configurationId"}, "uniqueItems": true},
+    "extraction_status": {"enum": ["design_only", "in_progress", "complete", "bounded_complete"]},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

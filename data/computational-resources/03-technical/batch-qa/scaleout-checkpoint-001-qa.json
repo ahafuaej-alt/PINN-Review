@@ -1,0 +1,52 @@
+{
+  "schema_version": "3.0.0-scaleout-qa",
+  "checkpoint": "Stage3-S001",
+  "batch": "SOB001",
+  "date": "2026-08-31",
+  "resources": ["CR000001", "CR000002"],
+  "counts": {
+    "resources": 2,
+    "experiments": 1,
+    "configurations": 1,
+    "technical_evidence_records": 15,
+    "reproducibility_assessments": 2,
+    "new_unresolved_findings": 3,
+    "new_conflicting_evidence_findings": 1
+  },
+  "cumulative_counts": {
+    "resources": 12,
+    "experiments": 24,
+    "configurations": 84,
+    "technical_evidence_records": 146,
+    "reproducibility_assessments": 12,
+    "unresolved_findings": 26,
+    "conflicting_evidence_findings": 4
+  },
+  "schema_validation": {
+    "stage3-resource-technical.schema.json": "pass",
+    "stage3-experiment.schema.json": "pass",
+    "stage3-configuration.schema.json": "pass",
+    "stage3-technical-evidence.schema.json": "pass",
+    "stage3-reproducibility.schema.json": "pass"
+  },
+  "cross_reference_validation": "pass",
+  "identifier_uniqueness": "pass",
+  "stage2_authority_resolution": "pass",
+  "source_scope_check": "pass",
+  "missing_value_semantics_check": "pass",
+  "r5_exclusion": "pass",
+  "stage1_stage2_write_check": "pass",
+  "public_atlas_write_check": "pass",
+  "curated_write_check": "pass",
+  "execution_boundary_check": "pass",
+  "provenance_text_check": "pass",
+  "status": "pass",
+  "next_resource": "CR000004",
+  "notes": [
+    "CR000001 uses the final Stage2-RC01 corrected documentation identity; observation-time repository evidence is not represented as a Stage-2 pin.",
+    "CR000001 has zero experiments/configurations because framework documentation examples are capability evidence, not paper experiments.",
+    "CR000002 has one bounded XC forecasting experiment/configuration at R3.",
+    "R4 is withheld for CR000002 because required external data was not directly inspected, requirements are unpinned, and the evaluation routine reverses prediction/reference assignments for direction-sensitive metrics.",
+    "No scientific software, dataset payload, checkpoint, metric computation, training, inference, or test was executed."
+  ]
+}
