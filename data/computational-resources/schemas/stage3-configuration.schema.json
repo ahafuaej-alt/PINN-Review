@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stage3-configuration.schema.json",
+  "title": "Stage 3 experiment configuration record",
+  "type": "object",
+  "required": ["schema_version", "configuration_id", "experiment_id", "resource_id", "configuration_label", "facts", "mapping_status"],
+  "properties": {
+    "schema_version": {"const": "3.0.0-pilot"},
+    "configuration_id": {"$ref": "stage3-common.schema.json#/$defs/configurationId"},
+    "experiment_id": {"$ref": "stage3-common.schema.json#/$defs/experimentId"},
+    "resource_id": {"$ref": "stage3-common.schema.json#/$defs/resourceId"},
+    "configuration_label": {"type": "string", "minLength": 1},
+    "facts": {"type": "array", "items": {"$ref": "stage3-common.schema.json#/$defs/fact"}},
+    "mapping_status": {"enum": ["verified", "partially_verified", "unknown", "conflicting_evidence"]},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

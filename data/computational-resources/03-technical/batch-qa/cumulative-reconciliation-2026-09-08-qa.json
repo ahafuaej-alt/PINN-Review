@@ -1,0 +1,480 @@
+{
+  "id": "Stage3-RC02",
+  "date": "2026-09-08",
+  "status": "pass",
+  "validation_scope": "Prepublication cumulative structural and reproducibility-gate consistency revalidation with focused source readback; not independent scientific reproduction.",
+  "expected_parent_commit": "ee70af66fa2a302a9333a147b2f7477930ba4f84",
+  "branch": "data/computational-resources-stage3",
+  "baseline_invalid_records": 89,
+  "baseline_invalid_record_files": 54,
+  "repaired_jsonl_records": 123,
+  "modified_jsonl_files": 88,
+  "field_changes": 374,
+  "counts": {
+    "resources": 140,
+    "experiments": 227,
+    "configurations": 424,
+    "reproducibility": 140,
+    "evidence": 1585
+  },
+  "unresolved_findings": 887,
+  "explicit_conflicts": 112,
+  "schema_validation": {
+    "counts": {
+      "04-evidence/technical-evidence": 1585,
+      "03-technical/experiments": 227,
+      "03-technical/configurations": 424,
+      "03-technical/reproducibility": 140,
+      "03-technical/resources": 140
+    },
+    "failures": []
+  },
+  "integrity_validation": {
+    "counts": {
+      "resources": 140,
+      "experiments": 227,
+      "configurations": 424,
+      "reproducibility": 140,
+      "evidence": 1585
+    },
+    "issues": []
+  },
+  "checks": {
+    "identifier_uniqueness": "pass",
+    "resource_experiment_configuration_reciprocity": "pass",
+    "evidence_reference_resolution": "pass",
+    "evidence_resource_ownership": "pass",
+    "inference_pairing": "pass",
+    "reproducibility_gate_review": "pass",
+    "r5_exclusion": "pass",
+    "batch_membership": "pass",
+    "batch_and_cumulative_counts": "pass",
+    "stage1_stage2_write_boundary": "pass",
+    "methodology_schema_write_boundary": "pass",
+    "public_atlas_curated_write_boundary": "pass",
+    "static_execution_boundary": "pass",
+    "provenance_text_screening": "pass",
+    "local_parent_stability": "pass",
+    "semantic_change_log_integrity": "pass"
+  },
+  "source_scope_review": {
+    "CR000046": "Pinned UAI8_kernel.py re-read; TE-CR000046-0009 maps to existing E001-C003.",
+    "CR000126": "Pinned README re-read; prerequisites and use commands do not establish installation procedure.",
+    "CR000136": "Pinned deeponet_pde.py re-read; data-driven supervised operator training is not a physics-residual PINN.",
+    "CR000132": "Paper-reported components remain documented, with repository mapping unverified.",
+    "CR000133": "Uninspected notebook contents are not promoted to complete data/evaluation verification."
+  },
+  "type_specific_gate_review": {
+    "CR000014": "R3 retained for the explicitly assessed pretrained executable use workflow, not source/training reproduction.",
+    "CR000020": "R3 retained for source-scoped workflows; existing paper/log/code disagreements remain configuration-scoped.",
+    "CR000034": "R3 retained for source-scoped configurations; paper and alternate-source settings remain separate; no R4 assignment."
+  },
+  "reproducibility_R2_to_R1": [
+    "CR000009",
+    "CR000058",
+    "CR000062",
+    "CR000063",
+    "CR000064",
+    "CR000085",
+    "CR000086",
+    "CR000089",
+    "CR000093",
+    "CR000094",
+    "CR000096",
+    "CR000098",
+    "CR000099",
+    "CR000107",
+    "CR000126"
+  ],
+  "unreferenced_evidence_check": "pass",
+  "unreferenced_evidence_ids": [],
+  "batch_revalidation": [
+    {
+      "batch": "SOB001",
+      "members": [
+        "CR000001",
+        "CR000002",
+        "CR000004",
+        "CR000005",
+        "CR000006",
+        "CR000007",
+        "CR000008",
+        "CR000009",
+        "CR000011",
+        "CR000012"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 11,
+        "configurations": 13,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 81
+      },
+      "cumulative_counts": {
+        "resources": 20,
+        "experiments": 34,
+        "configurations": 96,
+        "reproducibility_assessments": 20,
+        "technical_evidence_records": 212
+      }
+    },
+    {
+      "batch": "SOB002",
+      "members": [
+        "CR000013",
+        "CR000014",
+        "CR000015",
+        "CR000016",
+        "CR000017",
+        "CR000018",
+        "CR000019",
+        "CR000020",
+        "CR000022",
+        "CR000023"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 15,
+        "configurations": 46,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 129
+      },
+      "cumulative_counts": {
+        "resources": 30,
+        "experiments": 49,
+        "configurations": 142,
+        "reproducibility_assessments": 30,
+        "technical_evidence_records": 341
+      }
+    },
+    {
+      "batch": "SOB003",
+      "members": [
+        "CR000024",
+        "CR000025",
+        "CR000026",
+        "CR000027",
+        "CR000028",
+        "CR000029",
+        "CR000030",
+        "CR000031",
+        "CR000032",
+        "CR000033"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 24,
+        "configurations": 35,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 146
+      },
+      "cumulative_counts": {
+        "resources": 40,
+        "experiments": 73,
+        "configurations": 177,
+        "reproducibility_assessments": 40,
+        "technical_evidence_records": 487
+      }
+    },
+    {
+      "batch": "SOB004",
+      "members": [
+        "CR000034",
+        "CR000035",
+        "CR000036",
+        "CR000037",
+        "CR000038",
+        "CR000039",
+        "CR000040",
+        "CR000041",
+        "CR000042",
+        "CR000043"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 23,
+        "configurations": 40,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 175
+      },
+      "cumulative_counts": {
+        "resources": 50,
+        "experiments": 96,
+        "configurations": 217,
+        "reproducibility_assessments": 50,
+        "technical_evidence_records": 662
+      }
+    },
+    {
+      "batch": "SOB005",
+      "members": [
+        "CR000044",
+        "CR000045",
+        "CR000046",
+        "CR000047",
+        "CR000048",
+        "CR000049",
+        "CR000050",
+        "CR000051",
+        "CR000052",
+        "CR000053"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 11,
+        "configurations": 31,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 138
+      },
+      "cumulative_counts": {
+        "resources": 60,
+        "experiments": 107,
+        "configurations": 248,
+        "reproducibility_assessments": 60,
+        "technical_evidence_records": 800
+      }
+    },
+    {
+      "batch": "SOB006",
+      "members": [
+        "CR000054",
+        "CR000055",
+        "CR000057",
+        "CR000058",
+        "CR000060",
+        "CR000061",
+        "CR000062",
+        "CR000063",
+        "CR000064",
+        "CR000065"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 16,
+        "configurations": 21,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 144
+      },
+      "cumulative_counts": {
+        "resources": 70,
+        "experiments": 123,
+        "configurations": 269,
+        "reproducibility_assessments": 70,
+        "technical_evidence_records": 944
+      }
+    },
+    {
+      "batch": "SOB007",
+      "members": [
+        "CR000066",
+        "CR000067",
+        "CR000068",
+        "CR000069",
+        "CR000070",
+        "CR000071",
+        "CR000072",
+        "CR000073",
+        "CR000074",
+        "CR000075"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 18,
+        "configurations": 29,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 116
+      },
+      "cumulative_counts": {
+        "resources": 80,
+        "experiments": 141,
+        "configurations": 298,
+        "reproducibility_assessments": 80,
+        "technical_evidence_records": 1060
+      }
+    },
+    {
+      "batch": "SOB008",
+      "members": [
+        "CR000076",
+        "CR000077",
+        "CR000078",
+        "CR000079",
+        "CR000080",
+        "CR000081",
+        "CR000082",
+        "CR000083",
+        "CR000084",
+        "CR000085"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 14,
+        "configurations": 20,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 100
+      },
+      "cumulative_counts": {
+        "resources": 90,
+        "experiments": 155,
+        "configurations": 318,
+        "reproducibility_assessments": 90,
+        "technical_evidence_records": 1160
+      }
+    },
+    {
+      "batch": "SOB009",
+      "members": [
+        "CR000086",
+        "CR000088",
+        "CR000089",
+        "CR000090",
+        "CR000092",
+        "CR000093",
+        "CR000094",
+        "CR000095",
+        "CR000096",
+        "CR000097"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 22,
+        "configurations": 45,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 96
+      },
+      "cumulative_counts": {
+        "resources": 100,
+        "experiments": 177,
+        "configurations": 363,
+        "reproducibility_assessments": 100,
+        "technical_evidence_records": 1256
+      }
+    },
+    {
+      "batch": "SOB010",
+      "members": [
+        "CR000098",
+        "CR000099",
+        "CR000100",
+        "CR000101",
+        "CR000102",
+        "CR000103",
+        "CR000104",
+        "CR000105",
+        "CR000106",
+        "CR000107"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 24,
+        "configurations": 29,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 86
+      },
+      "cumulative_counts": {
+        "resources": 110,
+        "experiments": 201,
+        "configurations": 392,
+        "reproducibility_assessments": 110,
+        "technical_evidence_records": 1342
+      }
+    },
+    {
+      "batch": "SOB011",
+      "members": [
+        "CR000108",
+        "CR000109",
+        "CR000110",
+        "CR000111",
+        "CR000112",
+        "CR000113",
+        "CR000114",
+        "CR000115",
+        "CR000116",
+        "CR000117"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 5,
+        "configurations": 10,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 80
+      },
+      "cumulative_counts": {
+        "resources": 120,
+        "experiments": 206,
+        "configurations": 402,
+        "reproducibility_assessments": 120,
+        "technical_evidence_records": 1422
+      }
+    },
+    {
+      "batch": "SOB012",
+      "members": [
+        "CR000118",
+        "CR000119",
+        "CR000120",
+        "CR000121",
+        "CR000122",
+        "CR000123",
+        "CR000124",
+        "CR000125",
+        "CR000126",
+        "CR000127"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 10,
+        "configurations": 11,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 78
+      },
+      "cumulative_counts": {
+        "resources": 130,
+        "experiments": 216,
+        "configurations": 413,
+        "reproducibility_assessments": 130,
+        "technical_evidence_records": 1500
+      }
+    },
+    {
+      "batch": "SOB013",
+      "members": [
+        "CR000128",
+        "CR000129",
+        "CR000130",
+        "CR000131",
+        "CR000132",
+        "CR000133",
+        "CR000134",
+        "CR000135",
+        "CR000136",
+        "CR000137"
+      ],
+      "counts": {
+        "resources": 10,
+        "experiments": 11,
+        "configurations": 11,
+        "reproducibility_assessments": 10,
+        "technical_evidence_records": 85
+      },
+      "cumulative_counts": {
+        "resources": 140,
+        "experiments": 227,
+        "configurations": 424,
+        "reproducibility_assessments": 140,
+        "technical_evidence_records": 1585
+      }
+    }
+  ],
+  "publication_policy": {
+    "commit": "one atomic reconciliation commit",
+    "branch_update": "fast-forward only",
+    "remote_parent_check": "required immediately before publication",
+    "post_commit_verification": "required after publication; not claimed by this prepublication record"
+  },
+  "next_resource": "CR000138",
+  "next_checkpoint": "Stage3-S123",
+  "current_batch": "SOB014",
+  "current_batch_completed": 0
+}

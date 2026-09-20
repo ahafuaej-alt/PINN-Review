@@ -1,0 +1,42 @@
+{
+  "schema_version": "3.0.0-pilot-qa",
+  "checkpoint": "Stage3-P04",
+  "date": "2026-08-31",
+  "resources": ["CR000163"],
+  "counts": {
+    "resources": 1,
+    "experiments": 3,
+    "configurations": 0,
+    "technical_evidence_records": 12,
+    "reproducibility_assessments": 1
+  },
+  "schema_validation": {
+    "stage3-resource-technical.schema.json": "pass",
+    "stage3-experiment.schema.json": "pass",
+    "stage3-configuration.schema.json": "not_applicable_no_records",
+    "stage3-technical-evidence.schema.json": "pass",
+    "stage3-reproducibility.schema.json": "pass"
+  },
+  "cross_reference_validation": "pass",
+  "identifier_uniqueness": "pass",
+  "pinned_snapshot_check": "pass",
+  "r5_exclusion": "pass",
+  "stage1_stage2_write_check": "pass",
+  "public_atlas_write_check": "pass",
+  "execution_boundary_check": "pass",
+  "provenance_text_check": "pass",
+  "pilot_acceptance_tests": {
+    "resource_identity_distinct_from_paper_relationship": "pass",
+    "non_pinn_resource_not_relabelled_as_pinn": "pass",
+    "one_resource_multiple_experiments": "pass",
+    "zero_configurations_allowed_when_not_evidenced": "pass",
+    "official_relationship_limited_to_supported_experiment": "pass",
+    "unversioned_dependencies_not_promoted_to_exact_environment": "pass"
+  },
+  "status": "pass",
+  "notes": [
+    "PRL000007 remains verified: Atlas paper 44 names the exact CR000163-E001 notebook in its Data Availability Statement.",
+    "CR000163-E002 and CR000163-E003 are repository experiments only and receive no Atlas-paper mapping.",
+    "No schema change is required at Stage3-P04."
+  ]
+}

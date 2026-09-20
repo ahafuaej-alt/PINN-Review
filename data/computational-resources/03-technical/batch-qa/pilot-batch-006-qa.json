@@ -1,0 +1,45 @@
+{
+  "schema_version": "3.0.0-pilot-qa",
+  "checkpoint": "Stage3-P06",
+  "date": "2026-08-31",
+  "resources": ["CR000268"],
+  "counts": {
+    "resources": 1,
+    "experiments": 0,
+    "configurations": 0,
+    "technical_evidence_records": 10,
+    "reproducibility_assessments": 1
+  },
+  "schema_validation": {
+    "stage3-resource-technical.schema.json": "pass",
+    "stage3-experiment.schema.json": "not_applicable_no_records",
+    "stage3-configuration.schema.json": "not_applicable_no_records",
+    "stage3-technical-evidence.schema.json": "pass",
+    "stage3-reproducibility.schema.json": "pass"
+  },
+  "cross_reference_validation": "pass",
+  "identifier_uniqueness": "pass",
+  "pinned_snapshot_check": "not_applicable_non_repository_dataset",
+  "r5_exclusion": "pass",
+  "stage1_stage2_write_check": "pass",
+  "public_atlas_write_check": "pass",
+  "execution_boundary_check": "pass",
+  "provenance_text_check": "pass",
+  "pilot_acceptance_tests": {
+    "dataset_resource_can_have_zero_experiments": "pass",
+    "dataset_resource_can_have_zero_configurations": "pass",
+    "paper_dataset_use_distinct_from_provider_dataset_scope": "pass",
+    "versioned_dataset_directory_not_relabelled_as_software": "pass",
+    "multiple_product_dois_do_not_create_duplicate_resource_ids": "pass",
+    "custom_data_use_terms_not_relabelled_as_spdx_license": "pass",
+    "binary_payload_not_opened_or_executed": "pass",
+    "deep_archive_inspection_deferred_recorded": "pass",
+    "r4_withheld_without_file_level_end_to_end_validation": "pass"
+  },
+  "status": "pass",
+  "notes": [
+    "PRL000008 remains verified against Atlas paper 50 and the paper's Data Availability Statement.",
+    "Paper-specific Pacific-domain co-location and quality-control steps remain source-scoped rather than provider-level dataset facts.",
+    "No schema change is required at Stage3-P06."
+  ]
+}

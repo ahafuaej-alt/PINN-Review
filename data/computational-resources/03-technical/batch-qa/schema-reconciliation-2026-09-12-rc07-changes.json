@@ -1,0 +1,481 @@
+{
+  "reconciliation": "Stage3-RC07",
+  "expected_parent_commit": "3143c34ce9df2eed7e47e3fa1493dadc275b24fa",
+  "changed_files": 16,
+  "changed_records": 35,
+  "changed_fields": 59,
+  "changes": [
+    {
+      "path": "data/computational-resources/03-technical/reproducibility/scaleout-checkpoint-196-reproducibility.jsonl",
+      "line": 1,
+      "record_id": "CR000220",
+      "json_pointer": "/components/license_clear",
+      "before": "conflicting",
+      "after": "conflicting_evidence"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-183-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000205",
+      "json_pointer": "/resource_profile",
+      "before": "pinn_variant_implementation",
+      "after": "pinn_implementation"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-183-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000205",
+      "json_pointer": "/facts/3/source_relation",
+      "before": "conflicts_with",
+      "after": "inferred_from_evidence"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-184-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000206",
+      "json_pointer": "/resource_profile",
+      "before": "physics_informed_operator_or_operator_learning",
+      "after": "physics_informed_operator_learning"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-184-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000206",
+      "json_pointer": "/facts/2/source_relation",
+      "before": "conflicts_with",
+      "after": "implemented_in_code"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-189-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000211",
+      "json_pointer": "/facts/0/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-189-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000211",
+      "json_pointer": "/facts/1/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-189-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000211",
+      "json_pointer": "/facts/2/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-190-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000212",
+      "json_pointer": "/facts/0/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-190-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000212",
+      "json_pointer": "/facts/1/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-190-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000212",
+      "json_pointer": "/facts/2/source_relation",
+      "before": "conflicts_with",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-191-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000213",
+      "json_pointer": "/facts/0/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-191-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000213",
+      "json_pointer": "/facts/1/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-191-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000213",
+      "json_pointer": "/facts/2/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-191-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000213",
+      "json_pointer": "/facts/3/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-195-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000218",
+      "json_pointer": "/resource_profile",
+      "before": "paper_code_collection_or_tutorial",
+      "after": "tutorial_educational"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-195-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000218",
+      "json_pointer": "/artifact_form",
+      "before": "repository",
+      "after": "source_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-195-resources.jsonl",
+      "line": 2,
+      "record_id": "CR000219",
+      "json_pointer": "/resource_profile",
+      "before": "paper_code_collection_or_tutorial",
+      "after": "tutorial_educational"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-195-resources.jsonl",
+      "line": 2,
+      "record_id": "CR000219",
+      "json_pointer": "/artifact_form",
+      "before": "repository",
+      "after": "source_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-196-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000220",
+      "json_pointer": "/resource_profile",
+      "before": "paper_code_collection_or_tutorial",
+      "after": "tutorial_educational"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-196-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000220",
+      "json_pointer": "/artifact_form",
+      "before": "repository",
+      "after": "source_repository"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-196-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000220",
+      "json_pointer": "/facts/2/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence"
+    },
+    {
+      "path": "data/computational-resources/03-technical/resources/scaleout-checkpoint-202-resources.jsonl",
+      "line": 1,
+      "record_id": "CR000230",
+      "json_pointer": "/facts/4/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-183-technical-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000205-0008",
+      "json_pointer": "/evidence_type",
+      "before": "repository_implemented",
+      "after": "inferred"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-183-technical-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000205-0008",
+      "json_pointer": "/source_relation",
+      "before": "conflicts_with",
+      "after": "inferred_from_evidence"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-184-technical-evidence.jsonl",
+      "line": 8,
+      "record_id": "TE-CR000206-0008",
+      "json_pointer": "/source_relation",
+      "before": "conflicts_with",
+      "after": "implemented_in_code"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000211-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000211-0001",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 2,
+      "record_id": "TE-CR000211-0002",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000211-0003",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000211-0004",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000211-0004",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000211-0005",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000211-0006",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000211-0006",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-189-technical-evidence.jsonl",
+      "line": 7,
+      "record_id": "TE-CR000211-0007",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000212-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000212-0001",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 2,
+      "record_id": "TE-CR000212-0002",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 2,
+      "record_id": "TE-CR000212-0002",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000212-0003",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000212-0004",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000212-0005",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000212-0005",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000212-0006",
+      "json_pointer": "/source_relation",
+      "before": "conflicts_with",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-190-technical-evidence.jsonl",
+      "line": 7,
+      "record_id": "TE-CR000212-0007",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000213-0001",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 1,
+      "record_id": "TE-CR000213-0001",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 2,
+      "record_id": "TE-CR000213-0002",
+      "json_pointer": "/evidence_type",
+      "before": "repository_metadata",
+      "after": "repository_documented"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 2,
+      "record_id": "TE-CR000213-0002",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 3,
+      "record_id": "TE-CR000213-0003",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000213-0004",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000213-0005",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 5,
+      "record_id": "TE-CR000213-0005",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000213-0006",
+      "json_pointer": "/evidence_type",
+      "before": "dependency_manifest",
+      "after": "environment_file"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000213-0006",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-191-technical-evidence.jsonl",
+      "line": 7,
+      "record_id": "TE-CR000213-0007",
+      "json_pointer": "/source_relation",
+      "before": "documented_by_repository",
+      "after": "documented_in_repository"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-196-technical-evidence.jsonl",
+      "line": 4,
+      "record_id": "TE-CR000220-0004",
+      "json_pointer": "/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence"
+    },
+    {
+      "path": "data/computational-resources/04-evidence/technical-evidence/scaleout-checkpoint-202-technical-evidence.jsonl",
+      "line": 6,
+      "record_id": "TE-CR000230-0006",
+      "json_pointer": "/field_status",
+      "before": "conflicting",
+      "after": "conflicting_evidence"
+    }
+  ]
+}

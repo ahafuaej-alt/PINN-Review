@@ -1,0 +1,44 @@
+{
+  "schema_version": "3.0.0-pilot-qa",
+  "checkpoint": "Stage3-P05",
+  "date": "2026-08-31",
+  "resources": ["CR000217"],
+  "counts": {
+    "resources": 1,
+    "experiments": 1,
+    "configurations": 1,
+    "technical_evidence_records": 12,
+    "reproducibility_assessments": 1
+  },
+  "schema_validation": {
+    "stage3-resource-technical.schema.json": "pass",
+    "stage3-experiment.schema.json": "pass",
+    "stage3-configuration.schema.json": "pass",
+    "stage3-technical-evidence.schema.json": "pass",
+    "stage3-reproducibility.schema.json": "pass"
+  },
+  "cross_reference_validation": "pass",
+  "identifier_uniqueness": "pass",
+  "pinned_snapshot_check": "pass",
+  "r5_exclusion": "pass",
+  "stage1_stage2_write_check": "pass",
+  "public_atlas_write_check": "pass",
+  "execution_boundary_check": "pass",
+  "provenance_text_check": "pass",
+  "pilot_acceptance_tests": {
+    "simulator_solver_not_relabelled_as_pinn": "pass",
+    "resource_without_atlas_relationship_remains_unlinked": "pass",
+    "representative_example_can_form_experiment_configuration_pair": "pass",
+    "example_corpus_not_expanded_without_need": "pass",
+    "unversioned_dependencies_not_promoted_to_exact_environment": "pass",
+    "r3_without_quantified_expected_result": "pass",
+    "r4_blocked_without_static_validation_target": "pass"
+  },
+  "status": "pass",
+  "notes": [
+    "CR000217 remains a simulator_solver resource and receives no Atlas-paper relationship.",
+    "CR000217-E001/CR000217-E001-C001 represent one bounded pinned Sod example; the broader example corpus remains resource-level evidence.",
+    "Static reproducibility is R3; R4 is withheld because no quantified pinned Sod reference or regression tolerance was established.",
+    "No schema change is required at Stage3-P05."
+  ]
+}
