@@ -4,10 +4,10 @@
   "provider": "GoatCounter",
   "trackingEndpoint": "https://pinn-review-atlas.goatcounter.com/count",
   "trackingStartedAt": "2026-08-12",
-  "updatedAt": "2026-09-19T08:00:00.000Z",
+  "updatedAt": "2026-09-20T08:00:00.000Z",
   "visits": {
-    "total": 350,
-    "last30Days": 215
+    "total": 353,
+    "last30Days": 186
   },
   "countries": {
     "reached": 12,
@@ -15,7 +15,7 @@
       {
         "code": "FI",
         "name": "Finland",
-        "visits": 251
+        "visits": 252
       },
       {
         "code": "GB",
@@ -35,7 +35,7 @@
       {
         "code": "NL",
         "name": "Netherlands",
-        "visits": 6
+        "visits": 8
       }
     ]
   },
