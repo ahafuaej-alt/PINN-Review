@@ -42,19 +42,17 @@ For `v2026.09.1`, the release procedure is:
 1. Complete all publication, licensing, citation, reproducibility, and scientific-maintenance edits on the release-preparation branch.
 2. Run the repository's validation and deployment checks.
 3. Freeze the intended release metadata and component-version table.
-4. Update `CITATION.cff` with `version: v2026.09.1` and the intended release date.
-5. Merge the release-preparation branch once into protected `main`.
+4. Before the final merge, update `CITATION.cff` from `unreleased` to `v2026.09.1` and set the intended `date-released`. If a DOI has already been reserved, include it at this stage.
+5. Merge the validated release-preparation branch **once** into protected `main`.
 6. Record the exact resulting `main` commit SHA.
-7. Before the final merge, update `CITATION.cff` from `unreleased` to `v2026.09.1` and set the intended `date-released`. If a DOI has already been reserved, include it at this stage.
-8. Merge the validated release-preparation branch once into protected `main` and record the exact resulting commit SHA.
-9. Create the immutable Git tag `v2026.09.1` on that exact commit and publish the GitHub Release from the same tag.
-10. Record in the release notes:
+7. Create the immutable Git tag `v2026.09.1` on that exact commit and publish the GitHub Release from the same tag.
+8. Record in the release notes:
    - Atlas release identifier;
    - release date;
    - exact commit SHA;
    - important component dataset/module versions and snapshot dates;
    - major changes and known scope limitations.
-11. If the archival DOI is minted only after the GitHub Release, add that DOI to the live `CITATION.cff`, Cite page, README, and release metadata without moving the published `v2026.09.1` tag. The immutable release snapshot remains unchanged; the DOI then identifies that archived snapshot.
+9. If the archival DOI is minted only after the GitHub Release, add that DOI to the live `CITATION.cff`, Cite page, README, and release metadata **without moving the published `v2026.09.1` tag**. The immutable release snapshot remains unchanged; the DOI then identifies that archived snapshot.
 
 ## Immutability
 
