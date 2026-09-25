@@ -8,7 +8,8 @@ authors:
     affiliation: "Sirius University of Science and Technology"
     orcid: "https://orcid.org/0000-0001-7403-7023"
     website: "https://siriusuniversity.ru/university-in-faces/nauchnyy-tsentr-informatsionnykh-tekhnologiy-i-iskusstvennogo-intellekta/alkhadzh-khasan-adnan-faezovich/"
-version: "unreleased"
+version: "v2026.09.1"
+date-released: "2026-09-25"
 repository-code: "https://github.com/ahafuaej-alt/PINN-Review"
 url: "https://ahafuaej-alt.github.io/PINN-Review/"
 abstract: "An evidence-led interactive research atlas for Physics-Informed Neural Networks, providing curated literature, mathematical formulations, methods, evaluation evidence, research geography, terminology, structured data products, and reproducible research views."
@@ -29,5 +30,5 @@ preferred-citation:
       given-names: "Adnan F."
       orcid: "https://orcid.org/0000-0001-7403-7023"
   year: 2026
-  version: "unreleased"
+  version: "v2026.09.1"
   url: "https://github.com/ahafuaej-alt/PINN-Review"
