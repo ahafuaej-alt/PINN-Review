@@ -2,23 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#09111d">
-  <meta name="description" content="Citation and version guidance for PINN Review Atlas."><title>Cite · PINN Review Atlas</title>
+  <meta name="description" content="Citation, authorship, version, and reproducibility guidance for PINN Review Atlas."><title>Cite · PINN Review Atlas</title>
   <script src="../assets/theme-init.js?v=ux-20260722"></script><link rel="icon" href="../assets/atlas-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/styles.css?v=ux-20260722"><script src="../assets/app.js?v=knowledge-20260826" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="../"><img src="../assets/atlas-mark.svg" alt=""><span>PINN Review Atlas<small>Research companion</small></span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">☰</button><div class="nav-links" id="nav-links"><a href="../#atlas">Explore</a><a href="../pinn-types/">PINN types</a><a href="./" aria-current="page">Cite</a><a href="https://github.com/ahafuaej-alt/PINN-Review">GitHub ↗</a></div></nav></header>
   <main id="main" class="section-shell"><div class="container content">
-    <p class="breadcrumb"><a href="../">Atlas</a> / Cite</p><p class="eyebrow">Citation guidance</p><h1>Cite the exact <span class="gradient">view.</span></h1>
-    <p class="lede">Each atlas item is designed to have a stable URL. Until the manuscript metadata and public release version are finalized, use the page title, atlas title, URL, and access date.</p>
+    <p class="breadcrumb"><a href="../">Atlas</a> / Cite</p><p class="eyebrow">Citation guidance</p><h1>Cite the exact <span class="gradient">Atlas state.</span></h1>
+
+    <p class="lede">PINN Review Atlas is an evidence-led interactive research atlas authored and maintained by <strong>Adnan F. Alhaj Hasan</strong>, Sirius University of Science and Technology. For reproducible academic use, cite the Atlas and record the exact release or commit used; when referring to a specific result, also link to the narrowest relevant Atlas page.</p>
+
     <div class="detail-list">
-      <div><strong>In the manuscript</strong><span>Link to the narrowest relevant page—the exact figure, table, type profile, or comparison—not only the atlas home page.</span></div>
-      <div><strong>For reproducibility</strong><span>Record the release or commit identifier when a view is used for a submitted manuscript version.</span></div>
-      <div><strong>For downloadable material</strong><span>Keep the page URL with exported PNG, SVG, CSV, or JSON files so readers can recover their context.</span></div>
+      <div><strong>Author</strong><span>Adnan F. Alhaj Hasan</span></div>
+      <div><strong>Affiliation</strong><span>Sirius University of Science and Technology</span></div>
+      <div><strong>ORCID</strong><span><a href="https://orcid.org/0000-0001-7403-7023">0000-0001-7403-7023 ↗</a></span></div>
+      <div><strong>Author profile</strong><span><a href="https://siriusuniversity.ru/university-in-faces/nauchnyy-tsentr-informatsionnykh-tekhnologiy-i-iskusstvennogo-intellekta/alkhadzh-khasan-adnan-faezovich/">Sirius University profile ↗</a></span></div>
+      <div><strong>Repository</strong><span><a href="https://github.com/ahafuaej-alt/PINN-Review">github.com/ahafuaej-alt/PINN-Review ↗</a></span></div>
+      <div><strong>Interactive Atlas</strong><span><a href="https://ahafuaej-alt.github.io/PINN-Review/">ahafuaej-alt.github.io/PINN-Review/ ↗</a></span></div>
+      <div><strong>Citation metadata</strong><span><a href="https://github.com/ahafuaej-alt/PINN-Review/blob/main/CITATION.cff">CITATION.cff ↗</a></span></div>
     </div>
-    <p class="lede">A formatted IEEE citation, authorship, DOI or archival identifier, and release history will be added when those details are confirmed.</p>
+
+    <h2>Current citation guidance</h2>
+    <p>Until the first formal Atlas release is published, cite the repository as an evolving research software/data resource and include an access date. If your result depends on a particular Atlas state, also record the Git commit SHA.</p>
+    <p><strong>Provisional citation:</strong><br>Alhaj Hasan, A. F. <em>PINN Review Atlas</em>. GitHub repository and interactive research atlas, 2026. Available at: <a href="https://github.com/ahafuaej-alt/PINN-Review">https://github.com/ahafuaej-alt/PINN-Review</a>. Accessed: [date].</p>
+
+    <h2>Planned reproducible release</h2>
+    <p>The first formal publication/reproducibility snapshot is planned as <strong>v2026.09.1</strong>. This Atlas-level release identifier is separate from component dataset versions such as the Master Bibliography and PINN Realm version <code>2.3.1</code> and Frameworks version <code>3.0.0</code>.</p>
+    <p>After the release is archived, this page will provide both the version-specific archival DOI for the exact <code>v2026.09.1</code> snapshot and the persistent concept DOI for the evolving PINN Review Atlas. <strong>No DOI has been assigned yet.</strong></p>
+
+    <h2>How to cite reproducibly</h2>
+    <div class="detail-list">
+      <div><strong>Atlas as a whole</strong><span>Cite PINN Review Atlas using the repository citation metadata and, after formal release, the DOI.</span></div>
+      <div><strong>Exact research state</strong><span>Record the Atlas release identifier or exact Git commit SHA used for the analysis.</span></div>
+      <div><strong>Specific Atlas result</strong><span>Link to the narrowest relevant page, figure, table, formulation, paper profile, comparison, or dataset view rather than only the Atlas home page.</span></div>
+      <div><strong>Downloaded material</strong><span>Keep the originating page URL and release/commit identifier with exported CSV, JSON, SVG, PNG, or other derived files.</span></div>
+      <div><strong>Component data</strong><span>Where relevant, retain the component dataset version or snapshot date in addition to the Atlas-level release identifier.</span></div>
+    </div>
+
+    <h2>Machine-readable citation</h2>
+    <p>The repository includes a root <a href="https://github.com/ahafuaej-alt/PINN-Review/blob/main/CITATION.cff"><code>CITATION.cff</code></a> file. GitHub uses this metadata to provide its <strong>Cite this repository</strong> interface. The file currently identifies the repository as <code>unreleased</code>; immediately before the formal release it will be updated to <code>v2026.09.1</code> with the release date, and DOI metadata will be added after archival.</p>
+
+    <h2>Release policy</h2>
+    <p>Atlas releases follow the date-based convention <code>vYYYY.MM.N</code>. Each formal release is intended to resolve to an immutable Git tag and exact commit SHA so that a published result can be reconstructed from the same repository state. See <a href="https://github.com/ahafuaej-alt/PINN-Review/blob/main/RELEASE.md">RELEASE.md ↗</a> for the complete release and reproducibility policy.</p>
+
     <div class="actions"><a class="button primary" href="../">Return to atlas</a><a class="button" href="https://github.com/ahafuaej-alt/PINN-Review">View source ↗</a></div>
   </div></main>
-  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Version guidance pending first data release</span></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> PINN Review Atlas</span><span>Planned release: v2026.09.1 · DOI pending</span></div></footer>
 </body>
 </html>
