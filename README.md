@@ -201,9 +201,15 @@ Use **[PINN Ecosystem](https://ahafuaej-alt.github.io/PINN-Review/pinn-ecosystem
 
 For other repository-level questions, use **[GitHub Issues](https://github.com/ahafuaej-alt/PINN-Review/issues)**.
 
-## Citation
+## Citation and releases
 
-Use the **[Atlas citation guide](https://ahafuaej-alt.github.io/PINN-Review/cite/)** and cite the narrowest relevant Atlas view. For reproducible academic use, record the page URL with the access date and, when a result depends on a specific Atlas state, the corresponding release or commit identifier.
+Use the **[Atlas citation guide](https://ahafuaej-alt.github.io/PINN-Review/cite/)** and cite the narrowest relevant Atlas view. Machine-readable citation metadata are provided in [`CITATION.cff`](CITATION.cff), which GitHub can use for its **Cite this repository** interface.
+
+For reproducible academic use, record the page URL with the access date and, when a result depends on a specific Atlas state, the corresponding Atlas release or exact Git commit identifier.
+
+Atlas-level releases use the date-based convention **`vYYYY.MM.N`**, independently of component dataset versions. The planned first publication/reproducibility snapshot is **`v2026.09.1`**. The complete release, tagging, immutability, and reproducibility policy is documented in [`RELEASE.md`](RELEASE.md).
+
+A Zenodo DOI has **not yet been assigned**. After archival, the DOI metadata will be added to `CITATION.cff`, this README, the Cite page, and the corresponding GitHub Release.
 
 ## Licensing
 
@@ -270,9 +276,11 @@ PINN-Review/
 │   └── mathematical-formulations/   # Manifest plus A–I formulation data parts
 ├── assets/                          # Shared UI, scripts, styles, and visual assets
 ├── scripts/                         # Data, navigation, UI, and README validators
-├── LICENSE                           # Repository licensing policy and scope
-├── LICENSES/                         # Standard MIT and CC BY 4.0 license texts
-├── THIRD_PARTY_NOTICE.md             # Third-party rights and provenance notice
+├── CITATION.cff                     # Machine-readable citation metadata
+├── RELEASE.md                       # Atlas release and reproducibility policy
+├── LICENSE                          # Repository licensing policy and scope
+├── LICENSES/                        # Standard MIT and CC BY 4.0 license texts
+├── THIRD_PARTY_NOTICE.md            # Third-party rights and provenance notice
 └── .github/                         # Actions workflows and issue forms
 ```
 
