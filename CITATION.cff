@@ -6,9 +6,8 @@ authors:
   - family-names: "Alhaj Hasan"
     given-names: "Adnan F."
     affiliation: "Sirius University of Science and Technology"
-  - family-names: "Koroleva"
-    given-names: "Anastasia P."
-    affiliation: "Sirius University of Science and Technology"
+    orcid: "https://orcid.org/0000-0001-7403-7023"
+    website: "https://siriusuniversity.ru/university-in-faces/nauchnyy-tsentr-informatsionnykh-tekhnologiy-i-iskusstvennogo-intellekta/alkhadzh-khasan-adnan-faezovich/"
 version: "unreleased"
 repository-code: "https://github.com/ahafuaej-alt/PINN-Review"
 url: "https://ahafuaej-alt.github.io/PINN-Review/"
@@ -28,8 +27,7 @@ preferred-citation:
   authors:
     - family-names: "Alhaj Hasan"
       given-names: "Adnan F."
-    - family-names: "Koroleva"
-      given-names: "Anastasia P."
+      orcid: "https://orcid.org/0000-0001-7403-7023"
   year: 2026
   version: "unreleased"
   url: "https://github.com/ahafuaej-alt/PINN-Review"
