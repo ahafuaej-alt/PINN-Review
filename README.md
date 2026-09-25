@@ -211,8 +211,8 @@ PINN Review Atlas uses a scoped multi-license policy because the repository comb
 
 | Material | License / status |
 |---|---|
-| Original Atlas software and code | **MIT License** — see [LICENSE-MIT](LICENSE-MIT) |
-| Original Atlas curated annotations, taxonomies, relationships, documentation, and data products | **CC BY 4.0** — see [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0) |
+| Original Atlas software and code | **MIT License** — see [LICENSES/MIT.txt](LICENSES/MIT.txt) |
+| Original Atlas curated annotations, taxonomies, relationships, documentation, and data products | **CC BY 4.0** — see [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt) |
 | Third-party publication text, abstracts, publisher material, protected external metadata/data, logos/marks, and other third-party content | **Not relicensed by the Atlas** — see [THIRD_PARTY_NOTICE.md](THIRD_PARTY_NOTICE.md) |
 
 Mixed files and datasets are handled element by element: Atlas-authored code remains under MIT, Atlas-authored research content remains under CC BY 4.0, and third-party elements retain their original legal status. The authoritative scope rules are in the repository [LICENSE](LICENSE).
@@ -270,6 +270,9 @@ PINN-Review/
 │   └── mathematical-formulations/   # Manifest plus A–I formulation data parts
 ├── assets/                          # Shared UI, scripts, styles, and visual assets
 ├── scripts/                         # Data, navigation, UI, and README validators
+├── LICENSE                           # Repository licensing policy and scope
+├── LICENSES/                         # Standard MIT and CC BY 4.0 license texts
+├── THIRD_PARTY_NOTICE.md             # Third-party rights and provenance notice
 └── .github/                         # Actions workflows and issue forms
 ```
 
