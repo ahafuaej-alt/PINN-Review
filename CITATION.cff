@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use the PINN Review Atlas in research, please cite it using this metadata and record the exact release or commit used."
+type: software
+title: "PINN Review Atlas"
+authors:
+  - family-names: "Alhaj Hasan"
+    given-names: "Adnan F."
+    affiliation: "Sirius University of Science and Technology"
+    orcid: "https://orcid.org/0000-0001-7403-7023"
+    website: "https://siriusuniversity.ru/university-in-faces/nauchnyy-tsentr-informatsionnykh-tekhnologiy-i-iskusstvennogo-intellekta/alkhadzh-khasan-adnan-faezovich/"
+version: "v2026.09.1"
+date-released: "2026-09-25"
+repository-code: "https://github.com/ahafuaej-alt/PINN-Review"
+url: "https://ahafuaej-alt.github.io/PINN-Review/"
+abstract: "An evidence-led interactive research atlas for Physics-Informed Neural Networks, providing curated literature, mathematical formulations, methods, evaluation evidence, research geography, terminology, structured data products, and reproducible research views."
+keywords:
+  - "physics-informed neural networks"
+  - "PINNs"
+  - "scientific machine learning"
+  - "scientific computing"
+  - "research atlas"
+  - "systematic review"
+  - "research data"
+  - "reproducibility"
+preferred-citation:
+  type: software
+  title: "PINN Review Atlas"
+  authors:
+    - family-names: "Alhaj Hasan"
+      given-names: "Adnan F."
+      orcid: "https://orcid.org/0000-0001-7403-7023"
+  year: 2026
+  version: "v2026.09.1"
+  url: "https://github.com/ahafuaej-alt/PINN-Review"
