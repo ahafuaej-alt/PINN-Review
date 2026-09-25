@@ -1,0 +1,81 @@
+# PINN Review Atlas Licensing Policy
+
+Copyright (c) 2026 PINN Review Atlas contributors.
+
+PINN Review Atlas is a mixed research-software repository. No single license applies to every file or every element of every file.
+
+## 1. Atlas software and code — MIT License
+
+Original software and code authored for PINN Review Atlas are licensed under the MIT License. See [LICENSE-MIT](LICENSE-MIT).
+
+This includes, to the extent authored for the Atlas:
+
+- `scripts/**`;
+- JavaScript, ECMAScript modules, CSS, Python, and other executable source under `assets/**`, `docs/**`, and other repository paths;
+- software logic contained in the Atlas HTML pages and interactive tools;
+- Atlas build, validation, data-processing, user-interface, and automation code; and
+- repository workflow/configuration code under `.github/**`, where copyright applies.
+
+For mixed HTML or other mixed-content files, the MIT License applies to the software implementation, while Atlas-authored prose, scientific descriptions, curated annotations, and data content are governed by Section 2 below.
+
+## 2. Atlas-authored research content, curated data, and documentation — CC BY 4.0
+
+Original non-software material authored or curated for PINN Review Atlas is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
+
+This includes, to the extent original to the Atlas:
+
+- curated annotations and classifications;
+- taxonomies, controlled vocabularies, canonical concept mappings, and normalized labels;
+- Atlas-authored relationships among methods, formulations, metrics, software, concepts, and papers;
+- Atlas-authored scientific descriptions, explanatory text, documentation, diagrams, and data dictionaries;
+- curated country, method, optimizer, activation-function, performance-metric, formulation, ecosystem, and related research-data products;
+- Atlas-derived summaries, validation outputs, quality-control records, and provenance structures; and
+- Atlas-authored portions of `README.md`, `docs/**`, `data/**`, and the public site content.
+
+The CC BY 4.0 grant applies only to material for which the PINN Review Atlas contributors hold the relevant rights.
+
+## 3. Third-party material is not relicensed
+
+Third-party material is excluded from the MIT and CC BY 4.0 grants unless an explicit notice states otherwise.
+
+This includes, where present:
+
+- article abstracts and other publication text;
+- publisher-provided or author-provided graphical abstracts, figures, images, or supplementary material;
+- third-party bibliographic, citation, DOI, venue, publisher, or publication metadata to the extent protected by applicable rights;
+- third-party source excerpts and imported data;
+- external publications and datasets linked from the Atlas;
+- third-party software, libraries, map data, logos, marks, and other assets; and
+- material carrying its own license, terms of use, or public-domain status.
+
+Such material remains subject to the rights, licenses, terms, and exceptions applicable to its original source. See [THIRD_PARTY_NOTICE.md](THIRD_PARTY_NOTICE.md).
+
+Factual information may not be protected by copyright in some jurisdictions. Nothing in this policy is intended to claim rights in facts or public-domain material.
+
+## 4. Mixed datasets and mixed files
+
+Some Atlas files combine original Atlas contributions with third-party source material. Examples include bibliographic records that combine Atlas identifiers, normalization, curation, provenance, and derived fields with publication metadata or abstract text.
+
+In those cases:
+
+- the Atlas-authored selection, organization, annotations, normalization, relationships, and other original contributions are licensed under CC BY 4.0;
+- the software used to build, validate, transform, or display the material is licensed under MIT; and
+- third-party elements retain their original legal status and are not relicensed by this repository.
+
+A downstream user is responsible for identifying and complying with any rights that apply to excluded third-party elements.
+
+## 5. Specific notices take precedence
+
+If a file or directory contains a more specific license, attribution, public-domain statement, or third-party notice, that specific notice controls for the material it identifies.
+
+For example, `data/world-map.json` has separate provenance documented in `data/world-map-attribution.md`.
+
+## 6. Trademarks and endorsement
+
+Copyright licenses in this repository do not grant trademark rights or imply endorsement by PINN Review Atlas, any publisher, any author, or any third party.
+
+## License references
+
+- Software/code: MIT — [LICENSE-MIT](LICENSE-MIT)
+- Atlas-authored data/documentation: CC BY 4.0 — [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0)
+- Third-party material: [THIRD_PARTY_NOTICE.md](THIRD_PARTY_NOTICE.md)
