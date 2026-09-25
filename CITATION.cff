@@ -11,6 +11,10 @@ authors:
 version: "v2026.09.1"
 date-released: "2026-09-25"
 doi: "10.5281/zenodo.22958038"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22958037
+    description: "Zenodo Concept DOI for all versions of PINN Review Atlas"
 repository-code: "https://github.com/ahafuaej-alt/PINN-Review"
 url: "https://ahafuaej-alt.github.io/PINN-Review/"
 abstract: "An evidence-led interactive research atlas for Physics-Informed Neural Networks, providing curated literature, mathematical formulations, methods, evaluation evidence, research geography, terminology, structured data products, and reproducible research views."
