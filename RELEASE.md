@@ -14,7 +14,7 @@ where:
 - `MM` is the calendar month;
 - `N` is the sequential Atlas release number within that month.
 
-The planned publication/reproducibility release is:
+The first formal publication/reproducibility release is:
 
 **`v2026.09.1`**
 
@@ -64,4 +64,4 @@ A citation to an Atlas release should identify enough information to recover the
 
 **Atlas release identifier → immutable Git tag → exact commit SHA → component dataset versions/provenance**
 
-Until `v2026.09.1` is formally published, `CITATION.cff` correctly describes the repository version as `unreleased`.
+`CITATION.cff` identifies the first formal Atlas release as `v2026.09.1` with release date `2026-09-25`. DOI metadata is added after the corresponding archival record is minted.

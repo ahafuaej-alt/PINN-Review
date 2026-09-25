@@ -207,7 +207,7 @@ Use the **[Atlas citation guide](https://ahafuaej-alt.github.io/PINN-Review/cite
 
 For reproducible academic use, record the page URL with the access date and, when a result depends on a specific Atlas state, the corresponding Atlas release or exact Git commit identifier.
 
-Atlas-level releases use the date-based convention **`vYYYY.MM.N`**, independently of component dataset versions. The planned first publication/reproducibility snapshot is **`v2026.09.1`**. The complete release, tagging, immutability, and reproducibility policy is documented in [`RELEASE.md`](RELEASE.md).
+Atlas-level releases use the date-based convention **`vYYYY.MM.N`**, independently of component dataset versions. The first formal publication/reproducibility snapshot is **`v2026.09.1`** (2026-09-25). The complete release, tagging, immutability, and reproducibility policy is documented in [`RELEASE.md`](RELEASE.md).
 
 A Zenodo DOI has **not yet been assigned**. After archival, the DOI metadata will be added to `CITATION.cff`, this README, the Cite page, and the corresponding GitHub Release.
 
