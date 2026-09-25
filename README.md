@@ -205,6 +205,18 @@ For other repository-level questions, use **[GitHub Issues](https://github.com/a
 
 Use the **[Atlas citation guide](https://ahafuaej-alt.github.io/PINN-Review/cite/)** and cite the narrowest relevant Atlas view. For reproducible academic use, record the page URL with the access date and, when a result depends on a specific Atlas state, the corresponding release or commit identifier.
 
+## Licensing
+
+PINN Review Atlas uses a scoped multi-license policy because the repository combines software, original curated research products, and third-party publication material.
+
+| Material | License / status |
+|---|---|
+| Original Atlas software and code | **MIT License** — see [LICENSE-MIT](LICENSE-MIT) |
+| Original Atlas curated annotations, taxonomies, relationships, documentation, and data products | **CC BY 4.0** — see [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0) |
+| Third-party publication text, abstracts, publisher material, protected external metadata/data, logos/marks, and other third-party content | **Not relicensed by the Atlas** — see [THIRD_PARTY_NOTICE.md](THIRD_PARTY_NOTICE.md) |
+
+Mixed files and datasets are handled element by element: Atlas-authored code remains under MIT, Atlas-authored research content remains under CC BY 4.0, and third-party elements retain their original legal status. The authoritative scope rules are in the repository [LICENSE](LICENSE).
+
 ## Privacy
 
 The Atlas has no reader accounts or first-party profile database. Browser storage is used only for optional conveniences such as theme preference, selected references, and recent bibliography searches. Aggregate reach statistics, when active, are handled through GoatCounter and remain separate from the scientific evidence base.
