@@ -20,9 +20,9 @@ The first formal publication/reproducibility release is:
 
 This identifier describes a complete Atlas repository snapshot. It does **not** replace or reset the version numbers of component datasets.
 
-## Current component versions in the release candidate
+## Component versions in v2026.09.1
 
-| Component | Current version / snapshot |
+| Component | Version / snapshot in v2026.09.1 |
 |---|---|
 | Master Bibliography | `2.3.1` |
 | PINN Realm | `2.3.1` |
@@ -64,4 +64,13 @@ A citation to an Atlas release should identify enough information to recover the
 
 **Atlas release identifier → immutable Git tag → exact commit SHA → component dataset versions/provenance**
 
-`CITATION.cff` identifies the first formal Atlas release as `v2026.09.1` with release date `2026-09-25`. DOI metadata is added after the corresponding archival record is minted.
+`CITATION.cff` identifies the first formal Atlas release as `v2026.09.1`, released on `2026-09-25`.
+
+Archived identifiers:
+
+- Version DOI: `10.5281/zenodo.22958038`
+- Concept DOI: `10.5281/zenodo.22958037`
+- Immutable Git tag: `v2026.09.1`
+- Release commit: `9ec20fa7bcd4362390b3edeaab36dae1238d3d7e`
+
+The immutable `v2026.09.1` Git tag remains the authoritative repository snapshot for this release. Post-release metadata updates on `main` do not alter that archived snapshot.
