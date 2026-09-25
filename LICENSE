@@ -6,7 +6,7 @@ PINN Review Atlas is a mixed research-software repository. No single license app
 
 ## 1. Atlas software and code — MIT License
 
-Original software and code authored for PINN Review Atlas are licensed under the MIT License. See [LICENSE-MIT](LICENSE-MIT).
+Original software and code authored for PINN Review Atlas are licensed under the MIT License. See [LICENSES/MIT.txt](LICENSES/MIT.txt).
 
 This includes, to the extent authored for the Atlas:
 
@@ -20,7 +20,7 @@ For mixed HTML or other mixed-content files, the MIT License applies to the soft
 
 ## 2. Atlas-authored research content, curated data, and documentation — CC BY 4.0
 
-Original non-software material authored or curated for PINN Review Atlas is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
+Original non-software material authored or curated for PINN Review Atlas is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt).
 
 This includes, to the extent original to the Atlas:
 
@@ -76,6 +76,6 @@ Copyright licenses in this repository do not grant trademark rights or imply end
 
 ## License references
 
-- Software/code: MIT — [LICENSE-MIT](LICENSE-MIT)
-- Atlas-authored data/documentation: CC BY 4.0 — [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0)
+- Software/code: MIT — [LICENSES/MIT.txt](LICENSES/MIT.txt)
+- Atlas-authored data/documentation: CC BY 4.0 — [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt)
 - Third-party material: [THIRD_PARTY_NOTICE.md](THIRD_PARTY_NOTICE.md)
