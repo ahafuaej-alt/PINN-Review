@@ -209,7 +209,9 @@ For reproducible academic use, record the page URL with the access date and, whe
 
 Atlas-level releases use the date-based convention **`vYYYY.MM.N`**, independently of component dataset versions. The first formal publication/reproducibility snapshot is **`v2026.09.1`** (2026-09-25). The complete release, tagging, immutability, and reproducibility policy is documented in [`RELEASE.md`](RELEASE.md).
 
-The exact **v2026.09.1** snapshot is archived on Zenodo with version-specific DOI **[10.5281/zenodo.22958038](https://doi.org/10.5281/zenodo.22958038)**. Use this DOI when reproducibility requires the exact release. The persistent Zenodo Concept DOI for the evolving Atlas will be added here once its value is confirmed.
+[![DOI](https://zenodo.org/badge/1307606230.svg)](https://doi.org/10.5281/zenodo.22958037)
+
+The exact **v2026.09.1** snapshot is archived on Zenodo with version-specific DOI **[10.5281/zenodo.22958038](https://doi.org/10.5281/zenodo.22958038)**. Use this DOI when reproducibility requires the exact release. The persistent Zenodo **Concept DOI** for the evolving PINN Review Atlas is **[10.5281/zenodo.22958037](https://doi.org/10.5281/zenodo.22958037)**; it resolves to the latest archived Atlas release.
 
 ## Licensing
 
