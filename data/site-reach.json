@@ -4,10 +4,10 @@
   "provider": "GoatCounter",
   "trackingEndpoint": "https://pinn-review-atlas.goatcounter.com/count",
   "trackingStartedAt": "2026-08-12",
-  "updatedAt": "2026-11-03T11:00:00.000Z",
+  "updatedAt": "2026-11-05T11:00:00.000Z",
   "visits": {
     "total": 398,
-    "last30Days": 21
+    "last30Days": 18
   },
   "countries": {
     "reached": 17,
