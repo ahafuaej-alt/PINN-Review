@@ -4,10 +4,10 @@
   "provider": "GoatCounter",
   "trackingEndpoint": "https://pinn-review-atlas.goatcounter.com/count",
   "trackingStartedAt": "2026-08-12",
-  "updatedAt": "2026-11-14T10:00:00.000Z",
+  "updatedAt": "2026-11-15T11:00:00.000Z",
   "visits": {
-    "total": 476,
-    "last30Days": 86
+    "total": 477,
+    "last30Days": 83
   },
   "countries": {
     "reached": 19,
@@ -20,7 +20,7 @@
       {
         "code": "KZ",
         "name": "Kazakhstan",
-        "visits": 58
+        "visits": 59
       },
       {
         "code": "SE",
